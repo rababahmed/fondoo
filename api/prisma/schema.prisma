@@ -1,0 +1,155 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Restaurant {
+  id                      String            @id @default(uuid())
+  createdAt               DateTime          @default(now())
+  name                    String
+  email                   String
+  businessPhone           String?
+  reservationPhone        String?
+  url                     String?
+  address                 String?
+  city                    String?
+  postCode                String?
+  country                 String?
+  currency                String?
+  priceRange              String?
+  diningStyle             String?
+  hasParking              Boolean?
+  hasPartyFacilities      Boolean?
+  hasKidsZone             Boolean?
+  isTakeaway              Boolean?
+  isDelivery              Boolean?
+  isReservation           Boolean?
+  isOrdering              Boolean?
+  isAutoAcceptOrder       Boolean?
+  isAutoAcceptReservation Boolean?
+  productCategories       ProductCategory[]
+  products                Product[]
+  schedule                Schedule[]
+  deliveryZones           DeliveryZones[]
+  customers               Customer[]
+  users                   User[]
+  updatedAt               DateTime          @updatedAt
+}
+
+model ProductCategory {
+  id           Int         @id @default(autoincrement())
+  createdAt    DateTime    @default(now())
+  name         String
+  description  String?
+  image        String?
+  isActive     Boolean?
+  isFeatured   Boolean?
+  products     Product[]
+  Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
+  restaurantId String?
+}
+
+model Product {
+  id                Int              @id @default(autoincrement())
+  createdAt         DateTime         @default(now())
+  name              String
+  description       String?
+  price             Int?
+  spiceLevel        SpiceLevel       @default(None)
+  isPopular         Boolean?
+  isActive          Boolean?
+  Restaurant        Restaurant?      @relation(fields: [restaurantId], references: [id])
+  restaurantId      String?
+  ProductCategory   ProductCategory? @relation(fields: [productCategoryId], references: [id])
+  productCategoryId Int?
+}
+
+enum SpiceLevel {
+  None
+  Mild
+  Medium
+  Hot
+  ExtraHot
+}
+
+model Schedule {
+  id                Int         @id @default(autoincrement())
+  createdAt         DateTime    @default(now())
+  openingTime       String?
+  closingTime       String?
+  minDeliveryAmount Int?
+  deliveryTime      String?
+  takeawayTime      String?
+  Restaurant        Restaurant? @relation(fields: [restaurantId], references: [id])
+  restaurantId      String?
+}
+
+model DeliveryZones {
+  id                Int         @id @default(autoincrement())
+  createdAt         DateTime    @default(now())
+  zoneTitle         String
+  zonePostCode      String?
+  deliveryFeeType   DeliveryFee @default(Fixed)
+  deliveryCharge    Int         @default(0)
+  minDeliveryAmount Int?
+  minDeliveryRadius Int?
+  maxDeliveryRadius Int?
+  Restaurant        Restaurant? @relation(fields: [restaurantId], references: [id])
+  restaurantId      String?
+}
+
+enum DeliveryFee {
+  Fixed
+  Percent
+}
+
+model Customer {
+  id           Int               @id @default(autoincrement())
+  createdAt    DateTime          @default(now())
+  firstName    String
+  lastName     String
+  email        String
+  phone        String
+  address      CustomerAddress[]
+  Restaurant   Restaurant?       @relation(fields: [restaurantId], references: [id])
+  restaurantId String?
+}
+
+model CustomerAddress {
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
+  streetAddress String
+  city          String
+  postCode      String
+  country       String
+  Customer      Customer? @relation(fields: [customerId], references: [id])
+  customerId    Int?
+}
+
+model User {
+  id           Int         @id @default(autoincrement())
+  createdAt    DateTime    @default(now())
+  fullName     String
+  email        String
+  password     String
+  phone        String?
+  role         Role[]
+  Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
+  restaurantId String?
+}
+
+enum Role {
+  Waiter
+  Cashier
+  Manager
+  Owner
+  Admin
+  SuperAdmin
+}

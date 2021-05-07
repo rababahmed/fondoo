@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  db:
+    container_name: postgres_db
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgData:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=dbpass
+      - POSTGRES_DB=tezzbites
+
+volumes:
+  pgData:
