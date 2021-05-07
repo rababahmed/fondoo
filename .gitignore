@@ -1,3 +1,6 @@
+# Docker Data
+pgData/
+
 # Logs
 logs
 *.log
