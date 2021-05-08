@@ -25,6 +25,8 @@ model Restaurant {
   currency                String?
   priceRange              String?
   diningStyle             String?
+  vat                     String?
+  serviceCharge           String?
   hasParking              Boolean?
   hasPartyFacilities      Boolean?
   hasKidsZone             Boolean?
@@ -34,41 +36,47 @@ model Restaurant {
   isOrdering              Boolean?
   isAutoAcceptOrder       Boolean?
   isAutoAcceptReservation Boolean?
-  productCategories       ProductCategory[]
   products                Product[]
   schedule                Schedule[]
-  deliveryZones           DeliveryZones[]
+  deliveryZones           DeliveryZone[]
   customers               Customer[]
-  users                   User[]
+  orders                  Order[]
+  productCategory         ProductCategory[]
   updatedAt               DateTime          @updatedAt
+  users                   User[]
 }
 
 model ProductCategory {
-  id           Int         @id @default(autoincrement())
-  createdAt    DateTime    @default(now())
+  id           String         @id @default(cuid())
+  createdAt    DateTime       @default(now())
   name         String
   description  String?
   image        String?
   isActive     Boolean?
   isFeatured   Boolean?
-  products     Product[]
-  Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
-  restaurantId String?
+  restaurants  Restaurant     @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+  Product      Product[]
+  OrderElement OrderElement[]
 }
 
 model Product {
-  id                Int              @id @default(autoincrement())
-  createdAt         DateTime         @default(now())
+  id                String          @id @default(cuid())
+  createdAt         DateTime        @default(now())
   name              String
   description       String?
+  image             String?
   price             Int?
-  spiceLevel        SpiceLevel       @default(None)
+  spiceLevel        SpiceLevel      @default(None)
+  category          ProductCategory @relation(fields: [productCategoryId], references: [id])
   isPopular         Boolean?
   isActive          Boolean?
-  Restaurant        Restaurant?      @relation(fields: [restaurantId], references: [id])
+  Restaurant        Restaurant?     @relation(fields: [restaurantId], references: [id])
   restaurantId      String?
-  ProductCategory   ProductCategory? @relation(fields: [productCategoryId], references: [id])
-  productCategoryId Int?
+  Order             Order?          @relation(fields: [orderId], references: [id])
+  orderId           Int?
+  CartElement       CartElement[]
+  productCategoryId String
 }
 
 enum SpiceLevel {
@@ -77,6 +85,50 @@ enum SpiceLevel {
   Medium
   Hot
   ExtraHot
+}
+
+model CartElement {
+  id         String   @id @default(cuid())
+  quantity   Int      @default(value: 1)
+  product    Product  @relation(fields: [productId], references: [id])
+  customer   Customer @relation(fields: [customerId], references: [id])
+  customerId Int
+  productId  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model OrderElement {
+  id                String          @id @default(cuid())
+  code              String          @unique
+  name              String
+  description       String
+  image             String?
+  price             Int
+  category          ProductCategory @relation(fields: [productCategoryId], references: [id])
+  addonText         String?
+  Order             Order?          @relation(fields: [orderId], references: [id])
+  orderId           Int?
+  productCategoryId String
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+model Order {
+  id                Int             @id @default(autoincrement())
+  elements          OrderElement[]
+  charges           Int?
+  total             Int?
+  isAccepted        Boolean?
+  customerAddress   CustomerAddress @relation(fields: [customerAddressId], references: [id])
+  restaurant        Restaurant?     @relation(fields: [restaurantId], references: [id])
+  restaurantId      String?
+  customer          Customer?       @relation(fields: [customerId], references: [id])
+  customerId        Int?
+  product           Product[]
+  customerAddressId Int
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
 }
 
 model Schedule {
@@ -91,7 +143,7 @@ model Schedule {
   restaurantId      String?
 }
 
-model DeliveryZones {
+model DeliveryZone {
   id                Int         @id @default(autoincrement())
   createdAt         DateTime    @default(now())
   zoneTitle         String
@@ -118,6 +170,8 @@ model Customer {
   email        String
   phone        String
   address      CustomerAddress[]
+  orders       Order[]
+  cart         CartElement[]
   Restaurant   Restaurant?       @relation(fields: [restaurantId], references: [id])
   restaurantId String?
 }
@@ -131,18 +185,18 @@ model CustomerAddress {
   country       String
   Customer      Customer? @relation(fields: [customerId], references: [id])
   customerId    Int?
+  Order         Order[]
 }
 
 model User {
-  id           Int         @id @default(autoincrement())
-  createdAt    DateTime    @default(now())
-  fullName     String
-  email        String
-  password     String
-  phone        String?
-  role         Role[]
-  Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
-  restaurantId String?
+  id          Int          @id @default(autoincrement())
+  createdAt   DateTime     @default(now())
+  fullName    String
+  email       String
+  password    String
+  phone       String?
+  role        Role[]
+  restaurants Restaurant[]
 }
 
 enum Role {
