@@ -1,0 +1,31 @@
+import { GraphQLResolveInfo } from "graphql";
+import { AggregateCartElementArgs } from "./args/AggregateCartElementArgs";
+import { CreateCartElementArgs } from "./args/CreateCartElementArgs";
+import { CreateManyCartElementArgs } from "./args/CreateManyCartElementArgs";
+import { DeleteCartElementArgs } from "./args/DeleteCartElementArgs";
+import { DeleteManyCartElementArgs } from "./args/DeleteManyCartElementArgs";
+import { FindFirstCartElementArgs } from "./args/FindFirstCartElementArgs";
+import { FindManyCartElementArgs } from "./args/FindManyCartElementArgs";
+import { FindUniqueCartElementArgs } from "./args/FindUniqueCartElementArgs";
+import { GroupByCartElementArgs } from "./args/GroupByCartElementArgs";
+import { UpdateCartElementArgs } from "./args/UpdateCartElementArgs";
+import { UpdateManyCartElementArgs } from "./args/UpdateManyCartElementArgs";
+import { UpsertCartElementArgs } from "./args/UpsertCartElementArgs";
+import { CartElement } from "../../../models/CartElement";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateCartElement } from "../../outputs/AggregateCartElement";
+import { CartElementGroupBy } from "../../outputs/CartElementGroupBy";
+export declare class CartElementCrudResolver {
+    cartElement(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCartElementArgs): Promise<CartElement | null>;
+    findFirstCartElement(ctx: any, info: GraphQLResolveInfo, args: FindFirstCartElementArgs): Promise<CartElement | null>;
+    cartElements(ctx: any, info: GraphQLResolveInfo, args: FindManyCartElementArgs): Promise<CartElement[]>;
+    createCartElement(ctx: any, info: GraphQLResolveInfo, args: CreateCartElementArgs): Promise<CartElement>;
+    createManyCartElement(ctx: any, info: GraphQLResolveInfo, args: CreateManyCartElementArgs): Promise<AffectedRowsOutput>;
+    deleteCartElement(ctx: any, info: GraphQLResolveInfo, args: DeleteCartElementArgs): Promise<CartElement | null>;
+    updateCartElement(ctx: any, info: GraphQLResolveInfo, args: UpdateCartElementArgs): Promise<CartElement | null>;
+    deleteManyCartElement(ctx: any, info: GraphQLResolveInfo, args: DeleteManyCartElementArgs): Promise<AffectedRowsOutput>;
+    updateManyCartElement(ctx: any, info: GraphQLResolveInfo, args: UpdateManyCartElementArgs): Promise<AffectedRowsOutput>;
+    upsertCartElement(ctx: any, info: GraphQLResolveInfo, args: UpsertCartElementArgs): Promise<CartElement>;
+    aggregateCartElement(ctx: any, info: GraphQLResolveInfo, args: AggregateCartElementArgs): Promise<AggregateCartElement>;
+    groupByCartElement(ctx: any, info: GraphQLResolveInfo, args: GroupByCartElementArgs): Promise<CartElementGroupBy[]>;
+}

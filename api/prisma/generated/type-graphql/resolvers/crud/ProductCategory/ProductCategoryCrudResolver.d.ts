@@ -1,0 +1,31 @@
+import { GraphQLResolveInfo } from "graphql";
+import { AggregateProductCategoryArgs } from "./args/AggregateProductCategoryArgs";
+import { CreateManyProductCategoryArgs } from "./args/CreateManyProductCategoryArgs";
+import { CreateProductCategoryArgs } from "./args/CreateProductCategoryArgs";
+import { DeleteManyProductCategoryArgs } from "./args/DeleteManyProductCategoryArgs";
+import { DeleteProductCategoryArgs } from "./args/DeleteProductCategoryArgs";
+import { FindFirstProductCategoryArgs } from "./args/FindFirstProductCategoryArgs";
+import { FindManyProductCategoryArgs } from "./args/FindManyProductCategoryArgs";
+import { FindUniqueProductCategoryArgs } from "./args/FindUniqueProductCategoryArgs";
+import { GroupByProductCategoryArgs } from "./args/GroupByProductCategoryArgs";
+import { UpdateManyProductCategoryArgs } from "./args/UpdateManyProductCategoryArgs";
+import { UpdateProductCategoryArgs } from "./args/UpdateProductCategoryArgs";
+import { UpsertProductCategoryArgs } from "./args/UpsertProductCategoryArgs";
+import { ProductCategory } from "../../../models/ProductCategory";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateProductCategory } from "../../outputs/AggregateProductCategory";
+import { ProductCategoryGroupBy } from "../../outputs/ProductCategoryGroupBy";
+export declare class ProductCategoryCrudResolver {
+    productCategory(ctx: any, info: GraphQLResolveInfo, args: FindUniqueProductCategoryArgs): Promise<ProductCategory | null>;
+    findFirstProductCategory(ctx: any, info: GraphQLResolveInfo, args: FindFirstProductCategoryArgs): Promise<ProductCategory | null>;
+    productCategories(ctx: any, info: GraphQLResolveInfo, args: FindManyProductCategoryArgs): Promise<ProductCategory[]>;
+    createProductCategory(ctx: any, info: GraphQLResolveInfo, args: CreateProductCategoryArgs): Promise<ProductCategory>;
+    createManyProductCategory(ctx: any, info: GraphQLResolveInfo, args: CreateManyProductCategoryArgs): Promise<AffectedRowsOutput>;
+    deleteProductCategory(ctx: any, info: GraphQLResolveInfo, args: DeleteProductCategoryArgs): Promise<ProductCategory | null>;
+    updateProductCategory(ctx: any, info: GraphQLResolveInfo, args: UpdateProductCategoryArgs): Promise<ProductCategory | null>;
+    deleteManyProductCategory(ctx: any, info: GraphQLResolveInfo, args: DeleteManyProductCategoryArgs): Promise<AffectedRowsOutput>;
+    updateManyProductCategory(ctx: any, info: GraphQLResolveInfo, args: UpdateManyProductCategoryArgs): Promise<AffectedRowsOutput>;
+    upsertProductCategory(ctx: any, info: GraphQLResolveInfo, args: UpsertProductCategoryArgs): Promise<ProductCategory>;
+    aggregateProductCategory(ctx: any, info: GraphQLResolveInfo, args: AggregateProductCategoryArgs): Promise<AggregateProductCategory>;
+    groupByProductCategory(ctx: any, info: GraphQLResolveInfo, args: GroupByProductCategoryArgs): Promise<ProductCategoryGroupBy[]>;
+}
