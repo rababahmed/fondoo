@@ -1,0 +1,13 @@
+export { CartElementRelationsResolver } from "./CartElement/CartElementRelationsResolver";
+export { CustomerRelationsResolver } from "./Customer/CustomerRelationsResolver";
+export { CustomerAddressRelationsResolver } from "./CustomerAddress/CustomerAddressRelationsResolver";
+export { CustomerTokenRelationsResolver } from "./CustomerToken/CustomerTokenRelationsResolver";
+export { DeliveryZoneRelationsResolver } from "./DeliveryZone/DeliveryZoneRelationsResolver";
+export { OrderRelationsResolver } from "./Order/OrderRelationsResolver";
+export { OrderElementRelationsResolver } from "./OrderElement/OrderElementRelationsResolver";
+export { ProductRelationsResolver } from "./Product/ProductRelationsResolver";
+export { ProductCategoryRelationsResolver } from "./ProductCategory/ProductCategoryRelationsResolver";
+export { RestaurantRelationsResolver } from "./Restaurant/RestaurantRelationsResolver";
+export { ScheduleRelationsResolver } from "./Schedule/ScheduleRelationsResolver";
+export { UserRelationsResolver } from "./User/UserRelationsResolver";
+export { UserTokenRelationsResolver } from "./UserToken/UserTokenRelationsResolver";

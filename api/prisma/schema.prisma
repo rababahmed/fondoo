@@ -10,6 +10,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "./generated/typegraphql-prisma"
+}
+
 model Restaurant {
   id                      String            @id @default(uuid())
   createdAt               DateTime          @default(now())
@@ -167,13 +172,16 @@ model Customer {
   createdAt    DateTime          @default(now())
   firstName    String
   lastName     String
-  email        String
+  email        String            @unique
+  password     String
   phone        String
+  token        CustomerToken[]
   address      CustomerAddress[]
   orders       Order[]
   cart         CartElement[]
   Restaurant   Restaurant?       @relation(fields: [restaurantId], references: [id])
   restaurantId String?
+  updatedAt    DateTime          @updatedAt
 }
 
 model CustomerAddress {
@@ -188,15 +196,34 @@ model CustomerAddress {
   Order         Order[]
 }
 
+model CustomerToken {
+  id         Int       @id @default(autoincrement())
+  token      String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  Customer   Customer? @relation(fields: [customerId], references: [id])
+  customerId Int?
+}
+
 model User {
   id          Int          @id @default(autoincrement())
   createdAt   DateTime     @default(now())
   fullName    String
-  email       String
+  email       String       @unique
   password    String
   phone       String?
+  token       UserToken[]
   role        Role[]
   restaurants Restaurant[]
+}
+
+model UserToken {
+  id        Int      @id @default(autoincrement())
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
 }
 
 enum Role {
@@ -206,5 +233,4 @@ enum Role {
   Owner
   Admin
   SuperAdmin
-  SiteOwner
 }

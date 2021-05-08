@@ -1,0 +1,13 @@
+export { CartElementCrudResolver } from "./CartElement/CartElementCrudResolver";
+export { CustomerCrudResolver } from "./Customer/CustomerCrudResolver";
+export { CustomerAddressCrudResolver } from "./CustomerAddress/CustomerAddressCrudResolver";
+export { CustomerTokenCrudResolver } from "./CustomerToken/CustomerTokenCrudResolver";
+export { DeliveryZoneCrudResolver } from "./DeliveryZone/DeliveryZoneCrudResolver";
+export { OrderCrudResolver } from "./Order/OrderCrudResolver";
+export { OrderElementCrudResolver } from "./OrderElement/OrderElementCrudResolver";
+export { ProductCrudResolver } from "./Product/ProductCrudResolver";
+export { ProductCategoryCrudResolver } from "./ProductCategory/ProductCategoryCrudResolver";
+export { RestaurantCrudResolver } from "./Restaurant/RestaurantCrudResolver";
+export { ScheduleCrudResolver } from "./Schedule/ScheduleCrudResolver";
+export { UserCrudResolver } from "./User/UserCrudResolver";
+export { UserTokenCrudResolver } from "./UserToken/UserTokenCrudResolver";

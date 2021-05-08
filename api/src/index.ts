@@ -1,32 +1,36 @@
+import "reflect-metadata";
 import { PrismaClient } from "@prisma/client";
+import express from "express";
+import { buildSchema } from "type-graphql";
+import { ApolloServer } from "apollo-server-express";
+import { resolvers } from "../prisma/generated/typegraphql-prisma/index";
+
+interface Context {
+  prisma: PrismaClient;
+}
 
 const prisma = new PrismaClient();
 
-async function main() {
-  await prisma.customer.create({
-    data: {
-      firstName: "Rabab",
-      lastName: "Ahmed",
-      email: "bob@prisma.io",
-      phone: "+8801635335125",
-      address: {
-        create: {
-          streetAddress: "House 956",
-          city: "Dhaka",
-          postCode: "1229",
-          country: "Bangladesh",
-        },
-      },
-    },
+const main = async () => {
+  const app = express();
+
+  await prisma.$connect();
+
+  const apolloServer = new ApolloServer({
+    schema: await buildSchema({
+      resolvers,
+      validate: false,
+    }),
+    playground: true,
+    context: (): Context => ({ prisma }),
   });
 
-  const allCustomers = await prisma.customer.findMany({
-    include: {
-      address: true,
-    },
+  apolloServer.applyMiddleware({ app });
+
+  app.listen(3000, () => {
+    console.log("server started on http://localhost:3000");
   });
-  console.dir(allCustomers, { depth: null });
-}
+};
 
 main()
   .catch((e) => {
