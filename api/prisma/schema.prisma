@@ -152,4 +152,5 @@ enum Role {
   Owner
   Admin
   SuperAdmin
+  SiteOwner
 }
