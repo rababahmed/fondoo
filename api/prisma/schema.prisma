@@ -12,7 +12,7 @@ generator client {
 
 generator typegraphql {
   provider = "typegraphql-prisma"
-  output   = "../prisma/generated/type-graphql"
+  output   = "../src/generated/typegraphql-prisma"
 }
 
 model Restaurant {
