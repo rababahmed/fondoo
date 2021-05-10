@@ -7,7 +7,7 @@ import { DeliveryZoneCreateNestedManyWithoutRestaurantInput } from "../inputs/De
 import { OrderCreateNestedManyWithoutRestaurantInput } from "../inputs/OrderCreateNestedManyWithoutRestaurantInput";
 import { ProductCategoryCreateNestedManyWithoutRestaurantsInput } from "../inputs/ProductCategoryCreateNestedManyWithoutRestaurantsInput";
 import { ProductCreateNestedManyWithoutRestaurantInput } from "../inputs/ProductCreateNestedManyWithoutRestaurantInput";
-import { UserCreateNestedManyWithoutRestaurantsInput } from "../inputs/UserCreateNestedManyWithoutRestaurantsInput";
+import { UserCreateNestedManyWithoutRestaurantInput } from "../inputs/UserCreateNestedManyWithoutRestaurantInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true
@@ -143,11 +143,6 @@ export class RestaurantCreateWithoutScheduleInput {
   })
   updatedAt?: Date | undefined;
 
-  @TypeGraphQL.Field(_type => ProductCreateNestedManyWithoutRestaurantInput, {
-    nullable: true
-  })
-  products?: ProductCreateNestedManyWithoutRestaurantInput | undefined;
-
   @TypeGraphQL.Field(_type => DeliveryZoneCreateNestedManyWithoutRestaurantInput, {
     nullable: true
   })
@@ -168,8 +163,13 @@ export class RestaurantCreateWithoutScheduleInput {
   })
   productCategory?: ProductCategoryCreateNestedManyWithoutRestaurantsInput | undefined;
 
-  @TypeGraphQL.Field(_type => UserCreateNestedManyWithoutRestaurantsInput, {
+  @TypeGraphQL.Field(_type => ProductCreateNestedManyWithoutRestaurantInput, {
     nullable: true
   })
-  users?: UserCreateNestedManyWithoutRestaurantsInput | undefined;
+  products?: ProductCreateNestedManyWithoutRestaurantInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserCreateNestedManyWithoutRestaurantInput, {
+    nullable: true
+  })
+  users?: UserCreateNestedManyWithoutRestaurantInput | undefined;
 }

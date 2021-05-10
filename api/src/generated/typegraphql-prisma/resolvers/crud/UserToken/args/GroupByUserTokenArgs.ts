@@ -20,7 +20,7 @@ export class GroupByUserTokenArgs {
   @TypeGraphQL.Field(_type => [UserTokenScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "token" | "createdAt" | "updatedAt" | "userId">;
+  by!: Array<"id" | "token" | "provider" | "createdAt" | "updatedAt" | "userId">;
 
   @TypeGraphQL.Field(_type => UserTokenScalarWhereWithAggregatesInput, {
     nullable: true

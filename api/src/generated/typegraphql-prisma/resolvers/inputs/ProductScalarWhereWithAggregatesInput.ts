@@ -76,15 +76,10 @@ export class ProductScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
     nullable: true
   })
+  productCategoryId?: StringNullableWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
+    nullable: true
+  })
   restaurantId?: StringNullableWithAggregatesFilter | undefined;
-
-  @TypeGraphQL.Field(_type => IntNullableWithAggregatesFilter, {
-    nullable: true
-  })
-  orderId?: IntNullableWithAggregatesFilter | undefined;
-
-  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
-    nullable: true
-  })
-  productCategoryId?: StringWithAggregatesFilter | undefined;
 }

@@ -26,6 +26,11 @@ export class UserMaxAggregate {
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
+  username!: string | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
   email!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
@@ -42,4 +47,9 @@ export class UserMaxAggregate {
     nullable: true
   })
   role!: "Manager" | "Owner" | "Admin" | "SuperAdmin" | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  restaurantId!: string | null;
 }

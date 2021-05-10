@@ -45,6 +45,11 @@ export class UserScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
+  username?: StringWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
+    nullable: true
+  })
   email?: StringWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
@@ -61,4 +66,9 @@ export class UserScalarWhereWithAggregatesInput {
     nullable: true
   })
   role?: EnumRoleWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
+    nullable: true
+  })
+  restaurantId?: StringNullableWithAggregatesFilter | undefined;
 }

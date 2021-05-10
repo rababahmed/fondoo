@@ -2,32 +2,52 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { CustomerAddressUpdateOneRequiredWithoutOrderInput } from "../inputs/CustomerAddressUpdateOneRequiredWithoutOrderInput";
+import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
+import { CustomerAddressUpdateOneWithoutOrderInput } from "../inputs/CustomerAddressUpdateOneWithoutOrderInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
-import { NullableBoolFieldUpdateOperationsInput } from "../inputs/NullableBoolFieldUpdateOperationsInput";
-import { NullableIntFieldUpdateOperationsInput } from "../inputs/NullableIntFieldUpdateOperationsInput";
-import { OrderElementUpdateManyWithoutOrderInput } from "../inputs/OrderElementUpdateManyWithoutOrderInput";
-import { ProductUpdateManyWithoutOrderInput } from "../inputs/ProductUpdateManyWithoutOrderInput";
-import { RestaurantUpdateOneWithoutOrdersInput } from "../inputs/RestaurantUpdateOneWithoutOrdersInput";
+import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
+import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { RestaurantUpdateOneRequiredWithoutOrdersInput } from "../inputs/RestaurantUpdateOneRequiredWithoutOrdersInput";
+import { UserUpdateOneRequiredWithoutOrdersInput } from "../inputs/UserUpdateOneRequiredWithoutOrdersInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true
 })
 export class OrderUpdateWithoutCustomerInput {
-  @TypeGraphQL.Field(_type => NullableIntFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
     nullable: true
   })
-  charges?: NullableIntFieldUpdateOperationsInput | undefined;
+  items?: Prisma.InputJsonValue | undefined;
 
-  @TypeGraphQL.Field(_type => NullableIntFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true
   })
-  total?: NullableIntFieldUpdateOperationsInput | undefined;
+  coupon?: NullableStringFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => NullableBoolFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput, {
     nullable: true
   })
-  isAccepted?: NullableBoolFieldUpdateOperationsInput | undefined;
+  deliveryCharges?: FloatFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  vat?: FloatFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  serviceCharge?: FloatFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  total?: FloatFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => BoolFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  isAccepted?: BoolFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
@@ -39,23 +59,18 @@ export class OrderUpdateWithoutCustomerInput {
   })
   updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => OrderElementUpdateManyWithoutOrderInput, {
+  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutOrdersInput, {
     nullable: true
   })
-  elements?: OrderElementUpdateManyWithoutOrderInput | undefined;
+  user?: UserUpdateOneRequiredWithoutOrdersInput | undefined;
 
-  @TypeGraphQL.Field(_type => CustomerAddressUpdateOneRequiredWithoutOrderInput, {
+  @TypeGraphQL.Field(_type => RestaurantUpdateOneRequiredWithoutOrdersInput, {
     nullable: true
   })
-  customerAddress?: CustomerAddressUpdateOneRequiredWithoutOrderInput | undefined;
+  restaurant?: RestaurantUpdateOneRequiredWithoutOrdersInput | undefined;
 
-  @TypeGraphQL.Field(_type => RestaurantUpdateOneWithoutOrdersInput, {
+  @TypeGraphQL.Field(_type => CustomerAddressUpdateOneWithoutOrderInput, {
     nullable: true
   })
-  restaurant?: RestaurantUpdateOneWithoutOrdersInput | undefined;
-
-  @TypeGraphQL.Field(_type => ProductUpdateManyWithoutOrderInput, {
-    nullable: true
-  })
-  product?: ProductUpdateManyWithoutOrderInput | undefined;
+  CustomerAddress?: CustomerAddressUpdateOneWithoutOrderInput | undefined;
 }

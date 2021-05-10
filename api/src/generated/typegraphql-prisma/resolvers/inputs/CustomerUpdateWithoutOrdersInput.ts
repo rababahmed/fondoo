@@ -2,7 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { CartElementUpdateManyWithoutCustomerInput } from "../inputs/CartElementUpdateManyWithoutCustomerInput";
 import { CustomerAddressUpdateManyWithoutCustomerInput } from "../inputs/CustomerAddressUpdateManyWithoutCustomerInput";
 import { CustomerTokenUpdateManyWithoutCustomerInput } from "../inputs/CustomerTokenUpdateManyWithoutCustomerInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
@@ -57,11 +56,6 @@ export class CustomerUpdateWithoutOrdersInput {
     nullable: true
   })
   address?: CustomerAddressUpdateManyWithoutCustomerInput | undefined;
-
-  @TypeGraphQL.Field(_type => CartElementUpdateManyWithoutCustomerInput, {
-    nullable: true
-  })
-  cart?: CartElementUpdateManyWithoutCustomerInput | undefined;
 
   @TypeGraphQL.Field(_type => RestaurantUpdateOneWithoutCustomersInput, {
     nullable: true

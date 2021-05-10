@@ -11,9 +11,4 @@ export class ProductSumAggregate {
     nullable: true
   })
   price!: number | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  orderId!: number | null;
 }

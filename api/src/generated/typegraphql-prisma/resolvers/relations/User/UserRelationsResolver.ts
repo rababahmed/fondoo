@@ -1,8 +1,9 @@
 import * as TypeGraphQL from "type-graphql";
+import { Order } from "../../../models/Order";
 import { Restaurant } from "../../../models/Restaurant";
 import { User } from "../../../models/User";
 import { UserToken } from "../../../models/UserToken";
-import { UserRestaurantsArgs } from "./args/UserRestaurantsArgs";
+import { UserOrdersArgs } from "./args/UserOrdersArgs";
 import { UserTokenArgs } from "./args/UserTokenArgs";
 import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
 
@@ -19,14 +20,25 @@ export class UserRelationsResolver {
     }).token(args);
   }
 
-  @TypeGraphQL.FieldResolver(_type => [Restaurant], {
-    nullable: false
+  @TypeGraphQL.FieldResolver(_type => Restaurant, {
+    nullable: true
   })
-  async restaurants(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserRestaurantsArgs): Promise<Restaurant[]> {
+  async Restaurant(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any): Promise<Restaurant | null> {
     return getPrismaFromContext(ctx).user.findUnique({
       where: {
         id: user.id,
       },
-    }).restaurants(args);
+    }).Restaurant({});
+  }
+
+  @TypeGraphQL.FieldResolver(_type => [Order], {
+    nullable: false
+  })
+  async orders(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserOrdersArgs): Promise<Order[]> {
+    return getPrismaFromContext(ctx).user.findUnique({
+      where: {
+        id: user.id,
+      },
+    }).orders(args);
   }
 }

@@ -10,9 +10,8 @@ export enum ProductScalarFieldEnum {
   spiceLevel = "spiceLevel",
   isPopular = "isPopular",
   isActive = "isActive",
-  restaurantId = "restaurantId",
-  orderId = "orderId",
-  productCategoryId = "productCategoryId"
+  productCategoryId = "productCategoryId",
+  restaurantId = "restaurantId"
 }
 TypeGraphQL.registerEnumType(ProductScalarFieldEnum, {
   name: "ProductScalarFieldEnum",

@@ -76,15 +76,10 @@ export class ProductScalarWhereInput {
   @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
+  productCategoryId?: StringNullableFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
   restaurantId?: StringNullableFilter | undefined;
-
-  @TypeGraphQL.Field(_type => IntNullableFilter, {
-    nullable: true
-  })
-  orderId?: IntNullableFilter | undefined;
-
-  @TypeGraphQL.Field(_type => StringFilter, {
-    nullable: true
-  })
-  productCategoryId?: StringFilter | undefined;
 }

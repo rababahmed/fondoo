@@ -2,8 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { CartElementCreateNestedManyWithoutProductInput } from "../inputs/CartElementCreateNestedManyWithoutProductInput";
-import { OrderCreateNestedOneWithoutProductInput } from "../inputs/OrderCreateNestedOneWithoutProductInput";
 import { ProductCategoryCreateNestedOneWithoutProductInput } from "../inputs/ProductCategoryCreateNestedOneWithoutProductInput";
 import { RestaurantCreateNestedOneWithoutProductsInput } from "../inputs/RestaurantCreateNestedOneWithoutProductsInput";
 import { SpiceLevel } from "../../enums/SpiceLevel";
@@ -58,22 +56,12 @@ export class ProductCreateInput {
   isActive?: boolean | undefined;
 
   @TypeGraphQL.Field(_type => ProductCategoryCreateNestedOneWithoutProductInput, {
-    nullable: false
+    nullable: true
   })
-  category!: ProductCategoryCreateNestedOneWithoutProductInput;
+  ProductCategory?: ProductCategoryCreateNestedOneWithoutProductInput | undefined;
 
   @TypeGraphQL.Field(_type => RestaurantCreateNestedOneWithoutProductsInput, {
     nullable: true
   })
   Restaurant?: RestaurantCreateNestedOneWithoutProductsInput | undefined;
-
-  @TypeGraphQL.Field(_type => OrderCreateNestedOneWithoutProductInput, {
-    nullable: true
-  })
-  Order?: OrderCreateNestedOneWithoutProductInput | undefined;
-
-  @TypeGraphQL.Field(_type => CartElementCreateNestedManyWithoutProductInput, {
-    nullable: true
-  })
-  CartElement?: CartElementCreateNestedManyWithoutProductInput | undefined;
 }

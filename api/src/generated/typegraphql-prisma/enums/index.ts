@@ -1,10 +1,8 @@
-export { CartElementScalarFieldEnum } from "./CartElementScalarFieldEnum";
 export { CustomerAddressScalarFieldEnum } from "./CustomerAddressScalarFieldEnum";
 export { CustomerScalarFieldEnum } from "./CustomerScalarFieldEnum";
 export { CustomerTokenScalarFieldEnum } from "./CustomerTokenScalarFieldEnum";
 export { DeliveryFee } from "./DeliveryFee";
 export { DeliveryZoneScalarFieldEnum } from "./DeliveryZoneScalarFieldEnum";
-export { OrderElementScalarFieldEnum } from "./OrderElementScalarFieldEnum";
 export { OrderScalarFieldEnum } from "./OrderScalarFieldEnum";
 export { ProductCategoryScalarFieldEnum } from "./ProductCategoryScalarFieldEnum";
 export { ProductScalarFieldEnum } from "./ProductScalarFieldEnum";

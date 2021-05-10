@@ -2,7 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { OrderElementCreateNestedManyWithoutCategoryInput } from "../inputs/OrderElementCreateNestedManyWithoutCategoryInput";
 import { RestaurantCreateNestedOneWithoutProductCategoryInput } from "../inputs/RestaurantCreateNestedOneWithoutProductCategoryInput";
 
 @TypeGraphQL.InputType({
@@ -48,9 +47,4 @@ export class ProductCategoryCreateWithoutProductInput {
     nullable: false
   })
   restaurants!: RestaurantCreateNestedOneWithoutProductCategoryInput;
-
-  @TypeGraphQL.Field(_type => OrderElementCreateNestedManyWithoutCategoryInput, {
-    nullable: true
-  })
-  OrderElement?: OrderElementCreateNestedManyWithoutCategoryInput | undefined;
 }

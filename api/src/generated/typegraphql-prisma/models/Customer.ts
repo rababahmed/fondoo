@@ -2,7 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
-import { CartElement } from "../models/CartElement";
 import { CustomerAddress } from "../models/CustomerAddress";
 import { CustomerToken } from "../models/CustomerToken";
 import { Order } from "../models/Order";
@@ -52,8 +51,6 @@ export class Customer {
   address?: CustomerAddress[];
 
   orders?: Order[];
-
-  cart?: CartElement[];
 
   Restaurant?: Restaurant | null;
 

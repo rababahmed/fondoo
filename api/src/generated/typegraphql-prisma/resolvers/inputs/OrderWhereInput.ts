@@ -2,16 +2,18 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { BoolNullableFilter } from "../inputs/BoolNullableFilter";
+import { BoolFilter } from "../inputs/BoolFilter";
 import { CustomerAddressRelationFilter } from "../inputs/CustomerAddressRelationFilter";
 import { CustomerRelationFilter } from "../inputs/CustomerRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { FloatFilter } from "../inputs/FloatFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { IntNullableFilter } from "../inputs/IntNullableFilter";
-import { OrderElementListRelationFilter } from "../inputs/OrderElementListRelationFilter";
-import { ProductListRelationFilter } from "../inputs/ProductListRelationFilter";
+import { JsonFilter } from "../inputs/JsonFilter";
 import { RestaurantRelationFilter } from "../inputs/RestaurantRelationFilter";
+import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
+import { UserRelationFilter } from "../inputs/UserRelationFilter";
 
 @TypeGraphQL.InputType({
   isAbstract: true
@@ -37,60 +39,50 @@ export class OrderWhereInput {
   })
   id?: IntFilter | undefined;
 
-  @TypeGraphQL.Field(_type => OrderElementListRelationFilter, {
+  @TypeGraphQL.Field(_type => JsonFilter, {
     nullable: true
   })
-  elements?: OrderElementListRelationFilter | undefined;
+  items?: JsonFilter | undefined;
 
-  @TypeGraphQL.Field(_type => IntNullableFilter, {
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
-  charges?: IntNullableFilter | undefined;
+  coupon?: StringNullableFilter | undefined;
 
-  @TypeGraphQL.Field(_type => IntNullableFilter, {
+  @TypeGraphQL.Field(_type => FloatFilter, {
     nullable: true
   })
-  total?: IntNullableFilter | undefined;
+  deliveryCharges?: FloatFilter | undefined;
 
-  @TypeGraphQL.Field(_type => BoolNullableFilter, {
+  @TypeGraphQL.Field(_type => FloatFilter, {
     nullable: true
   })
-  isAccepted?: BoolNullableFilter | undefined;
+  vat?: FloatFilter | undefined;
 
-  @TypeGraphQL.Field(_type => CustomerAddressRelationFilter, {
+  @TypeGraphQL.Field(_type => FloatFilter, {
     nullable: true
   })
-  customerAddress?: CustomerAddressRelationFilter | undefined;
+  serviceCharge?: FloatFilter | undefined;
+
+  @TypeGraphQL.Field(_type => FloatFilter, {
+    nullable: true
+  })
+  total?: FloatFilter | undefined;
+
+  @TypeGraphQL.Field(_type => BoolFilter, {
+    nullable: true
+  })
+  isAccepted?: BoolFilter | undefined;
+
+  @TypeGraphQL.Field(_type => UserRelationFilter, {
+    nullable: true
+  })
+  user?: UserRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => RestaurantRelationFilter, {
     nullable: true
   })
   restaurant?: RestaurantRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => StringNullableFilter, {
-    nullable: true
-  })
-  restaurantId?: StringNullableFilter | undefined;
-
-  @TypeGraphQL.Field(_type => CustomerRelationFilter, {
-    nullable: true
-  })
-  customer?: CustomerRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => IntNullableFilter, {
-    nullable: true
-  })
-  customerId?: IntNullableFilter | undefined;
-
-  @TypeGraphQL.Field(_type => ProductListRelationFilter, {
-    nullable: true
-  })
-  product?: ProductListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => IntFilter, {
-    nullable: true
-  })
-  customerAddressId?: IntFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
@@ -101,4 +93,34 @@ export class OrderWhereInput {
     nullable: true
   })
   updatedAt?: DateTimeFilter | undefined;
+
+  @TypeGraphQL.Field(_type => IntFilter, {
+    nullable: true
+  })
+  userId?: IntFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringFilter, {
+    nullable: true
+  })
+  restaurantId?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => CustomerRelationFilter, {
+    nullable: true
+  })
+  Customer?: CustomerRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => IntNullableFilter, {
+    nullable: true
+  })
+  customerId?: IntNullableFilter | undefined;
+
+  @TypeGraphQL.Field(_type => CustomerAddressRelationFilter, {
+    nullable: true
+  })
+  CustomerAddress?: CustomerAddressRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => IntNullableFilter, {
+    nullable: true
+  })
+  customerAddressId?: IntNullableFilter | undefined;
 }

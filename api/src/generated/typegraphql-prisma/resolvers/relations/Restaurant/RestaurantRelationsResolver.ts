@@ -18,17 +18,6 @@ import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRel
 
 @TypeGraphQL.Resolver(_of => Restaurant)
 export class RestaurantRelationsResolver {
-  @TypeGraphQL.FieldResolver(_type => [Product], {
-    nullable: false
-  })
-  async products(@TypeGraphQL.Root() restaurant: Restaurant, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: RestaurantProductsArgs): Promise<Product[]> {
-    return getPrismaFromContext(ctx).restaurant.findUnique({
-      where: {
-        id: restaurant.id,
-      },
-    }).products(args);
-  }
-
   @TypeGraphQL.FieldResolver(_type => [Schedule], {
     nullable: false
   })
@@ -82,6 +71,17 @@ export class RestaurantRelationsResolver {
         id: restaurant.id,
       },
     }).productCategory(args);
+  }
+
+  @TypeGraphQL.FieldResolver(_type => [Product], {
+    nullable: false
+  })
+  async products(@TypeGraphQL.Root() restaurant: Restaurant, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: RestaurantProductsArgs): Promise<Product[]> {
+    return getPrismaFromContext(ctx).restaurant.findUnique({
+      where: {
+        id: restaurant.id,
+      },
+    }).products(args);
   }
 
   @TypeGraphQL.FieldResolver(_type => [User], {

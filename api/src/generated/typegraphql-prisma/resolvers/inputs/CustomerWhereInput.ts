@@ -2,7 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { CartElementListRelationFilter } from "../inputs/CartElementListRelationFilter";
 import { CustomerAddressListRelationFilter } from "../inputs/CustomerAddressListRelationFilter";
 import { CustomerTokenListRelationFilter } from "../inputs/CustomerTokenListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
@@ -80,11 +79,6 @@ export class CustomerWhereInput {
     nullable: true
   })
   orders?: OrderListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => CartElementListRelationFilter, {
-    nullable: true
-  })
-  cart?: CartElementListRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => RestaurantRelationFilter, {
     nullable: true

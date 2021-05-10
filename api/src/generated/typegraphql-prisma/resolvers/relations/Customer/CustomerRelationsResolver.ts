@@ -1,12 +1,10 @@
 import * as TypeGraphQL from "type-graphql";
-import { CartElement } from "../../../models/CartElement";
 import { Customer } from "../../../models/Customer";
 import { CustomerAddress } from "../../../models/CustomerAddress";
 import { CustomerToken } from "../../../models/CustomerToken";
 import { Order } from "../../../models/Order";
 import { Restaurant } from "../../../models/Restaurant";
 import { CustomerAddressArgs } from "./args/CustomerAddressArgs";
-import { CustomerCartArgs } from "./args/CustomerCartArgs";
 import { CustomerOrdersArgs } from "./args/CustomerOrdersArgs";
 import { CustomerTokenArgs } from "./args/CustomerTokenArgs";
 import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
@@ -44,17 +42,6 @@ export class CustomerRelationsResolver {
         id: customer.id,
       },
     }).orders(args);
-  }
-
-  @TypeGraphQL.FieldResolver(_type => [CartElement], {
-    nullable: false
-  })
-  async cart(@TypeGraphQL.Root() customer: Customer, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: CustomerCartArgs): Promise<CartElement[]> {
-    return getPrismaFromContext(ctx).customer.findUnique({
-      where: {
-        id: customer.id,
-      },
-    }).cart(args);
   }
 
   @TypeGraphQL.FieldResolver(_type => Restaurant, {

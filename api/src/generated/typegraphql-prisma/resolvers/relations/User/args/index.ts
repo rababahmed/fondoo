@@ -1,2 +1,2 @@
-export { UserRestaurantsArgs } from "./UserRestaurantsArgs";
+export { UserOrdersArgs } from "./UserOrdersArgs";
 export { UserTokenArgs } from "./UserTokenArgs";

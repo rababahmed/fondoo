@@ -139,8 +139,6 @@ export class Restaurant {
   })
   isAutoAcceptReservation?: boolean | null;
 
-  products?: Product[];
-
   schedule?: Schedule[];
 
   deliveryZones?: DeliveryZone[];
@@ -150,6 +148,8 @@ export class Restaurant {
   orders?: Order[];
 
   productCategory?: ProductCategory[];
+
+  products?: Product[];
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false

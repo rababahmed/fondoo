@@ -17,35 +17,40 @@ export class OrderGroupBy {
   })
   id!: number;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
+  @TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
+    nullable: false
   })
-  charges!: number | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  total!: number | null;
-
-  @TypeGraphQL.Field(_type => Boolean, {
-    nullable: true
-  })
-  isAccepted!: boolean | null;
+  items!: Prisma.JsonValue;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  restaurantId!: string | null;
+  coupon!: string | null;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  customerId!: number | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: false
   })
-  customerAddressId!: number;
+  deliveryCharges!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  vat!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  serviceCharge!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  total!: number;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: false
+  })
+  isAccepted!: boolean;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
@@ -56,6 +61,26 @@ export class OrderGroupBy {
     nullable: false
   })
   updatedAt!: Date;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  userId!: number;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  restaurantId!: string;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  customerId!: number | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  customerAddressId!: number | null;
 
   @TypeGraphQL.Field(_type => OrderCountAggregate, {
     nullable: true

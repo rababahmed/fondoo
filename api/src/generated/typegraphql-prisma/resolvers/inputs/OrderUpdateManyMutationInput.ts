@@ -2,28 +2,49 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
-import { NullableBoolFieldUpdateOperationsInput } from "../inputs/NullableBoolFieldUpdateOperationsInput";
-import { NullableIntFieldUpdateOperationsInput } from "../inputs/NullableIntFieldUpdateOperationsInput";
+import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
+import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true
 })
 export class OrderUpdateManyMutationInput {
-  @TypeGraphQL.Field(_type => NullableIntFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
     nullable: true
   })
-  charges?: NullableIntFieldUpdateOperationsInput | undefined;
+  items?: Prisma.InputJsonValue | undefined;
 
-  @TypeGraphQL.Field(_type => NullableIntFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true
   })
-  total?: NullableIntFieldUpdateOperationsInput | undefined;
+  coupon?: NullableStringFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => NullableBoolFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput, {
     nullable: true
   })
-  isAccepted?: NullableBoolFieldUpdateOperationsInput | undefined;
+  deliveryCharges?: FloatFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  vat?: FloatFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  serviceCharge?: FloatFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  total?: FloatFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => BoolFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  isAccepted?: BoolFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true

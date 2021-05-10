@@ -5,7 +5,8 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { EnumRoleFieldUpdateOperationsInput } from "../inputs/EnumRoleFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
-import { RestaurantUpdateManyWithoutUsersInput } from "../inputs/RestaurantUpdateManyWithoutUsersInput";
+import { OrderUpdateManyWithoutUserInput } from "../inputs/OrderUpdateManyWithoutUserInput";
+import { RestaurantUpdateOneWithoutUsersInput } from "../inputs/RestaurantUpdateOneWithoutUsersInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType({
@@ -21,6 +22,11 @@ export class UserUpdateWithoutTokenInput {
     nullable: true
   })
   fullName?: StringFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  username?: StringFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
@@ -42,8 +48,13 @@ export class UserUpdateWithoutTokenInput {
   })
   role?: EnumRoleFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => RestaurantUpdateManyWithoutUsersInput, {
+  @TypeGraphQL.Field(_type => RestaurantUpdateOneWithoutUsersInput, {
     nullable: true
   })
-  restaurants?: RestaurantUpdateManyWithoutUsersInput | undefined;
+  Restaurant?: RestaurantUpdateOneWithoutUsersInput | undefined;
+
+  @TypeGraphQL.Field(_type => OrderUpdateManyWithoutUserInput, {
+    nullable: true
+  })
+  orders?: OrderUpdateManyWithoutUserInput | undefined;
 }

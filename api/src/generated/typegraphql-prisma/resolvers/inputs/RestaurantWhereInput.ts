@@ -158,11 +158,6 @@ export class RestaurantWhereInput {
   })
   isAutoAcceptReservation?: BoolNullableFilter | undefined;
 
-  @TypeGraphQL.Field(_type => ProductListRelationFilter, {
-    nullable: true
-  })
-  products?: ProductListRelationFilter | undefined;
-
   @TypeGraphQL.Field(_type => ScheduleListRelationFilter, {
     nullable: true
   })
@@ -187,6 +182,11 @@ export class RestaurantWhereInput {
     nullable: true
   })
   productCategory?: ProductCategoryListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => ProductListRelationFilter, {
+    nullable: true
+  })
+  products?: ProductListRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true

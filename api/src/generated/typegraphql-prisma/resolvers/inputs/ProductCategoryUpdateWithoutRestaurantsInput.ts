@@ -5,8 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { NullableBoolFieldUpdateOperationsInput } from "../inputs/NullableBoolFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
-import { OrderElementUpdateManyWithoutCategoryInput } from "../inputs/OrderElementUpdateManyWithoutCategoryInput";
-import { ProductUpdateManyWithoutCategoryInput } from "../inputs/ProductUpdateManyWithoutCategoryInput";
+import { ProductUpdateManyWithoutProductCategoryInput } from "../inputs/ProductUpdateManyWithoutProductCategoryInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType({
@@ -48,13 +47,8 @@ export class ProductCategoryUpdateWithoutRestaurantsInput {
   })
   isFeatured?: NullableBoolFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => ProductUpdateManyWithoutCategoryInput, {
+  @TypeGraphQL.Field(_type => ProductUpdateManyWithoutProductCategoryInput, {
     nullable: true
   })
-  Product?: ProductUpdateManyWithoutCategoryInput | undefined;
-
-  @TypeGraphQL.Field(_type => OrderElementUpdateManyWithoutCategoryInput, {
-    nullable: true
-  })
-  OrderElement?: OrderElementUpdateManyWithoutCategoryInput | undefined;
+  Product?: ProductUpdateManyWithoutProductCategoryInput | undefined;
 }

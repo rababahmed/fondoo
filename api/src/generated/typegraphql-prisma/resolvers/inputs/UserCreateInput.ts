@@ -2,7 +2,8 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { RestaurantCreateNestedManyWithoutUsersInput } from "../inputs/RestaurantCreateNestedManyWithoutUsersInput";
+import { OrderCreateNestedManyWithoutUserInput } from "../inputs/OrderCreateNestedManyWithoutUserInput";
+import { RestaurantCreateNestedOneWithoutUsersInput } from "../inputs/RestaurantCreateNestedOneWithoutUsersInput";
 import { UserTokenCreateNestedManyWithoutUserInput } from "../inputs/UserTokenCreateNestedManyWithoutUserInput";
 import { Role } from "../../enums/Role";
 
@@ -19,6 +20,11 @@ export class UserCreateInput {
     nullable: false
   })
   fullName!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  username!: string;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
@@ -45,8 +51,13 @@ export class UserCreateInput {
   })
   token?: UserTokenCreateNestedManyWithoutUserInput | undefined;
 
-  @TypeGraphQL.Field(_type => RestaurantCreateNestedManyWithoutUsersInput, {
+  @TypeGraphQL.Field(_type => RestaurantCreateNestedOneWithoutUsersInput, {
     nullable: true
   })
-  restaurants?: RestaurantCreateNestedManyWithoutUsersInput | undefined;
+  Restaurant?: RestaurantCreateNestedOneWithoutUsersInput | undefined;
+
+  @TypeGraphQL.Field(_type => OrderCreateNestedManyWithoutUserInput, {
+    nullable: true
+  })
+  orders?: OrderCreateNestedManyWithoutUserInput | undefined;
 }

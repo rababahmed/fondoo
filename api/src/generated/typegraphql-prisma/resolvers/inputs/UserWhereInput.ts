@@ -5,7 +5,8 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EnumRoleFilter } from "../inputs/EnumRoleFilter";
 import { IntFilter } from "../inputs/IntFilter";
-import { RestaurantListRelationFilter } from "../inputs/RestaurantListRelationFilter";
+import { OrderListRelationFilter } from "../inputs/OrderListRelationFilter";
+import { RestaurantRelationFilter } from "../inputs/RestaurantRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 import { UserTokenListRelationFilter } from "../inputs/UserTokenListRelationFilter";
@@ -47,6 +48,11 @@ export class UserWhereInput {
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
+  username?: StringFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringFilter, {
+    nullable: true
+  })
   email?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
@@ -69,8 +75,18 @@ export class UserWhereInput {
   })
   role?: EnumRoleFilter | undefined;
 
-  @TypeGraphQL.Field(_type => RestaurantListRelationFilter, {
+  @TypeGraphQL.Field(_type => RestaurantRelationFilter, {
     nullable: true
   })
-  restaurants?: RestaurantListRelationFilter | undefined;
+  Restaurant?: RestaurantRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  restaurantId?: StringNullableFilter | undefined;
+
+  @TypeGraphQL.Field(_type => OrderListRelationFilter, {
+    nullable: true
+  })
+  orders?: OrderListRelationFilter | undefined;
 }

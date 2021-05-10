@@ -11,9 +11,4 @@ export class ProductAvgAggregate {
     nullable: true
   })
   price!: number | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
-    nullable: true
-  })
-  orderId!: number | null;
 }

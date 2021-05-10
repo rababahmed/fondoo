@@ -12,30 +12,40 @@ export class OrderCreateManyRestaurantInput {
   })
   id?: number | undefined;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  charges?: number | undefined;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  total?: number | undefined;
-
-  @TypeGraphQL.Field(_type => Boolean, {
-    nullable: true
-  })
-  isAccepted?: boolean | undefined;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  customerId?: number | undefined;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
     nullable: false
   })
-  customerAddressId!: number;
+  items!: Prisma.InputJsonValue;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  coupon?: string | undefined;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  deliveryCharges!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  vat!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  serviceCharge!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  total!: number;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: false
+  })
+  isAccepted!: boolean;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
@@ -46,4 +56,19 @@ export class OrderCreateManyRestaurantInput {
     nullable: true
   })
   updatedAt?: Date | undefined;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  userId!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  customerId?: number | undefined;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  customerAddressId?: number | undefined;
 }

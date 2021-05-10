@@ -35,5 +35,5 @@ export class FindFirstOrderArgs {
   @TypeGraphQL.Field(_type => [OrderScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "charges" | "total" | "isAccepted" | "restaurantId" | "customerId" | "customerAddressId" | "createdAt" | "updatedAt"> | undefined;
+  distinct?: Array<"id" | "items" | "coupon" | "deliveryCharges" | "vat" | "serviceCharge" | "total" | "isAccepted" | "createdAt" | "updatedAt" | "userId" | "restaurantId" | "customerId" | "customerAddressId"> | undefined;
 }

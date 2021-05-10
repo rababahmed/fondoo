@@ -56,15 +56,10 @@ export class ProductCreateManyInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  restaurantId?: string | undefined;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  orderId?: number | undefined;
+  productCategoryId?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  productCategoryId!: string;
+  restaurantId?: string | undefined;
 }

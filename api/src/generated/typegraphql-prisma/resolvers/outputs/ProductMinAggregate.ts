@@ -56,15 +56,10 @@ export class ProductMinAggregate {
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  restaurantId!: string | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  orderId!: number | null;
+  productCategoryId!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  productCategoryId!: string | null;
+  restaurantId!: string | null;
 }

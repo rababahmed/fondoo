@@ -3,11 +3,9 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { BoolNullableFilter } from "../inputs/BoolNullableFilter";
-import { CartElementListRelationFilter } from "../inputs/CartElementListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EnumSpiceLevelFilter } from "../inputs/EnumSpiceLevelFilter";
 import { IntNullableFilter } from "../inputs/IntNullableFilter";
-import { OrderRelationFilter } from "../inputs/OrderRelationFilter";
 import { ProductCategoryRelationFilter } from "../inputs/ProductCategoryRelationFilter";
 import { RestaurantRelationFilter } from "../inputs/RestaurantRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
@@ -67,11 +65,6 @@ export class ProductWhereInput {
   })
   spiceLevel?: EnumSpiceLevelFilter | undefined;
 
-  @TypeGraphQL.Field(_type => ProductCategoryRelationFilter, {
-    nullable: true
-  })
-  category?: ProductCategoryRelationFilter | undefined;
-
   @TypeGraphQL.Field(_type => BoolNullableFilter, {
     nullable: true
   })
@@ -82,6 +75,16 @@ export class ProductWhereInput {
   })
   isActive?: BoolNullableFilter | undefined;
 
+  @TypeGraphQL.Field(_type => ProductCategoryRelationFilter, {
+    nullable: true
+  })
+  ProductCategory?: ProductCategoryRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringNullableFilter, {
+    nullable: true
+  })
+  productCategoryId?: StringNullableFilter | undefined;
+
   @TypeGraphQL.Field(_type => RestaurantRelationFilter, {
     nullable: true
   })
@@ -91,24 +94,4 @@ export class ProductWhereInput {
     nullable: true
   })
   restaurantId?: StringNullableFilter | undefined;
-
-  @TypeGraphQL.Field(_type => OrderRelationFilter, {
-    nullable: true
-  })
-  Order?: OrderRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => IntNullableFilter, {
-    nullable: true
-  })
-  orderId?: IntNullableFilter | undefined;
-
-  @TypeGraphQL.Field(_type => CartElementListRelationFilter, {
-    nullable: true
-  })
-  CartElement?: CartElementListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => StringFilter, {
-    nullable: true
-  })
-  productCategoryId?: StringFilter | undefined;
 }

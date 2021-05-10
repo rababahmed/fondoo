@@ -25,6 +25,11 @@ export class UserCountAggregate {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false
   })
+  username!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
   email!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
@@ -41,6 +46,11 @@ export class UserCountAggregate {
     nullable: false
   })
   role!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  restaurantId!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: false

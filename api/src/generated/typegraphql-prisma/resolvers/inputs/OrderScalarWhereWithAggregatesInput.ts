@@ -2,11 +2,14 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { BoolNullableWithAggregatesFilter } from "../inputs/BoolNullableWithAggregatesFilter";
+import { BoolWithAggregatesFilter } from "../inputs/BoolWithAggregatesFilter";
 import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
+import { FloatWithAggregatesFilter } from "../inputs/FloatWithAggregatesFilter";
 import { IntNullableWithAggregatesFilter } from "../inputs/IntNullableWithAggregatesFilter";
 import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
+import { JsonWithAggregatesFilter } from "../inputs/JsonWithAggregatesFilter";
 import { StringNullableWithAggregatesFilter } from "../inputs/StringNullableWithAggregatesFilter";
+import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
 
 @TypeGraphQL.InputType({
   isAbstract: true
@@ -32,35 +35,40 @@ export class OrderScalarWhereWithAggregatesInput {
   })
   id?: IntWithAggregatesFilter | undefined;
 
-  @TypeGraphQL.Field(_type => IntNullableWithAggregatesFilter, {
+  @TypeGraphQL.Field(_type => JsonWithAggregatesFilter, {
     nullable: true
   })
-  charges?: IntNullableWithAggregatesFilter | undefined;
-
-  @TypeGraphQL.Field(_type => IntNullableWithAggregatesFilter, {
-    nullable: true
-  })
-  total?: IntNullableWithAggregatesFilter | undefined;
-
-  @TypeGraphQL.Field(_type => BoolNullableWithAggregatesFilter, {
-    nullable: true
-  })
-  isAccepted?: BoolNullableWithAggregatesFilter | undefined;
+  items?: JsonWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
     nullable: true
   })
-  restaurantId?: StringNullableWithAggregatesFilter | undefined;
+  coupon?: StringNullableWithAggregatesFilter | undefined;
 
-  @TypeGraphQL.Field(_type => IntNullableWithAggregatesFilter, {
+  @TypeGraphQL.Field(_type => FloatWithAggregatesFilter, {
     nullable: true
   })
-  customerId?: IntNullableWithAggregatesFilter | undefined;
+  deliveryCharges?: FloatWithAggregatesFilter | undefined;
 
-  @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
+  @TypeGraphQL.Field(_type => FloatWithAggregatesFilter, {
     nullable: true
   })
-  customerAddressId?: IntWithAggregatesFilter | undefined;
+  vat?: FloatWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => FloatWithAggregatesFilter, {
+    nullable: true
+  })
+  serviceCharge?: FloatWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => FloatWithAggregatesFilter, {
+    nullable: true
+  })
+  total?: FloatWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => BoolWithAggregatesFilter, {
+    nullable: true
+  })
+  isAccepted?: BoolWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
     nullable: true
@@ -71,4 +79,24 @@ export class OrderScalarWhereWithAggregatesInput {
     nullable: true
   })
   updatedAt?: DateTimeWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
+    nullable: true
+  })
+  userId?: IntWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
+    nullable: true
+  })
+  restaurantId?: StringWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => IntNullableWithAggregatesFilter, {
+    nullable: true
+  })
+  customerId?: IntNullableWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => IntNullableWithAggregatesFilter, {
+    nullable: true
+  })
+  customerAddressId?: IntNullableWithAggregatesFilter | undefined;
 }

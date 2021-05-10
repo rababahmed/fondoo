@@ -2,8 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
-import { CartElement } from "../models/CartElement";
-import { Order } from "../models/Order";
 import { ProductCategory } from "../models/ProductCategory";
 import { Restaurant } from "../models/Restaurant";
 import { SpiceLevel } from "../enums/SpiceLevel";
@@ -47,8 +45,6 @@ export class Product {
   })
   spiceLevel!: "None" | "Mild" | "Medium" | "Hot" | "ExtraHot";
 
-  category?: ProductCategory;
-
   @TypeGraphQL.Field(_type => Boolean, {
     nullable: true
   })
@@ -59,24 +55,17 @@ export class Product {
   })
   isActive?: boolean | null;
 
+  ProductCategory?: ProductCategory | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  productCategoryId?: string | null;
+
   Restaurant?: Restaurant | null;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
   restaurantId?: string | null;
-
-  Order?: Order | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  orderId?: number | null;
-
-  CartElement?: CartElement[];
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: false
-  })
-  productCategoryId!: string;
 }

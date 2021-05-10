@@ -2,14 +2,12 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { CartElementUpdateManyWithoutProductInput } from "../inputs/CartElementUpdateManyWithoutProductInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { EnumSpiceLevelFieldUpdateOperationsInput } from "../inputs/EnumSpiceLevelFieldUpdateOperationsInput";
 import { NullableBoolFieldUpdateOperationsInput } from "../inputs/NullableBoolFieldUpdateOperationsInput";
 import { NullableIntFieldUpdateOperationsInput } from "../inputs/NullableIntFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
-import { OrderUpdateOneWithoutProductInput } from "../inputs/OrderUpdateOneWithoutProductInput";
-import { ProductCategoryUpdateOneRequiredWithoutProductInput } from "../inputs/ProductCategoryUpdateOneRequiredWithoutProductInput";
+import { ProductCategoryUpdateOneWithoutProductInput } from "../inputs/ProductCategoryUpdateOneWithoutProductInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType({
@@ -61,18 +59,8 @@ export class ProductUpdateWithoutRestaurantInput {
   })
   isActive?: NullableBoolFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => ProductCategoryUpdateOneRequiredWithoutProductInput, {
+  @TypeGraphQL.Field(_type => ProductCategoryUpdateOneWithoutProductInput, {
     nullable: true
   })
-  category?: ProductCategoryUpdateOneRequiredWithoutProductInput | undefined;
-
-  @TypeGraphQL.Field(_type => OrderUpdateOneWithoutProductInput, {
-    nullable: true
-  })
-  Order?: OrderUpdateOneWithoutProductInput | undefined;
-
-  @TypeGraphQL.Field(_type => CartElementUpdateManyWithoutProductInput, {
-    nullable: true
-  })
-  CartElement?: CartElementUpdateManyWithoutProductInput | undefined;
+  ProductCategory?: ProductCategoryUpdateOneWithoutProductInput | undefined;
 }

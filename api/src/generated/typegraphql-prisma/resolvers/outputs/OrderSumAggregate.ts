@@ -12,15 +12,30 @@ export class OrderSumAggregate {
   })
   id!: number | null;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: true
   })
-  charges!: number | null;
+  deliveryCharges!: number | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: true
+  })
+  vat!: number | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: true
+  })
+  serviceCharge!: number | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: true
+  })
+  total!: number | null;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  total!: number | null;
+  userId!: number | null;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true

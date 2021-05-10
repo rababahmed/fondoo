@@ -31,6 +31,11 @@ export class UserGroupBy {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
+  username!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
   email!: string;
 
   @TypeGraphQL.Field(_type => String, {
@@ -47,6 +52,11 @@ export class UserGroupBy {
     nullable: false
   })
   role!: "Manager" | "Owner" | "Admin" | "SuperAdmin";
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  restaurantId!: string | null;
 
   @TypeGraphQL.Field(_type => UserCountAggregate, {
     nullable: true

@@ -2,41 +2,27 @@ import * as TypeGraphQL from "type-graphql";
 import { Customer } from "../../../models/Customer";
 import { CustomerAddress } from "../../../models/CustomerAddress";
 import { Order } from "../../../models/Order";
-import { OrderElement } from "../../../models/OrderElement";
-import { Product } from "../../../models/Product";
 import { Restaurant } from "../../../models/Restaurant";
-import { OrderElementsArgs } from "./args/OrderElementsArgs";
-import { OrderProductArgs } from "./args/OrderProductArgs";
+import { User } from "../../../models/User";
 import { transformFields, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
 
 @TypeGraphQL.Resolver(_of => Order)
 export class OrderRelationsResolver {
-  @TypeGraphQL.FieldResolver(_type => [OrderElement], {
+  @TypeGraphQL.FieldResolver(_type => User, {
     nullable: false
   })
-  async elements(@TypeGraphQL.Root() order: Order, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: OrderElementsArgs): Promise<OrderElement[]> {
+  async user(@TypeGraphQL.Root() order: Order, @TypeGraphQL.Ctx() ctx: any): Promise<User> {
     return getPrismaFromContext(ctx).order.findUnique({
       where: {
         id: order.id,
       },
-    }).elements(args);
-  }
-
-  @TypeGraphQL.FieldResolver(_type => CustomerAddress, {
-    nullable: false
-  })
-  async customerAddress(@TypeGraphQL.Root() order: Order, @TypeGraphQL.Ctx() ctx: any): Promise<CustomerAddress> {
-    return getPrismaFromContext(ctx).order.findUnique({
-      where: {
-        id: order.id,
-      },
-    }).customerAddress({});
+    }).user({});
   }
 
   @TypeGraphQL.FieldResolver(_type => Restaurant, {
-    nullable: true
+    nullable: false
   })
-  async restaurant(@TypeGraphQL.Root() order: Order, @TypeGraphQL.Ctx() ctx: any): Promise<Restaurant | null> {
+  async restaurant(@TypeGraphQL.Root() order: Order, @TypeGraphQL.Ctx() ctx: any): Promise<Restaurant> {
     return getPrismaFromContext(ctx).order.findUnique({
       where: {
         id: order.id,
@@ -47,22 +33,22 @@ export class OrderRelationsResolver {
   @TypeGraphQL.FieldResolver(_type => Customer, {
     nullable: true
   })
-  async customer(@TypeGraphQL.Root() order: Order, @TypeGraphQL.Ctx() ctx: any): Promise<Customer | null> {
+  async Customer(@TypeGraphQL.Root() order: Order, @TypeGraphQL.Ctx() ctx: any): Promise<Customer | null> {
     return getPrismaFromContext(ctx).order.findUnique({
       where: {
         id: order.id,
       },
-    }).customer({});
+    }).Customer({});
   }
 
-  @TypeGraphQL.FieldResolver(_type => [Product], {
-    nullable: false
+  @TypeGraphQL.FieldResolver(_type => CustomerAddress, {
+    nullable: true
   })
-  async product(@TypeGraphQL.Root() order: Order, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: OrderProductArgs): Promise<Product[]> {
+  async CustomerAddress(@TypeGraphQL.Root() order: Order, @TypeGraphQL.Ctx() ctx: any): Promise<CustomerAddress | null> {
     return getPrismaFromContext(ctx).order.findUnique({
       where: {
         id: order.id,
       },
-    }).product(args);
+    }).CustomerAddress({});
   }
 }

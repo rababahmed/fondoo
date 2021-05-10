@@ -3,28 +3,47 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { CustomerAddressCreateNestedOneWithoutOrderInput } from "../inputs/CustomerAddressCreateNestedOneWithoutOrderInput";
-import { OrderElementCreateNestedManyWithoutOrderInput } from "../inputs/OrderElementCreateNestedManyWithoutOrderInput";
-import { ProductCreateNestedManyWithoutOrderInput } from "../inputs/ProductCreateNestedManyWithoutOrderInput";
 import { RestaurantCreateNestedOneWithoutOrdersInput } from "../inputs/RestaurantCreateNestedOneWithoutOrdersInput";
+import { UserCreateNestedOneWithoutOrdersInput } from "../inputs/UserCreateNestedOneWithoutOrdersInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true
 })
 export class OrderCreateWithoutCustomerInput {
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
+  @TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
+    nullable: false
   })
-  charges?: number | undefined;
+  items!: Prisma.InputJsonValue;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  total?: number | undefined;
+  coupon?: string | undefined;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  deliveryCharges!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  vat!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  serviceCharge!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  total!: number;
 
   @TypeGraphQL.Field(_type => Boolean, {
-    nullable: true
+    nullable: false
   })
-  isAccepted?: boolean | undefined;
+  isAccepted!: boolean;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
@@ -36,23 +55,18 @@ export class OrderCreateWithoutCustomerInput {
   })
   updatedAt?: Date | undefined;
 
-  @TypeGraphQL.Field(_type => OrderElementCreateNestedManyWithoutOrderInput, {
-    nullable: true
-  })
-  elements?: OrderElementCreateNestedManyWithoutOrderInput | undefined;
-
-  @TypeGraphQL.Field(_type => CustomerAddressCreateNestedOneWithoutOrderInput, {
+  @TypeGraphQL.Field(_type => UserCreateNestedOneWithoutOrdersInput, {
     nullable: false
   })
-  customerAddress!: CustomerAddressCreateNestedOneWithoutOrderInput;
+  user!: UserCreateNestedOneWithoutOrdersInput;
 
   @TypeGraphQL.Field(_type => RestaurantCreateNestedOneWithoutOrdersInput, {
-    nullable: true
+    nullable: false
   })
-  restaurant?: RestaurantCreateNestedOneWithoutOrdersInput | undefined;
+  restaurant!: RestaurantCreateNestedOneWithoutOrdersInput;
 
-  @TypeGraphQL.Field(_type => ProductCreateNestedManyWithoutOrderInput, {
+  @TypeGraphQL.Field(_type => CustomerAddressCreateNestedOneWithoutOrderInput, {
     nullable: true
   })
-  product?: ProductCreateNestedManyWithoutOrderInput | undefined;
+  CustomerAddress?: CustomerAddressCreateNestedOneWithoutOrderInput | undefined;
 }

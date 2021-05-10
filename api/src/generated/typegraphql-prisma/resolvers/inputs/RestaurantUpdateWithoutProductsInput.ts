@@ -11,7 +11,7 @@ import { OrderUpdateManyWithoutRestaurantInput } from "../inputs/OrderUpdateMany
 import { ProductCategoryUpdateManyWithoutRestaurantsInput } from "../inputs/ProductCategoryUpdateManyWithoutRestaurantsInput";
 import { ScheduleUpdateManyWithoutRestaurantInput } from "../inputs/ScheduleUpdateManyWithoutRestaurantInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
-import { UserUpdateManyWithoutRestaurantsInput } from "../inputs/UserUpdateManyWithoutRestaurantsInput";
+import { UserUpdateManyWithoutRestaurantInput } from "../inputs/UserUpdateManyWithoutRestaurantInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true
@@ -172,8 +172,8 @@ export class RestaurantUpdateWithoutProductsInput {
   })
   productCategory?: ProductCategoryUpdateManyWithoutRestaurantsInput | undefined;
 
-  @TypeGraphQL.Field(_type => UserUpdateManyWithoutRestaurantsInput, {
+  @TypeGraphQL.Field(_type => UserUpdateManyWithoutRestaurantInput, {
     nullable: true
   })
-  users?: UserUpdateManyWithoutRestaurantsInput | undefined;
+  users?: UserUpdateManyWithoutRestaurantInput | undefined;
 }

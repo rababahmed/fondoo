@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
+import { Order } from "../models/Order";
 import { Restaurant } from "../models/Restaurant";
 import { UserToken } from "../models/UserToken";
 import { Role } from "../enums/Role";
@@ -28,6 +29,11 @@ export class User {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
+  username!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
   email!: string;
 
   @TypeGraphQL.Field(_type => String, {
@@ -47,5 +53,12 @@ export class User {
   })
   role!: "Manager" | "Owner" | "Admin" | "SuperAdmin";
 
-  restaurants?: Restaurant[];
+  Restaurant?: Restaurant | null;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  restaurantId?: string | null;
+
+  orders?: Order[];
 }

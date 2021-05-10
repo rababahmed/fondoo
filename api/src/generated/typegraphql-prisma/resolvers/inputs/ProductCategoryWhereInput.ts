@@ -4,7 +4,6 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { BoolNullableFilter } from "../inputs/BoolNullableFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
-import { OrderElementListRelationFilter } from "../inputs/OrderElementListRelationFilter";
 import { ProductListRelationFilter } from "../inputs/ProductListRelationFilter";
 import { RestaurantRelationFilter } from "../inputs/RestaurantRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
@@ -78,9 +77,4 @@ export class ProductCategoryWhereInput {
     nullable: true
   })
   Product?: ProductListRelationFilter | undefined;
-
-  @TypeGraphQL.Field(_type => OrderElementListRelationFilter, {
-    nullable: true
-  })
-  OrderElement?: OrderElementListRelationFilter | undefined;
 }

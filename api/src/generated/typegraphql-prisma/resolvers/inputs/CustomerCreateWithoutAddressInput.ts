@@ -2,7 +2,6 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { CartElementCreateNestedManyWithoutCustomerInput } from "../inputs/CartElementCreateNestedManyWithoutCustomerInput";
 import { CustomerTokenCreateNestedManyWithoutCustomerInput } from "../inputs/CustomerTokenCreateNestedManyWithoutCustomerInput";
 import { OrderCreateNestedManyWithoutCustomerInput } from "../inputs/OrderCreateNestedManyWithoutCustomerInput";
 import { RestaurantCreateNestedOneWithoutCustomersInput } from "../inputs/RestaurantCreateNestedOneWithoutCustomersInput";
@@ -55,11 +54,6 @@ export class CustomerCreateWithoutAddressInput {
     nullable: true
   })
   orders?: OrderCreateNestedManyWithoutCustomerInput | undefined;
-
-  @TypeGraphQL.Field(_type => CartElementCreateNestedManyWithoutCustomerInput, {
-    nullable: true
-  })
-  cart?: CartElementCreateNestedManyWithoutCustomerInput | undefined;
 
   @TypeGraphQL.Field(_type => RestaurantCreateNestedOneWithoutCustomersInput, {
     nullable: true

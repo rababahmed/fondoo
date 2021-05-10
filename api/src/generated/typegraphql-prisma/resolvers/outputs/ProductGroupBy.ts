@@ -61,17 +61,12 @@ export class ProductGroupBy {
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  restaurantId!: string | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  orderId!: number | null;
+  productCategoryId!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  productCategoryId!: string;
+  restaurantId!: string | null;
 
   @TypeGraphQL.Field(_type => ProductCountAggregate, {
     nullable: true

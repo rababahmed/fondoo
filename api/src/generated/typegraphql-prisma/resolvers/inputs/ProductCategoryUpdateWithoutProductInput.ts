@@ -5,7 +5,6 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { NullableBoolFieldUpdateOperationsInput } from "../inputs/NullableBoolFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
-import { OrderElementUpdateManyWithoutCategoryInput } from "../inputs/OrderElementUpdateManyWithoutCategoryInput";
 import { RestaurantUpdateOneRequiredWithoutProductCategoryInput } from "../inputs/RestaurantUpdateOneRequiredWithoutProductCategoryInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
@@ -52,9 +51,4 @@ export class ProductCategoryUpdateWithoutProductInput {
     nullable: true
   })
   restaurants?: RestaurantUpdateOneRequiredWithoutProductCategoryInput | undefined;
-
-  @TypeGraphQL.Field(_type => OrderElementUpdateManyWithoutCategoryInput, {
-    nullable: true
-  })
-  OrderElement?: OrderElementUpdateManyWithoutCategoryInput | undefined;
 }

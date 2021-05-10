@@ -20,7 +20,7 @@ export class GroupByOrderArgs {
   @TypeGraphQL.Field(_type => [OrderScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "charges" | "total" | "isAccepted" | "restaurantId" | "customerId" | "customerAddressId" | "createdAt" | "updatedAt">;
+  by!: Array<"id" | "items" | "coupon" | "deliveryCharges" | "vat" | "serviceCharge" | "total" | "isAccepted" | "createdAt" | "updatedAt" | "userId" | "restaurantId" | "customerId" | "customerAddressId">;
 
   @TypeGraphQL.Field(_type => OrderScalarWhereWithAggregatesInput, {
     nullable: true

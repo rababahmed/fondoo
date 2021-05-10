@@ -147,11 +147,6 @@ export class RestaurantUpdateWithoutUsersInput {
   })
   updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => ProductUpdateManyWithoutRestaurantInput, {
-    nullable: true
-  })
-  products?: ProductUpdateManyWithoutRestaurantInput | undefined;
-
   @TypeGraphQL.Field(_type => ScheduleUpdateManyWithoutRestaurantInput, {
     nullable: true
   })
@@ -176,4 +171,9 @@ export class RestaurantUpdateWithoutUsersInput {
     nullable: true
   })
   productCategory?: ProductCategoryUpdateManyWithoutRestaurantsInput | undefined;
+
+  @TypeGraphQL.Field(_type => ProductUpdateManyWithoutRestaurantInput, {
+    nullable: true
+  })
+  products?: ProductUpdateManyWithoutRestaurantInput | undefined;
 }

@@ -26,6 +26,11 @@ export class UserCreateManyInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
+  username!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
   email!: string;
 
   @TypeGraphQL.Field(_type => String, {
@@ -42,4 +47,9 @@ export class UserCreateManyInput {
     nullable: true
   })
   role?: "Manager" | "Owner" | "Admin" | "SuperAdmin" | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  restaurantId?: string | undefined;
 }

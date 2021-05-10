@@ -143,11 +143,6 @@ export class RestaurantCreateWithoutUsersInput {
   })
   updatedAt?: Date | undefined;
 
-  @TypeGraphQL.Field(_type => ProductCreateNestedManyWithoutRestaurantInput, {
-    nullable: true
-  })
-  products?: ProductCreateNestedManyWithoutRestaurantInput | undefined;
-
   @TypeGraphQL.Field(_type => ScheduleCreateNestedManyWithoutRestaurantInput, {
     nullable: true
   })
@@ -172,4 +167,9 @@ export class RestaurantCreateWithoutUsersInput {
     nullable: true
   })
   productCategory?: ProductCategoryCreateNestedManyWithoutRestaurantsInput | undefined;
+
+  @TypeGraphQL.Field(_type => ProductCreateNestedManyWithoutRestaurantInput, {
+    nullable: true
+  })
+  products?: ProductCreateNestedManyWithoutRestaurantInput | undefined;
 }

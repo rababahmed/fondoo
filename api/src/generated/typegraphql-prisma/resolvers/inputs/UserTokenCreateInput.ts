@@ -13,6 +13,11 @@ export class UserTokenCreateInput {
   })
   token!: string;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  provider?: string | undefined;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })

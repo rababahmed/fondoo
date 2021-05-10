@@ -4,9 +4,8 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 import { Customer } from "../models/Customer";
 import { CustomerAddress } from "../models/CustomerAddress";
-import { OrderElement } from "../models/OrderElement";
-import { Product } from "../models/Product";
 import { Restaurant } from "../models/Restaurant";
+import { User } from "../models/User";
 
 @TypeGraphQL.ObjectType({
   isAbstract: true
@@ -17,45 +16,44 @@ export class Order {
   })
   id!: number;
 
-  elements?: OrderElement[];
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
+  @TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
+    nullable: false
   })
-  charges?: number | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  total?: number | null;
-
-  @TypeGraphQL.Field(_type => Boolean, {
-    nullable: true
-  })
-  isAccepted?: boolean | null;
-
-  customerAddress?: CustomerAddress;
-
-  restaurant?: Restaurant | null;
+  items!: Prisma.JsonValue;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  restaurantId?: string | null;
+  coupon?: string | null;
 
-  customer?: Customer | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
-  })
-  customerId?: number | null;
-
-  product?: Product[];
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: false
   })
-  customerAddressId!: number;
+  deliveryCharges!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  vat!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  serviceCharge!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  total!: number;
+
+  @TypeGraphQL.Field(_type => Boolean, {
+    nullable: false
+  })
+  isAccepted!: boolean;
+
+  user?: User;
+
+  restaurant?: Restaurant;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
@@ -66,4 +64,28 @@ export class Order {
     nullable: false
   })
   updatedAt!: Date;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: false
+  })
+  userId!: number;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false
+  })
+  restaurantId!: string;
+
+  Customer?: Customer | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  customerId?: number | null;
+
+  CustomerAddress?: CustomerAddress | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  customerAddressId?: number | null;
 }

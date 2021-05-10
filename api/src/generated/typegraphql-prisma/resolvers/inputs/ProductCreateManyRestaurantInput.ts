@@ -53,13 +53,8 @@ export class ProductCreateManyRestaurantInput {
   })
   isActive?: boolean | undefined;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+  @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  orderId?: number | undefined;
-
-  @TypeGraphQL.Field(_type => String, {
-    nullable: false
-  })
-  productCategoryId!: string;
+  productCategoryId?: string | undefined;
 }

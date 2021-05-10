@@ -35,5 +35,5 @@ export class FindFirstUserTokenArgs {
   @TypeGraphQL.Field(_type => [UserTokenScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "token" | "createdAt" | "updatedAt" | "userId"> | undefined;
+  distinct?: Array<"id" | "token" | "provider" | "createdAt" | "updatedAt" | "userId"> | undefined;
 }
