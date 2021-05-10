@@ -12,6 +12,11 @@ services:
       - POSTGRES_USER=dbuser
       - POSTGRES_PASSWORD=dbpass
       - POSTGRES_DB=tezzbites
+    deploy:
+      resources:
+        limits:
+          cpus: "0.01"
+          memory: 200M
 
 volumes:
   pgData:
