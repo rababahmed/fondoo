@@ -8,7 +8,7 @@
     "dev": "nodemon dist/index.js",
     "start": "node dist/index.js",
     "start2": "ts-node src/index.ts",
-    "publish-heroku": "cd ../ && git subtree push --prefix api heroku main"
+    "publish-heroku": "cd ../ && git add . && git commit -m 'heroku' && git subtree push --prefix api heroku main"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
