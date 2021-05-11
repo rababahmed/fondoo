@@ -2,10 +2,12 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Grid, Heading } from "@chakra-ui/layout";
 import Head from "next/head";
 import React from "react";
+import CardText from "../../components/Forms/FormInput";
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
 import StatComponent from "../../components/Stats/MainStat";
 import TableComponent from "../../components/Table/Table";
+import { SettingsModule } from "../../modules/Settings/SettingsModule";
 
 const SettingsPage = () => {
   return (
@@ -24,8 +26,7 @@ const SettingsPage = () => {
               <Heading ml={6} mt={8}>
                 Settings
               </Heading>
-              <StatComponent />
-              <TableComponent />
+              <SettingsModule />
             </Box>
           </Box>
         </Grid>

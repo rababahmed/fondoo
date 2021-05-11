@@ -8,6 +8,8 @@ interface Context {
   prisma: PrismaClient;
 }
 
+const PORT = process.env.PORT || 4000;
+
 const prisma = new PrismaClient();
 
 const main = async () => {
@@ -26,7 +28,7 @@ const main = async () => {
 
   apolloServer.applyMiddleware({ app });
 
-  app.listen(3000, () => {
+  app.listen(PORT, () => {
     console.log("server started on http://localhost:3000");
   });
 };
