@@ -7,6 +7,8 @@
     "yarn": "1.x"
   },
   "scripts": {
+    "build": "tsc",
+    "heroku-postbuild": "tsc",
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
     "postinstall": "tsc",
