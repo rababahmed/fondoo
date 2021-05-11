@@ -29,7 +29,7 @@ const main = async () => {
   apolloServer.applyMiddleware({ app });
 
   app.listen(PORT, () => {
-    console.log(`server started on http://localhost:${PORT}`);
+    console.log(`Server started on http://localhost:${PORT}`);
   });
 };
 
