@@ -4,7 +4,6 @@ import express from "express";
 import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server-express";
 import { resolvers } from "./generated/typegraphql-prisma/index";
-import passport from "passport";
 interface Context {
   prisma: PrismaClient;
 }
@@ -13,9 +12,6 @@ const prisma = new PrismaClient();
 
 const main = async () => {
   const app = express();
-
-  app.use(passport.initialize());
-  app.use(passport.session());
 
   await prisma.$connect();
 
