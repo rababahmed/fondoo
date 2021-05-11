@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "watch": "tsc -w",
-    "dev": "nodemon dist/index.js",
-    "start": "node dist/index.js",
+    "dev": "nodemon ./dist/index.js",
+    "start": "node ./dist/index.js",
     "start2": "ts-node src/index.ts",
     "publish-heroku": "cd ../ && git add . && git commit -m 'heroku' && git subtree push --prefix api heroku main"
   },
