@@ -1,15 +1,6 @@
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box } from "@chakra-ui/layout";
-import {
-  Table,
-  TableCaption,
-  Tbody,
-  Td,
-  Tfoot,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/table";
+import { Table, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/table";
 import React from "react";
 
 const TableComponent = () => {
@@ -27,7 +18,7 @@ const TableComponent = () => {
         <Thead>
           <Tr>
             <Th>Customer</Th>
-            <Th isNumeric>Items</Th>
+            <Th isNumeric>Orders</Th>
             <Th isNumeric>Revenue</Th>
           </Tr>
         </Thead>

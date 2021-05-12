@@ -1,12 +1,36 @@
 import { useColorModeValue } from "@chakra-ui/color-mode";
-import { Box, Grid, Heading, Text } from "@chakra-ui/layout";
+import { Box, Center, Grid, Heading, Text } from "@chakra-ui/layout";
 import Head from "next/head";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import StatComponent from "../components/Stats/MainStat";
 import TableComponent from "../components/Table/Table";
+import { useQuery, useQueryClient } from "react-query";
+import * as Constants from "../modules/Constants";
+import { request, gql } from "graphql-request";
+import { useState } from "react";
+import { Spinner } from "@chakra-ui/spinner";
+import { Skeleton } from "@chakra-ui/skeleton";
+
+const useGetUsers = () => {
+  return useQuery("user", async () => {
+    const { user } = await request(
+      Constants.GraphQL_API,
+      gql`
+        query {
+          user(where: { username: "rabab" }) {
+            fullName
+          }
+        }
+      `
+    );
+    return user;
+  });
+};
 
 export default function Home() {
+  const { data, error, isLoading, isSuccess } = useGetUsers();
+
   return (
     <div>
       <Head>
@@ -19,11 +43,17 @@ export default function Home() {
         <Box bg={useColorModeValue("gray.50", "gray.800")}>
           <Header />
           <Box as="section" bg={useColorModeValue("gray.50", "gray.800")}>
-            <Heading ml={6} mt={8}>
-              Dashboard
-            </Heading>
-            <StatComponent />
-            <TableComponent />
+            <Skeleton isLoaded={!isLoading} m={10}>
+              <Heading ml={6} mt={8}>
+                Hello {isSuccess && data.fullName}
+              </Heading>
+            </Skeleton>
+            <Skeleton isLoaded={!isLoading} m={10}>
+              <StatComponent />
+            </Skeleton>
+            <Skeleton isLoaded={!isLoading} m={10}>
+              <TableComponent />
+            </Skeleton>
           </Box>
         </Box>
       </Grid>
