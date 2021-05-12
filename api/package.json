@@ -9,8 +9,9 @@
     "yarn": "1.x"
   },
   "scripts": {
-    "build": "yarn prisma migrate dev --name 15 && tsc",
-    "heroku-postbuild": "yarn prisma generate && tsc",
+    "prisma:reset": "yarn prisma migrate reset",
+    "prisma:dev": "yarn prisma migrate dev --name init",
+    "heroku-postbuild": "yarn prisma:reset && yarn prisma:dev && tsc",
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
     "dev:start": "node dist/index.js",
