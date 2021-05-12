@@ -9,7 +9,7 @@
     "yarn": "1.x"
   },
   "scripts": {
-    "prisma:reset": "yarn prisma migrate reset",
+    "prisma:reset": "yarn prisma migrate reset --force",
     "prisma:dev": "yarn prisma migrate dev --name init",
     "heroku-postbuild": "yarn prisma:reset && yarn prisma:dev && tsc",
     "watch": "tsc -w",
