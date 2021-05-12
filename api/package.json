@@ -11,7 +11,6 @@
     "heroku-postbuild": "tsc",
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
-    "postinstall": "tsc",
     "dev:start": "node dist/index.js",
     "start": "node dist/index.ts",
     "publish-heroku": "cd ../ && git add . && git commit -m 'heroku' && git subtree push --prefix api heroku main"
