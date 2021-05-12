@@ -9,7 +9,7 @@
     "yarn": "1.x"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "yarn prisma migrate dev --name 15 && tsc",
     "heroku-postbuild": "tsc",
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
