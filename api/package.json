@@ -10,13 +10,14 @@
   },
   "scripts": {
     "prisma:reset": "yarn prisma migrate reset --force",
-    "prisma:dev": "yarn prisma migrate deploy",
-    "heroku-postbuild": "yarn prisma:reset && yarn prisma:dev && tsc",
+    "prisma:dev": "yarn prisma migrate dev",
+    "prisma:deploy": "yarn prisma migrate deploy",
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
     "dev:start": "node dist/index.js",
     "start": "node dist/index.ts",
-    "publish-heroku": "cd ../ && git add . && git commit -m 'heroku' && git subtree push --prefix api heroku main"
+    "heroku-postbuild": "yarn prisma:reset && yarn prisma:deploy && tsc",
+    "heroku-publish": "cd ../ && git add . && git commit -m 'heroku' && git subtree push --prefix api heroku main"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",

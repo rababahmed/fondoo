@@ -22,6 +22,7 @@ const main = async () => {
       resolvers,
       validate: false,
     }),
+    introspection: true,
     playground: true,
     context: (): Context => ({ prisma }),
   });
