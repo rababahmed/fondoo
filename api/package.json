@@ -10,7 +10,7 @@
   },
   "scripts": {
     "prisma:reset": "yarn prisma migrate reset --force",
-    "prisma:dev": "yarn prisma migrate dev --name init",
+    "prisma:dev": "yarn prisma migrate deploy",
     "heroku-postbuild": "yarn prisma:reset && yarn prisma:dev && tsc",
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
