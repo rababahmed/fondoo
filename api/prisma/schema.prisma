@@ -11,9 +11,7 @@ generator client {
 }
 
 generator typegraphql {
-  provider           = "typegraphql-prisma"
-  output             = "../src/generated/typegraphql-prisma"
-  emitTranspiledCode = true
+  provider = "typegraphql-prisma"
 }
 
 model Restaurant {

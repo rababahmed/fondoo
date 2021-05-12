@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import express from "express";
 import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server-express";
-import { resolvers } from "./generated/typegraphql-prisma/index";
+import { resolvers } from "@generated/type-graphql/";
 interface Context {
   prisma: PrismaClient;
 }
