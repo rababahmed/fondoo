@@ -10,7 +10,7 @@ const colors = {
 
 const theme = extendTheme({ colors });
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component: any, pageProps }) {
   return (
     <ChakraProvider theme={theme} resetCSS={true}>
       <Component {...pageProps} />
