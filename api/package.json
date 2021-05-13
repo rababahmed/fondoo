@@ -16,7 +16,7 @@
     "dev": "nodemon dist/index.js",
     "dev:start": "node dist/index.js",
     "start": "node dist/index.ts",
-    "heroku-postbuild": "yarn prisma:deploy && tsc",
+    "heroku-postbuild": "yarn prisma:reset && yarn prisma:deploy && tsc",
     "heroku-publish": "cd ../ && git add . && git commit -m 'heroku' && git subtree push --prefix api heroku main"
   },
   "devDependencies": {
