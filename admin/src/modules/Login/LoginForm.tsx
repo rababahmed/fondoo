@@ -9,13 +9,13 @@ import { InputControl, SubmitButton } from "formik-chakra-ui";
 import axios from "axios";
 
 const onSubmit = async (values) => {
-  const user = JSON.stringify(values);
+  console.log(values);
   const { data } = await axios
     .post("https://tezzbites-api.herokuapp.com/user/login", {
-      user,
+      values,
     })
     .then(function (response) {
-      console.log(respoonse);
+      console.log(response);
     });
 };
 
@@ -40,7 +40,7 @@ export const LoginForm = () => {
       initialValues={initialValues}
       validationSchema={validationSchema}
     >
-      {({ handleSubmit, handleBlur }) => (
+      {({ handleSubmit }) => (
         <Box as="form" onSubmit={handleSubmit as any}>
           <Stack spacing="6">
             <InputControl name="email" label="Email" />
@@ -48,7 +48,6 @@ export const LoginForm = () => {
               inputProps={PasswordProps}
               name="password"
               label="Password"
-              onBlur={handleBlur}
             />
             <Box>
               <Stack mt={4} pb={2}>
