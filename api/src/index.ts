@@ -4,8 +4,9 @@ import express from "express";
 import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server-express";
 import { resolvers } from "../prisma/generated/type-graphql/";
-const passport = require("passport");
 
+const passport = require("passport");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const userRouter = require("./routes/UserAuth");
 
@@ -21,6 +22,7 @@ const main = async () => {
   app.use(bodyParser.json());
   app.use(express.json());
   app.use(passport.initialize());
+  app.use(cors());
 
   await prisma.$connect();
 

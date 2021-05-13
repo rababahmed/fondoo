@@ -6,9 +6,17 @@ import { useUserStore } from "../../store/userStore";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
+import axios from "axios";
 
-const onSubmit = (values) => {
-  window.alert(JSON.stringify(values, null, 2));
+const onSubmit = async (values) => {
+  const user = JSON.stringify(values);
+  const { data } = await axios
+    .post("https://tezzbites-api.herokuapp.com/user/login", {
+      user,
+    })
+    .then(function (response) {
+      console.log(respoonse);
+    });
 };
 
 const initialValues = {
@@ -20,6 +28,10 @@ const validationSchema = Yup.object({
   email: Yup.string().required("Email is required."),
   password: Yup.string().required("Password is required."),
 });
+
+const PasswordProps = {
+  type: "password",
+};
 
 export const LoginForm = () => {
   return (
@@ -33,14 +45,20 @@ export const LoginForm = () => {
           <Stack spacing="6">
             <InputControl name="email" label="Email" />
             <InputControl
-              inputProps={{ type: "password" }}
+              inputProps={PasswordProps}
               name="password"
               label="Password"
               onBlur={handleBlur}
             />
             <Box>
               <Stack mt={4} pb={2}>
-                <SubmitButton bgColor="gray.700">Login</SubmitButton>
+                <SubmitButton
+                  bgColor="gray.700"
+                  _active={{ bgColor: "gray.500" }}
+                  _hover={{ bgColor: "gray.800" }}
+                >
+                  Login
+                </SubmitButton>
               </Stack>
             </Box>
           </Stack>
