@@ -2,35 +2,22 @@ import express from "express";
 import { PrismaClient } from "@prisma/client";
 const bcrypt = require("bcryptjs");
 
-interface Hash {
-  err: any;
-  hashedPassword: any;
-}
-
 const prisma = new PrismaClient();
 const router = express.Router();
 
-router.post("/signup", async (req, res, next) => {
+router.post("/signup", async (req, res) => {
   try {
-    await bcrypt.hash(
-      req.body.password,
-      10,
-      async ({ err, hashedPassword }: Hash) => {
-        if (err) {
-          return next(err);
-        }
-        const { firstName, lastName, email } = req.body;
-        const result = await prisma.user.create({
-          data: {
-            firstName,
-            lastName,
-            email,
-            password: hashedPassword,
-          },
-        });
-        res.json(result);
-      }
-    );
+    const { firstName, lastName, email, password } = req.body;
+    const hash = await bcrypt.hash(password, 10);
+    const result = await prisma.user.create({
+      data: {
+        firstName,
+        lastName,
+        email,
+        password: hash,
+      },
+    });
+    res.json(result);
   } catch {
     res.json({ message: "Error creating user" });
   }
