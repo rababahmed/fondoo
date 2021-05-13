@@ -2,10 +2,11 @@ import create from "zustand";
 import { devtools, redux } from "zustand/middleware";
 
 interface user {
-  id: number;
+  id: string;
   fullName: string;
   email: string;
   token: string;
+  setId: () => void;
 }
 
 export const useUserStore = create<user>(
@@ -14,5 +15,6 @@ export const useUserStore = create<user>(
     fullName: "",
     email: "",
     token: "",
+    setId: () => set((state) => ({ id: `${userID}` })),
   }))
 );
