@@ -17,7 +17,7 @@ const NavBar = () => {
             <Box mb={5}>
               <Heading color="gray.50">TezzBites</Heading>
             </Box>
-            <Link href="/">
+            <Link href="/dashboard">
               <Button
                 leftIcon={<AiFillHome />}
                 isActive={true}
