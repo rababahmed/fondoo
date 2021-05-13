@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RestaurantUsersArgs = exports.RestaurantScheduleArgs = exports.RestaurantProductsArgs = exports.RestaurantProductCategoryArgs = exports.RestaurantOrdersArgs = exports.RestaurantDeliveryZonesArgs = exports.RestaurantCustomersArgs = void 0;
+var RestaurantCustomersArgs_1 = require("./RestaurantCustomersArgs");
+Object.defineProperty(exports, "RestaurantCustomersArgs", { enumerable: true, get: function () { return RestaurantCustomersArgs_1.RestaurantCustomersArgs; } });
+var RestaurantDeliveryZonesArgs_1 = require("./RestaurantDeliveryZonesArgs");
+Object.defineProperty(exports, "RestaurantDeliveryZonesArgs", { enumerable: true, get: function () { return RestaurantDeliveryZonesArgs_1.RestaurantDeliveryZonesArgs; } });
+var RestaurantOrdersArgs_1 = require("./RestaurantOrdersArgs");
+Object.defineProperty(exports, "RestaurantOrdersArgs", { enumerable: true, get: function () { return RestaurantOrdersArgs_1.RestaurantOrdersArgs; } });
+var RestaurantProductCategoryArgs_1 = require("./RestaurantProductCategoryArgs");
+Object.defineProperty(exports, "RestaurantProductCategoryArgs", { enumerable: true, get: function () { return RestaurantProductCategoryArgs_1.RestaurantProductCategoryArgs; } });
+var RestaurantProductsArgs_1 = require("./RestaurantProductsArgs");
+Object.defineProperty(exports, "RestaurantProductsArgs", { enumerable: true, get: function () { return RestaurantProductsArgs_1.RestaurantProductsArgs; } });
+var RestaurantScheduleArgs_1 = require("./RestaurantScheduleArgs");
+Object.defineProperty(exports, "RestaurantScheduleArgs", { enumerable: true, get: function () { return RestaurantScheduleArgs_1.RestaurantScheduleArgs; } });
+var RestaurantUsersArgs_1 = require("./RestaurantUsersArgs");
+Object.defineProperty(exports, "RestaurantUsersArgs", { enumerable: true, get: function () { return RestaurantUsersArgs_1.RestaurantUsersArgs; } });

@@ -11,7 +11,9 @@ generator client {
 }
 
 generator typegraphql {
-  provider = "typegraphql-prisma"
+  provider           = "typegraphql-prisma"
+  output             = "../prisma/generated/type-graphql"
+  emitTranspiledCode = true
 }
 
 model Restaurant {
@@ -158,8 +160,8 @@ model CustomerToken {
 model User {
   id           Int         @id @default(autoincrement())
   createdAt    DateTime    @default(now())
-  fullName     String
-  username     String      @unique
+  firstName    String
+  lastName     String
   email        String      @unique
   password     String
   phone        String?

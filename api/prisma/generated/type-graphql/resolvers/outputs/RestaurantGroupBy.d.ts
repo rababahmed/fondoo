@@ -1,0 +1,34 @@
+import { RestaurantCountAggregate } from "../outputs/RestaurantCountAggregate";
+import { RestaurantMaxAggregate } from "../outputs/RestaurantMaxAggregate";
+import { RestaurantMinAggregate } from "../outputs/RestaurantMinAggregate";
+export declare class RestaurantGroupBy {
+    id: string;
+    createdAt: Date;
+    name: string;
+    email: string;
+    businessPhone: string | null;
+    reservationPhone: string | null;
+    url: string | null;
+    address: string | null;
+    city: string | null;
+    postCode: string | null;
+    country: string | null;
+    currency: string | null;
+    priceRange: string | null;
+    diningStyle: string | null;
+    vat: string | null;
+    serviceCharge: string | null;
+    hasParking: boolean | null;
+    hasPartyFacilities: boolean | null;
+    hasKidsZone: boolean | null;
+    isTakeaway: boolean | null;
+    isDelivery: boolean | null;
+    isReservation: boolean | null;
+    isOrdering: boolean | null;
+    isAutoAcceptOrder: boolean | null;
+    isAutoAcceptReservation: boolean | null;
+    updatedAt: Date;
+    count: RestaurantCountAggregate | null;
+    min: RestaurantMinAggregate | null;
+    max: RestaurantMaxAggregate | null;
+}
