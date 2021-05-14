@@ -27,7 +27,7 @@ export const LoginForm = () => {
   const router = useRouter();
   const setUser = useUserStore((state) => state.setUser);
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values: any) => {
     console.log(values);
     const data = await axios
       .post("https://tezzbites-api.herokuapp.com/user/login", values)
