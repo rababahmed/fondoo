@@ -8,37 +8,11 @@ import { MdRestaurantMenu, MdLocalOffer } from "react-icons/md";
 import { ImUsers } from "react-icons/im";
 import Link from "next/link";
 import { Tag, TagLabel } from "@chakra-ui/tag";
-import { Avatar } from "@chakra-ui/avatar";
-import { useQuery } from "react-query";
-import * as Constants from "../modules/Constants";
-import request, { gql } from "graphql-request";
-import { useUserStore } from "../store/userStore";
 import { Skeleton } from "@chakra-ui/skeleton";
+import { useGetUser } from "../shared-hooks/useGetUser";
 
 const NavBar = () => {
-  const userID = useUserStore((state) => state.userID);
-
-  const useGetUsers = () => {
-    return useQuery("user", async () => {
-      const { user } = await request(
-        Constants.GraphQL_API,
-        gql`
-          query {
-            user(where: { id: ${userID} }) {
-              firstName
-              lastName
-              Restaurant {
-                name
-              }
-            }
-          }
-        `
-      );
-      return user;
-    });
-  };
-
-  const { data, error, isLoading, isSuccess } = useGetUsers();
+  const { data, error, isLoading, isSuccess } = useGetUser();
 
   return (
     <div>
@@ -51,11 +25,6 @@ const NavBar = () => {
             <Box m={8}>
               <Skeleton isLoaded={!isLoading}>
                 <Tag size="lg" colorScheme="gray" borderRadius="full">
-                  <Avatar
-                    size="xs"
-                    name={isSuccess && data.Restaurant.name}
-                    mr={2}
-                  />
                   <TagLabel pb={2} pt={2}>
                     {isSuccess && data.Restaurant.name}
                   </TagLabel>

@@ -1,0 +1,15 @@
+overwrite: true
+schema: "https://tezzbites-api.herokuapp.com/graphql"
+documents: "src/**/*.graphql"
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-query"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
+    config:
+      fetcher:
+        endpoint: "https://tezzbites-api.herokuapp.com/graphql"
