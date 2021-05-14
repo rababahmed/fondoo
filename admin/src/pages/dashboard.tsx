@@ -11,7 +11,6 @@ import * as Constants from "../modules/Constants";
 import { request, gql } from "graphql-request";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { useUserStore } from "../store/userStore";
-import { useRouter } from "next/router";
 
 const DashboardPage = () => {
   const userID = useUserStore((state) => state.userID);

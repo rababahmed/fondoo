@@ -10,7 +10,7 @@ interface User {
 export const useUserStore = create<User>(
   devtools((set) => ({
     isAuthenticated: false,
-    userID: 0,
+    userID: 1,
     setUser: (id) =>
       set((state) => {
         return {
