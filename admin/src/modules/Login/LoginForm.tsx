@@ -2,7 +2,7 @@ import { Box, Stack } from "@chakra-ui/react";
 import * as React from "react";
 import { useQuery } from "react-query";
 import * as Constants from "../Constants";
-import { useUserStore } from "../../store/userStore";
+import { useUserStore } from "../../store/useUserStore";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
@@ -33,7 +33,7 @@ export const LoginForm = () => {
       .post("https://tezzbites-api.herokuapp.com/user/login", values)
       .then(function (response) {
         console.log(response);
-        setUser(response.data.id);
+        setUser(response.data.id, response.data.restaurant);
 
         if (response.data.message === "User authenticated") {
           router.push("/dashboard");

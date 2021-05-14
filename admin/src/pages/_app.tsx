@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { useUserStore } from "../store/userStore";
+import { useUserStore } from "../store/useUserStore";
 
 const queryClient = new QueryClient();
 

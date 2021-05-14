@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Center, Grid, Heading, Text } from "@chakra-ui/layout";
 import Head from "next/head";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import NavBar from "../components/NavBar";
 import StatComponent from "../components/Stats/MainStat";
 import TableComponent from "../components/Table/Table";
@@ -10,28 +10,10 @@ import { useQuery } from "react-query";
 import * as Constants from "../modules/Constants";
 import { request, gql } from "graphql-request";
 import { Skeleton } from "@chakra-ui/skeleton";
-import { useUserStore } from "../store/userStore";
+import { useGetUser } from "../shared-hooks/useGetUser";
 
 const DashboardPage = () => {
-  const userID = useUserStore((state) => state.userID);
-
-  const useGetUsers = () => {
-    return useQuery("user", async () => {
-      const { user } = await request(
-        Constants.GraphQL_API,
-        gql`
-          query {
-            user(where: { id: ${userID} }) {
-              firstName
-            }
-          }
-        `
-      );
-      return user;
-    });
-  };
-
-  const { data, error, isLoading, isSuccess } = useGetUsers();
+  const { data, error, isLoading, isSuccess } = useGetUser();
 
   return (
     <div>
