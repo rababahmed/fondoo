@@ -1,0 +1,12 @@
+export { AggregateDeliveryZoneArgs } from "./AggregateDeliveryZoneArgs";
+export { CreateDeliveryZoneArgs } from "./CreateDeliveryZoneArgs";
+export { CreateManyDeliveryZoneArgs } from "./CreateManyDeliveryZoneArgs";
+export { DeleteDeliveryZoneArgs } from "./DeleteDeliveryZoneArgs";
+export { DeleteManyDeliveryZoneArgs } from "./DeleteManyDeliveryZoneArgs";
+export { FindFirstDeliveryZoneArgs } from "./FindFirstDeliveryZoneArgs";
+export { FindManyDeliveryZoneArgs } from "./FindManyDeliveryZoneArgs";
+export { FindUniqueDeliveryZoneArgs } from "./FindUniqueDeliveryZoneArgs";
+export { GroupByDeliveryZoneArgs } from "./GroupByDeliveryZoneArgs";
+export { UpdateDeliveryZoneArgs } from "./UpdateDeliveryZoneArgs";
+export { UpdateManyDeliveryZoneArgs } from "./UpdateManyDeliveryZoneArgs";
+export { UpsertDeliveryZoneArgs } from "./UpsertDeliveryZoneArgs";

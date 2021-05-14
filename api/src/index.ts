@@ -3,17 +3,26 @@ import { PrismaClient } from "@prisma/client";
 import express from "express";
 import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server-express";
-import { resolvers } from "@generated/type-graphql/";
+import { resolvers } from "../prisma/generated/type-graphql/";
+
+const passport = require("passport");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const userRouter = require("./routes/UserAuth");
+
 interface Context {
   prisma: PrismaClient;
 }
-
 const PORT = process.env.PORT || 4000;
 
 const prisma = new PrismaClient();
+const app = express();
 
 const main = async () => {
-  const app = express();
+  app.use(bodyParser.json());
+  app.use(express.json());
+  app.use(passport.initialize());
+  app.use(cors());
 
   await prisma.$connect();
 
@@ -28,6 +37,8 @@ const main = async () => {
   });
 
   apolloServer.applyMiddleware({ app });
+
+  app.use("/user", userRouter);
 
   app.listen(PORT, () => {
     console.log(`Server started on http://localhost:${PORT}`);
