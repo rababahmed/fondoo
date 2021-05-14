@@ -38,10 +38,6 @@ const main = async () => {
 
   apolloServer.applyMiddleware({ app });
 
-  app.get("/", (req, res) => {
-    res.send("GET Request Called");
-  });
-
   app.use("/user", userRouter);
 
   app.listen(PORT, () => {
