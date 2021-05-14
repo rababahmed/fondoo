@@ -14,7 +14,7 @@ import { useUserStore } from "../store/userStore";
 import { useRouter } from "next/router";
 
 const DashboardPage = () => {
-  const user = useUserStore((state) => state.userID);
+  const userID = useUserStore((state) => state.userID);
 
   const useGetUsers = () => {
     return useQuery("user", async () => {
