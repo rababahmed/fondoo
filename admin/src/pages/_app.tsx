@@ -19,15 +19,6 @@ const colors = {
 const theme = extendTheme({ colors });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const user = useUserStore((s) => s.userID);
-
-  useEffect(() => {
-    if (!user) {
-      router.push("/login");
-    }
-  });
-
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider theme={theme} resetCSS={true}>
