@@ -1,8 +1,10 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { WaitForAuth } from "../modules/auth/WaitForAuth";
+import { useUserStore } from "../store/userStore";
 
 const queryClient = new QueryClient();
 
@@ -17,12 +19,19 @@ const colors = {
 const theme = extendTheme({ colors });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const user = useUserStore((s) => s.userID);
+
+  useEffect(() => {
+    if (!user) {
+      router.push("/login");
+    }
+  });
+
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider theme={theme} resetCSS={true}>
-        <WaitForAuth>
-          <Component {...pageProps} />
-        </WaitForAuth>
+        <Component {...pageProps} />
       </ChakraProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
