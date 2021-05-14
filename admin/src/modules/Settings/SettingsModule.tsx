@@ -1,6 +1,5 @@
 import { Box, Grid, Heading, Stack, VStack } from "@chakra-ui/layout";
 import React from "react";
-import FormInput from "../../components/Forms/FormInput";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
