@@ -7,17 +7,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
 import axios from "axios";
-
-const onSubmit = async (values) => {
-  console.log(values);
-  const { data } = await axios
-    .post("https://tezzbites-api.herokuapp.com/user/login", {
-      values,
-    })
-    .then(function (response) {
-      console.log(response);
-    });
-};
+import { useRouter } from "next/router";
 
 const initialValues = {
   email: "",
@@ -34,6 +24,23 @@ const PasswordProps = {
 };
 
 export const LoginForm = () => {
+  const router = useRouter();
+  const setUser = useUserStore((state) => state.setUser);
+
+  const onSubmit = async (values) => {
+    console.log(values);
+    const data = await axios
+      .post("https://tezzbites-api.herokuapp.com/user/login", values)
+      .then(function (response) {
+        console.log(response);
+        setUser(response.data.id);
+
+        if (response.data.message === "User authenticated") {
+          router.push("/dashboard");
+        }
+      });
+  };
+
   return (
     <Formik
       onSubmit={onSubmit}

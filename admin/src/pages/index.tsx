@@ -4,7 +4,7 @@ import { useUserStore } from "../store/userStore";
 
 const Home = () => {
   const router = useRouter();
-  const user = useUserStore((state) => state.id);
+  const user = useUserStore((state) => state.userID);
 
   useEffect(() => {
     if (user) {

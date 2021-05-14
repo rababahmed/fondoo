@@ -1,20 +1,23 @@
 import create from "zustand";
 import { devtools, redux } from "zustand/middleware";
 
-interface user {
-  id: string;
-  fullName: string;
-  email: string;
-  token: string;
-  setId: () => void;
+interface User {
+  isAuthenticated: Boolean;
+  userID: number;
+  setUser: (id: number) => void;
 }
 
-export const useUserStore = create<user>(
+export const useUserStore = create<User>(
   devtools((set) => ({
-    id: 1,
-    fullName: "",
-    email: "",
-    token: "",
-    setId: () => set((state) => ({ id: `${userID}` })),
+    isAuthenticated: false,
+    userID: 0,
+    setUser: (id) =>
+      set((state) => {
+        return {
+          ...state,
+          userID: id,
+          isAuthenticated: true,
+        };
+      }),
   }))
 );

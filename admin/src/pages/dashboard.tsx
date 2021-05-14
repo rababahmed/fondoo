@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Center, Grid, Heading, Text } from "@chakra-ui/layout";
 import Head from "next/head";
@@ -11,9 +11,10 @@ import * as Constants from "../modules/Constants";
 import { request, gql } from "graphql-request";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { useUserStore } from "../store/userStore";
+import { useRouter } from "next/router";
 
 const DashboardPage = () => {
-  const userID = useUserStore((state) => state.id);
+  const user = useUserStore((state) => state.userID);
 
   const useGetUsers = () => {
     return useQuery("user", async () => {
@@ -22,8 +23,7 @@ const DashboardPage = () => {
         gql`
           query {
             user(where: { id: ${userID} }) {
-              fullName
-              email
+              firstName
             }
           }
         `
@@ -48,7 +48,7 @@ const DashboardPage = () => {
           <Box as="section" bg={useColorModeValue("gray.50", "gray.800")}>
             <Skeleton isLoaded={!isLoading} m={10}>
               <Heading ml={6} mt={8}>
-                Hello {isSuccess && data.fullName}
+                Hello {isSuccess && data.firstName}
               </Heading>
             </Skeleton>
             <Skeleton isLoaded={!isLoading} m={10}>
