@@ -11,10 +11,27 @@ import * as Constants from "../modules/Constants";
 import { request, gql } from "graphql-request";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { useGetUser } from "../shared-hooks/useGetUser";
+import { useGQLQuery } from "../shared-hooks/useGQLQuery";
+
+const GET_USER = gql`
+  query {
+    user(where: { id: 1 }) {
+      firstName
+      lastName
+      Restaurant {
+        name
+        email
+      }
+    }
+  }
+`;
 
 const DashboardPage = () => {
-  const { data, error, isLoading, isSuccess } = useGetUser();
-
+  const { data, error, isLoading, isSuccess } = useGQLQuery(
+    "get-unique-user",
+    GET_USER
+  );
+  console.log(data);
   return (
     <div>
       <Head>
@@ -29,7 +46,7 @@ const DashboardPage = () => {
           <Box as="section" bg={useColorModeValue("gray.50", "gray.800")}>
             <Skeleton isLoaded={!isLoading} m={10}>
               <Heading ml={6} mt={8}>
-                Hello {isSuccess && data.firstName}
+                Hello {isSuccess && data.user.firstName}
               </Heading>
             </Skeleton>
             <Skeleton isLoaded={!isLoading} m={10}>
