@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
 import { useGetRestaurant } from "../../shared-hooks/useGetRestaurant";
 import { Skeleton } from "@chakra-ui/skeleton";
+import { gql } from "graphql-request";
+import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
 
 export const SettingsModule = () => {
   const { data, error, isLoading, isSuccess } = useGetRestaurant();
@@ -32,8 +34,22 @@ export const SettingsModule = () => {
     email: Yup.string(),
   });
 
+  const EDIT_RESTAURANT = gql`
+    mutation {
+      updateRestaurant(
+        data: {values}
+        where: { id: "e5b22e29-fe36-46e8-8417-468d9c9445d9" }
+      ) {
+        name
+      }
+    }
+  `;
+
+  const { mutate } = useGQLMutation("update-restaurant", EDIT_RESTAURANT);
+
   const onSubmit = async (values: any) => {
     console.log(values);
+    mutate();
   };
 
   return (
