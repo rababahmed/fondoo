@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateSchedule } from "../../outputs/AggregateSchedule";
 import { ScheduleGroupBy } from "../../outputs/ScheduleGroupBy";
 export declare class ScheduleCrudResolver {
-    schedule(ctx: any, info: GraphQLResolveInfo, args: FindUniqueScheduleArgs): Promise<Schedule | null>;
+    findUniqueSchedule(ctx: any, info: GraphQLResolveInfo, args: FindUniqueScheduleArgs): Promise<Schedule | null>;
     findFirstSchedule(ctx: any, info: GraphQLResolveInfo, args: FindFirstScheduleArgs): Promise<Schedule | null>;
-    schedules(ctx: any, info: GraphQLResolveInfo, args: FindManyScheduleArgs): Promise<Schedule[]>;
+    findManySchedule(ctx: any, info: GraphQLResolveInfo, args: FindManyScheduleArgs): Promise<Schedule[]>;
     createSchedule(ctx: any, info: GraphQLResolveInfo, args: CreateScheduleArgs): Promise<Schedule>;
     createManySchedule(ctx: any, info: GraphQLResolveInfo, args: CreateManyScheduleArgs): Promise<AffectedRowsOutput>;
     deleteSchedule(ctx: any, info: GraphQLResolveInfo, args: DeleteScheduleArgs): Promise<Schedule | null>;

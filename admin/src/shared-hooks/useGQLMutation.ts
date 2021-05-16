@@ -3,14 +3,13 @@ import * as Constants from "../modules/Constants";
 import request from "graphql-request";
 
 export const useGQLMutation = (
-  key: any,
+  mutationKey: any,
   mutation: any,
-  variables?: any,
-  config = {}
+  variables?: any
 ) => {
   const endpoint = Constants.GraphQL_API;
 
   const mutateData = async () => await request(endpoint, mutation, variables);
 
-  return useMutation(key, mutateData, config);
+  return useMutation(mutateData, { mutationKey });
 };

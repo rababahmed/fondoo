@@ -30,8 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpsertDeliveryZoneArgs = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const DeliveryZoneCreateInput_1 = require("../../../inputs/DeliveryZoneCreateInput");
-const DeliveryZoneUpdateInput_1 = require("../../../inputs/DeliveryZoneUpdateInput");
+const DeliveryZoneUncheckedCreateInput_1 = require("../../../inputs/DeliveryZoneUncheckedCreateInput");
+const DeliveryZoneUncheckedUpdateInput_1 = require("../../../inputs/DeliveryZoneUncheckedUpdateInput");
 const DeliveryZoneWhereUniqueInput_1 = require("../../../inputs/DeliveryZoneWhereUniqueInput");
 let UpsertDeliveryZoneArgs = class UpsertDeliveryZoneArgs {
 };
@@ -42,16 +42,16 @@ __decorate([
     __metadata("design:type", DeliveryZoneWhereUniqueInput_1.DeliveryZoneWhereUniqueInput)
 ], UpsertDeliveryZoneArgs.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DeliveryZoneCreateInput_1.DeliveryZoneCreateInput, {
+    TypeGraphQL.Field(_type => DeliveryZoneUncheckedCreateInput_1.DeliveryZoneUncheckedCreateInput, {
         nullable: false
     }),
-    __metadata("design:type", DeliveryZoneCreateInput_1.DeliveryZoneCreateInput)
+    __metadata("design:type", DeliveryZoneUncheckedCreateInput_1.DeliveryZoneUncheckedCreateInput)
 ], UpsertDeliveryZoneArgs.prototype, "create", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DeliveryZoneUpdateInput_1.DeliveryZoneUpdateInput, {
+    TypeGraphQL.Field(_type => DeliveryZoneUncheckedUpdateInput_1.DeliveryZoneUncheckedUpdateInput, {
         nullable: false
     }),
-    __metadata("design:type", DeliveryZoneUpdateInput_1.DeliveryZoneUpdateInput)
+    __metadata("design:type", DeliveryZoneUncheckedUpdateInput_1.DeliveryZoneUncheckedUpdateInput)
 ], UpsertDeliveryZoneArgs.prototype, "update", void 0);
 UpsertDeliveryZoneArgs = __decorate([
     TypeGraphQL.ArgsType()

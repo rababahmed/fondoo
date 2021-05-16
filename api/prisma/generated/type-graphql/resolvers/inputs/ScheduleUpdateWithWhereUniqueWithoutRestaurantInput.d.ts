@@ -1,6 +1,6 @@
-import { ScheduleUpdateWithoutRestaurantInput } from "../inputs/ScheduleUpdateWithoutRestaurantInput";
+import { ScheduleUncheckedUpdateWithoutRestaurantInput } from "../inputs/ScheduleUncheckedUpdateWithoutRestaurantInput";
 import { ScheduleWhereUniqueInput } from "../inputs/ScheduleWhereUniqueInput";
 export declare class ScheduleUpdateWithWhereUniqueWithoutRestaurantInput {
     where: ScheduleWhereUniqueInput;
-    data: ScheduleUpdateWithoutRestaurantInput;
+    data: ScheduleUncheckedUpdateWithoutRestaurantInput;
 }

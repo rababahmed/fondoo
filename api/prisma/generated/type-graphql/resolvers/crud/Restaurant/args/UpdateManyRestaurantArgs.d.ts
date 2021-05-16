@@ -1,6 +1,6 @@
-import { RestaurantUpdateManyMutationInput } from "../../../inputs/RestaurantUpdateManyMutationInput";
+import { RestaurantUncheckedUpdateManyInput } from "../../../inputs/RestaurantUncheckedUpdateManyInput";
 import { RestaurantWhereInput } from "../../../inputs/RestaurantWhereInput";
 export declare class UpdateManyRestaurantArgs {
-    data: RestaurantUpdateManyMutationInput;
+    data: RestaurantUncheckedUpdateManyInput;
     where?: RestaurantWhereInput | undefined;
 }

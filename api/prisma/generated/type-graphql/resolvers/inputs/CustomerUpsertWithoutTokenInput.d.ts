@@ -1,6 +1,6 @@
-import { CustomerCreateWithoutTokenInput } from "../inputs/CustomerCreateWithoutTokenInput";
-import { CustomerUpdateWithoutTokenInput } from "../inputs/CustomerUpdateWithoutTokenInput";
+import { CustomerUncheckedCreateWithoutTokenInput } from "../inputs/CustomerUncheckedCreateWithoutTokenInput";
+import { CustomerUncheckedUpdateWithoutTokenInput } from "../inputs/CustomerUncheckedUpdateWithoutTokenInput";
 export declare class CustomerUpsertWithoutTokenInput {
-    update: CustomerUpdateWithoutTokenInput;
-    create: CustomerCreateWithoutTokenInput;
+    update: CustomerUncheckedUpdateWithoutTokenInput;
+    create: CustomerUncheckedCreateWithoutTokenInput;
 }

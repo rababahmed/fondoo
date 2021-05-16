@@ -41,7 +41,7 @@ const FindUniqueProductArgs_1 = require("./args/FindUniqueProductArgs");
 const Product_1 = require("../../../models/Product");
 const helpers_1 = require("../../../helpers");
 let FindUniqueProductResolver = class FindUniqueProductResolver {
-    async product(ctx, info, args) {
+    async findUniqueProduct(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).product.findUnique({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueProductArgs_1.FindUniqueProductArgs]),
     __metadata("design:returntype", Promise)
-], FindUniqueProductResolver.prototype, "product", null);
+], FindUniqueProductResolver.prototype, "findUniqueProduct", null);
 FindUniqueProductResolver = __decorate([
     TypeGraphQL.Resolver(_of => Product_1.Product)
 ], FindUniqueProductResolver);

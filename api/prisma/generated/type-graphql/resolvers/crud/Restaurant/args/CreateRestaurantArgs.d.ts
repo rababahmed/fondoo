@@ -1,4 +1,4 @@
-import { RestaurantCreateInput } from "../../../inputs/RestaurantCreateInput";
+import { RestaurantUncheckedCreateInput } from "../../../inputs/RestaurantUncheckedCreateInput";
 export declare class CreateRestaurantArgs {
-    data: RestaurantCreateInput;
+    data: RestaurantUncheckedCreateInput;
 }

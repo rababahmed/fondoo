@@ -1,8 +1,8 @@
-import { CustomerAddressCreateInput } from "../../../inputs/CustomerAddressCreateInput";
-import { CustomerAddressUpdateInput } from "../../../inputs/CustomerAddressUpdateInput";
+import { CustomerAddressUncheckedCreateInput } from "../../../inputs/CustomerAddressUncheckedCreateInput";
+import { CustomerAddressUncheckedUpdateInput } from "../../../inputs/CustomerAddressUncheckedUpdateInput";
 import { CustomerAddressWhereUniqueInput } from "../../../inputs/CustomerAddressWhereUniqueInput";
 export declare class UpsertCustomerAddressArgs {
     where: CustomerAddressWhereUniqueInput;
-    create: CustomerAddressCreateInput;
-    update: CustomerAddressUpdateInput;
+    create: CustomerAddressUncheckedCreateInput;
+    update: CustomerAddressUncheckedUpdateInput;
 }

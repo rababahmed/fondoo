@@ -1,6 +1,6 @@
-import { CustomerCreateWithoutTokenInput } from "../inputs/CustomerCreateWithoutTokenInput";
+import { CustomerUncheckedCreateWithoutTokenInput } from "../inputs/CustomerUncheckedCreateWithoutTokenInput";
 import { CustomerWhereUniqueInput } from "../inputs/CustomerWhereUniqueInput";
 export declare class CustomerCreateOrConnectWithoutTokenInput {
     where: CustomerWhereUniqueInput;
-    create: CustomerCreateWithoutTokenInput;
+    create: CustomerUncheckedCreateWithoutTokenInput;
 }

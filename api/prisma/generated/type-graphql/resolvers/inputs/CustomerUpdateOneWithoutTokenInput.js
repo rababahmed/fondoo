@@ -31,17 +31,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerUpdateOneWithoutTokenInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const CustomerCreateOrConnectWithoutTokenInput_1 = require("../inputs/CustomerCreateOrConnectWithoutTokenInput");
-const CustomerCreateWithoutTokenInput_1 = require("../inputs/CustomerCreateWithoutTokenInput");
-const CustomerUpdateWithoutTokenInput_1 = require("../inputs/CustomerUpdateWithoutTokenInput");
+const CustomerUncheckedCreateWithoutTokenInput_1 = require("../inputs/CustomerUncheckedCreateWithoutTokenInput");
+const CustomerUncheckedUpdateWithoutTokenInput_1 = require("../inputs/CustomerUncheckedUpdateWithoutTokenInput");
 const CustomerUpsertWithoutTokenInput_1 = require("../inputs/CustomerUpsertWithoutTokenInput");
 const CustomerWhereUniqueInput_1 = require("../inputs/CustomerWhereUniqueInput");
 let CustomerUpdateOneWithoutTokenInput = class CustomerUpdateOneWithoutTokenInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => CustomerCreateWithoutTokenInput_1.CustomerCreateWithoutTokenInput, {
+    TypeGraphQL.Field(_type => CustomerUncheckedCreateWithoutTokenInput_1.CustomerUncheckedCreateWithoutTokenInput, {
         nullable: true
     }),
-    __metadata("design:type", CustomerCreateWithoutTokenInput_1.CustomerCreateWithoutTokenInput)
+    __metadata("design:type", CustomerUncheckedCreateWithoutTokenInput_1.CustomerUncheckedCreateWithoutTokenInput)
 ], CustomerUpdateOneWithoutTokenInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerCreateOrConnectWithoutTokenInput_1.CustomerCreateOrConnectWithoutTokenInput, {
@@ -74,10 +74,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CustomerUpdateOneWithoutTokenInput.prototype, "delete", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => CustomerUpdateWithoutTokenInput_1.CustomerUpdateWithoutTokenInput, {
+    TypeGraphQL.Field(_type => CustomerUncheckedUpdateWithoutTokenInput_1.CustomerUncheckedUpdateWithoutTokenInput, {
         nullable: true
     }),
-    __metadata("design:type", CustomerUpdateWithoutTokenInput_1.CustomerUpdateWithoutTokenInput)
+    __metadata("design:type", CustomerUncheckedUpdateWithoutTokenInput_1.CustomerUncheckedUpdateWithoutTokenInput)
 ], CustomerUpdateOneWithoutTokenInput.prototype, "update", void 0);
 CustomerUpdateOneWithoutTokenInput = __decorate([
     TypeGraphQL.InputType({

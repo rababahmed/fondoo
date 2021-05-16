@@ -1,8 +1,8 @@
-import { ProductCategoryCreateInput } from "../../../inputs/ProductCategoryCreateInput";
-import { ProductCategoryUpdateInput } from "../../../inputs/ProductCategoryUpdateInput";
+import { ProductCategoryUncheckedCreateInput } from "../../../inputs/ProductCategoryUncheckedCreateInput";
+import { ProductCategoryUncheckedUpdateInput } from "../../../inputs/ProductCategoryUncheckedUpdateInput";
 import { ProductCategoryWhereUniqueInput } from "../../../inputs/ProductCategoryWhereUniqueInput";
 export declare class UpsertProductCategoryArgs {
     where: ProductCategoryWhereUniqueInput;
-    create: ProductCategoryCreateInput;
-    update: ProductCategoryUpdateInput;
+    create: ProductCategoryUncheckedCreateInput;
+    update: ProductCategoryUncheckedUpdateInput;
 }

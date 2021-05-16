@@ -1,6 +1,6 @@
-import { UserCreateWithoutOrdersInput } from "../inputs/UserCreateWithoutOrdersInput";
+import { UserUncheckedCreateWithoutOrdersInput } from "../inputs/UserUncheckedCreateWithoutOrdersInput";
 import { UserWhereUniqueInput } from "../inputs/UserWhereUniqueInput";
 export declare class UserCreateOrConnectWithoutOrdersInput {
     where: UserWhereUniqueInput;
-    create: UserCreateWithoutOrdersInput;
+    create: UserUncheckedCreateWithoutOrdersInput;
 }

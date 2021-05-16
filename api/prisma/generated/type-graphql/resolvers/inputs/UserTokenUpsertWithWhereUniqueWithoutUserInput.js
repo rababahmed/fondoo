@@ -30,8 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserTokenUpsertWithWhereUniqueWithoutUserInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const UserTokenCreateWithoutUserInput_1 = require("../inputs/UserTokenCreateWithoutUserInput");
-const UserTokenUpdateWithoutUserInput_1 = require("../inputs/UserTokenUpdateWithoutUserInput");
+const UserTokenUncheckedCreateWithoutUserInput_1 = require("../inputs/UserTokenUncheckedCreateWithoutUserInput");
+const UserTokenUncheckedUpdateWithoutUserInput_1 = require("../inputs/UserTokenUncheckedUpdateWithoutUserInput");
 const UserTokenWhereUniqueInput_1 = require("../inputs/UserTokenWhereUniqueInput");
 let UserTokenUpsertWithWhereUniqueWithoutUserInput = class UserTokenUpsertWithWhereUniqueWithoutUserInput {
 };
@@ -42,16 +42,16 @@ __decorate([
     __metadata("design:type", UserTokenWhereUniqueInput_1.UserTokenWhereUniqueInput)
 ], UserTokenUpsertWithWhereUniqueWithoutUserInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserTokenUpdateWithoutUserInput_1.UserTokenUpdateWithoutUserInput, {
+    TypeGraphQL.Field(_type => UserTokenUncheckedUpdateWithoutUserInput_1.UserTokenUncheckedUpdateWithoutUserInput, {
         nullable: false
     }),
-    __metadata("design:type", UserTokenUpdateWithoutUserInput_1.UserTokenUpdateWithoutUserInput)
+    __metadata("design:type", UserTokenUncheckedUpdateWithoutUserInput_1.UserTokenUncheckedUpdateWithoutUserInput)
 ], UserTokenUpsertWithWhereUniqueWithoutUserInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserTokenCreateWithoutUserInput_1.UserTokenCreateWithoutUserInput, {
+    TypeGraphQL.Field(_type => UserTokenUncheckedCreateWithoutUserInput_1.UserTokenUncheckedCreateWithoutUserInput, {
         nullable: false
     }),
-    __metadata("design:type", UserTokenCreateWithoutUserInput_1.UserTokenCreateWithoutUserInput)
+    __metadata("design:type", UserTokenUncheckedCreateWithoutUserInput_1.UserTokenUncheckedCreateWithoutUserInput)
 ], UserTokenUpsertWithWhereUniqueWithoutUserInput.prototype, "create", void 0);
 UserTokenUpsertWithWhereUniqueWithoutUserInput = __decorate([
     TypeGraphQL.InputType({

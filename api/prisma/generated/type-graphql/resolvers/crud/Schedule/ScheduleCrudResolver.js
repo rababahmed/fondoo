@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateSchedule_1 = require("../../outputs/AggregateSchedule");
 const ScheduleGroupBy_1 = require("../../outputs/ScheduleGroupBy");
 let ScheduleCrudResolver = class ScheduleCrudResolver {
-    async schedule(ctx, info, args) {
+    async findUniqueSchedule(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).schedule.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let ScheduleCrudResolver = class ScheduleCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async schedules(ctx, info, args) {
+    async findManySchedule(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).schedule.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueScheduleArgs_1.FindUniqueScheduleArgs]),
     __metadata("design:returntype", Promise)
-], ScheduleCrudResolver.prototype, "schedule", null);
+], ScheduleCrudResolver.prototype, "findUniqueSchedule", null);
 __decorate([
     TypeGraphQL.Query(_returns => Schedule_1.Schedule, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyScheduleArgs_1.FindManyScheduleArgs]),
     __metadata("design:returntype", Promise)
-], ScheduleCrudResolver.prototype, "schedules", null);
+], ScheduleCrudResolver.prototype, "findManySchedule", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => Schedule_1.Schedule, {
         nullable: false

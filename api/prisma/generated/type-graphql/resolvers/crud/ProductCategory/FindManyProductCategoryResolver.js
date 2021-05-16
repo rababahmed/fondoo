@@ -41,7 +41,7 @@ const FindManyProductCategoryArgs_1 = require("./args/FindManyProductCategoryArg
 const ProductCategory_1 = require("../../../models/ProductCategory");
 const helpers_1 = require("../../../helpers");
 let FindManyProductCategoryResolver = class FindManyProductCategoryResolver {
-    async productCategories(ctx, info, args) {
+    async findManyProductCategory(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).productCategory.findMany({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyProductCategoryArgs_1.FindManyProductCategoryArgs]),
     __metadata("design:returntype", Promise)
-], FindManyProductCategoryResolver.prototype, "productCategories", null);
+], FindManyProductCategoryResolver.prototype, "findManyProductCategory", null);
 FindManyProductCategoryResolver = __decorate([
     TypeGraphQL.Resolver(_of => ProductCategory_1.ProductCategory)
 ], FindManyProductCategoryResolver);

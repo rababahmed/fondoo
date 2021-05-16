@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateUser } from "../../outputs/AggregateUser";
 import { UserGroupBy } from "../../outputs/UserGroupBy";
 export declare class UserCrudResolver {
-    user(ctx: any, info: GraphQLResolveInfo, args: FindUniqueUserArgs): Promise<User | null>;
+    findUniqueUser(ctx: any, info: GraphQLResolveInfo, args: FindUniqueUserArgs): Promise<User | null>;
     findFirstUser(ctx: any, info: GraphQLResolveInfo, args: FindFirstUserArgs): Promise<User | null>;
-    users(ctx: any, info: GraphQLResolveInfo, args: FindManyUserArgs): Promise<User[]>;
+    findManyUser(ctx: any, info: GraphQLResolveInfo, args: FindManyUserArgs): Promise<User[]>;
     createUser(ctx: any, info: GraphQLResolveInfo, args: CreateUserArgs): Promise<User>;
     createManyUser(ctx: any, info: GraphQLResolveInfo, args: CreateManyUserArgs): Promise<AffectedRowsOutput>;
     deleteUser(ctx: any, info: GraphQLResolveInfo, args: DeleteUserArgs): Promise<User | null>;

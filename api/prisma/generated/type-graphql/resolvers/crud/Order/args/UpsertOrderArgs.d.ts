@@ -1,8 +1,8 @@
-import { OrderCreateInput } from "../../../inputs/OrderCreateInput";
-import { OrderUpdateInput } from "../../../inputs/OrderUpdateInput";
+import { OrderUncheckedCreateInput } from "../../../inputs/OrderUncheckedCreateInput";
+import { OrderUncheckedUpdateInput } from "../../../inputs/OrderUncheckedUpdateInput";
 import { OrderWhereUniqueInput } from "../../../inputs/OrderWhereUniqueInput";
 export declare class UpsertOrderArgs {
     where: OrderWhereUniqueInput;
-    create: OrderCreateInput;
-    update: OrderUpdateInput;
+    create: OrderUncheckedCreateInput;
+    update: OrderUncheckedUpdateInput;
 }

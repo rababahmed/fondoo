@@ -30,8 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserUpsertWithWhereUniqueWithoutRestaurantInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const UserCreateWithoutRestaurantInput_1 = require("../inputs/UserCreateWithoutRestaurantInput");
-const UserUpdateWithoutRestaurantInput_1 = require("../inputs/UserUpdateWithoutRestaurantInput");
+const UserUncheckedCreateWithoutRestaurantInput_1 = require("../inputs/UserUncheckedCreateWithoutRestaurantInput");
+const UserUncheckedUpdateWithoutRestaurantInput_1 = require("../inputs/UserUncheckedUpdateWithoutRestaurantInput");
 const UserWhereUniqueInput_1 = require("../inputs/UserWhereUniqueInput");
 let UserUpsertWithWhereUniqueWithoutRestaurantInput = class UserUpsertWithWhereUniqueWithoutRestaurantInput {
 };
@@ -42,16 +42,16 @@ __decorate([
     __metadata("design:type", UserWhereUniqueInput_1.UserWhereUniqueInput)
 ], UserUpsertWithWhereUniqueWithoutRestaurantInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserUpdateWithoutRestaurantInput_1.UserUpdateWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => UserUncheckedUpdateWithoutRestaurantInput_1.UserUncheckedUpdateWithoutRestaurantInput, {
         nullable: false
     }),
-    __metadata("design:type", UserUpdateWithoutRestaurantInput_1.UserUpdateWithoutRestaurantInput)
+    __metadata("design:type", UserUncheckedUpdateWithoutRestaurantInput_1.UserUncheckedUpdateWithoutRestaurantInput)
 ], UserUpsertWithWhereUniqueWithoutRestaurantInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserCreateWithoutRestaurantInput_1.UserCreateWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => UserUncheckedCreateWithoutRestaurantInput_1.UserUncheckedCreateWithoutRestaurantInput, {
         nullable: false
     }),
-    __metadata("design:type", UserCreateWithoutRestaurantInput_1.UserCreateWithoutRestaurantInput)
+    __metadata("design:type", UserUncheckedCreateWithoutRestaurantInput_1.UserUncheckedCreateWithoutRestaurantInput)
 ], UserUpsertWithWhereUniqueWithoutRestaurantInput.prototype, "create", void 0);
 UserUpsertWithWhereUniqueWithoutRestaurantInput = __decorate([
     TypeGraphQL.InputType({

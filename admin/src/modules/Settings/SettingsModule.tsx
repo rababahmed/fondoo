@@ -1,5 +1,5 @@
 import { Box, Grid, Heading, Stack, VStack } from "@chakra-ui/layout";
-import React from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
@@ -7,6 +7,18 @@ import { useGetRestaurant } from "../../shared-hooks/useGetRestaurant";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { gql } from "graphql-request";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
+
+const EDIT_RESTAURANT = gql`
+  mutation UpdateRestaurant($name: String, $email: String, $url: String) {
+    updateRestaurant(
+      data: { name: { set: $name }, email: { set: $email }, url: { set: $url } }
+      where: { id: "e5b22e29-fe36-46e8-8417-468d9c9445d9" }
+    ) {
+      name
+      email
+    }
+  }
+`;
 
 export const SettingsModule = () => {
   const { data, error, isLoading, isSuccess } = useGetRestaurant();
@@ -34,22 +46,18 @@ export const SettingsModule = () => {
     email: Yup.string(),
   });
 
-  const EDIT_RESTAURANT = gql`
-    mutation {
-      updateRestaurant(
-        data: {values}
-        where: { id: "e5b22e29-fe36-46e8-8417-468d9c9445d9" }
-      ) {
-        name
-      }
-    }
-  `;
+  const [formData, setFormData] = useState({ name: "", email: "", url: "" });
 
-  const { mutate } = useGQLMutation("update-restaurant", EDIT_RESTAURANT);
+  const mutation = useGQLMutation("update-restaurant", EDIT_RESTAURANT, {
+    name: formData.name,
+    email: formData.email,
+    url: formData.url,
+  });
 
   const onSubmit = async (values: any) => {
-    console.log(values);
-    mutate();
+    setFormData(values);
+    console.log(formData);
+    mutation.mutate();
   };
 
   return (

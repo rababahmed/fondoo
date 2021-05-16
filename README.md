@@ -12,5 +12,5 @@ TezzBites provides a suite of tools to manage a restaurant's day to day operatio
 
 ## Branches
 
-- staging -> pr this branch for everything
-- main -> don't touch, this is what's running in production
+- main -> pr this branch for everything
+- prod -> don't touch, this is what's running in production

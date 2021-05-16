@@ -41,7 +41,7 @@ const FindUniqueRestaurantArgs_1 = require("./args/FindUniqueRestaurantArgs");
 const Restaurant_1 = require("../../../models/Restaurant");
 const helpers_1 = require("../../../helpers");
 let FindUniqueRestaurantResolver = class FindUniqueRestaurantResolver {
-    async restaurant(ctx, info, args) {
+    async findUniqueRestaurant(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).restaurant.findUnique({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueRestaurantArgs_1.FindUniqueRestaurantArgs]),
     __metadata("design:returntype", Promise)
-], FindUniqueRestaurantResolver.prototype, "restaurant", null);
+], FindUniqueRestaurantResolver.prototype, "findUniqueRestaurant", null);
 FindUniqueRestaurantResolver = __decorate([
     TypeGraphQL.Resolver(_of => Restaurant_1.Restaurant)
 ], FindUniqueRestaurantResolver);

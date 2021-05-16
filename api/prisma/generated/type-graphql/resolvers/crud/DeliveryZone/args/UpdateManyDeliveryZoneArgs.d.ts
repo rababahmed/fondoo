@@ -1,6 +1,6 @@
-import { DeliveryZoneUpdateManyMutationInput } from "../../../inputs/DeliveryZoneUpdateManyMutationInput";
+import { DeliveryZoneUncheckedUpdateManyInput } from "../../../inputs/DeliveryZoneUncheckedUpdateManyInput";
 import { DeliveryZoneWhereInput } from "../../../inputs/DeliveryZoneWhereInput";
 export declare class UpdateManyDeliveryZoneArgs {
-    data: DeliveryZoneUpdateManyMutationInput;
+    data: DeliveryZoneUncheckedUpdateManyInput;
     where?: DeliveryZoneWhereInput | undefined;
 }

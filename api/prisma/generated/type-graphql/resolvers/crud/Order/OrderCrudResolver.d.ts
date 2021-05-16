@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateOrder } from "../../outputs/AggregateOrder";
 import { OrderGroupBy } from "../../outputs/OrderGroupBy";
 export declare class OrderCrudResolver {
-    order(ctx: any, info: GraphQLResolveInfo, args: FindUniqueOrderArgs): Promise<Order | null>;
+    findUniqueOrder(ctx: any, info: GraphQLResolveInfo, args: FindUniqueOrderArgs): Promise<Order | null>;
     findFirstOrder(ctx: any, info: GraphQLResolveInfo, args: FindFirstOrderArgs): Promise<Order | null>;
-    orders(ctx: any, info: GraphQLResolveInfo, args: FindManyOrderArgs): Promise<Order[]>;
+    findManyOrder(ctx: any, info: GraphQLResolveInfo, args: FindManyOrderArgs): Promise<Order[]>;
     createOrder(ctx: any, info: GraphQLResolveInfo, args: CreateOrderArgs): Promise<Order>;
     createManyOrder(ctx: any, info: GraphQLResolveInfo, args: CreateManyOrderArgs): Promise<AffectedRowsOutput>;
     deleteOrder(ctx: any, info: GraphQLResolveInfo, args: DeleteOrderArgs): Promise<Order | null>;

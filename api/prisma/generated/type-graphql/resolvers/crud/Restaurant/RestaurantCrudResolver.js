@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateRestaurant_1 = require("../../outputs/AggregateRestaurant");
 const RestaurantGroupBy_1 = require("../../outputs/RestaurantGroupBy");
 let RestaurantCrudResolver = class RestaurantCrudResolver {
-    async restaurant(ctx, info, args) {
+    async findUniqueRestaurant(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).restaurant.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let RestaurantCrudResolver = class RestaurantCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async restaurants(ctx, info, args) {
+    async findManyRestaurant(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).restaurant.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueRestaurantArgs_1.FindUniqueRestaurantArgs]),
     __metadata("design:returntype", Promise)
-], RestaurantCrudResolver.prototype, "restaurant", null);
+], RestaurantCrudResolver.prototype, "findUniqueRestaurant", null);
 __decorate([
     TypeGraphQL.Query(_returns => Restaurant_1.Restaurant, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyRestaurantArgs_1.FindManyRestaurantArgs]),
     __metadata("design:returntype", Promise)
-], RestaurantCrudResolver.prototype, "restaurants", null);
+], RestaurantCrudResolver.prototype, "findManyRestaurant", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => Restaurant_1.Restaurant, {
         nullable: false

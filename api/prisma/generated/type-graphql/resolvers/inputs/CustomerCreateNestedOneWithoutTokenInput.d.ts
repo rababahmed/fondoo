@@ -1,8 +1,8 @@
 import { CustomerCreateOrConnectWithoutTokenInput } from "../inputs/CustomerCreateOrConnectWithoutTokenInput";
-import { CustomerCreateWithoutTokenInput } from "../inputs/CustomerCreateWithoutTokenInput";
+import { CustomerUncheckedCreateWithoutTokenInput } from "../inputs/CustomerUncheckedCreateWithoutTokenInput";
 import { CustomerWhereUniqueInput } from "../inputs/CustomerWhereUniqueInput";
 export declare class CustomerCreateNestedOneWithoutTokenInput {
-    create?: CustomerCreateWithoutTokenInput | undefined;
+    create?: CustomerUncheckedCreateWithoutTokenInput | undefined;
     connectOrCreate?: CustomerCreateOrConnectWithoutTokenInput | undefined;
     connect?: CustomerWhereUniqueInput | undefined;
 }

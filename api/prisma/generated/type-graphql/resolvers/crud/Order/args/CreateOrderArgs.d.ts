@@ -1,4 +1,4 @@
-import { OrderCreateInput } from "../../../inputs/OrderCreateInput";
+import { OrderUncheckedCreateInput } from "../../../inputs/OrderUncheckedCreateInput";
 export declare class CreateOrderArgs {
-    data: OrderCreateInput;
+    data: OrderUncheckedCreateInput;
 }

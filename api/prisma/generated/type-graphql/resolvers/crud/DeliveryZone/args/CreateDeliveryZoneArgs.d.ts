@@ -1,4 +1,4 @@
-import { DeliveryZoneCreateInput } from "../../../inputs/DeliveryZoneCreateInput";
+import { DeliveryZoneUncheckedCreateInput } from "../../../inputs/DeliveryZoneUncheckedCreateInput";
 export declare class CreateDeliveryZoneArgs {
-    data: DeliveryZoneCreateInput;
+    data: DeliveryZoneUncheckedCreateInput;
 }

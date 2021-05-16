@@ -1,4 +1,4 @@
-import { CustomerAddressCreateInput } from "../../../inputs/CustomerAddressCreateInput";
+import { CustomerAddressUncheckedCreateInput } from "../../../inputs/CustomerAddressUncheckedCreateInput";
 export declare class CreateCustomerAddressArgs {
-    data: CustomerAddressCreateInput;
+    data: CustomerAddressUncheckedCreateInput;
 }

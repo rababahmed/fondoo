@@ -1,6 +1,6 @@
-import { UserUpdateInput } from "../../../inputs/UserUpdateInput";
+import { UserUncheckedUpdateInput } from "../../../inputs/UserUncheckedUpdateInput";
 import { UserWhereUniqueInput } from "../../../inputs/UserWhereUniqueInput";
 export declare class UpdateUserArgs {
-    data: UserUpdateInput;
+    data: UserUncheckedUpdateInput;
     where: UserWhereUniqueInput;
 }

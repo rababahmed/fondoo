@@ -1,6 +1,6 @@
 import { ProductScalarWhereInput } from "../inputs/ProductScalarWhereInput";
-import { ProductUpdateManyMutationInput } from "../inputs/ProductUpdateManyMutationInput";
+import { ProductUncheckedUpdateManyWithoutProductsInput } from "../inputs/ProductUncheckedUpdateManyWithoutProductsInput";
 export declare class ProductUpdateManyWithWhereWithoutRestaurantInput {
     where: ProductScalarWhereInput;
-    data: ProductUpdateManyMutationInput;
+    data: ProductUncheckedUpdateManyWithoutProductsInput;
 }

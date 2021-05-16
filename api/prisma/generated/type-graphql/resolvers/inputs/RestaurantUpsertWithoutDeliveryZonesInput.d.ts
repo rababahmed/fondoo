@@ -1,6 +1,6 @@
-import { RestaurantCreateWithoutDeliveryZonesInput } from "../inputs/RestaurantCreateWithoutDeliveryZonesInput";
-import { RestaurantUpdateWithoutDeliveryZonesInput } from "../inputs/RestaurantUpdateWithoutDeliveryZonesInput";
+import { RestaurantUncheckedCreateWithoutDeliveryZonesInput } from "../inputs/RestaurantUncheckedCreateWithoutDeliveryZonesInput";
+import { RestaurantUncheckedUpdateWithoutDeliveryZonesInput } from "../inputs/RestaurantUncheckedUpdateWithoutDeliveryZonesInput";
 export declare class RestaurantUpsertWithoutDeliveryZonesInput {
-    update: RestaurantUpdateWithoutDeliveryZonesInput;
-    create: RestaurantCreateWithoutDeliveryZonesInput;
+    update: RestaurantUncheckedUpdateWithoutDeliveryZonesInput;
+    create: RestaurantUncheckedCreateWithoutDeliveryZonesInput;
 }

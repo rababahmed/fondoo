@@ -1,0 +1,9 @@
+mutation $fnName($variables) {
+  $mtName(
+    data: { $variableField: { set: $variableData }}
+    where: { id: $identifier }
+  ) {
+    name
+    email
+  }
+}

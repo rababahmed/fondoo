@@ -31,15 +31,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductCategoryCreateNestedOneWithoutProductInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const ProductCategoryCreateOrConnectWithoutProductInput_1 = require("../inputs/ProductCategoryCreateOrConnectWithoutProductInput");
-const ProductCategoryCreateWithoutProductInput_1 = require("../inputs/ProductCategoryCreateWithoutProductInput");
+const ProductCategoryUncheckedCreateWithoutProductInput_1 = require("../inputs/ProductCategoryUncheckedCreateWithoutProductInput");
 const ProductCategoryWhereUniqueInput_1 = require("../inputs/ProductCategoryWhereUniqueInput");
 let ProductCategoryCreateNestedOneWithoutProductInput = class ProductCategoryCreateNestedOneWithoutProductInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => ProductCategoryCreateWithoutProductInput_1.ProductCategoryCreateWithoutProductInput, {
+    TypeGraphQL.Field(_type => ProductCategoryUncheckedCreateWithoutProductInput_1.ProductCategoryUncheckedCreateWithoutProductInput, {
         nullable: true
     }),
-    __metadata("design:type", ProductCategoryCreateWithoutProductInput_1.ProductCategoryCreateWithoutProductInput)
+    __metadata("design:type", ProductCategoryUncheckedCreateWithoutProductInput_1.ProductCategoryUncheckedCreateWithoutProductInput)
 ], ProductCategoryCreateNestedOneWithoutProductInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => ProductCategoryCreateOrConnectWithoutProductInput_1.ProductCategoryCreateOrConnectWithoutProductInput, {
