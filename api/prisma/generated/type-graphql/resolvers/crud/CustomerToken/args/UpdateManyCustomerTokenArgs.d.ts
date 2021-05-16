@@ -1,6 +1,6 @@
-import { CustomerTokenUncheckedUpdateManyInput } from "../../../inputs/CustomerTokenUncheckedUpdateManyInput";
+import { CustomerTokenUpdateManyMutationInput } from "../../../inputs/CustomerTokenUpdateManyMutationInput";
 import { CustomerTokenWhereInput } from "../../../inputs/CustomerTokenWhereInput";
 export declare class UpdateManyCustomerTokenArgs {
-    data: CustomerTokenUncheckedUpdateManyInput;
+    data: CustomerTokenUpdateManyMutationInput;
     where?: CustomerTokenWhereInput | undefined;
 }

@@ -1,6 +1,6 @@
-import { ProductCategoryUncheckedCreateWithoutProductInput } from "../inputs/ProductCategoryUncheckedCreateWithoutProductInput";
+import { ProductCategoryCreateWithoutProductInput } from "../inputs/ProductCategoryCreateWithoutProductInput";
 import { ProductCategoryWhereUniqueInput } from "../inputs/ProductCategoryWhereUniqueInput";
 export declare class ProductCategoryCreateOrConnectWithoutProductInput {
     where: ProductCategoryWhereUniqueInput;
-    create: ProductCategoryUncheckedCreateWithoutProductInput;
+    create: ProductCategoryCreateWithoutProductInput;
 }

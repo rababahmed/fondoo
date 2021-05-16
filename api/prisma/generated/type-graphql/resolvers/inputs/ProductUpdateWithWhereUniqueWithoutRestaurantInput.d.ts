@@ -1,6 +1,6 @@
-import { ProductUncheckedUpdateWithoutRestaurantInput } from "../inputs/ProductUncheckedUpdateWithoutRestaurantInput";
+import { ProductUpdateWithoutRestaurantInput } from "../inputs/ProductUpdateWithoutRestaurantInput";
 import { ProductWhereUniqueInput } from "../inputs/ProductWhereUniqueInput";
 export declare class ProductUpdateWithWhereUniqueWithoutRestaurantInput {
     where: ProductWhereUniqueInput;
-    data: ProductUncheckedUpdateWithoutRestaurantInput;
+    data: ProductUpdateWithoutRestaurantInput;
 }

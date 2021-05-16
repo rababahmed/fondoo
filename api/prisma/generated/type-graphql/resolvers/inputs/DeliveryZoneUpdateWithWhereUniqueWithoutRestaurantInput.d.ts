@@ -1,6 +1,6 @@
-import { DeliveryZoneUncheckedUpdateWithoutRestaurantInput } from "../inputs/DeliveryZoneUncheckedUpdateWithoutRestaurantInput";
+import { DeliveryZoneUpdateWithoutRestaurantInput } from "../inputs/DeliveryZoneUpdateWithoutRestaurantInput";
 import { DeliveryZoneWhereUniqueInput } from "../inputs/DeliveryZoneWhereUniqueInput";
 export declare class DeliveryZoneUpdateWithWhereUniqueWithoutRestaurantInput {
     where: DeliveryZoneWhereUniqueInput;
-    data: DeliveryZoneUncheckedUpdateWithoutRestaurantInput;
+    data: DeliveryZoneUpdateWithoutRestaurantInput;
 }

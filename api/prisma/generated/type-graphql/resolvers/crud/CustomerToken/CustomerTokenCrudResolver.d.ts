@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateCustomerToken } from "../../outputs/AggregateCustomerToken";
 import { CustomerTokenGroupBy } from "../../outputs/CustomerTokenGroupBy";
 export declare class CustomerTokenCrudResolver {
-    findUniqueCustomerToken(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCustomerTokenArgs): Promise<CustomerToken | null>;
+    customerToken(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCustomerTokenArgs): Promise<CustomerToken | null>;
     findFirstCustomerToken(ctx: any, info: GraphQLResolveInfo, args: FindFirstCustomerTokenArgs): Promise<CustomerToken | null>;
-    findManyCustomerToken(ctx: any, info: GraphQLResolveInfo, args: FindManyCustomerTokenArgs): Promise<CustomerToken[]>;
+    customerTokens(ctx: any, info: GraphQLResolveInfo, args: FindManyCustomerTokenArgs): Promise<CustomerToken[]>;
     createCustomerToken(ctx: any, info: GraphQLResolveInfo, args: CreateCustomerTokenArgs): Promise<CustomerToken>;
     createManyCustomerToken(ctx: any, info: GraphQLResolveInfo, args: CreateManyCustomerTokenArgs): Promise<AffectedRowsOutput>;
     deleteCustomerToken(ctx: any, info: GraphQLResolveInfo, args: DeleteCustomerTokenArgs): Promise<CustomerToken | null>;

@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateRestaurant } from "../../outputs/AggregateRestaurant";
 import { RestaurantGroupBy } from "../../outputs/RestaurantGroupBy";
 export declare class RestaurantCrudResolver {
-    findUniqueRestaurant(ctx: any, info: GraphQLResolveInfo, args: FindUniqueRestaurantArgs): Promise<Restaurant | null>;
+    restaurant(ctx: any, info: GraphQLResolveInfo, args: FindUniqueRestaurantArgs): Promise<Restaurant | null>;
     findFirstRestaurant(ctx: any, info: GraphQLResolveInfo, args: FindFirstRestaurantArgs): Promise<Restaurant | null>;
-    findManyRestaurant(ctx: any, info: GraphQLResolveInfo, args: FindManyRestaurantArgs): Promise<Restaurant[]>;
+    restaurants(ctx: any, info: GraphQLResolveInfo, args: FindManyRestaurantArgs): Promise<Restaurant[]>;
     createRestaurant(ctx: any, info: GraphQLResolveInfo, args: CreateRestaurantArgs): Promise<Restaurant>;
     createManyRestaurant(ctx: any, info: GraphQLResolveInfo, args: CreateManyRestaurantArgs): Promise<AffectedRowsOutput>;
     deleteRestaurant(ctx: any, info: GraphQLResolveInfo, args: DeleteRestaurantArgs): Promise<Restaurant | null>;

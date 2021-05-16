@@ -30,21 +30,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantUpsertWithoutDeliveryZonesInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const RestaurantUncheckedCreateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantUncheckedCreateWithoutDeliveryZonesInput");
-const RestaurantUncheckedUpdateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantUncheckedUpdateWithoutDeliveryZonesInput");
+const RestaurantCreateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantCreateWithoutDeliveryZonesInput");
+const RestaurantUpdateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantUpdateWithoutDeliveryZonesInput");
 let RestaurantUpsertWithoutDeliveryZonesInput = class RestaurantUpsertWithoutDeliveryZonesInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUncheckedUpdateWithoutDeliveryZonesInput_1.RestaurantUncheckedUpdateWithoutDeliveryZonesInput, {
+    TypeGraphQL.Field(_type => RestaurantUpdateWithoutDeliveryZonesInput_1.RestaurantUpdateWithoutDeliveryZonesInput, {
         nullable: false
     }),
-    __metadata("design:type", RestaurantUncheckedUpdateWithoutDeliveryZonesInput_1.RestaurantUncheckedUpdateWithoutDeliveryZonesInput)
+    __metadata("design:type", RestaurantUpdateWithoutDeliveryZonesInput_1.RestaurantUpdateWithoutDeliveryZonesInput)
 ], RestaurantUpsertWithoutDeliveryZonesInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUncheckedCreateWithoutDeliveryZonesInput_1.RestaurantUncheckedCreateWithoutDeliveryZonesInput, {
+    TypeGraphQL.Field(_type => RestaurantCreateWithoutDeliveryZonesInput_1.RestaurantCreateWithoutDeliveryZonesInput, {
         nullable: false
     }),
-    __metadata("design:type", RestaurantUncheckedCreateWithoutDeliveryZonesInput_1.RestaurantUncheckedCreateWithoutDeliveryZonesInput)
+    __metadata("design:type", RestaurantCreateWithoutDeliveryZonesInput_1.RestaurantCreateWithoutDeliveryZonesInput)
 ], RestaurantUpsertWithoutDeliveryZonesInput.prototype, "create", void 0);
 RestaurantUpsertWithoutDeliveryZonesInput = __decorate([
     TypeGraphQL.InputType({

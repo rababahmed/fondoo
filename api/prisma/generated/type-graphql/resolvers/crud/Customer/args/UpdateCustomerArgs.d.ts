@@ -1,6 +1,6 @@
-import { CustomerUncheckedUpdateInput } from "../../../inputs/CustomerUncheckedUpdateInput";
+import { CustomerUpdateInput } from "../../../inputs/CustomerUpdateInput";
 import { CustomerWhereUniqueInput } from "../../../inputs/CustomerWhereUniqueInput";
 export declare class UpdateCustomerArgs {
-    data: CustomerUncheckedUpdateInput;
+    data: CustomerUpdateInput;
     where: CustomerWhereUniqueInput;
 }

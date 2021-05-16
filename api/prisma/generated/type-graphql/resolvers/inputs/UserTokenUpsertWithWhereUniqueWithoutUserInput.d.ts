@@ -1,8 +1,8 @@
-import { UserTokenUncheckedCreateWithoutUserInput } from "../inputs/UserTokenUncheckedCreateWithoutUserInput";
-import { UserTokenUncheckedUpdateWithoutUserInput } from "../inputs/UserTokenUncheckedUpdateWithoutUserInput";
+import { UserTokenCreateWithoutUserInput } from "../inputs/UserTokenCreateWithoutUserInput";
+import { UserTokenUpdateWithoutUserInput } from "../inputs/UserTokenUpdateWithoutUserInput";
 import { UserTokenWhereUniqueInput } from "../inputs/UserTokenWhereUniqueInput";
 export declare class UserTokenUpsertWithWhereUniqueWithoutUserInput {
     where: UserTokenWhereUniqueInput;
-    update: UserTokenUncheckedUpdateWithoutUserInput;
-    create: UserTokenUncheckedCreateWithoutUserInput;
+    update: UserTokenUpdateWithoutUserInput;
+    create: UserTokenCreateWithoutUserInput;
 }

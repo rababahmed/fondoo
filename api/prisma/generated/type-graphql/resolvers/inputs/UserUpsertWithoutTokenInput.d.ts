@@ -1,6 +1,6 @@
-import { UserUncheckedCreateWithoutTokenInput } from "../inputs/UserUncheckedCreateWithoutTokenInput";
-import { UserUncheckedUpdateWithoutTokenInput } from "../inputs/UserUncheckedUpdateWithoutTokenInput";
+import { UserCreateWithoutTokenInput } from "../inputs/UserCreateWithoutTokenInput";
+import { UserUpdateWithoutTokenInput } from "../inputs/UserUpdateWithoutTokenInput";
 export declare class UserUpsertWithoutTokenInput {
-    update: UserUncheckedUpdateWithoutTokenInput;
-    create: UserUncheckedCreateWithoutTokenInput;
+    update: UserUpdateWithoutTokenInput;
+    create: UserCreateWithoutTokenInput;
 }

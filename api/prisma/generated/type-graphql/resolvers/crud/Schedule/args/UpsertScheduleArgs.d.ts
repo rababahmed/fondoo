@@ -1,8 +1,8 @@
-import { ScheduleUncheckedCreateInput } from "../../../inputs/ScheduleUncheckedCreateInput";
-import { ScheduleUncheckedUpdateInput } from "../../../inputs/ScheduleUncheckedUpdateInput";
+import { ScheduleCreateInput } from "../../../inputs/ScheduleCreateInput";
+import { ScheduleUpdateInput } from "../../../inputs/ScheduleUpdateInput";
 import { ScheduleWhereUniqueInput } from "../../../inputs/ScheduleWhereUniqueInput";
 export declare class UpsertScheduleArgs {
     where: ScheduleWhereUniqueInput;
-    create: ScheduleUncheckedCreateInput;
-    update: ScheduleUncheckedUpdateInput;
+    create: ScheduleCreateInput;
+    update: ScheduleUpdateInput;
 }

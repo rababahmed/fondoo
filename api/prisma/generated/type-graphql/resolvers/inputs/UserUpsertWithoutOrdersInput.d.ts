@@ -1,6 +1,6 @@
-import { UserUncheckedCreateWithoutOrdersInput } from "../inputs/UserUncheckedCreateWithoutOrdersInput";
-import { UserUncheckedUpdateWithoutOrdersInput } from "../inputs/UserUncheckedUpdateWithoutOrdersInput";
+import { UserCreateWithoutOrdersInput } from "../inputs/UserCreateWithoutOrdersInput";
+import { UserUpdateWithoutOrdersInput } from "../inputs/UserUpdateWithoutOrdersInput";
 export declare class UserUpsertWithoutOrdersInput {
-    update: UserUncheckedUpdateWithoutOrdersInput;
-    create: UserUncheckedCreateWithoutOrdersInput;
+    update: UserUpdateWithoutOrdersInput;
+    create: UserCreateWithoutOrdersInput;
 }

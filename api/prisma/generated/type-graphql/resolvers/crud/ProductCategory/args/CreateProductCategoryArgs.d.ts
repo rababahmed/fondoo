@@ -1,4 +1,4 @@
-import { ProductCategoryUncheckedCreateInput } from "../../../inputs/ProductCategoryUncheckedCreateInput";
+import { ProductCategoryCreateInput } from "../../../inputs/ProductCategoryCreateInput";
 export declare class CreateProductCategoryArgs {
-    data: ProductCategoryUncheckedCreateInput;
+    data: ProductCategoryCreateInput;
 }

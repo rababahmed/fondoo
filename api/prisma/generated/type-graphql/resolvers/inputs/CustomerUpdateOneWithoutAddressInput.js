@@ -31,17 +31,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerUpdateOneWithoutAddressInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const CustomerCreateOrConnectWithoutAddressInput_1 = require("../inputs/CustomerCreateOrConnectWithoutAddressInput");
-const CustomerUncheckedCreateWithoutAddressInput_1 = require("../inputs/CustomerUncheckedCreateWithoutAddressInput");
-const CustomerUncheckedUpdateWithoutAddressInput_1 = require("../inputs/CustomerUncheckedUpdateWithoutAddressInput");
+const CustomerCreateWithoutAddressInput_1 = require("../inputs/CustomerCreateWithoutAddressInput");
+const CustomerUpdateWithoutAddressInput_1 = require("../inputs/CustomerUpdateWithoutAddressInput");
 const CustomerUpsertWithoutAddressInput_1 = require("../inputs/CustomerUpsertWithoutAddressInput");
 const CustomerWhereUniqueInput_1 = require("../inputs/CustomerWhereUniqueInput");
 let CustomerUpdateOneWithoutAddressInput = class CustomerUpdateOneWithoutAddressInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => CustomerUncheckedCreateWithoutAddressInput_1.CustomerUncheckedCreateWithoutAddressInput, {
+    TypeGraphQL.Field(_type => CustomerCreateWithoutAddressInput_1.CustomerCreateWithoutAddressInput, {
         nullable: true
     }),
-    __metadata("design:type", CustomerUncheckedCreateWithoutAddressInput_1.CustomerUncheckedCreateWithoutAddressInput)
+    __metadata("design:type", CustomerCreateWithoutAddressInput_1.CustomerCreateWithoutAddressInput)
 ], CustomerUpdateOneWithoutAddressInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerCreateOrConnectWithoutAddressInput_1.CustomerCreateOrConnectWithoutAddressInput, {
@@ -74,10 +74,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CustomerUpdateOneWithoutAddressInput.prototype, "delete", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => CustomerUncheckedUpdateWithoutAddressInput_1.CustomerUncheckedUpdateWithoutAddressInput, {
+    TypeGraphQL.Field(_type => CustomerUpdateWithoutAddressInput_1.CustomerUpdateWithoutAddressInput, {
         nullable: true
     }),
-    __metadata("design:type", CustomerUncheckedUpdateWithoutAddressInput_1.CustomerUncheckedUpdateWithoutAddressInput)
+    __metadata("design:type", CustomerUpdateWithoutAddressInput_1.CustomerUpdateWithoutAddressInput)
 ], CustomerUpdateOneWithoutAddressInput.prototype, "update", void 0);
 CustomerUpdateOneWithoutAddressInput = __decorate([
     TypeGraphQL.InputType({

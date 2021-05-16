@@ -41,7 +41,7 @@ const FindManyDeliveryZoneArgs_1 = require("./args/FindManyDeliveryZoneArgs");
 const DeliveryZone_1 = require("../../../models/DeliveryZone");
 const helpers_1 = require("../../../helpers");
 let FindManyDeliveryZoneResolver = class FindManyDeliveryZoneResolver {
-    async findManyDeliveryZone(ctx, info, args) {
+    async deliveryZones(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).deliveryZone.findMany({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyDeliveryZoneArgs_1.FindManyDeliveryZoneArgs]),
     __metadata("design:returntype", Promise)
-], FindManyDeliveryZoneResolver.prototype, "findManyDeliveryZone", null);
+], FindManyDeliveryZoneResolver.prototype, "deliveryZones", null);
 FindManyDeliveryZoneResolver = __decorate([
     TypeGraphQL.Resolver(_of => DeliveryZone_1.DeliveryZone)
 ], FindManyDeliveryZoneResolver);

@@ -1,12 +1,12 @@
 import { RestaurantCreateOrConnectWithoutOrdersInput } from "../inputs/RestaurantCreateOrConnectWithoutOrdersInput";
-import { RestaurantUncheckedCreateWithoutOrdersInput } from "../inputs/RestaurantUncheckedCreateWithoutOrdersInput";
-import { RestaurantUncheckedUpdateWithoutOrdersInput } from "../inputs/RestaurantUncheckedUpdateWithoutOrdersInput";
+import { RestaurantCreateWithoutOrdersInput } from "../inputs/RestaurantCreateWithoutOrdersInput";
+import { RestaurantUpdateWithoutOrdersInput } from "../inputs/RestaurantUpdateWithoutOrdersInput";
 import { RestaurantUpsertWithoutOrdersInput } from "../inputs/RestaurantUpsertWithoutOrdersInput";
 import { RestaurantWhereUniqueInput } from "../inputs/RestaurantWhereUniqueInput";
 export declare class RestaurantUpdateOneRequiredWithoutOrdersInput {
-    create?: RestaurantUncheckedCreateWithoutOrdersInput | undefined;
+    create?: RestaurantCreateWithoutOrdersInput | undefined;
     connectOrCreate?: RestaurantCreateOrConnectWithoutOrdersInput | undefined;
     upsert?: RestaurantUpsertWithoutOrdersInput | undefined;
     connect?: RestaurantWhereUniqueInput | undefined;
-    update?: RestaurantUncheckedUpdateWithoutOrdersInput | undefined;
+    update?: RestaurantUpdateWithoutOrdersInput | undefined;
 }

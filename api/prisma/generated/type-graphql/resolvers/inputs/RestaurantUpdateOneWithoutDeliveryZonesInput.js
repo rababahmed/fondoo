@@ -31,17 +31,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantUpdateOneWithoutDeliveryZonesInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const RestaurantCreateOrConnectWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantCreateOrConnectWithoutDeliveryZonesInput");
-const RestaurantUncheckedCreateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantUncheckedCreateWithoutDeliveryZonesInput");
-const RestaurantUncheckedUpdateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantUncheckedUpdateWithoutDeliveryZonesInput");
+const RestaurantCreateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantCreateWithoutDeliveryZonesInput");
+const RestaurantUpdateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantUpdateWithoutDeliveryZonesInput");
 const RestaurantUpsertWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantUpsertWithoutDeliveryZonesInput");
 const RestaurantWhereUniqueInput_1 = require("../inputs/RestaurantWhereUniqueInput");
 let RestaurantUpdateOneWithoutDeliveryZonesInput = class RestaurantUpdateOneWithoutDeliveryZonesInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUncheckedCreateWithoutDeliveryZonesInput_1.RestaurantUncheckedCreateWithoutDeliveryZonesInput, {
+    TypeGraphQL.Field(_type => RestaurantCreateWithoutDeliveryZonesInput_1.RestaurantCreateWithoutDeliveryZonesInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantUncheckedCreateWithoutDeliveryZonesInput_1.RestaurantUncheckedCreateWithoutDeliveryZonesInput)
+    __metadata("design:type", RestaurantCreateWithoutDeliveryZonesInput_1.RestaurantCreateWithoutDeliveryZonesInput)
 ], RestaurantUpdateOneWithoutDeliveryZonesInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => RestaurantCreateOrConnectWithoutDeliveryZonesInput_1.RestaurantCreateOrConnectWithoutDeliveryZonesInput, {
@@ -74,10 +74,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], RestaurantUpdateOneWithoutDeliveryZonesInput.prototype, "delete", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUncheckedUpdateWithoutDeliveryZonesInput_1.RestaurantUncheckedUpdateWithoutDeliveryZonesInput, {
+    TypeGraphQL.Field(_type => RestaurantUpdateWithoutDeliveryZonesInput_1.RestaurantUpdateWithoutDeliveryZonesInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantUncheckedUpdateWithoutDeliveryZonesInput_1.RestaurantUncheckedUpdateWithoutDeliveryZonesInput)
+    __metadata("design:type", RestaurantUpdateWithoutDeliveryZonesInput_1.RestaurantUpdateWithoutDeliveryZonesInput)
 ], RestaurantUpdateOneWithoutDeliveryZonesInput.prototype, "update", void 0);
 RestaurantUpdateOneWithoutDeliveryZonesInput = __decorate([
     TypeGraphQL.InputType({

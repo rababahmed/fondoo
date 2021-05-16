@@ -1,8 +1,8 @@
-import { UserUncheckedCreateWithoutRestaurantInput } from "../inputs/UserUncheckedCreateWithoutRestaurantInput";
-import { UserUncheckedUpdateWithoutRestaurantInput } from "../inputs/UserUncheckedUpdateWithoutRestaurantInput";
+import { UserCreateWithoutRestaurantInput } from "../inputs/UserCreateWithoutRestaurantInput";
+import { UserUpdateWithoutRestaurantInput } from "../inputs/UserUpdateWithoutRestaurantInput";
 import { UserWhereUniqueInput } from "../inputs/UserWhereUniqueInput";
 export declare class UserUpsertWithWhereUniqueWithoutRestaurantInput {
     where: UserWhereUniqueInput;
-    update: UserUncheckedUpdateWithoutRestaurantInput;
-    create: UserUncheckedCreateWithoutRestaurantInput;
+    update: UserUpdateWithoutRestaurantInput;
+    create: UserCreateWithoutRestaurantInput;
 }

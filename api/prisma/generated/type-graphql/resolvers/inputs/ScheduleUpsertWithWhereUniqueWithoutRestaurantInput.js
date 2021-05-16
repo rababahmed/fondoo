@@ -30,8 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScheduleUpsertWithWhereUniqueWithoutRestaurantInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const ScheduleUncheckedCreateWithoutRestaurantInput_1 = require("../inputs/ScheduleUncheckedCreateWithoutRestaurantInput");
-const ScheduleUncheckedUpdateWithoutRestaurantInput_1 = require("../inputs/ScheduleUncheckedUpdateWithoutRestaurantInput");
+const ScheduleCreateWithoutRestaurantInput_1 = require("../inputs/ScheduleCreateWithoutRestaurantInput");
+const ScheduleUpdateWithoutRestaurantInput_1 = require("../inputs/ScheduleUpdateWithoutRestaurantInput");
 const ScheduleWhereUniqueInput_1 = require("../inputs/ScheduleWhereUniqueInput");
 let ScheduleUpsertWithWhereUniqueWithoutRestaurantInput = class ScheduleUpsertWithWhereUniqueWithoutRestaurantInput {
 };
@@ -42,16 +42,16 @@ __decorate([
     __metadata("design:type", ScheduleWhereUniqueInput_1.ScheduleWhereUniqueInput)
 ], ScheduleUpsertWithWhereUniqueWithoutRestaurantInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ScheduleUncheckedUpdateWithoutRestaurantInput_1.ScheduleUncheckedUpdateWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => ScheduleUpdateWithoutRestaurantInput_1.ScheduleUpdateWithoutRestaurantInput, {
         nullable: false
     }),
-    __metadata("design:type", ScheduleUncheckedUpdateWithoutRestaurantInput_1.ScheduleUncheckedUpdateWithoutRestaurantInput)
+    __metadata("design:type", ScheduleUpdateWithoutRestaurantInput_1.ScheduleUpdateWithoutRestaurantInput)
 ], ScheduleUpsertWithWhereUniqueWithoutRestaurantInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ScheduleUncheckedCreateWithoutRestaurantInput_1.ScheduleUncheckedCreateWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => ScheduleCreateWithoutRestaurantInput_1.ScheduleCreateWithoutRestaurantInput, {
         nullable: false
     }),
-    __metadata("design:type", ScheduleUncheckedCreateWithoutRestaurantInput_1.ScheduleUncheckedCreateWithoutRestaurantInput)
+    __metadata("design:type", ScheduleCreateWithoutRestaurantInput_1.ScheduleCreateWithoutRestaurantInput)
 ], ScheduleUpsertWithWhereUniqueWithoutRestaurantInput.prototype, "create", void 0);
 ScheduleUpsertWithWhereUniqueWithoutRestaurantInput = __decorate([
     TypeGraphQL.InputType({

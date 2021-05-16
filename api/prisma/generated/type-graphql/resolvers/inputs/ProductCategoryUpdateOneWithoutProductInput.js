@@ -31,17 +31,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductCategoryUpdateOneWithoutProductInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const ProductCategoryCreateOrConnectWithoutProductInput_1 = require("../inputs/ProductCategoryCreateOrConnectWithoutProductInput");
-const ProductCategoryUncheckedCreateWithoutProductInput_1 = require("../inputs/ProductCategoryUncheckedCreateWithoutProductInput");
-const ProductCategoryUncheckedUpdateWithoutProductInput_1 = require("../inputs/ProductCategoryUncheckedUpdateWithoutProductInput");
+const ProductCategoryCreateWithoutProductInput_1 = require("../inputs/ProductCategoryCreateWithoutProductInput");
+const ProductCategoryUpdateWithoutProductInput_1 = require("../inputs/ProductCategoryUpdateWithoutProductInput");
 const ProductCategoryUpsertWithoutProductInput_1 = require("../inputs/ProductCategoryUpsertWithoutProductInput");
 const ProductCategoryWhereUniqueInput_1 = require("../inputs/ProductCategoryWhereUniqueInput");
 let ProductCategoryUpdateOneWithoutProductInput = class ProductCategoryUpdateOneWithoutProductInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => ProductCategoryUncheckedCreateWithoutProductInput_1.ProductCategoryUncheckedCreateWithoutProductInput, {
+    TypeGraphQL.Field(_type => ProductCategoryCreateWithoutProductInput_1.ProductCategoryCreateWithoutProductInput, {
         nullable: true
     }),
-    __metadata("design:type", ProductCategoryUncheckedCreateWithoutProductInput_1.ProductCategoryUncheckedCreateWithoutProductInput)
+    __metadata("design:type", ProductCategoryCreateWithoutProductInput_1.ProductCategoryCreateWithoutProductInput)
 ], ProductCategoryUpdateOneWithoutProductInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => ProductCategoryCreateOrConnectWithoutProductInput_1.ProductCategoryCreateOrConnectWithoutProductInput, {
@@ -74,10 +74,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], ProductCategoryUpdateOneWithoutProductInput.prototype, "delete", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ProductCategoryUncheckedUpdateWithoutProductInput_1.ProductCategoryUncheckedUpdateWithoutProductInput, {
+    TypeGraphQL.Field(_type => ProductCategoryUpdateWithoutProductInput_1.ProductCategoryUpdateWithoutProductInput, {
         nullable: true
     }),
-    __metadata("design:type", ProductCategoryUncheckedUpdateWithoutProductInput_1.ProductCategoryUncheckedUpdateWithoutProductInput)
+    __metadata("design:type", ProductCategoryUpdateWithoutProductInput_1.ProductCategoryUpdateWithoutProductInput)
 ], ProductCategoryUpdateOneWithoutProductInput.prototype, "update", void 0);
 ProductCategoryUpdateOneWithoutProductInput = __decorate([
     TypeGraphQL.InputType({

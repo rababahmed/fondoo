@@ -1,6 +1,6 @@
-import { ProductCategoryUncheckedCreateWithoutRestaurantsInput } from "../inputs/ProductCategoryUncheckedCreateWithoutRestaurantsInput";
+import { ProductCategoryCreateWithoutRestaurantsInput } from "../inputs/ProductCategoryCreateWithoutRestaurantsInput";
 import { ProductCategoryWhereUniqueInput } from "../inputs/ProductCategoryWhereUniqueInput";
 export declare class ProductCategoryCreateOrConnectWithoutRestaurantsInput {
     where: ProductCategoryWhereUniqueInput;
-    create: ProductCategoryUncheckedCreateWithoutRestaurantsInput;
+    create: ProductCategoryCreateWithoutRestaurantsInput;
 }

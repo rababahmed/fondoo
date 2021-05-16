@@ -1,6 +1,6 @@
-import { RestaurantUncheckedCreateWithoutProductsInput } from "../inputs/RestaurantUncheckedCreateWithoutProductsInput";
-import { RestaurantUncheckedUpdateWithoutProductsInput } from "../inputs/RestaurantUncheckedUpdateWithoutProductsInput";
+import { RestaurantCreateWithoutProductsInput } from "../inputs/RestaurantCreateWithoutProductsInput";
+import { RestaurantUpdateWithoutProductsInput } from "../inputs/RestaurantUpdateWithoutProductsInput";
 export declare class RestaurantUpsertWithoutProductsInput {
-    update: RestaurantUncheckedUpdateWithoutProductsInput;
-    create: RestaurantUncheckedCreateWithoutProductsInput;
+    update: RestaurantUpdateWithoutProductsInput;
+    create: RestaurantCreateWithoutProductsInput;
 }

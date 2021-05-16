@@ -31,7 +31,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderUpdateManyWithWhereWithoutUserInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const OrderScalarWhereInput_1 = require("../inputs/OrderScalarWhereInput");
-const OrderUncheckedUpdateManyWithoutOrdersInput_1 = require("../inputs/OrderUncheckedUpdateManyWithoutOrdersInput");
+const OrderUpdateManyMutationInput_1 = require("../inputs/OrderUpdateManyMutationInput");
 let OrderUpdateManyWithWhereWithoutUserInput = class OrderUpdateManyWithWhereWithoutUserInput {
 };
 __decorate([
@@ -41,10 +41,10 @@ __decorate([
     __metadata("design:type", OrderScalarWhereInput_1.OrderScalarWhereInput)
 ], OrderUpdateManyWithWhereWithoutUserInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => OrderUncheckedUpdateManyWithoutOrdersInput_1.OrderUncheckedUpdateManyWithoutOrdersInput, {
+    TypeGraphQL.Field(_type => OrderUpdateManyMutationInput_1.OrderUpdateManyMutationInput, {
         nullable: false
     }),
-    __metadata("design:type", OrderUncheckedUpdateManyWithoutOrdersInput_1.OrderUncheckedUpdateManyWithoutOrdersInput)
+    __metadata("design:type", OrderUpdateManyMutationInput_1.OrderUpdateManyMutationInput)
 ], OrderUpdateManyWithWhereWithoutUserInput.prototype, "data", void 0);
 OrderUpdateManyWithWhereWithoutUserInput = __decorate([
     TypeGraphQL.InputType({

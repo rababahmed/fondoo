@@ -1,6 +1,6 @@
-import { CustomerAddressUncheckedCreateWithoutOrderInput } from "../inputs/CustomerAddressUncheckedCreateWithoutOrderInput";
+import { CustomerAddressCreateWithoutOrderInput } from "../inputs/CustomerAddressCreateWithoutOrderInput";
 import { CustomerAddressWhereUniqueInput } from "../inputs/CustomerAddressWhereUniqueInput";
 export declare class CustomerAddressCreateOrConnectWithoutOrderInput {
     where: CustomerAddressWhereUniqueInput;
-    create: CustomerAddressUncheckedCreateWithoutOrderInput;
+    create: CustomerAddressCreateWithoutOrderInput;
 }

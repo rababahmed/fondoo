@@ -1,6 +1,6 @@
-import { UserTokenUncheckedUpdateManyInput } from "../../../inputs/UserTokenUncheckedUpdateManyInput";
+import { UserTokenUpdateManyMutationInput } from "../../../inputs/UserTokenUpdateManyMutationInput";
 import { UserTokenWhereInput } from "../../../inputs/UserTokenWhereInput";
 export declare class UpdateManyUserTokenArgs {
-    data: UserTokenUncheckedUpdateManyInput;
+    data: UserTokenUpdateManyMutationInput;
     where?: UserTokenWhereInput | undefined;
 }

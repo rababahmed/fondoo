@@ -41,7 +41,11 @@ const DashboardPage = () => {
       </Head>
       <Grid templateColumns="1fr 10fr">
         <NavBar />
-        <Box bg={useColorModeValue("gray.50", "gray.800")}>
+        <Box
+          bg={useColorModeValue("gray.50", "gray.800")}
+          minH="100%"
+          h="100vh"
+        >
           <Header />
           <Box as="section" bg={useColorModeValue("gray.50", "gray.800")}>
             <Skeleton isLoaded={!isLoading} m={10}>

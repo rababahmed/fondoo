@@ -1,17 +1,35 @@
-import { Box, Grid, Heading, Stack, VStack } from "@chakra-ui/layout";
+import { Box, Divider, Grid, Heading, Stack, VStack } from "@chakra-ui/layout";
 import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { InputControl, SubmitButton } from "formik-chakra-ui";
+import {
+  CheckboxSingleControl,
+  InputControl,
+  SubmitButton,
+} from "formik-chakra-ui";
 import { useGetRestaurant } from "../../shared-hooks/useGetRestaurant";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { gql } from "graphql-request";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
 
 const EDIT_RESTAURANT = gql`
-  mutation UpdateRestaurant($name: String, $email: String, $url: String) {
+  mutation UpdateRestaurant(
+    $name: String
+    $email: String
+    $url: String
+    $businessMobile: String
+    $city: String
+    $priceRange: String
+  ) {
     updateRestaurant(
-      data: { name: { set: $name }, email: { set: $email }, url: { set: $url } }
+      data: {
+        name: { set: $name }
+        email: { set: $email }
+        url: { set: $url }
+        businessPhone: { set: $businessPhone }
+        city: { set: $city }
+        priceRange: { set: $priceRange }
+      }
       where: { id: "e5b22e29-fe36-46e8-8417-468d9c9445d9" }
     ) {
       name
@@ -22,16 +40,17 @@ const EDIT_RESTAURANT = gql`
 
 export const SettingsModule = () => {
   const { data, error, isLoading, isSuccess } = useGetRestaurant();
+  console.log(data);
 
   const initialValues = {
     name: (isSuccess && data.name) || "",
     coverImage: (isSuccess && data.coverImage) || "",
-    businessMobile: (isSuccess && data.businessMobile) || "",
+    businessPhone: (isSuccess && data.businessPhone) || "",
     city: (isSuccess && data.city) || "",
     priceRange: (isSuccess && data.priceRange) || "",
     cuisine: (isSuccess && data.cuisine) || "",
     email: (isSuccess && data.email) || "",
-    reservationMobile: (isSuccess && data.reservationMobile) || "",
+    reservationPhone: (isSuccess && data.reservationPhone) || "",
     postCode: (isSuccess && data.postCode) || "",
     vat: (isSuccess && data.vat) || "",
     logo: (isSuccess && data.logo) || "",
@@ -46,18 +65,21 @@ export const SettingsModule = () => {
     email: Yup.string(),
   });
 
-  const [formData, setFormData] = useState({ name: "", email: "", url: "" });
+  const [formData, setFormData] = useState(initialValues);
 
   const mutation = useGQLMutation("update-restaurant", EDIT_RESTAURANT, {
     name: formData.name,
     email: formData.email,
     url: formData.url,
+    businessPhone: formData.businessPhone,
+    city: formData.city,
+    priceRange: formData.priceRange,
+    cuisine: formData.cuisine,
   });
 
   const onSubmit = async (values: any) => {
-    setFormData(values);
-    console.log(formData);
-    mutation.mutate();
+    await setFormData(values);
+    await mutation.mutate();
   };
 
   return (
@@ -75,7 +97,7 @@ export const SettingsModule = () => {
                 <Stack spacing="6">
                   <InputControl name="name" label="Restaurant Name" />
                   <InputControl name="coverImage" label="Cover Image" />
-                  <InputControl name="businessMobile" label="Business Mobile" />
+                  <InputControl name="businessPhone" label="Business Phone" />
                   <InputControl name="city" label="City / Town" />
                   <InputControl name="priceRange" label="Price Range" />
                 </Stack>
@@ -85,8 +107,8 @@ export const SettingsModule = () => {
                   <InputControl name="cuisine" label="Cuisine" />
                   <InputControl name="email" label="Restaurant Email" />
                   <InputControl
-                    name="reservationMobile"
-                    label="Reservation Mobile"
+                    name="reservationPhone"
+                    label="Reservation Phone"
                   />
                   <InputControl name="postCode" label="Post Code" />
                   <InputControl name="vat" label="VAT" />
@@ -95,17 +117,61 @@ export const SettingsModule = () => {
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
                   <InputControl name="logo" label="Logo" />
-                  <InputControl name="url" label="Restaurant URL" />
+                  <InputControl
+                    name="url"
+                    label="Restaurant URL"
+                    inputProps={{ placeholder: "your-site.com" }}
+                  />
                   <InputControl name="streetAddress" label="Street Address" />
                   <InputControl name="country" label="Country" />
                   <InputControl name="serviceCharge" label="Service Charge" />
                 </Stack>
               </Skeleton>
             </Grid>
+            <Box mt={12} mb={6} />
+            <Grid templateColumns="1fr 1fr 1fr" gap={6}>
+              <Skeleton isLoaded={!isLoading}>
+                <Stack spacing="6">
+                  <CheckboxSingleControl name="hasParking">
+                    Parking Facilities
+                  </CheckboxSingleControl>
+                  <CheckboxSingleControl name="hasPartyFacilities">
+                    Party Facilities
+                  </CheckboxSingleControl>
+                  <CheckboxSingleControl name="hasKidsZone">
+                    Kid's Zone
+                  </CheckboxSingleControl>
+                </Stack>
+              </Skeleton>
+              <Skeleton isLoaded={!isLoading}>
+                <Stack spacing="6">
+                  <CheckboxSingleControl name="delivery">
+                    Delivery
+                  </CheckboxSingleControl>
+                  <CheckboxSingleControl name="takeaway">
+                    Takeaway
+                  </CheckboxSingleControl>
+                  <CheckboxSingleControl name="reservation">
+                    Reservation
+                  </CheckboxSingleControl>
+                </Stack>
+              </Skeleton>
+              <Skeleton isLoaded={!isLoading}>
+                <Stack spacing="6">
+                  <CheckboxSingleControl name="isAutoAcceptOrder">
+                    Auto Accept Orders
+                  </CheckboxSingleControl>
+                  <CheckboxSingleControl name="isAutoAccept Reservation">
+                    Auto Accept Reservations
+                  </CheckboxSingleControl>
+                </Stack>
+              </Skeleton>
+            </Grid>
             <Skeleton isLoaded={!isLoading}>
-              <Stack mt={6} pb={2}>
+              <Stack mt={10} pb={2}>
                 <VStack>
                   <SubmitButton
+                    isLoading={mutation.isLoading}
                     w={40}
                     bgColor="gray.700"
                     _active={{ bgColor: "gray.500" }}

@@ -30,8 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpsertScheduleArgs = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const ScheduleUncheckedCreateInput_1 = require("../../../inputs/ScheduleUncheckedCreateInput");
-const ScheduleUncheckedUpdateInput_1 = require("../../../inputs/ScheduleUncheckedUpdateInput");
+const ScheduleCreateInput_1 = require("../../../inputs/ScheduleCreateInput");
+const ScheduleUpdateInput_1 = require("../../../inputs/ScheduleUpdateInput");
 const ScheduleWhereUniqueInput_1 = require("../../../inputs/ScheduleWhereUniqueInput");
 let UpsertScheduleArgs = class UpsertScheduleArgs {
 };
@@ -42,16 +42,16 @@ __decorate([
     __metadata("design:type", ScheduleWhereUniqueInput_1.ScheduleWhereUniqueInput)
 ], UpsertScheduleArgs.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ScheduleUncheckedCreateInput_1.ScheduleUncheckedCreateInput, {
+    TypeGraphQL.Field(_type => ScheduleCreateInput_1.ScheduleCreateInput, {
         nullable: false
     }),
-    __metadata("design:type", ScheduleUncheckedCreateInput_1.ScheduleUncheckedCreateInput)
+    __metadata("design:type", ScheduleCreateInput_1.ScheduleCreateInput)
 ], UpsertScheduleArgs.prototype, "create", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ScheduleUncheckedUpdateInput_1.ScheduleUncheckedUpdateInput, {
+    TypeGraphQL.Field(_type => ScheduleUpdateInput_1.ScheduleUpdateInput, {
         nullable: false
     }),
-    __metadata("design:type", ScheduleUncheckedUpdateInput_1.ScheduleUncheckedUpdateInput)
+    __metadata("design:type", ScheduleUpdateInput_1.ScheduleUpdateInput)
 ], UpsertScheduleArgs.prototype, "update", void 0);
 UpsertScheduleArgs = __decorate([
     TypeGraphQL.ArgsType()

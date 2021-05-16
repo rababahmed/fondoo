@@ -1,8 +1,8 @@
 import { CustomerCreateOrConnectWithoutAddressInput } from "../inputs/CustomerCreateOrConnectWithoutAddressInput";
-import { CustomerUncheckedCreateWithoutAddressInput } from "../inputs/CustomerUncheckedCreateWithoutAddressInput";
+import { CustomerCreateWithoutAddressInput } from "../inputs/CustomerCreateWithoutAddressInput";
 import { CustomerWhereUniqueInput } from "../inputs/CustomerWhereUniqueInput";
 export declare class CustomerCreateNestedOneWithoutAddressInput {
-    create?: CustomerUncheckedCreateWithoutAddressInput | undefined;
+    create?: CustomerCreateWithoutAddressInput | undefined;
     connectOrCreate?: CustomerCreateOrConnectWithoutAddressInput | undefined;
     connect?: CustomerWhereUniqueInput | undefined;
 }

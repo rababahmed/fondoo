@@ -1,4 +1,4 @@
-import { ScheduleUncheckedCreateInput } from "../../../inputs/ScheduleUncheckedCreateInput";
+import { ScheduleCreateInput } from "../../../inputs/ScheduleCreateInput";
 export declare class CreateScheduleArgs {
-    data: ScheduleUncheckedCreateInput;
+    data: ScheduleCreateInput;
 }

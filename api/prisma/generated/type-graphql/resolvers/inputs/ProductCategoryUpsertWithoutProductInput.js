@@ -30,21 +30,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductCategoryUpsertWithoutProductInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const ProductCategoryUncheckedCreateWithoutProductInput_1 = require("../inputs/ProductCategoryUncheckedCreateWithoutProductInput");
-const ProductCategoryUncheckedUpdateWithoutProductInput_1 = require("../inputs/ProductCategoryUncheckedUpdateWithoutProductInput");
+const ProductCategoryCreateWithoutProductInput_1 = require("../inputs/ProductCategoryCreateWithoutProductInput");
+const ProductCategoryUpdateWithoutProductInput_1 = require("../inputs/ProductCategoryUpdateWithoutProductInput");
 let ProductCategoryUpsertWithoutProductInput = class ProductCategoryUpsertWithoutProductInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => ProductCategoryUncheckedUpdateWithoutProductInput_1.ProductCategoryUncheckedUpdateWithoutProductInput, {
+    TypeGraphQL.Field(_type => ProductCategoryUpdateWithoutProductInput_1.ProductCategoryUpdateWithoutProductInput, {
         nullable: false
     }),
-    __metadata("design:type", ProductCategoryUncheckedUpdateWithoutProductInput_1.ProductCategoryUncheckedUpdateWithoutProductInput)
+    __metadata("design:type", ProductCategoryUpdateWithoutProductInput_1.ProductCategoryUpdateWithoutProductInput)
 ], ProductCategoryUpsertWithoutProductInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ProductCategoryUncheckedCreateWithoutProductInput_1.ProductCategoryUncheckedCreateWithoutProductInput, {
+    TypeGraphQL.Field(_type => ProductCategoryCreateWithoutProductInput_1.ProductCategoryCreateWithoutProductInput, {
         nullable: false
     }),
-    __metadata("design:type", ProductCategoryUncheckedCreateWithoutProductInput_1.ProductCategoryUncheckedCreateWithoutProductInput)
+    __metadata("design:type", ProductCategoryCreateWithoutProductInput_1.ProductCategoryCreateWithoutProductInput)
 ], ProductCategoryUpsertWithoutProductInput.prototype, "create", void 0);
 ProductCategoryUpsertWithoutProductInput = __decorate([
     TypeGraphQL.InputType({

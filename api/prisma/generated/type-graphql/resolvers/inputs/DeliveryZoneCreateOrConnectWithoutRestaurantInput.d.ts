@@ -1,6 +1,6 @@
-import { DeliveryZoneUncheckedCreateWithoutRestaurantInput } from "../inputs/DeliveryZoneUncheckedCreateWithoutRestaurantInput";
+import { DeliveryZoneCreateWithoutRestaurantInput } from "../inputs/DeliveryZoneCreateWithoutRestaurantInput";
 import { DeliveryZoneWhereUniqueInput } from "../inputs/DeliveryZoneWhereUniqueInput";
 export declare class DeliveryZoneCreateOrConnectWithoutRestaurantInput {
     where: DeliveryZoneWhereUniqueInput;
-    create: DeliveryZoneUncheckedCreateWithoutRestaurantInput;
+    create: DeliveryZoneCreateWithoutRestaurantInput;
 }

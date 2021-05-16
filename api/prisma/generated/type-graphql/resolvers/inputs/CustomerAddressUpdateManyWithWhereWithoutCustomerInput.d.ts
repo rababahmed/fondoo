@@ -1,6 +1,6 @@
 import { CustomerAddressScalarWhereInput } from "../inputs/CustomerAddressScalarWhereInput";
-import { CustomerAddressUncheckedUpdateManyWithoutAddressInput } from "../inputs/CustomerAddressUncheckedUpdateManyWithoutAddressInput";
+import { CustomerAddressUpdateManyMutationInput } from "../inputs/CustomerAddressUpdateManyMutationInput";
 export declare class CustomerAddressUpdateManyWithWhereWithoutCustomerInput {
     where: CustomerAddressScalarWhereInput;
-    data: CustomerAddressUncheckedUpdateManyWithoutAddressInput;
+    data: CustomerAddressUpdateManyMutationInput;
 }

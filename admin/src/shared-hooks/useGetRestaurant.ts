@@ -14,6 +14,11 @@ export const useGetRestaurant = () => {
             name
             email
             url
+            city
+            priceRange
+            vat
+            businessPhone
+            address
           }
         }
       `

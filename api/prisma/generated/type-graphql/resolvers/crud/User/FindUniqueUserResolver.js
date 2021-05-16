@@ -41,7 +41,7 @@ const FindUniqueUserArgs_1 = require("./args/FindUniqueUserArgs");
 const User_1 = require("../../../models/User");
 const helpers_1 = require("../../../helpers");
 let FindUniqueUserResolver = class FindUniqueUserResolver {
-    async findUniqueUser(ctx, info, args) {
+    async user(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).user.findUnique({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueUserArgs_1.FindUniqueUserArgs]),
     __metadata("design:returntype", Promise)
-], FindUniqueUserResolver.prototype, "findUniqueUser", null);
+], FindUniqueUserResolver.prototype, "user", null);
 FindUniqueUserResolver = __decorate([
     TypeGraphQL.Resolver(_of => User_1.User)
 ], FindUniqueUserResolver);

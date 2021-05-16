@@ -30,8 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpsertProductCategoryArgs = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const ProductCategoryUncheckedCreateInput_1 = require("../../../inputs/ProductCategoryUncheckedCreateInput");
-const ProductCategoryUncheckedUpdateInput_1 = require("../../../inputs/ProductCategoryUncheckedUpdateInput");
+const ProductCategoryCreateInput_1 = require("../../../inputs/ProductCategoryCreateInput");
+const ProductCategoryUpdateInput_1 = require("../../../inputs/ProductCategoryUpdateInput");
 const ProductCategoryWhereUniqueInput_1 = require("../../../inputs/ProductCategoryWhereUniqueInput");
 let UpsertProductCategoryArgs = class UpsertProductCategoryArgs {
 };
@@ -42,16 +42,16 @@ __decorate([
     __metadata("design:type", ProductCategoryWhereUniqueInput_1.ProductCategoryWhereUniqueInput)
 ], UpsertProductCategoryArgs.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ProductCategoryUncheckedCreateInput_1.ProductCategoryUncheckedCreateInput, {
+    TypeGraphQL.Field(_type => ProductCategoryCreateInput_1.ProductCategoryCreateInput, {
         nullable: false
     }),
-    __metadata("design:type", ProductCategoryUncheckedCreateInput_1.ProductCategoryUncheckedCreateInput)
+    __metadata("design:type", ProductCategoryCreateInput_1.ProductCategoryCreateInput)
 ], UpsertProductCategoryArgs.prototype, "create", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ProductCategoryUncheckedUpdateInput_1.ProductCategoryUncheckedUpdateInput, {
+    TypeGraphQL.Field(_type => ProductCategoryUpdateInput_1.ProductCategoryUpdateInput, {
         nullable: false
     }),
-    __metadata("design:type", ProductCategoryUncheckedUpdateInput_1.ProductCategoryUncheckedUpdateInput)
+    __metadata("design:type", ProductCategoryUpdateInput_1.ProductCategoryUpdateInput)
 ], UpsertProductCategoryArgs.prototype, "update", void 0);
 UpsertProductCategoryArgs = __decorate([
     TypeGraphQL.ArgsType()

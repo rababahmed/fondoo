@@ -1,6 +1,6 @@
 import { OrderScalarWhereInput } from "../inputs/OrderScalarWhereInput";
-import { OrderUncheckedUpdateManyWithoutOrderInput } from "../inputs/OrderUncheckedUpdateManyWithoutOrderInput";
+import { OrderUpdateManyMutationInput } from "../inputs/OrderUpdateManyMutationInput";
 export declare class OrderUpdateManyWithWhereWithoutCustomerAddressInput {
     where: OrderScalarWhereInput;
-    data: OrderUncheckedUpdateManyWithoutOrderInput;
+    data: OrderUpdateManyMutationInput;
 }

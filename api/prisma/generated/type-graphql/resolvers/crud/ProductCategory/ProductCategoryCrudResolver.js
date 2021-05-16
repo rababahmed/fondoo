@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateProductCategory_1 = require("../../outputs/AggregateProductCategory");
 const ProductCategoryGroupBy_1 = require("../../outputs/ProductCategoryGroupBy");
 let ProductCategoryCrudResolver = class ProductCategoryCrudResolver {
-    async findUniqueProductCategory(ctx, info, args) {
+    async productCategory(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).productCategory.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let ProductCategoryCrudResolver = class ProductCategoryCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async findManyProductCategory(ctx, info, args) {
+    async productCategories(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).productCategory.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueProductCategoryArgs_1.FindUniqueProductCategoryArgs]),
     __metadata("design:returntype", Promise)
-], ProductCategoryCrudResolver.prototype, "findUniqueProductCategory", null);
+], ProductCategoryCrudResolver.prototype, "productCategory", null);
 __decorate([
     TypeGraphQL.Query(_returns => ProductCategory_1.ProductCategory, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyProductCategoryArgs_1.FindManyProductCategoryArgs]),
     __metadata("design:returntype", Promise)
-], ProductCategoryCrudResolver.prototype, "findManyProductCategory", null);
+], ProductCategoryCrudResolver.prototype, "productCategories", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => ProductCategory_1.ProductCategory, {
         nullable: false

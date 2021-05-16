@@ -1,8 +1,8 @@
-import { CustomerTokenUncheckedCreateInput } from "../../../inputs/CustomerTokenUncheckedCreateInput";
-import { CustomerTokenUncheckedUpdateInput } from "../../../inputs/CustomerTokenUncheckedUpdateInput";
+import { CustomerTokenCreateInput } from "../../../inputs/CustomerTokenCreateInput";
+import { CustomerTokenUpdateInput } from "../../../inputs/CustomerTokenUpdateInput";
 import { CustomerTokenWhereUniqueInput } from "../../../inputs/CustomerTokenWhereUniqueInput";
 export declare class UpsertCustomerTokenArgs {
     where: CustomerTokenWhereUniqueInput;
-    create: CustomerTokenUncheckedCreateInput;
-    update: CustomerTokenUncheckedUpdateInput;
+    create: CustomerTokenCreateInput;
+    update: CustomerTokenUpdateInput;
 }
