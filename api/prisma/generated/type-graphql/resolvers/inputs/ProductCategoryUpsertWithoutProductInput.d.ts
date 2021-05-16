@@ -1,6 +1,6 @@
-import { ProductCategoryCreateWithoutProductInput } from "../inputs/ProductCategoryCreateWithoutProductInput";
-import { ProductCategoryUpdateWithoutProductInput } from "../inputs/ProductCategoryUpdateWithoutProductInput";
+import { ProductCategoryUncheckedCreateWithoutProductInput } from "../inputs/ProductCategoryUncheckedCreateWithoutProductInput";
+import { ProductCategoryUncheckedUpdateWithoutProductInput } from "../inputs/ProductCategoryUncheckedUpdateWithoutProductInput";
 export declare class ProductCategoryUpsertWithoutProductInput {
-    update: ProductCategoryUpdateWithoutProductInput;
-    create: ProductCategoryCreateWithoutProductInput;
+    update: ProductCategoryUncheckedUpdateWithoutProductInput;
+    create: ProductCategoryUncheckedCreateWithoutProductInput;
 }

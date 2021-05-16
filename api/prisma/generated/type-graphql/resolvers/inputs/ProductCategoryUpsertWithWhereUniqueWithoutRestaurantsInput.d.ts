@@ -1,8 +1,8 @@
-import { ProductCategoryCreateWithoutRestaurantsInput } from "../inputs/ProductCategoryCreateWithoutRestaurantsInput";
-import { ProductCategoryUpdateWithoutRestaurantsInput } from "../inputs/ProductCategoryUpdateWithoutRestaurantsInput";
+import { ProductCategoryUncheckedCreateWithoutRestaurantsInput } from "../inputs/ProductCategoryUncheckedCreateWithoutRestaurantsInput";
+import { ProductCategoryUncheckedUpdateWithoutRestaurantsInput } from "../inputs/ProductCategoryUncheckedUpdateWithoutRestaurantsInput";
 import { ProductCategoryWhereUniqueInput } from "../inputs/ProductCategoryWhereUniqueInput";
 export declare class ProductCategoryUpsertWithWhereUniqueWithoutRestaurantsInput {
     where: ProductCategoryWhereUniqueInput;
-    update: ProductCategoryUpdateWithoutRestaurantsInput;
-    create: ProductCategoryCreateWithoutRestaurantsInput;
+    update: ProductCategoryUncheckedUpdateWithoutRestaurantsInput;
+    create: ProductCategoryUncheckedCreateWithoutRestaurantsInput;
 }

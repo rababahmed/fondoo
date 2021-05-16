@@ -41,7 +41,7 @@ const FindUniqueProductCategoryArgs_1 = require("./args/FindUniqueProductCategor
 const ProductCategory_1 = require("../../../models/ProductCategory");
 const helpers_1 = require("../../../helpers");
 let FindUniqueProductCategoryResolver = class FindUniqueProductCategoryResolver {
-    async productCategory(ctx, info, args) {
+    async findUniqueProductCategory(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).productCategory.findUnique({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueProductCategoryArgs_1.FindUniqueProductCategoryArgs]),
     __metadata("design:returntype", Promise)
-], FindUniqueProductCategoryResolver.prototype, "productCategory", null);
+], FindUniqueProductCategoryResolver.prototype, "findUniqueProductCategory", null);
 FindUniqueProductCategoryResolver = __decorate([
     TypeGraphQL.Resolver(_of => ProductCategory_1.ProductCategory)
 ], FindUniqueProductCategoryResolver);

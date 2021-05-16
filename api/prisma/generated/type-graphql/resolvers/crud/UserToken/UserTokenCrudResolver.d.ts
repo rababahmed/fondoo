@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateUserToken } from "../../outputs/AggregateUserToken";
 import { UserTokenGroupBy } from "../../outputs/UserTokenGroupBy";
 export declare class UserTokenCrudResolver {
-    userToken(ctx: any, info: GraphQLResolveInfo, args: FindUniqueUserTokenArgs): Promise<UserToken | null>;
+    findUniqueUserToken(ctx: any, info: GraphQLResolveInfo, args: FindUniqueUserTokenArgs): Promise<UserToken | null>;
     findFirstUserToken(ctx: any, info: GraphQLResolveInfo, args: FindFirstUserTokenArgs): Promise<UserToken | null>;
-    userTokens(ctx: any, info: GraphQLResolveInfo, args: FindManyUserTokenArgs): Promise<UserToken[]>;
+    findManyUserToken(ctx: any, info: GraphQLResolveInfo, args: FindManyUserTokenArgs): Promise<UserToken[]>;
     createUserToken(ctx: any, info: GraphQLResolveInfo, args: CreateUserTokenArgs): Promise<UserToken>;
     createManyUserToken(ctx: any, info: GraphQLResolveInfo, args: CreateManyUserTokenArgs): Promise<AffectedRowsOutput>;
     deleteUserToken(ctx: any, info: GraphQLResolveInfo, args: DeleteUserTokenArgs): Promise<UserToken | null>;

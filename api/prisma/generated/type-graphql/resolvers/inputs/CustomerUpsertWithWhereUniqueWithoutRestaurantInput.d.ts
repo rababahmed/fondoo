@@ -1,8 +1,8 @@
-import { CustomerCreateWithoutRestaurantInput } from "../inputs/CustomerCreateWithoutRestaurantInput";
-import { CustomerUpdateWithoutRestaurantInput } from "../inputs/CustomerUpdateWithoutRestaurantInput";
+import { CustomerUncheckedCreateWithoutRestaurantInput } from "../inputs/CustomerUncheckedCreateWithoutRestaurantInput";
+import { CustomerUncheckedUpdateWithoutRestaurantInput } from "../inputs/CustomerUncheckedUpdateWithoutRestaurantInput";
 import { CustomerWhereUniqueInput } from "../inputs/CustomerWhereUniqueInput";
 export declare class CustomerUpsertWithWhereUniqueWithoutRestaurantInput {
     where: CustomerWhereUniqueInput;
-    update: CustomerUpdateWithoutRestaurantInput;
-    create: CustomerCreateWithoutRestaurantInput;
+    update: CustomerUncheckedUpdateWithoutRestaurantInput;
+    create: CustomerUncheckedCreateWithoutRestaurantInput;
 }

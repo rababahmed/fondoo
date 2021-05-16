@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateCustomerToken_1 = require("../../outputs/AggregateCustomerToken");
 const CustomerTokenGroupBy_1 = require("../../outputs/CustomerTokenGroupBy");
 let CustomerTokenCrudResolver = class CustomerTokenCrudResolver {
-    async customerToken(ctx, info, args) {
+    async findUniqueCustomerToken(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).customerToken.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let CustomerTokenCrudResolver = class CustomerTokenCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async customerTokens(ctx, info, args) {
+    async findManyCustomerToken(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).customerToken.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueCustomerTokenArgs_1.FindUniqueCustomerTokenArgs]),
     __metadata("design:returntype", Promise)
-], CustomerTokenCrudResolver.prototype, "customerToken", null);
+], CustomerTokenCrudResolver.prototype, "findUniqueCustomerToken", null);
 __decorate([
     TypeGraphQL.Query(_returns => CustomerToken_1.CustomerToken, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyCustomerTokenArgs_1.FindManyCustomerTokenArgs]),
     __metadata("design:returntype", Promise)
-], CustomerTokenCrudResolver.prototype, "customerTokens", null);
+], CustomerTokenCrudResolver.prototype, "findManyCustomerToken", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => CustomerToken_1.CustomerToken, {
         nullable: false

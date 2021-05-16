@@ -31,17 +31,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantUpdateOneWithoutScheduleInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const RestaurantCreateOrConnectWithoutScheduleInput_1 = require("../inputs/RestaurantCreateOrConnectWithoutScheduleInput");
-const RestaurantCreateWithoutScheduleInput_1 = require("../inputs/RestaurantCreateWithoutScheduleInput");
-const RestaurantUpdateWithoutScheduleInput_1 = require("../inputs/RestaurantUpdateWithoutScheduleInput");
+const RestaurantUncheckedCreateWithoutScheduleInput_1 = require("../inputs/RestaurantUncheckedCreateWithoutScheduleInput");
+const RestaurantUncheckedUpdateWithoutScheduleInput_1 = require("../inputs/RestaurantUncheckedUpdateWithoutScheduleInput");
 const RestaurantUpsertWithoutScheduleInput_1 = require("../inputs/RestaurantUpsertWithoutScheduleInput");
 const RestaurantWhereUniqueInput_1 = require("../inputs/RestaurantWhereUniqueInput");
 let RestaurantUpdateOneWithoutScheduleInput = class RestaurantUpdateOneWithoutScheduleInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantCreateWithoutScheduleInput_1.RestaurantCreateWithoutScheduleInput, {
+    TypeGraphQL.Field(_type => RestaurantUncheckedCreateWithoutScheduleInput_1.RestaurantUncheckedCreateWithoutScheduleInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantCreateWithoutScheduleInput_1.RestaurantCreateWithoutScheduleInput)
+    __metadata("design:type", RestaurantUncheckedCreateWithoutScheduleInput_1.RestaurantUncheckedCreateWithoutScheduleInput)
 ], RestaurantUpdateOneWithoutScheduleInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => RestaurantCreateOrConnectWithoutScheduleInput_1.RestaurantCreateOrConnectWithoutScheduleInput, {
@@ -74,10 +74,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], RestaurantUpdateOneWithoutScheduleInput.prototype, "delete", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUpdateWithoutScheduleInput_1.RestaurantUpdateWithoutScheduleInput, {
+    TypeGraphQL.Field(_type => RestaurantUncheckedUpdateWithoutScheduleInput_1.RestaurantUncheckedUpdateWithoutScheduleInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantUpdateWithoutScheduleInput_1.RestaurantUpdateWithoutScheduleInput)
+    __metadata("design:type", RestaurantUncheckedUpdateWithoutScheduleInput_1.RestaurantUncheckedUpdateWithoutScheduleInput)
 ], RestaurantUpdateOneWithoutScheduleInput.prototype, "update", void 0);
 RestaurantUpdateOneWithoutScheduleInput = __decorate([
     TypeGraphQL.InputType({

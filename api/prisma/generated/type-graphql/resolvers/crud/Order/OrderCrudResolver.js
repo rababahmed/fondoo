@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateOrder_1 = require("../../outputs/AggregateOrder");
 const OrderGroupBy_1 = require("../../outputs/OrderGroupBy");
 let OrderCrudResolver = class OrderCrudResolver {
-    async order(ctx, info, args) {
+    async findUniqueOrder(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).order.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let OrderCrudResolver = class OrderCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async orders(ctx, info, args) {
+    async findManyOrder(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).order.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueOrderArgs_1.FindUniqueOrderArgs]),
     __metadata("design:returntype", Promise)
-], OrderCrudResolver.prototype, "order", null);
+], OrderCrudResolver.prototype, "findUniqueOrder", null);
 __decorate([
     TypeGraphQL.Query(_returns => Order_1.Order, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyOrderArgs_1.FindManyOrderArgs]),
     __metadata("design:returntype", Promise)
-], OrderCrudResolver.prototype, "orders", null);
+], OrderCrudResolver.prototype, "findManyOrder", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => Order_1.Order, {
         nullable: false

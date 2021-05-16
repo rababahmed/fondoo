@@ -1,6 +1,6 @@
-import { ProductUpdateManyMutationInput } from "../../../inputs/ProductUpdateManyMutationInput";
+import { ProductUncheckedUpdateManyInput } from "../../../inputs/ProductUncheckedUpdateManyInput";
 import { ProductWhereInput } from "../../../inputs/ProductWhereInput";
 export declare class UpdateManyProductArgs {
-    data: ProductUpdateManyMutationInput;
+    data: ProductUncheckedUpdateManyInput;
     where?: ProductWhereInput | undefined;
 }

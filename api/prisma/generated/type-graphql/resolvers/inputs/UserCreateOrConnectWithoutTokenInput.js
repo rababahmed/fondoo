@@ -30,7 +30,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserCreateOrConnectWithoutTokenInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const UserCreateWithoutTokenInput_1 = require("../inputs/UserCreateWithoutTokenInput");
+const UserUncheckedCreateWithoutTokenInput_1 = require("../inputs/UserUncheckedCreateWithoutTokenInput");
 const UserWhereUniqueInput_1 = require("../inputs/UserWhereUniqueInput");
 let UserCreateOrConnectWithoutTokenInput = class UserCreateOrConnectWithoutTokenInput {
 };
@@ -41,10 +41,10 @@ __decorate([
     __metadata("design:type", UserWhereUniqueInput_1.UserWhereUniqueInput)
 ], UserCreateOrConnectWithoutTokenInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserCreateWithoutTokenInput_1.UserCreateWithoutTokenInput, {
+    TypeGraphQL.Field(_type => UserUncheckedCreateWithoutTokenInput_1.UserUncheckedCreateWithoutTokenInput, {
         nullable: false
     }),
-    __metadata("design:type", UserCreateWithoutTokenInput_1.UserCreateWithoutTokenInput)
+    __metadata("design:type", UserUncheckedCreateWithoutTokenInput_1.UserUncheckedCreateWithoutTokenInput)
 ], UserCreateOrConnectWithoutTokenInput.prototype, "create", void 0);
 UserCreateOrConnectWithoutTokenInput = __decorate([
     TypeGraphQL.InputType({

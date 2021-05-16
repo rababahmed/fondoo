@@ -30,15 +30,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateManyScheduleArgs = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const ScheduleUpdateManyMutationInput_1 = require("../../../inputs/ScheduleUpdateManyMutationInput");
+const ScheduleUncheckedUpdateManyInput_1 = require("../../../inputs/ScheduleUncheckedUpdateManyInput");
 const ScheduleWhereInput_1 = require("../../../inputs/ScheduleWhereInput");
 let UpdateManyScheduleArgs = class UpdateManyScheduleArgs {
 };
 __decorate([
-    TypeGraphQL.Field(_type => ScheduleUpdateManyMutationInput_1.ScheduleUpdateManyMutationInput, {
+    TypeGraphQL.Field(_type => ScheduleUncheckedUpdateManyInput_1.ScheduleUncheckedUpdateManyInput, {
         nullable: false
     }),
-    __metadata("design:type", ScheduleUpdateManyMutationInput_1.ScheduleUpdateManyMutationInput)
+    __metadata("design:type", ScheduleUncheckedUpdateManyInput_1.ScheduleUncheckedUpdateManyInput)
 ], UpdateManyScheduleArgs.prototype, "data", void 0);
 __decorate([
     TypeGraphQL.Field(_type => ScheduleWhereInput_1.ScheduleWhereInput, {

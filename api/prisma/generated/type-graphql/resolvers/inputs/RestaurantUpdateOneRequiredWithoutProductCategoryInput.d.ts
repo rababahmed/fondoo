@@ -1,12 +1,12 @@
 import { RestaurantCreateOrConnectWithoutProductCategoryInput } from "../inputs/RestaurantCreateOrConnectWithoutProductCategoryInput";
-import { RestaurantCreateWithoutProductCategoryInput } from "../inputs/RestaurantCreateWithoutProductCategoryInput";
-import { RestaurantUpdateWithoutProductCategoryInput } from "../inputs/RestaurantUpdateWithoutProductCategoryInput";
+import { RestaurantUncheckedCreateWithoutProductCategoryInput } from "../inputs/RestaurantUncheckedCreateWithoutProductCategoryInput";
+import { RestaurantUncheckedUpdateWithoutProductCategoryInput } from "../inputs/RestaurantUncheckedUpdateWithoutProductCategoryInput";
 import { RestaurantUpsertWithoutProductCategoryInput } from "../inputs/RestaurantUpsertWithoutProductCategoryInput";
 import { RestaurantWhereUniqueInput } from "../inputs/RestaurantWhereUniqueInput";
 export declare class RestaurantUpdateOneRequiredWithoutProductCategoryInput {
-    create?: RestaurantCreateWithoutProductCategoryInput | undefined;
+    create?: RestaurantUncheckedCreateWithoutProductCategoryInput | undefined;
     connectOrCreate?: RestaurantCreateOrConnectWithoutProductCategoryInput | undefined;
     upsert?: RestaurantUpsertWithoutProductCategoryInput | undefined;
     connect?: RestaurantWhereUniqueInput | undefined;
-    update?: RestaurantUpdateWithoutProductCategoryInput | undefined;
+    update?: RestaurantUncheckedUpdateWithoutProductCategoryInput | undefined;
 }

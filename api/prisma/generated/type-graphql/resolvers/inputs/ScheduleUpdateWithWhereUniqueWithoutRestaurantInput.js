@@ -30,7 +30,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScheduleUpdateWithWhereUniqueWithoutRestaurantInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const ScheduleUpdateWithoutRestaurantInput_1 = require("../inputs/ScheduleUpdateWithoutRestaurantInput");
+const ScheduleUncheckedUpdateWithoutRestaurantInput_1 = require("../inputs/ScheduleUncheckedUpdateWithoutRestaurantInput");
 const ScheduleWhereUniqueInput_1 = require("../inputs/ScheduleWhereUniqueInput");
 let ScheduleUpdateWithWhereUniqueWithoutRestaurantInput = class ScheduleUpdateWithWhereUniqueWithoutRestaurantInput {
 };
@@ -41,10 +41,10 @@ __decorate([
     __metadata("design:type", ScheduleWhereUniqueInput_1.ScheduleWhereUniqueInput)
 ], ScheduleUpdateWithWhereUniqueWithoutRestaurantInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ScheduleUpdateWithoutRestaurantInput_1.ScheduleUpdateWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => ScheduleUncheckedUpdateWithoutRestaurantInput_1.ScheduleUncheckedUpdateWithoutRestaurantInput, {
         nullable: false
     }),
-    __metadata("design:type", ScheduleUpdateWithoutRestaurantInput_1.ScheduleUpdateWithoutRestaurantInput)
+    __metadata("design:type", ScheduleUncheckedUpdateWithoutRestaurantInput_1.ScheduleUncheckedUpdateWithoutRestaurantInput)
 ], ScheduleUpdateWithWhereUniqueWithoutRestaurantInput.prototype, "data", void 0);
 ScheduleUpdateWithWhereUniqueWithoutRestaurantInput = __decorate([
     TypeGraphQL.InputType({

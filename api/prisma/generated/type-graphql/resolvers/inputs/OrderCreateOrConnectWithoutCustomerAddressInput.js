@@ -30,7 +30,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderCreateOrConnectWithoutCustomerAddressInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const OrderCreateWithoutCustomerAddressInput_1 = require("../inputs/OrderCreateWithoutCustomerAddressInput");
+const OrderUncheckedCreateWithoutCustomerAddressInput_1 = require("../inputs/OrderUncheckedCreateWithoutCustomerAddressInput");
 const OrderWhereUniqueInput_1 = require("../inputs/OrderWhereUniqueInput");
 let OrderCreateOrConnectWithoutCustomerAddressInput = class OrderCreateOrConnectWithoutCustomerAddressInput {
 };
@@ -41,10 +41,10 @@ __decorate([
     __metadata("design:type", OrderWhereUniqueInput_1.OrderWhereUniqueInput)
 ], OrderCreateOrConnectWithoutCustomerAddressInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => OrderCreateWithoutCustomerAddressInput_1.OrderCreateWithoutCustomerAddressInput, {
+    TypeGraphQL.Field(_type => OrderUncheckedCreateWithoutCustomerAddressInput_1.OrderUncheckedCreateWithoutCustomerAddressInput, {
         nullable: false
     }),
-    __metadata("design:type", OrderCreateWithoutCustomerAddressInput_1.OrderCreateWithoutCustomerAddressInput)
+    __metadata("design:type", OrderUncheckedCreateWithoutCustomerAddressInput_1.OrderUncheckedCreateWithoutCustomerAddressInput)
 ], OrderCreateOrConnectWithoutCustomerAddressInput.prototype, "create", void 0);
 OrderCreateOrConnectWithoutCustomerAddressInput = __decorate([
     TypeGraphQL.InputType({

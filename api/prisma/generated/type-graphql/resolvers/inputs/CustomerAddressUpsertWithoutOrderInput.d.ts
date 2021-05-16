@@ -1,6 +1,6 @@
-import { CustomerAddressCreateWithoutOrderInput } from "../inputs/CustomerAddressCreateWithoutOrderInput";
-import { CustomerAddressUpdateWithoutOrderInput } from "../inputs/CustomerAddressUpdateWithoutOrderInput";
+import { CustomerAddressUncheckedCreateWithoutOrderInput } from "../inputs/CustomerAddressUncheckedCreateWithoutOrderInput";
+import { CustomerAddressUncheckedUpdateWithoutOrderInput } from "../inputs/CustomerAddressUncheckedUpdateWithoutOrderInput";
 export declare class CustomerAddressUpsertWithoutOrderInput {
-    update: CustomerAddressUpdateWithoutOrderInput;
-    create: CustomerAddressCreateWithoutOrderInput;
+    update: CustomerAddressUncheckedUpdateWithoutOrderInput;
+    create: CustomerAddressUncheckedCreateWithoutOrderInput;
 }

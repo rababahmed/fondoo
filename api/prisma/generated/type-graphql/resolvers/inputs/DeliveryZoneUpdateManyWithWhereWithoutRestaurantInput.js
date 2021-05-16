@@ -31,7 +31,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DeliveryZoneScalarWhereInput_1 = require("../inputs/DeliveryZoneScalarWhereInput");
-const DeliveryZoneUpdateManyMutationInput_1 = require("../inputs/DeliveryZoneUpdateManyMutationInput");
+const DeliveryZoneUncheckedUpdateManyWithoutDeliveryZonesInput_1 = require("../inputs/DeliveryZoneUncheckedUpdateManyWithoutDeliveryZonesInput");
 let DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput = class DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput {
 };
 __decorate([
@@ -41,10 +41,10 @@ __decorate([
     __metadata("design:type", DeliveryZoneScalarWhereInput_1.DeliveryZoneScalarWhereInput)
 ], DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DeliveryZoneUpdateManyMutationInput_1.DeliveryZoneUpdateManyMutationInput, {
+    TypeGraphQL.Field(_type => DeliveryZoneUncheckedUpdateManyWithoutDeliveryZonesInput_1.DeliveryZoneUncheckedUpdateManyWithoutDeliveryZonesInput, {
         nullable: false
     }),
-    __metadata("design:type", DeliveryZoneUpdateManyMutationInput_1.DeliveryZoneUpdateManyMutationInput)
+    __metadata("design:type", DeliveryZoneUncheckedUpdateManyWithoutDeliveryZonesInput_1.DeliveryZoneUncheckedUpdateManyWithoutDeliveryZonesInput)
 ], DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput.prototype, "data", void 0);
 DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput = __decorate([
     TypeGraphQL.InputType({

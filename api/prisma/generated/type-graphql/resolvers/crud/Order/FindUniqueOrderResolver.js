@@ -41,7 +41,7 @@ const FindUniqueOrderArgs_1 = require("./args/FindUniqueOrderArgs");
 const Order_1 = require("../../../models/Order");
 const helpers_1 = require("../../../helpers");
 let FindUniqueOrderResolver = class FindUniqueOrderResolver {
-    async order(ctx, info, args) {
+    async findUniqueOrder(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).order.findUnique({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueOrderArgs_1.FindUniqueOrderArgs]),
     __metadata("design:returntype", Promise)
-], FindUniqueOrderResolver.prototype, "order", null);
+], FindUniqueOrderResolver.prototype, "findUniqueOrder", null);
 FindUniqueOrderResolver = __decorate([
     TypeGraphQL.Resolver(_of => Order_1.Order)
 ], FindUniqueOrderResolver);

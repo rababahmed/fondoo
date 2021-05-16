@@ -1,8 +1,8 @@
-import { CustomerCreateInput } from "../../../inputs/CustomerCreateInput";
-import { CustomerUpdateInput } from "../../../inputs/CustomerUpdateInput";
+import { CustomerUncheckedCreateInput } from "../../../inputs/CustomerUncheckedCreateInput";
+import { CustomerUncheckedUpdateInput } from "../../../inputs/CustomerUncheckedUpdateInput";
 import { CustomerWhereUniqueInput } from "../../../inputs/CustomerWhereUniqueInput";
 export declare class UpsertCustomerArgs {
     where: CustomerWhereUniqueInput;
-    create: CustomerCreateInput;
-    update: CustomerUpdateInput;
+    create: CustomerUncheckedCreateInput;
+    update: CustomerUncheckedUpdateInput;
 }

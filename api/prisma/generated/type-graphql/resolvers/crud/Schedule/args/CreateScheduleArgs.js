@@ -30,14 +30,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateScheduleArgs = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const ScheduleCreateInput_1 = require("../../../inputs/ScheduleCreateInput");
+const ScheduleUncheckedCreateInput_1 = require("../../../inputs/ScheduleUncheckedCreateInput");
 let CreateScheduleArgs = class CreateScheduleArgs {
 };
 __decorate([
-    TypeGraphQL.Field(_type => ScheduleCreateInput_1.ScheduleCreateInput, {
+    TypeGraphQL.Field(_type => ScheduleUncheckedCreateInput_1.ScheduleUncheckedCreateInput, {
         nullable: false
     }),
-    __metadata("design:type", ScheduleCreateInput_1.ScheduleCreateInput)
+    __metadata("design:type", ScheduleUncheckedCreateInput_1.ScheduleUncheckedCreateInput)
 ], CreateScheduleArgs.prototype, "data", void 0);
 CreateScheduleArgs = __decorate([
     TypeGraphQL.ArgsType()

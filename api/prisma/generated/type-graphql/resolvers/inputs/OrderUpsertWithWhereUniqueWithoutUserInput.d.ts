@@ -1,8 +1,8 @@
-import { OrderCreateWithoutUserInput } from "../inputs/OrderCreateWithoutUserInput";
-import { OrderUpdateWithoutUserInput } from "../inputs/OrderUpdateWithoutUserInput";
+import { OrderUncheckedCreateWithoutUserInput } from "../inputs/OrderUncheckedCreateWithoutUserInput";
+import { OrderUncheckedUpdateWithoutUserInput } from "../inputs/OrderUncheckedUpdateWithoutUserInput";
 import { OrderWhereUniqueInput } from "../inputs/OrderWhereUniqueInput";
 export declare class OrderUpsertWithWhereUniqueWithoutUserInput {
     where: OrderWhereUniqueInput;
-    update: OrderUpdateWithoutUserInput;
-    create: OrderCreateWithoutUserInput;
+    update: OrderUncheckedUpdateWithoutUserInput;
+    create: OrderUncheckedCreateWithoutUserInput;
 }

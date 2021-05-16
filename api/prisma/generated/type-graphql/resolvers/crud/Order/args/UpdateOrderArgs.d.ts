@@ -1,6 +1,6 @@
-import { OrderUpdateInput } from "../../../inputs/OrderUpdateInput";
+import { OrderUncheckedUpdateInput } from "../../../inputs/OrderUncheckedUpdateInput";
 import { OrderWhereUniqueInput } from "../../../inputs/OrderWhereUniqueInput";
 export declare class UpdateOrderArgs {
-    data: OrderUpdateInput;
+    data: OrderUncheckedUpdateInput;
     where: OrderWhereUniqueInput;
 }

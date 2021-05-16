@@ -1,8 +1,8 @@
 import { UserCreateOrConnectWithoutTokenInput } from "../inputs/UserCreateOrConnectWithoutTokenInput";
-import { UserCreateWithoutTokenInput } from "../inputs/UserCreateWithoutTokenInput";
+import { UserUncheckedCreateWithoutTokenInput } from "../inputs/UserUncheckedCreateWithoutTokenInput";
 import { UserWhereUniqueInput } from "../inputs/UserWhereUniqueInput";
 export declare class UserCreateNestedOneWithoutTokenInput {
-    create?: UserCreateWithoutTokenInput | undefined;
+    create?: UserUncheckedCreateWithoutTokenInput | undefined;
     connectOrCreate?: UserCreateOrConnectWithoutTokenInput | undefined;
     connect?: UserWhereUniqueInput | undefined;
 }

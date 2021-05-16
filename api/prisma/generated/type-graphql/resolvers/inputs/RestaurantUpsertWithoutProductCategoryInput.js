@@ -30,21 +30,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantUpsertWithoutProductCategoryInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const RestaurantCreateWithoutProductCategoryInput_1 = require("../inputs/RestaurantCreateWithoutProductCategoryInput");
-const RestaurantUpdateWithoutProductCategoryInput_1 = require("../inputs/RestaurantUpdateWithoutProductCategoryInput");
+const RestaurantUncheckedCreateWithoutProductCategoryInput_1 = require("../inputs/RestaurantUncheckedCreateWithoutProductCategoryInput");
+const RestaurantUncheckedUpdateWithoutProductCategoryInput_1 = require("../inputs/RestaurantUncheckedUpdateWithoutProductCategoryInput");
 let RestaurantUpsertWithoutProductCategoryInput = class RestaurantUpsertWithoutProductCategoryInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUpdateWithoutProductCategoryInput_1.RestaurantUpdateWithoutProductCategoryInput, {
+    TypeGraphQL.Field(_type => RestaurantUncheckedUpdateWithoutProductCategoryInput_1.RestaurantUncheckedUpdateWithoutProductCategoryInput, {
         nullable: false
     }),
-    __metadata("design:type", RestaurantUpdateWithoutProductCategoryInput_1.RestaurantUpdateWithoutProductCategoryInput)
+    __metadata("design:type", RestaurantUncheckedUpdateWithoutProductCategoryInput_1.RestaurantUncheckedUpdateWithoutProductCategoryInput)
 ], RestaurantUpsertWithoutProductCategoryInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantCreateWithoutProductCategoryInput_1.RestaurantCreateWithoutProductCategoryInput, {
+    TypeGraphQL.Field(_type => RestaurantUncheckedCreateWithoutProductCategoryInput_1.RestaurantUncheckedCreateWithoutProductCategoryInput, {
         nullable: false
     }),
-    __metadata("design:type", RestaurantCreateWithoutProductCategoryInput_1.RestaurantCreateWithoutProductCategoryInput)
+    __metadata("design:type", RestaurantUncheckedCreateWithoutProductCategoryInput_1.RestaurantUncheckedCreateWithoutProductCategoryInput)
 ], RestaurantUpsertWithoutProductCategoryInput.prototype, "create", void 0);
 RestaurantUpsertWithoutProductCategoryInput = __decorate([
     TypeGraphQL.InputType({

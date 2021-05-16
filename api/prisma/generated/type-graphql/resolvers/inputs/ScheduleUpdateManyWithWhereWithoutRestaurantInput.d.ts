@@ -1,6 +1,6 @@
 import { ScheduleScalarWhereInput } from "../inputs/ScheduleScalarWhereInput";
-import { ScheduleUpdateManyMutationInput } from "../inputs/ScheduleUpdateManyMutationInput";
+import { ScheduleUncheckedUpdateManyWithoutScheduleInput } from "../inputs/ScheduleUncheckedUpdateManyWithoutScheduleInput";
 export declare class ScheduleUpdateManyWithWhereWithoutRestaurantInput {
     where: ScheduleScalarWhereInput;
-    data: ScheduleUpdateManyMutationInput;
+    data: ScheduleUncheckedUpdateManyWithoutScheduleInput;
 }

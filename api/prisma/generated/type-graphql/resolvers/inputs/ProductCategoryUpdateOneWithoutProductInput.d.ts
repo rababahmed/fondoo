@@ -1,14 +1,14 @@
 import { ProductCategoryCreateOrConnectWithoutProductInput } from "../inputs/ProductCategoryCreateOrConnectWithoutProductInput";
-import { ProductCategoryCreateWithoutProductInput } from "../inputs/ProductCategoryCreateWithoutProductInput";
-import { ProductCategoryUpdateWithoutProductInput } from "../inputs/ProductCategoryUpdateWithoutProductInput";
+import { ProductCategoryUncheckedCreateWithoutProductInput } from "../inputs/ProductCategoryUncheckedCreateWithoutProductInput";
+import { ProductCategoryUncheckedUpdateWithoutProductInput } from "../inputs/ProductCategoryUncheckedUpdateWithoutProductInput";
 import { ProductCategoryUpsertWithoutProductInput } from "../inputs/ProductCategoryUpsertWithoutProductInput";
 import { ProductCategoryWhereUniqueInput } from "../inputs/ProductCategoryWhereUniqueInput";
 export declare class ProductCategoryUpdateOneWithoutProductInput {
-    create?: ProductCategoryCreateWithoutProductInput | undefined;
+    create?: ProductCategoryUncheckedCreateWithoutProductInput | undefined;
     connectOrCreate?: ProductCategoryCreateOrConnectWithoutProductInput | undefined;
     upsert?: ProductCategoryUpsertWithoutProductInput | undefined;
     connect?: ProductCategoryWhereUniqueInput | undefined;
     disconnect?: boolean | undefined;
     delete?: boolean | undefined;
-    update?: ProductCategoryUpdateWithoutProductInput | undefined;
+    update?: ProductCategoryUncheckedUpdateWithoutProductInput | undefined;
 }

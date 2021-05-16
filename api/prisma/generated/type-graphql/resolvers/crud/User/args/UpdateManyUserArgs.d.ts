@@ -1,6 +1,6 @@
-import { UserUpdateManyMutationInput } from "../../../inputs/UserUpdateManyMutationInput";
+import { UserUncheckedUpdateManyInput } from "../../../inputs/UserUncheckedUpdateManyInput";
 import { UserWhereInput } from "../../../inputs/UserWhereInput";
 export declare class UpdateManyUserArgs {
-    data: UserUpdateManyMutationInput;
+    data: UserUncheckedUpdateManyInput;
     where?: UserWhereInput | undefined;
 }

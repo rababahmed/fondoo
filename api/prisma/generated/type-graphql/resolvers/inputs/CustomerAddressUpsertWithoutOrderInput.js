@@ -30,21 +30,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerAddressUpsertWithoutOrderInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const CustomerAddressCreateWithoutOrderInput_1 = require("../inputs/CustomerAddressCreateWithoutOrderInput");
-const CustomerAddressUpdateWithoutOrderInput_1 = require("../inputs/CustomerAddressUpdateWithoutOrderInput");
+const CustomerAddressUncheckedCreateWithoutOrderInput_1 = require("../inputs/CustomerAddressUncheckedCreateWithoutOrderInput");
+const CustomerAddressUncheckedUpdateWithoutOrderInput_1 = require("../inputs/CustomerAddressUncheckedUpdateWithoutOrderInput");
 let CustomerAddressUpsertWithoutOrderInput = class CustomerAddressUpsertWithoutOrderInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => CustomerAddressUpdateWithoutOrderInput_1.CustomerAddressUpdateWithoutOrderInput, {
+    TypeGraphQL.Field(_type => CustomerAddressUncheckedUpdateWithoutOrderInput_1.CustomerAddressUncheckedUpdateWithoutOrderInput, {
         nullable: false
     }),
-    __metadata("design:type", CustomerAddressUpdateWithoutOrderInput_1.CustomerAddressUpdateWithoutOrderInput)
+    __metadata("design:type", CustomerAddressUncheckedUpdateWithoutOrderInput_1.CustomerAddressUncheckedUpdateWithoutOrderInput)
 ], CustomerAddressUpsertWithoutOrderInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => CustomerAddressCreateWithoutOrderInput_1.CustomerAddressCreateWithoutOrderInput, {
+    TypeGraphQL.Field(_type => CustomerAddressUncheckedCreateWithoutOrderInput_1.CustomerAddressUncheckedCreateWithoutOrderInput, {
         nullable: false
     }),
-    __metadata("design:type", CustomerAddressCreateWithoutOrderInput_1.CustomerAddressCreateWithoutOrderInput)
+    __metadata("design:type", CustomerAddressUncheckedCreateWithoutOrderInput_1.CustomerAddressUncheckedCreateWithoutOrderInput)
 ], CustomerAddressUpsertWithoutOrderInput.prototype, "create", void 0);
 CustomerAddressUpsertWithoutOrderInput = __decorate([
     TypeGraphQL.InputType({

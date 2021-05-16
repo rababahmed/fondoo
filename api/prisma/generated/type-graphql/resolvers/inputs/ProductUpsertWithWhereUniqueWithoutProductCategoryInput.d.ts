@@ -1,8 +1,8 @@
-import { ProductCreateWithoutProductCategoryInput } from "../inputs/ProductCreateWithoutProductCategoryInput";
-import { ProductUpdateWithoutProductCategoryInput } from "../inputs/ProductUpdateWithoutProductCategoryInput";
+import { ProductUncheckedCreateWithoutProductCategoryInput } from "../inputs/ProductUncheckedCreateWithoutProductCategoryInput";
+import { ProductUncheckedUpdateWithoutProductCategoryInput } from "../inputs/ProductUncheckedUpdateWithoutProductCategoryInput";
 import { ProductWhereUniqueInput } from "../inputs/ProductWhereUniqueInput";
 export declare class ProductUpsertWithWhereUniqueWithoutProductCategoryInput {
     where: ProductWhereUniqueInput;
-    update: ProductUpdateWithoutProductCategoryInput;
-    create: ProductCreateWithoutProductCategoryInput;
+    update: ProductUncheckedUpdateWithoutProductCategoryInput;
+    create: ProductUncheckedCreateWithoutProductCategoryInput;
 }

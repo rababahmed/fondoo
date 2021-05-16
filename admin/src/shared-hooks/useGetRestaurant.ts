@@ -13,6 +13,7 @@ export const useGetRestaurant = () => {
           restaurant(where: { id: "e5b22e29-fe36-46e8-8417-468d9c9445d9" }) {
             name
             email
+            url
           }
         }
       `

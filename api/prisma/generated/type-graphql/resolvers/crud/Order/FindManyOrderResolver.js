@@ -41,7 +41,7 @@ const FindManyOrderArgs_1 = require("./args/FindManyOrderArgs");
 const Order_1 = require("../../../models/Order");
 const helpers_1 = require("../../../helpers");
 let FindManyOrderResolver = class FindManyOrderResolver {
-    async orders(ctx, info, args) {
+    async findManyOrder(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).order.findMany({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyOrderArgs_1.FindManyOrderArgs]),
     __metadata("design:returntype", Promise)
-], FindManyOrderResolver.prototype, "orders", null);
+], FindManyOrderResolver.prototype, "findManyOrder", null);
 FindManyOrderResolver = __decorate([
     TypeGraphQL.Resolver(_of => Order_1.Order)
 ], FindManyOrderResolver);

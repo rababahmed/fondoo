@@ -31,15 +31,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerCreateNestedOneWithoutTokenInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const CustomerCreateOrConnectWithoutTokenInput_1 = require("../inputs/CustomerCreateOrConnectWithoutTokenInput");
-const CustomerCreateWithoutTokenInput_1 = require("../inputs/CustomerCreateWithoutTokenInput");
+const CustomerUncheckedCreateWithoutTokenInput_1 = require("../inputs/CustomerUncheckedCreateWithoutTokenInput");
 const CustomerWhereUniqueInput_1 = require("../inputs/CustomerWhereUniqueInput");
 let CustomerCreateNestedOneWithoutTokenInput = class CustomerCreateNestedOneWithoutTokenInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => CustomerCreateWithoutTokenInput_1.CustomerCreateWithoutTokenInput, {
+    TypeGraphQL.Field(_type => CustomerUncheckedCreateWithoutTokenInput_1.CustomerUncheckedCreateWithoutTokenInput, {
         nullable: true
     }),
-    __metadata("design:type", CustomerCreateWithoutTokenInput_1.CustomerCreateWithoutTokenInput)
+    __metadata("design:type", CustomerUncheckedCreateWithoutTokenInput_1.CustomerUncheckedCreateWithoutTokenInput)
 ], CustomerCreateNestedOneWithoutTokenInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerCreateOrConnectWithoutTokenInput_1.CustomerCreateOrConnectWithoutTokenInput, {

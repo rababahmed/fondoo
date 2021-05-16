@@ -1,6 +1,6 @@
-import { CustomerCreateWithoutRestaurantInput } from "../inputs/CustomerCreateWithoutRestaurantInput";
+import { CustomerUncheckedCreateWithoutRestaurantInput } from "../inputs/CustomerUncheckedCreateWithoutRestaurantInput";
 import { CustomerWhereUniqueInput } from "../inputs/CustomerWhereUniqueInput";
 export declare class CustomerCreateOrConnectWithoutRestaurantInput {
     where: CustomerWhereUniqueInput;
-    create: CustomerCreateWithoutRestaurantInput;
+    create: CustomerUncheckedCreateWithoutRestaurantInput;
 }

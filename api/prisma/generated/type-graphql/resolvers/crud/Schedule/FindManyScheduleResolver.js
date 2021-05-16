@@ -41,7 +41,7 @@ const FindManyScheduleArgs_1 = require("./args/FindManyScheduleArgs");
 const Schedule_1 = require("../../../models/Schedule");
 const helpers_1 = require("../../../helpers");
 let FindManyScheduleResolver = class FindManyScheduleResolver {
-    async schedules(ctx, info, args) {
+    async findManySchedule(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).schedule.findMany({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyScheduleArgs_1.FindManyScheduleArgs]),
     __metadata("design:returntype", Promise)
-], FindManyScheduleResolver.prototype, "schedules", null);
+], FindManyScheduleResolver.prototype, "findManySchedule", null);
 FindManyScheduleResolver = __decorate([
     TypeGraphQL.Resolver(_of => Schedule_1.Schedule)
 ], FindManyScheduleResolver);

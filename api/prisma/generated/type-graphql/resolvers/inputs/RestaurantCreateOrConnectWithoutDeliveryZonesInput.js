@@ -30,7 +30,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantCreateOrConnectWithoutDeliveryZonesInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const RestaurantCreateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantCreateWithoutDeliveryZonesInput");
+const RestaurantUncheckedCreateWithoutDeliveryZonesInput_1 = require("../inputs/RestaurantUncheckedCreateWithoutDeliveryZonesInput");
 const RestaurantWhereUniqueInput_1 = require("../inputs/RestaurantWhereUniqueInput");
 let RestaurantCreateOrConnectWithoutDeliveryZonesInput = class RestaurantCreateOrConnectWithoutDeliveryZonesInput {
 };
@@ -41,10 +41,10 @@ __decorate([
     __metadata("design:type", RestaurantWhereUniqueInput_1.RestaurantWhereUniqueInput)
 ], RestaurantCreateOrConnectWithoutDeliveryZonesInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantCreateWithoutDeliveryZonesInput_1.RestaurantCreateWithoutDeliveryZonesInput, {
+    TypeGraphQL.Field(_type => RestaurantUncheckedCreateWithoutDeliveryZonesInput_1.RestaurantUncheckedCreateWithoutDeliveryZonesInput, {
         nullable: false
     }),
-    __metadata("design:type", RestaurantCreateWithoutDeliveryZonesInput_1.RestaurantCreateWithoutDeliveryZonesInput)
+    __metadata("design:type", RestaurantUncheckedCreateWithoutDeliveryZonesInput_1.RestaurantUncheckedCreateWithoutDeliveryZonesInput)
 ], RestaurantCreateOrConnectWithoutDeliveryZonesInput.prototype, "create", void 0);
 RestaurantCreateOrConnectWithoutDeliveryZonesInput = __decorate([
     TypeGraphQL.InputType({

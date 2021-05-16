@@ -1,6 +1,6 @@
-import { DeliveryZoneUpdateInput } from "../../../inputs/DeliveryZoneUpdateInput";
+import { DeliveryZoneUncheckedUpdateInput } from "../../../inputs/DeliveryZoneUncheckedUpdateInput";
 import { DeliveryZoneWhereUniqueInput } from "../../../inputs/DeliveryZoneWhereUniqueInput";
 export declare class UpdateDeliveryZoneArgs {
-    data: DeliveryZoneUpdateInput;
+    data: DeliveryZoneUncheckedUpdateInput;
     where: DeliveryZoneWhereUniqueInput;
 }

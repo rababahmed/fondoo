@@ -41,7 +41,7 @@ const FindUniqueScheduleArgs_1 = require("./args/FindUniqueScheduleArgs");
 const Schedule_1 = require("../../../models/Schedule");
 const helpers_1 = require("../../../helpers");
 let FindUniqueScheduleResolver = class FindUniqueScheduleResolver {
-    async schedule(ctx, info, args) {
+    async findUniqueSchedule(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).schedule.findUnique({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueScheduleArgs_1.FindUniqueScheduleArgs]),
     __metadata("design:returntype", Promise)
-], FindUniqueScheduleResolver.prototype, "schedule", null);
+], FindUniqueScheduleResolver.prototype, "findUniqueSchedule", null);
 FindUniqueScheduleResolver = __decorate([
     TypeGraphQL.Resolver(_of => Schedule_1.Schedule)
 ], FindUniqueScheduleResolver);

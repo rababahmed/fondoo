@@ -1,6 +1,6 @@
-import { ProductCategoryUpdateInput } from "../../../inputs/ProductCategoryUpdateInput";
+import { ProductCategoryUncheckedUpdateInput } from "../../../inputs/ProductCategoryUncheckedUpdateInput";
 import { ProductCategoryWhereUniqueInput } from "../../../inputs/ProductCategoryWhereUniqueInput";
 export declare class UpdateProductCategoryArgs {
-    data: ProductCategoryUpdateInput;
+    data: ProductCategoryUncheckedUpdateInput;
     where: ProductCategoryWhereUniqueInput;
 }

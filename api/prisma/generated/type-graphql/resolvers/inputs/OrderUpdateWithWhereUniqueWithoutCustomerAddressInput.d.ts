@@ -1,6 +1,6 @@
-import { OrderUpdateWithoutCustomerAddressInput } from "../inputs/OrderUpdateWithoutCustomerAddressInput";
+import { OrderUncheckedUpdateWithoutCustomerAddressInput } from "../inputs/OrderUncheckedUpdateWithoutCustomerAddressInput";
 import { OrderWhereUniqueInput } from "../inputs/OrderWhereUniqueInput";
 export declare class OrderUpdateWithWhereUniqueWithoutCustomerAddressInput {
     where: OrderWhereUniqueInput;
-    data: OrderUpdateWithoutCustomerAddressInput;
+    data: OrderUncheckedUpdateWithoutCustomerAddressInput;
 }

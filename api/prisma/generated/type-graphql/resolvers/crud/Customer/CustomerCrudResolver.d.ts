@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateCustomer } from "../../outputs/AggregateCustomer";
 import { CustomerGroupBy } from "../../outputs/CustomerGroupBy";
 export declare class CustomerCrudResolver {
-    customer(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCustomerArgs): Promise<Customer | null>;
+    findUniqueCustomer(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCustomerArgs): Promise<Customer | null>;
     findFirstCustomer(ctx: any, info: GraphQLResolveInfo, args: FindFirstCustomerArgs): Promise<Customer | null>;
-    customers(ctx: any, info: GraphQLResolveInfo, args: FindManyCustomerArgs): Promise<Customer[]>;
+    findManyCustomer(ctx: any, info: GraphQLResolveInfo, args: FindManyCustomerArgs): Promise<Customer[]>;
     createCustomer(ctx: any, info: GraphQLResolveInfo, args: CreateCustomerArgs): Promise<Customer>;
     createManyCustomer(ctx: any, info: GraphQLResolveInfo, args: CreateManyCustomerArgs): Promise<AffectedRowsOutput>;
     deleteCustomer(ctx: any, info: GraphQLResolveInfo, args: DeleteCustomerArgs): Promise<Customer | null>;

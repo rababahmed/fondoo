@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateDeliveryZone } from "../../outputs/AggregateDeliveryZone";
 import { DeliveryZoneGroupBy } from "../../outputs/DeliveryZoneGroupBy";
 export declare class DeliveryZoneCrudResolver {
-    deliveryZone(ctx: any, info: GraphQLResolveInfo, args: FindUniqueDeliveryZoneArgs): Promise<DeliveryZone | null>;
+    findUniqueDeliveryZone(ctx: any, info: GraphQLResolveInfo, args: FindUniqueDeliveryZoneArgs): Promise<DeliveryZone | null>;
     findFirstDeliveryZone(ctx: any, info: GraphQLResolveInfo, args: FindFirstDeliveryZoneArgs): Promise<DeliveryZone | null>;
-    deliveryZones(ctx: any, info: GraphQLResolveInfo, args: FindManyDeliveryZoneArgs): Promise<DeliveryZone[]>;
+    findManyDeliveryZone(ctx: any, info: GraphQLResolveInfo, args: FindManyDeliveryZoneArgs): Promise<DeliveryZone[]>;
     createDeliveryZone(ctx: any, info: GraphQLResolveInfo, args: CreateDeliveryZoneArgs): Promise<DeliveryZone>;
     createManyDeliveryZone(ctx: any, info: GraphQLResolveInfo, args: CreateManyDeliveryZoneArgs): Promise<AffectedRowsOutput>;
     deleteDeliveryZone(ctx: any, info: GraphQLResolveInfo, args: DeleteDeliveryZoneArgs): Promise<DeliveryZone | null>;

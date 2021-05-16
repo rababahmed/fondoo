@@ -1,8 +1,8 @@
 import { RestaurantCreateOrConnectWithoutProductCategoryInput } from "../inputs/RestaurantCreateOrConnectWithoutProductCategoryInput";
-import { RestaurantCreateWithoutProductCategoryInput } from "../inputs/RestaurantCreateWithoutProductCategoryInput";
+import { RestaurantUncheckedCreateWithoutProductCategoryInput } from "../inputs/RestaurantUncheckedCreateWithoutProductCategoryInput";
 import { RestaurantWhereUniqueInput } from "../inputs/RestaurantWhereUniqueInput";
 export declare class RestaurantCreateNestedOneWithoutProductCategoryInput {
-    create?: RestaurantCreateWithoutProductCategoryInput | undefined;
+    create?: RestaurantUncheckedCreateWithoutProductCategoryInput | undefined;
     connectOrCreate?: RestaurantCreateOrConnectWithoutProductCategoryInput | undefined;
     connect?: RestaurantWhereUniqueInput | undefined;
 }

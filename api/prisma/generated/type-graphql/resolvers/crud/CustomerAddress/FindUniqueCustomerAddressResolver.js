@@ -41,7 +41,7 @@ const FindUniqueCustomerAddressArgs_1 = require("./args/FindUniqueCustomerAddres
 const CustomerAddress_1 = require("../../../models/CustomerAddress");
 const helpers_1 = require("../../../helpers");
 let FindUniqueCustomerAddressResolver = class FindUniqueCustomerAddressResolver {
-    async customerAddress(ctx, info, args) {
+    async findUniqueCustomerAddress(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).customerAddress.findUnique({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueCustomerAddressArgs_1.FindUniqueCustomerAddressArgs]),
     __metadata("design:returntype", Promise)
-], FindUniqueCustomerAddressResolver.prototype, "customerAddress", null);
+], FindUniqueCustomerAddressResolver.prototype, "findUniqueCustomerAddress", null);
 FindUniqueCustomerAddressResolver = __decorate([
     TypeGraphQL.Resolver(_of => CustomerAddress_1.CustomerAddress)
 ], FindUniqueCustomerAddressResolver);

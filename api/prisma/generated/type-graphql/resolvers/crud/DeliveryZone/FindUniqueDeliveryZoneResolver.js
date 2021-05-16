@@ -41,7 +41,7 @@ const FindUniqueDeliveryZoneArgs_1 = require("./args/FindUniqueDeliveryZoneArgs"
 const DeliveryZone_1 = require("../../../models/DeliveryZone");
 const helpers_1 = require("../../../helpers");
 let FindUniqueDeliveryZoneResolver = class FindUniqueDeliveryZoneResolver {
-    async deliveryZone(ctx, info, args) {
+    async findUniqueDeliveryZone(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).deliveryZone.findUnique({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueDeliveryZoneArgs_1.FindUniqueDeliveryZoneArgs]),
     __metadata("design:returntype", Promise)
-], FindUniqueDeliveryZoneResolver.prototype, "deliveryZone", null);
+], FindUniqueDeliveryZoneResolver.prototype, "findUniqueDeliveryZone", null);
 FindUniqueDeliveryZoneResolver = __decorate([
     TypeGraphQL.Resolver(_of => DeliveryZone_1.DeliveryZone)
 ], FindUniqueDeliveryZoneResolver);
