@@ -1,6 +1,6 @@
-import { OrderUncheckedUpdateManyInput } from "../../../inputs/OrderUncheckedUpdateManyInput";
+import { OrderUpdateManyMutationInput } from "../../../inputs/OrderUpdateManyMutationInput";
 import { OrderWhereInput } from "../../../inputs/OrderWhereInput";
 export declare class UpdateManyOrderArgs {
-    data: OrderUncheckedUpdateManyInput;
+    data: OrderUpdateManyMutationInput;
     where?: OrderWhereInput | undefined;
 }

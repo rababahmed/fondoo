@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateUser_1 = require("../../outputs/AggregateUser");
 const UserGroupBy_1 = require("../../outputs/UserGroupBy");
 let UserCrudResolver = class UserCrudResolver {
-    async findUniqueUser(ctx, info, args) {
+    async user(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).user.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let UserCrudResolver = class UserCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async findManyUser(ctx, info, args) {
+    async users(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).user.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueUserArgs_1.FindUniqueUserArgs]),
     __metadata("design:returntype", Promise)
-], UserCrudResolver.prototype, "findUniqueUser", null);
+], UserCrudResolver.prototype, "user", null);
 __decorate([
     TypeGraphQL.Query(_returns => User_1.User, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyUserArgs_1.FindManyUserArgs]),
     __metadata("design:returntype", Promise)
-], UserCrudResolver.prototype, "findManyUser", null);
+], UserCrudResolver.prototype, "users", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => User_1.User, {
         nullable: false

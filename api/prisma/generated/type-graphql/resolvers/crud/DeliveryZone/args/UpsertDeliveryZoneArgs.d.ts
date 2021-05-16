@@ -1,8 +1,8 @@
-import { DeliveryZoneUncheckedCreateInput } from "../../../inputs/DeliveryZoneUncheckedCreateInput";
-import { DeliveryZoneUncheckedUpdateInput } from "../../../inputs/DeliveryZoneUncheckedUpdateInput";
+import { DeliveryZoneCreateInput } from "../../../inputs/DeliveryZoneCreateInput";
+import { DeliveryZoneUpdateInput } from "../../../inputs/DeliveryZoneUpdateInput";
 import { DeliveryZoneWhereUniqueInput } from "../../../inputs/DeliveryZoneWhereUniqueInput";
 export declare class UpsertDeliveryZoneArgs {
     where: DeliveryZoneWhereUniqueInput;
-    create: DeliveryZoneUncheckedCreateInput;
-    update: DeliveryZoneUncheckedUpdateInput;
+    create: DeliveryZoneCreateInput;
+    update: DeliveryZoneUpdateInput;
 }

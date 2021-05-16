@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateCustomerAddress_1 = require("../../outputs/AggregateCustomerAddress");
 const CustomerAddressGroupBy_1 = require("../../outputs/CustomerAddressGroupBy");
 let CustomerAddressCrudResolver = class CustomerAddressCrudResolver {
-    async findUniqueCustomerAddress(ctx, info, args) {
+    async customerAddress(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).customerAddress.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let CustomerAddressCrudResolver = class CustomerAddressCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async findManyCustomerAddress(ctx, info, args) {
+    async customerAddresses(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).customerAddress.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueCustomerAddressArgs_1.FindUniqueCustomerAddressArgs]),
     __metadata("design:returntype", Promise)
-], CustomerAddressCrudResolver.prototype, "findUniqueCustomerAddress", null);
+], CustomerAddressCrudResolver.prototype, "customerAddress", null);
 __decorate([
     TypeGraphQL.Query(_returns => CustomerAddress_1.CustomerAddress, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyCustomerAddressArgs_1.FindManyCustomerAddressArgs]),
     __metadata("design:returntype", Promise)
-], CustomerAddressCrudResolver.prototype, "findManyCustomerAddress", null);
+], CustomerAddressCrudResolver.prototype, "customerAddresses", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => CustomerAddress_1.CustomerAddress, {
         nullable: false

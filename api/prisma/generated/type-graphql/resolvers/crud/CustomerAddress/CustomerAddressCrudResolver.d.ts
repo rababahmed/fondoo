@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateCustomerAddress } from "../../outputs/AggregateCustomerAddress";
 import { CustomerAddressGroupBy } from "../../outputs/CustomerAddressGroupBy";
 export declare class CustomerAddressCrudResolver {
-    findUniqueCustomerAddress(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCustomerAddressArgs): Promise<CustomerAddress | null>;
+    customerAddress(ctx: any, info: GraphQLResolveInfo, args: FindUniqueCustomerAddressArgs): Promise<CustomerAddress | null>;
     findFirstCustomerAddress(ctx: any, info: GraphQLResolveInfo, args: FindFirstCustomerAddressArgs): Promise<CustomerAddress | null>;
-    findManyCustomerAddress(ctx: any, info: GraphQLResolveInfo, args: FindManyCustomerAddressArgs): Promise<CustomerAddress[]>;
+    customerAddresses(ctx: any, info: GraphQLResolveInfo, args: FindManyCustomerAddressArgs): Promise<CustomerAddress[]>;
     createCustomerAddress(ctx: any, info: GraphQLResolveInfo, args: CreateCustomerAddressArgs): Promise<CustomerAddress>;
     createManyCustomerAddress(ctx: any, info: GraphQLResolveInfo, args: CreateManyCustomerAddressArgs): Promise<AffectedRowsOutput>;
     deleteCustomerAddress(ctx: any, info: GraphQLResolveInfo, args: DeleteCustomerAddressArgs): Promise<CustomerAddress | null>;

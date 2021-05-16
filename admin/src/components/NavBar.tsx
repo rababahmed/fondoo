@@ -10,13 +10,16 @@ import Link from "next/link";
 import { Tag, TagLabel } from "@chakra-ui/tag";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { useGetUser } from "../shared-hooks/useGetUser";
+import { useRouter } from "next/router";
 
 const NavBar = () => {
   const { data, error, isLoading, isSuccess } = useGetUser();
 
+  const router = useRouter();
+
   return (
     <div>
-      <Box bgColor="gray.700" w={300} h="100vh">
+      <Box bgColor="gray.700" w={300} h="100%">
         <Stack>
           <VStack pt={8} mr={1}>
             <Box mb={4}>
@@ -36,7 +39,7 @@ const NavBar = () => {
             <Link href="/dashboard">
               <Button
                 leftIcon={<AiFillHome />}
-                isActive={true}
+                isActive={false}
                 isFullWidth={true}
                 colorScheme="blackAlpha"
                 variant="solid"

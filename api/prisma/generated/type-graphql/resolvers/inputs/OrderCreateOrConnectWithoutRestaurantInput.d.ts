@@ -1,6 +1,6 @@
-import { OrderUncheckedCreateWithoutRestaurantInput } from "../inputs/OrderUncheckedCreateWithoutRestaurantInput";
+import { OrderCreateWithoutRestaurantInput } from "../inputs/OrderCreateWithoutRestaurantInput";
 import { OrderWhereUniqueInput } from "../inputs/OrderWhereUniqueInput";
 export declare class OrderCreateOrConnectWithoutRestaurantInput {
     where: OrderWhereUniqueInput;
-    create: OrderUncheckedCreateWithoutRestaurantInput;
+    create: OrderCreateWithoutRestaurantInput;
 }

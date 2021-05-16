@@ -30,21 +30,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantUpsertWithoutProductsInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const RestaurantUncheckedCreateWithoutProductsInput_1 = require("../inputs/RestaurantUncheckedCreateWithoutProductsInput");
-const RestaurantUncheckedUpdateWithoutProductsInput_1 = require("../inputs/RestaurantUncheckedUpdateWithoutProductsInput");
+const RestaurantCreateWithoutProductsInput_1 = require("../inputs/RestaurantCreateWithoutProductsInput");
+const RestaurantUpdateWithoutProductsInput_1 = require("../inputs/RestaurantUpdateWithoutProductsInput");
 let RestaurantUpsertWithoutProductsInput = class RestaurantUpsertWithoutProductsInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUncheckedUpdateWithoutProductsInput_1.RestaurantUncheckedUpdateWithoutProductsInput, {
+    TypeGraphQL.Field(_type => RestaurantUpdateWithoutProductsInput_1.RestaurantUpdateWithoutProductsInput, {
         nullable: false
     }),
-    __metadata("design:type", RestaurantUncheckedUpdateWithoutProductsInput_1.RestaurantUncheckedUpdateWithoutProductsInput)
+    __metadata("design:type", RestaurantUpdateWithoutProductsInput_1.RestaurantUpdateWithoutProductsInput)
 ], RestaurantUpsertWithoutProductsInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUncheckedCreateWithoutProductsInput_1.RestaurantUncheckedCreateWithoutProductsInput, {
+    TypeGraphQL.Field(_type => RestaurantCreateWithoutProductsInput_1.RestaurantCreateWithoutProductsInput, {
         nullable: false
     }),
-    __metadata("design:type", RestaurantUncheckedCreateWithoutProductsInput_1.RestaurantUncheckedCreateWithoutProductsInput)
+    __metadata("design:type", RestaurantCreateWithoutProductsInput_1.RestaurantCreateWithoutProductsInput)
 ], RestaurantUpsertWithoutProductsInput.prototype, "create", void 0);
 RestaurantUpsertWithoutProductsInput = __decorate([
     TypeGraphQL.InputType({

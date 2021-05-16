@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateDeliveryZone_1 = require("../../outputs/AggregateDeliveryZone");
 const DeliveryZoneGroupBy_1 = require("../../outputs/DeliveryZoneGroupBy");
 let DeliveryZoneCrudResolver = class DeliveryZoneCrudResolver {
-    async findUniqueDeliveryZone(ctx, info, args) {
+    async deliveryZone(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).deliveryZone.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let DeliveryZoneCrudResolver = class DeliveryZoneCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async findManyDeliveryZone(ctx, info, args) {
+    async deliveryZones(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).deliveryZone.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueDeliveryZoneArgs_1.FindUniqueDeliveryZoneArgs]),
     __metadata("design:returntype", Promise)
-], DeliveryZoneCrudResolver.prototype, "findUniqueDeliveryZone", null);
+], DeliveryZoneCrudResolver.prototype, "deliveryZone", null);
 __decorate([
     TypeGraphQL.Query(_returns => DeliveryZone_1.DeliveryZone, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyDeliveryZoneArgs_1.FindManyDeliveryZoneArgs]),
     __metadata("design:returntype", Promise)
-], DeliveryZoneCrudResolver.prototype, "findManyDeliveryZone", null);
+], DeliveryZoneCrudResolver.prototype, "deliveryZones", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => DeliveryZone_1.DeliveryZone, {
         nullable: false

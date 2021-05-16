@@ -31,7 +31,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerAddressUpdateManyWithWhereWithoutCustomerInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const CustomerAddressScalarWhereInput_1 = require("../inputs/CustomerAddressScalarWhereInput");
-const CustomerAddressUncheckedUpdateManyWithoutAddressInput_1 = require("../inputs/CustomerAddressUncheckedUpdateManyWithoutAddressInput");
+const CustomerAddressUpdateManyMutationInput_1 = require("../inputs/CustomerAddressUpdateManyMutationInput");
 let CustomerAddressUpdateManyWithWhereWithoutCustomerInput = class CustomerAddressUpdateManyWithWhereWithoutCustomerInput {
 };
 __decorate([
@@ -41,10 +41,10 @@ __decorate([
     __metadata("design:type", CustomerAddressScalarWhereInput_1.CustomerAddressScalarWhereInput)
 ], CustomerAddressUpdateManyWithWhereWithoutCustomerInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => CustomerAddressUncheckedUpdateManyWithoutAddressInput_1.CustomerAddressUncheckedUpdateManyWithoutAddressInput, {
+    TypeGraphQL.Field(_type => CustomerAddressUpdateManyMutationInput_1.CustomerAddressUpdateManyMutationInput, {
         nullable: false
     }),
-    __metadata("design:type", CustomerAddressUncheckedUpdateManyWithoutAddressInput_1.CustomerAddressUncheckedUpdateManyWithoutAddressInput)
+    __metadata("design:type", CustomerAddressUpdateManyMutationInput_1.CustomerAddressUpdateManyMutationInput)
 ], CustomerAddressUpdateManyWithWhereWithoutCustomerInput.prototype, "data", void 0);
 CustomerAddressUpdateManyWithWhereWithoutCustomerInput = __decorate([
     TypeGraphQL.InputType({

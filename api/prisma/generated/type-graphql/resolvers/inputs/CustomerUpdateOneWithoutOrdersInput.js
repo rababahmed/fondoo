@@ -31,17 +31,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerUpdateOneWithoutOrdersInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const CustomerCreateOrConnectWithoutOrdersInput_1 = require("../inputs/CustomerCreateOrConnectWithoutOrdersInput");
-const CustomerUncheckedCreateWithoutOrdersInput_1 = require("../inputs/CustomerUncheckedCreateWithoutOrdersInput");
-const CustomerUncheckedUpdateWithoutOrdersInput_1 = require("../inputs/CustomerUncheckedUpdateWithoutOrdersInput");
+const CustomerCreateWithoutOrdersInput_1 = require("../inputs/CustomerCreateWithoutOrdersInput");
+const CustomerUpdateWithoutOrdersInput_1 = require("../inputs/CustomerUpdateWithoutOrdersInput");
 const CustomerUpsertWithoutOrdersInput_1 = require("../inputs/CustomerUpsertWithoutOrdersInput");
 const CustomerWhereUniqueInput_1 = require("../inputs/CustomerWhereUniqueInput");
 let CustomerUpdateOneWithoutOrdersInput = class CustomerUpdateOneWithoutOrdersInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => CustomerUncheckedCreateWithoutOrdersInput_1.CustomerUncheckedCreateWithoutOrdersInput, {
+    TypeGraphQL.Field(_type => CustomerCreateWithoutOrdersInput_1.CustomerCreateWithoutOrdersInput, {
         nullable: true
     }),
-    __metadata("design:type", CustomerUncheckedCreateWithoutOrdersInput_1.CustomerUncheckedCreateWithoutOrdersInput)
+    __metadata("design:type", CustomerCreateWithoutOrdersInput_1.CustomerCreateWithoutOrdersInput)
 ], CustomerUpdateOneWithoutOrdersInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerCreateOrConnectWithoutOrdersInput_1.CustomerCreateOrConnectWithoutOrdersInput, {
@@ -74,10 +74,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CustomerUpdateOneWithoutOrdersInput.prototype, "delete", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => CustomerUncheckedUpdateWithoutOrdersInput_1.CustomerUncheckedUpdateWithoutOrdersInput, {
+    TypeGraphQL.Field(_type => CustomerUpdateWithoutOrdersInput_1.CustomerUpdateWithoutOrdersInput, {
         nullable: true
     }),
-    __metadata("design:type", CustomerUncheckedUpdateWithoutOrdersInput_1.CustomerUncheckedUpdateWithoutOrdersInput)
+    __metadata("design:type", CustomerUpdateWithoutOrdersInput_1.CustomerUpdateWithoutOrdersInput)
 ], CustomerUpdateOneWithoutOrdersInput.prototype, "update", void 0);
 CustomerUpdateOneWithoutOrdersInput = __decorate([
     TypeGraphQL.InputType({

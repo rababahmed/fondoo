@@ -30,15 +30,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateProductCategoryArgs = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const ProductCategoryUncheckedUpdateInput_1 = require("../../../inputs/ProductCategoryUncheckedUpdateInput");
+const ProductCategoryUpdateInput_1 = require("../../../inputs/ProductCategoryUpdateInput");
 const ProductCategoryWhereUniqueInput_1 = require("../../../inputs/ProductCategoryWhereUniqueInput");
 let UpdateProductCategoryArgs = class UpdateProductCategoryArgs {
 };
 __decorate([
-    TypeGraphQL.Field(_type => ProductCategoryUncheckedUpdateInput_1.ProductCategoryUncheckedUpdateInput, {
+    TypeGraphQL.Field(_type => ProductCategoryUpdateInput_1.ProductCategoryUpdateInput, {
         nullable: false
     }),
-    __metadata("design:type", ProductCategoryUncheckedUpdateInput_1.ProductCategoryUncheckedUpdateInput)
+    __metadata("design:type", ProductCategoryUpdateInput_1.ProductCategoryUpdateInput)
 ], UpdateProductCategoryArgs.prototype, "data", void 0);
 __decorate([
     TypeGraphQL.Field(_type => ProductCategoryWhereUniqueInput_1.ProductCategoryWhereUniqueInput, {

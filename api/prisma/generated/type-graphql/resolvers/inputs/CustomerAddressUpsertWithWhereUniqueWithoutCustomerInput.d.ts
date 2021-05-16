@@ -1,8 +1,8 @@
-import { CustomerAddressUncheckedCreateWithoutCustomerInput } from "../inputs/CustomerAddressUncheckedCreateWithoutCustomerInput";
-import { CustomerAddressUncheckedUpdateWithoutCustomerInput } from "../inputs/CustomerAddressUncheckedUpdateWithoutCustomerInput";
+import { CustomerAddressCreateWithoutCustomerInput } from "../inputs/CustomerAddressCreateWithoutCustomerInput";
+import { CustomerAddressUpdateWithoutCustomerInput } from "../inputs/CustomerAddressUpdateWithoutCustomerInput";
 import { CustomerAddressWhereUniqueInput } from "../inputs/CustomerAddressWhereUniqueInput";
 export declare class CustomerAddressUpsertWithWhereUniqueWithoutCustomerInput {
     where: CustomerAddressWhereUniqueInput;
-    update: CustomerAddressUncheckedUpdateWithoutCustomerInput;
-    create: CustomerAddressUncheckedCreateWithoutCustomerInput;
+    update: CustomerAddressUpdateWithoutCustomerInput;
+    create: CustomerAddressCreateWithoutCustomerInput;
 }

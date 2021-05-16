@@ -1,6 +1,6 @@
-import { UserTokenUncheckedUpdateInput } from "../../../inputs/UserTokenUncheckedUpdateInput";
+import { UserTokenUpdateInput } from "../../../inputs/UserTokenUpdateInput";
 import { UserTokenWhereUniqueInput } from "../../../inputs/UserTokenWhereUniqueInput";
 export declare class UpdateUserTokenArgs {
-    data: UserTokenUncheckedUpdateInput;
+    data: UserTokenUpdateInput;
     where: UserTokenWhereUniqueInput;
 }

@@ -1,6 +1,6 @@
 import { CustomerTokenScalarWhereInput } from "../inputs/CustomerTokenScalarWhereInput";
-import { CustomerTokenUncheckedUpdateManyWithoutTokenInput } from "../inputs/CustomerTokenUncheckedUpdateManyWithoutTokenInput";
+import { CustomerTokenUpdateManyMutationInput } from "../inputs/CustomerTokenUpdateManyMutationInput";
 export declare class CustomerTokenUpdateManyWithWhereWithoutCustomerInput {
     where: CustomerTokenScalarWhereInput;
-    data: CustomerTokenUncheckedUpdateManyWithoutTokenInput;
+    data: CustomerTokenUpdateManyMutationInput;
 }

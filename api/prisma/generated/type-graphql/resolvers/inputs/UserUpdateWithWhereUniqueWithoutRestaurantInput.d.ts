@@ -1,6 +1,6 @@
-import { UserUncheckedUpdateWithoutRestaurantInput } from "../inputs/UserUncheckedUpdateWithoutRestaurantInput";
+import { UserUpdateWithoutRestaurantInput } from "../inputs/UserUpdateWithoutRestaurantInput";
 import { UserWhereUniqueInput } from "../inputs/UserWhereUniqueInput";
 export declare class UserUpdateWithWhereUniqueWithoutRestaurantInput {
     where: UserWhereUniqueInput;
-    data: UserUncheckedUpdateWithoutRestaurantInput;
+    data: UserUpdateWithoutRestaurantInput;
 }

@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateProduct_1 = require("../../outputs/AggregateProduct");
 const ProductGroupBy_1 = require("../../outputs/ProductGroupBy");
 let ProductCrudResolver = class ProductCrudResolver {
-    async findUniqueProduct(ctx, info, args) {
+    async product(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).product.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let ProductCrudResolver = class ProductCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async findManyProduct(ctx, info, args) {
+    async products(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).product.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueProductArgs_1.FindUniqueProductArgs]),
     __metadata("design:returntype", Promise)
-], ProductCrudResolver.prototype, "findUniqueProduct", null);
+], ProductCrudResolver.prototype, "product", null);
 __decorate([
     TypeGraphQL.Query(_returns => Product_1.Product, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyProductArgs_1.FindManyProductArgs]),
     __metadata("design:returntype", Promise)
-], ProductCrudResolver.prototype, "findManyProduct", null);
+], ProductCrudResolver.prototype, "products", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => Product_1.Product, {
         nullable: false

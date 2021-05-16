@@ -31,7 +31,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScheduleUpdateManyWithWhereWithoutRestaurantInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const ScheduleScalarWhereInput_1 = require("../inputs/ScheduleScalarWhereInput");
-const ScheduleUncheckedUpdateManyWithoutScheduleInput_1 = require("../inputs/ScheduleUncheckedUpdateManyWithoutScheduleInput");
+const ScheduleUpdateManyMutationInput_1 = require("../inputs/ScheduleUpdateManyMutationInput");
 let ScheduleUpdateManyWithWhereWithoutRestaurantInput = class ScheduleUpdateManyWithWhereWithoutRestaurantInput {
 };
 __decorate([
@@ -41,10 +41,10 @@ __decorate([
     __metadata("design:type", ScheduleScalarWhereInput_1.ScheduleScalarWhereInput)
 ], ScheduleUpdateManyWithWhereWithoutRestaurantInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ScheduleUncheckedUpdateManyWithoutScheduleInput_1.ScheduleUncheckedUpdateManyWithoutScheduleInput, {
+    TypeGraphQL.Field(_type => ScheduleUpdateManyMutationInput_1.ScheduleUpdateManyMutationInput, {
         nullable: false
     }),
-    __metadata("design:type", ScheduleUncheckedUpdateManyWithoutScheduleInput_1.ScheduleUncheckedUpdateManyWithoutScheduleInput)
+    __metadata("design:type", ScheduleUpdateManyMutationInput_1.ScheduleUpdateManyMutationInput)
 ], ScheduleUpdateManyWithWhereWithoutRestaurantInput.prototype, "data", void 0);
 ScheduleUpdateManyWithWhereWithoutRestaurantInput = __decorate([
     TypeGraphQL.InputType({

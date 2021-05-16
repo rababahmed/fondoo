@@ -1,6 +1,6 @@
-import { ScheduleUncheckedUpdateInput } from "../../../inputs/ScheduleUncheckedUpdateInput";
+import { ScheduleUpdateInput } from "../../../inputs/ScheduleUpdateInput";
 import { ScheduleWhereUniqueInput } from "../../../inputs/ScheduleWhereUniqueInput";
 export declare class UpdateScheduleArgs {
-    data: ScheduleUncheckedUpdateInput;
+    data: ScheduleUpdateInput;
     where: ScheduleWhereUniqueInput;
 }

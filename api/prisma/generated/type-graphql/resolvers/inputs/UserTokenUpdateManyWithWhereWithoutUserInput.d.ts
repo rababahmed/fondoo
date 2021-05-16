@@ -1,6 +1,6 @@
 import { UserTokenScalarWhereInput } from "../inputs/UserTokenScalarWhereInput";
-import { UserTokenUncheckedUpdateManyWithoutTokenInput } from "../inputs/UserTokenUncheckedUpdateManyWithoutTokenInput";
+import { UserTokenUpdateManyMutationInput } from "../inputs/UserTokenUpdateManyMutationInput";
 export declare class UserTokenUpdateManyWithWhereWithoutUserInput {
     where: UserTokenScalarWhereInput;
-    data: UserTokenUncheckedUpdateManyWithoutTokenInput;
+    data: UserTokenUpdateManyMutationInput;
 }

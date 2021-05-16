@@ -1,12 +1,12 @@
 import { UserCreateOrConnectWithoutOrdersInput } from "../inputs/UserCreateOrConnectWithoutOrdersInput";
-import { UserUncheckedCreateWithoutOrdersInput } from "../inputs/UserUncheckedCreateWithoutOrdersInput";
-import { UserUncheckedUpdateWithoutOrdersInput } from "../inputs/UserUncheckedUpdateWithoutOrdersInput";
+import { UserCreateWithoutOrdersInput } from "../inputs/UserCreateWithoutOrdersInput";
+import { UserUpdateWithoutOrdersInput } from "../inputs/UserUpdateWithoutOrdersInput";
 import { UserUpsertWithoutOrdersInput } from "../inputs/UserUpsertWithoutOrdersInput";
 import { UserWhereUniqueInput } from "../inputs/UserWhereUniqueInput";
 export declare class UserUpdateOneRequiredWithoutOrdersInput {
-    create?: UserUncheckedCreateWithoutOrdersInput | undefined;
+    create?: UserCreateWithoutOrdersInput | undefined;
     connectOrCreate?: UserCreateOrConnectWithoutOrdersInput | undefined;
     upsert?: UserUpsertWithoutOrdersInput | undefined;
     connect?: UserWhereUniqueInput | undefined;
-    update?: UserUncheckedUpdateWithoutOrdersInput | undefined;
+    update?: UserUpdateWithoutOrdersInput | undefined;
 }

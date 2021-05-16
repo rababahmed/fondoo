@@ -6,6 +6,7 @@ interface User {
   userID: number;
   restaurantID: string;
   setUser: (id: number, restaurantID: string) => void;
+  removeUser: () => void;
 }
 
 export const useUserStore = create<User>(
@@ -20,6 +21,15 @@ export const useUserStore = create<User>(
           userID: id,
           restaurantID: restaurantID,
           isAuthenticated: true,
+        };
+      }),
+    removeUser: () =>
+      set((state) => {
+        return {
+          ...state,
+          userID: 0,
+          restaurantID: "",
+          isAuthenticated: false,
         };
       }),
   }))

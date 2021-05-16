@@ -31,15 +31,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantCreateNestedOneWithoutScheduleInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const RestaurantCreateOrConnectWithoutScheduleInput_1 = require("../inputs/RestaurantCreateOrConnectWithoutScheduleInput");
-const RestaurantUncheckedCreateWithoutScheduleInput_1 = require("../inputs/RestaurantUncheckedCreateWithoutScheduleInput");
+const RestaurantCreateWithoutScheduleInput_1 = require("../inputs/RestaurantCreateWithoutScheduleInput");
 const RestaurantWhereUniqueInput_1 = require("../inputs/RestaurantWhereUniqueInput");
 let RestaurantCreateNestedOneWithoutScheduleInput = class RestaurantCreateNestedOneWithoutScheduleInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUncheckedCreateWithoutScheduleInput_1.RestaurantUncheckedCreateWithoutScheduleInput, {
+    TypeGraphQL.Field(_type => RestaurantCreateWithoutScheduleInput_1.RestaurantCreateWithoutScheduleInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantUncheckedCreateWithoutScheduleInput_1.RestaurantUncheckedCreateWithoutScheduleInput)
+    __metadata("design:type", RestaurantCreateWithoutScheduleInput_1.RestaurantCreateWithoutScheduleInput)
 ], RestaurantCreateNestedOneWithoutScheduleInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => RestaurantCreateOrConnectWithoutScheduleInput_1.RestaurantCreateOrConnectWithoutScheduleInput, {

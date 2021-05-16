@@ -1,8 +1,8 @@
 import { ProductCategoryCreateOrConnectWithoutProductInput } from "../inputs/ProductCategoryCreateOrConnectWithoutProductInput";
-import { ProductCategoryUncheckedCreateWithoutProductInput } from "../inputs/ProductCategoryUncheckedCreateWithoutProductInput";
+import { ProductCategoryCreateWithoutProductInput } from "../inputs/ProductCategoryCreateWithoutProductInput";
 import { ProductCategoryWhereUniqueInput } from "../inputs/ProductCategoryWhereUniqueInput";
 export declare class ProductCategoryCreateNestedOneWithoutProductInput {
-    create?: ProductCategoryUncheckedCreateWithoutProductInput | undefined;
+    create?: ProductCategoryCreateWithoutProductInput | undefined;
     connectOrCreate?: ProductCategoryCreateOrConnectWithoutProductInput | undefined;
     connect?: ProductCategoryWhereUniqueInput | undefined;
 }

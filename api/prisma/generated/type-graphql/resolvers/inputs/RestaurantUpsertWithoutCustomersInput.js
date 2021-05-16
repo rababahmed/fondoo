@@ -30,21 +30,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantUpsertWithoutCustomersInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const RestaurantUncheckedCreateWithoutCustomersInput_1 = require("../inputs/RestaurantUncheckedCreateWithoutCustomersInput");
-const RestaurantUncheckedUpdateWithoutCustomersInput_1 = require("../inputs/RestaurantUncheckedUpdateWithoutCustomersInput");
+const RestaurantCreateWithoutCustomersInput_1 = require("../inputs/RestaurantCreateWithoutCustomersInput");
+const RestaurantUpdateWithoutCustomersInput_1 = require("../inputs/RestaurantUpdateWithoutCustomersInput");
 let RestaurantUpsertWithoutCustomersInput = class RestaurantUpsertWithoutCustomersInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUncheckedUpdateWithoutCustomersInput_1.RestaurantUncheckedUpdateWithoutCustomersInput, {
+    TypeGraphQL.Field(_type => RestaurantUpdateWithoutCustomersInput_1.RestaurantUpdateWithoutCustomersInput, {
         nullable: false
     }),
-    __metadata("design:type", RestaurantUncheckedUpdateWithoutCustomersInput_1.RestaurantUncheckedUpdateWithoutCustomersInput)
+    __metadata("design:type", RestaurantUpdateWithoutCustomersInput_1.RestaurantUpdateWithoutCustomersInput)
 ], RestaurantUpsertWithoutCustomersInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUncheckedCreateWithoutCustomersInput_1.RestaurantUncheckedCreateWithoutCustomersInput, {
+    TypeGraphQL.Field(_type => RestaurantCreateWithoutCustomersInput_1.RestaurantCreateWithoutCustomersInput, {
         nullable: false
     }),
-    __metadata("design:type", RestaurantUncheckedCreateWithoutCustomersInput_1.RestaurantUncheckedCreateWithoutCustomersInput)
+    __metadata("design:type", RestaurantCreateWithoutCustomersInput_1.RestaurantCreateWithoutCustomersInput)
 ], RestaurantUpsertWithoutCustomersInput.prototype, "create", void 0);
 RestaurantUpsertWithoutCustomersInput = __decorate([
     TypeGraphQL.InputType({

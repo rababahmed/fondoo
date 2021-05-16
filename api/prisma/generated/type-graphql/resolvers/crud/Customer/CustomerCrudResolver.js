@@ -55,7 +55,7 @@ const AffectedRowsOutput_1 = require("../../outputs/AffectedRowsOutput");
 const AggregateCustomer_1 = require("../../outputs/AggregateCustomer");
 const CustomerGroupBy_1 = require("../../outputs/CustomerGroupBy");
 let CustomerCrudResolver = class CustomerCrudResolver {
-    async findUniqueCustomer(ctx, info, args) {
+    async customer(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).customer.findUnique({
             ...args,
@@ -69,7 +69,7 @@ let CustomerCrudResolver = class CustomerCrudResolver {
             ...(_count && helpers_1.transformCountFieldIntoSelectRelationsCount(_count)),
         });
     }
-    async findManyCustomer(ctx, info, args) {
+    async customers(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).customer.findMany({
             ...args,
@@ -147,7 +147,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindUniqueCustomerArgs_1.FindUniqueCustomerArgs]),
     __metadata("design:returntype", Promise)
-], CustomerCrudResolver.prototype, "findUniqueCustomer", null);
+], CustomerCrudResolver.prototype, "customer", null);
 __decorate([
     TypeGraphQL.Query(_returns => Customer_1.Customer, {
         nullable: true
@@ -165,7 +165,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyCustomerArgs_1.FindManyCustomerArgs]),
     __metadata("design:returntype", Promise)
-], CustomerCrudResolver.prototype, "findManyCustomer", null);
+], CustomerCrudResolver.prototype, "customers", null);
 __decorate([
     TypeGraphQL.Mutation(_returns => Customer_1.Customer, {
         nullable: false

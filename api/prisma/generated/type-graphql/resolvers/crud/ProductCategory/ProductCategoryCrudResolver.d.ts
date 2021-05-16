@@ -16,9 +16,9 @@ import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
 import { AggregateProductCategory } from "../../outputs/AggregateProductCategory";
 import { ProductCategoryGroupBy } from "../../outputs/ProductCategoryGroupBy";
 export declare class ProductCategoryCrudResolver {
-    findUniqueProductCategory(ctx: any, info: GraphQLResolveInfo, args: FindUniqueProductCategoryArgs): Promise<ProductCategory | null>;
+    productCategory(ctx: any, info: GraphQLResolveInfo, args: FindUniqueProductCategoryArgs): Promise<ProductCategory | null>;
     findFirstProductCategory(ctx: any, info: GraphQLResolveInfo, args: FindFirstProductCategoryArgs): Promise<ProductCategory | null>;
-    findManyProductCategory(ctx: any, info: GraphQLResolveInfo, args: FindManyProductCategoryArgs): Promise<ProductCategory[]>;
+    productCategories(ctx: any, info: GraphQLResolveInfo, args: FindManyProductCategoryArgs): Promise<ProductCategory[]>;
     createProductCategory(ctx: any, info: GraphQLResolveInfo, args: CreateProductCategoryArgs): Promise<ProductCategory>;
     createManyProductCategory(ctx: any, info: GraphQLResolveInfo, args: CreateManyProductCategoryArgs): Promise<AffectedRowsOutput>;
     deleteProductCategory(ctx: any, info: GraphQLResolveInfo, args: DeleteProductCategoryArgs): Promise<ProductCategory | null>;

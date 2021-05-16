@@ -30,8 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerUpsertWithWhereUniqueWithoutRestaurantInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const CustomerUncheckedCreateWithoutRestaurantInput_1 = require("../inputs/CustomerUncheckedCreateWithoutRestaurantInput");
-const CustomerUncheckedUpdateWithoutRestaurantInput_1 = require("../inputs/CustomerUncheckedUpdateWithoutRestaurantInput");
+const CustomerCreateWithoutRestaurantInput_1 = require("../inputs/CustomerCreateWithoutRestaurantInput");
+const CustomerUpdateWithoutRestaurantInput_1 = require("../inputs/CustomerUpdateWithoutRestaurantInput");
 const CustomerWhereUniqueInput_1 = require("../inputs/CustomerWhereUniqueInput");
 let CustomerUpsertWithWhereUniqueWithoutRestaurantInput = class CustomerUpsertWithWhereUniqueWithoutRestaurantInput {
 };
@@ -42,16 +42,16 @@ __decorate([
     __metadata("design:type", CustomerWhereUniqueInput_1.CustomerWhereUniqueInput)
 ], CustomerUpsertWithWhereUniqueWithoutRestaurantInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => CustomerUncheckedUpdateWithoutRestaurantInput_1.CustomerUncheckedUpdateWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => CustomerUpdateWithoutRestaurantInput_1.CustomerUpdateWithoutRestaurantInput, {
         nullable: false
     }),
-    __metadata("design:type", CustomerUncheckedUpdateWithoutRestaurantInput_1.CustomerUncheckedUpdateWithoutRestaurantInput)
+    __metadata("design:type", CustomerUpdateWithoutRestaurantInput_1.CustomerUpdateWithoutRestaurantInput)
 ], CustomerUpsertWithWhereUniqueWithoutRestaurantInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => CustomerUncheckedCreateWithoutRestaurantInput_1.CustomerUncheckedCreateWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => CustomerCreateWithoutRestaurantInput_1.CustomerCreateWithoutRestaurantInput, {
         nullable: false
     }),
-    __metadata("design:type", CustomerUncheckedCreateWithoutRestaurantInput_1.CustomerUncheckedCreateWithoutRestaurantInput)
+    __metadata("design:type", CustomerCreateWithoutRestaurantInput_1.CustomerCreateWithoutRestaurantInput)
 ], CustomerUpsertWithWhereUniqueWithoutRestaurantInput.prototype, "create", void 0);
 CustomerUpsertWithWhereUniqueWithoutRestaurantInput = __decorate([
     TypeGraphQL.InputType({

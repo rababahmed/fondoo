@@ -30,7 +30,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductCategoryCreateOrConnectWithoutRestaurantsInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const ProductCategoryUncheckedCreateWithoutRestaurantsInput_1 = require("../inputs/ProductCategoryUncheckedCreateWithoutRestaurantsInput");
+const ProductCategoryCreateWithoutRestaurantsInput_1 = require("../inputs/ProductCategoryCreateWithoutRestaurantsInput");
 const ProductCategoryWhereUniqueInput_1 = require("../inputs/ProductCategoryWhereUniqueInput");
 let ProductCategoryCreateOrConnectWithoutRestaurantsInput = class ProductCategoryCreateOrConnectWithoutRestaurantsInput {
 };
@@ -41,10 +41,10 @@ __decorate([
     __metadata("design:type", ProductCategoryWhereUniqueInput_1.ProductCategoryWhereUniqueInput)
 ], ProductCategoryCreateOrConnectWithoutRestaurantsInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => ProductCategoryUncheckedCreateWithoutRestaurantsInput_1.ProductCategoryUncheckedCreateWithoutRestaurantsInput, {
+    TypeGraphQL.Field(_type => ProductCategoryCreateWithoutRestaurantsInput_1.ProductCategoryCreateWithoutRestaurantsInput, {
         nullable: false
     }),
-    __metadata("design:type", ProductCategoryUncheckedCreateWithoutRestaurantsInput_1.ProductCategoryUncheckedCreateWithoutRestaurantsInput)
+    __metadata("design:type", ProductCategoryCreateWithoutRestaurantsInput_1.ProductCategoryCreateWithoutRestaurantsInput)
 ], ProductCategoryCreateOrConnectWithoutRestaurantsInput.prototype, "create", void 0);
 ProductCategoryCreateOrConnectWithoutRestaurantsInput = __decorate([
     TypeGraphQL.InputType({

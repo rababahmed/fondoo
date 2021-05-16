@@ -41,7 +41,7 @@ const FindManyUserArgs_1 = require("./args/FindManyUserArgs");
 const User_1 = require("../../../models/User");
 const helpers_1 = require("../../../helpers");
 let FindManyUserResolver = class FindManyUserResolver {
-    async findManyUser(ctx, info, args) {
+    async users(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).user.findMany({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyUserArgs_1.FindManyUserArgs]),
     __metadata("design:returntype", Promise)
-], FindManyUserResolver.prototype, "findManyUser", null);
+], FindManyUserResolver.prototype, "users", null);
 FindManyUserResolver = __decorate([
     TypeGraphQL.Resolver(_of => User_1.User)
 ], FindManyUserResolver);

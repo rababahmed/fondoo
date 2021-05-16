@@ -1,14 +1,14 @@
 import { CustomerCreateOrConnectWithoutTokenInput } from "../inputs/CustomerCreateOrConnectWithoutTokenInput";
-import { CustomerUncheckedCreateWithoutTokenInput } from "../inputs/CustomerUncheckedCreateWithoutTokenInput";
-import { CustomerUncheckedUpdateWithoutTokenInput } from "../inputs/CustomerUncheckedUpdateWithoutTokenInput";
+import { CustomerCreateWithoutTokenInput } from "../inputs/CustomerCreateWithoutTokenInput";
+import { CustomerUpdateWithoutTokenInput } from "../inputs/CustomerUpdateWithoutTokenInput";
 import { CustomerUpsertWithoutTokenInput } from "../inputs/CustomerUpsertWithoutTokenInput";
 import { CustomerWhereUniqueInput } from "../inputs/CustomerWhereUniqueInput";
 export declare class CustomerUpdateOneWithoutTokenInput {
-    create?: CustomerUncheckedCreateWithoutTokenInput | undefined;
+    create?: CustomerCreateWithoutTokenInput | undefined;
     connectOrCreate?: CustomerCreateOrConnectWithoutTokenInput | undefined;
     upsert?: CustomerUpsertWithoutTokenInput | undefined;
     connect?: CustomerWhereUniqueInput | undefined;
     disconnect?: boolean | undefined;
     delete?: boolean | undefined;
-    update?: CustomerUncheckedUpdateWithoutTokenInput | undefined;
+    update?: CustomerUpdateWithoutTokenInput | undefined;
 }

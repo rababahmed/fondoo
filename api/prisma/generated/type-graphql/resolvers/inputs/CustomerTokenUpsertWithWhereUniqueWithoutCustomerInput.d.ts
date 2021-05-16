@@ -1,8 +1,8 @@
-import { CustomerTokenUncheckedCreateWithoutCustomerInput } from "../inputs/CustomerTokenUncheckedCreateWithoutCustomerInput";
-import { CustomerTokenUncheckedUpdateWithoutCustomerInput } from "../inputs/CustomerTokenUncheckedUpdateWithoutCustomerInput";
+import { CustomerTokenCreateWithoutCustomerInput } from "../inputs/CustomerTokenCreateWithoutCustomerInput";
+import { CustomerTokenUpdateWithoutCustomerInput } from "../inputs/CustomerTokenUpdateWithoutCustomerInput";
 import { CustomerTokenWhereUniqueInput } from "../inputs/CustomerTokenWhereUniqueInput";
 export declare class CustomerTokenUpsertWithWhereUniqueWithoutCustomerInput {
     where: CustomerTokenWhereUniqueInput;
-    update: CustomerTokenUncheckedUpdateWithoutCustomerInput;
-    create: CustomerTokenUncheckedCreateWithoutCustomerInput;
+    update: CustomerTokenUpdateWithoutCustomerInput;
+    create: CustomerTokenCreateWithoutCustomerInput;
 }

@@ -41,7 +41,7 @@ const FindManyRestaurantArgs_1 = require("./args/FindManyRestaurantArgs");
 const Restaurant_1 = require("../../../models/Restaurant");
 const helpers_1 = require("../../../helpers");
 let FindManyRestaurantResolver = class FindManyRestaurantResolver {
-    async findManyRestaurant(ctx, info, args) {
+    async restaurants(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).restaurant.findMany({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyRestaurantArgs_1.FindManyRestaurantArgs]),
     __metadata("design:returntype", Promise)
-], FindManyRestaurantResolver.prototype, "findManyRestaurant", null);
+], FindManyRestaurantResolver.prototype, "restaurants", null);
 FindManyRestaurantResolver = __decorate([
     TypeGraphQL.Resolver(_of => Restaurant_1.Restaurant)
 ], FindManyRestaurantResolver);

@@ -31,15 +31,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserCreateNestedOneWithoutOrdersInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const UserCreateOrConnectWithoutOrdersInput_1 = require("../inputs/UserCreateOrConnectWithoutOrdersInput");
-const UserUncheckedCreateWithoutOrdersInput_1 = require("../inputs/UserUncheckedCreateWithoutOrdersInput");
+const UserCreateWithoutOrdersInput_1 = require("../inputs/UserCreateWithoutOrdersInput");
 const UserWhereUniqueInput_1 = require("../inputs/UserWhereUniqueInput");
 let UserCreateNestedOneWithoutOrdersInput = class UserCreateNestedOneWithoutOrdersInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => UserUncheckedCreateWithoutOrdersInput_1.UserUncheckedCreateWithoutOrdersInput, {
+    TypeGraphQL.Field(_type => UserCreateWithoutOrdersInput_1.UserCreateWithoutOrdersInput, {
         nullable: true
     }),
-    __metadata("design:type", UserUncheckedCreateWithoutOrdersInput_1.UserUncheckedCreateWithoutOrdersInput)
+    __metadata("design:type", UserCreateWithoutOrdersInput_1.UserCreateWithoutOrdersInput)
 ], UserCreateNestedOneWithoutOrdersInput.prototype, "create", void 0);
 __decorate([
     TypeGraphQL.Field(_type => UserCreateOrConnectWithoutOrdersInput_1.UserCreateOrConnectWithoutOrdersInput, {

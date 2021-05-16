@@ -30,21 +30,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserUpsertWithoutOrdersInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const UserUncheckedCreateWithoutOrdersInput_1 = require("../inputs/UserUncheckedCreateWithoutOrdersInput");
-const UserUncheckedUpdateWithoutOrdersInput_1 = require("../inputs/UserUncheckedUpdateWithoutOrdersInput");
+const UserCreateWithoutOrdersInput_1 = require("../inputs/UserCreateWithoutOrdersInput");
+const UserUpdateWithoutOrdersInput_1 = require("../inputs/UserUpdateWithoutOrdersInput");
 let UserUpsertWithoutOrdersInput = class UserUpsertWithoutOrdersInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => UserUncheckedUpdateWithoutOrdersInput_1.UserUncheckedUpdateWithoutOrdersInput, {
+    TypeGraphQL.Field(_type => UserUpdateWithoutOrdersInput_1.UserUpdateWithoutOrdersInput, {
         nullable: false
     }),
-    __metadata("design:type", UserUncheckedUpdateWithoutOrdersInput_1.UserUncheckedUpdateWithoutOrdersInput)
+    __metadata("design:type", UserUpdateWithoutOrdersInput_1.UserUpdateWithoutOrdersInput)
 ], UserUpsertWithoutOrdersInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserUncheckedCreateWithoutOrdersInput_1.UserUncheckedCreateWithoutOrdersInput, {
+    TypeGraphQL.Field(_type => UserCreateWithoutOrdersInput_1.UserCreateWithoutOrdersInput, {
         nullable: false
     }),
-    __metadata("design:type", UserUncheckedCreateWithoutOrdersInput_1.UserUncheckedCreateWithoutOrdersInput)
+    __metadata("design:type", UserCreateWithoutOrdersInput_1.UserCreateWithoutOrdersInput)
 ], UserUpsertWithoutOrdersInput.prototype, "create", void 0);
 UserUpsertWithoutOrdersInput = __decorate([
     TypeGraphQL.InputType({

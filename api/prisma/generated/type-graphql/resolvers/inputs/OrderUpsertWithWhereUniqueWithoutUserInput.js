@@ -30,8 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderUpsertWithWhereUniqueWithoutUserInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const OrderUncheckedCreateWithoutUserInput_1 = require("../inputs/OrderUncheckedCreateWithoutUserInput");
-const OrderUncheckedUpdateWithoutUserInput_1 = require("../inputs/OrderUncheckedUpdateWithoutUserInput");
+const OrderCreateWithoutUserInput_1 = require("../inputs/OrderCreateWithoutUserInput");
+const OrderUpdateWithoutUserInput_1 = require("../inputs/OrderUpdateWithoutUserInput");
 const OrderWhereUniqueInput_1 = require("../inputs/OrderWhereUniqueInput");
 let OrderUpsertWithWhereUniqueWithoutUserInput = class OrderUpsertWithWhereUniqueWithoutUserInput {
 };
@@ -42,16 +42,16 @@ __decorate([
     __metadata("design:type", OrderWhereUniqueInput_1.OrderWhereUniqueInput)
 ], OrderUpsertWithWhereUniqueWithoutUserInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => OrderUncheckedUpdateWithoutUserInput_1.OrderUncheckedUpdateWithoutUserInput, {
+    TypeGraphQL.Field(_type => OrderUpdateWithoutUserInput_1.OrderUpdateWithoutUserInput, {
         nullable: false
     }),
-    __metadata("design:type", OrderUncheckedUpdateWithoutUserInput_1.OrderUncheckedUpdateWithoutUserInput)
+    __metadata("design:type", OrderUpdateWithoutUserInput_1.OrderUpdateWithoutUserInput)
 ], OrderUpsertWithWhereUniqueWithoutUserInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => OrderUncheckedCreateWithoutUserInput_1.OrderUncheckedCreateWithoutUserInput, {
+    TypeGraphQL.Field(_type => OrderCreateWithoutUserInput_1.OrderCreateWithoutUserInput, {
         nullable: false
     }),
-    __metadata("design:type", OrderUncheckedCreateWithoutUserInput_1.OrderUncheckedCreateWithoutUserInput)
+    __metadata("design:type", OrderCreateWithoutUserInput_1.OrderCreateWithoutUserInput)
 ], OrderUpsertWithWhereUniqueWithoutUserInput.prototype, "create", void 0);
 OrderUpsertWithWhereUniqueWithoutUserInput = __decorate([
     TypeGraphQL.InputType({

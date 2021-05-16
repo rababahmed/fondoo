@@ -1,8 +1,8 @@
 import { RestaurantCreateOrConnectWithoutOrdersInput } from "../inputs/RestaurantCreateOrConnectWithoutOrdersInput";
-import { RestaurantUncheckedCreateWithoutOrdersInput } from "../inputs/RestaurantUncheckedCreateWithoutOrdersInput";
+import { RestaurantCreateWithoutOrdersInput } from "../inputs/RestaurantCreateWithoutOrdersInput";
 import { RestaurantWhereUniqueInput } from "../inputs/RestaurantWhereUniqueInput";
 export declare class RestaurantCreateNestedOneWithoutOrdersInput {
-    create?: RestaurantUncheckedCreateWithoutOrdersInput | undefined;
+    create?: RestaurantCreateWithoutOrdersInput | undefined;
     connectOrCreate?: RestaurantCreateOrConnectWithoutOrdersInput | undefined;
     connect?: RestaurantWhereUniqueInput | undefined;
 }

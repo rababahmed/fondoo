@@ -41,7 +41,7 @@ const FindManyCustomerAddressArgs_1 = require("./args/FindManyCustomerAddressArg
 const CustomerAddress_1 = require("../../../models/CustomerAddress");
 const helpers_1 = require("../../../helpers");
 let FindManyCustomerAddressResolver = class FindManyCustomerAddressResolver {
-    async findManyCustomerAddress(ctx, info, args) {
+    async customerAddresses(ctx, info, args) {
         const { _count } = helpers_1.transformFields(graphql_fields_1.default(info));
         return helpers_1.getPrismaFromContext(ctx).customerAddress.findMany({
             ...args,
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, FindManyCustomerAddressArgs_1.FindManyCustomerAddressArgs]),
     __metadata("design:returntype", Promise)
-], FindManyCustomerAddressResolver.prototype, "findManyCustomerAddress", null);
+], FindManyCustomerAddressResolver.prototype, "customerAddresses", null);
 FindManyCustomerAddressResolver = __decorate([
     TypeGraphQL.Resolver(_of => CustomerAddress_1.CustomerAddress)
 ], FindManyCustomerAddressResolver);

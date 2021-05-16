@@ -1,6 +1,6 @@
 import { DeliveryZoneScalarWhereInput } from "../inputs/DeliveryZoneScalarWhereInput";
-import { DeliveryZoneUncheckedUpdateManyWithoutDeliveryZonesInput } from "../inputs/DeliveryZoneUncheckedUpdateManyWithoutDeliveryZonesInput";
+import { DeliveryZoneUpdateManyMutationInput } from "../inputs/DeliveryZoneUpdateManyMutationInput";
 export declare class DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput {
     where: DeliveryZoneScalarWhereInput;
-    data: DeliveryZoneUncheckedUpdateManyWithoutDeliveryZonesInput;
+    data: DeliveryZoneUpdateManyMutationInput;
 }

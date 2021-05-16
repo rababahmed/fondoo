@@ -30,8 +30,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderUpsertWithWhereUniqueWithoutCustomerAddressInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const OrderUncheckedCreateWithoutCustomerAddressInput_1 = require("../inputs/OrderUncheckedCreateWithoutCustomerAddressInput");
-const OrderUncheckedUpdateWithoutCustomerAddressInput_1 = require("../inputs/OrderUncheckedUpdateWithoutCustomerAddressInput");
+const OrderCreateWithoutCustomerAddressInput_1 = require("../inputs/OrderCreateWithoutCustomerAddressInput");
+const OrderUpdateWithoutCustomerAddressInput_1 = require("../inputs/OrderUpdateWithoutCustomerAddressInput");
 const OrderWhereUniqueInput_1 = require("../inputs/OrderWhereUniqueInput");
 let OrderUpsertWithWhereUniqueWithoutCustomerAddressInput = class OrderUpsertWithWhereUniqueWithoutCustomerAddressInput {
 };
@@ -42,16 +42,16 @@ __decorate([
     __metadata("design:type", OrderWhereUniqueInput_1.OrderWhereUniqueInput)
 ], OrderUpsertWithWhereUniqueWithoutCustomerAddressInput.prototype, "where", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => OrderUncheckedUpdateWithoutCustomerAddressInput_1.OrderUncheckedUpdateWithoutCustomerAddressInput, {
+    TypeGraphQL.Field(_type => OrderUpdateWithoutCustomerAddressInput_1.OrderUpdateWithoutCustomerAddressInput, {
         nullable: false
     }),
-    __metadata("design:type", OrderUncheckedUpdateWithoutCustomerAddressInput_1.OrderUncheckedUpdateWithoutCustomerAddressInput)
+    __metadata("design:type", OrderUpdateWithoutCustomerAddressInput_1.OrderUpdateWithoutCustomerAddressInput)
 ], OrderUpsertWithWhereUniqueWithoutCustomerAddressInput.prototype, "update", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => OrderUncheckedCreateWithoutCustomerAddressInput_1.OrderUncheckedCreateWithoutCustomerAddressInput, {
+    TypeGraphQL.Field(_type => OrderCreateWithoutCustomerAddressInput_1.OrderCreateWithoutCustomerAddressInput, {
         nullable: false
     }),
-    __metadata("design:type", OrderUncheckedCreateWithoutCustomerAddressInput_1.OrderUncheckedCreateWithoutCustomerAddressInput)
+    __metadata("design:type", OrderCreateWithoutCustomerAddressInput_1.OrderCreateWithoutCustomerAddressInput)
 ], OrderUpsertWithWhereUniqueWithoutCustomerAddressInput.prototype, "create", void 0);
 OrderUpsertWithWhereUniqueWithoutCustomerAddressInput = __decorate([
     TypeGraphQL.InputType({

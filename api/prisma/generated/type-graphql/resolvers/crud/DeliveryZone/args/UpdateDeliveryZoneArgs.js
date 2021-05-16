@@ -30,15 +30,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateDeliveryZoneArgs = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const DeliveryZoneUncheckedUpdateInput_1 = require("../../../inputs/DeliveryZoneUncheckedUpdateInput");
+const DeliveryZoneUpdateInput_1 = require("../../../inputs/DeliveryZoneUpdateInput");
 const DeliveryZoneWhereUniqueInput_1 = require("../../../inputs/DeliveryZoneWhereUniqueInput");
 let UpdateDeliveryZoneArgs = class UpdateDeliveryZoneArgs {
 };
 __decorate([
-    TypeGraphQL.Field(_type => DeliveryZoneUncheckedUpdateInput_1.DeliveryZoneUncheckedUpdateInput, {
+    TypeGraphQL.Field(_type => DeliveryZoneUpdateInput_1.DeliveryZoneUpdateInput, {
         nullable: false
     }),
-    __metadata("design:type", DeliveryZoneUncheckedUpdateInput_1.DeliveryZoneUncheckedUpdateInput)
+    __metadata("design:type", DeliveryZoneUpdateInput_1.DeliveryZoneUpdateInput)
 ], UpdateDeliveryZoneArgs.prototype, "data", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DeliveryZoneWhereUniqueInput_1.DeliveryZoneWhereUniqueInput, {

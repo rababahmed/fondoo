@@ -1,14 +1,14 @@
 import { UserCreateOrConnectWithoutTokenInput } from "../inputs/UserCreateOrConnectWithoutTokenInput";
-import { UserUncheckedCreateWithoutTokenInput } from "../inputs/UserUncheckedCreateWithoutTokenInput";
-import { UserUncheckedUpdateWithoutTokenInput } from "../inputs/UserUncheckedUpdateWithoutTokenInput";
+import { UserCreateWithoutTokenInput } from "../inputs/UserCreateWithoutTokenInput";
+import { UserUpdateWithoutTokenInput } from "../inputs/UserUpdateWithoutTokenInput";
 import { UserUpsertWithoutTokenInput } from "../inputs/UserUpsertWithoutTokenInput";
 import { UserWhereUniqueInput } from "../inputs/UserWhereUniqueInput";
 export declare class UserUpdateOneWithoutTokenInput {
-    create?: UserUncheckedCreateWithoutTokenInput | undefined;
+    create?: UserCreateWithoutTokenInput | undefined;
     connectOrCreate?: UserCreateOrConnectWithoutTokenInput | undefined;
     upsert?: UserUpsertWithoutTokenInput | undefined;
     connect?: UserWhereUniqueInput | undefined;
     disconnect?: boolean | undefined;
     delete?: boolean | undefined;
-    update?: UserUncheckedUpdateWithoutTokenInput | undefined;
+    update?: UserUpdateWithoutTokenInput | undefined;
 }

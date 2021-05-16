@@ -1,8 +1,8 @@
-import { UserTokenUncheckedCreateInput } from "../../../inputs/UserTokenUncheckedCreateInput";
-import { UserTokenUncheckedUpdateInput } from "../../../inputs/UserTokenUncheckedUpdateInput";
+import { UserTokenCreateInput } from "../../../inputs/UserTokenCreateInput";
+import { UserTokenUpdateInput } from "../../../inputs/UserTokenUpdateInput";
 import { UserTokenWhereUniqueInput } from "../../../inputs/UserTokenWhereUniqueInput";
 export declare class UpsertUserTokenArgs {
     where: UserTokenWhereUniqueInput;
-    create: UserTokenUncheckedCreateInput;
-    update: UserTokenUncheckedUpdateInput;
+    create: UserTokenCreateInput;
+    update: UserTokenUpdateInput;
 }

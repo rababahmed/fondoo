@@ -1,6 +1,6 @@
-import { CustomerTokenUncheckedUpdateWithoutCustomerInput } from "../inputs/CustomerTokenUncheckedUpdateWithoutCustomerInput";
+import { CustomerTokenUpdateWithoutCustomerInput } from "../inputs/CustomerTokenUpdateWithoutCustomerInput";
 import { CustomerTokenWhereUniqueInput } from "../inputs/CustomerTokenWhereUniqueInput";
 export declare class CustomerTokenUpdateWithWhereUniqueWithoutCustomerInput {
     where: CustomerTokenWhereUniqueInput;
-    data: CustomerTokenUncheckedUpdateWithoutCustomerInput;
+    data: CustomerTokenUpdateWithoutCustomerInput;
 }
