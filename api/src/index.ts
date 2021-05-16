@@ -35,6 +35,7 @@ const main = async () => {
     introspection: true,
     playground: true,
     context: (): Context => ({ prisma }),
+    tracing: true,
   });
 
   apolloServer.applyMiddleware({ app });
