@@ -34,10 +34,10 @@ const DeliveryFee_1 = require("../../enums/DeliveryFee");
 let DeliveryZoneMaxAggregate = class DeliveryZoneMaxAggregate {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], DeliveryZoneMaxAggregate.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {

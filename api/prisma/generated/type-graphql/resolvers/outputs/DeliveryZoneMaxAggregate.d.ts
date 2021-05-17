@@ -1,5 +1,5 @@
 export declare class DeliveryZoneMaxAggregate {
-    id: number | null;
+    id: string | null;
     createdAt: Date | null;
     zoneTitle: string | null;
     zonePostCode: string | null;

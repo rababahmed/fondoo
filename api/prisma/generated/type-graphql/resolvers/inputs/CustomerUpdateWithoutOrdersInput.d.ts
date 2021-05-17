@@ -1,9 +1,10 @@
 import { CustomerAddressUpdateManyWithoutCustomerInput } from "../inputs/CustomerAddressUpdateManyWithoutCustomerInput";
 import { CustomerTokenUpdateManyWithoutCustomerInput } from "../inputs/CustomerTokenUpdateManyWithoutCustomerInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
-import { RestaurantUpdateOneWithoutCustomersInput } from "../inputs/RestaurantUpdateOneWithoutCustomersInput";
+import { RestaurantUpdateManyWithoutCustomersInput } from "../inputs/RestaurantUpdateManyWithoutCustomersInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class CustomerUpdateWithoutOrdersInput {
+    id?: StringFieldUpdateOperationsInput | undefined;
     createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     firstName?: StringFieldUpdateOperationsInput | undefined;
     lastName?: StringFieldUpdateOperationsInput | undefined;
@@ -12,6 +13,6 @@ export declare class CustomerUpdateWithoutOrdersInput {
     phone?: StringFieldUpdateOperationsInput | undefined;
     updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
     token?: CustomerTokenUpdateManyWithoutCustomerInput | undefined;
-    address?: CustomerAddressUpdateManyWithoutCustomerInput | undefined;
-    Restaurant?: RestaurantUpdateOneWithoutCustomersInput | undefined;
+    addresses?: CustomerAddressUpdateManyWithoutCustomerInput | undefined;
+    restaurants?: RestaurantUpdateManyWithoutCustomersInput | undefined;
 }

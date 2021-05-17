@@ -33,7 +33,6 @@ exports.UserScalarWhereInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
 const EnumRoleFilter_1 = require("../inputs/EnumRoleFilter");
-const IntFilter_1 = require("../inputs/IntFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
 const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
 let UserScalarWhereInput = UserScalarWhereInput_1 = class UserScalarWhereInput {
@@ -57,10 +56,10 @@ __decorate([
     __metadata("design:type", Array)
 ], UserScalarWhereInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntFilter_1.IntFilter)
+    __metadata("design:type", StringFilter_1.StringFilter)
 ], UserScalarWhereInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
@@ -104,12 +103,6 @@ __decorate([
     }),
     __metadata("design:type", EnumRoleFilter_1.EnumRoleFilter)
 ], UserScalarWhereInput.prototype, "role", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
-], UserScalarWhereInput.prototype, "restaurantId", void 0);
 UserScalarWhereInput = UserScalarWhereInput_1 = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

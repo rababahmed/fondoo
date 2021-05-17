@@ -1,16 +1,15 @@
 import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
-import { IntNullableWithAggregatesFilter } from "../inputs/IntNullableWithAggregatesFilter";
-import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
+import { StringNullableWithAggregatesFilter } from "../inputs/StringNullableWithAggregatesFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
 export declare class CustomerAddressScalarWhereWithAggregatesInput {
     AND?: CustomerAddressScalarWhereWithAggregatesInput[] | undefined;
     OR?: CustomerAddressScalarWhereWithAggregatesInput[] | undefined;
     NOT?: CustomerAddressScalarWhereWithAggregatesInput[] | undefined;
-    id?: IntWithAggregatesFilter | undefined;
+    id?: StringWithAggregatesFilter | undefined;
     createdAt?: DateTimeWithAggregatesFilter | undefined;
     streetAddress?: StringWithAggregatesFilter | undefined;
     city?: StringWithAggregatesFilter | undefined;
     postCode?: StringWithAggregatesFilter | undefined;
     country?: StringWithAggregatesFilter | undefined;
-    customerId?: IntNullableWithAggregatesFilter | undefined;
+    customerId?: StringNullableWithAggregatesFilter | undefined;
 }

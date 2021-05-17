@@ -32,8 +32,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserTokenScalarWhereWithAggregatesInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeWithAggregatesFilter_1 = require("../inputs/DateTimeWithAggregatesFilter");
-const IntNullableWithAggregatesFilter_1 = require("../inputs/IntNullableWithAggregatesFilter");
-const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
 const StringNullableWithAggregatesFilter_1 = require("../inputs/StringNullableWithAggregatesFilter");
 const StringWithAggregatesFilter_1 = require("../inputs/StringWithAggregatesFilter");
 let UserTokenScalarWhereWithAggregatesInput = UserTokenScalarWhereWithAggregatesInput_1 = class UserTokenScalarWhereWithAggregatesInput {
@@ -57,10 +55,10 @@ __decorate([
     __metadata("design:type", Array)
 ], UserTokenScalarWhereWithAggregatesInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntWithAggregatesFilter_1.IntWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntWithAggregatesFilter_1.IntWithAggregatesFilter)
+    __metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], UserTokenScalarWhereWithAggregatesInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
@@ -87,10 +85,10 @@ __decorate([
     __metadata("design:type", DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter)
 ], UserTokenScalarWhereWithAggregatesInput.prototype, "updatedAt", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntNullableWithAggregatesFilter_1.IntNullableWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntNullableWithAggregatesFilter_1.IntNullableWithAggregatesFilter)
+    __metadata("design:type", StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter)
 ], UserTokenScalarWhereWithAggregatesInput.prototype, "userId", void 0);
 UserTokenScalarWhereWithAggregatesInput = UserTokenScalarWhereWithAggregatesInput_1 = __decorate([
     TypeGraphQL.InputType({

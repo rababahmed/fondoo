@@ -3,12 +3,13 @@ import { CustomerAddress } from "../../../models/CustomerAddress";
 import { CustomerToken } from "../../../models/CustomerToken";
 import { Order } from "../../../models/Order";
 import { Restaurant } from "../../../models/Restaurant";
-import { CustomerAddressArgs } from "./args/CustomerAddressArgs";
+import { CustomerAddressesArgs } from "./args/CustomerAddressesArgs";
 import { CustomerOrdersArgs } from "./args/CustomerOrdersArgs";
+import { CustomerRestaurantsArgs } from "./args/CustomerRestaurantsArgs";
 import { CustomerTokenArgs } from "./args/CustomerTokenArgs";
 export declare class CustomerRelationsResolver {
     token(customer: Customer, ctx: any, args: CustomerTokenArgs): Promise<CustomerToken[]>;
-    address(customer: Customer, ctx: any, args: CustomerAddressArgs): Promise<CustomerAddress[]>;
+    addresses(customer: Customer, ctx: any, args: CustomerAddressesArgs): Promise<CustomerAddress[]>;
     orders(customer: Customer, ctx: any, args: CustomerOrdersArgs): Promise<Order[]>;
-    Restaurant(customer: Customer, ctx: any): Promise<Restaurant | null>;
+    restaurants(customer: Customer, ctx: any, args: CustomerRestaurantsArgs): Promise<Restaurant[]>;
 }

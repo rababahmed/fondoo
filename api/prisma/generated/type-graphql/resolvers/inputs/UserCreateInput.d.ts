@@ -1,7 +1,7 @@
-import { OrderCreateNestedManyWithoutUserInput } from "../inputs/OrderCreateNestedManyWithoutUserInput";
-import { RestaurantCreateNestedOneWithoutUsersInput } from "../inputs/RestaurantCreateNestedOneWithoutUsersInput";
+import { RestaurantCreateNestedManyWithoutUsersInput } from "../inputs/RestaurantCreateNestedManyWithoutUsersInput";
 import { UserTokenCreateNestedManyWithoutUserInput } from "../inputs/UserTokenCreateNestedManyWithoutUserInput";
 export declare class UserCreateInput {
+    id?: string | undefined;
     createdAt?: Date | undefined;
     firstName: string;
     lastName: string;
@@ -10,6 +10,5 @@ export declare class UserCreateInput {
     phone?: string | undefined;
     role?: "Manager" | "Owner" | "Admin" | "SuperAdmin" | undefined;
     token?: UserTokenCreateNestedManyWithoutUserInput | undefined;
-    Restaurant?: RestaurantCreateNestedOneWithoutUsersInput | undefined;
-    orders?: OrderCreateNestedManyWithoutUserInput | undefined;
+    restaurants?: RestaurantCreateNestedManyWithoutUsersInput | undefined;
 }

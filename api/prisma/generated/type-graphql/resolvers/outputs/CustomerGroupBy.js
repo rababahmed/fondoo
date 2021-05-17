@@ -30,18 +30,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerGroupBy = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const CustomerAvgAggregate_1 = require("../outputs/CustomerAvgAggregate");
 const CustomerCountAggregate_1 = require("../outputs/CustomerCountAggregate");
 const CustomerMaxAggregate_1 = require("../outputs/CustomerMaxAggregate");
 const CustomerMinAggregate_1 = require("../outputs/CustomerMinAggregate");
-const CustomerSumAggregate_1 = require("../outputs/CustomerSumAggregate");
 let CustomerGroupBy = class CustomerGroupBy {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerGroupBy.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
@@ -80,12 +78,6 @@ __decorate([
     __metadata("design:type", String)
 ], CustomerGroupBy.prototype, "phone", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
-], CustomerGroupBy.prototype, "restaurantId", void 0);
-__decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: false
     }),
@@ -97,18 +89,6 @@ __decorate([
     }),
     __metadata("design:type", CustomerCountAggregate_1.CustomerCountAggregate)
 ], CustomerGroupBy.prototype, "count", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerAvgAggregate_1.CustomerAvgAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerAvgAggregate_1.CustomerAvgAggregate)
-], CustomerGroupBy.prototype, "avg", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerSumAggregate_1.CustomerSumAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerSumAggregate_1.CustomerSumAggregate)
-], CustomerGroupBy.prototype, "sum", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerMinAggregate_1.CustomerMinAggregate, {
         nullable: true

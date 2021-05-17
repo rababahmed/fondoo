@@ -79,12 +79,6 @@ __decorate([
         nullable: false
     }),
     __metadata("design:type", Number)
-], CustomerCountAggregate.prototype, "restaurantId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: false
-    }),
-    __metadata("design:type", Number)
 ], CustomerCountAggregate.prototype, "updatedAt", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {

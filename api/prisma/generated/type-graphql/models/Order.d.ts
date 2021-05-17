@@ -1,25 +1,23 @@
-import { Prisma } from "@prisma/client";
+import { Coupon } from "../models/Coupon";
 import { Customer } from "../models/Customer";
-import { CustomerAddress } from "../models/CustomerAddress";
+import { OrderItem } from "../models/OrderItem";
 import { Restaurant } from "../models/Restaurant";
-import { User } from "../models/User";
 export declare class Order {
     id: number;
-    items: Prisma.JsonValue;
-    coupon?: string | null;
+    items?: OrderItem[];
+    address?: string | null;
+    discount: number;
     deliveryCharges: number;
     vat: number;
     serviceCharge: number;
     total: number;
     isAccepted: boolean;
-    user?: User;
+    Coupon?: Coupon | null;
+    couponId?: string | null;
     restaurant?: Restaurant;
-    createdAt: Date;
-    updatedAt: Date;
-    userId: number;
     restaurantId: string;
     Customer?: Customer | null;
-    customerId?: number | null;
-    CustomerAddress?: CustomerAddress | null;
-    customerAddressId?: number | null;
+    customerId?: string | null;
+    createdAt: Date;
+    updatedAt: Date;
 }

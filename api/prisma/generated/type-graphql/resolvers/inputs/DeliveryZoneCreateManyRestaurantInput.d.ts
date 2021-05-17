@@ -1,5 +1,5 @@
 export declare class DeliveryZoneCreateManyRestaurantInput {
-    id?: number | undefined;
+    id?: string | undefined;
     createdAt?: Date | undefined;
     zoneTitle: string;
     zonePostCode?: string | undefined;

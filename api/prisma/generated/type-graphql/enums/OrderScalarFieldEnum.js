@@ -24,19 +24,18 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 var OrderScalarFieldEnum;
 (function (OrderScalarFieldEnum) {
     OrderScalarFieldEnum["id"] = "id";
-    OrderScalarFieldEnum["items"] = "items";
-    OrderScalarFieldEnum["coupon"] = "coupon";
+    OrderScalarFieldEnum["address"] = "address";
+    OrderScalarFieldEnum["discount"] = "discount";
     OrderScalarFieldEnum["deliveryCharges"] = "deliveryCharges";
     OrderScalarFieldEnum["vat"] = "vat";
     OrderScalarFieldEnum["serviceCharge"] = "serviceCharge";
     OrderScalarFieldEnum["total"] = "total";
     OrderScalarFieldEnum["isAccepted"] = "isAccepted";
-    OrderScalarFieldEnum["createdAt"] = "createdAt";
-    OrderScalarFieldEnum["updatedAt"] = "updatedAt";
-    OrderScalarFieldEnum["userId"] = "userId";
+    OrderScalarFieldEnum["couponId"] = "couponId";
     OrderScalarFieldEnum["restaurantId"] = "restaurantId";
     OrderScalarFieldEnum["customerId"] = "customerId";
-    OrderScalarFieldEnum["customerAddressId"] = "customerAddressId";
+    OrderScalarFieldEnum["createdAt"] = "createdAt";
+    OrderScalarFieldEnum["updatedAt"] = "updatedAt";
 })(OrderScalarFieldEnum = exports.OrderScalarFieldEnum || (exports.OrderScalarFieldEnum = {}));
 TypeGraphQL.registerEnumType(OrderScalarFieldEnum, {
     name: "OrderScalarFieldEnum",

@@ -25,6 +25,7 @@ var ScheduleScalarFieldEnum;
 (function (ScheduleScalarFieldEnum) {
     ScheduleScalarFieldEnum["id"] = "id";
     ScheduleScalarFieldEnum["createdAt"] = "createdAt";
+    ScheduleScalarFieldEnum["day"] = "day";
     ScheduleScalarFieldEnum["openingTime"] = "openingTime";
     ScheduleScalarFieldEnum["closingTime"] = "closingTime";
     ScheduleScalarFieldEnum["minDeliveryAmount"] = "minDeliveryAmount";

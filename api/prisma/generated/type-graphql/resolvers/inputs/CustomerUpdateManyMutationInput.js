@@ -35,6 +35,12 @@ const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateO
 let CustomerUpdateManyMutationInput = class CustomerUpdateManyMutationInput {
 };
 __decorate([
+    TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
+], CustomerUpdateManyMutationInput.prototype, "id", void 0);
+__decorate([
     TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput, {
         nullable: true
     }),

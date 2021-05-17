@@ -49,6 +49,12 @@ __decorate([
         nullable: false
     }),
     __metadata("design:type", Number)
+], ScheduleCountAggregate.prototype, "day", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: false
+    }),
+    __metadata("design:type", Number)
 ], ScheduleCountAggregate.prototype, "openingTime", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {

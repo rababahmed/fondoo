@@ -1,4 +1,4 @@
 export declare class UserWhereUniqueInput {
-    id?: number | undefined;
+    id?: string | undefined;
     email?: string | undefined;
 }

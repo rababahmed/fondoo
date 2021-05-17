@@ -30,7 +30,6 @@ var CustomerScalarFieldEnum;
     CustomerScalarFieldEnum["email"] = "email";
     CustomerScalarFieldEnum["password"] = "password";
     CustomerScalarFieldEnum["phone"] = "phone";
-    CustomerScalarFieldEnum["restaurantId"] = "restaurantId";
     CustomerScalarFieldEnum["updatedAt"] = "updatedAt";
 })(CustomerScalarFieldEnum = exports.CustomerScalarFieldEnum || (exports.CustomerScalarFieldEnum = {}));
 TypeGraphQL.registerEnumType(CustomerScalarFieldEnum, {

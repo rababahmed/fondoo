@@ -33,7 +33,6 @@ exports.UserScalarWhereWithAggregatesInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeWithAggregatesFilter_1 = require("../inputs/DateTimeWithAggregatesFilter");
 const EnumRoleWithAggregatesFilter_1 = require("../inputs/EnumRoleWithAggregatesFilter");
-const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
 const StringNullableWithAggregatesFilter_1 = require("../inputs/StringNullableWithAggregatesFilter");
 const StringWithAggregatesFilter_1 = require("../inputs/StringWithAggregatesFilter");
 let UserScalarWhereWithAggregatesInput = UserScalarWhereWithAggregatesInput_1 = class UserScalarWhereWithAggregatesInput {
@@ -57,10 +56,10 @@ __decorate([
     __metadata("design:type", Array)
 ], UserScalarWhereWithAggregatesInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntWithAggregatesFilter_1.IntWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntWithAggregatesFilter_1.IntWithAggregatesFilter)
+    __metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], UserScalarWhereWithAggregatesInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
@@ -104,12 +103,6 @@ __decorate([
     }),
     __metadata("design:type", EnumRoleWithAggregatesFilter_1.EnumRoleWithAggregatesFilter)
 ], UserScalarWhereWithAggregatesInput.prototype, "role", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter)
-], UserScalarWhereWithAggregatesInput.prototype, "restaurantId", void 0);
 UserScalarWhereWithAggregatesInput = UserScalarWhereWithAggregatesInput_1 = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

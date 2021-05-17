@@ -1,0 +1,31 @@
+import { GraphQLResolveInfo } from "graphql";
+import { AggregateRestaurantPlanArgs } from "./args/AggregateRestaurantPlanArgs";
+import { CreateManyRestaurantPlanArgs } from "./args/CreateManyRestaurantPlanArgs";
+import { CreateRestaurantPlanArgs } from "./args/CreateRestaurantPlanArgs";
+import { DeleteManyRestaurantPlanArgs } from "./args/DeleteManyRestaurantPlanArgs";
+import { DeleteRestaurantPlanArgs } from "./args/DeleteRestaurantPlanArgs";
+import { FindFirstRestaurantPlanArgs } from "./args/FindFirstRestaurantPlanArgs";
+import { FindManyRestaurantPlanArgs } from "./args/FindManyRestaurantPlanArgs";
+import { FindUniqueRestaurantPlanArgs } from "./args/FindUniqueRestaurantPlanArgs";
+import { GroupByRestaurantPlanArgs } from "./args/GroupByRestaurantPlanArgs";
+import { UpdateManyRestaurantPlanArgs } from "./args/UpdateManyRestaurantPlanArgs";
+import { UpdateRestaurantPlanArgs } from "./args/UpdateRestaurantPlanArgs";
+import { UpsertRestaurantPlanArgs } from "./args/UpsertRestaurantPlanArgs";
+import { RestaurantPlan } from "../../../models/RestaurantPlan";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateRestaurantPlan } from "../../outputs/AggregateRestaurantPlan";
+import { RestaurantPlanGroupBy } from "../../outputs/RestaurantPlanGroupBy";
+export declare class RestaurantPlanCrudResolver {
+    restaurantPlan(ctx: any, info: GraphQLResolveInfo, args: FindUniqueRestaurantPlanArgs): Promise<RestaurantPlan | null>;
+    findFirstRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: FindFirstRestaurantPlanArgs): Promise<RestaurantPlan | null>;
+    restaurantPlans(ctx: any, info: GraphQLResolveInfo, args: FindManyRestaurantPlanArgs): Promise<RestaurantPlan[]>;
+    createRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: CreateRestaurantPlanArgs): Promise<RestaurantPlan>;
+    createManyRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: CreateManyRestaurantPlanArgs): Promise<AffectedRowsOutput>;
+    deleteRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: DeleteRestaurantPlanArgs): Promise<RestaurantPlan | null>;
+    updateRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: UpdateRestaurantPlanArgs): Promise<RestaurantPlan | null>;
+    deleteManyRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: DeleteManyRestaurantPlanArgs): Promise<AffectedRowsOutput>;
+    updateManyRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: UpdateManyRestaurantPlanArgs): Promise<AffectedRowsOutput>;
+    upsertRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: UpsertRestaurantPlanArgs): Promise<RestaurantPlan>;
+    aggregateRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: AggregateRestaurantPlanArgs): Promise<AggregateRestaurantPlan>;
+    groupByRestaurantPlan(ctx: any, info: GraphQLResolveInfo, args: GroupByRestaurantPlanArgs): Promise<RestaurantPlanGroupBy[]>;
+}

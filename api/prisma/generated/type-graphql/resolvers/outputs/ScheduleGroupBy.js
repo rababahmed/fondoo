@@ -38,10 +38,10 @@ const ScheduleSumAggregate_1 = require("../outputs/ScheduleSumAggregate");
 let ScheduleGroupBy = class ScheduleGroupBy {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], ScheduleGroupBy.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
@@ -49,6 +49,12 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], ScheduleGroupBy.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], ScheduleGroupBy.prototype, "day", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true

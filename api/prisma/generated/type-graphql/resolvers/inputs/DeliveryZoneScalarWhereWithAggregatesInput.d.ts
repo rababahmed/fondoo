@@ -8,7 +8,7 @@ export declare class DeliveryZoneScalarWhereWithAggregatesInput {
     AND?: DeliveryZoneScalarWhereWithAggregatesInput[] | undefined;
     OR?: DeliveryZoneScalarWhereWithAggregatesInput[] | undefined;
     NOT?: DeliveryZoneScalarWhereWithAggregatesInput[] | undefined;
-    id?: IntWithAggregatesFilter | undefined;
+    id?: StringWithAggregatesFilter | undefined;
     createdAt?: DateTimeWithAggregatesFilter | undefined;
     zoneTitle?: StringWithAggregatesFilter | undefined;
     zonePostCode?: StringNullableWithAggregatesFilter | undefined;

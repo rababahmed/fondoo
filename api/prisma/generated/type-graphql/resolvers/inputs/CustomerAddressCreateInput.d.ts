@@ -1,11 +1,10 @@
-import { CustomerCreateNestedOneWithoutAddressInput } from "../inputs/CustomerCreateNestedOneWithoutAddressInput";
-import { OrderCreateNestedManyWithoutCustomerAddressInput } from "../inputs/OrderCreateNestedManyWithoutCustomerAddressInput";
+import { CustomerCreateNestedOneWithoutAddressesInput } from "../inputs/CustomerCreateNestedOneWithoutAddressesInput";
 export declare class CustomerAddressCreateInput {
+    id?: string | undefined;
     createdAt?: Date | undefined;
     streetAddress: string;
     city: string;
     postCode: string;
     country: string;
-    Customer?: CustomerCreateNestedOneWithoutAddressInput | undefined;
-    Order?: OrderCreateNestedManyWithoutCustomerAddressInput | undefined;
+    Customer?: CustomerCreateNestedOneWithoutAddressesInput | undefined;
 }

@@ -39,10 +39,10 @@ const DeliveryFee_1 = require("../../enums/DeliveryFee");
 let DeliveryZoneGroupBy = class DeliveryZoneGroupBy {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], DeliveryZoneGroupBy.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {

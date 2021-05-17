@@ -6,7 +6,6 @@ export declare class CustomerCountAggregate {
     email: number;
     password: number;
     phone: number;
-    restaurantId: number;
     updatedAt: number;
     _all: number;
 }

@@ -7,5 +7,5 @@ export declare class FindFirstOrderArgs {
     cursor?: OrderWhereUniqueInput | undefined;
     take?: number | undefined;
     skip?: number | undefined;
-    distinct?: Array<"id" | "items" | "coupon" | "deliveryCharges" | "vat" | "serviceCharge" | "total" | "isAccepted" | "createdAt" | "updatedAt" | "userId" | "restaurantId" | "customerId" | "customerAddressId"> | undefined;
+    distinct?: Array<"id" | "address" | "discount" | "deliveryCharges" | "vat" | "serviceCharge" | "total" | "isAccepted" | "couponId" | "restaurantId" | "customerId" | "createdAt" | "updatedAt"> | undefined;
 }

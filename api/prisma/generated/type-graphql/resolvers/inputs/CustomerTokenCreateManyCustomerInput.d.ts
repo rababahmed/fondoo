@@ -1,5 +1,5 @@
 export declare class CustomerTokenCreateManyCustomerInput {
-    id?: number | undefined;
+    id?: string | undefined;
     token: string;
     createdAt?: Date | undefined;
     updatedAt?: Date | undefined;

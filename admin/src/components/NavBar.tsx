@@ -16,6 +16,9 @@ const NavBar = () => {
   const { data, error, isLoading, isSuccess } = useGetUser();
 
   const router = useRouter();
+  const [currentPath, setCurrentPath] = React.useState("");
+
+  React.useEffect(() => setCurrentPath(router.pathname), []);
 
   return (
     <div>
@@ -39,7 +42,7 @@ const NavBar = () => {
             <Link href="/dashboard">
               <Button
                 leftIcon={<AiFillHome />}
-                isActive={false}
+                isActive={currentPath === "/dashboard" ? true : false}
                 isFullWidth={true}
                 colorScheme="blackAlpha"
                 variant="solid"
@@ -68,7 +71,7 @@ const NavBar = () => {
             <Link href="/settings/">
               <Button
                 leftIcon={<BsGearFill />}
-                isActive={false}
+                isActive={currentPath === "/settings" ? true : false}
                 isFullWidth={true}
                 colorScheme="blackAlpha"
                 variant="solid"

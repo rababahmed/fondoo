@@ -37,12 +37,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Number)
-], DeliveryZoneAvgAggregate.prototype, "id", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
 ], DeliveryZoneAvgAggregate.prototype, "deliveryCharge", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Float, {

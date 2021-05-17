@@ -36,26 +36,36 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 const Customer_1 = require("../../../models/Customer");
 const DeliveryZone_1 = require("../../../models/DeliveryZone");
 const Order_1 = require("../../../models/Order");
+const OrderItem_1 = require("../../../models/OrderItem");
 const Product_1 = require("../../../models/Product");
 const ProductCategory_1 = require("../../../models/ProductCategory");
 const Restaurant_1 = require("../../../models/Restaurant");
+const RestaurantPlan_1 = require("../../../models/RestaurantPlan");
 const Schedule_1 = require("../../../models/Schedule");
 const User_1 = require("../../../models/User");
 const RestaurantCustomersArgs_1 = require("./args/RestaurantCustomersArgs");
 const RestaurantDeliveryZonesArgs_1 = require("./args/RestaurantDeliveryZonesArgs");
+const RestaurantOrderItemsArgs_1 = require("./args/RestaurantOrderItemsArgs");
 const RestaurantOrdersArgs_1 = require("./args/RestaurantOrdersArgs");
 const RestaurantProductCategoryArgs_1 = require("./args/RestaurantProductCategoryArgs");
 const RestaurantProductsArgs_1 = require("./args/RestaurantProductsArgs");
-const RestaurantScheduleArgs_1 = require("./args/RestaurantScheduleArgs");
+const RestaurantSchedulesArgs_1 = require("./args/RestaurantSchedulesArgs");
 const RestaurantUsersArgs_1 = require("./args/RestaurantUsersArgs");
 const helpers_1 = require("../../../helpers");
 let RestaurantRelationsResolver = class RestaurantRelationsResolver {
-    async schedule(restaurant, ctx, args) {
+    async plan(restaurant, ctx) {
         return helpers_1.getPrismaFromContext(ctx).restaurant.findUnique({
             where: {
                 id: restaurant.id,
             },
-        }).schedule(args);
+        }).plan({});
+    }
+    async schedules(restaurant, ctx, args) {
+        return helpers_1.getPrismaFromContext(ctx).restaurant.findUnique({
+            where: {
+                id: restaurant.id,
+            },
+        }).schedules(args);
     }
     async deliveryZones(restaurant, ctx, args) {
         return helpers_1.getPrismaFromContext(ctx).restaurant.findUnique({
@@ -77,6 +87,13 @@ let RestaurantRelationsResolver = class RestaurantRelationsResolver {
                 id: restaurant.id,
             },
         }).orders(args);
+    }
+    async orderItems(restaurant, ctx, args) {
+        return helpers_1.getPrismaFromContext(ctx).restaurant.findUnique({
+            where: {
+                id: restaurant.id,
+            },
+        }).orderItems(args);
     }
     async productCategory(restaurant, ctx, args) {
         return helpers_1.getPrismaFromContext(ctx).restaurant.findUnique({
@@ -101,14 +118,23 @@ let RestaurantRelationsResolver = class RestaurantRelationsResolver {
     }
 };
 __decorate([
+    TypeGraphQL.FieldResolver(_type => RestaurantPlan_1.RestaurantPlan, {
+        nullable: true
+    }),
+    __param(0, TypeGraphQL.Root()), __param(1, TypeGraphQL.Ctx()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Restaurant_1.Restaurant, Object]),
+    __metadata("design:returntype", Promise)
+], RestaurantRelationsResolver.prototype, "plan", null);
+__decorate([
     TypeGraphQL.FieldResolver(_type => [Schedule_1.Schedule], {
         nullable: false
     }),
     __param(0, TypeGraphQL.Root()), __param(1, TypeGraphQL.Ctx()), __param(2, TypeGraphQL.Args()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Restaurant_1.Restaurant, Object, RestaurantScheduleArgs_1.RestaurantScheduleArgs]),
+    __metadata("design:paramtypes", [Restaurant_1.Restaurant, Object, RestaurantSchedulesArgs_1.RestaurantSchedulesArgs]),
     __metadata("design:returntype", Promise)
-], RestaurantRelationsResolver.prototype, "schedule", null);
+], RestaurantRelationsResolver.prototype, "schedules", null);
 __decorate([
     TypeGraphQL.FieldResolver(_type => [DeliveryZone_1.DeliveryZone], {
         nullable: false
@@ -136,6 +162,15 @@ __decorate([
     __metadata("design:paramtypes", [Restaurant_1.Restaurant, Object, RestaurantOrdersArgs_1.RestaurantOrdersArgs]),
     __metadata("design:returntype", Promise)
 ], RestaurantRelationsResolver.prototype, "orders", null);
+__decorate([
+    TypeGraphQL.FieldResolver(_type => [OrderItem_1.OrderItem], {
+        nullable: false
+    }),
+    __param(0, TypeGraphQL.Root()), __param(1, TypeGraphQL.Ctx()), __param(2, TypeGraphQL.Args()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Restaurant_1.Restaurant, Object, RestaurantOrderItemsArgs_1.RestaurantOrderItemsArgs]),
+    __metadata("design:returntype", Promise)
+], RestaurantRelationsResolver.prototype, "orderItems", null);
 __decorate([
     TypeGraphQL.FieldResolver(_type => [ProductCategory_1.ProductCategory], {
         nullable: false

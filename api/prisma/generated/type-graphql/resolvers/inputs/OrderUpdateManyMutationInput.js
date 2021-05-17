@@ -30,8 +30,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderUpdateManyMutationInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const GraphQLScalars = __importStar(require("graphql-scalars"));
-const client_1 = require("@prisma/client");
 const BoolFieldUpdateOperationsInput_1 = require("../inputs/BoolFieldUpdateOperationsInput");
 const DateTimeFieldUpdateOperationsInput_1 = require("../inputs/DateTimeFieldUpdateOperationsInput");
 const FloatFieldUpdateOperationsInput_1 = require("../inputs/FloatFieldUpdateOperationsInput");
@@ -39,17 +37,17 @@ const NullableStringFieldUpdateOperationsInput_1 = require("../inputs/NullableSt
 let OrderUpdateManyMutationInput = class OrderUpdateManyMutationInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], OrderUpdateManyMutationInput.prototype, "items", void 0);
-__decorate([
     TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput, {
         nullable: true
     }),
     __metadata("design:type", NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput)
-], OrderUpdateManyMutationInput.prototype, "coupon", void 0);
+], OrderUpdateManyMutationInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput_1.FloatFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", FloatFieldUpdateOperationsInput_1.FloatFieldUpdateOperationsInput)
+], OrderUpdateManyMutationInput.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput_1.FloatFieldUpdateOperationsInput, {
         nullable: true

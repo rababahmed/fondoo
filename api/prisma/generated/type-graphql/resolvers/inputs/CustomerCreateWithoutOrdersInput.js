@@ -32,9 +32,15 @@ exports.CustomerCreateWithoutOrdersInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const CustomerAddressCreateNestedManyWithoutCustomerInput_1 = require("../inputs/CustomerAddressCreateNestedManyWithoutCustomerInput");
 const CustomerTokenCreateNestedManyWithoutCustomerInput_1 = require("../inputs/CustomerTokenCreateNestedManyWithoutCustomerInput");
-const RestaurantCreateNestedOneWithoutCustomersInput_1 = require("../inputs/RestaurantCreateNestedOneWithoutCustomersInput");
+const RestaurantCreateNestedManyWithoutCustomersInput_1 = require("../inputs/RestaurantCreateNestedManyWithoutCustomersInput");
 let CustomerCreateWithoutOrdersInput = class CustomerCreateWithoutOrdersInput {
 };
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], CustomerCreateWithoutOrdersInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
@@ -88,13 +94,13 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", CustomerAddressCreateNestedManyWithoutCustomerInput_1.CustomerAddressCreateNestedManyWithoutCustomerInput)
-], CustomerCreateWithoutOrdersInput.prototype, "address", void 0);
+], CustomerCreateWithoutOrdersInput.prototype, "addresses", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantCreateNestedOneWithoutCustomersInput_1.RestaurantCreateNestedOneWithoutCustomersInput, {
+    TypeGraphQL.Field(_type => RestaurantCreateNestedManyWithoutCustomersInput_1.RestaurantCreateNestedManyWithoutCustomersInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantCreateNestedOneWithoutCustomersInput_1.RestaurantCreateNestedOneWithoutCustomersInput)
-], CustomerCreateWithoutOrdersInput.prototype, "Restaurant", void 0);
+    __metadata("design:type", RestaurantCreateNestedManyWithoutCustomersInput_1.RestaurantCreateNestedManyWithoutCustomersInput)
+], CustomerCreateWithoutOrdersInput.prototype, "restaurants", void 0);
 CustomerCreateWithoutOrdersInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

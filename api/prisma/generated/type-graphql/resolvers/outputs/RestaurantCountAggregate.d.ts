@@ -1,11 +1,12 @@
 export declare class RestaurantCountAggregate {
     id: number;
-    createdAt: number;
     name: number;
     email: number;
+    restaurantPlanId: number;
     businessPhone: number;
     reservationPhone: number;
     url: number;
+    cuisine: number;
     address: number;
     city: number;
     postCode: number;
@@ -15,15 +16,15 @@ export declare class RestaurantCountAggregate {
     diningStyle: number;
     vat: number;
     serviceCharge: number;
-    hasParking: number;
+    hasParkingFacilities: number;
     hasPartyFacilities: number;
     hasKidsZone: number;
     isTakeaway: number;
     isDelivery: number;
     isReservation: number;
-    isOrdering: number;
     isAutoAcceptOrder: number;
     isAutoAcceptReservation: number;
+    createdAt: number;
     updatedAt: number;
     _all: number;
 }

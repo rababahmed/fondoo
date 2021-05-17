@@ -30,6 +30,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductCreateWithoutProductCategoryInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
+const OrderItemCreateNestedManyWithoutProductInput_1 = require("../inputs/OrderItemCreateNestedManyWithoutProductInput");
 const RestaurantCreateNestedOneWithoutProductsInput_1 = require("../inputs/RestaurantCreateNestedOneWithoutProductsInput");
 const SpiceLevel_1 = require("../../enums/SpiceLevel");
 let ProductCreateWithoutProductCategoryInput = class ProductCreateWithoutProductCategoryInput {
@@ -94,6 +95,12 @@ __decorate([
     }),
     __metadata("design:type", RestaurantCreateNestedOneWithoutProductsInput_1.RestaurantCreateNestedOneWithoutProductsInput)
 ], ProductCreateWithoutProductCategoryInput.prototype, "Restaurant", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => OrderItemCreateNestedManyWithoutProductInput_1.OrderItemCreateNestedManyWithoutProductInput, {
+        nullable: true
+    }),
+    __metadata("design:type", OrderItemCreateNestedManyWithoutProductInput_1.OrderItemCreateNestedManyWithoutProductInput)
+], ProductCreateWithoutProductCategoryInput.prototype, "OrderItem", void 0);
 ProductCreateWithoutProductCategoryInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

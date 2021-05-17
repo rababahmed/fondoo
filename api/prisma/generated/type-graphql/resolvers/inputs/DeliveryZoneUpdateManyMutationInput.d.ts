@@ -5,6 +5,7 @@ import { NullableIntFieldUpdateOperationsInput } from "../inputs/NullableIntFiel
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class DeliveryZoneUpdateManyMutationInput {
+    id?: StringFieldUpdateOperationsInput | undefined;
     createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     zoneTitle?: StringFieldUpdateOperationsInput | undefined;
     zonePostCode?: NullableStringFieldUpdateOperationsInput | undefined;

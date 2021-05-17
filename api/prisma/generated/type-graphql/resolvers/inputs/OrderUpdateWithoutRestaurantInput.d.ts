@@ -1,14 +1,13 @@
-import { Prisma } from "@prisma/client";
 import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
-import { CustomerAddressUpdateOneWithoutOrderInput } from "../inputs/CustomerAddressUpdateOneWithoutOrderInput";
+import { CouponUpdateOneWithoutOrdersInput } from "../inputs/CouponUpdateOneWithoutOrdersInput";
 import { CustomerUpdateOneWithoutOrdersInput } from "../inputs/CustomerUpdateOneWithoutOrdersInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
-import { UserUpdateOneRequiredWithoutOrdersInput } from "../inputs/UserUpdateOneRequiredWithoutOrdersInput";
+import { OrderItemUpdateManyWithoutOrderInput } from "../inputs/OrderItemUpdateManyWithoutOrderInput";
 export declare class OrderUpdateWithoutRestaurantInput {
-    items?: Prisma.InputJsonValue | undefined;
-    coupon?: NullableStringFieldUpdateOperationsInput | undefined;
+    address?: NullableStringFieldUpdateOperationsInput | undefined;
+    discount?: FloatFieldUpdateOperationsInput | undefined;
     deliveryCharges?: FloatFieldUpdateOperationsInput | undefined;
     vat?: FloatFieldUpdateOperationsInput | undefined;
     serviceCharge?: FloatFieldUpdateOperationsInput | undefined;
@@ -16,7 +15,7 @@ export declare class OrderUpdateWithoutRestaurantInput {
     isAccepted?: BoolFieldUpdateOperationsInput | undefined;
     createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
-    user?: UserUpdateOneRequiredWithoutOrdersInput | undefined;
+    items?: OrderItemUpdateManyWithoutOrderInput | undefined;
+    Coupon?: CouponUpdateOneWithoutOrdersInput | undefined;
     Customer?: CustomerUpdateOneWithoutOrdersInput | undefined;
-    CustomerAddress?: CustomerAddressUpdateOneWithoutOrderInput | undefined;
 }

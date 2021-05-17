@@ -8,7 +8,7 @@ export declare class DeliveryZoneScalarWhereInput {
     AND?: DeliveryZoneScalarWhereInput[] | undefined;
     OR?: DeliveryZoneScalarWhereInput[] | undefined;
     NOT?: DeliveryZoneScalarWhereInput[] | undefined;
-    id?: IntFilter | undefined;
+    id?: StringFilter | undefined;
     createdAt?: DateTimeFilter | undefined;
     zoneTitle?: StringFilter | undefined;
     zonePostCode?: StringNullableFilter | undefined;

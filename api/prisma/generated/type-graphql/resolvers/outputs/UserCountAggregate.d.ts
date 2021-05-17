@@ -7,6 +7,5 @@ export declare class UserCountAggregate {
     password: number;
     phone: number;
     role: number;
-    restaurantId: number;
     _all: number;
 }

@@ -1,0 +1,12 @@
+export { AggregateCouponArgs } from "./AggregateCouponArgs";
+export { CreateCouponArgs } from "./CreateCouponArgs";
+export { CreateManyCouponArgs } from "./CreateManyCouponArgs";
+export { DeleteCouponArgs } from "./DeleteCouponArgs";
+export { DeleteManyCouponArgs } from "./DeleteManyCouponArgs";
+export { FindFirstCouponArgs } from "./FindFirstCouponArgs";
+export { FindManyCouponArgs } from "./FindManyCouponArgs";
+export { FindUniqueCouponArgs } from "./FindUniqueCouponArgs";
+export { GroupByCouponArgs } from "./GroupByCouponArgs";
+export { UpdateCouponArgs } from "./UpdateCouponArgs";
+export { UpdateManyCouponArgs } from "./UpdateManyCouponArgs";
+export { UpsertCouponArgs } from "./UpsertCouponArgs";

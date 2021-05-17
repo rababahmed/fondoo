@@ -35,8 +35,6 @@ exports.CustomerAddressRelationsResolver = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const Customer_1 = require("../../../models/Customer");
 const CustomerAddress_1 = require("../../../models/CustomerAddress");
-const Order_1 = require("../../../models/Order");
-const CustomerAddressOrderArgs_1 = require("./args/CustomerAddressOrderArgs");
 const helpers_1 = require("../../../helpers");
 let CustomerAddressRelationsResolver = class CustomerAddressRelationsResolver {
     async Customer(customerAddress, ctx) {
@@ -45,13 +43,6 @@ let CustomerAddressRelationsResolver = class CustomerAddressRelationsResolver {
                 id: customerAddress.id,
             },
         }).Customer({});
-    }
-    async Order(customerAddress, ctx, args) {
-        return helpers_1.getPrismaFromContext(ctx).customerAddress.findUnique({
-            where: {
-                id: customerAddress.id,
-            },
-        }).Order(args);
     }
 };
 __decorate([
@@ -63,15 +54,6 @@ __decorate([
     __metadata("design:paramtypes", [CustomerAddress_1.CustomerAddress, Object]),
     __metadata("design:returntype", Promise)
 ], CustomerAddressRelationsResolver.prototype, "Customer", null);
-__decorate([
-    TypeGraphQL.FieldResolver(_type => [Order_1.Order], {
-        nullable: false
-    }),
-    __param(0, TypeGraphQL.Root()), __param(1, TypeGraphQL.Ctx()), __param(2, TypeGraphQL.Args()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [CustomerAddress_1.CustomerAddress, Object, CustomerAddressOrderArgs_1.CustomerAddressOrderArgs]),
-    __metadata("design:returntype", Promise)
-], CustomerAddressRelationsResolver.prototype, "Order", null);
 CustomerAddressRelationsResolver = __decorate([
     TypeGraphQL.Resolver(_of => CustomerAddress_1.CustomerAddress)
 ], CustomerAddressRelationsResolver);

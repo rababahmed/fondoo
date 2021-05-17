@@ -37,12 +37,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Number)
-], ScheduleSumAggregate.prototype, "id", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
 ], ScheduleSumAggregate.prototype, "minDeliveryAmount", void 0);
 ScheduleSumAggregate = __decorate([
     TypeGraphQL.ObjectType({

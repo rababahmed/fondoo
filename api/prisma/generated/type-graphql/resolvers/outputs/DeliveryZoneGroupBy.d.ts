@@ -4,7 +4,7 @@ import { DeliveryZoneMaxAggregate } from "../outputs/DeliveryZoneMaxAggregate";
 import { DeliveryZoneMinAggregate } from "../outputs/DeliveryZoneMinAggregate";
 import { DeliveryZoneSumAggregate } from "../outputs/DeliveryZoneSumAggregate";
 export declare class DeliveryZoneGroupBy {
-    id: number;
+    id: string;
     createdAt: Date;
     zoneTitle: string;
     zonePostCode: string | null;

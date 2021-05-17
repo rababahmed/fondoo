@@ -1,7 +1,8 @@
 import { Restaurant } from "../models/Restaurant";
 export declare class Schedule {
-    id: number;
+    id: string;
     createdAt: Date;
+    day?: string | null;
     openingTime?: string | null;
     closingTime?: string | null;
     minDeliveryAmount?: number | null;

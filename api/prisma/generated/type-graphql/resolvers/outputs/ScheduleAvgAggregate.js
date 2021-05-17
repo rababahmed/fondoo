@@ -37,12 +37,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Number)
-], ScheduleAvgAggregate.prototype, "id", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
 ], ScheduleAvgAggregate.prototype, "minDeliveryAmount", void 0);
 ScheduleAvgAggregate = __decorate([
     TypeGraphQL.ObjectType({

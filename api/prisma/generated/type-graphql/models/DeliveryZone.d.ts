@@ -1,6 +1,6 @@
 import { Restaurant } from "../models/Restaurant";
 export declare class DeliveryZone {
-    id: number;
+    id: string;
     createdAt: Date;
     zoneTitle: string;
     zonePostCode?: string | null;

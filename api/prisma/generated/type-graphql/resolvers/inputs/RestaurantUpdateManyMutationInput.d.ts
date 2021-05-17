@@ -4,12 +4,12 @@ import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStri
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class RestaurantUpdateManyMutationInput {
     id?: StringFieldUpdateOperationsInput | undefined;
-    createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     name?: StringFieldUpdateOperationsInput | undefined;
     email?: StringFieldUpdateOperationsInput | undefined;
     businessPhone?: NullableStringFieldUpdateOperationsInput | undefined;
     reservationPhone?: NullableStringFieldUpdateOperationsInput | undefined;
     url?: NullableStringFieldUpdateOperationsInput | undefined;
+    cuisine?: NullableStringFieldUpdateOperationsInput | undefined;
     address?: NullableStringFieldUpdateOperationsInput | undefined;
     city?: NullableStringFieldUpdateOperationsInput | undefined;
     postCode?: NullableStringFieldUpdateOperationsInput | undefined;
@@ -19,14 +19,14 @@ export declare class RestaurantUpdateManyMutationInput {
     diningStyle?: NullableStringFieldUpdateOperationsInput | undefined;
     vat?: NullableStringFieldUpdateOperationsInput | undefined;
     serviceCharge?: NullableStringFieldUpdateOperationsInput | undefined;
-    hasParking?: NullableBoolFieldUpdateOperationsInput | undefined;
+    hasParkingFacilities?: NullableBoolFieldUpdateOperationsInput | undefined;
     hasPartyFacilities?: NullableBoolFieldUpdateOperationsInput | undefined;
     hasKidsZone?: NullableBoolFieldUpdateOperationsInput | undefined;
     isTakeaway?: NullableBoolFieldUpdateOperationsInput | undefined;
     isDelivery?: NullableBoolFieldUpdateOperationsInput | undefined;
     isReservation?: NullableBoolFieldUpdateOperationsInput | undefined;
-    isOrdering?: NullableBoolFieldUpdateOperationsInput | undefined;
     isAutoAcceptOrder?: NullableBoolFieldUpdateOperationsInput | undefined;
     isAutoAcceptReservation?: NullableBoolFieldUpdateOperationsInput | undefined;
+    createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
 }

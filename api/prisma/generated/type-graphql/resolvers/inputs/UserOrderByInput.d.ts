@@ -7,5 +7,4 @@ export declare class UserOrderByInput {
     password?: "asc" | "desc" | undefined;
     phone?: "asc" | "desc" | undefined;
     role?: "asc" | "desc" | undefined;
-    restaurantId?: "asc" | "desc" | undefined;
 }

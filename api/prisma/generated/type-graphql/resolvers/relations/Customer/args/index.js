@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CustomerTokenArgs = exports.CustomerOrdersArgs = exports.CustomerAddressArgs = void 0;
-var CustomerAddressArgs_1 = require("./CustomerAddressArgs");
-Object.defineProperty(exports, "CustomerAddressArgs", { enumerable: true, get: function () { return CustomerAddressArgs_1.CustomerAddressArgs; } });
+exports.CustomerTokenArgs = exports.CustomerRestaurantsArgs = exports.CustomerOrdersArgs = exports.CustomerAddressesArgs = void 0;
+var CustomerAddressesArgs_1 = require("./CustomerAddressesArgs");
+Object.defineProperty(exports, "CustomerAddressesArgs", { enumerable: true, get: function () { return CustomerAddressesArgs_1.CustomerAddressesArgs; } });
 var CustomerOrdersArgs_1 = require("./CustomerOrdersArgs");
 Object.defineProperty(exports, "CustomerOrdersArgs", { enumerable: true, get: function () { return CustomerOrdersArgs_1.CustomerOrdersArgs; } });
+var CustomerRestaurantsArgs_1 = require("./CustomerRestaurantsArgs");
+Object.defineProperty(exports, "CustomerRestaurantsArgs", { enumerable: true, get: function () { return CustomerRestaurantsArgs_1.CustomerRestaurantsArgs; } });
 var CustomerTokenArgs_1 = require("./CustomerTokenArgs");
 Object.defineProperty(exports, "CustomerTokenArgs", { enumerable: true, get: function () { return CustomerTokenArgs_1.CustomerTokenArgs; } });

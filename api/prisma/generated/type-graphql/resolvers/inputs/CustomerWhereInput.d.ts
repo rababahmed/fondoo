@@ -1,16 +1,14 @@
 import { CustomerAddressListRelationFilter } from "../inputs/CustomerAddressListRelationFilter";
 import { CustomerTokenListRelationFilter } from "../inputs/CustomerTokenListRelationFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
-import { IntFilter } from "../inputs/IntFilter";
 import { OrderListRelationFilter } from "../inputs/OrderListRelationFilter";
-import { RestaurantRelationFilter } from "../inputs/RestaurantRelationFilter";
+import { RestaurantListRelationFilter } from "../inputs/RestaurantListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
-import { StringNullableFilter } from "../inputs/StringNullableFilter";
 export declare class CustomerWhereInput {
     AND?: CustomerWhereInput[] | undefined;
     OR?: CustomerWhereInput[] | undefined;
     NOT?: CustomerWhereInput[] | undefined;
-    id?: IntFilter | undefined;
+    id?: StringFilter | undefined;
     createdAt?: DateTimeFilter | undefined;
     firstName?: StringFilter | undefined;
     lastName?: StringFilter | undefined;
@@ -18,9 +16,8 @@ export declare class CustomerWhereInput {
     password?: StringFilter | undefined;
     phone?: StringFilter | undefined;
     token?: CustomerTokenListRelationFilter | undefined;
-    address?: CustomerAddressListRelationFilter | undefined;
+    addresses?: CustomerAddressListRelationFilter | undefined;
     orders?: OrderListRelationFilter | undefined;
-    Restaurant?: RestaurantRelationFilter | undefined;
-    restaurantId?: StringNullableFilter | undefined;
+    restaurants?: RestaurantListRelationFilter | undefined;
     updatedAt?: DateTimeFilter | undefined;
 }

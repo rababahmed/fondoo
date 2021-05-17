@@ -1,12 +1,16 @@
+export { CouponScalarFieldEnum } from "./CouponScalarFieldEnum";
 export { CustomerAddressScalarFieldEnum } from "./CustomerAddressScalarFieldEnum";
 export { CustomerScalarFieldEnum } from "./CustomerScalarFieldEnum";
 export { CustomerTokenScalarFieldEnum } from "./CustomerTokenScalarFieldEnum";
 export { DeliveryFee } from "./DeliveryFee";
 export { DeliveryZoneScalarFieldEnum } from "./DeliveryZoneScalarFieldEnum";
+export { Discount } from "./Discount";
+export { OrderItemScalarFieldEnum } from "./OrderItemScalarFieldEnum";
 export { OrderScalarFieldEnum } from "./OrderScalarFieldEnum";
 export { ProductCategoryScalarFieldEnum } from "./ProductCategoryScalarFieldEnum";
 export { ProductScalarFieldEnum } from "./ProductScalarFieldEnum";
 export { QueryMode } from "./QueryMode";
+export { RestaurantPlanScalarFieldEnum } from "./RestaurantPlanScalarFieldEnum";
 export { RestaurantScalarFieldEnum } from "./RestaurantScalarFieldEnum";
 export { Role } from "./Role";
 export { ScheduleScalarFieldEnum } from "./ScheduleScalarFieldEnum";

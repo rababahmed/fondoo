@@ -6,6 +6,7 @@ import * as inputTypes from "./resolvers/inputs";
 import * as argsTypes from "./resolvers/crud/args.index";
 declare const crudResolversMap: {
     Restaurant: typeof crudResolvers.RestaurantCrudResolver;
+    RestaurantPlan: typeof crudResolvers.RestaurantPlanCrudResolver;
     ProductCategory: typeof crudResolvers.ProductCategoryCrudResolver;
     Product: typeof crudResolvers.ProductCrudResolver;
     Schedule: typeof crudResolvers.ScheduleCrudResolver;
@@ -15,10 +16,13 @@ declare const crudResolversMap: {
     CustomerToken: typeof crudResolvers.CustomerTokenCrudResolver;
     User: typeof crudResolvers.UserCrudResolver;
     UserToken: typeof crudResolvers.UserTokenCrudResolver;
+    Coupon: typeof crudResolvers.CouponCrudResolver;
+    OrderItem: typeof crudResolvers.OrderItemCrudResolver;
     Order: typeof crudResolvers.OrderCrudResolver;
 };
 declare const relationResolversMap: {
     Restaurant: typeof relationResolvers.RestaurantRelationsResolver;
+    RestaurantPlan: typeof relationResolvers.RestaurantPlanRelationsResolver;
     ProductCategory: typeof relationResolvers.ProductCategoryRelationsResolver;
     Product: typeof relationResolvers.ProductRelationsResolver;
     Schedule: typeof relationResolvers.ScheduleRelationsResolver;
@@ -28,6 +32,8 @@ declare const relationResolversMap: {
     CustomerToken: typeof relationResolvers.CustomerTokenRelationsResolver;
     User: typeof relationResolvers.UserRelationsResolver;
     UserToken: typeof relationResolvers.UserTokenRelationsResolver;
+    Coupon: typeof relationResolvers.CouponRelationsResolver;
+    OrderItem: typeof relationResolvers.OrderItemRelationsResolver;
     Order: typeof relationResolvers.OrderRelationsResolver;
 };
 declare type ResolverModelNames = keyof typeof crudResolversMap;

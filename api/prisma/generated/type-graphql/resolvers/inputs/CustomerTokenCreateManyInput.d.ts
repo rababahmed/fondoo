@@ -1,7 +1,7 @@
 export declare class CustomerTokenCreateManyInput {
-    id?: number | undefined;
+    id?: string | undefined;
     token: string;
     createdAt?: Date | undefined;
     updatedAt?: Date | undefined;
-    customerId?: number | undefined;
+    customerId?: string | undefined;
 }

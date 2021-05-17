@@ -25,7 +25,7 @@ const UserModal = () => {
         <MenuList>
           <MenuGroup title="Dashboard">
             <MenuItem>My Restaurants</MenuItem>
-            <MenuItem>Payments </MenuItem>
+            <MenuItem>Payments</MenuItem>
           </MenuGroup>
           <MenuDivider />
           <MenuGroup title="My Account">

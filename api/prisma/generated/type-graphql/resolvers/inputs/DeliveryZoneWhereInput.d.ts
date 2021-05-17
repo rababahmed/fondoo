@@ -9,7 +9,7 @@ export declare class DeliveryZoneWhereInput {
     AND?: DeliveryZoneWhereInput[] | undefined;
     OR?: DeliveryZoneWhereInput[] | undefined;
     NOT?: DeliveryZoneWhereInput[] | undefined;
-    id?: IntFilter | undefined;
+    id?: StringFilter | undefined;
     createdAt?: DateTimeFilter | undefined;
     zoneTitle?: StringFilter | undefined;
     zonePostCode?: StringNullableFilter | undefined;

@@ -50,6 +50,12 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", String)
+], ScheduleOrderByInput.prototype, "day", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
 ], ScheduleOrderByInput.prototype, "openingTime", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {

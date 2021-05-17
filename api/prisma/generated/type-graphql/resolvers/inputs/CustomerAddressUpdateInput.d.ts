@@ -1,13 +1,12 @@
-import { CustomerUpdateOneWithoutAddressInput } from "../inputs/CustomerUpdateOneWithoutAddressInput";
+import { CustomerUpdateOneWithoutAddressesInput } from "../inputs/CustomerUpdateOneWithoutAddressesInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
-import { OrderUpdateManyWithoutCustomerAddressInput } from "../inputs/OrderUpdateManyWithoutCustomerAddressInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class CustomerAddressUpdateInput {
+    id?: StringFieldUpdateOperationsInput | undefined;
     createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     streetAddress?: StringFieldUpdateOperationsInput | undefined;
     city?: StringFieldUpdateOperationsInput | undefined;
     postCode?: StringFieldUpdateOperationsInput | undefined;
     country?: StringFieldUpdateOperationsInput | undefined;
-    Customer?: CustomerUpdateOneWithoutAddressInput | undefined;
-    Order?: OrderUpdateManyWithoutCustomerAddressInput | undefined;
+    Customer?: CustomerUpdateOneWithoutAddressesInput | undefined;
 }

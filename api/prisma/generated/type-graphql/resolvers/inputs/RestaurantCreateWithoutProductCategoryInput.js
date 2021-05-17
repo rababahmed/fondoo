@@ -30,12 +30,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RestaurantCreateWithoutProductCategoryInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const CustomerCreateNestedManyWithoutRestaurantInput_1 = require("../inputs/CustomerCreateNestedManyWithoutRestaurantInput");
+const CustomerCreateNestedManyWithoutRestaurantsInput_1 = require("../inputs/CustomerCreateNestedManyWithoutRestaurantsInput");
 const DeliveryZoneCreateNestedManyWithoutRestaurantInput_1 = require("../inputs/DeliveryZoneCreateNestedManyWithoutRestaurantInput");
 const OrderCreateNestedManyWithoutRestaurantInput_1 = require("../inputs/OrderCreateNestedManyWithoutRestaurantInput");
+const OrderItemCreateNestedManyWithoutRestaurantInput_1 = require("../inputs/OrderItemCreateNestedManyWithoutRestaurantInput");
 const ProductCreateNestedManyWithoutRestaurantInput_1 = require("../inputs/ProductCreateNestedManyWithoutRestaurantInput");
+const RestaurantPlanCreateNestedOneWithoutRestaurantsInput_1 = require("../inputs/RestaurantPlanCreateNestedOneWithoutRestaurantsInput");
 const ScheduleCreateNestedManyWithoutRestaurantInput_1 = require("../inputs/ScheduleCreateNestedManyWithoutRestaurantInput");
-const UserCreateNestedManyWithoutRestaurantInput_1 = require("../inputs/UserCreateNestedManyWithoutRestaurantInput");
+const UserCreateNestedManyWithoutRestaurantsInput_1 = require("../inputs/UserCreateNestedManyWithoutRestaurantsInput");
 let RestaurantCreateWithoutProductCategoryInput = class RestaurantCreateWithoutProductCategoryInput {
 };
 __decorate([
@@ -44,12 +46,6 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RestaurantCreateWithoutProductCategoryInput.prototype, "id", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: true
-    }),
-    __metadata("design:type", Date)
-], RestaurantCreateWithoutProductCategoryInput.prototype, "createdAt", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false
@@ -80,6 +76,12 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RestaurantCreateWithoutProductCategoryInput.prototype, "url", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], RestaurantCreateWithoutProductCategoryInput.prototype, "cuisine", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
@@ -139,7 +141,7 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Boolean)
-], RestaurantCreateWithoutProductCategoryInput.prototype, "hasParking", void 0);
+], RestaurantCreateWithoutProductCategoryInput.prototype, "hasParkingFacilities", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Boolean, {
         nullable: true
@@ -175,12 +177,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Boolean)
-], RestaurantCreateWithoutProductCategoryInput.prototype, "isOrdering", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => Boolean, {
-        nullable: true
-    }),
-    __metadata("design:type", Boolean)
 ], RestaurantCreateWithoutProductCategoryInput.prototype, "isAutoAcceptOrder", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Boolean, {
@@ -193,13 +189,25 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Date)
+], RestaurantCreateWithoutProductCategoryInput.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => Date, {
+        nullable: true
+    }),
+    __metadata("design:type", Date)
 ], RestaurantCreateWithoutProductCategoryInput.prototype, "updatedAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => RestaurantPlanCreateNestedOneWithoutRestaurantsInput_1.RestaurantPlanCreateNestedOneWithoutRestaurantsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", RestaurantPlanCreateNestedOneWithoutRestaurantsInput_1.RestaurantPlanCreateNestedOneWithoutRestaurantsInput)
+], RestaurantCreateWithoutProductCategoryInput.prototype, "plan", void 0);
 __decorate([
     TypeGraphQL.Field(_type => ScheduleCreateNestedManyWithoutRestaurantInput_1.ScheduleCreateNestedManyWithoutRestaurantInput, {
         nullable: true
     }),
     __metadata("design:type", ScheduleCreateNestedManyWithoutRestaurantInput_1.ScheduleCreateNestedManyWithoutRestaurantInput)
-], RestaurantCreateWithoutProductCategoryInput.prototype, "schedule", void 0);
+], RestaurantCreateWithoutProductCategoryInput.prototype, "schedules", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DeliveryZoneCreateNestedManyWithoutRestaurantInput_1.DeliveryZoneCreateNestedManyWithoutRestaurantInput, {
         nullable: true
@@ -207,10 +215,10 @@ __decorate([
     __metadata("design:type", DeliveryZoneCreateNestedManyWithoutRestaurantInput_1.DeliveryZoneCreateNestedManyWithoutRestaurantInput)
 ], RestaurantCreateWithoutProductCategoryInput.prototype, "deliveryZones", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => CustomerCreateNestedManyWithoutRestaurantInput_1.CustomerCreateNestedManyWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => CustomerCreateNestedManyWithoutRestaurantsInput_1.CustomerCreateNestedManyWithoutRestaurantsInput, {
         nullable: true
     }),
-    __metadata("design:type", CustomerCreateNestedManyWithoutRestaurantInput_1.CustomerCreateNestedManyWithoutRestaurantInput)
+    __metadata("design:type", CustomerCreateNestedManyWithoutRestaurantsInput_1.CustomerCreateNestedManyWithoutRestaurantsInput)
 ], RestaurantCreateWithoutProductCategoryInput.prototype, "customers", void 0);
 __decorate([
     TypeGraphQL.Field(_type => OrderCreateNestedManyWithoutRestaurantInput_1.OrderCreateNestedManyWithoutRestaurantInput, {
@@ -219,16 +227,22 @@ __decorate([
     __metadata("design:type", OrderCreateNestedManyWithoutRestaurantInput_1.OrderCreateNestedManyWithoutRestaurantInput)
 ], RestaurantCreateWithoutProductCategoryInput.prototype, "orders", void 0);
 __decorate([
+    TypeGraphQL.Field(_type => OrderItemCreateNestedManyWithoutRestaurantInput_1.OrderItemCreateNestedManyWithoutRestaurantInput, {
+        nullable: true
+    }),
+    __metadata("design:type", OrderItemCreateNestedManyWithoutRestaurantInput_1.OrderItemCreateNestedManyWithoutRestaurantInput)
+], RestaurantCreateWithoutProductCategoryInput.prototype, "orderItems", void 0);
+__decorate([
     TypeGraphQL.Field(_type => ProductCreateNestedManyWithoutRestaurantInput_1.ProductCreateNestedManyWithoutRestaurantInput, {
         nullable: true
     }),
     __metadata("design:type", ProductCreateNestedManyWithoutRestaurantInput_1.ProductCreateNestedManyWithoutRestaurantInput)
 ], RestaurantCreateWithoutProductCategoryInput.prototype, "products", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserCreateNestedManyWithoutRestaurantInput_1.UserCreateNestedManyWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => UserCreateNestedManyWithoutRestaurantsInput_1.UserCreateNestedManyWithoutRestaurantsInput, {
         nullable: true
     }),
-    __metadata("design:type", UserCreateNestedManyWithoutRestaurantInput_1.UserCreateNestedManyWithoutRestaurantInput)
+    __metadata("design:type", UserCreateNestedManyWithoutRestaurantsInput_1.UserCreateNestedManyWithoutRestaurantsInput)
 ], RestaurantCreateWithoutProductCategoryInput.prototype, "users", void 0);
 RestaurantCreateWithoutProductCategoryInput = __decorate([
     TypeGraphQL.InputType({

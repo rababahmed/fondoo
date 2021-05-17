@@ -1,3 +1,3 @@
 export declare class DeliveryZoneWhereUniqueInput {
-    id?: number | undefined;
+    id?: string | undefined;
 }

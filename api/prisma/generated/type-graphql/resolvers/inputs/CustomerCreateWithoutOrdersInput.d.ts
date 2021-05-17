@@ -1,7 +1,8 @@
 import { CustomerAddressCreateNestedManyWithoutCustomerInput } from "../inputs/CustomerAddressCreateNestedManyWithoutCustomerInput";
 import { CustomerTokenCreateNestedManyWithoutCustomerInput } from "../inputs/CustomerTokenCreateNestedManyWithoutCustomerInput";
-import { RestaurantCreateNestedOneWithoutCustomersInput } from "../inputs/RestaurantCreateNestedOneWithoutCustomersInput";
+import { RestaurantCreateNestedManyWithoutCustomersInput } from "../inputs/RestaurantCreateNestedManyWithoutCustomersInput";
 export declare class CustomerCreateWithoutOrdersInput {
+    id?: string | undefined;
     createdAt?: Date | undefined;
     firstName: string;
     lastName: string;
@@ -10,6 +11,6 @@ export declare class CustomerCreateWithoutOrdersInput {
     phone: string;
     updatedAt?: Date | undefined;
     token?: CustomerTokenCreateNestedManyWithoutCustomerInput | undefined;
-    address?: CustomerAddressCreateNestedManyWithoutCustomerInput | undefined;
-    Restaurant?: RestaurantCreateNestedOneWithoutCustomersInput | undefined;
+    addresses?: CustomerAddressCreateNestedManyWithoutCustomerInput | undefined;
+    restaurants?: RestaurantCreateNestedManyWithoutCustomersInput | undefined;
 }

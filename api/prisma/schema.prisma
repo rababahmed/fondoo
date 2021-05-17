@@ -18,12 +18,14 @@ generator typegraphql {
 
 model Restaurant {
   id                      String            @id @default(uuid())
-  createdAt               DateTime          @default(now())
   name                    String
   email                   String
+  plan                    RestaurantPlan?   @relation(fields: [restaurantPlanId], references: [id])
+  restaurantPlanId        String?
   businessPhone           String?
   reservationPhone        String?
   url                     String?
+  cuisine                 String?
   address                 String?
   city                    String?
   postCode                String?
@@ -33,23 +35,32 @@ model Restaurant {
   diningStyle             String?
   vat                     String?
   serviceCharge           String?
-  hasParking              Boolean?
+  hasParkingFacilities    Boolean?
   hasPartyFacilities      Boolean?
   hasKidsZone             Boolean?
   isTakeaway              Boolean?
   isDelivery              Boolean?
   isReservation           Boolean?
-  isOrdering              Boolean?
   isAutoAcceptOrder       Boolean?
   isAutoAcceptReservation Boolean?
-  schedule                Schedule[]
+  schedules               Schedule[]
   deliveryZones           DeliveryZone[]
   customers               Customer[]
   orders                  Order[]
+  orderItems              OrderItem[]
   productCategory         ProductCategory[]
   products                Product[]
-  updatedAt               DateTime          @updatedAt
   users                   User[]
+  createdAt               DateTime          @default(now())
+  updatedAt               DateTime          @updatedAt
+}
+
+model RestaurantPlan {
+  id          String       @id @default(cuid())
+  name        String
+  price       Float
+  isActive    Boolean
+  restaurants Restaurant[]
 }
 
 model ProductCategory {
@@ -79,6 +90,7 @@ model Product {
   productCategoryId String?
   Restaurant        Restaurant?      @relation(fields: [restaurantId], references: [id])
   restaurantId      String?
+  OrderItem         OrderItem[]
 }
 
 enum SpiceLevel {
@@ -90,8 +102,9 @@ enum SpiceLevel {
 }
 
 model Schedule {
-  id                Int         @id @default(autoincrement())
+  id                String      @id @default(cuid())
   createdAt         DateTime    @default(now())
+  day               String?
   openingTime       String?
   closingTime       String?
   minDeliveryAmount Int?
@@ -102,7 +115,7 @@ model Schedule {
 }
 
 model DeliveryZone {
-  id                Int         @id @default(autoincrement())
+  id                String      @id @default(cuid())
   createdAt         DateTime    @default(now())
   zoneTitle         String
   zonePostCode      String?
@@ -121,55 +134,51 @@ enum DeliveryFee {
 }
 
 model Customer {
-  id           Int               @id @default(autoincrement())
-  createdAt    DateTime          @default(now())
-  firstName    String
-  lastName     String
-  email        String            @unique
-  password     String
-  phone        String
-  token        CustomerToken[]
-  address      CustomerAddress[]
-  orders       Order[]
-  Restaurant   Restaurant?       @relation(fields: [restaurantId], references: [id])
-  restaurantId String?
-  updatedAt    DateTime          @updatedAt
+  id          String            @id @default(cuid())
+  createdAt   DateTime          @default(now())
+  firstName   String
+  lastName    String
+  email       String            @unique
+  password    String
+  phone       String
+  token       CustomerToken[]
+  addresses   CustomerAddress[]
+  orders      Order[]
+  restaurants Restaurant[]
+  updatedAt   DateTime          @updatedAt
 }
 
 model CustomerAddress {
-  id            Int       @id @default(autoincrement())
+  id            String    @id @default(cuid())
   createdAt     DateTime  @default(now())
   streetAddress String
   city          String
   postCode      String
   country       String
   Customer      Customer? @relation(fields: [customerId], references: [id])
-  customerId    Int?
-  Order         Order[]
+  customerId    String?
 }
 
 model CustomerToken {
-  id         Int       @id @default(autoincrement())
+  id         String    @id @default(cuid())
   token      String
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   Customer   Customer? @relation(fields: [customerId], references: [id])
-  customerId Int?
+  customerId String?
 }
 
 model User {
-  id           Int         @id @default(autoincrement())
-  createdAt    DateTime    @default(now())
-  firstName    String
-  lastName     String
-  email        String      @unique
-  password     String
-  phone        String?
-  token        UserToken[]
-  role         Role        @default(Manager)
-  Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
-  restaurantId String?
-  orders       Order[]
+  id          String       @id @default(cuid())
+  createdAt   DateTime     @default(now())
+  firstName   String
+  lastName    String
+  email       String       @unique
+  password    String
+  phone       String?
+  token       UserToken[]
+  restaurants Restaurant[]
+  role        Role         @default(Manager)
 }
 
 enum Role {
@@ -180,32 +189,60 @@ enum Role {
 }
 
 model UserToken {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   token     String
   provider  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   User      User?    @relation(fields: [userId], references: [id])
-  userId    Int?
+  userId    String?
+}
+
+model Coupon {
+  id          String   @id @default(cuid())
+  code        String
+  discount    Discount
+  value       Float
+  description String?
+  orders      Order[]
+}
+
+enum Discount {
+  Fixed
+  Percent
+}
+
+model OrderItem {
+  id           String      @id @default(cuid())
+  product      Product     @relation(fields: [productId], references: [id])
+  quantity     Int         @default(1)
+  total        Int
+  spiceLevel   SpiceLevel  @default(None)
+  productId    String
+  Order        Order?      @relation(fields: [orderId], references: [id])
+  orderId      Int?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
+  restaurantId String?
 }
 
 model Order {
-  id                Int              @id @default(autoincrement())
-  items             Json
-  coupon            String?
-  deliveryCharges   Float
-  vat               Float
-  serviceCharge     Float
-  total             Float
-  isAccepted        Boolean
-  user              User             @relation(fields: [userId], references: [id])
-  restaurant        Restaurant       @relation(fields: [restaurantId], references: [id])
-  createdAt         DateTime         @default(now())
-  updatedAt         DateTime         @updatedAt
-  userId            Int
-  restaurantId      String
-  Customer          Customer?        @relation(fields: [customerId], references: [id])
-  customerId        Int?
-  CustomerAddress   CustomerAddress? @relation(fields: [customerAddressId], references: [id])
-  customerAddressId Int?
+  id              Int         @id @default(autoincrement())
+  items           OrderItem[]
+  address         String?
+  discount        Float
+  deliveryCharges Float
+  vat             Float
+  serviceCharge   Float
+  total           Float
+  isAccepted      Boolean
+  Coupon          Coupon?     @relation(fields: [couponId], references: [id])
+  couponId        String?
+  restaurant      Restaurant  @relation(fields: [restaurantId], references: [id])
+  restaurantId    String
+  Customer        Customer?   @relation(fields: [customerId], references: [id])
+  customerId      String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
 }

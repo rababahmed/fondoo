@@ -30,18 +30,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerTokenGroupBy = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const CustomerTokenAvgAggregate_1 = require("../outputs/CustomerTokenAvgAggregate");
 const CustomerTokenCountAggregate_1 = require("../outputs/CustomerTokenCountAggregate");
 const CustomerTokenMaxAggregate_1 = require("../outputs/CustomerTokenMaxAggregate");
 const CustomerTokenMinAggregate_1 = require("../outputs/CustomerTokenMinAggregate");
-const CustomerTokenSumAggregate_1 = require("../outputs/CustomerTokenSumAggregate");
 let CustomerTokenGroupBy = class CustomerTokenGroupBy {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerTokenGroupBy.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
@@ -62,10 +60,10 @@ __decorate([
     __metadata("design:type", Date)
 ], CustomerTokenGroupBy.prototype, "updatedAt", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerTokenGroupBy.prototype, "customerId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerTokenCountAggregate_1.CustomerTokenCountAggregate, {
@@ -73,18 +71,6 @@ __decorate([
     }),
     __metadata("design:type", CustomerTokenCountAggregate_1.CustomerTokenCountAggregate)
 ], CustomerTokenGroupBy.prototype, "count", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerTokenAvgAggregate_1.CustomerTokenAvgAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerTokenAvgAggregate_1.CustomerTokenAvgAggregate)
-], CustomerTokenGroupBy.prototype, "avg", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerTokenSumAggregate_1.CustomerTokenSumAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerTokenSumAggregate_1.CustomerTokenSumAggregate)
-], CustomerTokenGroupBy.prototype, "sum", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerTokenMinAggregate_1.CustomerTokenMinAggregate, {
         nullable: true

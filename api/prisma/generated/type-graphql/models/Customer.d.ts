@@ -3,7 +3,7 @@ import { CustomerToken } from "../models/CustomerToken";
 import { Order } from "../models/Order";
 import { Restaurant } from "../models/Restaurant";
 export declare class Customer {
-    id: number;
+    id: string;
     createdAt: Date;
     firstName: string;
     lastName: string;
@@ -11,9 +11,8 @@ export declare class Customer {
     password: string;
     phone: string;
     token?: CustomerToken[];
-    address?: CustomerAddress[];
+    addresses?: CustomerAddress[];
     orders?: Order[];
-    Restaurant?: Restaurant | null;
-    restaurantId?: string | null;
+    restaurants?: Restaurant[];
     updatedAt: Date;
 }

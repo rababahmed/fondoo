@@ -1,6 +1,7 @@
 export declare class ScheduleOrderByInput {
     id?: "asc" | "desc" | undefined;
     createdAt?: "asc" | "desc" | undefined;
+    day?: "asc" | "desc" | undefined;
     openingTime?: "asc" | "desc" | undefined;
     closingTime?: "asc" | "desc" | undefined;
     minDeliveryAmount?: "asc" | "desc" | undefined;

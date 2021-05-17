@@ -33,10 +33,10 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 let ScheduleMinAggregate = class ScheduleMinAggregate {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], ScheduleMinAggregate.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
@@ -44,6 +44,12 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], ScheduleMinAggregate.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], ScheduleMinAggregate.prototype, "day", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true

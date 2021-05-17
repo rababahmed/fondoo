@@ -4,8 +4,9 @@ import { ScheduleMaxAggregate } from "../outputs/ScheduleMaxAggregate";
 import { ScheduleMinAggregate } from "../outputs/ScheduleMinAggregate";
 import { ScheduleSumAggregate } from "../outputs/ScheduleSumAggregate";
 export declare class ScheduleGroupBy {
-    id: number;
+    id: string;
     createdAt: Date;
+    day: string | null;
     openingTime: string | null;
     closingTime: string | null;
     minDeliveryAmount: number | null;

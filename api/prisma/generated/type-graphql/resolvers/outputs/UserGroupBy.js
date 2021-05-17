@@ -30,19 +30,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserGroupBy = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const UserAvgAggregate_1 = require("../outputs/UserAvgAggregate");
 const UserCountAggregate_1 = require("../outputs/UserCountAggregate");
 const UserMaxAggregate_1 = require("../outputs/UserMaxAggregate");
 const UserMinAggregate_1 = require("../outputs/UserMinAggregate");
-const UserSumAggregate_1 = require("../outputs/UserSumAggregate");
 const Role_1 = require("../../enums/Role");
 let UserGroupBy = class UserGroupBy {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], UserGroupBy.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
@@ -87,29 +85,11 @@ __decorate([
     __metadata("design:type", String)
 ], UserGroupBy.prototype, "role", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
-], UserGroupBy.prototype, "restaurantId", void 0);
-__decorate([
     TypeGraphQL.Field(_type => UserCountAggregate_1.UserCountAggregate, {
         nullable: true
     }),
     __metadata("design:type", UserCountAggregate_1.UserCountAggregate)
 ], UserGroupBy.prototype, "count", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => UserAvgAggregate_1.UserAvgAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", UserAvgAggregate_1.UserAvgAggregate)
-], UserGroupBy.prototype, "avg", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => UserSumAggregate_1.UserSumAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", UserSumAggregate_1.UserSumAggregate)
-], UserGroupBy.prototype, "sum", void 0);
 __decorate([
     TypeGraphQL.Field(_type => UserMinAggregate_1.UserMinAggregate, {
         nullable: true

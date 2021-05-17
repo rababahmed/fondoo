@@ -33,12 +33,17 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeFieldUpdateOperationsInput_1 = require("../inputs/DateTimeFieldUpdateOperationsInput");
 const EnumRoleFieldUpdateOperationsInput_1 = require("../inputs/EnumRoleFieldUpdateOperationsInput");
 const NullableStringFieldUpdateOperationsInput_1 = require("../inputs/NullableStringFieldUpdateOperationsInput");
-const OrderUpdateManyWithoutUserInput_1 = require("../inputs/OrderUpdateManyWithoutUserInput");
-const RestaurantUpdateOneWithoutUsersInput_1 = require("../inputs/RestaurantUpdateOneWithoutUsersInput");
+const RestaurantUpdateManyWithoutUsersInput_1 = require("../inputs/RestaurantUpdateManyWithoutUsersInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
 const UserTokenUpdateManyWithoutUserInput_1 = require("../inputs/UserTokenUpdateManyWithoutUserInput");
 let UserUpdateInput = class UserUpdateInput {
 };
+__decorate([
+    TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
+], UserUpdateInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput, {
         nullable: true
@@ -88,17 +93,11 @@ __decorate([
     __metadata("design:type", UserTokenUpdateManyWithoutUserInput_1.UserTokenUpdateManyWithoutUserInput)
 ], UserUpdateInput.prototype, "token", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUpdateOneWithoutUsersInput_1.RestaurantUpdateOneWithoutUsersInput, {
+    TypeGraphQL.Field(_type => RestaurantUpdateManyWithoutUsersInput_1.RestaurantUpdateManyWithoutUsersInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantUpdateOneWithoutUsersInput_1.RestaurantUpdateOneWithoutUsersInput)
-], UserUpdateInput.prototype, "Restaurant", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => OrderUpdateManyWithoutUserInput_1.OrderUpdateManyWithoutUserInput, {
-        nullable: true
-    }),
-    __metadata("design:type", OrderUpdateManyWithoutUserInput_1.OrderUpdateManyWithoutUserInput)
-], UserUpdateInput.prototype, "orders", void 0);
+    __metadata("design:type", RestaurantUpdateManyWithoutUsersInput_1.RestaurantUpdateManyWithoutUsersInput)
+], UserUpdateInput.prototype, "restaurants", void 0);
 UserUpdateInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

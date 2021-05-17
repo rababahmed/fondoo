@@ -35,6 +35,7 @@ const BoolNullableFilter_1 = require("../inputs/BoolNullableFilter");
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
 const EnumSpiceLevelFilter_1 = require("../inputs/EnumSpiceLevelFilter");
 const IntNullableFilter_1 = require("../inputs/IntNullableFilter");
+const OrderItemListRelationFilter_1 = require("../inputs/OrderItemListRelationFilter");
 const ProductCategoryRelationFilter_1 = require("../inputs/ProductCategoryRelationFilter");
 const RestaurantRelationFilter_1 = require("../inputs/RestaurantRelationFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
@@ -137,6 +138,12 @@ __decorate([
     }),
     __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
 ], ProductWhereInput.prototype, "restaurantId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => OrderItemListRelationFilter_1.OrderItemListRelationFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", OrderItemListRelationFilter_1.OrderItemListRelationFilter)
+], ProductWhereInput.prototype, "OrderItem", void 0);
 ProductWhereInput = ProductWhereInput_1 = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

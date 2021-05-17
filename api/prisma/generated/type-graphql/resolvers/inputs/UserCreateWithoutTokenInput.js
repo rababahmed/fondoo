@@ -30,11 +30,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserCreateWithoutTokenInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const OrderCreateNestedManyWithoutUserInput_1 = require("../inputs/OrderCreateNestedManyWithoutUserInput");
-const RestaurantCreateNestedOneWithoutUsersInput_1 = require("../inputs/RestaurantCreateNestedOneWithoutUsersInput");
+const RestaurantCreateNestedManyWithoutUsersInput_1 = require("../inputs/RestaurantCreateNestedManyWithoutUsersInput");
 const Role_1 = require("../../enums/Role");
 let UserCreateWithoutTokenInput = class UserCreateWithoutTokenInput {
 };
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], UserCreateWithoutTokenInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
@@ -78,17 +83,11 @@ __decorate([
     __metadata("design:type", String)
 ], UserCreateWithoutTokenInput.prototype, "role", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantCreateNestedOneWithoutUsersInput_1.RestaurantCreateNestedOneWithoutUsersInput, {
+    TypeGraphQL.Field(_type => RestaurantCreateNestedManyWithoutUsersInput_1.RestaurantCreateNestedManyWithoutUsersInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantCreateNestedOneWithoutUsersInput_1.RestaurantCreateNestedOneWithoutUsersInput)
-], UserCreateWithoutTokenInput.prototype, "Restaurant", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => OrderCreateNestedManyWithoutUserInput_1.OrderCreateNestedManyWithoutUserInput, {
-        nullable: true
-    }),
-    __metadata("design:type", OrderCreateNestedManyWithoutUserInput_1.OrderCreateNestedManyWithoutUserInput)
-], UserCreateWithoutTokenInput.prototype, "orders", void 0);
+    __metadata("design:type", RestaurantCreateNestedManyWithoutUsersInput_1.RestaurantCreateNestedManyWithoutUsersInput)
+], UserCreateWithoutTokenInput.prototype, "restaurants", void 0);
 UserCreateWithoutTokenInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

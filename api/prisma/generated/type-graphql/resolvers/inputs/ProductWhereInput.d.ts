@@ -2,6 +2,7 @@ import { BoolNullableFilter } from "../inputs/BoolNullableFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EnumSpiceLevelFilter } from "../inputs/EnumSpiceLevelFilter";
 import { IntNullableFilter } from "../inputs/IntNullableFilter";
+import { OrderItemListRelationFilter } from "../inputs/OrderItemListRelationFilter";
 import { ProductCategoryRelationFilter } from "../inputs/ProductCategoryRelationFilter";
 import { RestaurantRelationFilter } from "../inputs/RestaurantRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
@@ -23,4 +24,5 @@ export declare class ProductWhereInput {
     productCategoryId?: StringNullableFilter | undefined;
     Restaurant?: RestaurantRelationFilter | undefined;
     restaurantId?: StringNullableFilter | undefined;
+    OrderItem?: OrderItemListRelationFilter | undefined;
 }

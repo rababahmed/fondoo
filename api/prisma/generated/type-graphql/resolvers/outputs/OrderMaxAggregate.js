@@ -43,7 +43,13 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", String)
-], OrderMaxAggregate.prototype, "coupon", void 0);
+], OrderMaxAggregate.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+        nullable: true
+    }),
+    __metadata("design:type", Number)
+], OrderMaxAggregate.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Float, {
         nullable: true
@@ -75,6 +81,24 @@ __decorate([
     __metadata("design:type", Boolean)
 ], OrderMaxAggregate.prototype, "isAccepted", void 0);
 __decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderMaxAggregate.prototype, "couponId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderMaxAggregate.prototype, "restaurantId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderMaxAggregate.prototype, "customerId", void 0);
+__decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
     }),
@@ -86,30 +110,6 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], OrderMaxAggregate.prototype, "updatedAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderMaxAggregate.prototype, "userId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
-], OrderMaxAggregate.prototype, "restaurantId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderMaxAggregate.prototype, "customerId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderMaxAggregate.prototype, "customerAddressId", void 0);
 OrderMaxAggregate = __decorate([
     TypeGraphQL.ObjectType({
         isAbstract: true

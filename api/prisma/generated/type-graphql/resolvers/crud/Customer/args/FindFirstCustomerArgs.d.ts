@@ -7,5 +7,5 @@ export declare class FindFirstCustomerArgs {
     cursor?: CustomerWhereUniqueInput | undefined;
     take?: number | undefined;
     skip?: number | undefined;
-    distinct?: Array<"id" | "createdAt" | "firstName" | "lastName" | "email" | "password" | "phone" | "restaurantId" | "updatedAt"> | undefined;
+    distinct?: Array<"id" | "createdAt" | "firstName" | "lastName" | "email" | "password" | "phone" | "updatedAt"> | undefined;
 }

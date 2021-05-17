@@ -30,26 +30,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderCreateInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const GraphQLScalars = __importStar(require("graphql-scalars"));
-const client_1 = require("@prisma/client");
-const CustomerAddressCreateNestedOneWithoutOrderInput_1 = require("../inputs/CustomerAddressCreateNestedOneWithoutOrderInput");
+const CouponCreateNestedOneWithoutOrdersInput_1 = require("../inputs/CouponCreateNestedOneWithoutOrdersInput");
 const CustomerCreateNestedOneWithoutOrdersInput_1 = require("../inputs/CustomerCreateNestedOneWithoutOrdersInput");
+const OrderItemCreateNestedManyWithoutOrderInput_1 = require("../inputs/OrderItemCreateNestedManyWithoutOrderInput");
 const RestaurantCreateNestedOneWithoutOrdersInput_1 = require("../inputs/RestaurantCreateNestedOneWithoutOrdersInput");
-const UserCreateNestedOneWithoutOrdersInput_1 = require("../inputs/UserCreateNestedOneWithoutOrdersInput");
 let OrderCreateInput = class OrderCreateInput {
 };
-__decorate([
-    TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
-        nullable: false
-    }),
-    __metadata("design:type", Object)
-], OrderCreateInput.prototype, "items", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
     __metadata("design:type", String)
-], OrderCreateInput.prototype, "coupon", void 0);
+], OrderCreateInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+        nullable: false
+    }),
+    __metadata("design:type", Number)
+], OrderCreateInput.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Float, {
         nullable: false
@@ -93,11 +91,17 @@ __decorate([
     __metadata("design:type", Date)
 ], OrderCreateInput.prototype, "updatedAt", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserCreateNestedOneWithoutOrdersInput_1.UserCreateNestedOneWithoutOrdersInput, {
-        nullable: false
+    TypeGraphQL.Field(_type => OrderItemCreateNestedManyWithoutOrderInput_1.OrderItemCreateNestedManyWithoutOrderInput, {
+        nullable: true
     }),
-    __metadata("design:type", UserCreateNestedOneWithoutOrdersInput_1.UserCreateNestedOneWithoutOrdersInput)
-], OrderCreateInput.prototype, "user", void 0);
+    __metadata("design:type", OrderItemCreateNestedManyWithoutOrderInput_1.OrderItemCreateNestedManyWithoutOrderInput)
+], OrderCreateInput.prototype, "items", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => CouponCreateNestedOneWithoutOrdersInput_1.CouponCreateNestedOneWithoutOrdersInput, {
+        nullable: true
+    }),
+    __metadata("design:type", CouponCreateNestedOneWithoutOrdersInput_1.CouponCreateNestedOneWithoutOrdersInput)
+], OrderCreateInput.prototype, "Coupon", void 0);
 __decorate([
     TypeGraphQL.Field(_type => RestaurantCreateNestedOneWithoutOrdersInput_1.RestaurantCreateNestedOneWithoutOrdersInput, {
         nullable: false
@@ -110,12 +114,6 @@ __decorate([
     }),
     __metadata("design:type", CustomerCreateNestedOneWithoutOrdersInput_1.CustomerCreateNestedOneWithoutOrdersInput)
 ], OrderCreateInput.prototype, "Customer", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerAddressCreateNestedOneWithoutOrderInput_1.CustomerAddressCreateNestedOneWithoutOrderInput, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerAddressCreateNestedOneWithoutOrderInput_1.CustomerAddressCreateNestedOneWithoutOrderInput)
-], OrderCreateInput.prototype, "CustomerAddress", void 0);
 OrderCreateInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

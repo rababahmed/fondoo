@@ -30,10 +30,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerAddressCreateInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const CustomerCreateNestedOneWithoutAddressInput_1 = require("../inputs/CustomerCreateNestedOneWithoutAddressInput");
-const OrderCreateNestedManyWithoutCustomerAddressInput_1 = require("../inputs/OrderCreateNestedManyWithoutCustomerAddressInput");
+const CustomerCreateNestedOneWithoutAddressesInput_1 = require("../inputs/CustomerCreateNestedOneWithoutAddressesInput");
 let CustomerAddressCreateInput = class CustomerAddressCreateInput {
 };
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], CustomerAddressCreateInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
@@ -65,17 +70,11 @@ __decorate([
     __metadata("design:type", String)
 ], CustomerAddressCreateInput.prototype, "country", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => CustomerCreateNestedOneWithoutAddressInput_1.CustomerCreateNestedOneWithoutAddressInput, {
+    TypeGraphQL.Field(_type => CustomerCreateNestedOneWithoutAddressesInput_1.CustomerCreateNestedOneWithoutAddressesInput, {
         nullable: true
     }),
-    __metadata("design:type", CustomerCreateNestedOneWithoutAddressInput_1.CustomerCreateNestedOneWithoutAddressInput)
+    __metadata("design:type", CustomerCreateNestedOneWithoutAddressesInput_1.CustomerCreateNestedOneWithoutAddressesInput)
 ], CustomerAddressCreateInput.prototype, "Customer", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => OrderCreateNestedManyWithoutCustomerAddressInput_1.OrderCreateNestedManyWithoutCustomerAddressInput, {
-        nullable: true
-    }),
-    __metadata("design:type", OrderCreateNestedManyWithoutCustomerAddressInput_1.OrderCreateNestedManyWithoutCustomerAddressInput)
-], CustomerAddressCreateInput.prototype, "Order", void 0);
 CustomerAddressCreateInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

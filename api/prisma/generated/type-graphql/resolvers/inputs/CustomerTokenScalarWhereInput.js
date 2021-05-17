@@ -32,9 +32,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerTokenScalarWhereInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
-const IntFilter_1 = require("../inputs/IntFilter");
-const IntNullableFilter_1 = require("../inputs/IntNullableFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
+const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
 let CustomerTokenScalarWhereInput = CustomerTokenScalarWhereInput_1 = class CustomerTokenScalarWhereInput {
 };
 __decorate([
@@ -56,10 +55,10 @@ __decorate([
     __metadata("design:type", Array)
 ], CustomerTokenScalarWhereInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntFilter_1.IntFilter)
+    __metadata("design:type", StringFilter_1.StringFilter)
 ], CustomerTokenScalarWhereInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
@@ -80,10 +79,10 @@ __decorate([
     __metadata("design:type", DateTimeFilter_1.DateTimeFilter)
 ], CustomerTokenScalarWhereInput.prototype, "updatedAt", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntNullableFilter_1.IntNullableFilter, {
+    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntNullableFilter_1.IntNullableFilter)
+    __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
 ], CustomerTokenScalarWhereInput.prototype, "customerId", void 0);
 CustomerTokenScalarWhereInput = CustomerTokenScalarWhereInput_1 = __decorate([
     TypeGraphQL.InputType({
