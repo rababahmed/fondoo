@@ -39,12 +39,6 @@ __decorate([
     __metadata("design:type", String)
 ], RestaurantMaxAggregate.prototype, "id", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: true
-    }),
-    __metadata("design:type", Date)
-], RestaurantMaxAggregate.prototype, "createdAt", void 0);
-__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
@@ -56,6 +50,12 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RestaurantMaxAggregate.prototype, "email", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], RestaurantMaxAggregate.prototype, "restaurantPlanId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
@@ -74,6 +74,12 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RestaurantMaxAggregate.prototype, "url", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], RestaurantMaxAggregate.prototype, "cuisine", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
@@ -133,7 +139,7 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Boolean)
-], RestaurantMaxAggregate.prototype, "hasParking", void 0);
+], RestaurantMaxAggregate.prototype, "hasParkingFacilities", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Boolean, {
         nullable: true
@@ -169,12 +175,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Boolean)
-], RestaurantMaxAggregate.prototype, "isOrdering", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => Boolean, {
-        nullable: true
-    }),
-    __metadata("design:type", Boolean)
 ], RestaurantMaxAggregate.prototype, "isAutoAcceptOrder", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Boolean, {
@@ -182,6 +182,12 @@ __decorate([
     }),
     __metadata("design:type", Boolean)
 ], RestaurantMaxAggregate.prototype, "isAutoAcceptReservation", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => Date, {
+        nullable: true
+    }),
+    __metadata("design:type", Date)
+], RestaurantMaxAggregate.prototype, "createdAt", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true

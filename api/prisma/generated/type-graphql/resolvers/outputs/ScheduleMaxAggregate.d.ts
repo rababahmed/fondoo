@@ -1,6 +1,7 @@
 export declare class ScheduleMaxAggregate {
-    id: number | null;
+    id: string | null;
     createdAt: Date | null;
+    day: string | null;
     openingTime: string | null;
     closingTime: string | null;
     minDeliveryAmount: number | null;

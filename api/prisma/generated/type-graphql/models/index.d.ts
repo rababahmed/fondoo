@@ -1,11 +1,14 @@
+export { Coupon } from "./Coupon";
 export { Customer } from "./Customer";
 export { CustomerAddress } from "./CustomerAddress";
 export { CustomerToken } from "./CustomerToken";
 export { DeliveryZone } from "./DeliveryZone";
 export { Order } from "./Order";
+export { OrderItem } from "./OrderItem";
 export { Product } from "./Product";
 export { ProductCategory } from "./ProductCategory";
 export { Restaurant } from "./Restaurant";
+export { RestaurantPlan } from "./RestaurantPlan";
 export { Schedule } from "./Schedule";
 export { User } from "./User";
 export { UserToken } from "./UserToken";

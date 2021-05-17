@@ -1,11 +1,12 @@
+import { Coupon } from "../../../models/Coupon";
 import { Customer } from "../../../models/Customer";
-import { CustomerAddress } from "../../../models/CustomerAddress";
 import { Order } from "../../../models/Order";
+import { OrderItem } from "../../../models/OrderItem";
 import { Restaurant } from "../../../models/Restaurant";
-import { User } from "../../../models/User";
+import { OrderItemsArgs } from "./args/OrderItemsArgs";
 export declare class OrderRelationsResolver {
-    user(order: Order, ctx: any): Promise<User>;
+    items(order: Order, ctx: any, args: OrderItemsArgs): Promise<OrderItem[]>;
+    Coupon(order: Order, ctx: any): Promise<Coupon | null>;
     restaurant(order: Order, ctx: any): Promise<Restaurant>;
     Customer(order: Order, ctx: any): Promise<Customer | null>;
-    CustomerAddress(order: Order, ctx: any): Promise<CustomerAddress | null>;
 }

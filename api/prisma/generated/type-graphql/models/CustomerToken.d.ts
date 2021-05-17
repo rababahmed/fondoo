@@ -1,9 +1,9 @@
 import { Customer } from "../models/Customer";
 export declare class CustomerToken {
-    id: number;
+    id: string;
     token: string;
     createdAt: Date;
     updatedAt: Date;
     Customer?: Customer | null;
-    customerId?: number | null;
+    customerId?: string | null;
 }

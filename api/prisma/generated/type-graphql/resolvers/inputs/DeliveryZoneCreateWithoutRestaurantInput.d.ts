@@ -1,4 +1,5 @@
 export declare class DeliveryZoneCreateWithoutRestaurantInput {
+    id?: string | undefined;
     createdAt?: Date | undefined;
     zoneTitle: string;
     zonePostCode?: string | undefined;

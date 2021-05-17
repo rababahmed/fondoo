@@ -59,10 +59,10 @@ __decorate([
     __metadata("design:type", Array)
 ], DeliveryZoneWhereInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntFilter_1.IntFilter)
+    __metadata("design:type", StringFilter_1.StringFilter)
 ], DeliveryZoneWhereInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {

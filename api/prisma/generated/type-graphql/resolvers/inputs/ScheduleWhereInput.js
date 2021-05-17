@@ -32,9 +32,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScheduleWhereInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
-const IntFilter_1 = require("../inputs/IntFilter");
 const IntNullableFilter_1 = require("../inputs/IntNullableFilter");
 const RestaurantRelationFilter_1 = require("../inputs/RestaurantRelationFilter");
+const StringFilter_1 = require("../inputs/StringFilter");
 const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
 let ScheduleWhereInput = ScheduleWhereInput_1 = class ScheduleWhereInput {
 };
@@ -57,10 +57,10 @@ __decorate([
     __metadata("design:type", Array)
 ], ScheduleWhereInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntFilter_1.IntFilter)
+    __metadata("design:type", StringFilter_1.StringFilter)
 ], ScheduleWhereInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
@@ -68,6 +68,12 @@ __decorate([
     }),
     __metadata("design:type", DateTimeFilter_1.DateTimeFilter)
 ], ScheduleWhereInput.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
+], ScheduleWhereInput.prototype, "day", void 0);
 __decorate([
     TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
         nullable: true

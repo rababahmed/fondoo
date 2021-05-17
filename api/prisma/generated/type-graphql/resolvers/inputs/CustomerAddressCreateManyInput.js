@@ -33,10 +33,10 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 let CustomerAddressCreateManyInput = class CustomerAddressCreateManyInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerAddressCreateManyInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
@@ -69,10 +69,10 @@ __decorate([
     __metadata("design:type", String)
 ], CustomerAddressCreateManyInput.prototype, "country", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerAddressCreateManyInput.prototype, "customerId", void 0);
 CustomerAddressCreateManyInput = __decorate([
     TypeGraphQL.InputType({

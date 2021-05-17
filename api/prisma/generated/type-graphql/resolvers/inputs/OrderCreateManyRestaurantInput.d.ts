@@ -1,16 +1,14 @@
-import { Prisma } from "@prisma/client";
 export declare class OrderCreateManyRestaurantInput {
     id?: number | undefined;
-    items: Prisma.InputJsonValue;
-    coupon?: string | undefined;
+    address?: string | undefined;
+    discount: number;
     deliveryCharges: number;
     vat: number;
     serviceCharge: number;
     total: number;
     isAccepted: boolean;
+    couponId?: string | undefined;
+    customerId?: string | undefined;
     createdAt?: Date | undefined;
     updatedAt?: Date | undefined;
-    userId: number;
-    customerId?: number | undefined;
-    customerAddressId?: number | undefined;
 }

@@ -1,5 +1,6 @@
 import { RestaurantCreateNestedOneWithoutDeliveryZonesInput } from "../inputs/RestaurantCreateNestedOneWithoutDeliveryZonesInput";
 export declare class DeliveryZoneCreateInput {
+    id?: string | undefined;
     createdAt?: Date | undefined;
     zoneTitle: string;
     zonePostCode?: string | undefined;

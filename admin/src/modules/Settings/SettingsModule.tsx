@@ -11,13 +11,14 @@ import { useGetRestaurant } from "../../shared-hooks/useGetRestaurant";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { gql } from "graphql-request";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
+import { useToast } from "@chakra-ui/toast";
 
 const EDIT_RESTAURANT = gql`
   mutation UpdateRestaurant(
     $name: String
     $email: String
     $url: String
-    $businessMobile: String
+    $businessPhone: String
     $city: String
     $priceRange: String
   ) {
@@ -67,6 +68,8 @@ export const SettingsModule = () => {
 
   const [formData, setFormData] = useState(initialValues);
 
+  const toast = useToast();
+
   const mutation = useGQLMutation("update-restaurant", EDIT_RESTAURANT, {
     name: formData.name,
     email: formData.email,
@@ -78,12 +81,37 @@ export const SettingsModule = () => {
   });
 
   const onSubmit = async (values: any) => {
-    await setFormData(values);
-    await mutation.mutate();
+    setFormData(values);
+    mutation.mutate();
+    if (await mutation.isSuccess) {
+      toast({
+        title: "Success!",
+        description: "Successfully updated the info.",
+        status: "success",
+        isClosable: true,
+        position: "top",
+      });
+    } else {
+      toast({
+        title: "Whoops! Error.",
+        description: "Unable to update.",
+        status: "error",
+        isClosable: true,
+        position: "top",
+      });
+    }
   };
 
   return (
-    <Box as="section" rounded="lg" shadow="base" bgColor="white" m={12} p={6}>
+    <Box
+      as="section"
+      rounded="lg"
+      shadow="base"
+      bgColor="white"
+      mr={6}
+      ml={6}
+      p={8}
+    >
       <Formik
         onSubmit={onSubmit}
         initialValues={initialValues}
@@ -92,7 +120,7 @@ export const SettingsModule = () => {
       >
         {({ handleSubmit }) => (
           <Box as="form" onSubmit={handleSubmit as any}>
-            <Grid templateColumns="1fr 1fr 1fr" gap={6}>
+            <Grid templateColumns="1fr 1fr 1fr" gap={8}>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
                   <InputControl name="name" label="Restaurant Name" />
@@ -172,6 +200,7 @@ export const SettingsModule = () => {
                 <VStack>
                   <SubmitButton
                     isLoading={mutation.isLoading}
+                    loadingText="Updating"
                     w={40}
                     bgColor="gray.700"
                     _active={{ bgColor: "gray.500" }}

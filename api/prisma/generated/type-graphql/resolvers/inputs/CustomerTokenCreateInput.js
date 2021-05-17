@@ -35,6 +35,12 @@ let CustomerTokenCreateInput = class CustomerTokenCreateInput {
 };
 __decorate([
     TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], CustomerTokenCreateInput.prototype, "id", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
     __metadata("design:type", String)

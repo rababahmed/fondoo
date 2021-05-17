@@ -30,18 +30,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserTokenGroupBy = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const UserTokenAvgAggregate_1 = require("../outputs/UserTokenAvgAggregate");
 const UserTokenCountAggregate_1 = require("../outputs/UserTokenCountAggregate");
 const UserTokenMaxAggregate_1 = require("../outputs/UserTokenMaxAggregate");
 const UserTokenMinAggregate_1 = require("../outputs/UserTokenMinAggregate");
-const UserTokenSumAggregate_1 = require("../outputs/UserTokenSumAggregate");
 let UserTokenGroupBy = class UserTokenGroupBy {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], UserTokenGroupBy.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
@@ -68,10 +66,10 @@ __decorate([
     __metadata("design:type", Date)
 ], UserTokenGroupBy.prototype, "updatedAt", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], UserTokenGroupBy.prototype, "userId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => UserTokenCountAggregate_1.UserTokenCountAggregate, {
@@ -79,18 +77,6 @@ __decorate([
     }),
     __metadata("design:type", UserTokenCountAggregate_1.UserTokenCountAggregate)
 ], UserTokenGroupBy.prototype, "count", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => UserTokenAvgAggregate_1.UserTokenAvgAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", UserTokenAvgAggregate_1.UserTokenAvgAggregate)
-], UserTokenGroupBy.prototype, "avg", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => UserTokenSumAggregate_1.UserTokenSumAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", UserTokenSumAggregate_1.UserTokenSumAggregate)
-], UserTokenGroupBy.prototype, "sum", void 0);
 __decorate([
     TypeGraphQL.Field(_type => UserTokenMinAggregate_1.UserTokenMinAggregate, {
         nullable: true

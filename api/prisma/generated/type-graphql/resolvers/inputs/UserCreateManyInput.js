@@ -34,10 +34,10 @@ const Role_1 = require("../../enums/Role");
 let UserCreateManyInput = class UserCreateManyInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], UserCreateManyInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
@@ -81,12 +81,6 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], UserCreateManyInput.prototype, "role", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
-], UserCreateManyInput.prototype, "restaurantId", void 0);
 UserCreateManyInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

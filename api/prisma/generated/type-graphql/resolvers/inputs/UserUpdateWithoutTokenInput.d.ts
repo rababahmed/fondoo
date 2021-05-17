@@ -1,10 +1,10 @@
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { EnumRoleFieldUpdateOperationsInput } from "../inputs/EnumRoleFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
-import { OrderUpdateManyWithoutUserInput } from "../inputs/OrderUpdateManyWithoutUserInput";
-import { RestaurantUpdateOneWithoutUsersInput } from "../inputs/RestaurantUpdateOneWithoutUsersInput";
+import { RestaurantUpdateManyWithoutUsersInput } from "../inputs/RestaurantUpdateManyWithoutUsersInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class UserUpdateWithoutTokenInput {
+    id?: StringFieldUpdateOperationsInput | undefined;
     createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     firstName?: StringFieldUpdateOperationsInput | undefined;
     lastName?: StringFieldUpdateOperationsInput | undefined;
@@ -12,6 +12,5 @@ export declare class UserUpdateWithoutTokenInput {
     password?: StringFieldUpdateOperationsInput | undefined;
     phone?: NullableStringFieldUpdateOperationsInput | undefined;
     role?: EnumRoleFieldUpdateOperationsInput | undefined;
-    Restaurant?: RestaurantUpdateOneWithoutUsersInput | undefined;
-    orders?: OrderUpdateManyWithoutUserInput | undefined;
+    restaurants?: RestaurantUpdateManyWithoutUsersInput | undefined;
 }

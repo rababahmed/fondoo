@@ -6,6 +6,5 @@ export declare class CustomerOrderByInput {
     email?: "asc" | "desc" | undefined;
     password?: "asc" | "desc" | undefined;
     phone?: "asc" | "desc" | undefined;
-    restaurantId?: "asc" | "desc" | undefined;
     updatedAt?: "asc" | "desc" | undefined;
 }

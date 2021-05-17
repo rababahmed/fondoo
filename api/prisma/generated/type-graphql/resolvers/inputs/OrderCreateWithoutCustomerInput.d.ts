@@ -1,10 +1,9 @@
-import { Prisma } from "@prisma/client";
-import { CustomerAddressCreateNestedOneWithoutOrderInput } from "../inputs/CustomerAddressCreateNestedOneWithoutOrderInput";
+import { CouponCreateNestedOneWithoutOrdersInput } from "../inputs/CouponCreateNestedOneWithoutOrdersInput";
+import { OrderItemCreateNestedManyWithoutOrderInput } from "../inputs/OrderItemCreateNestedManyWithoutOrderInput";
 import { RestaurantCreateNestedOneWithoutOrdersInput } from "../inputs/RestaurantCreateNestedOneWithoutOrdersInput";
-import { UserCreateNestedOneWithoutOrdersInput } from "../inputs/UserCreateNestedOneWithoutOrdersInput";
 export declare class OrderCreateWithoutCustomerInput {
-    items: Prisma.InputJsonValue;
-    coupon?: string | undefined;
+    address?: string | undefined;
+    discount: number;
     deliveryCharges: number;
     vat: number;
     serviceCharge: number;
@@ -12,7 +11,7 @@ export declare class OrderCreateWithoutCustomerInput {
     isAccepted: boolean;
     createdAt?: Date | undefined;
     updatedAt?: Date | undefined;
-    user: UserCreateNestedOneWithoutOrdersInput;
+    items?: OrderItemCreateNestedManyWithoutOrderInput | undefined;
+    Coupon?: CouponCreateNestedOneWithoutOrdersInput | undefined;
     restaurant: RestaurantCreateNestedOneWithoutOrdersInput;
-    CustomerAddress?: CustomerAddressCreateNestedOneWithoutOrderInput | undefined;
 }

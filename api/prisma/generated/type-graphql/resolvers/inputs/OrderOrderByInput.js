@@ -44,13 +44,13 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", String)
-], OrderOrderByInput.prototype, "items", void 0);
+], OrderOrderByInput.prototype, "address", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true
     }),
     __metadata("design:type", String)
-], OrderOrderByInput.prototype, "coupon", void 0);
+], OrderOrderByInput.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true
@@ -86,19 +86,7 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", String)
-], OrderOrderByInput.prototype, "createdAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
-], OrderOrderByInput.prototype, "updatedAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
-], OrderOrderByInput.prototype, "userId", void 0);
+], OrderOrderByInput.prototype, "couponId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true
@@ -116,7 +104,13 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", String)
-], OrderOrderByInput.prototype, "customerAddressId", void 0);
+], OrderOrderByInput.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderOrderByInput.prototype, "updatedAt", void 0);
 OrderOrderByInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

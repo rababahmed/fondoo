@@ -35,8 +35,6 @@ const BoolFilter_1 = require("../inputs/BoolFilter");
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
 const FloatFilter_1 = require("../inputs/FloatFilter");
 const IntFilter_1 = require("../inputs/IntFilter");
-const IntNullableFilter_1 = require("../inputs/IntNullableFilter");
-const JsonFilter_1 = require("../inputs/JsonFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
 const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
 let OrderScalarWhereInput = OrderScalarWhereInput_1 = class OrderScalarWhereInput {
@@ -66,17 +64,17 @@ __decorate([
     __metadata("design:type", IntFilter_1.IntFilter)
 ], OrderScalarWhereInput.prototype, "id", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => JsonFilter_1.JsonFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", JsonFilter_1.JsonFilter)
-], OrderScalarWhereInput.prototype, "items", void 0);
-__decorate([
     TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
         nullable: true
     }),
     __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
-], OrderScalarWhereInput.prototype, "coupon", void 0);
+], OrderScalarWhereInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => FloatFilter_1.FloatFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", FloatFilter_1.FloatFilter)
+], OrderScalarWhereInput.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => FloatFilter_1.FloatFilter, {
         nullable: true
@@ -108,6 +106,24 @@ __decorate([
     __metadata("design:type", BoolFilter_1.BoolFilter)
 ], OrderScalarWhereInput.prototype, "isAccepted", void 0);
 __decorate([
+    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
+], OrderScalarWhereInput.prototype, "couponId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", StringFilter_1.StringFilter)
+], OrderScalarWhereInput.prototype, "restaurantId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
+], OrderScalarWhereInput.prototype, "customerId", void 0);
+__decorate([
     TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
         nullable: true
     }),
@@ -119,30 +135,6 @@ __decorate([
     }),
     __metadata("design:type", DateTimeFilter_1.DateTimeFilter)
 ], OrderScalarWhereInput.prototype, "updatedAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", IntFilter_1.IntFilter)
-], OrderScalarWhereInput.prototype, "userId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", StringFilter_1.StringFilter)
-], OrderScalarWhereInput.prototype, "restaurantId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => IntNullableFilter_1.IntNullableFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", IntNullableFilter_1.IntNullableFilter)
-], OrderScalarWhereInput.prototype, "customerId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => IntNullableFilter_1.IntNullableFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", IntNullableFilter_1.IntNullableFilter)
-], OrderScalarWhereInput.prototype, "customerAddressId", void 0);
 OrderScalarWhereInput = OrderScalarWhereInput_1 = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

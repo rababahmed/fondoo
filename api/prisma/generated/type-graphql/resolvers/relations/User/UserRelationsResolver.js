@@ -33,11 +33,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserRelationsResolver = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const Order_1 = require("../../../models/Order");
 const Restaurant_1 = require("../../../models/Restaurant");
 const User_1 = require("../../../models/User");
 const UserToken_1 = require("../../../models/UserToken");
-const UserOrdersArgs_1 = require("./args/UserOrdersArgs");
+const UserRestaurantsArgs_1 = require("./args/UserRestaurantsArgs");
 const UserTokenArgs_1 = require("./args/UserTokenArgs");
 const helpers_1 = require("../../../helpers");
 let UserRelationsResolver = class UserRelationsResolver {
@@ -48,19 +47,12 @@ let UserRelationsResolver = class UserRelationsResolver {
             },
         }).token(args);
     }
-    async Restaurant(user, ctx) {
+    async restaurants(user, ctx, args) {
         return helpers_1.getPrismaFromContext(ctx).user.findUnique({
             where: {
                 id: user.id,
             },
-        }).Restaurant({});
-    }
-    async orders(user, ctx, args) {
-        return helpers_1.getPrismaFromContext(ctx).user.findUnique({
-            where: {
-                id: user.id,
-            },
-        }).orders(args);
+        }).restaurants(args);
     }
 };
 __decorate([
@@ -73,23 +65,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserRelationsResolver.prototype, "token", null);
 __decorate([
-    TypeGraphQL.FieldResolver(_type => Restaurant_1.Restaurant, {
-        nullable: true
-    }),
-    __param(0, TypeGraphQL.Root()), __param(1, TypeGraphQL.Ctx()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [User_1.User, Object]),
-    __metadata("design:returntype", Promise)
-], UserRelationsResolver.prototype, "Restaurant", null);
-__decorate([
-    TypeGraphQL.FieldResolver(_type => [Order_1.Order], {
+    TypeGraphQL.FieldResolver(_type => [Restaurant_1.Restaurant], {
         nullable: false
     }),
     __param(0, TypeGraphQL.Root()), __param(1, TypeGraphQL.Ctx()), __param(2, TypeGraphQL.Args()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [User_1.User, Object, UserOrdersArgs_1.UserOrdersArgs]),
+    __metadata("design:paramtypes", [User_1.User, Object, UserRestaurantsArgs_1.UserRestaurantsArgs]),
     __metadata("design:returntype", Promise)
-], UserRelationsResolver.prototype, "orders", null);
+], UserRelationsResolver.prototype, "restaurants", null);
 UserRelationsResolver = __decorate([
     TypeGraphQL.Resolver(_of => User_1.User)
 ], UserRelationsResolver);

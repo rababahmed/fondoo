@@ -1,6 +1,7 @@
 export declare class ScheduleCreateManyInput {
-    id?: number | undefined;
+    id?: string | undefined;
     createdAt?: Date | undefined;
+    day?: string | undefined;
     openingTime?: string | undefined;
     closingTime?: string | undefined;
     minDeliveryAmount?: number | undefined;

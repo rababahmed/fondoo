@@ -1,3 +1,4 @@
+import { OrderItem } from "../models/OrderItem";
 import { ProductCategory } from "../models/ProductCategory";
 import { Restaurant } from "../models/Restaurant";
 export declare class Product {
@@ -14,4 +15,5 @@ export declare class Product {
     productCategoryId?: string | null;
     Restaurant?: Restaurant | null;
     restaurantId?: string | null;
+    OrderItem?: OrderItem[];
 }

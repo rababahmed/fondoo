@@ -1,3 +1,4 @@
+import { OrderItemCreateNestedManyWithoutProductInput } from "../inputs/OrderItemCreateNestedManyWithoutProductInput";
 import { RestaurantCreateNestedOneWithoutProductsInput } from "../inputs/RestaurantCreateNestedOneWithoutProductsInput";
 export declare class ProductCreateWithoutProductCategoryInput {
     id?: string | undefined;
@@ -10,4 +11,5 @@ export declare class ProductCreateWithoutProductCategoryInput {
     isPopular?: boolean | undefined;
     isActive?: boolean | undefined;
     Restaurant?: RestaurantCreateNestedOneWithoutProductsInput | undefined;
+    OrderItem?: OrderItemCreateNestedManyWithoutProductInput | undefined;
 }

@@ -33,15 +33,28 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeFieldUpdateOperationsInput_1 = require("../inputs/DateTimeFieldUpdateOperationsInput");
 const NullableIntFieldUpdateOperationsInput_1 = require("../inputs/NullableIntFieldUpdateOperationsInput");
 const NullableStringFieldUpdateOperationsInput_1 = require("../inputs/NullableStringFieldUpdateOperationsInput");
-const RestaurantUpdateOneWithoutScheduleInput_1 = require("../inputs/RestaurantUpdateOneWithoutScheduleInput");
+const RestaurantUpdateOneWithoutSchedulesInput_1 = require("../inputs/RestaurantUpdateOneWithoutSchedulesInput");
+const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
 let ScheduleUpdateInput = class ScheduleUpdateInput {
 };
+__decorate([
+    TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
+], ScheduleUpdateInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput, {
         nullable: true
     }),
     __metadata("design:type", DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput)
 ], ScheduleUpdateInput.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput)
+], ScheduleUpdateInput.prototype, "day", void 0);
 __decorate([
     TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput, {
         nullable: true
@@ -73,10 +86,10 @@ __decorate([
     __metadata("design:type", NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput)
 ], ScheduleUpdateInput.prototype, "takeawayTime", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantUpdateOneWithoutScheduleInput_1.RestaurantUpdateOneWithoutScheduleInput, {
+    TypeGraphQL.Field(_type => RestaurantUpdateOneWithoutSchedulesInput_1.RestaurantUpdateOneWithoutSchedulesInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantUpdateOneWithoutScheduleInput_1.RestaurantUpdateOneWithoutScheduleInput)
+    __metadata("design:type", RestaurantUpdateOneWithoutSchedulesInput_1.RestaurantUpdateOneWithoutSchedulesInput)
 ], ScheduleUpdateInput.prototype, "Restaurant", void 0);
 ScheduleUpdateInput = __decorate([
     TypeGraphQL.InputType({

@@ -59,6 +59,7 @@ export const LoginForm = () => {
             <Box>
               <Stack mt={4} pb={2}>
                 <SubmitButton
+                  loadingText="Logging in"
                   bgColor="gray.700"
                   _active={{ bgColor: "gray.500" }}
                   _hover={{ bgColor: "gray.800" }}

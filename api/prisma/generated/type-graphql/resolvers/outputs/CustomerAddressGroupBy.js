@@ -30,18 +30,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerAddressGroupBy = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const CustomerAddressAvgAggregate_1 = require("../outputs/CustomerAddressAvgAggregate");
 const CustomerAddressCountAggregate_1 = require("../outputs/CustomerAddressCountAggregate");
 const CustomerAddressMaxAggregate_1 = require("../outputs/CustomerAddressMaxAggregate");
 const CustomerAddressMinAggregate_1 = require("../outputs/CustomerAddressMinAggregate");
-const CustomerAddressSumAggregate_1 = require("../outputs/CustomerAddressSumAggregate");
 let CustomerAddressGroupBy = class CustomerAddressGroupBy {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerAddressGroupBy.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
@@ -74,10 +72,10 @@ __decorate([
     __metadata("design:type", String)
 ], CustomerAddressGroupBy.prototype, "country", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerAddressGroupBy.prototype, "customerId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerAddressCountAggregate_1.CustomerAddressCountAggregate, {
@@ -85,18 +83,6 @@ __decorate([
     }),
     __metadata("design:type", CustomerAddressCountAggregate_1.CustomerAddressCountAggregate)
 ], CustomerAddressGroupBy.prototype, "count", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerAddressAvgAggregate_1.CustomerAddressAvgAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerAddressAvgAggregate_1.CustomerAddressAvgAggregate)
-], CustomerAddressGroupBy.prototype, "avg", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerAddressSumAggregate_1.CustomerAddressSumAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerAddressSumAggregate_1.CustomerAddressSumAggregate)
-], CustomerAddressGroupBy.prototype, "sum", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerAddressMinAggregate_1.CustomerAddressMinAggregate, {
         nullable: true

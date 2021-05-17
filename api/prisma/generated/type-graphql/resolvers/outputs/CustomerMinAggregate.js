@@ -33,10 +33,10 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 let CustomerMinAggregate = class CustomerMinAggregate {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerMinAggregate.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
@@ -74,12 +74,6 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], CustomerMinAggregate.prototype, "phone", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
-], CustomerMinAggregate.prototype, "restaurantId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true

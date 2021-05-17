@@ -1,16 +1,15 @@
 export declare enum OrderScalarFieldEnum {
     id = "id",
-    items = "items",
-    coupon = "coupon",
+    address = "address",
+    discount = "discount",
     deliveryCharges = "deliveryCharges",
     vat = "vat",
     serviceCharge = "serviceCharge",
     total = "total",
     isAccepted = "isAccepted",
-    createdAt = "createdAt",
-    updatedAt = "updatedAt",
-    userId = "userId",
+    couponId = "couponId",
     restaurantId = "restaurantId",
     customerId = "customerId",
-    customerAddressId = "customerAddressId"
+    createdAt = "createdAt",
+    updatedAt = "updatedAt"
 }

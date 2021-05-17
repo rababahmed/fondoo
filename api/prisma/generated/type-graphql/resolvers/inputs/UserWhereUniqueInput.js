@@ -33,10 +33,10 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 let UserWhereUniqueInput = class UserWhereUniqueInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], UserWhereUniqueInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {

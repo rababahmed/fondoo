@@ -1,0 +1,36 @@
+import { BoolNullableFilter } from "../inputs/BoolNullableFilter";
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { StringFilter } from "../inputs/StringFilter";
+import { StringNullableFilter } from "../inputs/StringNullableFilter";
+export declare class RestaurantScalarWhereInput {
+    AND?: RestaurantScalarWhereInput[] | undefined;
+    OR?: RestaurantScalarWhereInput[] | undefined;
+    NOT?: RestaurantScalarWhereInput[] | undefined;
+    id?: StringFilter | undefined;
+    name?: StringFilter | undefined;
+    email?: StringFilter | undefined;
+    restaurantPlanId?: StringNullableFilter | undefined;
+    businessPhone?: StringNullableFilter | undefined;
+    reservationPhone?: StringNullableFilter | undefined;
+    url?: StringNullableFilter | undefined;
+    cuisine?: StringNullableFilter | undefined;
+    address?: StringNullableFilter | undefined;
+    city?: StringNullableFilter | undefined;
+    postCode?: StringNullableFilter | undefined;
+    country?: StringNullableFilter | undefined;
+    currency?: StringNullableFilter | undefined;
+    priceRange?: StringNullableFilter | undefined;
+    diningStyle?: StringNullableFilter | undefined;
+    vat?: StringNullableFilter | undefined;
+    serviceCharge?: StringNullableFilter | undefined;
+    hasParkingFacilities?: BoolNullableFilter | undefined;
+    hasPartyFacilities?: BoolNullableFilter | undefined;
+    hasKidsZone?: BoolNullableFilter | undefined;
+    isTakeaway?: BoolNullableFilter | undefined;
+    isDelivery?: BoolNullableFilter | undefined;
+    isReservation?: BoolNullableFilter | undefined;
+    isAutoAcceptOrder?: BoolNullableFilter | undefined;
+    isAutoAcceptReservation?: BoolNullableFilter | undefined;
+    createdAt?: DateTimeFilter | undefined;
+    updatedAt?: DateTimeFilter | undefined;
+}

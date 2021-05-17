@@ -30,8 +30,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderGroupBy = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const GraphQLScalars = __importStar(require("graphql-scalars"));
-const client_1 = require("@prisma/client");
 const OrderAvgAggregate_1 = require("../outputs/OrderAvgAggregate");
 const OrderCountAggregate_1 = require("../outputs/OrderCountAggregate");
 const OrderMaxAggregate_1 = require("../outputs/OrderMaxAggregate");
@@ -46,17 +44,17 @@ __decorate([
     __metadata("design:type", Number)
 ], OrderGroupBy.prototype, "id", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
-        nullable: false
-    }),
-    __metadata("design:type", Object)
-], OrderGroupBy.prototype, "items", void 0);
-__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
     __metadata("design:type", String)
-], OrderGroupBy.prototype, "coupon", void 0);
+], OrderGroupBy.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+        nullable: false
+    }),
+    __metadata("design:type", Number)
+], OrderGroupBy.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Float, {
         nullable: false
@@ -88,6 +86,24 @@ __decorate([
     __metadata("design:type", Boolean)
 ], OrderGroupBy.prototype, "isAccepted", void 0);
 __decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderGroupBy.prototype, "couponId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: false
+    }),
+    __metadata("design:type", String)
+], OrderGroupBy.prototype, "restaurantId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderGroupBy.prototype, "customerId", void 0);
+__decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: false
     }),
@@ -99,30 +115,6 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], OrderGroupBy.prototype, "updatedAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: false
-    }),
-    __metadata("design:type", Number)
-], OrderGroupBy.prototype, "userId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: false
-    }),
-    __metadata("design:type", String)
-], OrderGroupBy.prototype, "restaurantId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderGroupBy.prototype, "customerId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderGroupBy.prototype, "customerAddressId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => OrderCountAggregate_1.OrderCountAggregate, {
         nullable: true

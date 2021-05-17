@@ -1,3 +1,3 @@
 export declare class ScheduleWhereUniqueInput {
-    id?: number | undefined;
+    id?: string | undefined;
 }

@@ -30,15 +30,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScheduleCreateInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const RestaurantCreateNestedOneWithoutScheduleInput_1 = require("../inputs/RestaurantCreateNestedOneWithoutScheduleInput");
+const RestaurantCreateNestedOneWithoutSchedulesInput_1 = require("../inputs/RestaurantCreateNestedOneWithoutSchedulesInput");
 let ScheduleCreateInput = class ScheduleCreateInput {
 };
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], ScheduleCreateInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
     }),
     __metadata("design:type", Date)
 ], ScheduleCreateInput.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], ScheduleCreateInput.prototype, "day", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
@@ -70,10 +82,10 @@ __decorate([
     __metadata("design:type", String)
 ], ScheduleCreateInput.prototype, "takeawayTime", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantCreateNestedOneWithoutScheduleInput_1.RestaurantCreateNestedOneWithoutScheduleInput, {
+    TypeGraphQL.Field(_type => RestaurantCreateNestedOneWithoutSchedulesInput_1.RestaurantCreateNestedOneWithoutSchedulesInput, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantCreateNestedOneWithoutScheduleInput_1.RestaurantCreateNestedOneWithoutScheduleInput)
+    __metadata("design:type", RestaurantCreateNestedOneWithoutSchedulesInput_1.RestaurantCreateNestedOneWithoutSchedulesInput)
 ], ScheduleCreateInput.prototype, "Restaurant", void 0);
 ScheduleCreateInput = __decorate([
     TypeGraphQL.InputType({

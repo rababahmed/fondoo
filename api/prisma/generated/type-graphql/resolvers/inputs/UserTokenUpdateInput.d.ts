@@ -3,6 +3,7 @@ import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStri
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { UserUpdateOneWithoutTokenInput } from "../inputs/UserUpdateOneWithoutTokenInput";
 export declare class UserTokenUpdateInput {
+    id?: StringFieldUpdateOperationsInput | undefined;
     token?: StringFieldUpdateOperationsInput | undefined;
     provider?: NullableStringFieldUpdateOperationsInput | undefined;
     createdAt?: DateTimeFieldUpdateOperationsInput | undefined;

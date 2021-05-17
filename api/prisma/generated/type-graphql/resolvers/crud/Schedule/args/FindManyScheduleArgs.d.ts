@@ -7,5 +7,5 @@ export declare class FindManyScheduleArgs {
     cursor?: ScheduleWhereUniqueInput | undefined;
     take?: number | undefined;
     skip?: number | undefined;
-    distinct?: Array<"id" | "createdAt" | "openingTime" | "closingTime" | "minDeliveryAmount" | "deliveryTime" | "takeawayTime" | "restaurantId"> | undefined;
+    distinct?: Array<"id" | "createdAt" | "day" | "openingTime" | "closingTime" | "minDeliveryAmount" | "deliveryTime" | "takeawayTime" | "restaurantId"> | undefined;
 }

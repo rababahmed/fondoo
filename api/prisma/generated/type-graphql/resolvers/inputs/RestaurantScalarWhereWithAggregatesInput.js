@@ -62,12 +62,6 @@ __decorate([
     __metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], RestaurantScalarWhereWithAggregatesInput.prototype, "id", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter)
-], RestaurantScalarWhereWithAggregatesInput.prototype, "createdAt", void 0);
-__decorate([
     TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
         nullable: true
     }),
@@ -79,6 +73,12 @@ __decorate([
     }),
     __metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], RestaurantScalarWhereWithAggregatesInput.prototype, "email", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter)
+], RestaurantScalarWhereWithAggregatesInput.prototype, "restaurantPlanId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
         nullable: true
@@ -97,6 +97,12 @@ __decorate([
     }),
     __metadata("design:type", StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter)
 ], RestaurantScalarWhereWithAggregatesInput.prototype, "url", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter)
+], RestaurantScalarWhereWithAggregatesInput.prototype, "cuisine", void 0);
 __decorate([
     TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
         nullable: true
@@ -156,7 +162,7 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", BoolNullableWithAggregatesFilter_1.BoolNullableWithAggregatesFilter)
-], RestaurantScalarWhereWithAggregatesInput.prototype, "hasParking", void 0);
+], RestaurantScalarWhereWithAggregatesInput.prototype, "hasParkingFacilities", void 0);
 __decorate([
     TypeGraphQL.Field(_type => BoolNullableWithAggregatesFilter_1.BoolNullableWithAggregatesFilter, {
         nullable: true
@@ -192,12 +198,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", BoolNullableWithAggregatesFilter_1.BoolNullableWithAggregatesFilter)
-], RestaurantScalarWhereWithAggregatesInput.prototype, "isOrdering", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => BoolNullableWithAggregatesFilter_1.BoolNullableWithAggregatesFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", BoolNullableWithAggregatesFilter_1.BoolNullableWithAggregatesFilter)
 ], RestaurantScalarWhereWithAggregatesInput.prototype, "isAutoAcceptOrder", void 0);
 __decorate([
     TypeGraphQL.Field(_type => BoolNullableWithAggregatesFilter_1.BoolNullableWithAggregatesFilter, {
@@ -205,6 +205,12 @@ __decorate([
     }),
     __metadata("design:type", BoolNullableWithAggregatesFilter_1.BoolNullableWithAggregatesFilter)
 ], RestaurantScalarWhereWithAggregatesInput.prototype, "isAutoAcceptReservation", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter)
+], RestaurantScalarWhereWithAggregatesInput.prototype, "createdAt", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
         nullable: true

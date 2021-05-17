@@ -1,6 +1,7 @@
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class CustomerUpdateManyMutationInput {
+    id?: StringFieldUpdateOperationsInput | undefined;
     createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     firstName?: StringFieldUpdateOperationsInput | undefined;
     lastName?: StringFieldUpdateOperationsInput | undefined;

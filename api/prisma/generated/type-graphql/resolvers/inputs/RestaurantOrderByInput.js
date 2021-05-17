@@ -44,12 +44,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", String)
-], RestaurantOrderByInput.prototype, "createdAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
 ], RestaurantOrderByInput.prototype, "name", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
@@ -57,6 +51,12 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RestaurantOrderByInput.prototype, "email", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], RestaurantOrderByInput.prototype, "restaurantPlanId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true
@@ -75,6 +75,12 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RestaurantOrderByInput.prototype, "url", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], RestaurantOrderByInput.prototype, "cuisine", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true
@@ -134,7 +140,7 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", String)
-], RestaurantOrderByInput.prototype, "hasParking", void 0);
+], RestaurantOrderByInput.prototype, "hasParkingFacilities", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true
@@ -170,12 +176,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", String)
-], RestaurantOrderByInput.prototype, "isOrdering", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
 ], RestaurantOrderByInput.prototype, "isAutoAcceptOrder", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
@@ -183,6 +183,12 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RestaurantOrderByInput.prototype, "isAutoAcceptReservation", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], RestaurantOrderByInput.prototype, "createdAt", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true

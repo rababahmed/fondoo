@@ -33,10 +33,8 @@ exports.CustomerAddressWhereInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const CustomerRelationFilter_1 = require("../inputs/CustomerRelationFilter");
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
-const IntFilter_1 = require("../inputs/IntFilter");
-const IntNullableFilter_1 = require("../inputs/IntNullableFilter");
-const OrderListRelationFilter_1 = require("../inputs/OrderListRelationFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
+const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
 let CustomerAddressWhereInput = CustomerAddressWhereInput_1 = class CustomerAddressWhereInput {
 };
 __decorate([
@@ -58,10 +56,10 @@ __decorate([
     __metadata("design:type", Array)
 ], CustomerAddressWhereInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntFilter_1.IntFilter)
+    __metadata("design:type", StringFilter_1.StringFilter)
 ], CustomerAddressWhereInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
@@ -100,17 +98,11 @@ __decorate([
     __metadata("design:type", CustomerRelationFilter_1.CustomerRelationFilter)
 ], CustomerAddressWhereInput.prototype, "Customer", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntNullableFilter_1.IntNullableFilter, {
+    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntNullableFilter_1.IntNullableFilter)
+    __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
 ], CustomerAddressWhereInput.prototype, "customerId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => OrderListRelationFilter_1.OrderListRelationFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", OrderListRelationFilter_1.OrderListRelationFilter)
-], CustomerAddressWhereInput.prototype, "Order", void 0);
 CustomerAddressWhereInput = CustomerAddressWhereInput_1 = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

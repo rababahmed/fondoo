@@ -1,3 +1,3 @@
 export declare class UserTokenWhereUniqueInput {
-    id?: number | undefined;
+    id?: string | undefined;
 }

@@ -1,3 +1,3 @@
 export declare class CustomerAddressWhereUniqueInput {
-    id?: number | undefined;
+    id?: string | undefined;
 }

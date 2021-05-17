@@ -6,6 +6,7 @@ import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStri
 import { RestaurantUpdateOneWithoutDeliveryZonesInput } from "../inputs/RestaurantUpdateOneWithoutDeliveryZonesInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class DeliveryZoneUpdateInput {
+    id?: StringFieldUpdateOperationsInput | undefined;
     createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     zoneTitle?: StringFieldUpdateOperationsInput | undefined;
     zonePostCode?: NullableStringFieldUpdateOperationsInput | undefined;

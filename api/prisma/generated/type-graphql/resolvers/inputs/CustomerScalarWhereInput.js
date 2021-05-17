@@ -32,9 +32,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerScalarWhereInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
-const IntFilter_1 = require("../inputs/IntFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
-const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
 let CustomerScalarWhereInput = CustomerScalarWhereInput_1 = class CustomerScalarWhereInput {
 };
 __decorate([
@@ -56,10 +54,10 @@ __decorate([
     __metadata("design:type", Array)
 ], CustomerScalarWhereInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntFilter_1.IntFilter)
+    __metadata("design:type", StringFilter_1.StringFilter)
 ], CustomerScalarWhereInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
@@ -97,12 +95,6 @@ __decorate([
     }),
     __metadata("design:type", StringFilter_1.StringFilter)
 ], CustomerScalarWhereInput.prototype, "phone", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
-], CustomerScalarWhereInput.prototype, "restaurantId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
         nullable: true

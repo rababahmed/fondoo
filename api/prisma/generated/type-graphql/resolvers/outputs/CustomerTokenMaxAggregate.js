@@ -33,10 +33,10 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 let CustomerTokenMaxAggregate = class CustomerTokenMaxAggregate {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerTokenMaxAggregate.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
@@ -57,10 +57,10 @@ __decorate([
     __metadata("design:type", Date)
 ], CustomerTokenMaxAggregate.prototype, "updatedAt", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerTokenMaxAggregate.prototype, "customerId", void 0);
 CustomerTokenMaxAggregate = __decorate([
     TypeGraphQL.ObjectType({

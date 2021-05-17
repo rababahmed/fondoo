@@ -3,6 +3,7 @@ import { EnumSpiceLevelFieldUpdateOperationsInput } from "../inputs/EnumSpiceLev
 import { NullableBoolFieldUpdateOperationsInput } from "../inputs/NullableBoolFieldUpdateOperationsInput";
 import { NullableIntFieldUpdateOperationsInput } from "../inputs/NullableIntFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { OrderItemUpdateManyWithoutProductInput } from "../inputs/OrderItemUpdateManyWithoutProductInput";
 import { RestaurantUpdateOneWithoutProductsInput } from "../inputs/RestaurantUpdateOneWithoutProductsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class ProductUpdateWithoutProductCategoryInput {
@@ -16,4 +17,5 @@ export declare class ProductUpdateWithoutProductCategoryInput {
     isPopular?: NullableBoolFieldUpdateOperationsInput | undefined;
     isActive?: NullableBoolFieldUpdateOperationsInput | undefined;
     Restaurant?: RestaurantUpdateOneWithoutProductsInput | undefined;
+    OrderItem?: OrderItemUpdateManyWithoutProductInput | undefined;
 }

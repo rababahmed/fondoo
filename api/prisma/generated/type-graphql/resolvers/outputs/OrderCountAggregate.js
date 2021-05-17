@@ -43,13 +43,13 @@ __decorate([
         nullable: false
     }),
     __metadata("design:type", Number)
-], OrderCountAggregate.prototype, "items", void 0);
+], OrderCountAggregate.prototype, "address", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: false
     }),
     __metadata("design:type", Number)
-], OrderCountAggregate.prototype, "coupon", void 0);
+], OrderCountAggregate.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: false
@@ -85,19 +85,7 @@ __decorate([
         nullable: false
     }),
     __metadata("design:type", Number)
-], OrderCountAggregate.prototype, "createdAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: false
-    }),
-    __metadata("design:type", Number)
-], OrderCountAggregate.prototype, "updatedAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: false
-    }),
-    __metadata("design:type", Number)
-], OrderCountAggregate.prototype, "userId", void 0);
+], OrderCountAggregate.prototype, "couponId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: false
@@ -115,7 +103,13 @@ __decorate([
         nullable: false
     }),
     __metadata("design:type", Number)
-], OrderCountAggregate.prototype, "customerAddressId", void 0);
+], OrderCountAggregate.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: false
+    }),
+    __metadata("design:type", Number)
+], OrderCountAggregate.prototype, "updatedAt", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: false

@@ -34,11 +34,9 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 const CustomerAddressListRelationFilter_1 = require("../inputs/CustomerAddressListRelationFilter");
 const CustomerTokenListRelationFilter_1 = require("../inputs/CustomerTokenListRelationFilter");
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
-const IntFilter_1 = require("../inputs/IntFilter");
 const OrderListRelationFilter_1 = require("../inputs/OrderListRelationFilter");
-const RestaurantRelationFilter_1 = require("../inputs/RestaurantRelationFilter");
+const RestaurantListRelationFilter_1 = require("../inputs/RestaurantListRelationFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
-const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
 let CustomerWhereInput = CustomerWhereInput_1 = class CustomerWhereInput {
 };
 __decorate([
@@ -60,10 +58,10 @@ __decorate([
     __metadata("design:type", Array)
 ], CustomerWhereInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntFilter_1.IntFilter)
+    __metadata("design:type", StringFilter_1.StringFilter)
 ], CustomerWhereInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
@@ -112,7 +110,7 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", CustomerAddressListRelationFilter_1.CustomerAddressListRelationFilter)
-], CustomerWhereInput.prototype, "address", void 0);
+], CustomerWhereInput.prototype, "addresses", void 0);
 __decorate([
     TypeGraphQL.Field(_type => OrderListRelationFilter_1.OrderListRelationFilter, {
         nullable: true
@@ -120,17 +118,11 @@ __decorate([
     __metadata("design:type", OrderListRelationFilter_1.OrderListRelationFilter)
 ], CustomerWhereInput.prototype, "orders", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => RestaurantRelationFilter_1.RestaurantRelationFilter, {
+    TypeGraphQL.Field(_type => RestaurantListRelationFilter_1.RestaurantListRelationFilter, {
         nullable: true
     }),
-    __metadata("design:type", RestaurantRelationFilter_1.RestaurantRelationFilter)
-], CustomerWhereInput.prototype, "Restaurant", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
-], CustomerWhereInput.prototype, "restaurantId", void 0);
+    __metadata("design:type", RestaurantListRelationFilter_1.RestaurantListRelationFilter)
+], CustomerWhereInput.prototype, "restaurants", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
         nullable: true

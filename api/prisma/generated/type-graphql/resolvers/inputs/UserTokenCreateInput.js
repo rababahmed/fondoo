@@ -35,6 +35,12 @@ let UserTokenCreateInput = class UserTokenCreateInput {
 };
 __decorate([
     TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], UserTokenCreateInput.prototype, "id", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
     __metadata("design:type", String)

@@ -43,12 +43,6 @@ __decorate([
         nullable: false
     }),
     __metadata("design:type", Number)
-], RestaurantCountAggregate.prototype, "createdAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: false
-    }),
-    __metadata("design:type", Number)
 ], RestaurantCountAggregate.prototype, "name", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
@@ -56,6 +50,12 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], RestaurantCountAggregate.prototype, "email", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: false
+    }),
+    __metadata("design:type", Number)
+], RestaurantCountAggregate.prototype, "restaurantPlanId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: false
@@ -74,6 +74,12 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], RestaurantCountAggregate.prototype, "url", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: false
+    }),
+    __metadata("design:type", Number)
+], RestaurantCountAggregate.prototype, "cuisine", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: false
@@ -133,7 +139,7 @@ __decorate([
         nullable: false
     }),
     __metadata("design:type", Number)
-], RestaurantCountAggregate.prototype, "hasParking", void 0);
+], RestaurantCountAggregate.prototype, "hasParkingFacilities", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: false
@@ -169,12 +175,6 @@ __decorate([
         nullable: false
     }),
     __metadata("design:type", Number)
-], RestaurantCountAggregate.prototype, "isOrdering", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: false
-    }),
-    __metadata("design:type", Number)
 ], RestaurantCountAggregate.prototype, "isAutoAcceptOrder", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
@@ -182,6 +182,12 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], RestaurantCountAggregate.prototype, "isAutoAcceptReservation", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: false
+    }),
+    __metadata("design:type", Number)
+], RestaurantCountAggregate.prototype, "createdAt", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: false

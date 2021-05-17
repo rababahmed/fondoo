@@ -33,10 +33,10 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 let ScheduleCreateManyRestaurantInput = class ScheduleCreateManyRestaurantInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], ScheduleCreateManyRestaurantInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
@@ -44,6 +44,12 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], ScheduleCreateManyRestaurantInput.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], ScheduleCreateManyRestaurantInput.prototype, "day", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true

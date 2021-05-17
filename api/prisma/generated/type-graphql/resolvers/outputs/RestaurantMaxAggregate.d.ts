@@ -1,11 +1,12 @@
 export declare class RestaurantMaxAggregate {
     id: string | null;
-    createdAt: Date | null;
     name: string | null;
     email: string | null;
+    restaurantPlanId: string | null;
     businessPhone: string | null;
     reservationPhone: string | null;
     url: string | null;
+    cuisine: string | null;
     address: string | null;
     city: string | null;
     postCode: string | null;
@@ -15,14 +16,14 @@ export declare class RestaurantMaxAggregate {
     diningStyle: string | null;
     vat: string | null;
     serviceCharge: string | null;
-    hasParking: boolean | null;
+    hasParkingFacilities: boolean | null;
     hasPartyFacilities: boolean | null;
     hasKidsZone: boolean | null;
     isTakeaway: boolean | null;
     isDelivery: boolean | null;
     isReservation: boolean | null;
-    isOrdering: boolean | null;
     isAutoAcceptOrder: boolean | null;
     isAutoAcceptReservation: boolean | null;
+    createdAt: Date | null;
     updatedAt: Date | null;
 }

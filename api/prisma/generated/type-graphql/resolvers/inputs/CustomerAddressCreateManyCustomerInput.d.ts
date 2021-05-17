@@ -1,5 +1,5 @@
 export declare class CustomerAddressCreateManyCustomerInput {
-    id?: number | undefined;
+    id?: string | undefined;
     createdAt?: Date | undefined;
     streetAddress: string;
     city: string;

@@ -30,11 +30,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AggregateCustomerAddress = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const CustomerAddressAvgAggregate_1 = require("../outputs/CustomerAddressAvgAggregate");
 const CustomerAddressCountAggregate_1 = require("../outputs/CustomerAddressCountAggregate");
 const CustomerAddressMaxAggregate_1 = require("../outputs/CustomerAddressMaxAggregate");
 const CustomerAddressMinAggregate_1 = require("../outputs/CustomerAddressMinAggregate");
-const CustomerAddressSumAggregate_1 = require("../outputs/CustomerAddressSumAggregate");
 let AggregateCustomerAddress = class AggregateCustomerAddress {
 };
 __decorate([
@@ -43,18 +41,6 @@ __decorate([
     }),
     __metadata("design:type", CustomerAddressCountAggregate_1.CustomerAddressCountAggregate)
 ], AggregateCustomerAddress.prototype, "count", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerAddressAvgAggregate_1.CustomerAddressAvgAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerAddressAvgAggregate_1.CustomerAddressAvgAggregate)
-], AggregateCustomerAddress.prototype, "avg", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerAddressSumAggregate_1.CustomerAddressSumAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerAddressSumAggregate_1.CustomerAddressSumAggregate)
-], AggregateCustomerAddress.prototype, "sum", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerAddressMinAggregate_1.CustomerAddressMinAggregate, {
         nullable: true

@@ -33,11 +33,23 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 let ScheduleCreateWithoutRestaurantInput = class ScheduleCreateWithoutRestaurantInput {
 };
 __decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], ScheduleCreateWithoutRestaurantInput.prototype, "id", void 0);
+__decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
     }),
     __metadata("design:type", Date)
 ], ScheduleCreateWithoutRestaurantInput.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], ScheduleCreateWithoutRestaurantInput.prototype, "day", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true

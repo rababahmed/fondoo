@@ -7,5 +7,5 @@ export declare class FindFirstUserArgs {
     cursor?: UserWhereUniqueInput | undefined;
     take?: number | undefined;
     skip?: number | undefined;
-    distinct?: Array<"id" | "createdAt" | "firstName" | "lastName" | "email" | "password" | "phone" | "role" | "restaurantId"> | undefined;
+    distinct?: Array<"id" | "createdAt" | "firstName" | "lastName" | "email" | "password" | "phone" | "role"> | undefined;
 }

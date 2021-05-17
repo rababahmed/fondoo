@@ -6,6 +6,5 @@ export declare enum UserScalarFieldEnum {
     email = "email",
     password = "password",
     phone = "phone",
-    role = "role",
-    restaurantId = "restaurantId"
+    role = "role"
 }

@@ -1,5 +1,5 @@
 export declare class UserMaxAggregate {
-    id: number | null;
+    id: string | null;
     createdAt: Date | null;
     firstName: string | null;
     lastName: string | null;
@@ -7,5 +7,4 @@ export declare class UserMaxAggregate {
     password: string | null;
     phone: string | null;
     role: "Manager" | "Owner" | "Admin" | "SuperAdmin" | null;
-    restaurantId: string | null;
 }

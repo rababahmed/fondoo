@@ -35,6 +35,7 @@ const EnumSpiceLevelFieldUpdateOperationsInput_1 = require("../inputs/EnumSpiceL
 const NullableBoolFieldUpdateOperationsInput_1 = require("../inputs/NullableBoolFieldUpdateOperationsInput");
 const NullableIntFieldUpdateOperationsInput_1 = require("../inputs/NullableIntFieldUpdateOperationsInput");
 const NullableStringFieldUpdateOperationsInput_1 = require("../inputs/NullableStringFieldUpdateOperationsInput");
+const OrderItemUpdateManyWithoutProductInput_1 = require("../inputs/OrderItemUpdateManyWithoutProductInput");
 const ProductCategoryUpdateOneWithoutProductInput_1 = require("../inputs/ProductCategoryUpdateOneWithoutProductInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
 let ProductUpdateWithoutRestaurantInput = class ProductUpdateWithoutRestaurantInput {
@@ -99,6 +100,12 @@ __decorate([
     }),
     __metadata("design:type", ProductCategoryUpdateOneWithoutProductInput_1.ProductCategoryUpdateOneWithoutProductInput)
 ], ProductUpdateWithoutRestaurantInput.prototype, "ProductCategory", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => OrderItemUpdateManyWithoutProductInput_1.OrderItemUpdateManyWithoutProductInput, {
+        nullable: true
+    }),
+    __metadata("design:type", OrderItemUpdateManyWithoutProductInput_1.OrderItemUpdateManyWithoutProductInput)
+], ProductUpdateWithoutRestaurantInput.prototype, "OrderItem", void 0);
 ProductUpdateWithoutRestaurantInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

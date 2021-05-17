@@ -7,5 +7,5 @@ export declare class FindFirstRestaurantArgs {
     cursor?: RestaurantWhereUniqueInput | undefined;
     take?: number | undefined;
     skip?: number | undefined;
-    distinct?: Array<"id" | "createdAt" | "name" | "email" | "businessPhone" | "reservationPhone" | "url" | "address" | "city" | "postCode" | "country" | "currency" | "priceRange" | "diningStyle" | "vat" | "serviceCharge" | "hasParking" | "hasPartyFacilities" | "hasKidsZone" | "isTakeaway" | "isDelivery" | "isReservation" | "isOrdering" | "isAutoAcceptOrder" | "isAutoAcceptReservation" | "updatedAt"> | undefined;
+    distinct?: Array<"id" | "name" | "email" | "restaurantPlanId" | "businessPhone" | "reservationPhone" | "url" | "cuisine" | "address" | "city" | "postCode" | "country" | "currency" | "priceRange" | "diningStyle" | "vat" | "serviceCharge" | "hasParkingFacilities" | "hasPartyFacilities" | "hasKidsZone" | "isTakeaway" | "isDelivery" | "isReservation" | "isAutoAcceptOrder" | "isAutoAcceptReservation" | "createdAt" | "updatedAt"> | undefined;
 }

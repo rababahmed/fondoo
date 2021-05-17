@@ -33,10 +33,10 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 let CustomerToken = class CustomerToken {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerToken.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
@@ -57,10 +57,10 @@ __decorate([
     __metadata("design:type", Date)
 ], CustomerToken.prototype, "updatedAt", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomerToken.prototype, "customerId", void 0);
 CustomerToken = __decorate([
     TypeGraphQL.ObjectType({

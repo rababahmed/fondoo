@@ -32,8 +32,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerAddressScalarWhereWithAggregatesInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeWithAggregatesFilter_1 = require("../inputs/DateTimeWithAggregatesFilter");
-const IntNullableWithAggregatesFilter_1 = require("../inputs/IntNullableWithAggregatesFilter");
-const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
+const StringNullableWithAggregatesFilter_1 = require("../inputs/StringNullableWithAggregatesFilter");
 const StringWithAggregatesFilter_1 = require("../inputs/StringWithAggregatesFilter");
 let CustomerAddressScalarWhereWithAggregatesInput = CustomerAddressScalarWhereWithAggregatesInput_1 = class CustomerAddressScalarWhereWithAggregatesInput {
 };
@@ -56,10 +55,10 @@ __decorate([
     __metadata("design:type", Array)
 ], CustomerAddressScalarWhereWithAggregatesInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntWithAggregatesFilter_1.IntWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntWithAggregatesFilter_1.IntWithAggregatesFilter)
+    __metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], CustomerAddressScalarWhereWithAggregatesInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
@@ -92,10 +91,10 @@ __decorate([
     __metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], CustomerAddressScalarWhereWithAggregatesInput.prototype, "country", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntNullableWithAggregatesFilter_1.IntNullableWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntNullableWithAggregatesFilter_1.IntNullableWithAggregatesFilter)
+    __metadata("design:type", StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter)
 ], CustomerAddressScalarWhereWithAggregatesInput.prototype, "customerId", void 0);
 CustomerAddressScalarWhereWithAggregatesInput = CustomerAddressScalarWhereWithAggregatesInput_1 = __decorate([
     TypeGraphQL.InputType({

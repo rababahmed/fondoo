@@ -1,5 +1,5 @@
 export declare class UserTokenCreateManyUserInput {
-    id?: number | undefined;
+    id?: string | undefined;
     token: string;
     provider?: string | undefined;
     createdAt?: Date | undefined;

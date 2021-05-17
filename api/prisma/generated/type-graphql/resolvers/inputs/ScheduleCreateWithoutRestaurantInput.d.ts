@@ -1,5 +1,7 @@
 export declare class ScheduleCreateWithoutRestaurantInput {
+    id?: string | undefined;
     createdAt?: Date | undefined;
+    day?: string | undefined;
     openingTime?: string | undefined;
     closingTime?: string | undefined;
     minDeliveryAmount?: number | undefined;

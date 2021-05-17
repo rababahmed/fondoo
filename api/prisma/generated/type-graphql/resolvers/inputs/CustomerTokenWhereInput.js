@@ -33,9 +33,8 @@ exports.CustomerTokenWhereInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const CustomerRelationFilter_1 = require("../inputs/CustomerRelationFilter");
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
-const IntFilter_1 = require("../inputs/IntFilter");
-const IntNullableFilter_1 = require("../inputs/IntNullableFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
+const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
 let CustomerTokenWhereInput = CustomerTokenWhereInput_1 = class CustomerTokenWhereInput {
 };
 __decorate([
@@ -57,10 +56,10 @@ __decorate([
     __metadata("design:type", Array)
 ], CustomerTokenWhereInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntFilter_1.IntFilter)
+    __metadata("design:type", StringFilter_1.StringFilter)
 ], CustomerTokenWhereInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
@@ -87,10 +86,10 @@ __decorate([
     __metadata("design:type", CustomerRelationFilter_1.CustomerRelationFilter)
 ], CustomerTokenWhereInput.prototype, "Customer", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntNullableFilter_1.IntNullableFilter, {
+    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntNullableFilter_1.IntNullableFilter)
+    __metadata("design:type", StringNullableFilter_1.StringNullableFilter)
 ], CustomerTokenWhereInput.prototype, "customerId", void 0);
 CustomerTokenWhereInput = CustomerTokenWhereInput_1 = __decorate([
     TypeGraphQL.InputType({

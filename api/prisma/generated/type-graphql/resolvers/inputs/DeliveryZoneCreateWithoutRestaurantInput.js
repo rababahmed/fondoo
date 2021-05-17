@@ -34,6 +34,12 @@ const DeliveryFee_1 = require("../../enums/DeliveryFee");
 let DeliveryZoneCreateWithoutRestaurantInput = class DeliveryZoneCreateWithoutRestaurantInput {
 };
 __decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], DeliveryZoneCreateWithoutRestaurantInput.prototype, "id", void 0);
+__decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
     }),

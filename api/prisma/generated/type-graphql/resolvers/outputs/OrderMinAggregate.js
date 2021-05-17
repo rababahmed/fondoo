@@ -43,7 +43,13 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", String)
-], OrderMinAggregate.prototype, "coupon", void 0);
+], OrderMinAggregate.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+        nullable: true
+    }),
+    __metadata("design:type", Number)
+], OrderMinAggregate.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Float, {
         nullable: true
@@ -75,6 +81,24 @@ __decorate([
     __metadata("design:type", Boolean)
 ], OrderMinAggregate.prototype, "isAccepted", void 0);
 __decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderMinAggregate.prototype, "couponId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderMinAggregate.prototype, "restaurantId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderMinAggregate.prototype, "customerId", void 0);
+__decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
     }),
@@ -86,30 +110,6 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], OrderMinAggregate.prototype, "updatedAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderMinAggregate.prototype, "userId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: true
-    }),
-    __metadata("design:type", String)
-], OrderMinAggregate.prototype, "restaurantId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderMinAggregate.prototype, "customerId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderMinAggregate.prototype, "customerAddressId", void 0);
 OrderMinAggregate = __decorate([
     TypeGraphQL.ObjectType({
         isAbstract: true

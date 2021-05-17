@@ -30,11 +30,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AggregateCustomer = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const CustomerAvgAggregate_1 = require("../outputs/CustomerAvgAggregate");
 const CustomerCountAggregate_1 = require("../outputs/CustomerCountAggregate");
 const CustomerMaxAggregate_1 = require("../outputs/CustomerMaxAggregate");
 const CustomerMinAggregate_1 = require("../outputs/CustomerMinAggregate");
-const CustomerSumAggregate_1 = require("../outputs/CustomerSumAggregate");
 let AggregateCustomer = class AggregateCustomer {
 };
 __decorate([
@@ -43,18 +41,6 @@ __decorate([
     }),
     __metadata("design:type", CustomerCountAggregate_1.CustomerCountAggregate)
 ], AggregateCustomer.prototype, "count", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerAvgAggregate_1.CustomerAvgAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerAvgAggregate_1.CustomerAvgAggregate)
-], AggregateCustomer.prototype, "avg", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerSumAggregate_1.CustomerSumAggregate, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerSumAggregate_1.CustomerSumAggregate)
-], AggregateCustomer.prototype, "sum", void 0);
 __decorate([
     TypeGraphQL.Field(_type => CustomerMinAggregate_1.CustomerMinAggregate, {
         nullable: true

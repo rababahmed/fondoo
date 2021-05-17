@@ -1,15 +1,14 @@
-import { Prisma } from "@prisma/client";
 import { BoolFieldUpdateOperationsInput } from "../inputs/BoolFieldUpdateOperationsInput";
-import { CustomerAddressUpdateOneWithoutOrderInput } from "../inputs/CustomerAddressUpdateOneWithoutOrderInput";
+import { CouponUpdateOneWithoutOrdersInput } from "../inputs/CouponUpdateOneWithoutOrdersInput";
 import { CustomerUpdateOneWithoutOrdersInput } from "../inputs/CustomerUpdateOneWithoutOrdersInput";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { OrderItemUpdateManyWithoutOrderInput } from "../inputs/OrderItemUpdateManyWithoutOrderInput";
 import { RestaurantUpdateOneRequiredWithoutOrdersInput } from "../inputs/RestaurantUpdateOneRequiredWithoutOrdersInput";
-import { UserUpdateOneRequiredWithoutOrdersInput } from "../inputs/UserUpdateOneRequiredWithoutOrdersInput";
 export declare class OrderUpdateInput {
-    items?: Prisma.InputJsonValue | undefined;
-    coupon?: NullableStringFieldUpdateOperationsInput | undefined;
+    address?: NullableStringFieldUpdateOperationsInput | undefined;
+    discount?: FloatFieldUpdateOperationsInput | undefined;
     deliveryCharges?: FloatFieldUpdateOperationsInput | undefined;
     vat?: FloatFieldUpdateOperationsInput | undefined;
     serviceCharge?: FloatFieldUpdateOperationsInput | undefined;
@@ -17,8 +16,8 @@ export declare class OrderUpdateInput {
     isAccepted?: BoolFieldUpdateOperationsInput | undefined;
     createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
     updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
-    user?: UserUpdateOneRequiredWithoutOrdersInput | undefined;
+    items?: OrderItemUpdateManyWithoutOrderInput | undefined;
+    Coupon?: CouponUpdateOneWithoutOrdersInput | undefined;
     restaurant?: RestaurantUpdateOneRequiredWithoutOrdersInput | undefined;
     Customer?: CustomerUpdateOneWithoutOrdersInput | undefined;
-    CustomerAddress?: CustomerAddressUpdateOneWithoutOrderInput | undefined;
 }

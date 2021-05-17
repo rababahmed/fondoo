@@ -33,10 +33,10 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 let DeliveryZoneWhereUniqueInput = class DeliveryZoneWhereUniqueInput {
 };
 __decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], DeliveryZoneWhereUniqueInput.prototype, "id", void 0);
 DeliveryZoneWhereUniqueInput = __decorate([
     TypeGraphQL.InputType({

@@ -43,6 +43,12 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Number)
+], OrderSumAggregate.prototype, "discount", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+        nullable: true
+    }),
+    __metadata("design:type", Number)
 ], OrderSumAggregate.prototype, "deliveryCharges", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Float, {
@@ -62,24 +68,6 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], OrderSumAggregate.prototype, "total", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderSumAggregate.prototype, "userId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderSumAggregate.prototype, "customerId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderSumAggregate.prototype, "customerAddressId", void 0);
 OrderSumAggregate = __decorate([
     TypeGraphQL.ObjectType({
         isAbstract: true

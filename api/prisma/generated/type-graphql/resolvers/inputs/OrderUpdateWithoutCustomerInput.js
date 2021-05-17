@@ -30,29 +30,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderUpdateWithoutCustomerInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const GraphQLScalars = __importStar(require("graphql-scalars"));
-const client_1 = require("@prisma/client");
 const BoolFieldUpdateOperationsInput_1 = require("../inputs/BoolFieldUpdateOperationsInput");
-const CustomerAddressUpdateOneWithoutOrderInput_1 = require("../inputs/CustomerAddressUpdateOneWithoutOrderInput");
+const CouponUpdateOneWithoutOrdersInput_1 = require("../inputs/CouponUpdateOneWithoutOrdersInput");
 const DateTimeFieldUpdateOperationsInput_1 = require("../inputs/DateTimeFieldUpdateOperationsInput");
 const FloatFieldUpdateOperationsInput_1 = require("../inputs/FloatFieldUpdateOperationsInput");
 const NullableStringFieldUpdateOperationsInput_1 = require("../inputs/NullableStringFieldUpdateOperationsInput");
+const OrderItemUpdateManyWithoutOrderInput_1 = require("../inputs/OrderItemUpdateManyWithoutOrderInput");
 const RestaurantUpdateOneRequiredWithoutOrdersInput_1 = require("../inputs/RestaurantUpdateOneRequiredWithoutOrdersInput");
-const UserUpdateOneRequiredWithoutOrdersInput_1 = require("../inputs/UserUpdateOneRequiredWithoutOrdersInput");
 let OrderUpdateWithoutCustomerInput = class OrderUpdateWithoutCustomerInput {
 };
-__decorate([
-    TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], OrderUpdateWithoutCustomerInput.prototype, "items", void 0);
 __decorate([
     TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput, {
         nullable: true
     }),
     __metadata("design:type", NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput)
-], OrderUpdateWithoutCustomerInput.prototype, "coupon", void 0);
+], OrderUpdateWithoutCustomerInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput_1.FloatFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", FloatFieldUpdateOperationsInput_1.FloatFieldUpdateOperationsInput)
+], OrderUpdateWithoutCustomerInput.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => FloatFieldUpdateOperationsInput_1.FloatFieldUpdateOperationsInput, {
         nullable: true
@@ -96,23 +94,23 @@ __decorate([
     __metadata("design:type", DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput)
 ], OrderUpdateWithoutCustomerInput.prototype, "updatedAt", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutOrdersInput_1.UserUpdateOneRequiredWithoutOrdersInput, {
+    TypeGraphQL.Field(_type => OrderItemUpdateManyWithoutOrderInput_1.OrderItemUpdateManyWithoutOrderInput, {
         nullable: true
     }),
-    __metadata("design:type", UserUpdateOneRequiredWithoutOrdersInput_1.UserUpdateOneRequiredWithoutOrdersInput)
-], OrderUpdateWithoutCustomerInput.prototype, "user", void 0);
+    __metadata("design:type", OrderItemUpdateManyWithoutOrderInput_1.OrderItemUpdateManyWithoutOrderInput)
+], OrderUpdateWithoutCustomerInput.prototype, "items", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => CouponUpdateOneWithoutOrdersInput_1.CouponUpdateOneWithoutOrdersInput, {
+        nullable: true
+    }),
+    __metadata("design:type", CouponUpdateOneWithoutOrdersInput_1.CouponUpdateOneWithoutOrdersInput)
+], OrderUpdateWithoutCustomerInput.prototype, "Coupon", void 0);
 __decorate([
     TypeGraphQL.Field(_type => RestaurantUpdateOneRequiredWithoutOrdersInput_1.RestaurantUpdateOneRequiredWithoutOrdersInput, {
         nullable: true
     }),
     __metadata("design:type", RestaurantUpdateOneRequiredWithoutOrdersInput_1.RestaurantUpdateOneRequiredWithoutOrdersInput)
 ], OrderUpdateWithoutCustomerInput.prototype, "restaurant", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => CustomerAddressUpdateOneWithoutOrderInput_1.CustomerAddressUpdateOneWithoutOrderInput, {
-        nullable: true
-    }),
-    __metadata("design:type", CustomerAddressUpdateOneWithoutOrderInput_1.CustomerAddressUpdateOneWithoutOrderInput)
-], OrderUpdateWithoutCustomerInput.prototype, "CustomerAddress", void 0);
 OrderUpdateWithoutCustomerInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

@@ -42,12 +42,6 @@ __decorate([
     __metadata("design:type", String)
 ], RestaurantGroupBy.prototype, "id", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: false
-    }),
-    __metadata("design:type", Date)
-], RestaurantGroupBy.prototype, "createdAt", void 0);
-__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
@@ -59,6 +53,12 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RestaurantGroupBy.prototype, "email", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], RestaurantGroupBy.prototype, "restaurantPlanId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
@@ -77,6 +77,12 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RestaurantGroupBy.prototype, "url", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], RestaurantGroupBy.prototype, "cuisine", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
@@ -136,7 +142,7 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Boolean)
-], RestaurantGroupBy.prototype, "hasParking", void 0);
+], RestaurantGroupBy.prototype, "hasParkingFacilities", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Boolean, {
         nullable: true
@@ -172,12 +178,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Boolean)
-], RestaurantGroupBy.prototype, "isOrdering", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => Boolean, {
-        nullable: true
-    }),
-    __metadata("design:type", Boolean)
 ], RestaurantGroupBy.prototype, "isAutoAcceptOrder", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Boolean, {
@@ -185,6 +185,12 @@ __decorate([
     }),
     __metadata("design:type", Boolean)
 ], RestaurantGroupBy.prototype, "isAutoAcceptReservation", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => Date, {
+        nullable: false
+    }),
+    __metadata("design:type", Date)
+], RestaurantGroupBy.prototype, "createdAt", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: false

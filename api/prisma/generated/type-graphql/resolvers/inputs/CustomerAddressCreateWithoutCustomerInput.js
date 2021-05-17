@@ -30,9 +30,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerAddressCreateWithoutCustomerInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const OrderCreateNestedManyWithoutCustomerAddressInput_1 = require("../inputs/OrderCreateNestedManyWithoutCustomerAddressInput");
 let CustomerAddressCreateWithoutCustomerInput = class CustomerAddressCreateWithoutCustomerInput {
 };
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], CustomerAddressCreateWithoutCustomerInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
@@ -63,12 +68,6 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], CustomerAddressCreateWithoutCustomerInput.prototype, "country", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => OrderCreateNestedManyWithoutCustomerAddressInput_1.OrderCreateNestedManyWithoutCustomerAddressInput, {
-        nullable: true
-    }),
-    __metadata("design:type", OrderCreateNestedManyWithoutCustomerAddressInput_1.OrderCreateNestedManyWithoutCustomerAddressInput)
-], CustomerAddressCreateWithoutCustomerInput.prototype, "Order", void 0);
 CustomerAddressCreateWithoutCustomerInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

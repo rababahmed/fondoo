@@ -1,5 +1,5 @@
 export declare class UserCreateManyInput {
-    id?: number | undefined;
+    id?: string | undefined;
     createdAt?: Date | undefined;
     firstName: string;
     lastName: string;
@@ -7,5 +7,4 @@ export declare class UserCreateManyInput {
     password: string;
     phone?: string | undefined;
     role?: "Manager" | "Owner" | "Admin" | "SuperAdmin" | undefined;
-    restaurantId?: string | undefined;
 }

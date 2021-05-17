@@ -31,10 +31,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerAddressUpdateWithoutCustomerInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeFieldUpdateOperationsInput_1 = require("../inputs/DateTimeFieldUpdateOperationsInput");
-const OrderUpdateManyWithoutCustomerAddressInput_1 = require("../inputs/OrderUpdateManyWithoutCustomerAddressInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
 let CustomerAddressUpdateWithoutCustomerInput = class CustomerAddressUpdateWithoutCustomerInput {
 };
+__decorate([
+    TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
+], CustomerAddressUpdateWithoutCustomerInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput, {
         nullable: true
@@ -65,12 +70,6 @@ __decorate([
     }),
     __metadata("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
 ], CustomerAddressUpdateWithoutCustomerInput.prototype, "country", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => OrderUpdateManyWithoutCustomerAddressInput_1.OrderUpdateManyWithoutCustomerAddressInput, {
-        nullable: true
-    }),
-    __metadata("design:type", OrderUpdateManyWithoutCustomerAddressInput_1.OrderUpdateManyWithoutCustomerAddressInput)
-], CustomerAddressUpdateWithoutCustomerInput.prototype, "Order", void 0);
 CustomerAddressUpdateWithoutCustomerInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

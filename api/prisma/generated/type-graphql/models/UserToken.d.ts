@@ -1,10 +1,10 @@
 import { User } from "../models/User";
 export declare class UserToken {
-    id: number;
+    id: string;
     token: string;
     provider?: string | null;
     createdAt: Date;
     updatedAt: Date;
     User?: User | null;
-    userId?: number | null;
+    userId?: string | null;
 }

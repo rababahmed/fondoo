@@ -7,12 +7,13 @@ export declare class RestaurantScalarWhereWithAggregatesInput {
     OR?: RestaurantScalarWhereWithAggregatesInput[] | undefined;
     NOT?: RestaurantScalarWhereWithAggregatesInput[] | undefined;
     id?: StringWithAggregatesFilter | undefined;
-    createdAt?: DateTimeWithAggregatesFilter | undefined;
     name?: StringWithAggregatesFilter | undefined;
     email?: StringWithAggregatesFilter | undefined;
+    restaurantPlanId?: StringNullableWithAggregatesFilter | undefined;
     businessPhone?: StringNullableWithAggregatesFilter | undefined;
     reservationPhone?: StringNullableWithAggregatesFilter | undefined;
     url?: StringNullableWithAggregatesFilter | undefined;
+    cuisine?: StringNullableWithAggregatesFilter | undefined;
     address?: StringNullableWithAggregatesFilter | undefined;
     city?: StringNullableWithAggregatesFilter | undefined;
     postCode?: StringNullableWithAggregatesFilter | undefined;
@@ -22,14 +23,14 @@ export declare class RestaurantScalarWhereWithAggregatesInput {
     diningStyle?: StringNullableWithAggregatesFilter | undefined;
     vat?: StringNullableWithAggregatesFilter | undefined;
     serviceCharge?: StringNullableWithAggregatesFilter | undefined;
-    hasParking?: BoolNullableWithAggregatesFilter | undefined;
+    hasParkingFacilities?: BoolNullableWithAggregatesFilter | undefined;
     hasPartyFacilities?: BoolNullableWithAggregatesFilter | undefined;
     hasKidsZone?: BoolNullableWithAggregatesFilter | undefined;
     isTakeaway?: BoolNullableWithAggregatesFilter | undefined;
     isDelivery?: BoolNullableWithAggregatesFilter | undefined;
     isReservation?: BoolNullableWithAggregatesFilter | undefined;
-    isOrdering?: BoolNullableWithAggregatesFilter | undefined;
     isAutoAcceptOrder?: BoolNullableWithAggregatesFilter | undefined;
     isAutoAcceptReservation?: BoolNullableWithAggregatesFilter | undefined;
+    createdAt?: DateTimeWithAggregatesFilter | undefined;
     updatedAt?: DateTimeWithAggregatesFilter | undefined;
 }

@@ -1,14 +1,13 @@
 import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
-import { IntNullableWithAggregatesFilter } from "../inputs/IntNullableWithAggregatesFilter";
-import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
+import { StringNullableWithAggregatesFilter } from "../inputs/StringNullableWithAggregatesFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
 export declare class CustomerTokenScalarWhereWithAggregatesInput {
     AND?: CustomerTokenScalarWhereWithAggregatesInput[] | undefined;
     OR?: CustomerTokenScalarWhereWithAggregatesInput[] | undefined;
     NOT?: CustomerTokenScalarWhereWithAggregatesInput[] | undefined;
-    id?: IntWithAggregatesFilter | undefined;
+    id?: StringWithAggregatesFilter | undefined;
     token?: StringWithAggregatesFilter | undefined;
     createdAt?: DateTimeWithAggregatesFilter | undefined;
     updatedAt?: DateTimeWithAggregatesFilter | undefined;
-    customerId?: IntNullableWithAggregatesFilter | undefined;
+    customerId?: StringNullableWithAggregatesFilter | undefined;
 }

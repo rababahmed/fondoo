@@ -32,8 +32,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerScalarWhereWithAggregatesInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeWithAggregatesFilter_1 = require("../inputs/DateTimeWithAggregatesFilter");
-const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
-const StringNullableWithAggregatesFilter_1 = require("../inputs/StringNullableWithAggregatesFilter");
 const StringWithAggregatesFilter_1 = require("../inputs/StringWithAggregatesFilter");
 let CustomerScalarWhereWithAggregatesInput = CustomerScalarWhereWithAggregatesInput_1 = class CustomerScalarWhereWithAggregatesInput {
 };
@@ -56,10 +54,10 @@ __decorate([
     __metadata("design:type", Array)
 ], CustomerScalarWhereWithAggregatesInput.prototype, "NOT", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => IntWithAggregatesFilter_1.IntWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
         nullable: true
     }),
-    __metadata("design:type", IntWithAggregatesFilter_1.IntWithAggregatesFilter)
+    __metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], CustomerScalarWhereWithAggregatesInput.prototype, "id", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
@@ -97,12 +95,6 @@ __decorate([
     }),
     __metadata("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], CustomerScalarWhereWithAggregatesInput.prototype, "phone", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter)
-], CustomerScalarWhereWithAggregatesInput.prototype, "restaurantId", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
         nullable: true

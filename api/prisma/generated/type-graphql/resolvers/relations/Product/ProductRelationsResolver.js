@@ -33,9 +33,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductRelationsResolver = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
+const OrderItem_1 = require("../../../models/OrderItem");
 const Product_1 = require("../../../models/Product");
 const ProductCategory_1 = require("../../../models/ProductCategory");
 const Restaurant_1 = require("../../../models/Restaurant");
+const ProductOrderItemArgs_1 = require("./args/ProductOrderItemArgs");
 const helpers_1 = require("../../../helpers");
 let ProductRelationsResolver = class ProductRelationsResolver {
     async ProductCategory(product, ctx) {
@@ -51,6 +53,13 @@ let ProductRelationsResolver = class ProductRelationsResolver {
                 id: product.id,
             },
         }).Restaurant({});
+    }
+    async OrderItem(product, ctx, args) {
+        return helpers_1.getPrismaFromContext(ctx).product.findUnique({
+            where: {
+                id: product.id,
+            },
+        }).OrderItem(args);
     }
 };
 __decorate([
@@ -71,6 +80,15 @@ __decorate([
     __metadata("design:paramtypes", [Product_1.Product, Object]),
     __metadata("design:returntype", Promise)
 ], ProductRelationsResolver.prototype, "Restaurant", null);
+__decorate([
+    TypeGraphQL.FieldResolver(_type => [OrderItem_1.OrderItem], {
+        nullable: false
+    }),
+    __param(0, TypeGraphQL.Root()), __param(1, TypeGraphQL.Ctx()), __param(2, TypeGraphQL.Args()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Product_1.Product, Object, ProductOrderItemArgs_1.ProductOrderItemArgs]),
+    __metadata("design:returntype", Promise)
+], ProductRelationsResolver.prototype, "OrderItem", null);
 ProductRelationsResolver = __decorate([
     TypeGraphQL.Resolver(_of => Product_1.Product)
 ], ProductRelationsResolver);

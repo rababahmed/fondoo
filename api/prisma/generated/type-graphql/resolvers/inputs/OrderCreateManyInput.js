@@ -30,8 +30,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderCreateManyInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const GraphQLScalars = __importStar(require("graphql-scalars"));
-const client_1 = require("@prisma/client");
 let OrderCreateManyInput = class OrderCreateManyInput {
 };
 __decorate([
@@ -41,17 +39,17 @@ __decorate([
     __metadata("design:type", Number)
 ], OrderCreateManyInput.prototype, "id", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => GraphQLScalars.JSONResolver, {
-        nullable: false
-    }),
-    __metadata("design:type", Object)
-], OrderCreateManyInput.prototype, "items", void 0);
-__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
     __metadata("design:type", String)
-], OrderCreateManyInput.prototype, "coupon", void 0);
+], OrderCreateManyInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+        nullable: false
+    }),
+    __metadata("design:type", Number)
+], OrderCreateManyInput.prototype, "discount", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Float, {
         nullable: false
@@ -83,6 +81,24 @@ __decorate([
     __metadata("design:type", Boolean)
 ], OrderCreateManyInput.prototype, "isAccepted", void 0);
 __decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderCreateManyInput.prototype, "couponId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: false
+    }),
+    __metadata("design:type", String)
+], OrderCreateManyInput.prototype, "restaurantId", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", String)
+], OrderCreateManyInput.prototype, "customerId", void 0);
+__decorate([
     TypeGraphQL.Field(_type => Date, {
         nullable: true
     }),
@@ -94,30 +110,6 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], OrderCreateManyInput.prototype, "updatedAt", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: false
-    }),
-    __metadata("design:type", Number)
-], OrderCreateManyInput.prototype, "userId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: false
-    }),
-    __metadata("design:type", String)
-], OrderCreateManyInput.prototype, "restaurantId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderCreateManyInput.prototype, "customerId", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: true
-    }),
-    __metadata("design:type", Number)
-], OrderCreateManyInput.prototype, "customerAddressId", void 0);
 OrderCreateManyInput = __decorate([
     TypeGraphQL.InputType({
         isAbstract: true

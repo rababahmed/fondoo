@@ -34,12 +34,14 @@ const DateTimeFieldUpdateOperationsInput_1 = require("../inputs/DateTimeFieldUpd
 const DeliveryZoneUpdateManyWithoutRestaurantInput_1 = require("../inputs/DeliveryZoneUpdateManyWithoutRestaurantInput");
 const NullableBoolFieldUpdateOperationsInput_1 = require("../inputs/NullableBoolFieldUpdateOperationsInput");
 const NullableStringFieldUpdateOperationsInput_1 = require("../inputs/NullableStringFieldUpdateOperationsInput");
+const OrderItemUpdateManyWithoutRestaurantInput_1 = require("../inputs/OrderItemUpdateManyWithoutRestaurantInput");
 const OrderUpdateManyWithoutRestaurantInput_1 = require("../inputs/OrderUpdateManyWithoutRestaurantInput");
 const ProductCategoryUpdateManyWithoutRestaurantsInput_1 = require("../inputs/ProductCategoryUpdateManyWithoutRestaurantsInput");
 const ProductUpdateManyWithoutRestaurantInput_1 = require("../inputs/ProductUpdateManyWithoutRestaurantInput");
+const RestaurantPlanUpdateOneWithoutRestaurantsInput_1 = require("../inputs/RestaurantPlanUpdateOneWithoutRestaurantsInput");
 const ScheduleUpdateManyWithoutRestaurantInput_1 = require("../inputs/ScheduleUpdateManyWithoutRestaurantInput");
 const StringFieldUpdateOperationsInput_1 = require("../inputs/StringFieldUpdateOperationsInput");
-const UserUpdateManyWithoutRestaurantInput_1 = require("../inputs/UserUpdateManyWithoutRestaurantInput");
+const UserUpdateManyWithoutRestaurantsInput_1 = require("../inputs/UserUpdateManyWithoutRestaurantsInput");
 let RestaurantUpdateWithoutCustomersInput = class RestaurantUpdateWithoutCustomersInput {
 };
 __decorate([
@@ -48,12 +50,6 @@ __decorate([
     }),
     __metadata("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
 ], RestaurantUpdateWithoutCustomersInput.prototype, "id", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput, {
-        nullable: true
-    }),
-    __metadata("design:type", DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput)
-], RestaurantUpdateWithoutCustomersInput.prototype, "createdAt", void 0);
 __decorate([
     TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
         nullable: true
@@ -84,6 +80,12 @@ __decorate([
     }),
     __metadata("design:type", NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput)
 ], RestaurantUpdateWithoutCustomersInput.prototype, "url", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput)
+], RestaurantUpdateWithoutCustomersInput.prototype, "cuisine", void 0);
 __decorate([
     TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput_1.NullableStringFieldUpdateOperationsInput, {
         nullable: true
@@ -143,7 +145,7 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", NullableBoolFieldUpdateOperationsInput_1.NullableBoolFieldUpdateOperationsInput)
-], RestaurantUpdateWithoutCustomersInput.prototype, "hasParking", void 0);
+], RestaurantUpdateWithoutCustomersInput.prototype, "hasParkingFacilities", void 0);
 __decorate([
     TypeGraphQL.Field(_type => NullableBoolFieldUpdateOperationsInput_1.NullableBoolFieldUpdateOperationsInput, {
         nullable: true
@@ -179,12 +181,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", NullableBoolFieldUpdateOperationsInput_1.NullableBoolFieldUpdateOperationsInput)
-], RestaurantUpdateWithoutCustomersInput.prototype, "isOrdering", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => NullableBoolFieldUpdateOperationsInput_1.NullableBoolFieldUpdateOperationsInput, {
-        nullable: true
-    }),
-    __metadata("design:type", NullableBoolFieldUpdateOperationsInput_1.NullableBoolFieldUpdateOperationsInput)
 ], RestaurantUpdateWithoutCustomersInput.prototype, "isAutoAcceptOrder", void 0);
 __decorate([
     TypeGraphQL.Field(_type => NullableBoolFieldUpdateOperationsInput_1.NullableBoolFieldUpdateOperationsInput, {
@@ -197,13 +193,25 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput)
+], RestaurantUpdateWithoutCustomersInput.prototype, "createdAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", DateTimeFieldUpdateOperationsInput_1.DateTimeFieldUpdateOperationsInput)
 ], RestaurantUpdateWithoutCustomersInput.prototype, "updatedAt", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => RestaurantPlanUpdateOneWithoutRestaurantsInput_1.RestaurantPlanUpdateOneWithoutRestaurantsInput, {
+        nullable: true
+    }),
+    __metadata("design:type", RestaurantPlanUpdateOneWithoutRestaurantsInput_1.RestaurantPlanUpdateOneWithoutRestaurantsInput)
+], RestaurantUpdateWithoutCustomersInput.prototype, "plan", void 0);
 __decorate([
     TypeGraphQL.Field(_type => ScheduleUpdateManyWithoutRestaurantInput_1.ScheduleUpdateManyWithoutRestaurantInput, {
         nullable: true
     }),
     __metadata("design:type", ScheduleUpdateManyWithoutRestaurantInput_1.ScheduleUpdateManyWithoutRestaurantInput)
-], RestaurantUpdateWithoutCustomersInput.prototype, "schedule", void 0);
+], RestaurantUpdateWithoutCustomersInput.prototype, "schedules", void 0);
 __decorate([
     TypeGraphQL.Field(_type => DeliveryZoneUpdateManyWithoutRestaurantInput_1.DeliveryZoneUpdateManyWithoutRestaurantInput, {
         nullable: true
@@ -217,6 +225,12 @@ __decorate([
     __metadata("design:type", OrderUpdateManyWithoutRestaurantInput_1.OrderUpdateManyWithoutRestaurantInput)
 ], RestaurantUpdateWithoutCustomersInput.prototype, "orders", void 0);
 __decorate([
+    TypeGraphQL.Field(_type => OrderItemUpdateManyWithoutRestaurantInput_1.OrderItemUpdateManyWithoutRestaurantInput, {
+        nullable: true
+    }),
+    __metadata("design:type", OrderItemUpdateManyWithoutRestaurantInput_1.OrderItemUpdateManyWithoutRestaurantInput)
+], RestaurantUpdateWithoutCustomersInput.prototype, "orderItems", void 0);
+__decorate([
     TypeGraphQL.Field(_type => ProductCategoryUpdateManyWithoutRestaurantsInput_1.ProductCategoryUpdateManyWithoutRestaurantsInput, {
         nullable: true
     }),
@@ -229,10 +243,10 @@ __decorate([
     __metadata("design:type", ProductUpdateManyWithoutRestaurantInput_1.ProductUpdateManyWithoutRestaurantInput)
 ], RestaurantUpdateWithoutCustomersInput.prototype, "products", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => UserUpdateManyWithoutRestaurantInput_1.UserUpdateManyWithoutRestaurantInput, {
+    TypeGraphQL.Field(_type => UserUpdateManyWithoutRestaurantsInput_1.UserUpdateManyWithoutRestaurantsInput, {
         nullable: true
     }),
-    __metadata("design:type", UserUpdateManyWithoutRestaurantInput_1.UserUpdateManyWithoutRestaurantInput)
+    __metadata("design:type", UserUpdateManyWithoutRestaurantsInput_1.UserUpdateManyWithoutRestaurantsInput)
 ], RestaurantUpdateWithoutCustomersInput.prototype, "users", void 0);
 RestaurantUpdateWithoutCustomersInput = __decorate([
     TypeGraphQL.InputType({
