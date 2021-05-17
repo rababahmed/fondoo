@@ -35,7 +35,6 @@ router.post("/login", async (req, res) => {
       if (validPass) {
         res.send({
           id: user.id,
-          restaurant: user.restaurantId,
           role: user.role,
           message: "User authenticated",
         });
