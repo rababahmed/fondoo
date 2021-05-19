@@ -8,8 +8,8 @@ import "./GraphQL/generated/nexus";
 const passport = require("passport");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-// const userRouter = require("./routes/UserAuth");
-// const restaurantRouter = require("./routes/restaurantRouter");
+const userRouter = require("./routes/UserAuth");
+const restaurantRouter = require("./routes/RestaurantRouter");
 
 const PORT = process.env.PORT || 4000;
 
@@ -30,8 +30,8 @@ const main = async () => {
 
   apolloServer.applyMiddleware({ app });
 
-  // app.use("/user", userRouter);
-  // app.use("/restaurants", restaurantRouter);
+  app.use("/user", userRouter);
+  app.use("/restaurants", restaurantRouter);
 
   app.listen(PORT, () => {
     console.log(`🚀 Server ready at http://localhost:${PORT}`);

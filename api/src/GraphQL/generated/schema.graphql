@@ -16,6 +16,24 @@ input BoolNullableFilter {
   not: NestedBoolNullableFilter
 }
 
+type Coupon {
+  code: String!
+  description: String
+  discount: Discount!
+  id: String!
+  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
+  value: Float!
+}
+
+input CouponCreateInput {
+  code: String!
+  description: String
+  discount: Discount!
+  id: String
+  orders: OrderCreateNestedManyWithoutCouponInput
+  value: Float!
+}
+
 input CouponCreateNestedOneWithoutOrdersInput {
   connect: CouponWhereUniqueInput
   connectOrCreate: CouponCreateOrConnectWithoutOrdersInput
@@ -33,6 +51,15 @@ input CouponCreateWithoutOrdersInput {
   discount: Discount!
   id: String
   value: Float!
+}
+
+input CouponUpdateInput {
+  code: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  discount: EnumDiscountFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  orders: OrderUpdateManyWithoutCouponInput
+  value: FloatFieldUpdateOperationsInput
 }
 
 input CouponUpdateOneWithoutOrdersInput {
@@ -60,6 +87,38 @@ input CouponUpsertWithoutOrdersInput {
 
 input CouponWhereUniqueInput {
   id: String
+}
+
+type Customer {
+  addresses(after: CustomerAddressWhereUniqueInput, before: CustomerAddressWhereUniqueInput, first: Int, last: Int): [CustomerAddress!]!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
+  phone: String!
+  restaurants(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
+  token(after: CustomerTokenWhereUniqueInput, before: CustomerTokenWhereUniqueInput, first: Int, last: Int): [CustomerToken!]!
+}
+
+type CustomerAddress {
+  Customer: Customer
+  city: String!
+  country: String!
+  customerId: String
+  id: String!
+  postCode: String!
+  streetAddress: String!
+}
+
+input CustomerAddressCreateInput {
+  Customer: CustomerCreateNestedOneWithoutAddressesInput
+  city: String!
+  country: String!
+  createdAt: DateTime
+  id: String
+  postCode: String!
+  streetAddress: String!
 }
 
 input CustomerAddressCreateManyCustomerInput {
@@ -108,6 +167,16 @@ input CustomerAddressScalarWhereInput {
   id: StringFilter
   postCode: StringFilter
   streetAddress: StringFilter
+}
+
+input CustomerAddressUpdateInput {
+  Customer: CustomerUpdateOneWithoutAddressesInput
+  city: StringFieldUpdateOperationsInput
+  country: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  postCode: StringFieldUpdateOperationsInput
+  streetAddress: StringFieldUpdateOperationsInput
 }
 
 input CustomerAddressUpdateManyMutationInput {
@@ -162,16 +231,48 @@ input CustomerAddressWhereUniqueInput {
   id: String
 }
 
+input CustomerCreateInput {
+  addresses: CustomerAddressCreateNestedManyWithoutCustomerInput
+  createdAt: DateTime
+  email: String!
+  firstName: String!
+  id: String
+  lastName: String!
+  orders: OrderCreateNestedManyWithoutCustomerInput
+  password: String!
+  phone: String!
+  restaurants: RestaurantCreateNestedManyWithoutCustomersInput
+  token: CustomerTokenCreateNestedManyWithoutCustomerInput
+  updatedAt: DateTime
+}
+
 input CustomerCreateNestedManyWithoutRestaurantsInput {
   connect: [CustomerWhereUniqueInput!]
   connectOrCreate: [CustomerCreateOrConnectWithoutRestaurantsInput!]
   create: [CustomerCreateWithoutRestaurantsInput!]
 }
 
+input CustomerCreateNestedOneWithoutAddressesInput {
+  connect: CustomerWhereUniqueInput
+  connectOrCreate: CustomerCreateOrConnectWithoutAddressesInput
+  create: CustomerCreateWithoutAddressesInput
+}
+
 input CustomerCreateNestedOneWithoutOrdersInput {
   connect: CustomerWhereUniqueInput
   connectOrCreate: CustomerCreateOrConnectWithoutOrdersInput
   create: CustomerCreateWithoutOrdersInput
+}
+
+input CustomerCreateNestedOneWithoutTokenInput {
+  connect: CustomerWhereUniqueInput
+  connectOrCreate: CustomerCreateOrConnectWithoutTokenInput
+  create: CustomerCreateWithoutTokenInput
+}
+
+input CustomerCreateOrConnectWithoutAddressesInput {
+  create: CustomerCreateWithoutAddressesInput!
+  where: CustomerWhereUniqueInput!
 }
 
 input CustomerCreateOrConnectWithoutOrdersInput {
@@ -182,6 +283,25 @@ input CustomerCreateOrConnectWithoutOrdersInput {
 input CustomerCreateOrConnectWithoutRestaurantsInput {
   create: CustomerCreateWithoutRestaurantsInput!
   where: CustomerWhereUniqueInput!
+}
+
+input CustomerCreateOrConnectWithoutTokenInput {
+  create: CustomerCreateWithoutTokenInput!
+  where: CustomerWhereUniqueInput!
+}
+
+input CustomerCreateWithoutAddressesInput {
+  createdAt: DateTime
+  email: String!
+  firstName: String!
+  id: String
+  lastName: String!
+  orders: OrderCreateNestedManyWithoutCustomerInput
+  password: String!
+  phone: String!
+  restaurants: RestaurantCreateNestedManyWithoutCustomersInput
+  token: CustomerTokenCreateNestedManyWithoutCustomerInput
+  updatedAt: DateTime
 }
 
 input CustomerCreateWithoutOrdersInput {
@@ -212,6 +332,20 @@ input CustomerCreateWithoutRestaurantsInput {
   updatedAt: DateTime
 }
 
+input CustomerCreateWithoutTokenInput {
+  addresses: CustomerAddressCreateNestedManyWithoutCustomerInput
+  createdAt: DateTime
+  email: String!
+  firstName: String!
+  id: String
+  lastName: String!
+  orders: OrderCreateNestedManyWithoutCustomerInput
+  password: String!
+  phone: String!
+  restaurants: RestaurantCreateNestedManyWithoutCustomersInput
+  updatedAt: DateTime
+}
+
 input CustomerScalarWhereInput {
   AND: [CustomerScalarWhereInput!]
   NOT: [CustomerScalarWhereInput!]
@@ -224,6 +358,21 @@ input CustomerScalarWhereInput {
   password: StringFilter
   phone: StringFilter
   updatedAt: DateTimeFilter
+}
+
+type CustomerToken {
+  Customer: Customer
+  customerId: String
+  id: String!
+  token: String!
+}
+
+input CustomerTokenCreateInput {
+  Customer: CustomerCreateNestedOneWithoutTokenInput
+  createdAt: DateTime
+  id: String
+  token: String!
+  updatedAt: DateTime
 }
 
 input CustomerTokenCreateManyCustomerInput {
@@ -266,6 +415,14 @@ input CustomerTokenScalarWhereInput {
   id: StringFilter
   token: StringFilter
   updatedAt: DateTimeFilter
+}
+
+input CustomerTokenUpdateInput {
+  Customer: CustomerUpdateOneWithoutTokenInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  token: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input CustomerTokenUpdateManyMutationInput {
@@ -316,6 +473,21 @@ input CustomerTokenWhereUniqueInput {
   id: String
 }
 
+input CustomerUpdateInput {
+  addresses: CustomerAddressUpdateManyWithoutCustomerInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  orders: OrderUpdateManyWithoutCustomerInput
+  password: StringFieldUpdateOperationsInput
+  phone: StringFieldUpdateOperationsInput
+  restaurants: RestaurantUpdateManyWithoutCustomersInput
+  token: CustomerTokenUpdateManyWithoutCustomerInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
 input CustomerUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
@@ -345,6 +517,16 @@ input CustomerUpdateManyWithoutRestaurantsInput {
   upsert: [CustomerUpsertWithWhereUniqueWithoutRestaurantsInput!]
 }
 
+input CustomerUpdateOneWithoutAddressesInput {
+  connect: CustomerWhereUniqueInput
+  connectOrCreate: CustomerCreateOrConnectWithoutAddressesInput
+  create: CustomerCreateWithoutAddressesInput
+  delete: Boolean
+  disconnect: Boolean
+  update: CustomerUpdateWithoutAddressesInput
+  upsert: CustomerUpsertWithoutAddressesInput
+}
+
 input CustomerUpdateOneWithoutOrdersInput {
   connect: CustomerWhereUniqueInput
   connectOrCreate: CustomerCreateOrConnectWithoutOrdersInput
@@ -355,9 +537,33 @@ input CustomerUpdateOneWithoutOrdersInput {
   upsert: CustomerUpsertWithoutOrdersInput
 }
 
+input CustomerUpdateOneWithoutTokenInput {
+  connect: CustomerWhereUniqueInput
+  connectOrCreate: CustomerCreateOrConnectWithoutTokenInput
+  create: CustomerCreateWithoutTokenInput
+  delete: Boolean
+  disconnect: Boolean
+  update: CustomerUpdateWithoutTokenInput
+  upsert: CustomerUpsertWithoutTokenInput
+}
+
 input CustomerUpdateWithWhereUniqueWithoutRestaurantsInput {
   data: CustomerUpdateWithoutRestaurantsInput!
   where: CustomerWhereUniqueInput!
+}
+
+input CustomerUpdateWithoutAddressesInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  orders: OrderUpdateManyWithoutCustomerInput
+  password: StringFieldUpdateOperationsInput
+  phone: StringFieldUpdateOperationsInput
+  restaurants: RestaurantUpdateManyWithoutCustomersInput
+  token: CustomerTokenUpdateManyWithoutCustomerInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input CustomerUpdateWithoutOrdersInput {
@@ -388,15 +594,39 @@ input CustomerUpdateWithoutRestaurantsInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
+input CustomerUpdateWithoutTokenInput {
+  addresses: CustomerAddressUpdateManyWithoutCustomerInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  orders: OrderUpdateManyWithoutCustomerInput
+  password: StringFieldUpdateOperationsInput
+  phone: StringFieldUpdateOperationsInput
+  restaurants: RestaurantUpdateManyWithoutCustomersInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
 input CustomerUpsertWithWhereUniqueWithoutRestaurantsInput {
   create: CustomerCreateWithoutRestaurantsInput!
   update: CustomerUpdateWithoutRestaurantsInput!
   where: CustomerWhereUniqueInput!
 }
 
+input CustomerUpsertWithoutAddressesInput {
+  create: CustomerCreateWithoutAddressesInput!
+  update: CustomerUpdateWithoutAddressesInput!
+}
+
 input CustomerUpsertWithoutOrdersInput {
   create: CustomerCreateWithoutOrdersInput!
   update: CustomerUpdateWithoutOrdersInput!
+}
+
+input CustomerUpsertWithoutTokenInput {
+  create: CustomerCreateWithoutTokenInput!
+  update: CustomerUpdateWithoutTokenInput!
 }
 
 input CustomerWhereUniqueInput {
@@ -424,6 +654,32 @@ input DateTimeFilter {
 enum DeliveryFee {
   Fixed
   Percent
+}
+
+type DeliveryZone {
+  Restaurant: Restaurant
+  deliveryCharge: Int!
+  deliveryFeeType: DeliveryFee!
+  id: String!
+  maxDeliveryRadius: Int
+  minDeliveryAmount: Int
+  minDeliveryRadius: Int
+  restaurantId: String
+  zonePostCode: String
+  zoneTitle: String!
+}
+
+input DeliveryZoneCreateInput {
+  Restaurant: RestaurantCreateNestedOneWithoutDeliveryZonesInput
+  createdAt: DateTime
+  deliveryCharge: Int
+  deliveryFeeType: DeliveryFee
+  id: String
+  maxDeliveryRadius: Int
+  minDeliveryAmount: Int
+  minDeliveryRadius: Int
+  zonePostCode: String
+  zoneTitle: String!
 }
 
 input DeliveryZoneCreateManyRestaurantInput {
@@ -481,6 +737,19 @@ input DeliveryZoneScalarWhereInput {
   restaurantId: StringNullableFilter
   zonePostCode: StringNullableFilter
   zoneTitle: StringFilter
+}
+
+input DeliveryZoneUpdateInput {
+  Restaurant: RestaurantUpdateOneWithoutDeliveryZonesInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deliveryCharge: IntFieldUpdateOperationsInput
+  deliveryFeeType: EnumDeliveryFeeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  maxDeliveryRadius: NullableIntFieldUpdateOperationsInput
+  minDeliveryAmount: NullableIntFieldUpdateOperationsInput
+  minDeliveryRadius: NullableIntFieldUpdateOperationsInput
+  zonePostCode: NullableStringFieldUpdateOperationsInput
+  zoneTitle: StringFieldUpdateOperationsInput
 }
 
 input DeliveryZoneUpdateManyMutationInput {
@@ -633,16 +902,46 @@ input IntNullableFilter {
 }
 
 type Mutation {
+  createCoupon(data: CouponCreateInput!): Coupon!
+  createCustomer(data: CustomerCreateInput!): Customer!
+  createCustomerAddress(data: CustomerAddressCreateInput!): CustomerAddress!
+  createCustomerToken(data: CustomerTokenCreateInput!): CustomerToken!
+  createDeliveryZone(data: DeliveryZoneCreateInput!): DeliveryZone!
+  createOrder(data: OrderCreateInput!): Order!
+  createOrderItem(data: OrderItemCreateInput!): OrderItem!
+  createProduct(data: ProductCreateInput!): Product!
+  createProductCategory(data: ProductCategoryCreateInput!): ProductCategory!
   createRestaurant(data: RestaurantCreateInput!): Restaurant!
   createRestaurantPlan(data: RestaurantPlanCreateInput!): RestaurantPlan!
+  createSchedule(data: ScheduleCreateInput!): Schedule!
   createUser(data: UserCreateInput!): User!
   createUserToken(data: UserTokenCreateInput!): UserToken!
+  deleteCoupon(where: CouponWhereUniqueInput!): Coupon
+  deleteCustomer(where: CustomerWhereUniqueInput!): Customer
+  deleteCustomerAddress(where: CustomerAddressWhereUniqueInput!): CustomerAddress
+  deleteCustomerToken(where: CustomerTokenWhereUniqueInput!): CustomerToken
+  deleteDeliveryZone(where: DeliveryZoneWhereUniqueInput!): DeliveryZone
+  deleteOrder(where: OrderWhereUniqueInput!): Order
+  deleteOrderItem(where: OrderItemWhereUniqueInput!): OrderItem
+  deleteProduct(where: ProductWhereUniqueInput!): Product
+  deleteProductCategory(where: ProductCategoryWhereUniqueInput!): ProductCategory
   deleteRestaurant(where: RestaurantWhereUniqueInput!): Restaurant
   deleteRestaurantPlan(where: RestaurantPlanWhereUniqueInput!): RestaurantPlan
+  deleteSchedule(where: ScheduleWhereUniqueInput!): Schedule
   deleteUser(where: UserWhereUniqueInput!): User
   deleteUserToken(where: UserTokenWhereUniqueInput!): UserToken
+  updateCoupon(data: CouponUpdateInput!, where: CouponWhereUniqueInput!): Coupon
+  updateCustomer(data: CustomerUpdateInput!, where: CustomerWhereUniqueInput!): Customer
+  updateCustomerAddress(data: CustomerAddressUpdateInput!, where: CustomerAddressWhereUniqueInput!): CustomerAddress
+  updateCustomerToken(data: CustomerTokenUpdateInput!, where: CustomerTokenWhereUniqueInput!): CustomerToken
+  updateDeliveryZone(data: DeliveryZoneUpdateInput!, where: DeliveryZoneWhereUniqueInput!): DeliveryZone
+  updateOrder(data: OrderUpdateInput!, where: OrderWhereUniqueInput!): Order
+  updateOrderItem(data: OrderItemUpdateInput!, where: OrderItemWhereUniqueInput!): OrderItem
+  updateProduct(data: ProductUpdateInput!, where: ProductWhereUniqueInput!): Product
+  updateProductCategory(data: ProductCategoryUpdateInput!, where: ProductCategoryWhereUniqueInput!): ProductCategory
   updateRestaurant(data: RestaurantUpdateInput!, where: RestaurantWhereUniqueInput!): Restaurant
   updateRestaurantPlan(data: RestaurantPlanUpdateInput!, where: RestaurantPlanWhereUniqueInput!): RestaurantPlan
+  updateSchedule(data: ScheduleUpdateInput!, where: ScheduleWhereUniqueInput!): Schedule
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateUserToken(data: UserTokenUpdateInput!, where: UserTokenWhereUniqueInput!): UserToken
 }
@@ -766,6 +1065,60 @@ input NullableStringFieldUpdateOperationsInput {
   set: String
 }
 
+type Order {
+  Coupon: Coupon
+  Customer: Customer
+  address: String
+  couponId: String
+  customerId: String
+  deliveryCharges: Float!
+  discount: Float!
+  id: Int!
+  isAccepted: Boolean!
+  items(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
+  restaurant: Restaurant!
+  restaurantId: String!
+  serviceCharge: Float!
+  total: Float!
+  vat: Float!
+}
+
+input OrderCreateInput {
+  Coupon: CouponCreateNestedOneWithoutOrdersInput
+  Customer: CustomerCreateNestedOneWithoutOrdersInput
+  address: String
+  createdAt: DateTime
+  deliveryCharges: Float!
+  discount: Float!
+  isAccepted: Boolean!
+  items: OrderItemCreateNestedManyWithoutOrderInput
+  restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
+  serviceCharge: Float!
+  total: Float!
+  updatedAt: DateTime
+  vat: Float!
+}
+
+input OrderCreateManyCouponInput {
+  address: String
+  createdAt: DateTime
+  customerId: String
+  deliveryCharges: Float!
+  discount: Float!
+  id: Int
+  isAccepted: Boolean!
+  restaurantId: String!
+  serviceCharge: Float!
+  total: Float!
+  updatedAt: DateTime
+  vat: Float!
+}
+
+input OrderCreateManyCouponInputEnvelope {
+  data: [OrderCreateManyCouponInput!]
+  skipDuplicates: Boolean
+}
+
 input OrderCreateManyCustomerInput {
   address: String
   couponId: String
@@ -806,6 +1159,13 @@ input OrderCreateManyRestaurantInputEnvelope {
   skipDuplicates: Boolean
 }
 
+input OrderCreateNestedManyWithoutCouponInput {
+  connect: [OrderWhereUniqueInput!]
+  connectOrCreate: [OrderCreateOrConnectWithoutCouponInput!]
+  create: [OrderCreateWithoutCouponInput!]
+  createMany: OrderCreateManyCouponInputEnvelope
+}
+
 input OrderCreateNestedManyWithoutCustomerInput {
   connect: [OrderWhereUniqueInput!]
   connectOrCreate: [OrderCreateOrConnectWithoutCustomerInput!]
@@ -826,6 +1186,11 @@ input OrderCreateNestedOneWithoutItemsInput {
   create: OrderCreateWithoutItemsInput
 }
 
+input OrderCreateOrConnectWithoutCouponInput {
+  create: OrderCreateWithoutCouponInput!
+  where: OrderWhereUniqueInput!
+}
+
 input OrderCreateOrConnectWithoutCustomerInput {
   create: OrderCreateWithoutCustomerInput!
   where: OrderWhereUniqueInput!
@@ -839,6 +1204,21 @@ input OrderCreateOrConnectWithoutItemsInput {
 input OrderCreateOrConnectWithoutRestaurantInput {
   create: OrderCreateWithoutRestaurantInput!
   where: OrderWhereUniqueInput!
+}
+
+input OrderCreateWithoutCouponInput {
+  Customer: CustomerCreateNestedOneWithoutOrdersInput
+  address: String
+  createdAt: DateTime
+  deliveryCharges: Float!
+  discount: Float!
+  isAccepted: Boolean!
+  items: OrderItemCreateNestedManyWithoutOrderInput
+  restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
+  serviceCharge: Float!
+  total: Float!
+  updatedAt: DateTime
+  vat: Float!
 }
 
 input OrderCreateWithoutCustomerInput {
@@ -884,6 +1264,31 @@ input OrderCreateWithoutRestaurantInput {
   total: Float!
   updatedAt: DateTime
   vat: Float!
+}
+
+type OrderItem {
+  Order: Order
+  Restaurant: Restaurant
+  id: String!
+  orderId: Int
+  product: Product!
+  productId: String!
+  quantity: Int!
+  restaurantId: String
+  spiceLevel: SpiceLevel!
+  total: Int!
+}
+
+input OrderItemCreateInput {
+  Order: OrderCreateNestedOneWithoutItemsInput
+  Restaurant: RestaurantCreateNestedOneWithoutOrderItemsInput
+  createdAt: DateTime
+  id: String
+  product: ProductCreateNestedOneWithoutOrderItemInput!
+  quantity: Int
+  spiceLevel: SpiceLevel
+  total: Int!
+  updatedAt: DateTime
 }
 
 input OrderItemCreateManyOrderInput {
@@ -1016,6 +1421,18 @@ input OrderItemScalarWhereInput {
   spiceLevel: EnumSpiceLevelFilter
   total: IntFilter
   updatedAt: DateTimeFilter
+}
+
+input OrderItemUpdateInput {
+  Order: OrderUpdateOneWithoutItemsInput
+  Restaurant: RestaurantUpdateOneWithoutOrderItemsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  product: ProductUpdateOneRequiredWithoutOrderItemInput
+  quantity: IntFieldUpdateOperationsInput
+  spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
+  total: IntFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input OrderItemUpdateManyMutationInput {
@@ -1173,6 +1590,22 @@ input OrderScalarWhereInput {
   vat: FloatFilter
 }
 
+input OrderUpdateInput {
+  Coupon: CouponUpdateOneWithoutOrdersInput
+  Customer: CustomerUpdateOneWithoutOrdersInput
+  address: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deliveryCharges: FloatFieldUpdateOperationsInput
+  discount: FloatFieldUpdateOperationsInput
+  isAccepted: BoolFieldUpdateOperationsInput
+  items: OrderItemUpdateManyWithoutOrderInput
+  restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
+  serviceCharge: FloatFieldUpdateOperationsInput
+  total: FloatFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  vat: FloatFieldUpdateOperationsInput
+}
+
 input OrderUpdateManyMutationInput {
   address: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -1185,6 +1618,11 @@ input OrderUpdateManyMutationInput {
   vat: FloatFieldUpdateOperationsInput
 }
 
+input OrderUpdateManyWithWhereWithoutCouponInput {
+  data: OrderUpdateManyMutationInput!
+  where: OrderScalarWhereInput!
+}
+
 input OrderUpdateManyWithWhereWithoutCustomerInput {
   data: OrderUpdateManyMutationInput!
   where: OrderScalarWhereInput!
@@ -1193,6 +1631,20 @@ input OrderUpdateManyWithWhereWithoutCustomerInput {
 input OrderUpdateManyWithWhereWithoutRestaurantInput {
   data: OrderUpdateManyMutationInput!
   where: OrderScalarWhereInput!
+}
+
+input OrderUpdateManyWithoutCouponInput {
+  connect: [OrderWhereUniqueInput!]
+  connectOrCreate: [OrderCreateOrConnectWithoutCouponInput!]
+  create: [OrderCreateWithoutCouponInput!]
+  createMany: OrderCreateManyCouponInputEnvelope
+  delete: [OrderWhereUniqueInput!]
+  deleteMany: [OrderScalarWhereInput!]
+  disconnect: [OrderWhereUniqueInput!]
+  set: [OrderWhereUniqueInput!]
+  update: [OrderUpdateWithWhereUniqueWithoutCouponInput!]
+  updateMany: [OrderUpdateManyWithWhereWithoutCouponInput!]
+  upsert: [OrderUpsertWithWhereUniqueWithoutCouponInput!]
 }
 
 input OrderUpdateManyWithoutCustomerInput {
@@ -1233,6 +1685,11 @@ input OrderUpdateOneWithoutItemsInput {
   upsert: OrderUpsertWithoutItemsInput
 }
 
+input OrderUpdateWithWhereUniqueWithoutCouponInput {
+  data: OrderUpdateWithoutCouponInput!
+  where: OrderWhereUniqueInput!
+}
+
 input OrderUpdateWithWhereUniqueWithoutCustomerInput {
   data: OrderUpdateWithoutCustomerInput!
   where: OrderWhereUniqueInput!
@@ -1241,6 +1698,21 @@ input OrderUpdateWithWhereUniqueWithoutCustomerInput {
 input OrderUpdateWithWhereUniqueWithoutRestaurantInput {
   data: OrderUpdateWithoutRestaurantInput!
   where: OrderWhereUniqueInput!
+}
+
+input OrderUpdateWithoutCouponInput {
+  Customer: CustomerUpdateOneWithoutOrdersInput
+  address: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deliveryCharges: FloatFieldUpdateOperationsInput
+  discount: FloatFieldUpdateOperationsInput
+  isAccepted: BoolFieldUpdateOperationsInput
+  items: OrderItemUpdateManyWithoutOrderInput
+  restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
+  serviceCharge: FloatFieldUpdateOperationsInput
+  total: FloatFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  vat: FloatFieldUpdateOperationsInput
 }
 
 input OrderUpdateWithoutCustomerInput {
@@ -1288,6 +1760,12 @@ input OrderUpdateWithoutRestaurantInput {
   vat: FloatFieldUpdateOperationsInput
 }
 
+input OrderUpsertWithWhereUniqueWithoutCouponInput {
+  create: OrderCreateWithoutCouponInput!
+  update: OrderUpdateWithoutCouponInput!
+  where: OrderWhereUniqueInput!
+}
+
 input OrderUpsertWithWhereUniqueWithoutCustomerInput {
   create: OrderCreateWithoutCustomerInput!
   update: OrderUpdateWithoutCustomerInput!
@@ -1307,6 +1785,46 @@ input OrderUpsertWithoutItemsInput {
 
 input OrderWhereUniqueInput {
   id: Int
+}
+
+type Product {
+  OrderItem(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
+  ProductCategory: ProductCategory
+  Restaurant: Restaurant
+  description: String
+  id: String!
+  image: String
+  isActive: Boolean
+  isPopular: Boolean
+  name: String!
+  price: Int
+  productCategoryId: String
+  restaurantId: String
+  spiceLevel: SpiceLevel!
+}
+
+type ProductCategory {
+  Product(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int): [Product!]!
+  description: String
+  id: String!
+  image: String
+  isActive: Boolean
+  isFeatured: Boolean
+  name: String!
+  restaurantId: String!
+  restaurants: Restaurant!
+}
+
+input ProductCategoryCreateInput {
+  Product: ProductCreateNestedManyWithoutProductCategoryInput
+  createdAt: DateTime
+  description: String
+  id: String
+  image: String
+  isActive: Boolean
+  isFeatured: Boolean
+  name: String!
+  restaurants: RestaurantCreateNestedOneWithoutProductCategoryInput!
 }
 
 input ProductCategoryCreateManyRestaurantsInput {
@@ -1381,6 +1899,18 @@ input ProductCategoryScalarWhereInput {
   isFeatured: BoolNullableFilter
   name: StringFilter
   restaurantId: StringFilter
+}
+
+input ProductCategoryUpdateInput {
+  Product: ProductUpdateManyWithoutProductCategoryInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  isFeatured: NullableBoolFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  restaurants: RestaurantUpdateOneRequiredWithoutProductCategoryInput
 }
 
 input ProductCategoryUpdateManyMutationInput {
@@ -1462,6 +1992,21 @@ input ProductCategoryUpsertWithoutProductInput {
 
 input ProductCategoryWhereUniqueInput {
   id: String
+}
+
+input ProductCreateInput {
+  OrderItem: OrderItemCreateNestedManyWithoutProductInput
+  ProductCategory: ProductCategoryCreateNestedOneWithoutProductInput
+  Restaurant: RestaurantCreateNestedOneWithoutProductsInput
+  createdAt: DateTime
+  description: String
+  id: String
+  image: String
+  isActive: Boolean
+  isPopular: Boolean
+  name: String!
+  price: Int
+  spiceLevel: SpiceLevel
 }
 
 input ProductCreateManyProductCategoryInput {
@@ -1592,6 +2137,21 @@ input ProductScalarWhereInput {
   productCategoryId: StringNullableFilter
   restaurantId: StringNullableFilter
   spiceLevel: EnumSpiceLevelFilter
+}
+
+input ProductUpdateInput {
+  OrderItem: OrderItemUpdateManyWithoutProductInput
+  ProductCategory: ProductCategoryUpdateOneWithoutProductInput
+  Restaurant: RestaurantUpdateOneWithoutProductsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  isPopular: NullableBoolFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  price: NullableIntFieldUpdateOperationsInput
+  spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
 }
 
 input ProductUpdateManyMutationInput {
@@ -1726,10 +2286,28 @@ input ProductWhereUniqueInput {
 }
 
 type Query {
+  coupon(where: CouponWhereUniqueInput!): Coupon
+  coupons(after: CouponWhereUniqueInput, before: CouponWhereUniqueInput, first: Int, last: Int): [Coupon!]!
+  customer(where: CustomerWhereUniqueInput!): Customer
+  customerAddress(where: CustomerAddressWhereUniqueInput!): CustomerAddress
+  customerAddresses(after: CustomerAddressWhereUniqueInput, before: CustomerAddressWhereUniqueInput, first: Int, last: Int): [CustomerAddress!]!
+  customerToken(where: CustomerTokenWhereUniqueInput!): CustomerToken
+  customerTokens(after: CustomerTokenWhereUniqueInput, before: CustomerTokenWhereUniqueInput, first: Int, last: Int): [CustomerToken!]!
+  customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int): [Customer!]!
+  deliveryZone(where: DeliveryZoneWhereUniqueInput!): DeliveryZone
+  deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int): [DeliveryZone!]!
+  order(where: OrderWhereUniqueInput!): Order
+  orderItem(where: OrderItemWhereUniqueInput!): OrderItem
+  orderItems(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
+  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
+  product(where: ProductWhereUniqueInput!): Product
+  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int): [Product!]!
   restaurant(where: RestaurantWhereUniqueInput!): Restaurant
   restaurantPlan(where: RestaurantPlanWhereUniqueInput!): RestaurantPlan
   restaurantPlans(after: RestaurantPlanWhereUniqueInput, before: RestaurantPlanWhereUniqueInput, first: Int, last: Int): [RestaurantPlan!]!
   restaurants(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
+  schedule(where: ScheduleWhereUniqueInput!): Schedule
+  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int): [Schedule!]!
   user(where: UserWhereUniqueInput!): User
   userToken(where: UserTokenWhereUniqueInput!): UserToken
   userTokens(after: UserTokenWhereUniqueInput, before: UserTokenWhereUniqueInput, first: Int, last: Int): [UserToken!]!
@@ -1749,6 +2327,8 @@ type Restaurant {
   createdAt: DateTime!
   cuisine: String
   currency: String
+  customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int): [Customer!]!
+  deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int): [DeliveryZone!]!
   diningStyle: String
   email: String!
   hasKidsZone: Boolean
@@ -1761,11 +2341,16 @@ type Restaurant {
   isReservation: Boolean
   isTakeaway: Boolean
   name: String!
+  orderItems(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
+  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
   plan: RestaurantPlan
   postCode: String
   priceRange: String
+  productCategory(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int): [ProductCategory!]!
+  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int): [Product!]!
   reservationPhone: String
   restaurantPlanId: String
+  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int): [Schedule!]!
   serviceCharge: String
   url: String
   users(after: UserWhereUniqueInput, before: UserWhereUniqueInput, first: Int, last: Int): [User!]!
@@ -1863,6 +2448,12 @@ input RestaurantCreateNestedManyWithoutUsersInput {
   create: [RestaurantCreateWithoutUsersInput!]
 }
 
+input RestaurantCreateNestedOneWithoutDeliveryZonesInput {
+  connect: RestaurantWhereUniqueInput
+  connectOrCreate: RestaurantCreateOrConnectWithoutDeliveryZonesInput
+  create: RestaurantCreateWithoutDeliveryZonesInput
+}
+
 input RestaurantCreateNestedOneWithoutOrderItemsInput {
   connect: RestaurantWhereUniqueInput
   connectOrCreate: RestaurantCreateOrConnectWithoutOrderItemsInput
@@ -1887,8 +2478,19 @@ input RestaurantCreateNestedOneWithoutProductsInput {
   create: RestaurantCreateWithoutProductsInput
 }
 
+input RestaurantCreateNestedOneWithoutSchedulesInput {
+  connect: RestaurantWhereUniqueInput
+  connectOrCreate: RestaurantCreateOrConnectWithoutSchedulesInput
+  create: RestaurantCreateWithoutSchedulesInput
+}
+
 input RestaurantCreateOrConnectWithoutCustomersInput {
   create: RestaurantCreateWithoutCustomersInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantCreateOrConnectWithoutDeliveryZonesInput {
+  create: RestaurantCreateWithoutDeliveryZonesInput!
   where: RestaurantWhereUniqueInput!
 }
 
@@ -1917,6 +2519,11 @@ input RestaurantCreateOrConnectWithoutProductsInput {
   where: RestaurantWhereUniqueInput!
 }
 
+input RestaurantCreateOrConnectWithoutSchedulesInput {
+  create: RestaurantCreateWithoutSchedulesInput!
+  where: RestaurantWhereUniqueInput!
+}
+
 input RestaurantCreateOrConnectWithoutUsersInput {
   create: RestaurantCreateWithoutUsersInput!
   where: RestaurantWhereUniqueInput!
@@ -1931,6 +2538,43 @@ input RestaurantCreateWithoutCustomersInput {
   cuisine: String
   currency: String
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
+  diningStyle: String
+  email: String!
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  name: String!
+  orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
+  orders: OrderCreateNestedManyWithoutRestaurantInput
+  plan: RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+  postCode: String
+  priceRange: String
+  productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
+  products: ProductCreateNestedManyWithoutRestaurantInput
+  reservationPhone: String
+  schedules: ScheduleCreateNestedManyWithoutRestaurantInput
+  serviceCharge: String
+  updatedAt: DateTime
+  url: String
+  users: UserCreateNestedManyWithoutRestaurantsInput
+  vat: String
+}
+
+input RestaurantCreateWithoutDeliveryZonesInput {
+  address: String
+  businessPhone: String
+  city: String
+  country: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  customers: CustomerCreateNestedManyWithoutRestaurantsInput
   diningStyle: String
   email: String!
   hasKidsZone: Boolean
@@ -2137,6 +2781,43 @@ input RestaurantCreateWithoutProductsInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   reservationPhone: String
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
+  serviceCharge: String
+  updatedAt: DateTime
+  url: String
+  users: UserCreateNestedManyWithoutRestaurantsInput
+  vat: String
+}
+
+input RestaurantCreateWithoutSchedulesInput {
+  address: String
+  businessPhone: String
+  city: String
+  country: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  customers: CustomerCreateNestedManyWithoutRestaurantsInput
+  deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
+  diningStyle: String
+  email: String!
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  name: String!
+  orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
+  orders: OrderCreateNestedManyWithoutRestaurantInput
+  plan: RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+  postCode: String
+  priceRange: String
+  productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
+  products: ProductCreateNestedManyWithoutRestaurantInput
+  reservationPhone: String
   serviceCharge: String
   updatedAt: DateTime
   url: String
@@ -2420,6 +3101,16 @@ input RestaurantUpdateOneRequiredWithoutProductCategoryInput {
   upsert: RestaurantUpsertWithoutProductCategoryInput
 }
 
+input RestaurantUpdateOneWithoutDeliveryZonesInput {
+  connect: RestaurantWhereUniqueInput
+  connectOrCreate: RestaurantCreateOrConnectWithoutDeliveryZonesInput
+  create: RestaurantCreateWithoutDeliveryZonesInput
+  delete: Boolean
+  disconnect: Boolean
+  update: RestaurantUpdateWithoutDeliveryZonesInput
+  upsert: RestaurantUpsertWithoutDeliveryZonesInput
+}
+
 input RestaurantUpdateOneWithoutOrderItemsInput {
   connect: RestaurantWhereUniqueInput
   connectOrCreate: RestaurantCreateOrConnectWithoutOrderItemsInput
@@ -2438,6 +3129,16 @@ input RestaurantUpdateOneWithoutProductsInput {
   disconnect: Boolean
   update: RestaurantUpdateWithoutProductsInput
   upsert: RestaurantUpsertWithoutProductsInput
+}
+
+input RestaurantUpdateOneWithoutSchedulesInput {
+  connect: RestaurantWhereUniqueInput
+  connectOrCreate: RestaurantCreateOrConnectWithoutSchedulesInput
+  create: RestaurantCreateWithoutSchedulesInput
+  delete: Boolean
+  disconnect: Boolean
+  update: RestaurantUpdateWithoutSchedulesInput
+  upsert: RestaurantUpsertWithoutSchedulesInput
 }
 
 input RestaurantUpdateWithWhereUniqueWithoutCustomersInput {
@@ -2464,6 +3165,43 @@ input RestaurantUpdateWithoutCustomersInput {
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
+  diningStyle: NullableStringFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  hasKidsZone: NullableBoolFieldUpdateOperationsInput
+  hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
+  isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
+  isDelivery: NullableBoolFieldUpdateOperationsInput
+  isReservation: NullableBoolFieldUpdateOperationsInput
+  isTakeaway: NullableBoolFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  orderItems: OrderItemUpdateManyWithoutRestaurantInput
+  orders: OrderUpdateManyWithoutRestaurantInput
+  plan: RestaurantPlanUpdateOneWithoutRestaurantsInput
+  postCode: NullableStringFieldUpdateOperationsInput
+  priceRange: NullableStringFieldUpdateOperationsInput
+  productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
+  products: ProductUpdateManyWithoutRestaurantInput
+  reservationPhone: NullableStringFieldUpdateOperationsInput
+  schedules: ScheduleUpdateManyWithoutRestaurantInput
+  serviceCharge: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: NullableStringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutRestaurantsInput
+  vat: NullableStringFieldUpdateOperationsInput
+}
+
+input RestaurantUpdateWithoutDeliveryZonesInput {
+  address: NullableStringFieldUpdateOperationsInput
+  businessPhone: NullableStringFieldUpdateOperationsInput
+  city: NullableStringFieldUpdateOperationsInput
+  country: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  cuisine: NullableStringFieldUpdateOperationsInput
+  currency: NullableStringFieldUpdateOperationsInput
+  customers: CustomerUpdateManyWithoutRestaurantsInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: StringFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
@@ -2677,6 +3415,43 @@ input RestaurantUpdateWithoutProductsInput {
   vat: NullableStringFieldUpdateOperationsInput
 }
 
+input RestaurantUpdateWithoutSchedulesInput {
+  address: NullableStringFieldUpdateOperationsInput
+  businessPhone: NullableStringFieldUpdateOperationsInput
+  city: NullableStringFieldUpdateOperationsInput
+  country: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  cuisine: NullableStringFieldUpdateOperationsInput
+  currency: NullableStringFieldUpdateOperationsInput
+  customers: CustomerUpdateManyWithoutRestaurantsInput
+  deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
+  diningStyle: NullableStringFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  hasKidsZone: NullableBoolFieldUpdateOperationsInput
+  hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
+  isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
+  isDelivery: NullableBoolFieldUpdateOperationsInput
+  isReservation: NullableBoolFieldUpdateOperationsInput
+  isTakeaway: NullableBoolFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  orderItems: OrderItemUpdateManyWithoutRestaurantInput
+  orders: OrderUpdateManyWithoutRestaurantInput
+  plan: RestaurantPlanUpdateOneWithoutRestaurantsInput
+  postCode: NullableStringFieldUpdateOperationsInput
+  priceRange: NullableStringFieldUpdateOperationsInput
+  productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
+  products: ProductUpdateManyWithoutRestaurantInput
+  reservationPhone: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: NullableStringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutRestaurantsInput
+  vat: NullableStringFieldUpdateOperationsInput
+}
+
 input RestaurantUpdateWithoutUsersInput {
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
@@ -2732,6 +3507,11 @@ input RestaurantUpsertWithWhereUniqueWithoutUsersInput {
   where: RestaurantWhereUniqueInput!
 }
 
+input RestaurantUpsertWithoutDeliveryZonesInput {
+  create: RestaurantCreateWithoutDeliveryZonesInput!
+  update: RestaurantUpdateWithoutDeliveryZonesInput!
+}
+
 input RestaurantUpsertWithoutOrderItemsInput {
   create: RestaurantCreateWithoutOrderItemsInput!
   update: RestaurantUpdateWithoutOrderItemsInput!
@@ -2752,6 +3532,11 @@ input RestaurantUpsertWithoutProductsInput {
   update: RestaurantUpdateWithoutProductsInput!
 }
 
+input RestaurantUpsertWithoutSchedulesInput {
+  create: RestaurantCreateWithoutSchedulesInput!
+  update: RestaurantUpdateWithoutSchedulesInput!
+}
+
 input RestaurantWhereUniqueInput {
   id: String
 }
@@ -2763,13 +3548,34 @@ enum Role {
   SuperAdmin
 }
 
+type Schedule {
+  Restaurant: Restaurant
+  closingTime: String
+  day: String
+  deliveryTime: String
+  id: String!
+  openingTime: String
+  restaurantId: String
+  takeawayTime: String
+}
+
+input ScheduleCreateInput {
+  Restaurant: RestaurantCreateNestedOneWithoutSchedulesInput
+  closingTime: String
+  createdAt: DateTime
+  day: String
+  deliveryTime: String
+  id: String
+  openingTime: String
+  takeawayTime: String
+}
+
 input ScheduleCreateManyRestaurantInput {
   closingTime: String
   createdAt: DateTime
   day: String
   deliveryTime: String
   id: String
-  minDeliveryAmount: Int
   openingTime: String
   takeawayTime: String
 }
@@ -2797,7 +3603,6 @@ input ScheduleCreateWithoutRestaurantInput {
   day: String
   deliveryTime: String
   id: String
-  minDeliveryAmount: Int
   openingTime: String
   takeawayTime: String
 }
@@ -2811,10 +3616,20 @@ input ScheduleScalarWhereInput {
   day: StringNullableFilter
   deliveryTime: StringNullableFilter
   id: StringFilter
-  minDeliveryAmount: IntNullableFilter
   openingTime: StringNullableFilter
   restaurantId: StringNullableFilter
   takeawayTime: StringNullableFilter
+}
+
+input ScheduleUpdateInput {
+  Restaurant: RestaurantUpdateOneWithoutSchedulesInput
+  closingTime: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  day: NullableStringFieldUpdateOperationsInput
+  deliveryTime: NullableStringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  openingTime: NullableStringFieldUpdateOperationsInput
+  takeawayTime: NullableStringFieldUpdateOperationsInput
 }
 
 input ScheduleUpdateManyMutationInput {
@@ -2823,7 +3638,6 @@ input ScheduleUpdateManyMutationInput {
   day: NullableStringFieldUpdateOperationsInput
   deliveryTime: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  minDeliveryAmount: NullableIntFieldUpdateOperationsInput
   openingTime: NullableStringFieldUpdateOperationsInput
   takeawayTime: NullableStringFieldUpdateOperationsInput
 }
@@ -2858,7 +3672,6 @@ input ScheduleUpdateWithoutRestaurantInput {
   day: NullableStringFieldUpdateOperationsInput
   deliveryTime: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  minDeliveryAmount: NullableIntFieldUpdateOperationsInput
   openingTime: NullableStringFieldUpdateOperationsInput
   takeawayTime: NullableStringFieldUpdateOperationsInput
 }
