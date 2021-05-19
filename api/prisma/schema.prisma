@@ -10,12 +10,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator typegraphql {
-  provider           = "typegraphql-prisma"
-  output             = "../prisma/generated/type-graphql"
-  emitTranspiledCode = true
-}
-
 model Restaurant {
   id                      String            @id @default(uuid())
   name                    String
@@ -102,16 +96,15 @@ enum SpiceLevel {
 }
 
 model Schedule {
-  id                String      @id @default(cuid())
-  createdAt         DateTime    @default(now())
-  day               String?
-  openingTime       String?
-  closingTime       String?
-  minDeliveryAmount Int?
-  deliveryTime      String?
-  takeawayTime      String?
-  Restaurant        Restaurant? @relation(fields: [restaurantId], references: [id])
-  restaurantId      String?
+  id           String      @id @default(cuid())
+  createdAt    DateTime    @default(now())
+  day          String?
+  openingTime  String?
+  closingTime  String?
+  deliveryTime String?
+  takeawayTime String?
+  Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
+  restaurantId String?
 }
 
 model DeliveryZone {

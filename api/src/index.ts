@@ -1,20 +1,16 @@
 import "reflect-metadata";
-import { PrismaClient } from "@prisma/client";
 import express from "express";
-import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server-express";
-import { resolvers } from "../prisma/generated/type-graphql/";
-import prisma from "./PrismaClient";
+import { createContext } from "./context";
+import { schema } from "./GraphQL/schema";
+import "./GraphQL/generated/nexus";
 
 const passport = require("passport");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const userRouter = require("./routes/UserAuth");
-const restaurantRouter = require("./routes/restaurantRouter");
+const restaurantRouter = require("./routes/RestaurantRouter");
 
-interface Context {
-  prisma: PrismaClient;
-}
 const PORT = process.env.PORT || 4000;
 
 const app = express();
@@ -25,16 +21,11 @@ const main = async () => {
   app.use(passport.initialize());
   app.use(cors());
 
-  await prisma.$connect();
-
   const apolloServer = new ApolloServer({
-    schema: await buildSchema({
-      resolvers,
-      validate: false,
-    }),
+    schema,
     introspection: true,
     playground: true,
-    context: (): Context => ({ prisma }),
+    context: createContext(),
   });
 
   apolloServer.applyMiddleware({ app });
@@ -43,7 +34,7 @@ const main = async () => {
   app.use("/restaurants", restaurantRouter);
 
   app.listen(PORT, () => {
-    console.log(`Server started on http://localhost:${PORT}`);
+    console.log(`🚀 Server ready at http://localhost:${PORT}`);
   });
 };
 
