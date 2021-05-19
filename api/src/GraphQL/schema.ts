@@ -7,8 +7,8 @@ export const schema = makeSchema({
   types,
   plugins: [nexusPrisma({ experimentalCRUD: true })],
   outputs: {
-    schema: path.join(__dirname, "./generated/schema.graphql"),
-    typegen: path.join(__dirname, "./generated/nexus.ts"),
+    schema: path.join(__dirname + "/generated/schema.graphql"),
+    typegen: path.join(__dirname + "/generated/nexus.ts"),
   },
   contextType: {
     module: require.resolve("../context"),
