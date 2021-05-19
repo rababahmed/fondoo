@@ -10,12 +10,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator typegraphql {
-  provider           = "typegraphql-prisma"
-  output             = "../prisma/generated/type-graphql"
-  emitTranspiledCode = true
-}
-
 model Restaurant {
   id                      String            @id @default(uuid())
   name                    String
