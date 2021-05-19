@@ -5,10 +5,12 @@ import * as types from "./types/";
 
 export const schema = makeSchema({
   types,
-  plugins: [nexusPrisma({ experimentalCRUD: true })],
+  plugins: [
+    nexusPrisma({ experimentalCRUD: true, shouldGenerateArtifacts: true }),
+  ],
   outputs: {
-    schema: path.join(__dirname + "/generated/schema.graphql"),
-    typegen: path.join(__dirname + "/generated/nexus.ts"),
+    schema: path.join(__dirname, "/generated/schema.graphql"),
+    typegen: path.join(__dirname, "/generated/nexus.ts"),
   },
   contextType: {
     module: require.resolve("../context"),
