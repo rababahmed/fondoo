@@ -14,7 +14,7 @@ export const useUserStore = create<User>(
   devtools((set) => ({
     isAuthenticated: false,
     userID: 1,
-    restaurantID: "e5b22e29-fe36-46e8-8417-468d9c9445d9",
+    restaurantID: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee",
     role: "",
     setUser: (id, restaurantID, role) =>
       set((state) => {

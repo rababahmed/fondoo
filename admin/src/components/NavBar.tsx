@@ -106,15 +106,17 @@ const NavBar = () => {
             >
               Customers
             </Button>
-            <Button
-              leftIcon={<FaUserCircle />}
-              isActive={false}
-              isFullWidth={true}
-              colorScheme="blackAlpha"
-              variant="solid"
-            >
-              Users
-            </Button>
+            <Link href="/users">
+              <Button
+                leftIcon={<FaUserCircle />}
+                isActive={currentPath === "/users" ? true : false}
+                isFullWidth={true}
+                colorScheme="blackAlpha"
+                variant="solid"
+              >
+                Users
+              </Button>
+            </Link>
           </VStack>
         </Stack>
       </Box>

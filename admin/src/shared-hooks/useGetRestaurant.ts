@@ -10,7 +10,7 @@ export const useGetRestaurant = () => {
       Constants.GraphQL_API,
       gql`
         query {
-          restaurant(where: { id: "e5b22e29-fe36-46e8-8417-468d9c9445d9" }) {
+          restaurant(where: { id: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee" }) {
             name
             email
             url
