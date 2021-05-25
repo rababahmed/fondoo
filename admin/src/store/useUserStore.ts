@@ -1,39 +1,68 @@
 import create from "zustand";
-import { devtools, redux } from "zustand/middleware";
+import { configurePersist } from "zustand-persist";
+import { devtools } from "zustand/middleware";
 
 interface User {
   isAuthenticated: boolean;
-  userID: number;
+  userID: string;
   restaurantID: string;
   role: string;
-  setUser: (id: number, restaurantID: string, role: string) => void;
+  setUser: (id: string, role: string) => void;
   removeUser: () => void;
 }
 
+const isBrowser = typeof window !== "undefined";
+
+const createNoopStorage = () => {
+  return {
+    getItem(_key: any) {
+      return Promise.resolve(null);
+    },
+    setItem({ _key, value }: any) {
+      return Promise.resolve(value);
+    },
+    removeItem(_key: any) {
+      return Promise.resolve();
+    },
+  };
+};
+
+const { persist, purge } = configurePersist({
+  storage: isBrowser ? localStorage : createNoopStorage(),
+  rootKey: "root",
+});
+
 export const useUserStore = create<User>(
-  devtools((set) => ({
-    isAuthenticated: false,
-    userID: 1,
-    restaurantID: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee",
-    role: "",
-    setUser: (id, restaurantID, role) =>
-      set((state) => {
-        return {
-          ...state,
-          userID: id,
-          restaurantID: restaurantID,
-          role: role,
-          isAuthenticated: true,
-        };
-      }),
-    removeUser: () =>
-      set((state) => {
-        return {
-          ...state,
-          userID: 0,
-          restaurantID: "",
-          isAuthenticated: false,
-        };
-      }),
-  }))
+  devtools(
+    persist(
+      {
+        key: "user-store",
+      },
+      (set) => ({
+        isAuthenticated: false,
+        userID: "",
+        restaurantID: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee",
+        role: "",
+        setUser: (id, role) =>
+          set((state) => {
+            return {
+              ...state,
+              userID: id,
+              role: role,
+              isAuthenticated: true,
+            };
+          }),
+        removeUser: () =>
+          set((state) => {
+            return {
+              ...state,
+              userID: "",
+              role: "",
+              restaurantID: "",
+              isAuthenticated: false,
+            };
+          }),
+      })
+    )
+  )
 );

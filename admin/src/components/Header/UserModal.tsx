@@ -13,9 +13,21 @@ import { Skeleton } from "@chakra-ui/skeleton";
 import React from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { useGetUser } from "../../shared-hooks/useGetUser";
+import { useUserStore } from "../../store/useUserStore";
+import { useRouter } from "next/router";
 
 const UserModal = () => {
   const { data, isLoading, isSuccess } = useGetUser();
+
+  const router = useRouter();
+
+  const removeUser = useUserStore((state) => state.removeUser);
+
+  const LogoutMutation = async () => {
+    await removeUser();
+    router.push("/");
+  };
+
   return (
     <Box mr={4}>
       <Menu>
@@ -30,7 +42,7 @@ const UserModal = () => {
           <MenuDivider />
           <MenuGroup title="My Account">
             <MenuItem>Settings</MenuItem>
-            <MenuItem>Logout</MenuItem>
+            <MenuItem onClick={LogoutMutation}>Logout</MenuItem>
           </MenuGroup>
         </MenuList>
       </Menu>

@@ -33,7 +33,7 @@ export const LoginForm = () => {
       .post("https://tezzbites-api.herokuapp.com/user/login", values)
       .then(function (response) {
         console.log(response);
-        setUser(response.data.id, response.data.restaurant);
+        setUser(response.data.id, response.data.role);
 
         if (response.data.message === "User authenticated") {
           router.push("/dashboard");
