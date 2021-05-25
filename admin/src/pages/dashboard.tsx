@@ -1,36 +1,32 @@
 import React, { useEffect } from "react";
-import { ColorModeScript, useColorModeValue } from "@chakra-ui/color-mode";
-import { Box, Center, Grid, Heading, Text } from "@chakra-ui/layout";
+import { Heading } from "@chakra-ui/layout";
 import Head from "next/head";
-import Header from "../components/Header/Header";
-import NavBar from "../components/NavBar";
 import StatComponent from "../components/Stats/MainStat";
 import TableComponent from "../components/Table/Table";
-import { useQuery } from "react-query";
-import * as Constants from "../modules/Constants";
-import { request, gql } from "graphql-request";
+import { gql } from "graphql-request";
 import { Skeleton } from "@chakra-ui/skeleton";
-import { useGetUser } from "../shared-hooks/useGetUser";
 import { useGQLQuery } from "../shared-hooks/useGQLQuery";
 import DesktopLayout from "../layouts/DesktopLayout";
-
-const GET_USER = gql`
-  query {
-    user(where: { id: 1 }) {
-      firstName
-      lastName
-      Restaurant {
-        name
-        email
-      }
-    }
-  }
-`;
+import { useUserStore } from "../store/useUserStore";
 
 const DashboardPage = () => {
+  const userID = useUserStore((state) => state.userID);
+
+  const GET_USER = gql`
+    query User($id: String) {
+      user(where: { id: $id }) {
+        firstName
+        lastName
+      }
+    }
+  `;
+
   const { data, error, isLoading, isSuccess } = useGQLQuery(
     "get-unique-user",
-    GET_USER
+    GET_USER,
+    {
+      id: `${userID}`,
+    }
   );
   console.log(data);
   return (
