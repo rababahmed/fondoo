@@ -31,7 +31,7 @@ const EDIT_RESTAURANT = gql`
         city: { set: $city }
         priceRange: { set: $priceRange }
       }
-      where: { id: "e5b22e29-fe36-46e8-8417-468d9c9445d9" }
+      where: { id: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee" }
     ) {
       name
       email

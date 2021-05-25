@@ -8,6 +8,7 @@ TezzBites provides a suite of tools to manage a restaurant's day to day operatio
 | Codebase             |      Description      |
 | :------------------- | :-------------------: |
 | [api](api)           |      Backend API      |
+| [admin](admin)       |   Next.js Admin Dash  |
 
 
 ## Branches
