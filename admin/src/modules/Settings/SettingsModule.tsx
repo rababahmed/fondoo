@@ -83,19 +83,19 @@ export const SettingsModule = () => {
   const onSubmit = async (values: any) => {
     setFormData(values);
     mutation.mutate();
-    if (await mutation.isSuccess) {
+    if (mutation.isError) {
       toast({
-        title: "Success!",
-        description: "Successfully updated the info.",
-        status: "success",
+        title: "Whoops! Error.",
+        description: "Unable to update.",
+        status: "error",
         isClosable: true,
         position: "top",
       });
     } else {
       toast({
-        title: "Whoops! Error.",
-        description: "Unable to update.",
-        status: "error",
+        title: "Success!",
+        description: "Successfully updated the info.",
+        status: "success",
         isClosable: true,
         position: "top",
       });
