@@ -6,15 +6,28 @@ import NavBar from "../components/NavBar";
 
 const DesktopLayout = (props: any) => {
   return (
-    <Grid templateColumns="1fr 10fr">
-      <NavBar />
-      <Box bg={useColorModeValue("gray.50", "gray.800")} minH="100%" h="100vh">
+    <>
+      <Box
+        pos="absolute"
+        left="0"
+        top="0"
+        bg={useColorModeValue("gray.50", "gray.800")}
+        w="100%"
+        h="100vh"
+      >
         <Header />
-        <Box m={10} bg={useColorModeValue("gray.50", "gray.800")}>
+        <Box
+          maxW="100%"
+          py={8}
+          px={8}
+          ml={300}
+          bg={useColorModeValue("gray.50", "gray.800")}
+        >
           {props.children}
         </Box>
       </Box>
-    </Grid>
+      <NavBar />
+    </>
   );
 };
 

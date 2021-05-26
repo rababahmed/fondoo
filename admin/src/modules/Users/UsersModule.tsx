@@ -14,21 +14,7 @@ import {
   TableCaption,
   Button,
 } from "@chakra-ui/react";
-
-const GET_RESTAURANT_USER = gql`
-  query {
-    restaurant(where: { id: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee" }) {
-      users {
-        id
-        firstName
-        lastName
-        email
-        role
-        phone
-      }
-    }
-  }
-`;
+import { GET_RESTAURANT_USER } from "../../graphql/user";
 
 export const UsersModule = () => {
   const { data, error, isLoading, isSuccess } = useGQLQuery(

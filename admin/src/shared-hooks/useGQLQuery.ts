@@ -8,7 +8,7 @@ export const useGQLQuery = (
   variables?: any,
   config = {}
 ) => {
-  const endpoint = Constants.GraphQL_API;
+  const endpoint = `${Constants.GraphQL_API}`;
 
   const fetchData = async () => await request(endpoint, query, variables);
 

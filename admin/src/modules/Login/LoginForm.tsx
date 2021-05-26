@@ -28,13 +28,11 @@ export const LoginForm = () => {
   const setUser = useUserStore((state) => state.setUser);
 
   const onSubmit = async (values: any) => {
-    console.log(values);
     const data = await axios
-      .post("https://tezzbites-api.herokuapp.com/user/login", values)
+      .post(`${Constants.REST_API_V1}/user/login`, values)
       .then(function (response) {
         console.log(response);
         setUser(response.data.id, response.data.role);
-
         if (response.data.message === "User authenticated") {
           router.push("/dashboard");
         }

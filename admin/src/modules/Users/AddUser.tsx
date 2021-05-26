@@ -18,21 +18,8 @@ import PrimaryButton from "../../components/PrimaryButton";
 import { InputControl, SelectControl, SubmitButton } from "formik-chakra-ui";
 import { Formik } from "formik";
 import * as Yup from "yup";
-
-const GET_RESTAURANT_USER = gql`
-  query {
-    restaurant(where: { id: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee" }) {
-      users {
-        id
-        firstName
-        lastName
-        email
-        role
-        phone
-      }
-    }
-  }
-`;
+import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
+import { ADD_RESTAURANT_USER } from "../../graphql/user";
 
 export const AddUser = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -52,6 +39,15 @@ export const AddUser = () => {
   });
 
   const [formData, setFormData] = useState(initialValues);
+
+  const mutation = useGQLMutation("add-restaurant-user", ADD_RESTAURANT_USER, {
+    firstName: formData.firstName,
+    lastName: formData.lastName,
+    email: formData.email,
+    password: formData.password,
+    phone: formData.phone,
+    role: formData.role,
+  });
 
   const onSubmit = async (values: any) => {
     setFormData(values);

@@ -38,7 +38,7 @@ const DashboardPage = () => {
       </Head>
       <DesktopLayout>
         <Skeleton isLoaded={!isLoading}>
-          <Heading mb={6}>Hello {isSuccess && data.user.firstName}</Heading>
+          <Heading mb={6}>Hi {isSuccess && data.user.firstName}</Heading>
         </Skeleton>
         <Skeleton isLoaded={!isLoading}>
           <StatComponent />

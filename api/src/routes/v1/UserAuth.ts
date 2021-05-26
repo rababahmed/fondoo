@@ -1,12 +1,13 @@
 import express from "express";
-import prisma from "../PrismaClient";
+import prisma from "../../PrismaClient";
 const bcrypt = require("bcryptjs");
 
 const router = express.Router();
 
 router.post("/signup", async (req, res) => {
   try {
-    const { firstName, lastName, email, password, phone, role } = req.body;
+    const { firstName, lastName, email, password, phone, role, restaurantID } =
+      req.body;
     const hash = await bcrypt.hash(password, 10);
     const result = await prisma.user.create({
       data: {
@@ -16,11 +17,16 @@ router.post("/signup", async (req, res) => {
         role,
         email,
         password: hash,
+        restaurants: {
+          connect: {
+            id: restaurantID,
+          },
+        },
       },
     });
-    res.json(result);
+    res.status(200).send(result);
   } catch {
-    res.json({ message: "Error creating user" });
+    res.status(400).send({ message: "Error creating user" });
   }
 });
 
@@ -35,19 +41,19 @@ router.post("/login", async (req, res) => {
     if (user) {
       const validPass = await bcrypt.compare(password, user.password);
       if (validPass) {
-        res.send({
+        res.status(200).send({
           id: user.id,
           role: user.role,
           message: "User authenticated",
         });
       } else {
-        res.send({ message: "Incorrect Password" });
+        res.status(400).send({ message: "Incorrect Password" });
       }
     } else {
-      res.send({ message: "Incorrect Email" });
+      res.status(400).send({ message: "Incorrect Email" });
     }
   } catch {
-    res.json({ message: "User not found" });
+    res.status(400).send({ message: "User not found" });
   }
 });
 
