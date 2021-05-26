@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <Flex
       bgColor="gray.100"
+      shadow="xs"
       w="100%"
       p={2}
       flexDirection="row"

@@ -22,7 +22,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <Box bgColor="gray.700" w={300} h="100%">
+      <Box pos="fixed" bgColor="gray.700" w={300} h="100%">
         <Stack>
           <VStack pt={8} mr={1}>
             <Box mb={4}>
