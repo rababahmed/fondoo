@@ -29,7 +29,7 @@ export const LoginForm = () => {
 
   const onSubmit = async (values: any) => {
     const data = await axios
-      .post(`${Constants.REST_API_V1}/user/login`, values)
+      .post(Constants.REST_API_V1 + "/user/login", values)
       .then(function (response) {
         console.log(response);
         setUser(response.data.id, response.data.role);
