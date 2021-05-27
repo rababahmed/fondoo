@@ -18,7 +18,7 @@ import PrimaryButton from "../../components/PrimaryButton";
 import { InputControl, SelectControl, SubmitButton } from "formik-chakra-ui";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 import * as Constants from "../Constants";
 import { useUserStore } from "../../store/useUserStore";
@@ -47,12 +47,15 @@ export const AddUser = () => {
 
   const router = useRouter();
 
+  const queryClient = useQueryClient();
+
   const onSubmit = async (values: any) => {
     const addUser = await axios
       .post(Constants.REST_API_V1 + "/user/signup", values)
       .then(function (response) {
         console.log(response);
       });
+    queryClient.invalidateQueries("get-restaurant-users");
   };
 
   return (

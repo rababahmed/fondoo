@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/layout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { gql } from "graphql-request";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
@@ -19,10 +19,12 @@ import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
 import { useQueryClient } from "react-query";
 
 export const UsersModule = () => {
-  const { data, error, isLoading, isSuccess } = useGQLQuery(
+  const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
     "get-restaurant-users",
     GET_RESTAURANT_USER
   );
+
+  useEffect(() => {}, [isFetching]);
 
   const queryClient = useQueryClient();
 
@@ -32,7 +34,7 @@ export const UsersModule = () => {
     id: userId,
   });
 
-  const handleDelete = async (id: any) => {
+  const handleDelete = async (id: string) => {
     await setUserId(id);
     await mutation.mutate();
     queryClient.invalidateQueries("get-restaurant-users");
