@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 
 const initialValues = {
   email: "",
@@ -28,7 +29,7 @@ export const LoginForm = () => {
   const setUser = useUserStore((state) => state.setUser);
 
   const onSubmit = async (values: any) => {
-    const data = await axios
+    const login = await axios
       .post(Constants.REST_API_V1 + "/user/login", values)
       .then(function (response) {
         console.log(response);

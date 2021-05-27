@@ -8,6 +8,7 @@ interface User {
   restaurantID: string;
   role: string;
   setUser: (id: string, role: string) => void;
+  setRestaurant: (restaurant: string) => void;
   removeUser: () => void;
 }
 
@@ -41,7 +42,7 @@ export const useUserStore = create<User>(
       (set) => ({
         isAuthenticated: false,
         userID: "",
-        restaurantID: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee",
+        restaurantID: "",
         role: "",
         setUser: (id, role) =>
           set((state) => {
@@ -50,6 +51,13 @@ export const useUserStore = create<User>(
               userID: id,
               role: role,
               isAuthenticated: true,
+            };
+          }),
+        setRestaurant: (restaurant) =>
+          set((state) => {
+            return {
+              ...state,
+              restaurantID: restaurant,
             };
           }),
         removeUser: () =>

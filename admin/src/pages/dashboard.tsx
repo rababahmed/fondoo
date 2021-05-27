@@ -8,27 +8,24 @@ import { Skeleton } from "@chakra-ui/skeleton";
 import { useGQLQuery } from "../shared-hooks/useGQLQuery";
 import DesktopLayout from "../layouts/DesktopLayout";
 import { useUserStore } from "../store/useUserStore";
+import { GET_USER } from "../graphql/user";
 
 const DashboardPage = () => {
   const userID = useUserStore((state) => state.userID);
-
-  const GET_USER = gql`
-    query User($id: String) {
-      user(where: { id: $id }) {
-        firstName
-        lastName
-      }
-    }
-  `;
+  const setRestaurant = useUserStore((state) => state.setRestaurant);
 
   const { data, error, isLoading, isSuccess } = useGQLQuery(
     "get-unique-user",
     GET_USER,
     {
-      id: `${userID}`,
+      id: userID,
     }
   );
-  console.log(data);
+
+  useEffect(() => {
+    isSuccess && setRestaurant(data.user.restaurants[0].id);
+  }, []);
+
   return (
     <div>
       <Head>

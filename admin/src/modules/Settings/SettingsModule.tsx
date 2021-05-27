@@ -12,53 +12,38 @@ import { Skeleton } from "@chakra-ui/skeleton";
 import { gql } from "graphql-request";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
 import { useToast } from "@chakra-ui/toast";
-
-const EDIT_RESTAURANT = gql`
-  mutation UpdateRestaurant(
-    $name: String
-    $email: String
-    $url: String
-    $businessPhone: String
-    $city: String
-    $priceRange: String
-  ) {
-    updateRestaurant(
-      data: {
-        name: { set: $name }
-        email: { set: $email }
-        url: { set: $url }
-        businessPhone: { set: $businessPhone }
-        city: { set: $city }
-        priceRange: { set: $priceRange }
-      }
-      where: { id: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee" }
-    ) {
-      name
-      email
-    }
-  }
-`;
+import { useUserStore } from "../../store/useUserStore";
+import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
+import { EDIT_RESTAURANT, GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 
 export const SettingsModule = () => {
-  const { data, error, isLoading, isSuccess } = useGetRestaurant();
+  const restaurantID = useUserStore((state) => state.restaurantID);
+
+  const { data, error, isLoading, isSuccess } = useGQLQuery(
+    "get-restaurant-info",
+    GET_RESTAURANT_INFO,
+    {
+      id: restaurantID,
+    }
+  );
   console.log(data);
 
   const initialValues = {
-    name: (isSuccess && data.name) || "",
-    coverImage: (isSuccess && data.coverImage) || "",
-    businessPhone: (isSuccess && data.businessPhone) || "",
-    city: (isSuccess && data.city) || "",
-    priceRange: (isSuccess && data.priceRange) || "",
-    cuisine: (isSuccess && data.cuisine) || "",
-    email: (isSuccess && data.email) || "",
-    reservationPhone: (isSuccess && data.reservationPhone) || "",
-    postCode: (isSuccess && data.postCode) || "",
-    vat: (isSuccess && data.vat) || "",
-    logo: (isSuccess && data.logo) || "",
-    url: (isSuccess && data.url) || "",
-    streetAddress: (isSuccess && data.streetAddress) || "",
-    country: (isSuccess && data.country) || "",
-    serviceCharge: (isSuccess && data.serviceCharge) || "",
+    name: (isSuccess && data.restaurant.name) || "",
+    coverImage: (isSuccess && data.restaurant.coverImage) || "",
+    businessPhone: (isSuccess && data.restaurant.businessPhone) || "",
+    city: (isSuccess && data.restaurant.city) || "",
+    priceRange: (isSuccess && data.restaurant.priceRange) || "",
+    cuisine: (isSuccess && data.restaurant.cuisine) || "",
+    email: (isSuccess && data.restaurant.email) || "",
+    reservationPhone: (isSuccess && data.restaurant.reservationPhone) || "",
+    postCode: (isSuccess && data.restaurant.postCode) || "",
+    vat: (isSuccess && data.restaurant.vat) || "",
+    logo: (isSuccess && data.restaurant.logo) || "",
+    url: (isSuccess && data.restaurant.url) || "",
+    streetAddress: (isSuccess && data.restaurant.streetAddress) || "",
+    country: (isSuccess && data.restaurant.country) || "",
+    serviceCharge: (isSuccess && data.restaurant.serviceCharge) || "",
   };
 
   const validationSchema = Yup.object({

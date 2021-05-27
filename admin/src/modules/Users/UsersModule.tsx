@@ -14,14 +14,29 @@ import {
   TableCaption,
   Button,
 } from "@chakra-ui/react";
-import { GET_RESTAURANT_USER } from "../../graphql/user";
+import { DELETE_USER, GET_RESTAURANT_USER } from "../../graphql/user";
+import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
+import { useQueryClient } from "react-query";
 
 export const UsersModule = () => {
   const { data, error, isLoading, isSuccess } = useGQLQuery(
     "get-restaurant-users",
     GET_RESTAURANT_USER
   );
-  console.log(data);
+
+  const queryClient = useQueryClient();
+
+  const [userId, setUserId] = useState("");
+
+  const mutation = useGQLMutation("delete-user", DELETE_USER, {
+    id: userId,
+  });
+
+  const handleDelete = async (id: any) => {
+    await setUserId(id);
+    await mutation.mutate();
+    queryClient.invalidateQueries("get-restaurant-users");
+  };
 
   return (
     <Box
@@ -56,7 +71,11 @@ export const UsersModule = () => {
                   <Td>{user.role}</Td>
                   <Td>{user.phone}</Td>
                   <Td>
-                    <Button size="sm" colorScheme="red">
+                    <Button
+                      onClick={() => handleDelete(user.id)}
+                      size="sm"
+                      colorScheme="red"
+                    >
                       Delete
                     </Button>
                   </Td>
