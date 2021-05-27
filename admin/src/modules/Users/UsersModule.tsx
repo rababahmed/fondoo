@@ -30,14 +30,17 @@ export const UsersModule = () => {
 
   const [userId, setUserId] = useState("");
 
-  const mutation = useGQLMutation("delete-user", DELETE_USER, {
-    id: userId,
-  });
+  const mutation = useGQLMutation(
+    DELETE_USER,
+    {
+      id: userId,
+    },
+    "get-restaurant-users"
+  );
 
   const handleDelete = async (id: string) => {
-    await setUserId(id);
-    await mutation.mutate();
-    queryClient.invalidateQueries("get-restaurant-users");
+    const setUser = await setUserId(id);
+    const deleteUser = await mutation.mutate(setUser);
   };
 
   return (
