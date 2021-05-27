@@ -4,7 +4,7 @@ import { Skeleton } from "@chakra-ui/skeleton";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { Table, Thead, Tbody, Tr, Th, Td, Button } from "@chakra-ui/react";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
-import { GET_MENU_CATEGORIES, GET_MENU_ITEMS } from "../../graphql/menu";
+import { GET_MENU_ITEMS } from "../../graphql/menu";
 import { useUserStore } from "../../store/useUserStore";
 
 export const ItemsModule = () => {
