@@ -26,7 +26,6 @@ export const SettingsModule = () => {
       id: restaurantID,
     }
   );
-  console.log(data);
 
   const initialValues = {
     name: (isSuccess && data.restaurant.name) || "",
@@ -55,15 +54,19 @@ export const SettingsModule = () => {
 
   const toast = useToast();
 
-  const mutation = useGQLMutation("update-restaurant", EDIT_RESTAURANT, {
-    name: formData.name,
-    email: formData.email,
-    url: formData.url,
-    businessPhone: formData.businessPhone,
-    city: formData.city,
-    priceRange: formData.priceRange,
-    cuisine: formData.cuisine,
-  });
+  const mutation = useGQLMutation(
+    EDIT_RESTAURANT,
+    {
+      name: formData.name,
+      email: formData.email,
+      url: formData.url,
+      businessPhone: formData.businessPhone,
+      city: formData.city,
+      priceRange: formData.priceRange,
+      cuisine: formData.cuisine,
+    },
+    "get-restaurant-info"
+  );
 
   const onSubmit = async (values: any) => {
     setFormData(values);

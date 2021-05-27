@@ -79,15 +79,17 @@ const NavBar = () => {
                 Settings
               </Button>
             </Link>
-            <Button
-              leftIcon={<MdRestaurantMenu />}
-              isActive={false}
-              isFullWidth={true}
-              colorScheme="blackAlpha"
-              variant="solid"
-            >
-              Menu
-            </Button>
+            <Link href="/menu/">
+              <Button
+                leftIcon={<MdRestaurantMenu />}
+                isActive={currentPath === "/menu" ? true : false}
+                isFullWidth={true}
+                colorScheme="blackAlpha"
+                variant="solid"
+              >
+                Menu Categories
+              </Button>
+            </Link>
             <Button
               leftIcon={<MdLocalOffer />}
               isActive={false}

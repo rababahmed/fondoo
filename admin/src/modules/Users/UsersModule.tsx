@@ -80,6 +80,7 @@ export const UsersModule = () => {
                       onClick={() => handleDelete(user.id)}
                       size="sm"
                       colorScheme="red"
+                      isDisabled={mutation.isLoading}
                     >
                       Delete
                     </Button>
