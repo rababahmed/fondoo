@@ -1,8 +1,8 @@
 import { Box, Grid, Heading } from "@chakra-ui/layout";
 import Head from "next/head";
 import React from "react";
-import DesktopLayout from "../layouts/DesktopLayout";
-import { CategoriesModule } from "../modules/Menu/CategoriesModule";
+import DesktopLayout from "../../layouts/DesktopLayout";
+import { CategoriesModule } from "../../modules/Menu/CategoriesModule";
 
 const MenuPage = () => {
   return (

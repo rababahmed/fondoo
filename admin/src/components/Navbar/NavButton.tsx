@@ -24,13 +24,13 @@ const NavButton = (props: Nav) => {
       <Link href={props.href}>
         <Box
           borderRadius="6"
-          bgColor={currentPath === `${props.href}` ? "#0d0f15" : "gray.800"}
-          _hover={{ bgColor: "gray.900", cursor: "pointer" }}
+          bgColor={currentPath === `${props.href}` ? "gray.700" : "gray.900"}
+          _hover={{ bgColor: "gray.700", cursor: "pointer" }}
           py={2}
           px={4}
         >
           <HStack>
-            <Icon as={props.icon} color="white" />
+            <Icon as={props.icon} color="gray.400" />
             <Text fontWeight="semibold" color="white">
               {props.text}
             </Text>

@@ -12,13 +12,13 @@ const PrimaryButton = (props: ButtonProps) => {
       <Button
         onClick={props.onClick}
         colorScheme="gray"
-        background="gray.700"
+        background="gray.800"
         color="white"
         _hover={{
-          background: "gray.800",
+          background: "gray.900",
         }}
         _active={{
-          background: "gray.700",
+          background: "gray.800",
         }}
       >
         {props.title}
