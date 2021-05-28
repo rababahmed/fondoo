@@ -2,6 +2,7 @@ import { Box, Grid, Heading } from "@chakra-ui/layout";
 import Head from "next/head";
 import React from "react";
 import DesktopLayout from "../../layouts/DesktopLayout";
+import { AddCategory } from "../../modules/Menu/AddCategory";
 import { CategoriesModule } from "../../modules/Menu/CategoriesModule";
 
 const MenuPage = () => {
@@ -15,8 +16,10 @@ const MenuPage = () => {
       <DesktopLayout>
         <Heading mb={10}>Menu</Heading>
         <Grid templateColumns="1fr 1fr">
-          <Box ml={8} gridArea="left"></Box>
-          <Box mr={8} gridArea="right"></Box>
+          <Box />
+          <Box mr={8} gridArea="right">
+            <AddCategory />
+          </Box>
         </Grid>
         <CategoriesModule />
       </DesktopLayout>

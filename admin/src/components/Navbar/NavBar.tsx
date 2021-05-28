@@ -27,7 +27,7 @@ const NavBar = () => {
         overflowY="auto"
         bgColor="gray.900"
         h="100%"
-        w={300}
+        w={260}
         top="0"
         bottom="0"
         className={styles.navbar}

@@ -18,9 +18,10 @@ const DesktopLayout = (props: any) => {
         <Header />
         <Box
           maxW="100%"
+          mt={1}
           py={8}
           px={8}
-          ml={300}
+          ml={260}
           bg={useColorModeValue("gray.50", "gray.800")}
         >
           {props.children}

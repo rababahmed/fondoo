@@ -14,6 +14,28 @@ export const GET_MENU_CATEGORIES = gql`
     }
   }
 `;
+
+export const ADD_MENU_CATEGORY = gql`
+  mutation CreateProductCategory(
+    $name: String!
+    $description: String
+    $isActive: Boolean
+    $isFeatured: Boolean
+    $restaurantID: String
+  ) {
+    createProductCategory(
+      data: {
+        name: $name
+        description: $description
+        isActive: $isActive
+        isFeatured: $isFeatured
+        restaurants: { connect: { id: $restaurantID } }
+      }
+    ) {
+      name
+    }
+  }
+`;
 export const GET_MENU_ITEMS = gql`
   query Items($id: String) {
     restaurant(where: { id: $id }) {
