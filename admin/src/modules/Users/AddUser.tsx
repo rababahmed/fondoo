@@ -14,7 +14,7 @@ import {
   Button,
   useDisclosure,
 } from "@chakra-ui/react";
-import PrimaryButton from "../../components/PrimaryButton";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import { InputControl, SelectControl, SubmitButton } from "formik-chakra-ui";
 import { Formik } from "formik";
 import * as Yup from "yup";

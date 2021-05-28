@@ -13,7 +13,7 @@ const MenuPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DesktopLayout>
-        <Heading mb={10}>Menu Setup</Heading>
+        <Heading mb={10}>Menu</Heading>
         <Grid templateColumns="1fr 1fr">
           <Box ml={8} gridArea="left"></Box>
           <Box mr={8} gridArea="right"></Box>

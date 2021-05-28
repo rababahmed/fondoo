@@ -2,7 +2,7 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Grid } from "@chakra-ui/layout";
 import React, { Component } from "react";
 import Header from "../components/Header/Header";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navbar/NavBar";
 
 const DesktopLayout = (props: any) => {
   return (
