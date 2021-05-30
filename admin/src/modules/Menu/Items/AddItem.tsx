@@ -50,7 +50,7 @@ export const AddItem = (props: Props) => {
     price: "",
     isActive: false,
     isPopular: false,
-    productCatID: productCatID,
+    productCatID: "",
     restaurantID: restaurantID,
   };
 
