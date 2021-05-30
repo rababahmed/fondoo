@@ -5,6 +5,7 @@ import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { Table, Thead, Tbody, Tr, Th, Td, Button } from "@chakra-ui/react";
 import { GET_MENU_CATEGORIES } from "../../graphql/menu";
 import { useUserStore } from "../../store/useUserStore";
+import { EditCategory } from "./EditCategory";
 
 export const CategoriesModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
@@ -35,6 +36,7 @@ export const CategoriesModule = () => {
               <Th>Description</Th>
               <Th>Active</Th>
               <Th>Featured</Th>
+              <Th></Th>
             </Tr>
           </Thead>
 
@@ -46,6 +48,9 @@ export const CategoriesModule = () => {
                   <Td>{cat.description}</Td>
                   <Td>{cat.isActive ? "Yes" : "No"}</Td>
                   <Td>{cat.isFeatured ? "Yes" : "No"}</Td>
+                  <Td>
+                    <EditCategory id={cat.id} />
+                  </Td>
                 </Tr>
               ))}
           </Tbody>

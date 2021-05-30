@@ -18,8 +18,8 @@ export const ProductCategory = objectType({
 export const ProductCategoryQuery = extendType({
   type: "Query",
   definition(t) {
-    t.crud.product();
-    t.crud.products();
+    t.crud.productCategory();
+    t.crud.productCategories();
   },
 });
 
