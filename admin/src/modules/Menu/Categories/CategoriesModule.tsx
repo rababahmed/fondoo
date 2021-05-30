@@ -1,11 +1,12 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, HStack } from "@chakra-ui/layout";
 import React, { useEffect, useState } from "react";
 import { Skeleton } from "@chakra-ui/skeleton";
-import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
+import { useGQLQuery } from "../../../shared-hooks/useGQLQuery";
 import { Table, Thead, Tbody, Tr, Th, Td, Button } from "@chakra-ui/react";
-import { GET_MENU_CATEGORIES } from "../../graphql/menu";
-import { useUserStore } from "../../store/useUserStore";
+import { GET_MENU_CATEGORIES } from "../../../graphql/menu";
+import { useUserStore } from "../../../store/useUserStore";
 import { EditCategory } from "./EditCategory";
+import DeleteCategory from "./DeleteCategory";
 
 export const CategoriesModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
@@ -49,7 +50,16 @@ export const CategoriesModule = () => {
                   <Td>{cat.isActive ? "Yes" : "No"}</Td>
                   <Td>{cat.isFeatured ? "Yes" : "No"}</Td>
                   <Td>
-                    <EditCategory id={cat.id} />
+                    <HStack>
+                      <EditCategory
+                        id={cat.id}
+                        name={cat.name}
+                        description={cat.description}
+                        isActive={cat.isActive}
+                        isFeatured={cat.isFeatured}
+                      />
+                      <DeleteCategory id={cat.id} />
+                    </HStack>
                   </Td>
                 </Tr>
               ))}

@@ -2,8 +2,7 @@ import { Box, Grid, Heading } from "@chakra-ui/layout";
 import Head from "next/head";
 import React from "react";
 import DesktopLayout from "../../layouts/DesktopLayout";
-import { AddCategory } from "../../modules/Menu/Categories/AddCategory";
-import { CategoriesModule } from "../../modules/Menu/Categories/CategoriesModule";
+import { ItemsModule } from "../../modules/Menu/Items/ItemsModule";
 
 const MenuPage = () => {
   return (
@@ -14,14 +13,12 @@ const MenuPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DesktopLayout>
-        <Heading mb={10}>Menu Categories</Heading>
+        <Heading mb={10}>Menu Items</Heading>
         <Grid templateColumns="1fr 1fr">
           <Box />
-          <Box mr={8} gridArea="right">
-            <AddCategory />
-          </Box>
+          <Box mr={8} gridArea="right"></Box>
         </Grid>
-        <CategoriesModule />
+        <ItemsModule />
       </DesktopLayout>
     </div>
   );

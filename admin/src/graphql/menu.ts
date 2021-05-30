@@ -14,6 +14,16 @@ export const GET_MENU_CATEGORIES = gql`
     }
   }
 `;
+export const GET_MENU_CATEGORY = gql`
+  query ProductCategory($id: String) {
+    productCategory(where: { id: $id }) {
+      name
+      description
+      isActive
+      isFeatured
+    }
+  }
+`;
 
 export const ADD_MENU_CATEGORY = gql`
   mutation CreateProductCategory(
@@ -36,21 +46,52 @@ export const ADD_MENU_CATEGORY = gql`
     }
   }
 `;
+
+export const UPDATE_MENU_CATEGORY = gql`
+  mutation updateProductCategory(
+    $id: String
+    $name: String
+    $description: String
+    $isActive: Boolean
+    $isFeatured: Boolean
+  ) {
+    updateProductCategory(
+      data: {
+        name: { set: $name }
+        description: { set: $description }
+        isActive: { set: $isActive }
+        isFeatured: { set: $isFeatured }
+      }
+      where: { id: $id }
+    ) {
+      name
+    }
+  }
+`;
+
+export const DELETE_MENU_CATEGORY = gql`
+  mutation DeleteProductCategory($id: String) {
+    deleteProductCategory(where: { id: $id }) {
+      id
+    }
+  }
+`;
+
 export const GET_MENU_ITEMS = gql`
-  query Items($id: String) {
+  query Products($id: String) {
     restaurant(where: { id: $id }) {
-      products {
+      productCategory {
         id
         name
-        description
-        image
-        spiceLevel
-        price
-        ProductCategory {
+        Product {
           name
+          description
+          price
+          spiceLevel
+          isPopular
+          isActive
         }
-        isActive
-        isPopular
       }
     }
+  }
 `;

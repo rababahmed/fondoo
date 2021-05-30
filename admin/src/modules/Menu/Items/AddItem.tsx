@@ -1,7 +1,7 @@
-import { Box, Grid, Stack, Text, VStack } from "@chakra-ui/layout";
+import { Box, Grid, HStack, Stack, Text, VStack } from "@chakra-ui/layout";
 import React, { useState } from "react";
 import { Skeleton } from "@chakra-ui/skeleton";
-import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
+import { useGQLQuery } from "../../../shared-hooks/useGQLQuery";
 import {
   Modal,
   ModalOverlay,
@@ -13,7 +13,7 @@ import {
   Button,
   useDisclosure,
 } from "@chakra-ui/react";
-import PrimaryButton from "../../components/Buttons/PrimaryButton";
+import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import {
   CheckboxSingleControl,
   InputControl,
@@ -22,19 +22,35 @@ import {
 } from "formik-chakra-ui";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useUserStore } from "../../store/useUserStore";
-import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
-import { ADD_MENU_CATEGORY } from "../../graphql/menu";
+import { useUserStore } from "../../../store/useUserStore";
+import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
+import { ADD_MENU_CATEGORY } from "../../../graphql/menu";
 
-export const AddCategory = () => {
+interface Props {
+  spiceLevel: [];
+  productCatID: String;
+}
+
+enum spiceLevel {
+  None,
+  Mild,
+  Medium,
+  Hot,
+  ExtraHot,
+}
+
+export const AddItem = (props: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const restaurantID = useUserStore((state) => state.restaurantID);
 
   const initialValues = {
     name: "",
     description: "",
+    spiceLevel: spiceLevel,
+    price: "",
     isActive: false,
-    isFeatured: false,
+    isPopular: false,
+    productCatID: productCatID,
     restaurantID: restaurantID,
   };
 
@@ -78,12 +94,14 @@ export const AddCategory = () => {
                     <Stack spacing="6">
                       <InputControl name="name" label="Name" />
                       <InputControl name="description" label="Description" />
-                      <CheckboxSingleControl name="isActive">
-                        Active
-                      </CheckboxSingleControl>
-                      <CheckboxSingleControl name="isFeatured">
-                        Featured
-                      </CheckboxSingleControl>
+                      <HStack>
+                        <CheckboxSingleControl name="isActive">
+                          Active
+                        </CheckboxSingleControl>
+                        <CheckboxSingleControl name="isFeatured">
+                          Featured
+                        </CheckboxSingleControl>
+                      </HStack>
                     </Stack>
                   </Grid>
                   <Stack mt={10} pb={2}>

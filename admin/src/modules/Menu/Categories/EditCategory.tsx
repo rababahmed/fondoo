@@ -1,16 +1,6 @@
-import { Box, Grid, Stack, Text, VStack } from "@chakra-ui/layout";
+import { Box, Grid, HStack, Stack, Text, VStack } from "@chakra-ui/layout";
 import React, { useState } from "react";
-import { Skeleton } from "@chakra-ui/skeleton";
-import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
   useDisclosure,
   Popover,
   PopoverTrigger,
@@ -19,34 +9,34 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import {
   CheckboxSingleControl,
   InputControl,
-  SelectControl,
   SubmitButton,
 } from "formik-chakra-ui";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useUserStore } from "../../store/useUserStore";
-import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
-import { ADD_MENU_CATEGORY } from "../../graphql/menu";
+import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
+import { UPDATE_MENU_CATEGORY } from "../../../graphql/menu";
 import { EditIcon } from "@chakra-ui/icons";
 
 interface Props {
   id: String;
+  name: String;
+  description: String;
+  isActive: Boolean;
+  isFeatured: Boolean;
 }
 
 export const EditCategory = (props: Props) => {
   const { onOpen, onClose, isOpen } = useDisclosure();
-  const restaurantID = useUserStore((state) => state.restaurantID);
 
   const initialValues = {
-    name: "",
-    description: "",
-    isActive: false,
-    isFeatured: false,
-    restaurantID: restaurantID,
+    id: props.id,
+    name: props.name,
+    description: props.description,
+    isActive: props.isActive,
+    isFeatured: props.isFeatured,
   };
 
   const validationSchema = Yup.object({
@@ -57,18 +47,18 @@ export const EditCategory = (props: Props) => {
   const [formData, setFormData] = useState(initialValues);
 
   const mutation = useGQLMutation(
-    ADD_MENU_CATEGORY,
+    UPDATE_MENU_CATEGORY,
     formData,
     "get-menu-categories"
   );
 
   const onSubmit = async (values: any) => {
-    const payload = setFormData(values);
-    mutation.mutate();
+    setFormData(values);
+    await mutation.mutate();
   };
 
   return (
-    <Box mb={4}>
+    <>
       <Popover
         isOpen={isOpen}
         onOpen={onOpen}
@@ -76,7 +66,12 @@ export const EditCategory = (props: Props) => {
         closeOnBlur={true}
       >
         <PopoverTrigger>
-          <IconButton aria-label="edit" size="sm" icon={<EditIcon />} />
+          <IconButton
+            colorScheme="gray"
+            aria-label="Edit"
+            size="sm"
+            icon={<EditIcon />}
+          />
         </PopoverTrigger>
         <PopoverContent p={6}>
           <PopoverArrow />
@@ -91,28 +86,16 @@ export const EditCategory = (props: Props) => {
               <Box as="form" onSubmit={handleSubmit as any}>
                 <Grid templateColumns="1fr" gap={8}>
                   <Stack spacing="6">
-                    <InputControl
-                      inputProps={{ size: "sm" }}
-                      name="name"
-                      label="Name"
-                    />
-                    <InputControl
-                      inputProps={{ size: "sm" }}
-                      name="description"
-                      label="Description"
-                    />
-                    <CheckboxSingleControl
-                      checkBoxProps={{ size: "md" }}
-                      name="isActive"
-                    >
-                      Active
-                    </CheckboxSingleControl>
-                    <CheckboxSingleControl
-                      checkBoxProps={{ size: "md" }}
-                      name="isFeatured"
-                    >
-                      Featured
-                    </CheckboxSingleControl>
+                    <InputControl name="name" label="Name" />
+                    <InputControl name="description" label="Description" />
+                    <HStack>
+                      <CheckboxSingleControl name="isActive">
+                        Active
+                      </CheckboxSingleControl>
+                      <CheckboxSingleControl name="isFeatured">
+                        Featured
+                      </CheckboxSingleControl>
+                    </HStack>
                   </Stack>
                 </Grid>
                 <Stack mt={10} pb={2}>
@@ -131,6 +114,6 @@ export const EditCategory = (props: Props) => {
           </Formik>
         </PopoverContent>
       </Popover>
-    </Box>
+    </>
   );
 };

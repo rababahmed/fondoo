@@ -57,6 +57,7 @@ export const SettingsModule = () => {
   const mutation = useGQLMutation(
     EDIT_RESTAURANT,
     {
+      id: restaurantID,
       name: formData.name,
       email: formData.email,
       url: formData.url,
@@ -70,7 +71,7 @@ export const SettingsModule = () => {
 
   const onSubmit = async (values: any) => {
     setFormData(values);
-    mutation.mutate();
+    await mutation.mutate();
     if (mutation.isError) {
       toast({
         title: "Whoops! Error.",
