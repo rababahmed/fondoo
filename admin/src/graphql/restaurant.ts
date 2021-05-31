@@ -41,3 +41,45 @@ export const GET_RESTAURANT_INFO = gql`
     }
   }
 `;
+
+export const GET_RESTAURANT_SCHEDULES = gql`
+  query RestaurantSchedules($id: String) {
+    schedules(where: { restaurantId: { equals: $id } }) {
+      id
+      day
+      openingTime
+      closingTime
+      deliveryTime
+      takeawayTime
+    }
+  }
+`;
+
+export const ADD_RESTAURANT_SCHEDULE = gql`
+  mutation AddSchedule(
+    $day: String
+    $openingTime: String
+    $closingTime: String
+    $deliveryTime: String
+    $takeawayTime: String
+    $restaurantID: String
+  ) {
+    createSchedule(
+      data: {
+        day: $day
+        openingTime: $openingTime
+        closingTime: $closingTime
+        deliveryTime: $deliveryTime
+        takeawayTime: $takeawayTime
+        Restaurant: { connect: { id: $restaurantID } }
+      }
+    ) {
+      id
+      day
+      openingTime
+      closingTime
+      deliveryTime
+      takeawayTime
+    }
+  }
+`;

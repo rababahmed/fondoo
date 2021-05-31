@@ -101,8 +101,8 @@ model Schedule {
   day          String?
   openingTime  String?
   closingTime  String?
-  deliveryTime String?
-  takeawayTime String?
+  deliveryTime Int?
+  takeawayTime Int?
   Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
   restaurantId String?
 }

@@ -2,8 +2,8 @@ import { Box, Grid, Heading } from "@chakra-ui/layout";
 import Head from "next/head";
 import React from "react";
 import DesktopLayout from "../layouts/DesktopLayout";
-import { AddUser } from "../modules/Users/AddUser";
 import { SchedulesModule } from "../modules/Schedule/SchedulesModule";
+import { AddSchedule } from "../modules/Schedule/AddSchedule";
 
 const SchedulePage = () => {
   return (
@@ -18,7 +18,7 @@ const SchedulePage = () => {
         <Grid templateColumns="1fr 1fr">
           <Box />
           <Box mr={8} gridArea="right">
-            <AddUser />
+            <AddSchedule />
           </Box>
         </Grid>
         <SchedulesModule />
