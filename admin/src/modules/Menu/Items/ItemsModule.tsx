@@ -21,8 +21,8 @@ import {
 import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
 import { GET_MENU_ITEMS } from "../../../graphql/menu";
 import { useUserStore } from "../../../store/useUserStore";
-import { EditCategory } from "../Categories/EditCategory";
-import DeleteCategory from "../Categories/DeleteCategory";
+import { EditItem } from "./EditItem";
+import { DeleteItem } from "./DeleteItem";
 
 export const ItemsModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
@@ -83,14 +83,16 @@ export const ItemsModule = () => {
                             <Td>{product.isPopular ? "Yes" : "No"}</Td>
                             <Td>
                               <HStack>
-                                <EditCategory
+                                <EditItem
                                   id={product.id}
                                   name={product.name}
                                   description={product.description}
+                                  spiceLevel={product.spiceLevel}
+                                  price={product.price}
                                   isActive={product.isActive}
-                                  isFeatured={product.isFeatured}
+                                  isPopular={product.isPopular}
                                 />
-                                <DeleteCategory id={product.id} />
+                                <DeleteItem id={product.id} />
                               </HStack>
                             </Td>
                           </Tr>
