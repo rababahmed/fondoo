@@ -85,10 +85,10 @@ export const AddItem = () => {
     "get-menu-items"
   );
 
-  const onSubmit = async (values: any) => {
-    const payload = await setFormData(values);
-    console.log(formData);
-    mutation.mutate();
+  const onSubmit = async (values: any, { resetForm }: any) => {
+    setFormData(values);
+    await mutation.mutate();
+    mutation.isSuccess ? resetForm() : null;
   };
 
   return (

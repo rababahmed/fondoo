@@ -18,7 +18,11 @@ export const ScheduleQuery = extendType({
   type: "Query",
   definition(t) {
     t.crud.schedule();
-    t.crud.schedules();
+    t.crud.schedules({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
   },
 });
 
