@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/layout";
+import { Box, HStack } from "@chakra-ui/layout";
 import React, { useEffect, useState } from "react";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { gql } from "graphql-request";
@@ -14,10 +14,9 @@ import {
   TableCaption,
   Button,
 } from "@chakra-ui/react";
-import { DELETE_USER, GET_RESTAURANT_USER } from "../../graphql/user";
-import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
-import { useQueryClient } from "react-query";
 import { GET_RESTAURANT_SCHEDULES } from "../../graphql/restaurant";
+import { DeleteSchedule } from "./DeleteSchedule";
+import { EditSchedule } from "./EditSchedule";
 
 export const SchedulesModule = () => {
   const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
@@ -57,6 +56,19 @@ export const SchedulesModule = () => {
                   <Td>{sc.closingTime}</Td>
                   <Td>{sc.deliveryTime}</Td>
                   <Td>{sc.takeawayTime}</Td>
+                  <Td>
+                    <HStack>
+                      <EditSchedule
+                        id={sc.id}
+                        day={sc.day}
+                        openingTime={sc.openingTime}
+                        closingTime={sc.closingTime}
+                        deliveryTime={sc.deliveryTime}
+                        takeawayTime={sc.takeawayTime}
+                      />
+                      <DeleteSchedule id={sc.id} />
+                    </HStack>
+                  </Td>
                 </Tr>
               ))}
           </Tbody>

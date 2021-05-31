@@ -23,7 +23,11 @@ export const ProductQuery = extendType({
   type: "Query",
   definition(t) {
     t.crud.product();
-    t.crud.products();
+    t.crud.products({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
   },
 });
 

@@ -16,7 +16,11 @@ export const CouponQuery = extendType({
   type: "Query",
   definition(t) {
     t.crud.coupon();
-    t.crud.coupons();
+    t.crud.coupons({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
   },
 });
 

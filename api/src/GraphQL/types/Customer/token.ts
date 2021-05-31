@@ -14,7 +14,11 @@ export const CustomerQuery = extendType({
   type: "Query",
   definition(t) {
     t.crud.customerToken();
-    t.crud.customerTokens();
+    t.crud.customerTokens({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
   },
 });
 

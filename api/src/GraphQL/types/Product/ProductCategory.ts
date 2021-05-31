@@ -19,7 +19,11 @@ export const ProductCategoryQuery = extendType({
   type: "Query",
   definition(t) {
     t.crud.productCategory();
-    t.crud.productCategories();
+    t.crud.productCategories({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
   },
 });
 

@@ -20,7 +20,11 @@ export const OrderItemQuery = extendType({
   type: "Query",
   definition(t) {
     t.crud.orderItem();
-    t.crud.orderItems();
+    t.crud.orderItems({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
   },
 });
 

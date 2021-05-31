@@ -13,10 +13,22 @@ import {
   Td,
   TableCaption,
   Button,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverCloseButton,
+  PopoverArrow,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  ButtonGroup,
+  IconButton,
 } from "@chakra-ui/react";
 import { DELETE_USER, GET_RESTAURANT_USER } from "../../graphql/user";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
 import { useQueryClient } from "react-query";
+import { ResetButton } from "formik-chakra-ui";
+import { FaTrash } from "react-icons/fa";
 
 export const UsersModule = () => {
   const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
@@ -25,8 +37,6 @@ export const UsersModule = () => {
   );
 
   useEffect(() => {}, [isFetching]);
-
-  const queryClient = useQueryClient();
 
   const [userId, setUserId] = useState("");
 
@@ -76,14 +86,43 @@ export const UsersModule = () => {
                   <Td>{user.role}</Td>
                   <Td>{user.phone}</Td>
                   <Td>
-                    <Button
-                      onClick={() => handleDelete(user.id)}
-                      size="sm"
-                      colorScheme="red"
-                      isDisabled={mutation.isLoading}
-                    >
-                      Delete
-                    </Button>
+                    <Popover>
+                      {({ isOpen, onClose }) => (
+                        <>
+                          <PopoverTrigger>
+                            <IconButton
+                              aria-label="Delete"
+                              colorScheme="red"
+                              size="sm"
+                            >
+                              <FaTrash />
+                            </IconButton>
+                          </PopoverTrigger>
+                          <PopoverContent>
+                            <PopoverArrow />
+                            <PopoverCloseButton />
+                            <PopoverHeader>Confirmation!</PopoverHeader>
+                            <PopoverBody>
+                              Are you sure you want to delete this user?
+                            </PopoverBody>
+                            <PopoverFooter d="flex" justifyContent="flex-end">
+                              <ButtonGroup size="sm">
+                                <Button onClick={onClose} variant="outline">
+                                  Cancel
+                                </Button>
+                                <Button
+                                  onClick={() => handleDelete(user.id)}
+                                  isDisabled={mutation.isLoading}
+                                  colorScheme="red"
+                                >
+                                  Delete
+                                </Button>
+                              </ButtonGroup>
+                            </PopoverFooter>
+                          </PopoverContent>
+                        </>
+                      )}
+                    </Popover>
                   </Td>
                 </Tr>
               ))}

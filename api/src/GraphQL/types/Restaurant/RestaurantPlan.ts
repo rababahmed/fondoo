@@ -15,7 +15,11 @@ export const RestaurantPlanQuery = extendType({
   type: "Query",
   definition(t) {
     t.crud.restaurantPlan();
-    t.crud.restaurantPlans();
+    t.crud.restaurantPlans({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
   },
 });
 

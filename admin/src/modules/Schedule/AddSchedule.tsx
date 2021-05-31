@@ -37,8 +37,8 @@ export const AddSchedule = () => {
     day: "",
     openingTime: "",
     closingTime: "",
-    deliveryTime: 40,
-    takeawayTime: 40,
+    deliveryTime: 30,
+    takeawayTime: 30,
     restaurantID: restaurantID,
   };
 
@@ -46,8 +46,8 @@ export const AddSchedule = () => {
     day: Yup.string().required(),
     openingTime: Yup.string().required(),
     closingTime: Yup.string().required(),
-    deliveryTime: Yup.string().required(),
-    takeawayTime: Yup.string().required(),
+    deliveryTime: Yup.number().required(),
+    takeawayTime: Yup.number().required(),
   });
 
   const [formData, setFormData] = useState(initialValues);
@@ -80,7 +80,7 @@ export const AddSchedule = () => {
               enableReinitialize={true}
               validationSchema={validationSchema}
             >
-              {({ handleSubmit }) => (
+              {({ handleSubmit, values, setFieldValue }) => (
                 <Box as="form" onSubmit={handleSubmit as any}>
                   <Grid templateColumns="1fr" gap={8}>
                     <Stack spacing="6">
@@ -111,10 +111,20 @@ export const AddSchedule = () => {
                       </HStack>
                       <HStack>
                         <NumberInputControl
+                          numberInputProps={{
+                            onChange: (value) => {
+                              setFieldValue("deliveryTime", parseInt(value));
+                            },
+                          }}
                           name="deliveryTime"
                           label="Delivery Time (in minutes)"
                         />
                         <NumberInputControl
+                          numberInputProps={{
+                            onChange: (value) => {
+                              setFieldValue("takeawayTime", parseInt(value));
+                            },
+                          }}
                           name="takeawayTime"
                           label="Takeaway Time (in minutes)"
                         />

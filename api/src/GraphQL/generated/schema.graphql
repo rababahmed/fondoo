@@ -85,6 +85,18 @@ input CouponUpsertWithoutOrdersInput {
   update: CouponUpdateWithoutOrdersInput!
 }
 
+input CouponWhereInput {
+  AND: [CouponWhereInput!]
+  NOT: [CouponWhereInput!]
+  OR: [CouponWhereInput!]
+  code: StringFilter
+  description: StringNullableFilter
+  discount: EnumDiscountFilter
+  id: StringFilter
+  orders: OrderListRelationFilter
+  value: FloatFilter
+}
+
 input CouponWhereUniqueInput {
   id: String
 }
@@ -156,6 +168,12 @@ input CustomerAddressCreateWithoutCustomerInput {
   streetAddress: String!
 }
 
+input CustomerAddressListRelationFilter {
+  every: CustomerAddressWhereInput
+  none: CustomerAddressWhereInput
+  some: CustomerAddressWhereInput
+}
+
 input CustomerAddressScalarWhereInput {
   AND: [CustomerAddressScalarWhereInput!]
   NOT: [CustomerAddressScalarWhereInput!]
@@ -225,6 +243,20 @@ input CustomerAddressUpsertWithWhereUniqueWithoutCustomerInput {
   create: CustomerAddressCreateWithoutCustomerInput!
   update: CustomerAddressUpdateWithoutCustomerInput!
   where: CustomerAddressWhereUniqueInput!
+}
+
+input CustomerAddressWhereInput {
+  AND: [CustomerAddressWhereInput!]
+  Customer: CustomerWhereInput
+  NOT: [CustomerAddressWhereInput!]
+  OR: [CustomerAddressWhereInput!]
+  city: StringFilter
+  country: StringFilter
+  createdAt: DateTimeFilter
+  customerId: StringNullableFilter
+  id: StringFilter
+  postCode: StringFilter
+  streetAddress: StringFilter
 }
 
 input CustomerAddressWhereUniqueInput {
@@ -346,6 +378,12 @@ input CustomerCreateWithoutTokenInput {
   updatedAt: DateTime
 }
 
+input CustomerListRelationFilter {
+  every: CustomerWhereInput
+  none: CustomerWhereInput
+  some: CustomerWhereInput
+}
+
 input CustomerScalarWhereInput {
   AND: [CustomerScalarWhereInput!]
   NOT: [CustomerScalarWhereInput!]
@@ -404,6 +442,12 @@ input CustomerTokenCreateWithoutCustomerInput {
   id: String
   token: String!
   updatedAt: DateTime
+}
+
+input CustomerTokenListRelationFilter {
+  every: CustomerTokenWhereInput
+  none: CustomerTokenWhereInput
+  some: CustomerTokenWhereInput
 }
 
 input CustomerTokenScalarWhereInput {
@@ -467,6 +511,18 @@ input CustomerTokenUpsertWithWhereUniqueWithoutCustomerInput {
   create: CustomerTokenCreateWithoutCustomerInput!
   update: CustomerTokenUpdateWithoutCustomerInput!
   where: CustomerTokenWhereUniqueInput!
+}
+
+input CustomerTokenWhereInput {
+  AND: [CustomerTokenWhereInput!]
+  Customer: CustomerWhereInput
+  NOT: [CustomerTokenWhereInput!]
+  OR: [CustomerTokenWhereInput!]
+  createdAt: DateTimeFilter
+  customerId: StringNullableFilter
+  id: StringFilter
+  token: StringFilter
+  updatedAt: DateTimeFilter
 }
 
 input CustomerTokenWhereUniqueInput {
@@ -629,6 +685,24 @@ input CustomerUpsertWithoutTokenInput {
   update: CustomerUpdateWithoutTokenInput!
 }
 
+input CustomerWhereInput {
+  AND: [CustomerWhereInput!]
+  NOT: [CustomerWhereInput!]
+  OR: [CustomerWhereInput!]
+  addresses: CustomerAddressListRelationFilter
+  createdAt: DateTimeFilter
+  email: StringFilter
+  firstName: StringFilter
+  id: StringFilter
+  lastName: StringFilter
+  orders: OrderListRelationFilter
+  password: StringFilter
+  phone: StringFilter
+  restaurants: RestaurantListRelationFilter
+  token: CustomerTokenListRelationFilter
+  updatedAt: DateTimeFilter
+}
+
 input CustomerWhereUniqueInput {
   email: String
   id: String
@@ -723,6 +797,12 @@ input DeliveryZoneCreateWithoutRestaurantInput {
   zoneTitle: String!
 }
 
+input DeliveryZoneListRelationFilter {
+  every: DeliveryZoneWhereInput
+  none: DeliveryZoneWhereInput
+  some: DeliveryZoneWhereInput
+}
+
 input DeliveryZoneScalarWhereInput {
   AND: [DeliveryZoneScalarWhereInput!]
   NOT: [DeliveryZoneScalarWhereInput!]
@@ -806,6 +886,23 @@ input DeliveryZoneUpsertWithWhereUniqueWithoutRestaurantInput {
   where: DeliveryZoneWhereUniqueInput!
 }
 
+input DeliveryZoneWhereInput {
+  AND: [DeliveryZoneWhereInput!]
+  NOT: [DeliveryZoneWhereInput!]
+  OR: [DeliveryZoneWhereInput!]
+  Restaurant: RestaurantWhereInput
+  createdAt: DateTimeFilter
+  deliveryCharge: IntFilter
+  deliveryFeeType: EnumDeliveryFeeFilter
+  id: StringFilter
+  maxDeliveryRadius: IntNullableFilter
+  minDeliveryAmount: IntNullableFilter
+  minDeliveryRadius: IntNullableFilter
+  restaurantId: StringNullableFilter
+  zonePostCode: StringNullableFilter
+  zoneTitle: StringFilter
+}
+
 input DeliveryZoneWhereUniqueInput {
   id: String
 }
@@ -828,6 +925,13 @@ input EnumDeliveryFeeFilter {
 
 input EnumDiscountFieldUpdateOperationsInput {
   set: Discount
+}
+
+input EnumDiscountFilter {
+  equals: Discount
+  in: [Discount!]
+  not: NestedEnumDiscountFilter
+  notIn: [Discount!]
 }
 
 input EnumRoleFieldUpdateOperationsInput {
@@ -972,6 +1076,13 @@ input NestedEnumDeliveryFeeFilter {
   in: [DeliveryFee!]
   not: NestedEnumDeliveryFeeFilter
   notIn: [DeliveryFee!]
+}
+
+input NestedEnumDiscountFilter {
+  equals: Discount
+  in: [Discount!]
+  not: NestedEnumDiscountFilter
+  notIn: [Discount!]
 }
 
 input NestedEnumRoleFilter {
@@ -1408,6 +1519,12 @@ input OrderItemCreateWithoutRestaurantInput {
   updatedAt: DateTime
 }
 
+input OrderItemListRelationFilter {
+  every: OrderItemWhereInput
+  none: OrderItemWhereInput
+  some: OrderItemWhereInput
+}
+
 input OrderItemScalarWhereInput {
   AND: [OrderItemScalarWhereInput!]
   NOT: [OrderItemScalarWhereInput!]
@@ -1567,8 +1684,32 @@ input OrderItemUpsertWithWhereUniqueWithoutRestaurantInput {
   where: OrderItemWhereUniqueInput!
 }
 
+input OrderItemWhereInput {
+  AND: [OrderItemWhereInput!]
+  NOT: [OrderItemWhereInput!]
+  OR: [OrderItemWhereInput!]
+  Order: OrderWhereInput
+  Restaurant: RestaurantWhereInput
+  createdAt: DateTimeFilter
+  id: StringFilter
+  orderId: IntNullableFilter
+  product: ProductWhereInput
+  productId: StringFilter
+  quantity: IntFilter
+  restaurantId: StringNullableFilter
+  spiceLevel: EnumSpiceLevelFilter
+  total: IntFilter
+  updatedAt: DateTimeFilter
+}
+
 input OrderItemWhereUniqueInput {
   id: String
+}
+
+input OrderListRelationFilter {
+  every: OrderWhereInput
+  none: OrderWhereInput
+  some: OrderWhereInput
 }
 
 input OrderScalarWhereInput {
@@ -1783,6 +1924,29 @@ input OrderUpsertWithoutItemsInput {
   update: OrderUpdateWithoutItemsInput!
 }
 
+input OrderWhereInput {
+  AND: [OrderWhereInput!]
+  Coupon: CouponWhereInput
+  Customer: CustomerWhereInput
+  NOT: [OrderWhereInput!]
+  OR: [OrderWhereInput!]
+  address: StringNullableFilter
+  couponId: StringNullableFilter
+  createdAt: DateTimeFilter
+  customerId: StringNullableFilter
+  deliveryCharges: FloatFilter
+  discount: FloatFilter
+  id: IntFilter
+  isAccepted: BoolFilter
+  items: OrderItemListRelationFilter
+  restaurant: RestaurantWhereInput
+  restaurantId: StringFilter
+  serviceCharge: FloatFilter
+  total: FloatFilter
+  updatedAt: DateTimeFilter
+  vat: FloatFilter
+}
+
 input OrderWhereUniqueInput {
   id: Int
 }
@@ -1887,6 +2051,12 @@ input ProductCategoryCreateWithoutRestaurantsInput {
   name: String!
 }
 
+input ProductCategoryListRelationFilter {
+  every: ProductCategoryWhereInput
+  none: ProductCategoryWhereInput
+  some: ProductCategoryWhereInput
+}
+
 input ProductCategoryScalarWhereInput {
   AND: [ProductCategoryScalarWhereInput!]
   NOT: [ProductCategoryScalarWhereInput!]
@@ -1988,6 +2158,22 @@ input ProductCategoryUpsertWithWhereUniqueWithoutRestaurantsInput {
 input ProductCategoryUpsertWithoutProductInput {
   create: ProductCategoryCreateWithoutProductInput!
   update: ProductCategoryUpdateWithoutProductInput!
+}
+
+input ProductCategoryWhereInput {
+  AND: [ProductCategoryWhereInput!]
+  NOT: [ProductCategoryWhereInput!]
+  OR: [ProductCategoryWhereInput!]
+  Product: ProductListRelationFilter
+  createdAt: DateTimeFilter
+  description: StringNullableFilter
+  id: StringFilter
+  image: StringNullableFilter
+  isActive: BoolNullableFilter
+  isFeatured: BoolNullableFilter
+  name: StringFilter
+  restaurantId: StringFilter
+  restaurants: RestaurantWhereInput
 }
 
 input ProductCategoryWhereUniqueInput {
@@ -2120,6 +2306,12 @@ input ProductCreateWithoutRestaurantInput {
   name: String!
   price: Int
   spiceLevel: SpiceLevel
+}
+
+input ProductListRelationFilter {
+  every: ProductWhereInput
+  none: ProductWhereInput
+  some: ProductWhereInput
 }
 
 input ProductScalarWhereInput {
@@ -2281,6 +2473,26 @@ input ProductUpsertWithoutOrderItemInput {
   update: ProductUpdateWithoutOrderItemInput!
 }
 
+input ProductWhereInput {
+  AND: [ProductWhereInput!]
+  NOT: [ProductWhereInput!]
+  OR: [ProductWhereInput!]
+  OrderItem: OrderItemListRelationFilter
+  ProductCategory: ProductCategoryWhereInput
+  Restaurant: RestaurantWhereInput
+  createdAt: DateTimeFilter
+  description: StringNullableFilter
+  id: StringFilter
+  image: StringNullableFilter
+  isActive: BoolNullableFilter
+  isPopular: BoolNullableFilter
+  name: StringFilter
+  price: IntNullableFilter
+  productCategoryId: StringNullableFilter
+  restaurantId: StringNullableFilter
+  spiceLevel: EnumSpiceLevelFilter
+}
+
 input ProductWhereUniqueInput {
   id: String
 }
@@ -2301,13 +2513,15 @@ type Query {
   orderItems(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
   orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
   product(where: ProductWhereUniqueInput!): Product
+  productCategories(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int): [ProductCategory!]!
+  productCategory(where: ProductCategoryWhereUniqueInput!): ProductCategory
   products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int): [Product!]!
   restaurant(where: RestaurantWhereUniqueInput!): Restaurant
   restaurantPlan(where: RestaurantPlanWhereUniqueInput!): RestaurantPlan
   restaurantPlans(after: RestaurantPlanWhereUniqueInput, before: RestaurantPlanWhereUniqueInput, first: Int, last: Int): [RestaurantPlan!]!
   restaurants(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
   schedule(where: ScheduleWhereUniqueInput!): Schedule
-  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int): [Schedule!]!
+  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int, orderBy: [ScheduleOrderByInput!], where: ScheduleWhereInput): [Schedule!]!
   user(where: UserWhereUniqueInput!): User
   userToken(where: UserTokenWhereUniqueInput!): UserToken
   userTokens(after: UserTokenWhereUniqueInput, before: UserTokenWhereUniqueInput, first: Int, last: Int): [UserToken!]!
@@ -2862,6 +3076,12 @@ input RestaurantCreateWithoutUsersInput {
   vat: String
 }
 
+input RestaurantListRelationFilter {
+  every: RestaurantWhereInput
+  none: RestaurantWhereInput
+  some: RestaurantWhereInput
+}
+
 type RestaurantPlan {
   id: String!
   isActive: Boolean!
@@ -2924,6 +3144,17 @@ input RestaurantPlanUpdateWithoutRestaurantsInput {
 input RestaurantPlanUpsertWithoutRestaurantsInput {
   create: RestaurantPlanCreateWithoutRestaurantsInput!
   update: RestaurantPlanUpdateWithoutRestaurantsInput!
+}
+
+input RestaurantPlanWhereInput {
+  AND: [RestaurantPlanWhereInput!]
+  NOT: [RestaurantPlanWhereInput!]
+  OR: [RestaurantPlanWhereInput!]
+  id: StringFilter
+  isActive: BoolFilter
+  name: StringFilter
+  price: FloatFilter
+  restaurants: RestaurantListRelationFilter
 }
 
 input RestaurantPlanWhereUniqueInput {
@@ -3537,6 +3768,48 @@ input RestaurantUpsertWithoutSchedulesInput {
   update: RestaurantUpdateWithoutSchedulesInput!
 }
 
+input RestaurantWhereInput {
+  AND: [RestaurantWhereInput!]
+  NOT: [RestaurantWhereInput!]
+  OR: [RestaurantWhereInput!]
+  address: StringNullableFilter
+  businessPhone: StringNullableFilter
+  city: StringNullableFilter
+  country: StringNullableFilter
+  createdAt: DateTimeFilter
+  cuisine: StringNullableFilter
+  currency: StringNullableFilter
+  customers: CustomerListRelationFilter
+  deliveryZones: DeliveryZoneListRelationFilter
+  diningStyle: StringNullableFilter
+  email: StringFilter
+  hasKidsZone: BoolNullableFilter
+  hasParkingFacilities: BoolNullableFilter
+  hasPartyFacilities: BoolNullableFilter
+  id: StringFilter
+  isAutoAcceptOrder: BoolNullableFilter
+  isAutoAcceptReservation: BoolNullableFilter
+  isDelivery: BoolNullableFilter
+  isReservation: BoolNullableFilter
+  isTakeaway: BoolNullableFilter
+  name: StringFilter
+  orderItems: OrderItemListRelationFilter
+  orders: OrderListRelationFilter
+  plan: RestaurantPlanWhereInput
+  postCode: StringNullableFilter
+  priceRange: StringNullableFilter
+  productCategory: ProductCategoryListRelationFilter
+  products: ProductListRelationFilter
+  reservationPhone: StringNullableFilter
+  restaurantPlanId: StringNullableFilter
+  schedules: ScheduleListRelationFilter
+  serviceCharge: StringNullableFilter
+  updatedAt: DateTimeFilter
+  url: StringNullableFilter
+  users: UserListRelationFilter
+  vat: StringNullableFilter
+}
+
 input RestaurantWhereUniqueInput {
   id: String
 }
@@ -3605,6 +3878,23 @@ input ScheduleCreateWithoutRestaurantInput {
   id: String
   openingTime: String
   takeawayTime: String
+}
+
+input ScheduleListRelationFilter {
+  every: ScheduleWhereInput
+  none: ScheduleWhereInput
+  some: ScheduleWhereInput
+}
+
+input ScheduleOrderByInput {
+  closingTime: SortOrder
+  createdAt: SortOrder
+  day: SortOrder
+  deliveryTime: SortOrder
+  id: SortOrder
+  openingTime: SortOrder
+  restaurantId: SortOrder
+  takeawayTime: SortOrder
 }
 
 input ScheduleScalarWhereInput {
@@ -3682,8 +3972,28 @@ input ScheduleUpsertWithWhereUniqueWithoutRestaurantInput {
   where: ScheduleWhereUniqueInput!
 }
 
+input ScheduleWhereInput {
+  AND: [ScheduleWhereInput!]
+  NOT: [ScheduleWhereInput!]
+  OR: [ScheduleWhereInput!]
+  Restaurant: RestaurantWhereInput
+  closingTime: StringNullableFilter
+  createdAt: DateTimeFilter
+  day: StringNullableFilter
+  deliveryTime: StringNullableFilter
+  id: StringFilter
+  openingTime: StringNullableFilter
+  restaurantId: StringNullableFilter
+  takeawayTime: StringNullableFilter
+}
+
 input ScheduleWhereUniqueInput {
   id: String
+}
+
+enum SortOrder {
+  asc
+  desc
 }
 
 enum SpiceLevel {
@@ -3798,6 +4108,12 @@ input UserCreateWithoutTokenInput {
   role: Role
 }
 
+input UserListRelationFilter {
+  every: UserWhereInput
+  none: UserWhereInput
+  some: UserWhereInput
+}
+
 input UserScalarWhereInput {
   AND: [UserScalarWhereInput!]
   NOT: [UserScalarWhereInput!]
@@ -3860,6 +4176,12 @@ input UserTokenCreateWithoutUserInput {
   provider: String
   token: String!
   updatedAt: DateTime
+}
+
+input UserTokenListRelationFilter {
+  every: UserTokenWhereInput
+  none: UserTokenWhereInput
+  some: UserTokenWhereInput
 }
 
 input UserTokenScalarWhereInput {
@@ -3927,6 +4249,19 @@ input UserTokenUpsertWithWhereUniqueWithoutUserInput {
   create: UserTokenCreateWithoutUserInput!
   update: UserTokenUpdateWithoutUserInput!
   where: UserTokenWhereUniqueInput!
+}
+
+input UserTokenWhereInput {
+  AND: [UserTokenWhereInput!]
+  NOT: [UserTokenWhereInput!]
+  OR: [UserTokenWhereInput!]
+  User: UserWhereInput
+  createdAt: DateTimeFilter
+  id: StringFilter
+  provider: StringNullableFilter
+  token: StringFilter
+  updatedAt: DateTimeFilter
+  userId: StringNullableFilter
 }
 
 input UserTokenWhereUniqueInput {
@@ -4023,6 +4358,22 @@ input UserUpsertWithWhereUniqueWithoutRestaurantsInput {
 input UserUpsertWithoutTokenInput {
   create: UserCreateWithoutTokenInput!
   update: UserUpdateWithoutTokenInput!
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  createdAt: DateTimeFilter
+  email: StringFilter
+  firstName: StringFilter
+  id: StringFilter
+  lastName: StringFilter
+  password: StringFilter
+  phone: StringNullableFilter
+  restaurants: RestaurantListRelationFilter
+  role: EnumRoleFilter
+  token: UserTokenListRelationFilter
 }
 
 input UserWhereUniqueInput {

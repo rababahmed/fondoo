@@ -20,7 +20,11 @@ export const DeliveryZoneQuery = extendType({
   type: "Query",
   definition(t) {
     t.crud.deliveryZone();
-    t.crud.deliveryZones();
+    t.crud.deliveryZones({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
   },
 });
 

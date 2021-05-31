@@ -60,8 +60,8 @@ export const ADD_RESTAURANT_SCHEDULE = gql`
     $day: String
     $openingTime: String
     $closingTime: String
-    $deliveryTime: String
-    $takeawayTime: String
+    $deliveryTime: Int
+    $takeawayTime: Int
     $restaurantID: String
   ) {
     createSchedule(
@@ -80,6 +80,38 @@ export const ADD_RESTAURANT_SCHEDULE = gql`
       closingTime
       deliveryTime
       takeawayTime
+    }
+  }
+`;
+
+export const EDIT_RESTAURANT_SCHEDULE = gql`
+  mutation UpdateSchedule(
+    $id: String
+    $day: String
+    $openingTime: String
+    $closingTime: String
+    $deliveryTime: Int
+    $takeawayTime: Int
+  ) {
+    updateSchedule(
+      data: {
+        day: { set: $day }
+        openingTime: { set: $openingTime }
+        closingTime: { set: $closingTime }
+        deliveryTime: { set: $deliveryTime }
+        takeawayTime: { set: $takeawayTime }
+      }
+      where: { id: $id }
+    ) {
+      id
+    }
+  }
+`;
+
+export const DELETE_RESTAURANT_SCHEDULE = gql`
+  mutation DeleteSchedule($id: String) {
+    deleteSchedule(where: { id: $id }) {
+      id
     }
   }
 `;

@@ -17,7 +17,11 @@ export const CustomerQuery = extendType({
   type: "Query",
   definition(t) {
     t.crud.customerAddress();
-    t.crud.customerAddresses();
+    t.crud.customerAddresses({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
   },
 });
 
