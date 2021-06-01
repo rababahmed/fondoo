@@ -1,5 +1,7 @@
 import express from "express";
 import prisma from "../../PrismaClient";
+import * as jwt from "jsonwebtoken";
+const jwtSecret = require("../../config/jwtConfig");
 const bcrypt = require("bcryptjs");
 
 const router = express.Router();
@@ -25,7 +27,8 @@ router.post("/signup", async (req, res) => {
       },
     });
     res.status(200).send(result);
-  } catch {
+  } catch (err) {
+    console.log(err);
     res.status(400).send({ message: "Error creating user" });
   }
 });
@@ -41,7 +44,12 @@ router.post("/login", async (req, res) => {
     if (user) {
       const validPass = await bcrypt.compare(password, user.password);
       if (validPass) {
+        const token = jwt.sign({ id: user.id }, jwtSecret.secret, {
+          expiresIn: "30 days",
+        });
         res.status(200).send({
+          token: token,
+          isAuthenticated: true,
           id: user.id,
           role: user.role,
           message: "User authenticated",

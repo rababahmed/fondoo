@@ -399,8 +399,8 @@ interface NexusPrismaOutputs {
     day: 'String'
     openingTime: 'String'
     closingTime: 'String'
-    deliveryTime: 'String'
-    takeawayTime: 'String'
+    deliveryTime: 'Int'
+    takeawayTime: 'Int'
     Restaurant: 'Restaurant'
     restaurantId: 'String'
   }
