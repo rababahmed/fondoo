@@ -1,16 +1,16 @@
 import { gql } from "graphql-request";
 
 export const GET_MENU_CATEGORIES = gql`
-  query productCategories($id: String) {
-    restaurant(where: { id: $id }) {
-      productCategory {
-        id
-        name
-        description
-        image
-        isActive
-        isFeatured
-      }
+  query RestuarantProductCategories($id: String) {
+    productCategories(
+      orderBy: { createdAt: asc }
+      where: { restaurantId: { equals: $id } }
+    ) {
+      id
+      name
+      description
+      isActive
+      isFeatured
     }
   }
 `;
@@ -86,20 +86,21 @@ export const DELETE_MENU_ITEM = gql`
 `;
 
 export const GET_MENU_ITEMS = gql`
-  query Products($id: String) {
-    restaurant(where: { id: $id }) {
-      productCategory {
+  query RestuarantProducts($id: String) {
+    productCategories(
+      orderBy: { createdAt: asc }
+      where: { restaurantId: { equals: $id } }
+    ) {
+      id
+      name
+      Product {
         id
         name
-        Product {
-          id
-          name
-          description
-          price
-          spiceLevel
-          isPopular
-          isActive
-        }
+        description
+        price
+        spiceLevel
+        isPopular
+        isActive
       }
     }
   }

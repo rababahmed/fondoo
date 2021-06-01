@@ -34,7 +34,6 @@ export const ItemsModule = () => {
       id: restaurantID,
     }
   );
-  console.log(data);
 
   return (
     <>
@@ -51,7 +50,7 @@ export const ItemsModule = () => {
         <Accordion defaultIndex={[0]} allowToggle>
           <Skeleton isLoaded={!isLoading}>
             {isSuccess &&
-              data.restaurant.productCategory.map((cat: any) => (
+              data.productCategories.map((cat: any) => (
                 <AccordionItem key={cat.id} p={2}>
                   <AccordionButton rounded="lg">
                     <Box flex="1" textAlign="left">

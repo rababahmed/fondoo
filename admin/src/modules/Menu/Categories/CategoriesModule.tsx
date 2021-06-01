@@ -43,7 +43,7 @@ export const CategoriesModule = () => {
 
           <Tbody>
             {isSuccess &&
-              data.restaurant.productCategory.map((cat: any) => (
+              data.productCategories.map((cat: any) => (
                 <Tr key={cat.id}>
                   <Td>{cat.name}</Td>
                   <Td>{cat.description}</Td>
