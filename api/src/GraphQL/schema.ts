@@ -2,7 +2,7 @@ import { nexusPrisma } from "nexus-plugin-prisma";
 import { fieldAuthorizePlugin, makeSchema } from "nexus";
 import path from "path";
 import * as types from "./types/";
-import { deny, nexusShield } from "nexus-shield";
+import { allow, deny, nexusShield } from "nexus-shield";
 import { ForbiddenError } from "apollo-server-errors";
 
 export const schema = makeSchema({
