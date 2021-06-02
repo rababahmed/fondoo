@@ -24,6 +24,7 @@
     "@types/jsonwebtoken": "^8.5.1",
     "@types/node": "^15.0.2",
     "@types/passport": "^1.0.6",
+    "@types/passport-jwt": "^3.0.5",
     "@types/passport-local": "^1.0.33",
     "nodemon": "^2.0.7",
     "prisma": "2.23.0",
@@ -47,8 +48,9 @@
     "jsonwebtoken": "^8.5.1",
     "nexus": "^1.0.0",
     "nexus-plugin-prisma": "^0.35.0",
+    "nexus-shield": "^2.0.0",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
+    "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.1.1"
   }

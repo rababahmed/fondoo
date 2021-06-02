@@ -8,7 +8,6 @@ import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 
 const initialValues = {
   email: "",

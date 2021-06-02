@@ -3,9 +3,9 @@ import * as express from "express";
 const userAuthRouter = require("./UserAuth");
 const restaurantRouter = require("./RestaurantRouter");
 
-let router = express.Router();
+let v1Router = express.Router();
 
-router.use("/restaurants", restaurantRouter);
-router.use("/user", userAuthRouter);
+v1Router.use("/restaurants", restaurantRouter);
+v1Router.use("/user", userAuthRouter);
 
-export = router;
+export default v1Router;

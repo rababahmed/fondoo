@@ -1,7 +1,7 @@
 import express from "express";
 import prisma from "../../PrismaClient";
 import * as jwt from "jsonwebtoken";
-const jwtSecret = require("../../config/jwtConfig");
+import { config } from "../../lib/config";
 const bcrypt = require("bcryptjs");
 
 const router = express.Router();
@@ -44,8 +44,8 @@ router.post("/login", async (req, res) => {
     if (user) {
       const validPass = await bcrypt.compare(password, user.password);
       if (validPass) {
-        const token = jwt.sign({ id: user.id }, jwtSecret.secret, {
-          expiresIn: "30 days",
+        const token = jwt.sign({ id: user.id }, config.passport.secret, {
+          expiresIn: config.passport.expiresIn,
         });
         res.status(200).send({
           token: token,
