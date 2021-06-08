@@ -1,4 +1,6 @@
 import { extendType, objectType } from "nexus";
+import { or } from "nexus-shield";
+import { isAdmin, isManager, isOwner } from "../../rules/isAuthenticated";
 
 export const Order = objectType({
   name: "Order",
@@ -29,6 +31,7 @@ export const OrderQuery = extendType({
       filtering: true,
       ordering: true,
       pagination: true,
+      shield: or(isAdmin(), isOwner(), isManager()),
     });
   },
 });

@@ -1,6 +1,5 @@
 import { extendType, objectType } from "nexus";
-import { or } from "nexus-shield";
-import { isAdmin, isManager, isOwner } from "../../rules/isAuthenticated";
+import { isAdmin } from "../../rules/isAuthenticated";
 
 export const RestaurantPlan = objectType({
   name: "RestaurantPlan",
@@ -9,7 +8,7 @@ export const RestaurantPlan = objectType({
     t.model.name();
     t.model.price();
     t.model.isActive();
-    t.model.restaurants();
+    t.model.restaurants({ shield: isAdmin() });
   },
 });
 
@@ -18,7 +17,6 @@ export const RestaurantPlanQuery = extendType({
   definition(t) {
     t.crud.restaurantPlan();
     t.crud.restaurantPlans({
-      shield: or(isAdmin(), isOwner(), isManager()),
       filtering: true,
       ordering: true,
       pagination: true,
@@ -31,15 +29,15 @@ export const RestaurantPlanMutation = extendType({
   definition(t) {
     t.crud.createOneRestaurantPlan({
       alias: "createRestaurantPlan",
-      shield: or(isAdmin(), isOwner(), isManager()),
+      shield: isAdmin(),
     });
     t.crud.updateOneRestaurantPlan({
       alias: "updateRestaurantPlan",
-      shield: or(isAdmin(), isOwner(), isManager()),
+      shield: isAdmin(),
     });
     t.crud.deleteOneRestaurantPlan({
       alias: "deleteRestaurantPlan",
-      shield: or(isAdmin(), isOwner(), isManager()),
+      shield: isAdmin(),
     });
   },
 });

@@ -24,7 +24,6 @@ export const ScheduleQuery = extendType({
       filtering: true,
       ordering: true,
       pagination: true,
-      shield: or(isAdmin(), isOwner(), isManager()),
     });
   },
 });
