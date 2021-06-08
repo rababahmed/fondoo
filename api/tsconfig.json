@@ -5,6 +5,12 @@
     "lib": ["esnext", "esnext.asynciterable"],
     "skipLibCheck": true,
     "sourceMap": true,
+    "plugins": [
+      {
+        "name": "nexus/typescript-language-service"
+      }
+    ],
+    "typeRoots": ["node_modules/@types", "types"],
     "outDir": "./dist",
     "moduleResolution": "node",
     "removeComments": true,
@@ -24,5 +30,5 @@
     "baseUrl": "."
   },
   "exclude": ["node_modules"],
-  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
+  "include": ["./src/**/*.tsx", "./src/**/*.ts", "types.d.ts"]
 }

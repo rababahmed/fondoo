@@ -3,7 +3,6 @@ import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import { createContext } from "./context";
 import { schema } from "./GraphQL/schema";
-import "./GraphQL/generated/nexus";
 import passport from "passport";
 import v1Router from "./routes/v1/index";
 import cors from "cors";
