@@ -11,6 +11,9 @@ export const schema = makeSchema({
     nexusPrisma({
       experimentalCRUD: true,
       shouldGenerateArtifacts: true,
+      outputs: {
+        typegen: __dirname + "/generated/typegen-nexus-plugin-prisma.d.ts",
+      },
     }),
     nexusShield({
       defaultError: new ForbiddenError("Access Denied"),
