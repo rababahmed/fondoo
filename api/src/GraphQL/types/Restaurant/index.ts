@@ -1,4 +1,6 @@
 import { extendType, objectType } from "nexus";
+import { or } from "nexus-shield";
+import { isAdmin, isManager, isOwner } from "../../rules/isAuthenticated";
 
 export const Restaurant = objectType({
   name: "Restaurant",
@@ -29,14 +31,14 @@ export const Restaurant = objectType({
     t.model.isAutoAcceptReservation();
     t.model.schedules();
     t.model.deliveryZones();
-    t.model.customers();
-    t.model.orders();
-    t.model.orderItems();
+    t.model.customers({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.orders({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.orderItems({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.productCategory();
     t.model.products();
-    t.model.plan();
-    t.model.restaurantPlanId();
-    t.model.users();
+    t.model.plan({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.restaurantPlanId({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.users({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.createdAt();
   },
 });
@@ -49,6 +51,7 @@ export const RestaurantQuery = extendType({
       filtering: true,
       ordering: true,
       pagination: true,
+      shield: or(isAdmin(), isOwner(), isManager()),
     });
   },
 });
@@ -56,9 +59,18 @@ export const RestaurantQuery = extendType({
 export const RestaurantMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.crud.createOneRestaurant({ alias: "createRestaurant" });
-    t.crud.updateOneRestaurant({ alias: "updateRestaurant" });
-    t.crud.deleteOneRestaurant({ alias: "deleteRestaurant" });
+    t.crud.createOneRestaurant({
+      alias: "createRestaurant",
+      shield: or(isAdmin(), isOwner(), isManager()),
+    });
+    t.crud.updateOneRestaurant({
+      alias: "updateRestaurant",
+      shield: or(isAdmin(), isOwner(), isManager()),
+    });
+    t.crud.deleteOneRestaurant({
+      alias: "deleteRestaurant",
+      shield: or(isAdmin(), isOwner(), isManager()),
+    });
   },
 });
 

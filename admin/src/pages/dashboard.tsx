@@ -25,7 +25,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
     data ? setRestaurant(data.user.restaurants[0].id) : null;
-  }, [isSuccess]);
+  }, [data]);
 
   return (
     <div>

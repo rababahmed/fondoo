@@ -5,7 +5,6 @@
 
 
 import { Context } from "./../../context"
-import { FieldAuthorizeResolver } from "nexus/dist/plugins/fieldAuthorizePlugin"
 import { FieldShieldResolver, ObjectTypeShieldResolver } from "nexus-shield"
 
 
@@ -2001,19 +2000,6 @@ export interface NexusGenInputs {
     every?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     none?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     some?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
-  }
-  ProductOrderByInput: { // input type
-    createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    description?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    image?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    isPopular?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    name?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    price?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    productCategoryId?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    spiceLevel?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   ProductScalarWhereInput: { // input type
     AND?: NexusGenInputs['ProductScalarWhereInput'][] | null; // [ProductScalarWhereInput!]
@@ -4798,8 +4784,6 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['ProductWhereUniqueInput'] | null; // ProductWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['ProductOrderByInput'][] | null; // [ProductOrderByInput!]
-      where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
     restaurant: { // args
       where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
@@ -4992,15 +4976,6 @@ declare global {
     shield?: ObjectTypeShieldResolver<TypeName>
   }
   interface NexusGenPluginFieldConfig<TypeName extends string, FieldName extends string> {
-    /**
-     * Authorization for an individual field. Returning "true"
-     * or "Promise<true>" means the field can be accessed.
-     * Returning "false" or "Promise<false>" will respond
-     * with a "Not Authorized" error for the field.
-     * Returning or throwing an error will also prevent the
-     * resolver from executing.
-     */
-    authorize?: FieldAuthorizeResolver<TypeName, FieldName>
     /**
      * Authorization rule to execute for this field
      */

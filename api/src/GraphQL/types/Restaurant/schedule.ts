@@ -1,4 +1,6 @@
 import { extendType, objectType } from "nexus";
+import { or } from "nexus-shield";
+import { isAdmin, isManager, isOwner } from "../../rules/isAuthenticated";
 
 export const Schedule = objectType({
   name: "Schedule",
@@ -22,6 +24,7 @@ export const ScheduleQuery = extendType({
       filtering: true,
       ordering: true,
       pagination: true,
+      shield: or(isAdmin(), isOwner(), isManager()),
     });
   },
 });
@@ -29,8 +32,17 @@ export const ScheduleQuery = extendType({
 export const ScheduleMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.crud.createOneSchedule({ alias: "createSchedule" });
-    t.crud.updateOneSchedule({ alias: "updateSchedule" });
-    t.crud.deleteOneSchedule({ alias: "deleteSchedule" });
+    t.crud.createOneSchedule({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      alias: "createSchedule",
+    });
+    t.crud.updateOneSchedule({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      alias: "updateSchedule",
+    });
+    t.crud.deleteOneSchedule({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      alias: "deleteSchedule",
+    });
   },
 });

@@ -44,9 +44,13 @@ router.post("/login", async (req, res) => {
     if (user) {
       const validPass = await bcrypt.compare(password, user.password);
       if (validPass) {
-        const token = jwt.sign({ id: user.id }, config.passport.secret, {
-          expiresIn: config.passport.expiresIn,
-        });
+        const token = jwt.sign(
+          { id: user.id, role: user.role },
+          config.passport.secret,
+          {
+            expiresIn: config.passport.expiresIn,
+          }
+        );
         res.status(200).send({
           token: token,
           isAuthenticated: true,

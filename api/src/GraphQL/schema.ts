@@ -1,8 +1,8 @@
 import { nexusPrisma } from "nexus-plugin-prisma";
-import { fieldAuthorizePlugin, makeSchema } from "nexus";
+import { makeSchema } from "nexus";
 import path from "path";
 import * as types from "./types/";
-import { allow, deny, nexusShield } from "nexus-shield";
+import { allow, nexusShield } from "nexus-shield";
 import { ForbiddenError } from "apollo-server-errors";
 
 export const schema = makeSchema({
@@ -13,7 +13,6 @@ export const schema = makeSchema({
       shouldGenerateArtifacts: true,
       outputs: { typegen: path.join(__dirname, "/generated/index.ts") },
     }),
-    fieldAuthorizePlugin(),
     nexusShield({
       defaultError: new ForbiddenError("Access Denied"),
       defaultRule: allow,

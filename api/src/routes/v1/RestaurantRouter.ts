@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
     });
     res.json(result);
   } catch {
-    res.json({ message: "Error creating user" });
+    res.json({ message: "Error creating restaurant" });
   }
 });
 

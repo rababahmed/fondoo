@@ -2403,20 +2403,6 @@ input ProductListRelationFilter {
   some: ProductWhereInput
 }
 
-input ProductOrderByInput {
-  createdAt: SortOrder
-  description: SortOrder
-  id: SortOrder
-  image: SortOrder
-  isActive: SortOrder
-  isPopular: SortOrder
-  name: SortOrder
-  price: SortOrder
-  productCategoryId: SortOrder
-  restaurantId: SortOrder
-  spiceLevel: SortOrder
-}
-
 input ProductScalarWhereInput {
   AND: [ProductScalarWhereInput!]
   NOT: [ProductScalarWhereInput!]
@@ -2618,7 +2604,7 @@ type Query {
   product(where: ProductWhereUniqueInput!): Product
   productCategories(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int, orderBy: [ProductCategoryOrderByInput!], where: ProductCategoryWhereInput): [ProductCategory!]!
   productCategory(where: ProductCategoryWhereUniqueInput!): ProductCategory
-  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByInput!], where: ProductWhereInput): [Product!]!
+  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int): [Product!]!
   restaurant(where: RestaurantWhereUniqueInput!): Restaurant
   restaurantPlan(where: RestaurantPlanWhereUniqueInput!): RestaurantPlan
   restaurantPlans(after: RestaurantPlanWhereUniqueInput, before: RestaurantPlanWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantPlanOrderByInput!], where: RestaurantPlanWhereInput): [RestaurantPlan!]!

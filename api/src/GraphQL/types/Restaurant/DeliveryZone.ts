@@ -1,4 +1,6 @@
 import { extendType, objectType } from "nexus";
+import { or } from "nexus-shield";
+import { isAdmin, isManager, isOwner } from "../../rules/isAuthenticated";
 
 export const DeliveryZone = objectType({
   name: "DeliveryZone",
@@ -24,6 +26,7 @@ export const DeliveryZoneQuery = extendType({
       filtering: true,
       ordering: true,
       pagination: true,
+      shield: or(isAdmin(), isOwner(), isManager()),
     });
   },
 });
@@ -31,8 +34,17 @@ export const DeliveryZoneQuery = extendType({
 export const DeliveryZoneMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.crud.createOneDeliveryZone({ alias: "createDeliveryZone" });
-    t.crud.updateOneDeliveryZone({ alias: "updateDeliveryZone" });
-    t.crud.deleteOneDeliveryZone({ alias: "deleteDeliveryZone" });
+    t.crud.createOneDeliveryZone({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      alias: "createDeliveryZone",
+    });
+    t.crud.updateOneDeliveryZone({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      alias: "updateDeliveryZone",
+    });
+    t.crud.deleteOneDeliveryZone({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      alias: "deleteDeliveryZone",
+    });
   },
 });

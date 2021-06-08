@@ -1,4 +1,6 @@
 import { extendType, objectType } from "nexus";
+import { or } from "nexus-shield";
+import { isAdmin, isManager, isOwner } from "../../rules/isAuthenticated";
 
 export const ProductCategory = objectType({
   name: "ProductCategory",
@@ -30,8 +32,17 @@ export const ProductCategoryQuery = extendType({
 export const ProductCategoryMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.crud.createOneProductCategory({ alias: "createProductCategory" });
-    t.crud.updateOneProductCategory({ alias: "updateProductCategory" });
-    t.crud.deleteOneProductCategory({ alias: "deleteProductCategory" });
+    t.crud.createOneProductCategory({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      alias: "createProductCategory",
+    });
+    t.crud.updateOneProductCategory({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      alias: "updateProductCategory",
+    });
+    t.crud.deleteOneProductCategory({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      alias: "deleteProductCategory",
+    });
   },
 });
