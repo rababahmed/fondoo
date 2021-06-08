@@ -1,8 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import passport from "passport";
 import * as jwt from "jsonwebtoken";
 import { config } from "./lib/config";
-import { AuthenticationError, ForbiddenError } from "apollo-server-errors";
 
 const prisma = new PrismaClient();
 
