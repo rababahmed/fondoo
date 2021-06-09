@@ -14,11 +14,9 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { GET_RESTAURANT_SCHEDULES } from "../../graphql/restaurant";
-import { DeleteSchedule } from "./DeleteSchedule";
-import { EditSchedule } from "./EditSchedule";
 import { useUserStore } from "../../store/useUserStore";
 
-export const SchedulesModule = () => {
+export const CMSAbout = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
 
   const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
@@ -51,32 +49,6 @@ export const SchedulesModule = () => {
               <Th></Th>
             </Tr>
           </Thead>
-
-          <Tbody>
-            {isSuccess &&
-              data.schedules.map((sc: any) => (
-                <Tr key={sc.id}>
-                  <Td>{sc.day}</Td>
-                  <Td>{sc.openingTime}</Td>
-                  <Td>{sc.closingTime}</Td>
-                  <Td>{sc.deliveryTime}</Td>
-                  <Td>{sc.takeawayTime}</Td>
-                  <Td>
-                    <HStack>
-                      <EditSchedule
-                        id={sc.id}
-                        day={sc.day}
-                        openingTime={sc.openingTime}
-                        closingTime={sc.closingTime}
-                        deliveryTime={sc.deliveryTime}
-                        takeawayTime={sc.takeawayTime}
-                      />
-                      <DeleteSchedule id={sc.id} />
-                    </HStack>
-                  </Td>
-                </Tr>
-              ))}
-          </Tbody>
         </Table>
       </Skeleton>
     </Box>

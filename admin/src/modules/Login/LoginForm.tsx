@@ -32,7 +32,7 @@ export const LoginForm = () => {
       .post(Constants.REST_API_V1 + "/user/login", values)
       .then(function (response) {
         console.log(response);
-        setUser(response.data.id, response.data.role);
+        setUser(response.data.id, response.data.role, response.data.token);
         if (response.data.message === "User authenticated") {
           router.push("/dashboard");
         }
