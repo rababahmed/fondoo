@@ -4,6 +4,7 @@ export const EDIT_RESTAURANT = gql`
   mutation UpdateRestaurant(
     $id: String
     $name: String
+    $logo: String
     $email: String
     $url: String
     $businessPhone: String
@@ -15,6 +16,7 @@ export const EDIT_RESTAURANT = gql`
         name: { set: $name }
         email: { set: $email }
         url: { set: $url }
+        logo: { set: $logo }
         businessPhone: { set: $businessPhone }
         city: { set: $city }
         priceRange: { set: $priceRange }

@@ -1,7 +1,9 @@
 import * as aws from "aws-sdk";
 import { format } from "date-fns";
+
 const multer = require("multer");
 const multerS3 = require("multer-s3");
+const sharp = require("sharp");
 
 export const s3 = new aws.S3({
   accessKeyId: process.env.S3_ACCESS_KEY,
@@ -35,7 +37,7 @@ export const upload = multer({
     metadata: function (req: any, file: any, cb: any) {
       cb(null, { fieldName: file.fieldname, originalName: file.originalname });
     },
-    key: function (req: any, file: any, cb: any) {
+    key: async function (req: any, file: any, cb: any) {
       cb(null, `${req.params.id}/${formatFilename(file.originalname)}`);
     },
   }),

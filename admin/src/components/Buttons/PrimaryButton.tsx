@@ -4,6 +4,7 @@ import React from "react";
 interface ButtonProps {
   onClick: () => void;
   title: String;
+  buttonProps: any;
 }
 
 const PrimaryButton = (props: ButtonProps) => {
@@ -20,6 +21,7 @@ const PrimaryButton = (props: ButtonProps) => {
         _active={{
           background: "gray.800",
         }}
+        {...props.buttonProps}
       >
         {props.title}
       </Button>

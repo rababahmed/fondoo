@@ -1,6 +1,6 @@
 import { Box, Divider, Grid, Heading, Stack, VStack } from "@chakra-ui/layout";
-import React, { useState } from "react";
-import { Formik } from "formik";
+import React, { useRef, useState } from "react";
+import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import {
   CheckboxSingleControl,
@@ -17,6 +17,20 @@ import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { EDIT_RESTAURANT, GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 import axios from "axios";
 import * as Constants from "../../modules/Constants";
+import imageCompression from "browser-image-compression";
+import { FiImage } from "react-icons/fi";
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightAddon,
+  InputRightElement,
+} from "@chakra-ui/input";
+import Icon from "@chakra-ui/icon";
+import { useControllableProp } from "@chakra-ui/hooks";
+import { FormLabel } from "@chakra-ui/form-control";
+import { Button } from "@chakra-ui/button";
+import ImageUpload from "../../components/Forms/ImageUpload";
 
 export const SettingsModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
@@ -29,22 +43,6 @@ export const SettingsModule = () => {
       id: restaurantID,
     }
   );
-
-  const fileUpload = async (file: any) => {
-    console.log(file);
-    const formData = new FormData();
-    formData.append("image", file[0]);
-    await axios
-      .post(Constants.REST_API_V1 + `/uploads/${restaurantID}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          token: token,
-        },
-      })
-      .then(function (response) {
-        console.log(response);
-      });
-  };
 
   const initialValues = {
     name: (isSuccess && data.restaurant.name) || "",
@@ -78,6 +76,7 @@ export const SettingsModule = () => {
     {
       id: restaurantID,
       name: formData.name,
+      logo: formData.logo,
       email: formData.email,
       url: formData.url,
       businessPhone: formData.businessPhone,
@@ -90,19 +89,18 @@ export const SettingsModule = () => {
 
   const onSubmit = async (values: any) => {
     setFormData(values);
-    await mutation.mutate();
+    const response = await mutation.mutate();
     if (mutation.isError) {
       toast({
-        title: "Whoops! Error.",
-        description: "Unable to update.",
+        title: "Whoops! There has been an error.",
         status: "error",
         isClosable: true,
         position: "top",
       });
-    } else {
+    }
+    if (mutation.isSuccess) {
       toast({
-        title: "Success!",
-        description: "Successfully updated the info.",
+        title: "Success! Your changes have been saved.",
         status: "success",
         isClosable: true,
         position: "top",
@@ -132,7 +130,7 @@ export const SettingsModule = () => {
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
                   <InputControl name="name" label="Restaurant Name" />
-                  <InputControl name="coverImage" label="Cover Image" />
+                  <ImageUpload name="coverImage" label="Cover Image" />
                   <InputControl name="businessPhone" label="Business Phone" />
                   <InputControl name="city" label="City / Town" />
                   <InputControl name="priceRange" label="Price Range" />
@@ -152,10 +150,7 @@ export const SettingsModule = () => {
               </Skeleton>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
-                  <input
-                    onChange={(e) => fileUpload(e.target.files)}
-                    type="file"
-                  />
+                  <ImageUpload name="logo" label="Logo" />
                   <InputControl
                     name="url"
                     label="Restaurant URL"

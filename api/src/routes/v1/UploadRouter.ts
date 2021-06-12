@@ -1,8 +1,14 @@
 import express from "express";
 import passport from "passport";
 import { upload } from "../../lib/s3";
+const sharp = require("sharp");
 
 const router = express.Router();
+
+const compressed = async (image: any) => {
+  await sharp(image).webp({ quality: 20 });
+  return image;
+};
 
 router.post(
   "/:id",

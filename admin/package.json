@@ -17,6 +17,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "axios": "^0.21.1",
+    "browser-image-compression": "^1.0.14",
     "date-fns": "^2.22.1",
     "formik": "^2.2.6",
     "formik-chakra-ui": "^1.4.7",
