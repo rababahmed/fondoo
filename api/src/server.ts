@@ -1,4 +1,3 @@
-import "reflect-metadata";
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import { createContext } from "./context";
@@ -12,7 +11,7 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
-const main = async () => {
+export const main = async () => {
   app.use(express.json());
   app.use(passport.initialize());
   app.use(cors());
@@ -24,6 +23,7 @@ const main = async () => {
     introspection: true,
     playground: true,
     context: createContext,
+    uploads: true,
   });
 
   apolloServer.applyMiddleware({ app });
@@ -34,7 +34,3 @@ const main = async () => {
     console.log(`🚀 Server ready at http://localhost:${PORT}`);
   });
 };
-
-main().catch((e) => {
-  throw e;
-});

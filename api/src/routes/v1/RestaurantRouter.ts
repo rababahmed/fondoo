@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/:id/", async (req, res) => {
   try {
     const { name, email, url } = req.body;
     const result = await prisma.restaurant.create({

@@ -15,9 +15,12 @@ import { useToast } from "@chakra-ui/toast";
 import { useUserStore } from "../../store/useUserStore";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { EDIT_RESTAURANT, GET_RESTAURANT_INFO } from "../../graphql/restaurant";
+import axios from "axios";
+import * as Constants from "../../modules/Constants";
 
 export const SettingsModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
+  const token = useUserStore((state) => state.token);
 
   const { data, error, isLoading, isSuccess } = useGQLQuery(
     "get-restaurant-info",
@@ -26,6 +29,22 @@ export const SettingsModule = () => {
       id: restaurantID,
     }
   );
+
+  const fileUpload = async (file: any) => {
+    console.log(file);
+    const formData = new FormData();
+    formData.append("image", file[0]);
+    await axios
+      .post(Constants.REST_API_V1 + `/uploads/${restaurantID}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          token: token,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+      });
+  };
 
   const initialValues = {
     name: (isSuccess && data.restaurant.name) || "",
@@ -133,7 +152,10 @@ export const SettingsModule = () => {
               </Skeleton>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
-                  <InputControl name="logo" label="Logo" />
+                  <input
+                    onChange={(e) => fileUpload(e.target.files)}
+                    type="file"
+                  />
                   <InputControl
                     name="url"
                     label="Restaurant URL"
