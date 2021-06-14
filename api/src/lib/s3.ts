@@ -3,7 +3,6 @@ import { format } from "date-fns";
 
 const multer = require("multer");
 const multerS3 = require("multer-s3");
-const sharp = require("sharp");
 
 export const s3 = new aws.S3({
   accessKeyId: process.env.S3_ACCESS_KEY,
@@ -11,7 +10,7 @@ export const s3 = new aws.S3({
   region: process.env.S3_BUCKET_REGION,
 });
 
-const fileFilter = (req: any, file: any, cb: any) => {
+const fileFilter = (file: any, cb: any) => {
   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
     cb(null, true);
   } else {
@@ -34,7 +33,7 @@ export const upload = multer({
     s3,
     bucket: "tezzbites",
     contentType: multerS3.AUTO_CONTENT_TYPE,
-    metadata: function (req: any, file: any, cb: any) {
+    metadata: function (file: any, cb: any) {
       cb(null, { fieldName: file.fieldname, originalName: file.originalname });
     },
     key: async function (req: any, file: any, cb: any) {
