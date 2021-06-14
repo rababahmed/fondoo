@@ -2627,6 +2627,7 @@ type Restaurant {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime!
   cuisine: String
   currency: String
@@ -2643,6 +2644,7 @@ type Restaurant {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
   orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
@@ -2665,6 +2667,7 @@ input RestaurantCreateInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -2681,6 +2684,7 @@ input RestaurantCreateInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
   orders: OrderCreateNestedManyWithoutRestaurantInput
@@ -2703,6 +2707,7 @@ input RestaurantCreateManyPlanInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -2717,6 +2722,7 @@ input RestaurantCreateManyPlanInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   postCode: String
   priceRange: String
@@ -2837,6 +2843,7 @@ input RestaurantCreateWithoutCustomersInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -2852,6 +2859,7 @@ input RestaurantCreateWithoutCustomersInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
   orders: OrderCreateNestedManyWithoutRestaurantInput
@@ -2874,6 +2882,7 @@ input RestaurantCreateWithoutDeliveryZonesInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -2889,6 +2898,7 @@ input RestaurantCreateWithoutDeliveryZonesInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
   orders: OrderCreateNestedManyWithoutRestaurantInput
@@ -2911,6 +2921,7 @@ input RestaurantCreateWithoutOrderItemsInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -2927,6 +2938,7 @@ input RestaurantCreateWithoutOrderItemsInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orders: OrderCreateNestedManyWithoutRestaurantInput
   plan: RestaurantPlanCreateNestedOneWithoutRestaurantsInput
@@ -2948,6 +2960,7 @@ input RestaurantCreateWithoutOrdersInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -2964,6 +2977,7 @@ input RestaurantCreateWithoutOrdersInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
   plan: RestaurantPlanCreateNestedOneWithoutRestaurantsInput
@@ -2985,6 +2999,7 @@ input RestaurantCreateWithoutPlanInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -3001,6 +3016,7 @@ input RestaurantCreateWithoutPlanInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
   orders: OrderCreateNestedManyWithoutRestaurantInput
@@ -3022,6 +3038,7 @@ input RestaurantCreateWithoutProductCategoryInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -3038,6 +3055,7 @@ input RestaurantCreateWithoutProductCategoryInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
   orders: OrderCreateNestedManyWithoutRestaurantInput
@@ -3059,6 +3077,7 @@ input RestaurantCreateWithoutProductsInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -3075,6 +3094,7 @@ input RestaurantCreateWithoutProductsInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
   orders: OrderCreateNestedManyWithoutRestaurantInput
@@ -3096,6 +3116,7 @@ input RestaurantCreateWithoutSchedulesInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -3112,6 +3133,7 @@ input RestaurantCreateWithoutSchedulesInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
   orders: OrderCreateNestedManyWithoutRestaurantInput
@@ -3133,6 +3155,7 @@ input RestaurantCreateWithoutUsersInput {
   businessPhone: String
   city: String
   country: String
+  coverImage: String
   createdAt: DateTime
   cuisine: String
   currency: String
@@ -3149,6 +3172,7 @@ input RestaurantCreateWithoutUsersInput {
   isDelivery: Boolean
   isReservation: Boolean
   isTakeaway: Boolean
+  logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
   orders: OrderCreateNestedManyWithoutRestaurantInput
@@ -3176,6 +3200,7 @@ input RestaurantOrderByInput {
   businessPhone: SortOrder
   city: SortOrder
   country: SortOrder
+  coverImage: SortOrder
   createdAt: SortOrder
   cuisine: SortOrder
   currency: SortOrder
@@ -3190,6 +3215,7 @@ input RestaurantOrderByInput {
   isDelivery: SortOrder
   isReservation: SortOrder
   isTakeaway: SortOrder
+  logo: SortOrder
   name: SortOrder
   postCode: SortOrder
   priceRange: SortOrder
@@ -3295,6 +3321,7 @@ input RestaurantScalarWhereInput {
   businessPhone: StringNullableFilter
   city: StringNullableFilter
   country: StringNullableFilter
+  coverImage: StringNullableFilter
   createdAt: DateTimeFilter
   cuisine: StringNullableFilter
   currency: StringNullableFilter
@@ -3309,6 +3336,7 @@ input RestaurantScalarWhereInput {
   isDelivery: BoolNullableFilter
   isReservation: BoolNullableFilter
   isTakeaway: BoolNullableFilter
+  logo: StringNullableFilter
   name: StringFilter
   postCode: StringNullableFilter
   priceRange: StringNullableFilter
@@ -3325,6 +3353,7 @@ input RestaurantUpdateInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3341,6 +3370,7 @@ input RestaurantUpdateInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
   orders: OrderUpdateManyWithoutRestaurantInput
@@ -3363,6 +3393,7 @@ input RestaurantUpdateManyMutationInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3377,6 +3408,7 @@ input RestaurantUpdateManyMutationInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   postCode: NullableStringFieldUpdateOperationsInput
   priceRange: NullableStringFieldUpdateOperationsInput
@@ -3518,6 +3550,7 @@ input RestaurantUpdateWithoutCustomersInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3533,6 +3566,7 @@ input RestaurantUpdateWithoutCustomersInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
   orders: OrderUpdateManyWithoutRestaurantInput
@@ -3555,6 +3589,7 @@ input RestaurantUpdateWithoutDeliveryZonesInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3570,6 +3605,7 @@ input RestaurantUpdateWithoutDeliveryZonesInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
   orders: OrderUpdateManyWithoutRestaurantInput
@@ -3592,6 +3628,7 @@ input RestaurantUpdateWithoutOrderItemsInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3608,6 +3645,7 @@ input RestaurantUpdateWithoutOrderItemsInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutRestaurantInput
   plan: RestaurantPlanUpdateOneWithoutRestaurantsInput
@@ -3629,6 +3667,7 @@ input RestaurantUpdateWithoutOrdersInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3645,6 +3684,7 @@ input RestaurantUpdateWithoutOrdersInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
   plan: RestaurantPlanUpdateOneWithoutRestaurantsInput
@@ -3666,6 +3706,7 @@ input RestaurantUpdateWithoutPlanInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3682,6 +3723,7 @@ input RestaurantUpdateWithoutPlanInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
   orders: OrderUpdateManyWithoutRestaurantInput
@@ -3703,6 +3745,7 @@ input RestaurantUpdateWithoutProductCategoryInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3719,6 +3762,7 @@ input RestaurantUpdateWithoutProductCategoryInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
   orders: OrderUpdateManyWithoutRestaurantInput
@@ -3740,6 +3784,7 @@ input RestaurantUpdateWithoutProductsInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3756,6 +3801,7 @@ input RestaurantUpdateWithoutProductsInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
   orders: OrderUpdateManyWithoutRestaurantInput
@@ -3777,6 +3823,7 @@ input RestaurantUpdateWithoutSchedulesInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3793,6 +3840,7 @@ input RestaurantUpdateWithoutSchedulesInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
   orders: OrderUpdateManyWithoutRestaurantInput
@@ -3814,6 +3862,7 @@ input RestaurantUpdateWithoutUsersInput {
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   cuisine: NullableStringFieldUpdateOperationsInput
   currency: NullableStringFieldUpdateOperationsInput
@@ -3830,6 +3879,7 @@ input RestaurantUpdateWithoutUsersInput {
   isDelivery: NullableBoolFieldUpdateOperationsInput
   isReservation: NullableBoolFieldUpdateOperationsInput
   isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
   orders: OrderUpdateManyWithoutRestaurantInput
@@ -3902,6 +3952,7 @@ input RestaurantWhereInput {
   businessPhone: StringNullableFilter
   city: StringNullableFilter
   country: StringNullableFilter
+  coverImage: StringNullableFilter
   createdAt: DateTimeFilter
   cuisine: StringNullableFilter
   currency: StringNullableFilter
@@ -3918,6 +3969,7 @@ input RestaurantWhereInput {
   isDelivery: BoolNullableFilter
   isReservation: BoolNullableFilter
   isTakeaway: BoolNullableFilter
+  logo: StringNullableFilter
   name: StringFilter
   orderItems: OrderItemListRelationFilter
   orders: OrderListRelationFilter

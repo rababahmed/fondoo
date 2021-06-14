@@ -64,70 +64,72 @@ export const UsersModule = () => {
       p={8}
     >
       <Skeleton isLoaded={!isLoading}>
-        <Table variant="simple">
-          <Thead>
-            <Tr>
-              <Th>First Name</Th>
-              <Th>Last Name</Th>
-              <Th>Email</Th>
-              <Th>Role</Th>
-              <Th>Phone</Th>
-              <Th>Action</Th>
-            </Tr>
-          </Thead>
+        <Box overflowX="auto">
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th>First Name</Th>
+                <Th>Last Name</Th>
+                <Th>Email</Th>
+                <Th>Role</Th>
+                <Th>Phone</Th>
+                <Th>Action</Th>
+              </Tr>
+            </Thead>
 
-          <Tbody>
-            {isSuccess &&
-              data.restaurant.users.map((user: any) => (
-                <Tr key={user.id}>
-                  <Td>{user.firstName}</Td>
-                  <Td>{user.lastName}</Td>
-                  <Td>{user.email}</Td>
-                  <Td>{user.role}</Td>
-                  <Td>{user.phone}</Td>
-                  <Td>
-                    <Popover>
-                      {({ isOpen, onClose }) => (
-                        <>
-                          <PopoverTrigger>
-                            <IconButton
-                              aria-label="Delete"
-                              colorScheme="red"
-                              size="sm"
-                            >
-                              <FaTrash />
-                            </IconButton>
-                          </PopoverTrigger>
-                          <PopoverContent>
-                            <PopoverArrow />
-                            <PopoverCloseButton />
-                            <PopoverHeader>Confirmation!</PopoverHeader>
-                            <PopoverBody>
-                              Are you sure you want to delete this user?
-                            </PopoverBody>
-                            <PopoverFooter d="flex" justifyContent="flex-end">
-                              <ButtonGroup size="sm">
-                                <Button onClick={onClose} variant="outline">
-                                  Cancel
-                                </Button>
-                                <Button
-                                  onClick={() => handleDelete(user.id)}
-                                  isDisabled={mutation.isLoading}
-                                  colorScheme="red"
-                                >
-                                  Delete
-                                </Button>
-                              </ButtonGroup>
-                            </PopoverFooter>
-                          </PopoverContent>
-                        </>
-                      )}
-                    </Popover>
-                  </Td>
-                </Tr>
-              ))}
-          </Tbody>
-        </Table>
+            <Tbody>
+              {isSuccess &&
+                data.restaurant.users.map((user: any) => (
+                  <Tr key={user.id}>
+                    <Td>{user.firstName}</Td>
+                    <Td>{user.lastName}</Td>
+                    <Td>{user.email}</Td>
+                    <Td>{user.role}</Td>
+                    <Td>{user.phone}</Td>
+                    <Td>
+                      <Popover>
+                        {({ isOpen, onClose }) => (
+                          <>
+                            <PopoverTrigger>
+                              <IconButton
+                                aria-label="Delete"
+                                colorScheme="red"
+                                size="sm"
+                              >
+                                <FaTrash />
+                              </IconButton>
+                            </PopoverTrigger>
+                            <PopoverContent>
+                              <PopoverArrow />
+                              <PopoverCloseButton />
+                              <PopoverHeader>Confirmation!</PopoverHeader>
+                              <PopoverBody>
+                                Are you sure you want to delete this user?
+                              </PopoverBody>
+                              <PopoverFooter d="flex" justifyContent="flex-end">
+                                <ButtonGroup size="sm">
+                                  <Button onClick={onClose} variant="outline">
+                                    Cancel
+                                  </Button>
+                                  <Button
+                                    onClick={() => handleDelete(user.id)}
+                                    isDisabled={mutation.isLoading}
+                                    colorScheme="red"
+                                  >
+                                    Delete
+                                  </Button>
+                                </ButtonGroup>
+                              </PopoverFooter>
+                            </PopoverContent>
+                          </>
+                        )}
+                      </Popover>
+                    </Td>
+                  </Tr>
+                ))}
+            </Tbody>
+          </Table>
+        </Box>
       </Skeleton>
     </Box>
   );

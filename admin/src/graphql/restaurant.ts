@@ -5,6 +5,7 @@ export const EDIT_RESTAURANT = gql`
     $id: String
     $name: String
     $logo: String
+    $coverImage: String
     $email: String
     $url: String
     $businessPhone: String
@@ -17,6 +18,7 @@ export const EDIT_RESTAURANT = gql`
         email: { set: $email }
         url: { set: $url }
         logo: { set: $logo }
+        coverImage: { set: $coverImage }
         businessPhone: { set: $businessPhone }
         city: { set: $city }
         priceRange: { set: $priceRange }
@@ -35,6 +37,8 @@ export const GET_RESTAURANT_INFO = gql`
       name
       email
       url
+      logo
+      coverImage
       city
       priceRange
       vat

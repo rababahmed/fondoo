@@ -11,6 +11,8 @@ export const Restaurant = objectType({
     t.model.businessPhone();
     t.model.reservationPhone();
     t.model.url();
+    t.model.logo();
+    t.model.coverImage();
     t.model.cuisine();
     t.model.address();
     t.model.city();
@@ -61,7 +63,7 @@ export const RestaurantMutation = extendType({
   definition(t) {
     t.crud.createOneRestaurant({
       alias: "createRestaurant",
-      shield: or(isAdmin(), isOwner(), isManager()),
+      shield: or(isAdmin()),
     });
     t.crud.updateOneRestaurant({
       alias: "updateRestaurant",

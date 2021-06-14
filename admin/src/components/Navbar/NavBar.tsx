@@ -1,5 +1,13 @@
-import { Button } from "@chakra-ui/button";
-import { Box, Divider, Heading, Stack, Text, VStack } from "@chakra-ui/layout";
+import { Button, IconButton } from "@chakra-ui/button";
+import {
+  Box,
+  Divider,
+  Heading,
+  HStack,
+  Stack,
+  Text,
+  VStack,
+} from "@chakra-ui/layout";
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
 import { FaUsers } from "react-icons/fa";
@@ -13,16 +21,24 @@ import { useRouter } from "next/router";
 import NavButton from "./NavButton";
 import NavText from "./NavText";
 import styles from "./Navbar.module.css";
+import { usePrefStore } from "../../store/usePrefStore";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { useMediaQuery } from "@chakra-ui/media-query";
 
 const NavBar = () => {
   const router = useRouter();
   const [currentPath, setCurrentPath] = React.useState("");
+  const [isDesktop] = useMediaQuery("(min-width: 640px)");
+
+  const toggleHamburger = usePrefStore((state) => state.toggleHamburger);
+  const isOpen = usePrefStore((state) => state.hamburger);
 
   React.useEffect(() => setCurrentPath(router.pathname), []);
 
   return (
     <div>
       <Box
+        display={isOpen ? "block" : "none"}
         pos="fixed"
         overflowY="auto"
         bgColor="gray.900"
@@ -32,6 +48,23 @@ const NavBar = () => {
         bottom="0"
         className={styles.navbar}
       >
+        <Box>
+          <IconButton
+            onClick={() => {
+              toggleHamburger();
+            }}
+            size="sm"
+            display={!isDesktop ? "block" : "none"}
+            colorScheme="whiteAlpha"
+            aria-label="hamburger"
+            icon={<CloseIcon />}
+            pos="absolute"
+            top={0}
+            right={0}
+            m={4}
+            mb={4}
+          />
+        </Box>
         <Stack>
           <VStack pt={8} mr={1}>
             <Box mt={6} mb={6}>

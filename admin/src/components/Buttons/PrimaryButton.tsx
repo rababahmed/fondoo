@@ -4,7 +4,7 @@ import React from "react";
 interface ButtonProps {
   onClick: () => void;
   title: String;
-  buttonProps: any;
+  buttonProps?: any;
 }
 
 const PrimaryButton = (props: ButtonProps) => {

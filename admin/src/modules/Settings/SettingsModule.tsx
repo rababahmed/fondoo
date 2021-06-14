@@ -15,21 +15,7 @@ import { useToast } from "@chakra-ui/toast";
 import { useUserStore } from "../../store/useUserStore";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { EDIT_RESTAURANT, GET_RESTAURANT_INFO } from "../../graphql/restaurant";
-import axios from "axios";
-import * as Constants from "../../modules/Constants";
-import imageCompression from "browser-image-compression";
-import { FiImage } from "react-icons/fi";
-import {
-  Input,
-  InputGroup,
-  InputLeftElement,
-  InputRightAddon,
-  InputRightElement,
-} from "@chakra-ui/input";
-import Icon from "@chakra-ui/icon";
-import { useControllableProp } from "@chakra-ui/hooks";
-import { FormLabel } from "@chakra-ui/form-control";
-import { Button } from "@chakra-ui/button";
+
 import ImageUpload from "../../components/Forms/ImageUpload";
 
 export const SettingsModule = () => {
@@ -45,6 +31,7 @@ export const SettingsModule = () => {
   );
 
   const initialValues = {
+    id: restaurantID,
     name: (isSuccess && data.restaurant.name) || "",
     coverImage: (isSuccess && data.restaurant.coverImage) || "",
     businessPhone: (isSuccess && data.restaurant.businessPhone) || "",
@@ -73,17 +60,7 @@ export const SettingsModule = () => {
 
   const mutation = useGQLMutation(
     EDIT_RESTAURANT,
-    {
-      id: restaurantID,
-      name: formData.name,
-      logo: formData.logo,
-      email: formData.email,
-      url: formData.url,
-      businessPhone: formData.businessPhone,
-      city: formData.city,
-      priceRange: formData.priceRange,
-      cuisine: formData.cuisine,
-    },
+    formData,
     "get-restaurant-info"
   );
 
@@ -97,8 +74,7 @@ export const SettingsModule = () => {
         isClosable: true,
         position: "top",
       });
-    }
-    if (mutation.isSuccess) {
+    } else {
       toast({
         title: "Success! Your changes have been saved.",
         status: "success",
@@ -130,7 +106,12 @@ export const SettingsModule = () => {
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
                   <InputControl name="name" label="Restaurant Name" />
-                  <ImageUpload name="coverImage" label="Cover Image" />
+                  <Field
+                    name="coverImage"
+                    id="coverImage"
+                    label="Cover Image"
+                    component={ImageUpload}
+                  />
                   <InputControl name="businessPhone" label="Business Phone" />
                   <InputControl name="city" label="City / Town" />
                   <InputControl name="priceRange" label="Price Range" />
@@ -150,7 +131,12 @@ export const SettingsModule = () => {
               </Skeleton>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
-                  <ImageUpload name="logo" label="Logo" />
+                  <Field
+                    name="logo"
+                    id="logo"
+                    label="Logo"
+                    component={ImageUpload}
+                  />
                   <InputControl
                     name="url"
                     label="Restaurant URL"

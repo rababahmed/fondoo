@@ -59,45 +59,47 @@ export const ItemsModule = () => {
                     <AccordionIcon />
                   </AccordionButton>
                   <AccordionPanel>
-                    <Table variant="simple">
-                      <Thead>
-                        <Tr>
-                          <Th>Name</Th>
-                          <Th>Description</Th>
-                          <Th>Price</Th>
-                          <Th>Spice Level</Th>
-                          <Th>Active</Th>
-                          <Th>Popular</Th>
-                          <Th></Th>
-                        </Tr>
-                      </Thead>
-                      <Tbody>
-                        {cat.Product.map((product: any) => (
-                          <Tr key={product.id}>
-                            <Td>{product.name}</Td>
-                            <Td>{product.description}</Td>
-                            <Td>{product.price}</Td>
-                            <Td>{product.spiceLevel}</Td>
-                            <Td>{product.isActive ? "Yes" : "No"}</Td>
-                            <Td>{product.isPopular ? "Yes" : "No"}</Td>
-                            <Td>
-                              <HStack>
-                                <EditItem
-                                  id={product.id}
-                                  name={product.name}
-                                  description={product.description}
-                                  spiceLevel={product.spiceLevel}
-                                  price={product.price}
-                                  isActive={product.isActive}
-                                  isPopular={product.isPopular}
-                                />
-                                <DeleteItem id={product.id} />
-                              </HStack>
-                            </Td>
+                    <Box overflowX="auto">
+                      <Table variant="simple">
+                        <Thead>
+                          <Tr>
+                            <Th>Name</Th>
+                            <Th>Description</Th>
+                            <Th>Price</Th>
+                            <Th>Spice Level</Th>
+                            <Th>Active</Th>
+                            <Th>Popular</Th>
+                            <Th></Th>
                           </Tr>
-                        ))}
-                      </Tbody>
-                    </Table>
+                        </Thead>
+                        <Tbody>
+                          {cat.Product.map((product: any) => (
+                            <Tr key={product.id}>
+                              <Td>{product.name}</Td>
+                              <Td>{product.description}</Td>
+                              <Td>{product.price}</Td>
+                              <Td>{product.spiceLevel}</Td>
+                              <Td>{product.isActive ? "Yes" : "No"}</Td>
+                              <Td>{product.isPopular ? "Yes" : "No"}</Td>
+                              <Td>
+                                <HStack>
+                                  <EditItem
+                                    id={product.id}
+                                    name={product.name}
+                                    description={product.description}
+                                    spiceLevel={product.spiceLevel}
+                                    price={product.price}
+                                    isActive={product.isActive}
+                                    isPopular={product.isPopular}
+                                  />
+                                  <DeleteItem id={product.id} />
+                                </HStack>
+                              </Td>
+                            </Tr>
+                          ))}
+                        </Tbody>
+                      </Table>
+                    </Box>
                   </AccordionPanel>
                 </AccordionItem>
               ))}

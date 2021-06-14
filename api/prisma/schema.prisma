@@ -14,6 +14,8 @@ model Restaurant {
   id                      String            @id @default(uuid())
   name                    String
   email                   String
+  logo                    String?
+  coverImage              String?
   plan                    RestaurantPlan?   @relation(fields: [restaurantPlanId], references: [id])
   restaurantPlanId        String?
   businessPhone           String?
