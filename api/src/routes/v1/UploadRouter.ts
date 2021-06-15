@@ -8,8 +8,8 @@ router.post(
   "/:id",
   passport.authenticate("jwt", { session: false }),
   upload.single("image"),
-  async (req, res) => {
-    res.status(200).json({ data: req.file });
+  async (req: any, res: any) => {
+    res.status(200).json(req.file);
   }
 );
 

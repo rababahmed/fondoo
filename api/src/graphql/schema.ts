@@ -1,7 +1,7 @@
 import { nexusPrisma } from "nexus-plugin-prisma";
 import { makeSchema } from "nexus";
 import path from "path";
-import * as types from "./types/";
+import * as types from "./resolvers";
 import { allow, nexusShield } from "nexus-shield";
 import { ForbiddenError } from "apollo-server-errors";
 

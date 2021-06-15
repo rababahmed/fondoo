@@ -20,6 +20,7 @@ export const RestaurantPlanQuery = extendType({
       filtering: true,
       ordering: true,
       pagination: true,
+      shield: isAdmin(),
     });
   },
 });

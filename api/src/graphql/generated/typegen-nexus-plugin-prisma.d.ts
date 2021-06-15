@@ -16,6 +16,14 @@ type CustomScalars = 'DateTime'
 interface PrismaModels {
   Restaurant: Prisma.Restaurant
   RestaurantPlan: Prisma.RestaurantPlan
+  RestaurantConfig: Prisma.RestaurantConfig
+  RestaurantSocial: Prisma.RestaurantSocial
+  RestaurantReview: Prisma.RestaurantReview
+  CMSHome: Prisma.CMSHome
+  CMSAbout: Prisma.CMSAbout
+  CMSReview: Prisma.CMSReview
+  CMSReservation: Prisma.CMSReservation
+  CMSContact: Prisma.CMSContact
   ProductCategory: Prisma.ProductCategory
   Product: Prisma.Product
   Schedule: Prisma.Schedule
@@ -34,12 +42,44 @@ interface PrismaModels {
 interface NexusPrismaInputs {
   Query: {
     restaurants: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'createdAt' | 'updatedAt' | 'RestaurantConfig' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'RestaurantSocial' | 'RestaurantReview'
       ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt'
     }
     restaurantPlans: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'price' | 'isActive' | 'restaurants'
       ordering: 'id' | 'name' | 'price' | 'isActive'
+    }
+    restaurantConfigs: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'restaurantId' | 'createdAt' | 'updatedAt'
+    }
+    restaurantSocials: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive' | 'restaurantId'
+    }
+    restaurantReviews: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customer' | 'restaurant' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
+    }
+    cmsHomes: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'heroHeading' | 'heroDescription' | 'heroImage' | 'aboutHeading' | 'aboutDescription' | 'aboutImage' | 'dealsHeading' | 'dealsDescription' | 'dealsImage' | 'reservationHeading' | 'reservationDescription' | 'reservationImage' | 'popularDishesHeading' | 'popularDishesDescription' | 'popularDishesImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'heroHeading' | 'heroDescription' | 'heroImage' | 'aboutHeading' | 'aboutDescription' | 'aboutImage' | 'dealsHeading' | 'dealsDescription' | 'dealsImage' | 'reservationHeading' | 'reservationDescription' | 'reservationImage' | 'popularDishesHeading' | 'popularDishesDescription' | 'popularDishesImage' | 'isActive' | 'restaurantId'
+    }
+    cmsAbouts: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'storyHeading' | 'storyDescription' | 'storyImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'storyHeading' | 'storyDescription' | 'storyImage' | 'isActive' | 'restaurantId'
+    }
+    cmsReviews: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurantId'
+    }
+    cmsReservations: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurantId'
+    }
+    cmsContacts: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurantId'
     }
     productCategories: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product'
@@ -58,7 +98,7 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'createdAt' | 'zoneTitle' | 'zonePostCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurantId'
     }
     customers: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'token' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'token' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'RestaurantReview'
       ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'updatedAt'
     }
     customerAddresses: {
@@ -100,7 +140,7 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'createdAt' | 'zoneTitle' | 'zonePostCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurantId'
     }
     customers: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'token' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'token' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'RestaurantReview'
       ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'updatedAt'
     }
     orders: {
@@ -123,12 +163,68 @@ interface NexusPrismaInputs {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'token' | 'restaurants' | 'role'
       ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'role'
     }
+    RestaurantConfig: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'restaurantId' | 'createdAt' | 'updatedAt'
+    }
+    CMSHome: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'heroHeading' | 'heroDescription' | 'heroImage' | 'aboutHeading' | 'aboutDescription' | 'aboutImage' | 'dealsHeading' | 'dealsDescription' | 'dealsImage' | 'reservationHeading' | 'reservationDescription' | 'reservationImage' | 'popularDishesHeading' | 'popularDishesDescription' | 'popularDishesImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'heroHeading' | 'heroDescription' | 'heroImage' | 'aboutHeading' | 'aboutDescription' | 'aboutImage' | 'dealsHeading' | 'dealsDescription' | 'dealsImage' | 'reservationHeading' | 'reservationDescription' | 'reservationImage' | 'popularDishesHeading' | 'popularDishesDescription' | 'popularDishesImage' | 'isActive' | 'restaurantId'
+    }
+    CMSAbout: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'storyHeading' | 'storyDescription' | 'storyImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'storyHeading' | 'storyDescription' | 'storyImage' | 'isActive' | 'restaurantId'
+    }
+    CMSReview: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurantId'
+    }
+    CMSReservation: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurantId'
+    }
+    CMSContact: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurantId'
+    }
+    RestaurantSocial: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive' | 'restaurantId'
+    }
+    RestaurantReview: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customer' | 'restaurant' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
+    }
   }
   RestaurantPlan: {
     restaurants: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'createdAt' | 'updatedAt' | 'RestaurantConfig' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'RestaurantSocial' | 'RestaurantReview'
       ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt'
     }
+  }
+  RestaurantConfig: {
+
+  }
+  RestaurantSocial: {
+
+  }
+  RestaurantReview: {
+
+  }
+  CMSHome: {
+
+  }
+  CMSAbout: {
+
+  }
+  CMSReview: {
+
+  }
+  CMSReservation: {
+
+  }
+  CMSContact: {
+
   }
   ProductCategory: {
     Product: {
@@ -162,8 +258,12 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'address' | 'discount' | 'deliveryCharges' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
     }
     restaurants: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'createdAt' | 'updatedAt' | 'RestaurantConfig' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'RestaurantSocial' | 'RestaurantReview'
       ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt'
+    }
+    RestaurantReview: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customer' | 'restaurant' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
     }
   }
   CustomerAddress: {
@@ -178,7 +278,7 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'token' | 'provider' | 'createdAt' | 'updatedAt' | 'userId'
     }
     restaurants: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'createdAt' | 'updatedAt' | 'RestaurantConfig' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'RestaurantSocial' | 'RestaurantReview'
       ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt'
     }
   }
@@ -209,6 +309,22 @@ interface NexusPrismaOutputs {
     restaurants: 'Restaurant'
     restaurantPlan: 'RestaurantPlan'
     restaurantPlans: 'RestaurantPlan'
+    restaurantConfig: 'RestaurantConfig'
+    restaurantConfigs: 'RestaurantConfig'
+    restaurantSocial: 'RestaurantSocial'
+    restaurantSocials: 'RestaurantSocial'
+    restaurantReview: 'RestaurantReview'
+    restaurantReviews: 'RestaurantReview'
+    cmsHome: 'CMSHome'
+    cmsHomes: 'CMSHome'
+    cmsAbout: 'CMSAbout'
+    cmsAbouts: 'CMSAbout'
+    cmsReview: 'CMSReview'
+    cmsReviews: 'CMSReview'
+    cmsReservation: 'CMSReservation'
+    cmsReservations: 'CMSReservation'
+    cmsContact: 'CMSContact'
+    cmsContacts: 'CMSContact'
     productCategory: 'ProductCategory'
     productCategories: 'ProductCategory'
     product: 'Product'
@@ -247,6 +363,54 @@ interface NexusPrismaOutputs {
     deleteOneRestaurantPlan: 'RestaurantPlan'
     deleteManyRestaurantPlan: 'AffectedRowsOutput'
     upsertOneRestaurantPlan: 'RestaurantPlan'
+    createOneRestaurantConfig: 'RestaurantConfig'
+    updateOneRestaurantConfig: 'RestaurantConfig'
+    updateManyRestaurantConfig: 'AffectedRowsOutput'
+    deleteOneRestaurantConfig: 'RestaurantConfig'
+    deleteManyRestaurantConfig: 'AffectedRowsOutput'
+    upsertOneRestaurantConfig: 'RestaurantConfig'
+    createOneRestaurantSocial: 'RestaurantSocial'
+    updateOneRestaurantSocial: 'RestaurantSocial'
+    updateManyRestaurantSocial: 'AffectedRowsOutput'
+    deleteOneRestaurantSocial: 'RestaurantSocial'
+    deleteManyRestaurantSocial: 'AffectedRowsOutput'
+    upsertOneRestaurantSocial: 'RestaurantSocial'
+    createOneRestaurantReview: 'RestaurantReview'
+    updateOneRestaurantReview: 'RestaurantReview'
+    updateManyRestaurantReview: 'AffectedRowsOutput'
+    deleteOneRestaurantReview: 'RestaurantReview'
+    deleteManyRestaurantReview: 'AffectedRowsOutput'
+    upsertOneRestaurantReview: 'RestaurantReview'
+    createOneCMSHome: 'CMSHome'
+    updateOneCMSHome: 'CMSHome'
+    updateManyCMSHome: 'AffectedRowsOutput'
+    deleteOneCMSHome: 'CMSHome'
+    deleteManyCMSHome: 'AffectedRowsOutput'
+    upsertOneCMSHome: 'CMSHome'
+    createOneCMSAbout: 'CMSAbout'
+    updateOneCMSAbout: 'CMSAbout'
+    updateManyCMSAbout: 'AffectedRowsOutput'
+    deleteOneCMSAbout: 'CMSAbout'
+    deleteManyCMSAbout: 'AffectedRowsOutput'
+    upsertOneCMSAbout: 'CMSAbout'
+    createOneCMSReview: 'CMSReview'
+    updateOneCMSReview: 'CMSReview'
+    updateManyCMSReview: 'AffectedRowsOutput'
+    deleteOneCMSReview: 'CMSReview'
+    deleteManyCMSReview: 'AffectedRowsOutput'
+    upsertOneCMSReview: 'CMSReview'
+    createOneCMSReservation: 'CMSReservation'
+    updateOneCMSReservation: 'CMSReservation'
+    updateManyCMSReservation: 'AffectedRowsOutput'
+    deleteOneCMSReservation: 'CMSReservation'
+    deleteManyCMSReservation: 'AffectedRowsOutput'
+    upsertOneCMSReservation: 'CMSReservation'
+    createOneCMSContact: 'CMSContact'
+    updateOneCMSContact: 'CMSContact'
+    updateManyCMSContact: 'AffectedRowsOutput'
+    deleteOneCMSContact: 'CMSContact'
+    deleteManyCMSContact: 'AffectedRowsOutput'
+    upsertOneCMSContact: 'CMSContact'
     createOneProductCategory: 'ProductCategory'
     updateOneProductCategory: 'ProductCategory'
     updateManyProductCategory: 'AffectedRowsOutput'
@@ -359,6 +523,14 @@ interface NexusPrismaOutputs {
     users: 'User'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'
+    RestaurantConfig: 'RestaurantConfig'
+    CMSHome: 'CMSHome'
+    CMSAbout: 'CMSAbout'
+    CMSReview: 'CMSReview'
+    CMSReservation: 'CMSReservation'
+    CMSContact: 'CMSContact'
+    RestaurantSocial: 'RestaurantSocial'
+    RestaurantReview: 'RestaurantReview'
   }
   RestaurantPlan: {
     id: 'String'
@@ -366,6 +538,98 @@ interface NexusPrismaOutputs {
     price: 'Float'
     isActive: 'Boolean'
     restaurants: 'Restaurant'
+  }
+  RestaurantConfig: {
+    id: 'String'
+    primaryColor: 'String'
+    secondaryColor: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
+  }
+  RestaurantSocial: {
+    id: 'String'
+    facebook: 'String'
+    instagram: 'String'
+    pinterest: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
+  }
+  RestaurantReview: {
+    id: 'String'
+    title: 'String'
+    description: 'String'
+    rating: 'String'
+    isActive: 'Boolean'
+    customer: 'Customer'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
+    customerId: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
+  }
+  CMSHome: {
+    id: 'String'
+    heroHeading: 'String'
+    heroDescription: 'String'
+    heroImage: 'String'
+    aboutHeading: 'String'
+    aboutDescription: 'String'
+    aboutImage: 'String'
+    dealsHeading: 'String'
+    dealsDescription: 'String'
+    dealsImage: 'String'
+    reservationHeading: 'String'
+    reservationDescription: 'String'
+    reservationImage: 'String'
+    popularDishesHeading: 'String'
+    popularDishesDescription: 'String'
+    popularDishesImage: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
+  }
+  CMSAbout: {
+    id: 'String'
+    headerHeading: 'String'
+    headerDescription: 'String'
+    headerImage: 'String'
+    storyHeading: 'String'
+    storyDescription: 'String'
+    storyImage: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
+  }
+  CMSReview: {
+    id: 'String'
+    headerHeading: 'String'
+    headerDescription: 'String'
+    headerImage: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
+  }
+  CMSReservation: {
+    id: 'String'
+    headerHeading: 'String'
+    headerDescription: 'String'
+    headerImage: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
+  }
+  CMSContact: {
+    id: 'String'
+    headerHeading: 'String'
+    headerDescription: 'String'
+    headerImage: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
   }
   ProductCategory: {
     id: 'String'
@@ -432,6 +696,7 @@ interface NexusPrismaOutputs {
     orders: 'Order'
     restaurants: 'Restaurant'
     updatedAt: 'DateTime'
+    RestaurantReview: 'RestaurantReview'
   }
   CustomerAddress: {
     id: 'String'
@@ -519,6 +784,14 @@ interface NexusPrismaOutputs {
 interface NexusPrismaMethods {
   Restaurant: Typegen.NexusPrismaFields<'Restaurant'>
   RestaurantPlan: Typegen.NexusPrismaFields<'RestaurantPlan'>
+  RestaurantConfig: Typegen.NexusPrismaFields<'RestaurantConfig'>
+  RestaurantSocial: Typegen.NexusPrismaFields<'RestaurantSocial'>
+  RestaurantReview: Typegen.NexusPrismaFields<'RestaurantReview'>
+  CMSHome: Typegen.NexusPrismaFields<'CMSHome'>
+  CMSAbout: Typegen.NexusPrismaFields<'CMSAbout'>
+  CMSReview: Typegen.NexusPrismaFields<'CMSReview'>
+  CMSReservation: Typegen.NexusPrismaFields<'CMSReservation'>
+  CMSContact: Typegen.NexusPrismaFields<'CMSContact'>
   ProductCategory: Typegen.NexusPrismaFields<'ProductCategory'>
   Product: Typegen.NexusPrismaFields<'Product'>
   Schedule: Typegen.NexusPrismaFields<'Schedule'>

@@ -11,12 +11,12 @@ generator client {
 }
 
 model Restaurant {
-  id                      String            @id @default(uuid())
+  id                      String             @id @default(uuid())
   name                    String
   email                   String
   logo                    String?
   coverImage              String?
-  plan                    RestaurantPlan?   @relation(fields: [restaurantPlanId], references: [id])
+  plan                    RestaurantPlan?    @relation(fields: [restaurantPlanId], references: [id])
   restaurantPlanId        String?
   businessPhone           String?
   reservationPhone        String?
@@ -47,8 +47,16 @@ model Restaurant {
   productCategory         ProductCategory[]
   products                Product[]
   users                   User[]
-  createdAt               DateTime          @default(now())
-  updatedAt               DateTime          @updatedAt
+  createdAt               DateTime           @default(now())
+  updatedAt               DateTime           @updatedAt
+  RestaurantConfig        RestaurantConfig[]
+  CMSHome                 CMSHome[]
+  CMSAbout                CMSAbout[]
+  CMSReview               CMSReview[]
+  CMSReservation          CMSReservation[]
+  CMSContact              CMSContact[]
+  RestaurantSocial        RestaurantSocial[]
+  RestaurantReview        RestaurantReview[]
 }
 
 model RestaurantPlan {
@@ -57,6 +65,106 @@ model RestaurantPlan {
   price       Float
   isActive    Boolean
   restaurants Restaurant[]
+}
+
+model RestaurantConfig {
+  id             String     @id @default(cuid())
+  primaryColor   String
+  secondaryColor String
+  isActive       Boolean
+  restaurant     Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId   String
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+}
+
+model RestaurantSocial {
+  id           String     @id @default(cuid())
+  facebook     String
+  instagram    String
+  pinterest    String
+  isActive     Boolean
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+}
+
+model RestaurantReview {
+  id           String     @id @default(cuid())
+  title        String
+  description  String
+  rating       String
+  isActive     Boolean
+  customer     Customer   @relation(fields: [customerId], references: [id])
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+  customerId   String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model CMSHome {
+  id                       String     @id @default(cuid())
+  heroHeading              String?
+  heroDescription          String?
+  heroImage                String?
+  aboutHeading             String?
+  aboutDescription         String?
+  aboutImage               String?
+  dealsHeading             String?
+  dealsDescription         String?
+  dealsImage               String?
+  reservationHeading       String?
+  reservationDescription   String?
+  reservationImage         String?
+  popularDishesHeading     String?
+  popularDishesDescription String?
+  popularDishesImage       String?
+  isActive                 Boolean?
+  restaurant               Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId             String
+}
+
+model CMSAbout {
+  id                String     @id @default(cuid())
+  headerHeading     String?
+  headerDescription String?
+  headerImage       String?
+  storyHeading      String?
+  storyDescription  String?
+  storyImage        String?
+  isActive          Boolean?
+  restaurant        Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId      String
+}
+
+model CMSReview {
+  id                String     @id @default(cuid())
+  headerHeading     String?
+  headerDescription String?
+  headerImage       String?
+  isActive          Boolean?
+  restaurant        Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId      String
+}
+
+model CMSReservation {
+  id                String     @id @default(cuid())
+  headerHeading     String?
+  headerDescription String?
+  headerImage       String?
+  isActive          Boolean?
+  restaurant        Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId      String
+}
+
+model CMSContact {
+  id                String     @id @default(cuid())
+  headerHeading     String?
+  headerDescription String?
+  headerImage       String?
+  isActive          Boolean?
+  restaurant        Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId      String
 }
 
 model ProductCategory {
@@ -129,18 +237,19 @@ enum DeliveryFee {
 }
 
 model Customer {
-  id          String            @id @default(cuid())
-  createdAt   DateTime          @default(now())
-  firstName   String
-  lastName    String
-  email       String            @unique
-  password    String
-  phone       String
-  token       CustomerToken[]
-  addresses   CustomerAddress[]
-  orders      Order[]
-  restaurants Restaurant[]
-  updatedAt   DateTime          @updatedAt
+  id               String             @id @default(cuid())
+  createdAt        DateTime           @default(now())
+  firstName        String
+  lastName         String
+  email            String             @unique
+  password         String
+  phone            String
+  token            CustomerToken[]
+  addresses        CustomerAddress[]
+  orders           Order[]
+  restaurants      Restaurant[]
+  updatedAt        DateTime           @updatedAt
+  RestaurantReview RestaurantReview[]
 }
 
 model CustomerAddress {

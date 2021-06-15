@@ -9,9 +9,9 @@
     "prisma:deploy": "yarn prisma migrate deploy",
     "watch": "tsc -w",
     "dev:tsnd": "ts-node-dev --transpile-only src/main.ts",
-    "dev": "nodemon dist/main.js",
+    "dev": "tsc -w & nodemon -q -w dist dist/main.js",
     "dev:start": "node dist/main.js",
-    "start": "node dist/main.js",
+    "start": "tsc & node dist/main.js",
     "heroku-postbuild": "yarn prisma:deploy && tsc"
   },
   "devDependencies": {
@@ -35,7 +35,6 @@
     "apollo-server-express": "^2.24.0",
     "aws-sdk": "^2.926.0",
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "date-fns": "^2.22.1",
     "dotenv": "^10.0.0",
@@ -51,7 +50,6 @@
     "nexus-shield": "^2.0.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "reflect-metadata": "^0.1.13",
-    "sharp": "^0.28.3"
+    "reflect-metadata": "^0.1.13"
   }
 }

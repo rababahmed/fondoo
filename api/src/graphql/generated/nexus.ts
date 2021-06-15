@@ -31,6 +31,756 @@ export interface NexusGenInputs {
     equals?: boolean | null; // Boolean
     not?: NexusGenInputs['NestedBoolNullableFilter'] | null; // NestedBoolNullableFilter
   }
+  CMSAboutCreateInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutCMSAboutInput']; // RestaurantCreateNestedOneWithoutCMSAboutInput!
+    storyDescription?: string | null; // String
+    storyHeading?: string | null; // String
+    storyImage?: string | null; // String
+  }
+  CMSAboutCreateManyRestaurantInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    storyDescription?: string | null; // String
+    storyHeading?: string | null; // String
+    storyImage?: string | null; // String
+  }
+  CMSAboutCreateManyRestaurantInputEnvelope: { // input type
+    data?: NexusGenInputs['CMSAboutCreateManyRestaurantInput'][] | null; // [CMSAboutCreateManyRestaurantInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  CMSAboutCreateNestedManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSAboutWhereUniqueInput'][] | null; // [CMSAboutWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSAboutCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSAboutCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSAboutCreateWithoutRestaurantInput'][] | null; // [CMSAboutCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSAboutCreateManyRestaurantInputEnvelope'] | null; // CMSAboutCreateManyRestaurantInputEnvelope
+  }
+  CMSAboutCreateOrConnectWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSAboutCreateWithoutRestaurantInput']; // CMSAboutCreateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSAboutWhereUniqueInput']; // CMSAboutWhereUniqueInput!
+  }
+  CMSAboutCreateWithoutRestaurantInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    storyDescription?: string | null; // String
+    storyHeading?: string | null; // String
+    storyImage?: string | null; // String
+  }
+  CMSAboutListRelationFilter: { // input type
+    every?: NexusGenInputs['CMSAboutWhereInput'] | null; // CMSAboutWhereInput
+    none?: NexusGenInputs['CMSAboutWhereInput'] | null; // CMSAboutWhereInput
+    some?: NexusGenInputs['CMSAboutWhereInput'] | null; // CMSAboutWhereInput
+  }
+  CMSAboutOrderByInput: { // input type
+    headerDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    headerHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    headerImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    storyDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    storyHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    storyImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  CMSAboutScalarWhereInput: { // input type
+    AND?: NexusGenInputs['CMSAboutScalarWhereInput'][] | null; // [CMSAboutScalarWhereInput!]
+    NOT?: NexusGenInputs['CMSAboutScalarWhereInput'][] | null; // [CMSAboutScalarWhereInput!]
+    OR?: NexusGenInputs['CMSAboutScalarWhereInput'][] | null; // [CMSAboutScalarWhereInput!]
+    headerDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    storyDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    storyHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    storyImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+  }
+  CMSAboutUpdateInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutCMSAboutInput'] | null; // RestaurantUpdateOneRequiredWithoutCMSAboutInput
+    storyDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    storyHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    storyImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  CMSAboutUpdateManyMutationInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    storyDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    storyHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    storyImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  CMSAboutUpdateManyWithWhereWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSAboutUpdateManyMutationInput']; // CMSAboutUpdateManyMutationInput!
+    where: NexusGenInputs['CMSAboutScalarWhereInput']; // CMSAboutScalarWhereInput!
+  }
+  CMSAboutUpdateManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSAboutWhereUniqueInput'][] | null; // [CMSAboutWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSAboutCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSAboutCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSAboutCreateWithoutRestaurantInput'][] | null; // [CMSAboutCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSAboutCreateManyRestaurantInputEnvelope'] | null; // CMSAboutCreateManyRestaurantInputEnvelope
+    delete?: NexusGenInputs['CMSAboutWhereUniqueInput'][] | null; // [CMSAboutWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['CMSAboutScalarWhereInput'][] | null; // [CMSAboutScalarWhereInput!]
+    disconnect?: NexusGenInputs['CMSAboutWhereUniqueInput'][] | null; // [CMSAboutWhereUniqueInput!]
+    set?: NexusGenInputs['CMSAboutWhereUniqueInput'][] | null; // [CMSAboutWhereUniqueInput!]
+    update?: NexusGenInputs['CMSAboutUpdateWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSAboutUpdateWithWhereUniqueWithoutRestaurantInput!]
+    updateMany?: NexusGenInputs['CMSAboutUpdateManyWithWhereWithoutRestaurantInput'][] | null; // [CMSAboutUpdateManyWithWhereWithoutRestaurantInput!]
+    upsert?: NexusGenInputs['CMSAboutUpsertWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSAboutUpsertWithWhereUniqueWithoutRestaurantInput!]
+  }
+  CMSAboutUpdateWithWhereUniqueWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSAboutUpdateWithoutRestaurantInput']; // CMSAboutUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSAboutWhereUniqueInput']; // CMSAboutWhereUniqueInput!
+  }
+  CMSAboutUpdateWithoutRestaurantInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    storyDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    storyHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    storyImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  CMSAboutUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSAboutCreateWithoutRestaurantInput']; // CMSAboutCreateWithoutRestaurantInput!
+    update: NexusGenInputs['CMSAboutUpdateWithoutRestaurantInput']; // CMSAboutUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSAboutWhereUniqueInput']; // CMSAboutWhereUniqueInput!
+  }
+  CMSAboutWhereInput: { // input type
+    AND?: NexusGenInputs['CMSAboutWhereInput'][] | null; // [CMSAboutWhereInput!]
+    NOT?: NexusGenInputs['CMSAboutWhereInput'][] | null; // [CMSAboutWhereInput!]
+    OR?: NexusGenInputs['CMSAboutWhereInput'][] | null; // [CMSAboutWhereInput!]
+    headerDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    storyDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    storyHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    storyImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+  }
+  CMSAboutWhereUniqueInput: { // input type
+    id?: string | null; // String
+  }
+  CMSContactCreateInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutCMSContactInput']; // RestaurantCreateNestedOneWithoutCMSContactInput!
+  }
+  CMSContactCreateManyRestaurantInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+  }
+  CMSContactCreateManyRestaurantInputEnvelope: { // input type
+    data?: NexusGenInputs['CMSContactCreateManyRestaurantInput'][] | null; // [CMSContactCreateManyRestaurantInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  CMSContactCreateNestedManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSContactWhereUniqueInput'][] | null; // [CMSContactWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSContactCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSContactCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSContactCreateWithoutRestaurantInput'][] | null; // [CMSContactCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSContactCreateManyRestaurantInputEnvelope'] | null; // CMSContactCreateManyRestaurantInputEnvelope
+  }
+  CMSContactCreateOrConnectWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSContactCreateWithoutRestaurantInput']; // CMSContactCreateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSContactWhereUniqueInput']; // CMSContactWhereUniqueInput!
+  }
+  CMSContactCreateWithoutRestaurantInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+  }
+  CMSContactListRelationFilter: { // input type
+    every?: NexusGenInputs['CMSContactWhereInput'] | null; // CMSContactWhereInput
+    none?: NexusGenInputs['CMSContactWhereInput'] | null; // CMSContactWhereInput
+    some?: NexusGenInputs['CMSContactWhereInput'] | null; // CMSContactWhereInput
+  }
+  CMSContactOrderByInput: { // input type
+    headerDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    headerHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    headerImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  CMSContactScalarWhereInput: { // input type
+    AND?: NexusGenInputs['CMSContactScalarWhereInput'][] | null; // [CMSContactScalarWhereInput!]
+    NOT?: NexusGenInputs['CMSContactScalarWhereInput'][] | null; // [CMSContactScalarWhereInput!]
+    OR?: NexusGenInputs['CMSContactScalarWhereInput'][] | null; // [CMSContactScalarWhereInput!]
+    headerDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  CMSContactUpdateInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutCMSContactInput'] | null; // RestaurantUpdateOneRequiredWithoutCMSContactInput
+  }
+  CMSContactUpdateManyMutationInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+  }
+  CMSContactUpdateManyWithWhereWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSContactUpdateManyMutationInput']; // CMSContactUpdateManyMutationInput!
+    where: NexusGenInputs['CMSContactScalarWhereInput']; // CMSContactScalarWhereInput!
+  }
+  CMSContactUpdateManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSContactWhereUniqueInput'][] | null; // [CMSContactWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSContactCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSContactCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSContactCreateWithoutRestaurantInput'][] | null; // [CMSContactCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSContactCreateManyRestaurantInputEnvelope'] | null; // CMSContactCreateManyRestaurantInputEnvelope
+    delete?: NexusGenInputs['CMSContactWhereUniqueInput'][] | null; // [CMSContactWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['CMSContactScalarWhereInput'][] | null; // [CMSContactScalarWhereInput!]
+    disconnect?: NexusGenInputs['CMSContactWhereUniqueInput'][] | null; // [CMSContactWhereUniqueInput!]
+    set?: NexusGenInputs['CMSContactWhereUniqueInput'][] | null; // [CMSContactWhereUniqueInput!]
+    update?: NexusGenInputs['CMSContactUpdateWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSContactUpdateWithWhereUniqueWithoutRestaurantInput!]
+    updateMany?: NexusGenInputs['CMSContactUpdateManyWithWhereWithoutRestaurantInput'][] | null; // [CMSContactUpdateManyWithWhereWithoutRestaurantInput!]
+    upsert?: NexusGenInputs['CMSContactUpsertWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSContactUpsertWithWhereUniqueWithoutRestaurantInput!]
+  }
+  CMSContactUpdateWithWhereUniqueWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSContactUpdateWithoutRestaurantInput']; // CMSContactUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSContactWhereUniqueInput']; // CMSContactWhereUniqueInput!
+  }
+  CMSContactUpdateWithoutRestaurantInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+  }
+  CMSContactUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSContactCreateWithoutRestaurantInput']; // CMSContactCreateWithoutRestaurantInput!
+    update: NexusGenInputs['CMSContactUpdateWithoutRestaurantInput']; // CMSContactUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSContactWhereUniqueInput']; // CMSContactWhereUniqueInput!
+  }
+  CMSContactWhereInput: { // input type
+    AND?: NexusGenInputs['CMSContactWhereInput'][] | null; // [CMSContactWhereInput!]
+    NOT?: NexusGenInputs['CMSContactWhereInput'][] | null; // [CMSContactWhereInput!]
+    OR?: NexusGenInputs['CMSContactWhereInput'][] | null; // [CMSContactWhereInput!]
+    headerDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  CMSContactWhereUniqueInput: { // input type
+    id?: string | null; // String
+  }
+  CMSHomeCreateInput: { // input type
+    aboutDescription?: string | null; // String
+    aboutHeading?: string | null; // String
+    aboutImage?: string | null; // String
+    dealsDescription?: string | null; // String
+    dealsHeading?: string | null; // String
+    dealsImage?: string | null; // String
+    heroDescription?: string | null; // String
+    heroHeading?: string | null; // String
+    heroImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    popularDishesDescription?: string | null; // String
+    popularDishesHeading?: string | null; // String
+    popularDishesImage?: string | null; // String
+    reservationDescription?: string | null; // String
+    reservationHeading?: string | null; // String
+    reservationImage?: string | null; // String
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutCMSHomeInput']; // RestaurantCreateNestedOneWithoutCMSHomeInput!
+  }
+  CMSHomeCreateManyRestaurantInput: { // input type
+    aboutDescription?: string | null; // String
+    aboutHeading?: string | null; // String
+    aboutImage?: string | null; // String
+    dealsDescription?: string | null; // String
+    dealsHeading?: string | null; // String
+    dealsImage?: string | null; // String
+    heroDescription?: string | null; // String
+    heroHeading?: string | null; // String
+    heroImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    popularDishesDescription?: string | null; // String
+    popularDishesHeading?: string | null; // String
+    popularDishesImage?: string | null; // String
+    reservationDescription?: string | null; // String
+    reservationHeading?: string | null; // String
+    reservationImage?: string | null; // String
+  }
+  CMSHomeCreateManyRestaurantInputEnvelope: { // input type
+    data?: NexusGenInputs['CMSHomeCreateManyRestaurantInput'][] | null; // [CMSHomeCreateManyRestaurantInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  CMSHomeCreateNestedManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSHomeWhereUniqueInput'][] | null; // [CMSHomeWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSHomeCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSHomeCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSHomeCreateWithoutRestaurantInput'][] | null; // [CMSHomeCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSHomeCreateManyRestaurantInputEnvelope'] | null; // CMSHomeCreateManyRestaurantInputEnvelope
+  }
+  CMSHomeCreateOrConnectWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSHomeCreateWithoutRestaurantInput']; // CMSHomeCreateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSHomeWhereUniqueInput']; // CMSHomeWhereUniqueInput!
+  }
+  CMSHomeCreateWithoutRestaurantInput: { // input type
+    aboutDescription?: string | null; // String
+    aboutHeading?: string | null; // String
+    aboutImage?: string | null; // String
+    dealsDescription?: string | null; // String
+    dealsHeading?: string | null; // String
+    dealsImage?: string | null; // String
+    heroDescription?: string | null; // String
+    heroHeading?: string | null; // String
+    heroImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    popularDishesDescription?: string | null; // String
+    popularDishesHeading?: string | null; // String
+    popularDishesImage?: string | null; // String
+    reservationDescription?: string | null; // String
+    reservationHeading?: string | null; // String
+    reservationImage?: string | null; // String
+  }
+  CMSHomeListRelationFilter: { // input type
+    every?: NexusGenInputs['CMSHomeWhereInput'] | null; // CMSHomeWhereInput
+    none?: NexusGenInputs['CMSHomeWhereInput'] | null; // CMSHomeWhereInput
+    some?: NexusGenInputs['CMSHomeWhereInput'] | null; // CMSHomeWhereInput
+  }
+  CMSHomeOrderByInput: { // input type
+    aboutDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    aboutHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    aboutImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    dealsDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    dealsHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    dealsImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    heroDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    heroHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    heroImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    popularDishesDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    popularDishesHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    popularDishesImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    reservationDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    reservationHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    reservationImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  CMSHomeScalarWhereInput: { // input type
+    AND?: NexusGenInputs['CMSHomeScalarWhereInput'][] | null; // [CMSHomeScalarWhereInput!]
+    NOT?: NexusGenInputs['CMSHomeScalarWhereInput'][] | null; // [CMSHomeScalarWhereInput!]
+    OR?: NexusGenInputs['CMSHomeScalarWhereInput'][] | null; // [CMSHomeScalarWhereInput!]
+    aboutDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    aboutHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    aboutImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    dealsDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    dealsHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    dealsImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    heroDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    heroHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    heroImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    popularDishesDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    popularDishesHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    popularDishesImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    reservationDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    reservationHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    reservationImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  CMSHomeUpdateInput: { // input type
+    aboutDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    aboutHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    aboutImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    dealsDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    dealsHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    dealsImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    heroDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    heroHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    heroImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    popularDishesDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    popularDishesHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    popularDishesImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    reservationDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    reservationHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    reservationImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutCMSHomeInput'] | null; // RestaurantUpdateOneRequiredWithoutCMSHomeInput
+  }
+  CMSHomeUpdateManyMutationInput: { // input type
+    aboutDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    aboutHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    aboutImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    dealsDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    dealsHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    dealsImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    heroDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    heroHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    heroImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    popularDishesDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    popularDishesHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    popularDishesImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    reservationDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    reservationHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    reservationImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  CMSHomeUpdateManyWithWhereWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSHomeUpdateManyMutationInput']; // CMSHomeUpdateManyMutationInput!
+    where: NexusGenInputs['CMSHomeScalarWhereInput']; // CMSHomeScalarWhereInput!
+  }
+  CMSHomeUpdateManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSHomeWhereUniqueInput'][] | null; // [CMSHomeWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSHomeCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSHomeCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSHomeCreateWithoutRestaurantInput'][] | null; // [CMSHomeCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSHomeCreateManyRestaurantInputEnvelope'] | null; // CMSHomeCreateManyRestaurantInputEnvelope
+    delete?: NexusGenInputs['CMSHomeWhereUniqueInput'][] | null; // [CMSHomeWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['CMSHomeScalarWhereInput'][] | null; // [CMSHomeScalarWhereInput!]
+    disconnect?: NexusGenInputs['CMSHomeWhereUniqueInput'][] | null; // [CMSHomeWhereUniqueInput!]
+    set?: NexusGenInputs['CMSHomeWhereUniqueInput'][] | null; // [CMSHomeWhereUniqueInput!]
+    update?: NexusGenInputs['CMSHomeUpdateWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSHomeUpdateWithWhereUniqueWithoutRestaurantInput!]
+    updateMany?: NexusGenInputs['CMSHomeUpdateManyWithWhereWithoutRestaurantInput'][] | null; // [CMSHomeUpdateManyWithWhereWithoutRestaurantInput!]
+    upsert?: NexusGenInputs['CMSHomeUpsertWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSHomeUpsertWithWhereUniqueWithoutRestaurantInput!]
+  }
+  CMSHomeUpdateWithWhereUniqueWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSHomeUpdateWithoutRestaurantInput']; // CMSHomeUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSHomeWhereUniqueInput']; // CMSHomeWhereUniqueInput!
+  }
+  CMSHomeUpdateWithoutRestaurantInput: { // input type
+    aboutDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    aboutHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    aboutImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    dealsDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    dealsHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    dealsImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    heroDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    heroHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    heroImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    popularDishesDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    popularDishesHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    popularDishesImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    reservationDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    reservationHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    reservationImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  CMSHomeUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSHomeCreateWithoutRestaurantInput']; // CMSHomeCreateWithoutRestaurantInput!
+    update: NexusGenInputs['CMSHomeUpdateWithoutRestaurantInput']; // CMSHomeUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSHomeWhereUniqueInput']; // CMSHomeWhereUniqueInput!
+  }
+  CMSHomeWhereInput: { // input type
+    AND?: NexusGenInputs['CMSHomeWhereInput'][] | null; // [CMSHomeWhereInput!]
+    NOT?: NexusGenInputs['CMSHomeWhereInput'][] | null; // [CMSHomeWhereInput!]
+    OR?: NexusGenInputs['CMSHomeWhereInput'][] | null; // [CMSHomeWhereInput!]
+    aboutDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    aboutHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    aboutImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    dealsDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    dealsHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    dealsImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    heroDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    heroHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    heroImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    popularDishesDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    popularDishesHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    popularDishesImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    reservationDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    reservationHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    reservationImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  CMSHomeWhereUniqueInput: { // input type
+    id?: string | null; // String
+  }
+  CMSReservationCreateInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutCMSReservationInput']; // RestaurantCreateNestedOneWithoutCMSReservationInput!
+  }
+  CMSReservationCreateManyRestaurantInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+  }
+  CMSReservationCreateManyRestaurantInputEnvelope: { // input type
+    data?: NexusGenInputs['CMSReservationCreateManyRestaurantInput'][] | null; // [CMSReservationCreateManyRestaurantInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  CMSReservationCreateNestedManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSReservationWhereUniqueInput'][] | null; // [CMSReservationWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSReservationCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSReservationCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSReservationCreateWithoutRestaurantInput'][] | null; // [CMSReservationCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSReservationCreateManyRestaurantInputEnvelope'] | null; // CMSReservationCreateManyRestaurantInputEnvelope
+  }
+  CMSReservationCreateOrConnectWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSReservationCreateWithoutRestaurantInput']; // CMSReservationCreateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSReservationWhereUniqueInput']; // CMSReservationWhereUniqueInput!
+  }
+  CMSReservationCreateWithoutRestaurantInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+  }
+  CMSReservationListRelationFilter: { // input type
+    every?: NexusGenInputs['CMSReservationWhereInput'] | null; // CMSReservationWhereInput
+    none?: NexusGenInputs['CMSReservationWhereInput'] | null; // CMSReservationWhereInput
+    some?: NexusGenInputs['CMSReservationWhereInput'] | null; // CMSReservationWhereInput
+  }
+  CMSReservationOrderByInput: { // input type
+    headerDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    headerHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    headerImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  CMSReservationScalarWhereInput: { // input type
+    AND?: NexusGenInputs['CMSReservationScalarWhereInput'][] | null; // [CMSReservationScalarWhereInput!]
+    NOT?: NexusGenInputs['CMSReservationScalarWhereInput'][] | null; // [CMSReservationScalarWhereInput!]
+    OR?: NexusGenInputs['CMSReservationScalarWhereInput'][] | null; // [CMSReservationScalarWhereInput!]
+    headerDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  CMSReservationUpdateInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutCMSReservationInput'] | null; // RestaurantUpdateOneRequiredWithoutCMSReservationInput
+  }
+  CMSReservationUpdateManyMutationInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+  }
+  CMSReservationUpdateManyWithWhereWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSReservationUpdateManyMutationInput']; // CMSReservationUpdateManyMutationInput!
+    where: NexusGenInputs['CMSReservationScalarWhereInput']; // CMSReservationScalarWhereInput!
+  }
+  CMSReservationUpdateManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSReservationWhereUniqueInput'][] | null; // [CMSReservationWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSReservationCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSReservationCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSReservationCreateWithoutRestaurantInput'][] | null; // [CMSReservationCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSReservationCreateManyRestaurantInputEnvelope'] | null; // CMSReservationCreateManyRestaurantInputEnvelope
+    delete?: NexusGenInputs['CMSReservationWhereUniqueInput'][] | null; // [CMSReservationWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['CMSReservationScalarWhereInput'][] | null; // [CMSReservationScalarWhereInput!]
+    disconnect?: NexusGenInputs['CMSReservationWhereUniqueInput'][] | null; // [CMSReservationWhereUniqueInput!]
+    set?: NexusGenInputs['CMSReservationWhereUniqueInput'][] | null; // [CMSReservationWhereUniqueInput!]
+    update?: NexusGenInputs['CMSReservationUpdateWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSReservationUpdateWithWhereUniqueWithoutRestaurantInput!]
+    updateMany?: NexusGenInputs['CMSReservationUpdateManyWithWhereWithoutRestaurantInput'][] | null; // [CMSReservationUpdateManyWithWhereWithoutRestaurantInput!]
+    upsert?: NexusGenInputs['CMSReservationUpsertWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSReservationUpsertWithWhereUniqueWithoutRestaurantInput!]
+  }
+  CMSReservationUpdateWithWhereUniqueWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSReservationUpdateWithoutRestaurantInput']; // CMSReservationUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSReservationWhereUniqueInput']; // CMSReservationWhereUniqueInput!
+  }
+  CMSReservationUpdateWithoutRestaurantInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+  }
+  CMSReservationUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSReservationCreateWithoutRestaurantInput']; // CMSReservationCreateWithoutRestaurantInput!
+    update: NexusGenInputs['CMSReservationUpdateWithoutRestaurantInput']; // CMSReservationUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSReservationWhereUniqueInput']; // CMSReservationWhereUniqueInput!
+  }
+  CMSReservationWhereInput: { // input type
+    AND?: NexusGenInputs['CMSReservationWhereInput'][] | null; // [CMSReservationWhereInput!]
+    NOT?: NexusGenInputs['CMSReservationWhereInput'][] | null; // [CMSReservationWhereInput!]
+    OR?: NexusGenInputs['CMSReservationWhereInput'][] | null; // [CMSReservationWhereInput!]
+    headerDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  CMSReservationWhereUniqueInput: { // input type
+    id?: string | null; // String
+  }
+  CMSReviewCreateInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutCMSReviewInput']; // RestaurantCreateNestedOneWithoutCMSReviewInput!
+  }
+  CMSReviewCreateManyRestaurantInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+  }
+  CMSReviewCreateManyRestaurantInputEnvelope: { // input type
+    data?: NexusGenInputs['CMSReviewCreateManyRestaurantInput'][] | null; // [CMSReviewCreateManyRestaurantInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  CMSReviewCreateNestedManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSReviewWhereUniqueInput'][] | null; // [CMSReviewWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSReviewCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSReviewCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSReviewCreateWithoutRestaurantInput'][] | null; // [CMSReviewCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSReviewCreateManyRestaurantInputEnvelope'] | null; // CMSReviewCreateManyRestaurantInputEnvelope
+  }
+  CMSReviewCreateOrConnectWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSReviewCreateWithoutRestaurantInput']; // CMSReviewCreateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSReviewWhereUniqueInput']; // CMSReviewWhereUniqueInput!
+  }
+  CMSReviewCreateWithoutRestaurantInput: { // input type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id?: string | null; // String
+    isActive?: boolean | null; // Boolean
+  }
+  CMSReviewListRelationFilter: { // input type
+    every?: NexusGenInputs['CMSReviewWhereInput'] | null; // CMSReviewWhereInput
+    none?: NexusGenInputs['CMSReviewWhereInput'] | null; // CMSReviewWhereInput
+    some?: NexusGenInputs['CMSReviewWhereInput'] | null; // CMSReviewWhereInput
+  }
+  CMSReviewOrderByInput: { // input type
+    headerDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    headerHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    headerImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  CMSReviewScalarWhereInput: { // input type
+    AND?: NexusGenInputs['CMSReviewScalarWhereInput'][] | null; // [CMSReviewScalarWhereInput!]
+    NOT?: NexusGenInputs['CMSReviewScalarWhereInput'][] | null; // [CMSReviewScalarWhereInput!]
+    OR?: NexusGenInputs['CMSReviewScalarWhereInput'][] | null; // [CMSReviewScalarWhereInput!]
+    headerDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  CMSReviewUpdateInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutCMSReviewInput'] | null; // RestaurantUpdateOneRequiredWithoutCMSReviewInput
+  }
+  CMSReviewUpdateManyMutationInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+  }
+  CMSReviewUpdateManyWithWhereWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSReviewUpdateManyMutationInput']; // CMSReviewUpdateManyMutationInput!
+    where: NexusGenInputs['CMSReviewScalarWhereInput']; // CMSReviewScalarWhereInput!
+  }
+  CMSReviewUpdateManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['CMSReviewWhereUniqueInput'][] | null; // [CMSReviewWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['CMSReviewCreateOrConnectWithoutRestaurantInput'][] | null; // [CMSReviewCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['CMSReviewCreateWithoutRestaurantInput'][] | null; // [CMSReviewCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['CMSReviewCreateManyRestaurantInputEnvelope'] | null; // CMSReviewCreateManyRestaurantInputEnvelope
+    delete?: NexusGenInputs['CMSReviewWhereUniqueInput'][] | null; // [CMSReviewWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['CMSReviewScalarWhereInput'][] | null; // [CMSReviewScalarWhereInput!]
+    disconnect?: NexusGenInputs['CMSReviewWhereUniqueInput'][] | null; // [CMSReviewWhereUniqueInput!]
+    set?: NexusGenInputs['CMSReviewWhereUniqueInput'][] | null; // [CMSReviewWhereUniqueInput!]
+    update?: NexusGenInputs['CMSReviewUpdateWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSReviewUpdateWithWhereUniqueWithoutRestaurantInput!]
+    updateMany?: NexusGenInputs['CMSReviewUpdateManyWithWhereWithoutRestaurantInput'][] | null; // [CMSReviewUpdateManyWithWhereWithoutRestaurantInput!]
+    upsert?: NexusGenInputs['CMSReviewUpsertWithWhereUniqueWithoutRestaurantInput'][] | null; // [CMSReviewUpsertWithWhereUniqueWithoutRestaurantInput!]
+  }
+  CMSReviewUpdateWithWhereUniqueWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['CMSReviewUpdateWithoutRestaurantInput']; // CMSReviewUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSReviewWhereUniqueInput']; // CMSReviewWhereUniqueInput!
+  }
+  CMSReviewUpdateWithoutRestaurantInput: { // input type
+    headerDescription?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerHeading?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    headerImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+  }
+  CMSReviewUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['CMSReviewCreateWithoutRestaurantInput']; // CMSReviewCreateWithoutRestaurantInput!
+    update: NexusGenInputs['CMSReviewUpdateWithoutRestaurantInput']; // CMSReviewUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['CMSReviewWhereUniqueInput']; // CMSReviewWhereUniqueInput!
+  }
+  CMSReviewWhereInput: { // input type
+    AND?: NexusGenInputs['CMSReviewWhereInput'][] | null; // [CMSReviewWhereInput!]
+    NOT?: NexusGenInputs['CMSReviewWhereInput'][] | null; // [CMSReviewWhereInput!]
+    OR?: NexusGenInputs['CMSReviewWhereInput'][] | null; // [CMSReviewWhereInput!]
+    headerDescription?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerHeading?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    headerImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  CMSReviewWhereUniqueInput: { // input type
+    id?: string | null; // String
+  }
   CouponCreateInput: { // input type
     code: string; // String!
     description?: string | null; // String
@@ -237,6 +987,7 @@ export interface NexusGenInputs {
     id?: string | null; // String
   }
   CustomerCreateInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutCustomerInput'] | null; // RestaurantReviewCreateNestedManyWithoutCustomerInput
     addresses?: NexusGenInputs['CustomerAddressCreateNestedManyWithoutCustomerInput'] | null; // CustomerAddressCreateNestedManyWithoutCustomerInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     email: string; // String!
@@ -265,6 +1016,11 @@ export interface NexusGenInputs {
     connectOrCreate?: NexusGenInputs['CustomerCreateOrConnectWithoutOrdersInput'] | null; // CustomerCreateOrConnectWithoutOrdersInput
     create?: NexusGenInputs['CustomerCreateWithoutOrdersInput'] | null; // CustomerCreateWithoutOrdersInput
   }
+  CustomerCreateNestedOneWithoutRestaurantReviewInput: { // input type
+    connect?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['CustomerCreateOrConnectWithoutRestaurantReviewInput'] | null; // CustomerCreateOrConnectWithoutRestaurantReviewInput
+    create?: NexusGenInputs['CustomerCreateWithoutRestaurantReviewInput'] | null; // CustomerCreateWithoutRestaurantReviewInput
+  }
   CustomerCreateNestedOneWithoutTokenInput: { // input type
     connect?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput
     connectOrCreate?: NexusGenInputs['CustomerCreateOrConnectWithoutTokenInput'] | null; // CustomerCreateOrConnectWithoutTokenInput
@@ -278,6 +1034,10 @@ export interface NexusGenInputs {
     create: NexusGenInputs['CustomerCreateWithoutOrdersInput']; // CustomerCreateWithoutOrdersInput!
     where: NexusGenInputs['CustomerWhereUniqueInput']; // CustomerWhereUniqueInput!
   }
+  CustomerCreateOrConnectWithoutRestaurantReviewInput: { // input type
+    create: NexusGenInputs['CustomerCreateWithoutRestaurantReviewInput']; // CustomerCreateWithoutRestaurantReviewInput!
+    where: NexusGenInputs['CustomerWhereUniqueInput']; // CustomerWhereUniqueInput!
+  }
   CustomerCreateOrConnectWithoutRestaurantsInput: { // input type
     create: NexusGenInputs['CustomerCreateWithoutRestaurantsInput']; // CustomerCreateWithoutRestaurantsInput!
     where: NexusGenInputs['CustomerWhereUniqueInput']; // CustomerWhereUniqueInput!
@@ -287,6 +1047,7 @@ export interface NexusGenInputs {
     where: NexusGenInputs['CustomerWhereUniqueInput']; // CustomerWhereUniqueInput!
   }
   CustomerCreateWithoutAddressesInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutCustomerInput'] | null; // RestaurantReviewCreateNestedManyWithoutCustomerInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     email: string; // String!
     firstName: string; // String!
@@ -300,6 +1061,7 @@ export interface NexusGenInputs {
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   CustomerCreateWithoutOrdersInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutCustomerInput'] | null; // RestaurantReviewCreateNestedManyWithoutCustomerInput
     addresses?: NexusGenInputs['CustomerAddressCreateNestedManyWithoutCustomerInput'] | null; // CustomerAddressCreateNestedManyWithoutCustomerInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     email: string; // String!
@@ -312,7 +1074,22 @@ export interface NexusGenInputs {
     token?: NexusGenInputs['CustomerTokenCreateNestedManyWithoutCustomerInput'] | null; // CustomerTokenCreateNestedManyWithoutCustomerInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
+  CustomerCreateWithoutRestaurantReviewInput: { // input type
+    addresses?: NexusGenInputs['CustomerAddressCreateNestedManyWithoutCustomerInput'] | null; // CustomerAddressCreateNestedManyWithoutCustomerInput
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    email: string; // String!
+    firstName: string; // String!
+    id?: string | null; // String
+    lastName: string; // String!
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutCustomerInput'] | null; // OrderCreateNestedManyWithoutCustomerInput
+    password: string; // String!
+    phone: string; // String!
+    restaurants?: NexusGenInputs['RestaurantCreateNestedManyWithoutCustomersInput'] | null; // RestaurantCreateNestedManyWithoutCustomersInput
+    token?: NexusGenInputs['CustomerTokenCreateNestedManyWithoutCustomerInput'] | null; // CustomerTokenCreateNestedManyWithoutCustomerInput
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
   CustomerCreateWithoutRestaurantsInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutCustomerInput'] | null; // RestaurantReviewCreateNestedManyWithoutCustomerInput
     addresses?: NexusGenInputs['CustomerAddressCreateNestedManyWithoutCustomerInput'] | null; // CustomerAddressCreateNestedManyWithoutCustomerInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     email: string; // String!
@@ -326,6 +1103,7 @@ export interface NexusGenInputs {
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   CustomerCreateWithoutTokenInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutCustomerInput'] | null; // RestaurantReviewCreateNestedManyWithoutCustomerInput
     addresses?: NexusGenInputs['CustomerAddressCreateNestedManyWithoutCustomerInput'] | null; // CustomerAddressCreateNestedManyWithoutCustomerInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     email: string; // String!
@@ -481,6 +1259,7 @@ export interface NexusGenInputs {
     id?: string | null; // String
   }
   CustomerUpdateInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutCustomerInput'] | null; // RestaurantReviewUpdateManyWithoutCustomerInput
     addresses?: NexusGenInputs['CustomerAddressUpdateManyWithoutCustomerInput'] | null; // CustomerAddressUpdateManyWithoutCustomerInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -520,6 +1299,13 @@ export interface NexusGenInputs {
     updateMany?: NexusGenInputs['CustomerUpdateManyWithWhereWithoutRestaurantsInput'][] | null; // [CustomerUpdateManyWithWhereWithoutRestaurantsInput!]
     upsert?: NexusGenInputs['CustomerUpsertWithWhereUniqueWithoutRestaurantsInput'][] | null; // [CustomerUpsertWithWhereUniqueWithoutRestaurantsInput!]
   }
+  CustomerUpdateOneRequiredWithoutRestaurantReviewInput: { // input type
+    connect?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['CustomerCreateOrConnectWithoutRestaurantReviewInput'] | null; // CustomerCreateOrConnectWithoutRestaurantReviewInput
+    create?: NexusGenInputs['CustomerCreateWithoutRestaurantReviewInput'] | null; // CustomerCreateWithoutRestaurantReviewInput
+    update?: NexusGenInputs['CustomerUpdateWithoutRestaurantReviewInput'] | null; // CustomerUpdateWithoutRestaurantReviewInput
+    upsert?: NexusGenInputs['CustomerUpsertWithoutRestaurantReviewInput'] | null; // CustomerUpsertWithoutRestaurantReviewInput
+  }
   CustomerUpdateOneWithoutAddressesInput: { // input type
     connect?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput
     connectOrCreate?: NexusGenInputs['CustomerCreateOrConnectWithoutAddressesInput'] | null; // CustomerCreateOrConnectWithoutAddressesInput
@@ -552,6 +1338,7 @@ export interface NexusGenInputs {
     where: NexusGenInputs['CustomerWhereUniqueInput']; // CustomerWhereUniqueInput!
   }
   CustomerUpdateWithoutAddressesInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutCustomerInput'] | null; // RestaurantReviewUpdateManyWithoutCustomerInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     firstName?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -565,6 +1352,7 @@ export interface NexusGenInputs {
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   CustomerUpdateWithoutOrdersInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutCustomerInput'] | null; // RestaurantReviewUpdateManyWithoutCustomerInput
     addresses?: NexusGenInputs['CustomerAddressUpdateManyWithoutCustomerInput'] | null; // CustomerAddressUpdateManyWithoutCustomerInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -577,7 +1365,22 @@ export interface NexusGenInputs {
     token?: NexusGenInputs['CustomerTokenUpdateManyWithoutCustomerInput'] | null; // CustomerTokenUpdateManyWithoutCustomerInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
+  CustomerUpdateWithoutRestaurantReviewInput: { // input type
+    addresses?: NexusGenInputs['CustomerAddressUpdateManyWithoutCustomerInput'] | null; // CustomerAddressUpdateManyWithoutCustomerInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    firstName?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    lastName?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutCustomerInput'] | null; // OrderUpdateManyWithoutCustomerInput
+    password?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    phone?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    restaurants?: NexusGenInputs['RestaurantUpdateManyWithoutCustomersInput'] | null; // RestaurantUpdateManyWithoutCustomersInput
+    token?: NexusGenInputs['CustomerTokenUpdateManyWithoutCustomerInput'] | null; // CustomerTokenUpdateManyWithoutCustomerInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
   CustomerUpdateWithoutRestaurantsInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutCustomerInput'] | null; // RestaurantReviewUpdateManyWithoutCustomerInput
     addresses?: NexusGenInputs['CustomerAddressUpdateManyWithoutCustomerInput'] | null; // CustomerAddressUpdateManyWithoutCustomerInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -591,6 +1394,7 @@ export interface NexusGenInputs {
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   CustomerUpdateWithoutTokenInput: { // input type
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutCustomerInput'] | null; // RestaurantReviewUpdateManyWithoutCustomerInput
     addresses?: NexusGenInputs['CustomerAddressUpdateManyWithoutCustomerInput'] | null; // CustomerAddressUpdateManyWithoutCustomerInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -616,6 +1420,10 @@ export interface NexusGenInputs {
     create: NexusGenInputs['CustomerCreateWithoutOrdersInput']; // CustomerCreateWithoutOrdersInput!
     update: NexusGenInputs['CustomerUpdateWithoutOrdersInput']; // CustomerUpdateWithoutOrdersInput!
   }
+  CustomerUpsertWithoutRestaurantReviewInput: { // input type
+    create: NexusGenInputs['CustomerCreateWithoutRestaurantReviewInput']; // CustomerCreateWithoutRestaurantReviewInput!
+    update: NexusGenInputs['CustomerUpdateWithoutRestaurantReviewInput']; // CustomerUpdateWithoutRestaurantReviewInput!
+  }
   CustomerUpsertWithoutTokenInput: { // input type
     create: NexusGenInputs['CustomerCreateWithoutTokenInput']; // CustomerCreateWithoutTokenInput!
     update: NexusGenInputs['CustomerUpdateWithoutTokenInput']; // CustomerUpdateWithoutTokenInput!
@@ -624,6 +1432,7 @@ export interface NexusGenInputs {
     AND?: NexusGenInputs['CustomerWhereInput'][] | null; // [CustomerWhereInput!]
     NOT?: NexusGenInputs['CustomerWhereInput'][] | null; // [CustomerWhereInput!]
     OR?: NexusGenInputs['CustomerWhereInput'][] | null; // [CustomerWhereInput!]
+    RestaurantReview?: NexusGenInputs['RestaurantReviewListRelationFilter'] | null; // RestaurantReviewListRelationFilter
     addresses?: NexusGenInputs['CustomerAddressListRelationFilter'] | null; // CustomerAddressListRelationFilter
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     email?: NexusGenInputs['StringFilter'] | null; // StringFilter
@@ -2166,7 +2975,147 @@ export interface NexusGenInputs {
   ProductWhereUniqueInput: { // input type
     id?: string | null; // String
   }
+  RestaurantConfigCreateInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    id?: string | null; // String
+    isActive: boolean; // Boolean!
+    primaryColor: string; // String!
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutRestaurantConfigInput']; // RestaurantCreateNestedOneWithoutRestaurantConfigInput!
+    secondaryColor: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  RestaurantConfigCreateManyRestaurantInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    id?: string | null; // String
+    isActive: boolean; // Boolean!
+    primaryColor: string; // String!
+    secondaryColor: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  RestaurantConfigCreateManyRestaurantInputEnvelope: { // input type
+    data?: NexusGenInputs['RestaurantConfigCreateManyRestaurantInput'][] | null; // [RestaurantConfigCreateManyRestaurantInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  RestaurantConfigCreateNestedManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['RestaurantConfigWhereUniqueInput'][] | null; // [RestaurantConfigWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['RestaurantConfigCreateOrConnectWithoutRestaurantInput'][] | null; // [RestaurantConfigCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['RestaurantConfigCreateWithoutRestaurantInput'][] | null; // [RestaurantConfigCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['RestaurantConfigCreateManyRestaurantInputEnvelope'] | null; // RestaurantConfigCreateManyRestaurantInputEnvelope
+  }
+  RestaurantConfigCreateOrConnectWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['RestaurantConfigCreateWithoutRestaurantInput']; // RestaurantConfigCreateWithoutRestaurantInput!
+    where: NexusGenInputs['RestaurantConfigWhereUniqueInput']; // RestaurantConfigWhereUniqueInput!
+  }
+  RestaurantConfigCreateWithoutRestaurantInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    id?: string | null; // String
+    isActive: boolean; // Boolean!
+    primaryColor: string; // String!
+    secondaryColor: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  RestaurantConfigListRelationFilter: { // input type
+    every?: NexusGenInputs['RestaurantConfigWhereInput'] | null; // RestaurantConfigWhereInput
+    none?: NexusGenInputs['RestaurantConfigWhereInput'] | null; // RestaurantConfigWhereInput
+    some?: NexusGenInputs['RestaurantConfigWhereInput'] | null; // RestaurantConfigWhereInput
+  }
+  RestaurantConfigOrderByInput: { // input type
+    createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    primaryColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    secondaryColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  RestaurantConfigScalarWhereInput: { // input type
+    AND?: NexusGenInputs['RestaurantConfigScalarWhereInput'][] | null; // [RestaurantConfigScalarWhereInput!]
+    NOT?: NexusGenInputs['RestaurantConfigScalarWhereInput'][] | null; // [RestaurantConfigScalarWhereInput!]
+    OR?: NexusGenInputs['RestaurantConfigScalarWhereInput'][] | null; // [RestaurantConfigScalarWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    primaryColor?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    secondaryColor?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+  }
+  RestaurantConfigUpdateInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutRestaurantConfigInput'] | null; // RestaurantUpdateOneRequiredWithoutRestaurantConfigInput
+    secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  RestaurantConfigUpdateManyMutationInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  RestaurantConfigUpdateManyWithWhereWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['RestaurantConfigUpdateManyMutationInput']; // RestaurantConfigUpdateManyMutationInput!
+    where: NexusGenInputs['RestaurantConfigScalarWhereInput']; // RestaurantConfigScalarWhereInput!
+  }
+  RestaurantConfigUpdateManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['RestaurantConfigWhereUniqueInput'][] | null; // [RestaurantConfigWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['RestaurantConfigCreateOrConnectWithoutRestaurantInput'][] | null; // [RestaurantConfigCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['RestaurantConfigCreateWithoutRestaurantInput'][] | null; // [RestaurantConfigCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['RestaurantConfigCreateManyRestaurantInputEnvelope'] | null; // RestaurantConfigCreateManyRestaurantInputEnvelope
+    delete?: NexusGenInputs['RestaurantConfigWhereUniqueInput'][] | null; // [RestaurantConfigWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['RestaurantConfigScalarWhereInput'][] | null; // [RestaurantConfigScalarWhereInput!]
+    disconnect?: NexusGenInputs['RestaurantConfigWhereUniqueInput'][] | null; // [RestaurantConfigWhereUniqueInput!]
+    set?: NexusGenInputs['RestaurantConfigWhereUniqueInput'][] | null; // [RestaurantConfigWhereUniqueInput!]
+    update?: NexusGenInputs['RestaurantConfigUpdateWithWhereUniqueWithoutRestaurantInput'][] | null; // [RestaurantConfigUpdateWithWhereUniqueWithoutRestaurantInput!]
+    updateMany?: NexusGenInputs['RestaurantConfigUpdateManyWithWhereWithoutRestaurantInput'][] | null; // [RestaurantConfigUpdateManyWithWhereWithoutRestaurantInput!]
+    upsert?: NexusGenInputs['RestaurantConfigUpsertWithWhereUniqueWithoutRestaurantInput'][] | null; // [RestaurantConfigUpsertWithWhereUniqueWithoutRestaurantInput!]
+  }
+  RestaurantConfigUpdateWithWhereUniqueWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['RestaurantConfigUpdateWithoutRestaurantInput']; // RestaurantConfigUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['RestaurantConfigWhereUniqueInput']; // RestaurantConfigWhereUniqueInput!
+  }
+  RestaurantConfigUpdateWithoutRestaurantInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  RestaurantConfigUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['RestaurantConfigCreateWithoutRestaurantInput']; // RestaurantConfigCreateWithoutRestaurantInput!
+    update: NexusGenInputs['RestaurantConfigUpdateWithoutRestaurantInput']; // RestaurantConfigUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['RestaurantConfigWhereUniqueInput']; // RestaurantConfigWhereUniqueInput!
+  }
+  RestaurantConfigWhereInput: { // input type
+    AND?: NexusGenInputs['RestaurantConfigWhereInput'][] | null; // [RestaurantConfigWhereInput!]
+    NOT?: NexusGenInputs['RestaurantConfigWhereInput'][] | null; // [RestaurantConfigWhereInput!]
+    OR?: NexusGenInputs['RestaurantConfigWhereInput'][] | null; // [RestaurantConfigWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    primaryColor?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    secondaryColor?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+  }
+  RestaurantConfigWhereUniqueInput: { // input type
+    id?: string | null; // String
+  }
   RestaurantCreateInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2255,6 +3204,31 @@ export interface NexusGenInputs {
     connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutUsersInput'][] | null; // [RestaurantCreateOrConnectWithoutUsersInput!]
     create?: NexusGenInputs['RestaurantCreateWithoutUsersInput'][] | null; // [RestaurantCreateWithoutUsersInput!]
   }
+  RestaurantCreateNestedOneWithoutCMSAboutInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSAboutInput'] | null; // RestaurantCreateOrConnectWithoutCMSAboutInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSAboutInput'] | null; // RestaurantCreateWithoutCMSAboutInput
+  }
+  RestaurantCreateNestedOneWithoutCMSContactInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSContactInput'] | null; // RestaurantCreateOrConnectWithoutCMSContactInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSContactInput'] | null; // RestaurantCreateWithoutCMSContactInput
+  }
+  RestaurantCreateNestedOneWithoutCMSHomeInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSHomeInput'] | null; // RestaurantCreateOrConnectWithoutCMSHomeInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSHomeInput'] | null; // RestaurantCreateWithoutCMSHomeInput
+  }
+  RestaurantCreateNestedOneWithoutCMSReservationInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSReservationInput'] | null; // RestaurantCreateOrConnectWithoutCMSReservationInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSReservationInput'] | null; // RestaurantCreateWithoutCMSReservationInput
+  }
+  RestaurantCreateNestedOneWithoutCMSReviewInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSReviewInput'] | null; // RestaurantCreateOrConnectWithoutCMSReviewInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSReviewInput'] | null; // RestaurantCreateWithoutCMSReviewInput
+  }
   RestaurantCreateNestedOneWithoutDeliveryZonesInput: { // input type
     connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
     connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutDeliveryZonesInput'] | null; // RestaurantCreateOrConnectWithoutDeliveryZonesInput
@@ -2280,10 +3254,45 @@ export interface NexusGenInputs {
     connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutProductsInput'] | null; // RestaurantCreateOrConnectWithoutProductsInput
     create?: NexusGenInputs['RestaurantCreateWithoutProductsInput'] | null; // RestaurantCreateWithoutProductsInput
   }
+  RestaurantCreateNestedOneWithoutRestaurantConfigInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutRestaurantConfigInput'] | null; // RestaurantCreateOrConnectWithoutRestaurantConfigInput
+    create?: NexusGenInputs['RestaurantCreateWithoutRestaurantConfigInput'] | null; // RestaurantCreateWithoutRestaurantConfigInput
+  }
+  RestaurantCreateNestedOneWithoutRestaurantReviewInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutRestaurantReviewInput'] | null; // RestaurantCreateOrConnectWithoutRestaurantReviewInput
+    create?: NexusGenInputs['RestaurantCreateWithoutRestaurantReviewInput'] | null; // RestaurantCreateWithoutRestaurantReviewInput
+  }
+  RestaurantCreateNestedOneWithoutRestaurantSocialInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutRestaurantSocialInput'] | null; // RestaurantCreateOrConnectWithoutRestaurantSocialInput
+    create?: NexusGenInputs['RestaurantCreateWithoutRestaurantSocialInput'] | null; // RestaurantCreateWithoutRestaurantSocialInput
+  }
   RestaurantCreateNestedOneWithoutSchedulesInput: { // input type
     connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
     connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutSchedulesInput'] | null; // RestaurantCreateOrConnectWithoutSchedulesInput
     create?: NexusGenInputs['RestaurantCreateWithoutSchedulesInput'] | null; // RestaurantCreateWithoutSchedulesInput
+  }
+  RestaurantCreateOrConnectWithoutCMSAboutInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSAboutInput']; // RestaurantCreateWithoutCMSAboutInput!
+    where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
+  }
+  RestaurantCreateOrConnectWithoutCMSContactInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSContactInput']; // RestaurantCreateWithoutCMSContactInput!
+    where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
+  }
+  RestaurantCreateOrConnectWithoutCMSHomeInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSHomeInput']; // RestaurantCreateWithoutCMSHomeInput!
+    where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
+  }
+  RestaurantCreateOrConnectWithoutCMSReservationInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSReservationInput']; // RestaurantCreateWithoutCMSReservationInput!
+    where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
+  }
+  RestaurantCreateOrConnectWithoutCMSReviewInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSReviewInput']; // RestaurantCreateWithoutCMSReviewInput!
+    where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
   }
   RestaurantCreateOrConnectWithoutCustomersInput: { // input type
     create: NexusGenInputs['RestaurantCreateWithoutCustomersInput']; // RestaurantCreateWithoutCustomersInput!
@@ -2313,6 +3322,18 @@ export interface NexusGenInputs {
     create: NexusGenInputs['RestaurantCreateWithoutProductsInput']; // RestaurantCreateWithoutProductsInput!
     where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
   }
+  RestaurantCreateOrConnectWithoutRestaurantConfigInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutRestaurantConfigInput']; // RestaurantCreateWithoutRestaurantConfigInput!
+    where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
+  }
+  RestaurantCreateOrConnectWithoutRestaurantReviewInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutRestaurantReviewInput']; // RestaurantCreateWithoutRestaurantReviewInput!
+    where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
+  }
+  RestaurantCreateOrConnectWithoutRestaurantSocialInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutRestaurantSocialInput']; // RestaurantCreateWithoutRestaurantSocialInput!
+    where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
+  }
   RestaurantCreateOrConnectWithoutSchedulesInput: { // input type
     create: NexusGenInputs['RestaurantCreateWithoutSchedulesInput']; // RestaurantCreateWithoutSchedulesInput!
     where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
@@ -2321,7 +3342,245 @@ export interface NexusGenInputs {
     create: NexusGenInputs['RestaurantCreateWithoutUsersInput']; // RestaurantCreateWithoutUsersInput!
     where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
   }
+  RestaurantCreateWithoutCMSAboutInput: { // input type
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
+    address?: string | null; // String
+    businessPhone?: string | null; // String
+    city?: string | null; // String
+    country?: string | null; // String
+    coverImage?: string | null; // String
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    cuisine?: string | null; // String
+    currency?: string | null; // String
+    customers?: NexusGenInputs['CustomerCreateNestedManyWithoutRestaurantsInput'] | null; // CustomerCreateNestedManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
+    diningStyle?: string | null; // String
+    email: string; // String!
+    hasKidsZone?: boolean | null; // Boolean
+    hasParkingFacilities?: boolean | null; // Boolean
+    hasPartyFacilities?: boolean | null; // Boolean
+    id?: string | null; // String
+    isAutoAcceptOrder?: boolean | null; // Boolean
+    isAutoAcceptReservation?: boolean | null; // Boolean
+    isDelivery?: boolean | null; // Boolean
+    isReservation?: boolean | null; // Boolean
+    isTakeaway?: boolean | null; // Boolean
+    logo?: string | null; // String
+    name: string; // String!
+    orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    postCode?: string | null; // String
+    priceRange?: string | null; // String
+    productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
+    reservationPhone?: string | null; // String
+    schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
+    serviceCharge?: string | null; // String
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    url?: string | null; // String
+    users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
+    vat?: string | null; // String
+  }
+  RestaurantCreateWithoutCMSContactInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
+    address?: string | null; // String
+    businessPhone?: string | null; // String
+    city?: string | null; // String
+    country?: string | null; // String
+    coverImage?: string | null; // String
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    cuisine?: string | null; // String
+    currency?: string | null; // String
+    customers?: NexusGenInputs['CustomerCreateNestedManyWithoutRestaurantsInput'] | null; // CustomerCreateNestedManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
+    diningStyle?: string | null; // String
+    email: string; // String!
+    hasKidsZone?: boolean | null; // Boolean
+    hasParkingFacilities?: boolean | null; // Boolean
+    hasPartyFacilities?: boolean | null; // Boolean
+    id?: string | null; // String
+    isAutoAcceptOrder?: boolean | null; // Boolean
+    isAutoAcceptReservation?: boolean | null; // Boolean
+    isDelivery?: boolean | null; // Boolean
+    isReservation?: boolean | null; // Boolean
+    isTakeaway?: boolean | null; // Boolean
+    logo?: string | null; // String
+    name: string; // String!
+    orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    postCode?: string | null; // String
+    priceRange?: string | null; // String
+    productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
+    reservationPhone?: string | null; // String
+    schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
+    serviceCharge?: string | null; // String
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    url?: string | null; // String
+    users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
+    vat?: string | null; // String
+  }
+  RestaurantCreateWithoutCMSHomeInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
+    address?: string | null; // String
+    businessPhone?: string | null; // String
+    city?: string | null; // String
+    country?: string | null; // String
+    coverImage?: string | null; // String
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    cuisine?: string | null; // String
+    currency?: string | null; // String
+    customers?: NexusGenInputs['CustomerCreateNestedManyWithoutRestaurantsInput'] | null; // CustomerCreateNestedManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
+    diningStyle?: string | null; // String
+    email: string; // String!
+    hasKidsZone?: boolean | null; // Boolean
+    hasParkingFacilities?: boolean | null; // Boolean
+    hasPartyFacilities?: boolean | null; // Boolean
+    id?: string | null; // String
+    isAutoAcceptOrder?: boolean | null; // Boolean
+    isAutoAcceptReservation?: boolean | null; // Boolean
+    isDelivery?: boolean | null; // Boolean
+    isReservation?: boolean | null; // Boolean
+    isTakeaway?: boolean | null; // Boolean
+    logo?: string | null; // String
+    name: string; // String!
+    orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    postCode?: string | null; // String
+    priceRange?: string | null; // String
+    productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
+    reservationPhone?: string | null; // String
+    schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
+    serviceCharge?: string | null; // String
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    url?: string | null; // String
+    users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
+    vat?: string | null; // String
+  }
+  RestaurantCreateWithoutCMSReservationInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
+    address?: string | null; // String
+    businessPhone?: string | null; // String
+    city?: string | null; // String
+    country?: string | null; // String
+    coverImage?: string | null; // String
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    cuisine?: string | null; // String
+    currency?: string | null; // String
+    customers?: NexusGenInputs['CustomerCreateNestedManyWithoutRestaurantsInput'] | null; // CustomerCreateNestedManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
+    diningStyle?: string | null; // String
+    email: string; // String!
+    hasKidsZone?: boolean | null; // Boolean
+    hasParkingFacilities?: boolean | null; // Boolean
+    hasPartyFacilities?: boolean | null; // Boolean
+    id?: string | null; // String
+    isAutoAcceptOrder?: boolean | null; // Boolean
+    isAutoAcceptReservation?: boolean | null; // Boolean
+    isDelivery?: boolean | null; // Boolean
+    isReservation?: boolean | null; // Boolean
+    isTakeaway?: boolean | null; // Boolean
+    logo?: string | null; // String
+    name: string; // String!
+    orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    postCode?: string | null; // String
+    priceRange?: string | null; // String
+    productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
+    reservationPhone?: string | null; // String
+    schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
+    serviceCharge?: string | null; // String
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    url?: string | null; // String
+    users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
+    vat?: string | null; // String
+  }
+  RestaurantCreateWithoutCMSReviewInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
+    address?: string | null; // String
+    businessPhone?: string | null; // String
+    city?: string | null; // String
+    country?: string | null; // String
+    coverImage?: string | null; // String
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    cuisine?: string | null; // String
+    currency?: string | null; // String
+    customers?: NexusGenInputs['CustomerCreateNestedManyWithoutRestaurantsInput'] | null; // CustomerCreateNestedManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
+    diningStyle?: string | null; // String
+    email: string; // String!
+    hasKidsZone?: boolean | null; // Boolean
+    hasParkingFacilities?: boolean | null; // Boolean
+    hasPartyFacilities?: boolean | null; // Boolean
+    id?: string | null; // String
+    isAutoAcceptOrder?: boolean | null; // Boolean
+    isAutoAcceptReservation?: boolean | null; // Boolean
+    isDelivery?: boolean | null; // Boolean
+    isReservation?: boolean | null; // Boolean
+    isTakeaway?: boolean | null; // Boolean
+    logo?: string | null; // String
+    name: string; // String!
+    orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    postCode?: string | null; // String
+    priceRange?: string | null; // String
+    productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
+    reservationPhone?: string | null; // String
+    schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
+    serviceCharge?: string | null; // String
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    url?: string | null; // String
+    users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
+    vat?: string | null; // String
+  }
   RestaurantCreateWithoutCustomersInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2360,6 +3619,14 @@ export interface NexusGenInputs {
     vat?: string | null; // String
   }
   RestaurantCreateWithoutDeliveryZonesInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2398,6 +3665,14 @@ export interface NexusGenInputs {
     vat?: string | null; // String
   }
   RestaurantCreateWithoutOrderItemsInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2436,6 +3711,14 @@ export interface NexusGenInputs {
     vat?: string | null; // String
   }
   RestaurantCreateWithoutOrdersInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2474,6 +3757,14 @@ export interface NexusGenInputs {
     vat?: string | null; // String
   }
   RestaurantCreateWithoutPlanInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2512,6 +3803,14 @@ export interface NexusGenInputs {
     vat?: string | null; // String
   }
   RestaurantCreateWithoutProductCategoryInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2550,6 +3849,14 @@ export interface NexusGenInputs {
     vat?: string | null; // String
   }
   RestaurantCreateWithoutProductsInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2587,7 +3894,153 @@ export interface NexusGenInputs {
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
     vat?: string | null; // String
   }
+  RestaurantCreateWithoutRestaurantConfigInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
+    address?: string | null; // String
+    businessPhone?: string | null; // String
+    city?: string | null; // String
+    country?: string | null; // String
+    coverImage?: string | null; // String
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    cuisine?: string | null; // String
+    currency?: string | null; // String
+    customers?: NexusGenInputs['CustomerCreateNestedManyWithoutRestaurantsInput'] | null; // CustomerCreateNestedManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
+    diningStyle?: string | null; // String
+    email: string; // String!
+    hasKidsZone?: boolean | null; // Boolean
+    hasParkingFacilities?: boolean | null; // Boolean
+    hasPartyFacilities?: boolean | null; // Boolean
+    id?: string | null; // String
+    isAutoAcceptOrder?: boolean | null; // Boolean
+    isAutoAcceptReservation?: boolean | null; // Boolean
+    isDelivery?: boolean | null; // Boolean
+    isReservation?: boolean | null; // Boolean
+    isTakeaway?: boolean | null; // Boolean
+    logo?: string | null; // String
+    name: string; // String!
+    orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    postCode?: string | null; // String
+    priceRange?: string | null; // String
+    productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
+    reservationPhone?: string | null; // String
+    schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
+    serviceCharge?: string | null; // String
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    url?: string | null; // String
+    users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
+    vat?: string | null; // String
+  }
+  RestaurantCreateWithoutRestaurantReviewInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
+    address?: string | null; // String
+    businessPhone?: string | null; // String
+    city?: string | null; // String
+    country?: string | null; // String
+    coverImage?: string | null; // String
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    cuisine?: string | null; // String
+    currency?: string | null; // String
+    customers?: NexusGenInputs['CustomerCreateNestedManyWithoutRestaurantsInput'] | null; // CustomerCreateNestedManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
+    diningStyle?: string | null; // String
+    email: string; // String!
+    hasKidsZone?: boolean | null; // Boolean
+    hasParkingFacilities?: boolean | null; // Boolean
+    hasPartyFacilities?: boolean | null; // Boolean
+    id?: string | null; // String
+    isAutoAcceptOrder?: boolean | null; // Boolean
+    isAutoAcceptReservation?: boolean | null; // Boolean
+    isDelivery?: boolean | null; // Boolean
+    isReservation?: boolean | null; // Boolean
+    isTakeaway?: boolean | null; // Boolean
+    logo?: string | null; // String
+    name: string; // String!
+    orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    postCode?: string | null; // String
+    priceRange?: string | null; // String
+    productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
+    reservationPhone?: string | null; // String
+    schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
+    serviceCharge?: string | null; // String
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    url?: string | null; // String
+    users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
+    vat?: string | null; // String
+  }
+  RestaurantCreateWithoutRestaurantSocialInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    address?: string | null; // String
+    businessPhone?: string | null; // String
+    city?: string | null; // String
+    country?: string | null; // String
+    coverImage?: string | null; // String
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    cuisine?: string | null; // String
+    currency?: string | null; // String
+    customers?: NexusGenInputs['CustomerCreateNestedManyWithoutRestaurantsInput'] | null; // CustomerCreateNestedManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
+    diningStyle?: string | null; // String
+    email: string; // String!
+    hasKidsZone?: boolean | null; // Boolean
+    hasParkingFacilities?: boolean | null; // Boolean
+    hasPartyFacilities?: boolean | null; // Boolean
+    id?: string | null; // String
+    isAutoAcceptOrder?: boolean | null; // Boolean
+    isAutoAcceptReservation?: boolean | null; // Boolean
+    isDelivery?: boolean | null; // Boolean
+    isReservation?: boolean | null; // Boolean
+    isTakeaway?: boolean | null; // Boolean
+    logo?: string | null; // String
+    name: string; // String!
+    orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    postCode?: string | null; // String
+    priceRange?: string | null; // String
+    productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
+    reservationPhone?: string | null; // String
+    schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
+    serviceCharge?: string | null; // String
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    url?: string | null; // String
+    users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
+    vat?: string | null; // String
+  }
   RestaurantCreateWithoutSchedulesInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2626,6 +4079,14 @@ export interface NexusGenInputs {
     vat?: string | null; // String
   }
   RestaurantCreateWithoutUsersInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutCreateNestedManyWithoutRestaurantInput'] | null; // CMSAboutCreateNestedManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactCreateNestedManyWithoutRestaurantInput'] | null; // CMSContactCreateNestedManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeCreateNestedManyWithoutRestaurantInput'] | null; // CMSHomeCreateNestedManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationCreateNestedManyWithoutRestaurantInput'] | null; // CMSReservationCreateNestedManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewCreateNestedManyWithoutRestaurantInput'] | null; // CMSReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
     city?: string | null; // String
@@ -2766,6 +4227,226 @@ export interface NexusGenInputs {
   RestaurantPlanWhereUniqueInput: { // input type
     id?: string | null; // String
   }
+  RestaurantReviewCreateInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    customer: NexusGenInputs['CustomerCreateNestedOneWithoutRestaurantReviewInput']; // CustomerCreateNestedOneWithoutRestaurantReviewInput!
+    description: string; // String!
+    id?: string | null; // String
+    isActive: boolean; // Boolean!
+    rating: string; // String!
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutRestaurantReviewInput']; // RestaurantCreateNestedOneWithoutRestaurantReviewInput!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  RestaurantReviewCreateManyCustomerInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    description: string; // String!
+    id?: string | null; // String
+    isActive: boolean; // Boolean!
+    rating: string; // String!
+    restaurantId: string; // String!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  RestaurantReviewCreateManyCustomerInputEnvelope: { // input type
+    data?: NexusGenInputs['RestaurantReviewCreateManyCustomerInput'][] | null; // [RestaurantReviewCreateManyCustomerInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  RestaurantReviewCreateManyRestaurantInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    customerId: string; // String!
+    description: string; // String!
+    id?: string | null; // String
+    isActive: boolean; // Boolean!
+    rating: string; // String!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  RestaurantReviewCreateManyRestaurantInputEnvelope: { // input type
+    data?: NexusGenInputs['RestaurantReviewCreateManyRestaurantInput'][] | null; // [RestaurantReviewCreateManyRestaurantInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  RestaurantReviewCreateNestedManyWithoutCustomerInput: { // input type
+    connect?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['RestaurantReviewCreateOrConnectWithoutCustomerInput'][] | null; // [RestaurantReviewCreateOrConnectWithoutCustomerInput!]
+    create?: NexusGenInputs['RestaurantReviewCreateWithoutCustomerInput'][] | null; // [RestaurantReviewCreateWithoutCustomerInput!]
+    createMany?: NexusGenInputs['RestaurantReviewCreateManyCustomerInputEnvelope'] | null; // RestaurantReviewCreateManyCustomerInputEnvelope
+  }
+  RestaurantReviewCreateNestedManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['RestaurantReviewCreateOrConnectWithoutRestaurantInput'][] | null; // [RestaurantReviewCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['RestaurantReviewCreateWithoutRestaurantInput'][] | null; // [RestaurantReviewCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['RestaurantReviewCreateManyRestaurantInputEnvelope'] | null; // RestaurantReviewCreateManyRestaurantInputEnvelope
+  }
+  RestaurantReviewCreateOrConnectWithoutCustomerInput: { // input type
+    create: NexusGenInputs['RestaurantReviewCreateWithoutCustomerInput']; // RestaurantReviewCreateWithoutCustomerInput!
+    where: NexusGenInputs['RestaurantReviewWhereUniqueInput']; // RestaurantReviewWhereUniqueInput!
+  }
+  RestaurantReviewCreateOrConnectWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['RestaurantReviewCreateWithoutRestaurantInput']; // RestaurantReviewCreateWithoutRestaurantInput!
+    where: NexusGenInputs['RestaurantReviewWhereUniqueInput']; // RestaurantReviewWhereUniqueInput!
+  }
+  RestaurantReviewCreateWithoutCustomerInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    description: string; // String!
+    id?: string | null; // String
+    isActive: boolean; // Boolean!
+    rating: string; // String!
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutRestaurantReviewInput']; // RestaurantCreateNestedOneWithoutRestaurantReviewInput!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  RestaurantReviewCreateWithoutRestaurantInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    customer: NexusGenInputs['CustomerCreateNestedOneWithoutRestaurantReviewInput']; // CustomerCreateNestedOneWithoutRestaurantReviewInput!
+    description: string; // String!
+    id?: string | null; // String
+    isActive: boolean; // Boolean!
+    rating: string; // String!
+    title: string; // String!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  RestaurantReviewListRelationFilter: { // input type
+    every?: NexusGenInputs['RestaurantReviewWhereInput'] | null; // RestaurantReviewWhereInput
+    none?: NexusGenInputs['RestaurantReviewWhereInput'] | null; // RestaurantReviewWhereInput
+    some?: NexusGenInputs['RestaurantReviewWhereInput'] | null; // RestaurantReviewWhereInput
+  }
+  RestaurantReviewOrderByInput: { // input type
+    createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    customerId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    description?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    rating?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    title?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  RestaurantReviewScalarWhereInput: { // input type
+    AND?: NexusGenInputs['RestaurantReviewScalarWhereInput'][] | null; // [RestaurantReviewScalarWhereInput!]
+    NOT?: NexusGenInputs['RestaurantReviewScalarWhereInput'][] | null; // [RestaurantReviewScalarWhereInput!]
+    OR?: NexusGenInputs['RestaurantReviewScalarWhereInput'][] | null; // [RestaurantReviewScalarWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    customerId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    description?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    rating?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    title?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+  }
+  RestaurantReviewUpdateInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    customer?: NexusGenInputs['CustomerUpdateOneRequiredWithoutRestaurantReviewInput'] | null; // CustomerUpdateOneRequiredWithoutRestaurantReviewInput
+    description?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    rating?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutRestaurantReviewInput'] | null; // RestaurantUpdateOneRequiredWithoutRestaurantReviewInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  RestaurantReviewUpdateManyMutationInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    description?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    rating?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  RestaurantReviewUpdateManyWithWhereWithoutCustomerInput: { // input type
+    data: NexusGenInputs['RestaurantReviewUpdateManyMutationInput']; // RestaurantReviewUpdateManyMutationInput!
+    where: NexusGenInputs['RestaurantReviewScalarWhereInput']; // RestaurantReviewScalarWhereInput!
+  }
+  RestaurantReviewUpdateManyWithWhereWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['RestaurantReviewUpdateManyMutationInput']; // RestaurantReviewUpdateManyMutationInput!
+    where: NexusGenInputs['RestaurantReviewScalarWhereInput']; // RestaurantReviewScalarWhereInput!
+  }
+  RestaurantReviewUpdateManyWithoutCustomerInput: { // input type
+    connect?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['RestaurantReviewCreateOrConnectWithoutCustomerInput'][] | null; // [RestaurantReviewCreateOrConnectWithoutCustomerInput!]
+    create?: NexusGenInputs['RestaurantReviewCreateWithoutCustomerInput'][] | null; // [RestaurantReviewCreateWithoutCustomerInput!]
+    createMany?: NexusGenInputs['RestaurantReviewCreateManyCustomerInputEnvelope'] | null; // RestaurantReviewCreateManyCustomerInputEnvelope
+    delete?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['RestaurantReviewScalarWhereInput'][] | null; // [RestaurantReviewScalarWhereInput!]
+    disconnect?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    set?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    update?: NexusGenInputs['RestaurantReviewUpdateWithWhereUniqueWithoutCustomerInput'][] | null; // [RestaurantReviewUpdateWithWhereUniqueWithoutCustomerInput!]
+    updateMany?: NexusGenInputs['RestaurantReviewUpdateManyWithWhereWithoutCustomerInput'][] | null; // [RestaurantReviewUpdateManyWithWhereWithoutCustomerInput!]
+    upsert?: NexusGenInputs['RestaurantReviewUpsertWithWhereUniqueWithoutCustomerInput'][] | null; // [RestaurantReviewUpsertWithWhereUniqueWithoutCustomerInput!]
+  }
+  RestaurantReviewUpdateManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['RestaurantReviewCreateOrConnectWithoutRestaurantInput'][] | null; // [RestaurantReviewCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['RestaurantReviewCreateWithoutRestaurantInput'][] | null; // [RestaurantReviewCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['RestaurantReviewCreateManyRestaurantInputEnvelope'] | null; // RestaurantReviewCreateManyRestaurantInputEnvelope
+    delete?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['RestaurantReviewScalarWhereInput'][] | null; // [RestaurantReviewScalarWhereInput!]
+    disconnect?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    set?: NexusGenInputs['RestaurantReviewWhereUniqueInput'][] | null; // [RestaurantReviewWhereUniqueInput!]
+    update?: NexusGenInputs['RestaurantReviewUpdateWithWhereUniqueWithoutRestaurantInput'][] | null; // [RestaurantReviewUpdateWithWhereUniqueWithoutRestaurantInput!]
+    updateMany?: NexusGenInputs['RestaurantReviewUpdateManyWithWhereWithoutRestaurantInput'][] | null; // [RestaurantReviewUpdateManyWithWhereWithoutRestaurantInput!]
+    upsert?: NexusGenInputs['RestaurantReviewUpsertWithWhereUniqueWithoutRestaurantInput'][] | null; // [RestaurantReviewUpsertWithWhereUniqueWithoutRestaurantInput!]
+  }
+  RestaurantReviewUpdateWithWhereUniqueWithoutCustomerInput: { // input type
+    data: NexusGenInputs['RestaurantReviewUpdateWithoutCustomerInput']; // RestaurantReviewUpdateWithoutCustomerInput!
+    where: NexusGenInputs['RestaurantReviewWhereUniqueInput']; // RestaurantReviewWhereUniqueInput!
+  }
+  RestaurantReviewUpdateWithWhereUniqueWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['RestaurantReviewUpdateWithoutRestaurantInput']; // RestaurantReviewUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['RestaurantReviewWhereUniqueInput']; // RestaurantReviewWhereUniqueInput!
+  }
+  RestaurantReviewUpdateWithoutCustomerInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    description?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    rating?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutRestaurantReviewInput'] | null; // RestaurantUpdateOneRequiredWithoutRestaurantReviewInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  RestaurantReviewUpdateWithoutRestaurantInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    customer?: NexusGenInputs['CustomerUpdateOneRequiredWithoutRestaurantReviewInput'] | null; // CustomerUpdateOneRequiredWithoutRestaurantReviewInput
+    description?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    rating?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  RestaurantReviewUpsertWithWhereUniqueWithoutCustomerInput: { // input type
+    create: NexusGenInputs['RestaurantReviewCreateWithoutCustomerInput']; // RestaurantReviewCreateWithoutCustomerInput!
+    update: NexusGenInputs['RestaurantReviewUpdateWithoutCustomerInput']; // RestaurantReviewUpdateWithoutCustomerInput!
+    where: NexusGenInputs['RestaurantReviewWhereUniqueInput']; // RestaurantReviewWhereUniqueInput!
+  }
+  RestaurantReviewUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['RestaurantReviewCreateWithoutRestaurantInput']; // RestaurantReviewCreateWithoutRestaurantInput!
+    update: NexusGenInputs['RestaurantReviewUpdateWithoutRestaurantInput']; // RestaurantReviewUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['RestaurantReviewWhereUniqueInput']; // RestaurantReviewWhereUniqueInput!
+  }
+  RestaurantReviewWhereInput: { // input type
+    AND?: NexusGenInputs['RestaurantReviewWhereInput'][] | null; // [RestaurantReviewWhereInput!]
+    NOT?: NexusGenInputs['RestaurantReviewWhereInput'][] | null; // [RestaurantReviewWhereInput!]
+    OR?: NexusGenInputs['RestaurantReviewWhereInput'][] | null; // [RestaurantReviewWhereInput!]
+    createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    customer?: NexusGenInputs['CustomerWhereInput'] | null; // CustomerWhereInput
+    customerId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    description?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    rating?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    title?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+  }
+  RestaurantReviewWhereUniqueInput: { // input type
+    id?: string | null; // String
+  }
   RestaurantScalarWhereInput: { // input type
     AND?: NexusGenInputs['RestaurantScalarWhereInput'][] | null; // [RestaurantScalarWhereInput!]
     NOT?: NexusGenInputs['RestaurantScalarWhereInput'][] | null; // [RestaurantScalarWhereInput!]
@@ -2800,7 +4481,138 @@ export interface NexusGenInputs {
     url?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     vat?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
   }
+  RestaurantSocialCreateInput: { // input type
+    facebook: string; // String!
+    id?: string | null; // String
+    instagram: string; // String!
+    isActive: boolean; // Boolean!
+    pinterest: string; // String!
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutRestaurantSocialInput']; // RestaurantCreateNestedOneWithoutRestaurantSocialInput!
+  }
+  RestaurantSocialCreateManyRestaurantInput: { // input type
+    facebook: string; // String!
+    id?: string | null; // String
+    instagram: string; // String!
+    isActive: boolean; // Boolean!
+    pinterest: string; // String!
+  }
+  RestaurantSocialCreateManyRestaurantInputEnvelope: { // input type
+    data?: NexusGenInputs['RestaurantSocialCreateManyRestaurantInput'][] | null; // [RestaurantSocialCreateManyRestaurantInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  RestaurantSocialCreateNestedManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['RestaurantSocialWhereUniqueInput'][] | null; // [RestaurantSocialWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['RestaurantSocialCreateOrConnectWithoutRestaurantInput'][] | null; // [RestaurantSocialCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['RestaurantSocialCreateWithoutRestaurantInput'][] | null; // [RestaurantSocialCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['RestaurantSocialCreateManyRestaurantInputEnvelope'] | null; // RestaurantSocialCreateManyRestaurantInputEnvelope
+  }
+  RestaurantSocialCreateOrConnectWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['RestaurantSocialCreateWithoutRestaurantInput']; // RestaurantSocialCreateWithoutRestaurantInput!
+    where: NexusGenInputs['RestaurantSocialWhereUniqueInput']; // RestaurantSocialWhereUniqueInput!
+  }
+  RestaurantSocialCreateWithoutRestaurantInput: { // input type
+    facebook: string; // String!
+    id?: string | null; // String
+    instagram: string; // String!
+    isActive: boolean; // Boolean!
+    pinterest: string; // String!
+  }
+  RestaurantSocialListRelationFilter: { // input type
+    every?: NexusGenInputs['RestaurantSocialWhereInput'] | null; // RestaurantSocialWhereInput
+    none?: NexusGenInputs['RestaurantSocialWhereInput'] | null; // RestaurantSocialWhereInput
+    some?: NexusGenInputs['RestaurantSocialWhereInput'] | null; // RestaurantSocialWhereInput
+  }
+  RestaurantSocialOrderByInput: { // input type
+    facebook?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    instagram?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    pinterest?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  RestaurantSocialScalarWhereInput: { // input type
+    AND?: NexusGenInputs['RestaurantSocialScalarWhereInput'][] | null; // [RestaurantSocialScalarWhereInput!]
+    NOT?: NexusGenInputs['RestaurantSocialScalarWhereInput'][] | null; // [RestaurantSocialScalarWhereInput!]
+    OR?: NexusGenInputs['RestaurantSocialScalarWhereInput'][] | null; // [RestaurantSocialScalarWhereInput!]
+    facebook?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    instagram?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    pinterest?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  RestaurantSocialUpdateInput: { // input type
+    facebook?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    instagram?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    pinterest?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutRestaurantSocialInput'] | null; // RestaurantUpdateOneRequiredWithoutRestaurantSocialInput
+  }
+  RestaurantSocialUpdateManyMutationInput: { // input type
+    facebook?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    instagram?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    pinterest?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+  }
+  RestaurantSocialUpdateManyWithWhereWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['RestaurantSocialUpdateManyMutationInput']; // RestaurantSocialUpdateManyMutationInput!
+    where: NexusGenInputs['RestaurantSocialScalarWhereInput']; // RestaurantSocialScalarWhereInput!
+  }
+  RestaurantSocialUpdateManyWithoutRestaurantInput: { // input type
+    connect?: NexusGenInputs['RestaurantSocialWhereUniqueInput'][] | null; // [RestaurantSocialWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['RestaurantSocialCreateOrConnectWithoutRestaurantInput'][] | null; // [RestaurantSocialCreateOrConnectWithoutRestaurantInput!]
+    create?: NexusGenInputs['RestaurantSocialCreateWithoutRestaurantInput'][] | null; // [RestaurantSocialCreateWithoutRestaurantInput!]
+    createMany?: NexusGenInputs['RestaurantSocialCreateManyRestaurantInputEnvelope'] | null; // RestaurantSocialCreateManyRestaurantInputEnvelope
+    delete?: NexusGenInputs['RestaurantSocialWhereUniqueInput'][] | null; // [RestaurantSocialWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['RestaurantSocialScalarWhereInput'][] | null; // [RestaurantSocialScalarWhereInput!]
+    disconnect?: NexusGenInputs['RestaurantSocialWhereUniqueInput'][] | null; // [RestaurantSocialWhereUniqueInput!]
+    set?: NexusGenInputs['RestaurantSocialWhereUniqueInput'][] | null; // [RestaurantSocialWhereUniqueInput!]
+    update?: NexusGenInputs['RestaurantSocialUpdateWithWhereUniqueWithoutRestaurantInput'][] | null; // [RestaurantSocialUpdateWithWhereUniqueWithoutRestaurantInput!]
+    updateMany?: NexusGenInputs['RestaurantSocialUpdateManyWithWhereWithoutRestaurantInput'][] | null; // [RestaurantSocialUpdateManyWithWhereWithoutRestaurantInput!]
+    upsert?: NexusGenInputs['RestaurantSocialUpsertWithWhereUniqueWithoutRestaurantInput'][] | null; // [RestaurantSocialUpsertWithWhereUniqueWithoutRestaurantInput!]
+  }
+  RestaurantSocialUpdateWithWhereUniqueWithoutRestaurantInput: { // input type
+    data: NexusGenInputs['RestaurantSocialUpdateWithoutRestaurantInput']; // RestaurantSocialUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['RestaurantSocialWhereUniqueInput']; // RestaurantSocialWhereUniqueInput!
+  }
+  RestaurantSocialUpdateWithoutRestaurantInput: { // input type
+    facebook?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    instagram?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    pinterest?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+  }
+  RestaurantSocialUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
+    create: NexusGenInputs['RestaurantSocialCreateWithoutRestaurantInput']; // RestaurantSocialCreateWithoutRestaurantInput!
+    update: NexusGenInputs['RestaurantSocialUpdateWithoutRestaurantInput']; // RestaurantSocialUpdateWithoutRestaurantInput!
+    where: NexusGenInputs['RestaurantSocialWhereUniqueInput']; // RestaurantSocialWhereUniqueInput!
+  }
+  RestaurantSocialWhereInput: { // input type
+    AND?: NexusGenInputs['RestaurantSocialWhereInput'][] | null; // [RestaurantSocialWhereInput!]
+    NOT?: NexusGenInputs['RestaurantSocialWhereInput'][] | null; // [RestaurantSocialWhereInput!]
+    OR?: NexusGenInputs['RestaurantSocialWhereInput'][] | null; // [RestaurantSocialWhereInput!]
+    facebook?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    instagram?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    pinterest?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
+    restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+  }
+  RestaurantSocialWhereUniqueInput: { // input type
+    id?: string | null; // String
+  }
   RestaurantUpdateInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -2918,6 +4730,41 @@ export interface NexusGenInputs {
     updateMany?: NexusGenInputs['RestaurantUpdateManyWithWhereWithoutUsersInput'][] | null; // [RestaurantUpdateManyWithWhereWithoutUsersInput!]
     upsert?: NexusGenInputs['RestaurantUpsertWithWhereUniqueWithoutUsersInput'][] | null; // [RestaurantUpsertWithWhereUniqueWithoutUsersInput!]
   }
+  RestaurantUpdateOneRequiredWithoutCMSAboutInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSAboutInput'] | null; // RestaurantCreateOrConnectWithoutCMSAboutInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSAboutInput'] | null; // RestaurantCreateWithoutCMSAboutInput
+    update?: NexusGenInputs['RestaurantUpdateWithoutCMSAboutInput'] | null; // RestaurantUpdateWithoutCMSAboutInput
+    upsert?: NexusGenInputs['RestaurantUpsertWithoutCMSAboutInput'] | null; // RestaurantUpsertWithoutCMSAboutInput
+  }
+  RestaurantUpdateOneRequiredWithoutCMSContactInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSContactInput'] | null; // RestaurantCreateOrConnectWithoutCMSContactInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSContactInput'] | null; // RestaurantCreateWithoutCMSContactInput
+    update?: NexusGenInputs['RestaurantUpdateWithoutCMSContactInput'] | null; // RestaurantUpdateWithoutCMSContactInput
+    upsert?: NexusGenInputs['RestaurantUpsertWithoutCMSContactInput'] | null; // RestaurantUpsertWithoutCMSContactInput
+  }
+  RestaurantUpdateOneRequiredWithoutCMSHomeInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSHomeInput'] | null; // RestaurantCreateOrConnectWithoutCMSHomeInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSHomeInput'] | null; // RestaurantCreateWithoutCMSHomeInput
+    update?: NexusGenInputs['RestaurantUpdateWithoutCMSHomeInput'] | null; // RestaurantUpdateWithoutCMSHomeInput
+    upsert?: NexusGenInputs['RestaurantUpsertWithoutCMSHomeInput'] | null; // RestaurantUpsertWithoutCMSHomeInput
+  }
+  RestaurantUpdateOneRequiredWithoutCMSReservationInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSReservationInput'] | null; // RestaurantCreateOrConnectWithoutCMSReservationInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSReservationInput'] | null; // RestaurantCreateWithoutCMSReservationInput
+    update?: NexusGenInputs['RestaurantUpdateWithoutCMSReservationInput'] | null; // RestaurantUpdateWithoutCMSReservationInput
+    upsert?: NexusGenInputs['RestaurantUpsertWithoutCMSReservationInput'] | null; // RestaurantUpsertWithoutCMSReservationInput
+  }
+  RestaurantUpdateOneRequiredWithoutCMSReviewInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutCMSReviewInput'] | null; // RestaurantCreateOrConnectWithoutCMSReviewInput
+    create?: NexusGenInputs['RestaurantCreateWithoutCMSReviewInput'] | null; // RestaurantCreateWithoutCMSReviewInput
+    update?: NexusGenInputs['RestaurantUpdateWithoutCMSReviewInput'] | null; // RestaurantUpdateWithoutCMSReviewInput
+    upsert?: NexusGenInputs['RestaurantUpsertWithoutCMSReviewInput'] | null; // RestaurantUpsertWithoutCMSReviewInput
+  }
   RestaurantUpdateOneRequiredWithoutOrdersInput: { // input type
     connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
     connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutOrdersInput'] | null; // RestaurantCreateOrConnectWithoutOrdersInput
@@ -2931,6 +4778,27 @@ export interface NexusGenInputs {
     create?: NexusGenInputs['RestaurantCreateWithoutProductCategoryInput'] | null; // RestaurantCreateWithoutProductCategoryInput
     update?: NexusGenInputs['RestaurantUpdateWithoutProductCategoryInput'] | null; // RestaurantUpdateWithoutProductCategoryInput
     upsert?: NexusGenInputs['RestaurantUpsertWithoutProductCategoryInput'] | null; // RestaurantUpsertWithoutProductCategoryInput
+  }
+  RestaurantUpdateOneRequiredWithoutRestaurantConfigInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutRestaurantConfigInput'] | null; // RestaurantCreateOrConnectWithoutRestaurantConfigInput
+    create?: NexusGenInputs['RestaurantCreateWithoutRestaurantConfigInput'] | null; // RestaurantCreateWithoutRestaurantConfigInput
+    update?: NexusGenInputs['RestaurantUpdateWithoutRestaurantConfigInput'] | null; // RestaurantUpdateWithoutRestaurantConfigInput
+    upsert?: NexusGenInputs['RestaurantUpsertWithoutRestaurantConfigInput'] | null; // RestaurantUpsertWithoutRestaurantConfigInput
+  }
+  RestaurantUpdateOneRequiredWithoutRestaurantReviewInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutRestaurantReviewInput'] | null; // RestaurantCreateOrConnectWithoutRestaurantReviewInput
+    create?: NexusGenInputs['RestaurantCreateWithoutRestaurantReviewInput'] | null; // RestaurantCreateWithoutRestaurantReviewInput
+    update?: NexusGenInputs['RestaurantUpdateWithoutRestaurantReviewInput'] | null; // RestaurantUpdateWithoutRestaurantReviewInput
+    upsert?: NexusGenInputs['RestaurantUpsertWithoutRestaurantReviewInput'] | null; // RestaurantUpsertWithoutRestaurantReviewInput
+  }
+  RestaurantUpdateOneRequiredWithoutRestaurantSocialInput: { // input type
+    connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['RestaurantCreateOrConnectWithoutRestaurantSocialInput'] | null; // RestaurantCreateOrConnectWithoutRestaurantSocialInput
+    create?: NexusGenInputs['RestaurantCreateWithoutRestaurantSocialInput'] | null; // RestaurantCreateWithoutRestaurantSocialInput
+    update?: NexusGenInputs['RestaurantUpdateWithoutRestaurantSocialInput'] | null; // RestaurantUpdateWithoutRestaurantSocialInput
+    upsert?: NexusGenInputs['RestaurantUpsertWithoutRestaurantSocialInput'] | null; // RestaurantUpsertWithoutRestaurantSocialInput
   }
   RestaurantUpdateOneWithoutDeliveryZonesInput: { // input type
     connect?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
@@ -2980,7 +4848,245 @@ export interface NexusGenInputs {
     data: NexusGenInputs['RestaurantUpdateWithoutUsersInput']; // RestaurantUpdateWithoutUsersInput!
     where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
   }
+  RestaurantUpdateWithoutCMSAboutInput: { // input type
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
+    address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    coverImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    cuisine?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    currency?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customers?: NexusGenInputs['CustomerUpdateManyWithoutRestaurantsInput'] | null; // CustomerUpdateManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
+    diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
+    reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
+    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
+    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  RestaurantUpdateWithoutCMSContactInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
+    address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    coverImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    cuisine?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    currency?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customers?: NexusGenInputs['CustomerUpdateManyWithoutRestaurantsInput'] | null; // CustomerUpdateManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
+    diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
+    reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
+    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
+    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  RestaurantUpdateWithoutCMSHomeInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
+    address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    coverImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    cuisine?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    currency?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customers?: NexusGenInputs['CustomerUpdateManyWithoutRestaurantsInput'] | null; // CustomerUpdateManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
+    diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
+    reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
+    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
+    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  RestaurantUpdateWithoutCMSReservationInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
+    address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    coverImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    cuisine?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    currency?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customers?: NexusGenInputs['CustomerUpdateManyWithoutRestaurantsInput'] | null; // CustomerUpdateManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
+    diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
+    reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
+    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
+    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  RestaurantUpdateWithoutCMSReviewInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
+    address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    coverImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    cuisine?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    currency?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customers?: NexusGenInputs['CustomerUpdateManyWithoutRestaurantsInput'] | null; // CustomerUpdateManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
+    diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
+    reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
+    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
+    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
   RestaurantUpdateWithoutCustomersInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -3019,6 +5125,14 @@ export interface NexusGenInputs {
     vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutDeliveryZonesInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -3057,6 +5171,14 @@ export interface NexusGenInputs {
     vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutOrderItemsInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -3095,6 +5217,14 @@ export interface NexusGenInputs {
     vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutOrdersInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -3133,6 +5263,14 @@ export interface NexusGenInputs {
     vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutPlanInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -3171,6 +5309,14 @@ export interface NexusGenInputs {
     vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutProductCategoryInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -3209,6 +5355,14 @@ export interface NexusGenInputs {
     vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutProductsInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -3246,7 +5400,153 @@ export interface NexusGenInputs {
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
     vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
+  RestaurantUpdateWithoutRestaurantConfigInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
+    address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    coverImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    cuisine?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    currency?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customers?: NexusGenInputs['CustomerUpdateManyWithoutRestaurantsInput'] | null; // CustomerUpdateManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
+    diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
+    reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
+    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
+    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  RestaurantUpdateWithoutRestaurantReviewInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
+    address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    coverImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    cuisine?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    currency?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customers?: NexusGenInputs['CustomerUpdateManyWithoutRestaurantsInput'] | null; // CustomerUpdateManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
+    diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
+    reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
+    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
+    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
+  RestaurantUpdateWithoutRestaurantSocialInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    coverImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    cuisine?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    currency?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customers?: NexusGenInputs['CustomerUpdateManyWithoutRestaurantsInput'] | null; // CustomerUpdateManyWithoutRestaurantsInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
+    diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    email?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
+    products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
+    reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
+    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
+    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+  }
   RestaurantUpdateWithoutSchedulesInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -3285,6 +5585,14 @@ export interface NexusGenInputs {
     vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutUsersInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutUpdateManyWithoutRestaurantInput'] | null; // CMSAboutUpdateManyWithoutRestaurantInput
+    CMSContact?: NexusGenInputs['CMSContactUpdateManyWithoutRestaurantInput'] | null; // CMSContactUpdateManyWithoutRestaurantInput
+    CMSHome?: NexusGenInputs['CMSHomeUpdateManyWithoutRestaurantInput'] | null; // CMSHomeUpdateManyWithoutRestaurantInput
+    CMSReservation?: NexusGenInputs['CMSReservationUpdateManyWithoutRestaurantInput'] | null; // CMSReservationUpdateManyWithoutRestaurantInput
+    CMSReview?: NexusGenInputs['CMSReviewUpdateManyWithoutRestaurantInput'] | null; // CMSReviewUpdateManyWithoutRestaurantInput
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigUpdateManyWithoutRestaurantInput'] | null; // RestaurantConfigUpdateManyWithoutRestaurantInput
+    RestaurantReview?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -3337,6 +5645,26 @@ export interface NexusGenInputs {
     update: NexusGenInputs['RestaurantUpdateWithoutUsersInput']; // RestaurantUpdateWithoutUsersInput!
     where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
   }
+  RestaurantUpsertWithoutCMSAboutInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSAboutInput']; // RestaurantCreateWithoutCMSAboutInput!
+    update: NexusGenInputs['RestaurantUpdateWithoutCMSAboutInput']; // RestaurantUpdateWithoutCMSAboutInput!
+  }
+  RestaurantUpsertWithoutCMSContactInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSContactInput']; // RestaurantCreateWithoutCMSContactInput!
+    update: NexusGenInputs['RestaurantUpdateWithoutCMSContactInput']; // RestaurantUpdateWithoutCMSContactInput!
+  }
+  RestaurantUpsertWithoutCMSHomeInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSHomeInput']; // RestaurantCreateWithoutCMSHomeInput!
+    update: NexusGenInputs['RestaurantUpdateWithoutCMSHomeInput']; // RestaurantUpdateWithoutCMSHomeInput!
+  }
+  RestaurantUpsertWithoutCMSReservationInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSReservationInput']; // RestaurantCreateWithoutCMSReservationInput!
+    update: NexusGenInputs['RestaurantUpdateWithoutCMSReservationInput']; // RestaurantUpdateWithoutCMSReservationInput!
+  }
+  RestaurantUpsertWithoutCMSReviewInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutCMSReviewInput']; // RestaurantCreateWithoutCMSReviewInput!
+    update: NexusGenInputs['RestaurantUpdateWithoutCMSReviewInput']; // RestaurantUpdateWithoutCMSReviewInput!
+  }
   RestaurantUpsertWithoutDeliveryZonesInput: { // input type
     create: NexusGenInputs['RestaurantCreateWithoutDeliveryZonesInput']; // RestaurantCreateWithoutDeliveryZonesInput!
     update: NexusGenInputs['RestaurantUpdateWithoutDeliveryZonesInput']; // RestaurantUpdateWithoutDeliveryZonesInput!
@@ -3357,14 +5685,34 @@ export interface NexusGenInputs {
     create: NexusGenInputs['RestaurantCreateWithoutProductsInput']; // RestaurantCreateWithoutProductsInput!
     update: NexusGenInputs['RestaurantUpdateWithoutProductsInput']; // RestaurantUpdateWithoutProductsInput!
   }
+  RestaurantUpsertWithoutRestaurantConfigInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutRestaurantConfigInput']; // RestaurantCreateWithoutRestaurantConfigInput!
+    update: NexusGenInputs['RestaurantUpdateWithoutRestaurantConfigInput']; // RestaurantUpdateWithoutRestaurantConfigInput!
+  }
+  RestaurantUpsertWithoutRestaurantReviewInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutRestaurantReviewInput']; // RestaurantCreateWithoutRestaurantReviewInput!
+    update: NexusGenInputs['RestaurantUpdateWithoutRestaurantReviewInput']; // RestaurantUpdateWithoutRestaurantReviewInput!
+  }
+  RestaurantUpsertWithoutRestaurantSocialInput: { // input type
+    create: NexusGenInputs['RestaurantCreateWithoutRestaurantSocialInput']; // RestaurantCreateWithoutRestaurantSocialInput!
+    update: NexusGenInputs['RestaurantUpdateWithoutRestaurantSocialInput']; // RestaurantUpdateWithoutRestaurantSocialInput!
+  }
   RestaurantUpsertWithoutSchedulesInput: { // input type
     create: NexusGenInputs['RestaurantCreateWithoutSchedulesInput']; // RestaurantCreateWithoutSchedulesInput!
     update: NexusGenInputs['RestaurantUpdateWithoutSchedulesInput']; // RestaurantUpdateWithoutSchedulesInput!
   }
   RestaurantWhereInput: { // input type
     AND?: NexusGenInputs['RestaurantWhereInput'][] | null; // [RestaurantWhereInput!]
+    CMSAbout?: NexusGenInputs['CMSAboutListRelationFilter'] | null; // CMSAboutListRelationFilter
+    CMSContact?: NexusGenInputs['CMSContactListRelationFilter'] | null; // CMSContactListRelationFilter
+    CMSHome?: NexusGenInputs['CMSHomeListRelationFilter'] | null; // CMSHomeListRelationFilter
+    CMSReservation?: NexusGenInputs['CMSReservationListRelationFilter'] | null; // CMSReservationListRelationFilter
+    CMSReview?: NexusGenInputs['CMSReviewListRelationFilter'] | null; // CMSReviewListRelationFilter
     NOT?: NexusGenInputs['RestaurantWhereInput'][] | null; // [RestaurantWhereInput!]
     OR?: NexusGenInputs['RestaurantWhereInput'][] | null; // [RestaurantWhereInput!]
+    RestaurantConfig?: NexusGenInputs['RestaurantConfigListRelationFilter'] | null; // RestaurantConfigListRelationFilter
+    RestaurantReview?: NexusGenInputs['RestaurantReviewListRelationFilter'] | null; // RestaurantReviewListRelationFilter
+    RestaurantSocial?: NexusGenInputs['RestaurantSocialListRelationFilter'] | null; // RestaurantSocialListRelationFilter
     address?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     businessPhone?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     city?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
@@ -3886,6 +6234,55 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
+  CMSAbout: { // root type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id: string; // String!
+    isActive?: boolean | null; // Boolean
+    storyDescription?: string | null; // String
+    storyHeading?: string | null; // String
+    storyImage?: string | null; // String
+  }
+  CMSContact: { // root type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id: string; // String!
+    isActive?: boolean | null; // Boolean
+  }
+  CMSHome: { // root type
+    aboutDescription?: string | null; // String
+    aboutHeading?: string | null; // String
+    aboutImage?: string | null; // String
+    dealsDescription?: string | null; // String
+    dealsHeading?: string | null; // String
+    dealsImage?: string | null; // String
+    heroDescription?: string | null; // String
+    heroHeading?: string | null; // String
+    heroImage?: string | null; // String
+    id: string; // String!
+    popularDishesDescription?: string | null; // String
+    popularDishesHeading?: string | null; // String
+    popularDishesImage?: string | null; // String
+    reservationDescription?: string | null; // String
+    reservationHeading?: string | null; // String
+    reservationImage?: string | null; // String
+  }
+  CMSReservation: { // root type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id: string; // String!
+    isActive?: boolean | null; // Boolean
+  }
+  CMSReview: { // root type
+    headerDescription?: string | null; // String
+    headerHeading?: string | null; // String
+    headerImage?: string | null; // String
+    id: string; // String!
+    isActive?: boolean | null; // Boolean
+  }
   Coupon: { // root type
     code: string; // String!
     description?: string | null; // String
@@ -3999,11 +6396,35 @@ export interface NexusGenObjects {
     url?: string | null; // String
     vat?: string | null; // String
   }
+  RestaurantConfig: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: string; // String!
+    isActive: boolean; // Boolean!
+    primaryColor: string; // String!
+    secondaryColor: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
   RestaurantPlan: { // root type
     id: string; // String!
     isActive: boolean; // Boolean!
     name: string; // String!
     price: number; // Float!
+  }
+  RestaurantReview: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    description: string; // String!
+    id: string; // String!
+    isActive: boolean; // Boolean!
+    rating: string; // String!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
+  RestaurantSocial: { // root type
+    facebook: string; // String!
+    id: string; // String!
+    instagram: string; // String!
+    isActive: boolean; // Boolean!
+    pinterest: string; // String!
   }
   Schedule: { // root type
     closingTime?: string | null; // String
@@ -4041,6 +6462,60 @@ export type NexusGenRootTypes = NexusGenObjects
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnums
 
 export interface NexusGenFieldTypes {
+  CMSAbout: { // field return type
+    headerDescription: string | null; // String
+    headerHeading: string | null; // String
+    headerImage: string | null; // String
+    id: string; // String!
+    isActive: boolean | null; // Boolean
+    restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
+    storyDescription: string | null; // String
+    storyHeading: string | null; // String
+    storyImage: string | null; // String
+  }
+  CMSContact: { // field return type
+    headerDescription: string | null; // String
+    headerHeading: string | null; // String
+    headerImage: string | null; // String
+    id: string; // String!
+    isActive: boolean | null; // Boolean
+    restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
+  }
+  CMSHome: { // field return type
+    aboutDescription: string | null; // String
+    aboutHeading: string | null; // String
+    aboutImage: string | null; // String
+    dealsDescription: string | null; // String
+    dealsHeading: string | null; // String
+    dealsImage: string | null; // String
+    heroDescription: string | null; // String
+    heroHeading: string | null; // String
+    heroImage: string | null; // String
+    id: string; // String!
+    popularDishesDescription: string | null; // String
+    popularDishesHeading: string | null; // String
+    popularDishesImage: string | null; // String
+    reservationDescription: string | null; // String
+    reservationHeading: string | null; // String
+    reservationImage: string | null; // String
+    restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
+  }
+  CMSReservation: { // field return type
+    headerDescription: string | null; // String
+    headerHeading: string | null; // String
+    headerImage: string | null; // String
+    id: string; // String!
+    isActive: boolean | null; // Boolean
+    restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
+  }
+  CMSReview: { // field return type
+    headerDescription: string | null; // String
+    headerHeading: string | null; // String
+    headerImage: string | null; // String
+    id: string; // String!
+    isActive: boolean | null; // Boolean
+    restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
+  }
   Coupon: { // field return type
     code: string; // String!
     description: string | null; // String
@@ -4088,6 +6563,11 @@ export interface NexusGenFieldTypes {
     zoneTitle: string; // String!
   }
   Mutation: { // field return type
+    createCMSAbout: NexusGenRootTypes['CMSAbout']; // CMSAbout!
+    createCMSContact: NexusGenRootTypes['CMSContact']; // CMSContact!
+    createCMSHome: NexusGenRootTypes['CMSHome']; // CMSHome!
+    createCMSReservation: NexusGenRootTypes['CMSReservation']; // CMSReservation!
+    createCMSReview: NexusGenRootTypes['CMSReview']; // CMSReview!
     createCoupon: NexusGenRootTypes['Coupon']; // Coupon!
     createCustomer: NexusGenRootTypes['Customer']; // Customer!
     createCustomerAddress: NexusGenRootTypes['CustomerAddress']; // CustomerAddress!
@@ -4098,10 +6578,18 @@ export interface NexusGenFieldTypes {
     createProduct: NexusGenRootTypes['Product']; // Product!
     createProductCategory: NexusGenRootTypes['ProductCategory']; // ProductCategory!
     createRestaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
+    createRestaurantConfig: NexusGenRootTypes['RestaurantConfig']; // RestaurantConfig!
     createRestaurantPlan: NexusGenRootTypes['RestaurantPlan']; // RestaurantPlan!
+    createRestaurantReview: NexusGenRootTypes['RestaurantReview']; // RestaurantReview!
+    createRestaurantSocial: NexusGenRootTypes['RestaurantSocial']; // RestaurantSocial!
     createSchedule: NexusGenRootTypes['Schedule']; // Schedule!
     createUser: NexusGenRootTypes['User']; // User!
     createUserToken: NexusGenRootTypes['UserToken']; // UserToken!
+    deleteCMSAbout: NexusGenRootTypes['CMSAbout'] | null; // CMSAbout
+    deleteCMSContact: NexusGenRootTypes['CMSContact'] | null; // CMSContact
+    deleteCMSHome: NexusGenRootTypes['CMSHome'] | null; // CMSHome
+    deleteCMSReservation: NexusGenRootTypes['CMSReservation'] | null; // CMSReservation
+    deleteCMSReview: NexusGenRootTypes['CMSReview'] | null; // CMSReview
     deleteCoupon: NexusGenRootTypes['Coupon'] | null; // Coupon
     deleteCustomer: NexusGenRootTypes['Customer'] | null; // Customer
     deleteCustomerAddress: NexusGenRootTypes['CustomerAddress'] | null; // CustomerAddress
@@ -4112,10 +6600,18 @@ export interface NexusGenFieldTypes {
     deleteProduct: NexusGenRootTypes['Product'] | null; // Product
     deleteProductCategory: NexusGenRootTypes['ProductCategory'] | null; // ProductCategory
     deleteRestaurant: NexusGenRootTypes['Restaurant'] | null; // Restaurant
+    deleteRestaurantConfig: NexusGenRootTypes['RestaurantConfig'] | null; // RestaurantConfig
     deleteRestaurantPlan: NexusGenRootTypes['RestaurantPlan'] | null; // RestaurantPlan
+    deleteRestaurantReview: NexusGenRootTypes['RestaurantReview'] | null; // RestaurantReview
+    deleteRestaurantSocial: NexusGenRootTypes['RestaurantSocial'] | null; // RestaurantSocial
     deleteSchedule: NexusGenRootTypes['Schedule'] | null; // Schedule
     deleteUser: NexusGenRootTypes['User'] | null; // User
     deleteUserToken: NexusGenRootTypes['UserToken'] | null; // UserToken
+    updateCMSAbout: NexusGenRootTypes['CMSAbout'] | null; // CMSAbout
+    updateCMSContact: NexusGenRootTypes['CMSContact'] | null; // CMSContact
+    updateCMSHome: NexusGenRootTypes['CMSHome'] | null; // CMSHome
+    updateCMSReservation: NexusGenRootTypes['CMSReservation'] | null; // CMSReservation
+    updateCMSReview: NexusGenRootTypes['CMSReview'] | null; // CMSReview
     updateCoupon: NexusGenRootTypes['Coupon'] | null; // Coupon
     updateCustomer: NexusGenRootTypes['Customer'] | null; // Customer
     updateCustomerAddress: NexusGenRootTypes['CustomerAddress'] | null; // CustomerAddress
@@ -4126,7 +6622,10 @@ export interface NexusGenFieldTypes {
     updateProduct: NexusGenRootTypes['Product'] | null; // Product
     updateProductCategory: NexusGenRootTypes['ProductCategory'] | null; // ProductCategory
     updateRestaurant: NexusGenRootTypes['Restaurant'] | null; // Restaurant
+    updateRestaurantConfig: NexusGenRootTypes['RestaurantConfig'] | null; // RestaurantConfig
     updateRestaurantPlan: NexusGenRootTypes['RestaurantPlan'] | null; // RestaurantPlan
+    updateRestaurantReview: NexusGenRootTypes['RestaurantReview'] | null; // RestaurantReview
+    updateRestaurantSocial: NexusGenRootTypes['RestaurantSocial'] | null; // RestaurantSocial
     updateSchedule: NexusGenRootTypes['Schedule'] | null; // Schedule
     updateUser: NexusGenRootTypes['User'] | null; // User
     updateUserToken: NexusGenRootTypes['UserToken'] | null; // UserToken
@@ -4187,6 +6686,16 @@ export interface NexusGenFieldTypes {
     restaurants: NexusGenRootTypes['Restaurant']; // Restaurant!
   }
   Query: { // field return type
+    cmsAbout: NexusGenRootTypes['CMSAbout'] | null; // CMSAbout
+    cmsAbouts: NexusGenRootTypes['CMSAbout'][]; // [CMSAbout!]!
+    cmsContact: NexusGenRootTypes['CMSContact'] | null; // CMSContact
+    cmsContacts: NexusGenRootTypes['CMSContact'][]; // [CMSContact!]!
+    cmsHome: NexusGenRootTypes['CMSHome'] | null; // CMSHome
+    cmsHomes: NexusGenRootTypes['CMSHome'][]; // [CMSHome!]!
+    cmsReservation: NexusGenRootTypes['CMSReservation'] | null; // CMSReservation
+    cmsReservations: NexusGenRootTypes['CMSReservation'][]; // [CMSReservation!]!
+    cmsReview: NexusGenRootTypes['CMSReview'] | null; // CMSReview
+    cmsReviews: NexusGenRootTypes['CMSReview'][]; // [CMSReview!]!
     coupon: NexusGenRootTypes['Coupon'] | null; // Coupon
     coupons: NexusGenRootTypes['Coupon'][]; // [Coupon!]!
     customer: NexusGenRootTypes['Customer'] | null; // Customer
@@ -4206,8 +6715,14 @@ export interface NexusGenFieldTypes {
     productCategory: NexusGenRootTypes['ProductCategory'] | null; // ProductCategory
     products: NexusGenRootTypes['Product'][]; // [Product!]!
     restaurant: NexusGenRootTypes['Restaurant'] | null; // Restaurant
+    restaurantConfig: NexusGenRootTypes['RestaurantConfig'] | null; // RestaurantConfig
+    restaurantConfigs: NexusGenRootTypes['RestaurantConfig'][]; // [RestaurantConfig!]!
     restaurantPlan: NexusGenRootTypes['RestaurantPlan'] | null; // RestaurantPlan
     restaurantPlans: NexusGenRootTypes['RestaurantPlan'][]; // [RestaurantPlan!]!
+    restaurantReview: NexusGenRootTypes['RestaurantReview'] | null; // RestaurantReview
+    restaurantReviews: NexusGenRootTypes['RestaurantReview'][]; // [RestaurantReview!]!
+    restaurantSocial: NexusGenRootTypes['RestaurantSocial'] | null; // RestaurantSocial
+    restaurantSocials: NexusGenRootTypes['RestaurantSocial'][]; // [RestaurantSocial!]!
     restaurants: NexusGenRootTypes['Restaurant'][]; // [Restaurant!]!
     schedule: NexusGenRootTypes['Schedule'] | null; // Schedule
     schedules: NexusGenRootTypes['Schedule'][]; // [Schedule!]!
@@ -4255,12 +6770,39 @@ export interface NexusGenFieldTypes {
     users: NexusGenRootTypes['User'][]; // [User!]!
     vat: string | null; // String
   }
+  RestaurantConfig: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: string; // String!
+    isActive: boolean; // Boolean!
+    primaryColor: string; // String!
+    secondaryColor: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
   RestaurantPlan: { // field return type
     id: string; // String!
     isActive: boolean; // Boolean!
     name: string; // String!
     price: number; // Float!
     restaurants: NexusGenRootTypes['Restaurant'][]; // [Restaurant!]!
+  }
+  RestaurantReview: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    customer: NexusGenRootTypes['Customer']; // Customer!
+    description: string; // String!
+    id: string; // String!
+    isActive: boolean; // Boolean!
+    rating: string; // String!
+    restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
+  RestaurantSocial: { // field return type
+    facebook: string; // String!
+    id: string; // String!
+    instagram: string; // String!
+    isActive: boolean; // Boolean!
+    pinterest: string; // String!
+    restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
   }
   Schedule: { // field return type
     Restaurant: NexusGenRootTypes['Restaurant'] | null; // Restaurant
@@ -4292,6 +6834,60 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenFieldTypeNames {
+  CMSAbout: { // field return type name
+    headerDescription: 'String'
+    headerHeading: 'String'
+    headerImage: 'String'
+    id: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+    storyDescription: 'String'
+    storyHeading: 'String'
+    storyImage: 'String'
+  }
+  CMSContact: { // field return type name
+    headerDescription: 'String'
+    headerHeading: 'String'
+    headerImage: 'String'
+    id: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+  }
+  CMSHome: { // field return type name
+    aboutDescription: 'String'
+    aboutHeading: 'String'
+    aboutImage: 'String'
+    dealsDescription: 'String'
+    dealsHeading: 'String'
+    dealsImage: 'String'
+    heroDescription: 'String'
+    heroHeading: 'String'
+    heroImage: 'String'
+    id: 'String'
+    popularDishesDescription: 'String'
+    popularDishesHeading: 'String'
+    popularDishesImage: 'String'
+    reservationDescription: 'String'
+    reservationHeading: 'String'
+    reservationImage: 'String'
+    restaurant: 'Restaurant'
+  }
+  CMSReservation: { // field return type name
+    headerDescription: 'String'
+    headerHeading: 'String'
+    headerImage: 'String'
+    id: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+  }
+  CMSReview: { // field return type name
+    headerDescription: 'String'
+    headerHeading: 'String'
+    headerImage: 'String'
+    id: 'String'
+    isActive: 'Boolean'
+    restaurant: 'Restaurant'
+  }
   Coupon: { // field return type name
     code: 'String'
     description: 'String'
@@ -4339,6 +6935,11 @@ export interface NexusGenFieldTypeNames {
     zoneTitle: 'String'
   }
   Mutation: { // field return type name
+    createCMSAbout: 'CMSAbout'
+    createCMSContact: 'CMSContact'
+    createCMSHome: 'CMSHome'
+    createCMSReservation: 'CMSReservation'
+    createCMSReview: 'CMSReview'
     createCoupon: 'Coupon'
     createCustomer: 'Customer'
     createCustomerAddress: 'CustomerAddress'
@@ -4349,10 +6950,18 @@ export interface NexusGenFieldTypeNames {
     createProduct: 'Product'
     createProductCategory: 'ProductCategory'
     createRestaurant: 'Restaurant'
+    createRestaurantConfig: 'RestaurantConfig'
     createRestaurantPlan: 'RestaurantPlan'
+    createRestaurantReview: 'RestaurantReview'
+    createRestaurantSocial: 'RestaurantSocial'
     createSchedule: 'Schedule'
     createUser: 'User'
     createUserToken: 'UserToken'
+    deleteCMSAbout: 'CMSAbout'
+    deleteCMSContact: 'CMSContact'
+    deleteCMSHome: 'CMSHome'
+    deleteCMSReservation: 'CMSReservation'
+    deleteCMSReview: 'CMSReview'
     deleteCoupon: 'Coupon'
     deleteCustomer: 'Customer'
     deleteCustomerAddress: 'CustomerAddress'
@@ -4363,10 +6972,18 @@ export interface NexusGenFieldTypeNames {
     deleteProduct: 'Product'
     deleteProductCategory: 'ProductCategory'
     deleteRestaurant: 'Restaurant'
+    deleteRestaurantConfig: 'RestaurantConfig'
     deleteRestaurantPlan: 'RestaurantPlan'
+    deleteRestaurantReview: 'RestaurantReview'
+    deleteRestaurantSocial: 'RestaurantSocial'
     deleteSchedule: 'Schedule'
     deleteUser: 'User'
     deleteUserToken: 'UserToken'
+    updateCMSAbout: 'CMSAbout'
+    updateCMSContact: 'CMSContact'
+    updateCMSHome: 'CMSHome'
+    updateCMSReservation: 'CMSReservation'
+    updateCMSReview: 'CMSReview'
     updateCoupon: 'Coupon'
     updateCustomer: 'Customer'
     updateCustomerAddress: 'CustomerAddress'
@@ -4377,7 +6994,10 @@ export interface NexusGenFieldTypeNames {
     updateProduct: 'Product'
     updateProductCategory: 'ProductCategory'
     updateRestaurant: 'Restaurant'
+    updateRestaurantConfig: 'RestaurantConfig'
     updateRestaurantPlan: 'RestaurantPlan'
+    updateRestaurantReview: 'RestaurantReview'
+    updateRestaurantSocial: 'RestaurantSocial'
     updateSchedule: 'Schedule'
     updateUser: 'User'
     updateUserToken: 'UserToken'
@@ -4438,6 +7058,16 @@ export interface NexusGenFieldTypeNames {
     restaurants: 'Restaurant'
   }
   Query: { // field return type name
+    cmsAbout: 'CMSAbout'
+    cmsAbouts: 'CMSAbout'
+    cmsContact: 'CMSContact'
+    cmsContacts: 'CMSContact'
+    cmsHome: 'CMSHome'
+    cmsHomes: 'CMSHome'
+    cmsReservation: 'CMSReservation'
+    cmsReservations: 'CMSReservation'
+    cmsReview: 'CMSReview'
+    cmsReviews: 'CMSReview'
     coupon: 'Coupon'
     coupons: 'Coupon'
     customer: 'Customer'
@@ -4457,8 +7087,14 @@ export interface NexusGenFieldTypeNames {
     productCategory: 'ProductCategory'
     products: 'Product'
     restaurant: 'Restaurant'
+    restaurantConfig: 'RestaurantConfig'
+    restaurantConfigs: 'RestaurantConfig'
     restaurantPlan: 'RestaurantPlan'
     restaurantPlans: 'RestaurantPlan'
+    restaurantReview: 'RestaurantReview'
+    restaurantReviews: 'RestaurantReview'
+    restaurantSocial: 'RestaurantSocial'
+    restaurantSocials: 'RestaurantSocial'
     restaurants: 'Restaurant'
     schedule: 'Schedule'
     schedules: 'Schedule'
@@ -4506,12 +7142,39 @@ export interface NexusGenFieldTypeNames {
     users: 'User'
     vat: 'String'
   }
+  RestaurantConfig: { // field return type name
+    createdAt: 'DateTime'
+    id: 'String'
+    isActive: 'Boolean'
+    primaryColor: 'String'
+    secondaryColor: 'String'
+    updatedAt: 'DateTime'
+  }
   RestaurantPlan: { // field return type name
     id: 'String'
     isActive: 'Boolean'
     name: 'String'
     price: 'Float'
     restaurants: 'Restaurant'
+  }
+  RestaurantReview: { // field return type name
+    createdAt: 'DateTime'
+    customer: 'Customer'
+    description: 'String'
+    id: 'String'
+    isActive: 'Boolean'
+    rating: 'String'
+    restaurant: 'Restaurant'
+    title: 'String'
+    updatedAt: 'DateTime'
+  }
+  RestaurantSocial: { // field return type name
+    facebook: 'String'
+    id: 'String'
+    instagram: 'String'
+    isActive: 'Boolean'
+    pinterest: 'String'
+    restaurant: 'Restaurant'
   }
   Schedule: { // field return type name
     Restaurant: 'Restaurant'
@@ -4578,6 +7241,21 @@ export interface NexusGenArgTypes {
     }
   }
   Mutation: {
+    createCMSAbout: { // args
+      data: NexusGenInputs['CMSAboutCreateInput']; // CMSAboutCreateInput!
+    }
+    createCMSContact: { // args
+      data: NexusGenInputs['CMSContactCreateInput']; // CMSContactCreateInput!
+    }
+    createCMSHome: { // args
+      data: NexusGenInputs['CMSHomeCreateInput']; // CMSHomeCreateInput!
+    }
+    createCMSReservation: { // args
+      data: NexusGenInputs['CMSReservationCreateInput']; // CMSReservationCreateInput!
+    }
+    createCMSReview: { // args
+      data: NexusGenInputs['CMSReviewCreateInput']; // CMSReviewCreateInput!
+    }
     createCoupon: { // args
       data: NexusGenInputs['CouponCreateInput']; // CouponCreateInput!
     }
@@ -4608,8 +7286,17 @@ export interface NexusGenArgTypes {
     createRestaurant: { // args
       data: NexusGenInputs['RestaurantCreateInput']; // RestaurantCreateInput!
     }
+    createRestaurantConfig: { // args
+      data: NexusGenInputs['RestaurantConfigCreateInput']; // RestaurantConfigCreateInput!
+    }
     createRestaurantPlan: { // args
       data: NexusGenInputs['RestaurantPlanCreateInput']; // RestaurantPlanCreateInput!
+    }
+    createRestaurantReview: { // args
+      data: NexusGenInputs['RestaurantReviewCreateInput']; // RestaurantReviewCreateInput!
+    }
+    createRestaurantSocial: { // args
+      data: NexusGenInputs['RestaurantSocialCreateInput']; // RestaurantSocialCreateInput!
     }
     createSchedule: { // args
       data: NexusGenInputs['ScheduleCreateInput']; // ScheduleCreateInput!
@@ -4619,6 +7306,21 @@ export interface NexusGenArgTypes {
     }
     createUserToken: { // args
       data: NexusGenInputs['UserTokenCreateInput']; // UserTokenCreateInput!
+    }
+    deleteCMSAbout: { // args
+      where: NexusGenInputs['CMSAboutWhereUniqueInput']; // CMSAboutWhereUniqueInput!
+    }
+    deleteCMSContact: { // args
+      where: NexusGenInputs['CMSContactWhereUniqueInput']; // CMSContactWhereUniqueInput!
+    }
+    deleteCMSHome: { // args
+      where: NexusGenInputs['CMSHomeWhereUniqueInput']; // CMSHomeWhereUniqueInput!
+    }
+    deleteCMSReservation: { // args
+      where: NexusGenInputs['CMSReservationWhereUniqueInput']; // CMSReservationWhereUniqueInput!
+    }
+    deleteCMSReview: { // args
+      where: NexusGenInputs['CMSReviewWhereUniqueInput']; // CMSReviewWhereUniqueInput!
     }
     deleteCoupon: { // args
       where: NexusGenInputs['CouponWhereUniqueInput']; // CouponWhereUniqueInput!
@@ -4650,8 +7352,17 @@ export interface NexusGenArgTypes {
     deleteRestaurant: { // args
       where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
     }
+    deleteRestaurantConfig: { // args
+      where: NexusGenInputs['RestaurantConfigWhereUniqueInput']; // RestaurantConfigWhereUniqueInput!
+    }
     deleteRestaurantPlan: { // args
       where: NexusGenInputs['RestaurantPlanWhereUniqueInput']; // RestaurantPlanWhereUniqueInput!
+    }
+    deleteRestaurantReview: { // args
+      where: NexusGenInputs['RestaurantReviewWhereUniqueInput']; // RestaurantReviewWhereUniqueInput!
+    }
+    deleteRestaurantSocial: { // args
+      where: NexusGenInputs['RestaurantSocialWhereUniqueInput']; // RestaurantSocialWhereUniqueInput!
     }
     deleteSchedule: { // args
       where: NexusGenInputs['ScheduleWhereUniqueInput']; // ScheduleWhereUniqueInput!
@@ -4661,6 +7372,26 @@ export interface NexusGenArgTypes {
     }
     deleteUserToken: { // args
       where: NexusGenInputs['UserTokenWhereUniqueInput']; // UserTokenWhereUniqueInput!
+    }
+    updateCMSAbout: { // args
+      data: NexusGenInputs['CMSAboutUpdateInput']; // CMSAboutUpdateInput!
+      where: NexusGenInputs['CMSAboutWhereUniqueInput']; // CMSAboutWhereUniqueInput!
+    }
+    updateCMSContact: { // args
+      data: NexusGenInputs['CMSContactUpdateInput']; // CMSContactUpdateInput!
+      where: NexusGenInputs['CMSContactWhereUniqueInput']; // CMSContactWhereUniqueInput!
+    }
+    updateCMSHome: { // args
+      data: NexusGenInputs['CMSHomeUpdateInput']; // CMSHomeUpdateInput!
+      where: NexusGenInputs['CMSHomeWhereUniqueInput']; // CMSHomeWhereUniqueInput!
+    }
+    updateCMSReservation: { // args
+      data: NexusGenInputs['CMSReservationUpdateInput']; // CMSReservationUpdateInput!
+      where: NexusGenInputs['CMSReservationWhereUniqueInput']; // CMSReservationWhereUniqueInput!
+    }
+    updateCMSReview: { // args
+      data: NexusGenInputs['CMSReviewUpdateInput']; // CMSReviewUpdateInput!
+      where: NexusGenInputs['CMSReviewWhereUniqueInput']; // CMSReviewWhereUniqueInput!
     }
     updateCoupon: { // args
       data: NexusGenInputs['CouponUpdateInput']; // CouponUpdateInput!
@@ -4702,9 +7433,21 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['RestaurantUpdateInput']; // RestaurantUpdateInput!
       where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
     }
+    updateRestaurantConfig: { // args
+      data: NexusGenInputs['RestaurantConfigUpdateInput']; // RestaurantConfigUpdateInput!
+      where: NexusGenInputs['RestaurantConfigWhereUniqueInput']; // RestaurantConfigWhereUniqueInput!
+    }
     updateRestaurantPlan: { // args
       data: NexusGenInputs['RestaurantPlanUpdateInput']; // RestaurantPlanUpdateInput!
       where: NexusGenInputs['RestaurantPlanWhereUniqueInput']; // RestaurantPlanWhereUniqueInput!
+    }
+    updateRestaurantReview: { // args
+      data: NexusGenInputs['RestaurantReviewUpdateInput']; // RestaurantReviewUpdateInput!
+      where: NexusGenInputs['RestaurantReviewWhereUniqueInput']; // RestaurantReviewWhereUniqueInput!
+    }
+    updateRestaurantSocial: { // args
+      data: NexusGenInputs['RestaurantSocialUpdateInput']; // RestaurantSocialUpdateInput!
+      where: NexusGenInputs['RestaurantSocialWhereUniqueInput']; // RestaurantSocialWhereUniqueInput!
     }
     updateSchedule: { // args
       data: NexusGenInputs['ScheduleUpdateInput']; // ScheduleUpdateInput!
@@ -4744,6 +7487,61 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    cmsAbout: { // args
+      where: NexusGenInputs['CMSAboutWhereUniqueInput']; // CMSAboutWhereUniqueInput!
+    }
+    cmsAbouts: { // args
+      after?: NexusGenInputs['CMSAboutWhereUniqueInput'] | null; // CMSAboutWhereUniqueInput
+      before?: NexusGenInputs['CMSAboutWhereUniqueInput'] | null; // CMSAboutWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenInputs['CMSAboutOrderByInput'][] | null; // [CMSAboutOrderByInput!]
+      where?: NexusGenInputs['CMSAboutWhereInput'] | null; // CMSAboutWhereInput
+    }
+    cmsContact: { // args
+      where: NexusGenInputs['CMSContactWhereUniqueInput']; // CMSContactWhereUniqueInput!
+    }
+    cmsContacts: { // args
+      after?: NexusGenInputs['CMSContactWhereUniqueInput'] | null; // CMSContactWhereUniqueInput
+      before?: NexusGenInputs['CMSContactWhereUniqueInput'] | null; // CMSContactWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenInputs['CMSContactOrderByInput'][] | null; // [CMSContactOrderByInput!]
+      where?: NexusGenInputs['CMSContactWhereInput'] | null; // CMSContactWhereInput
+    }
+    cmsHome: { // args
+      where: NexusGenInputs['CMSHomeWhereUniqueInput']; // CMSHomeWhereUniqueInput!
+    }
+    cmsHomes: { // args
+      after?: NexusGenInputs['CMSHomeWhereUniqueInput'] | null; // CMSHomeWhereUniqueInput
+      before?: NexusGenInputs['CMSHomeWhereUniqueInput'] | null; // CMSHomeWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenInputs['CMSHomeOrderByInput'][] | null; // [CMSHomeOrderByInput!]
+      where?: NexusGenInputs['CMSHomeWhereInput'] | null; // CMSHomeWhereInput
+    }
+    cmsReservation: { // args
+      where: NexusGenInputs['CMSReservationWhereUniqueInput']; // CMSReservationWhereUniqueInput!
+    }
+    cmsReservations: { // args
+      after?: NexusGenInputs['CMSReservationWhereUniqueInput'] | null; // CMSReservationWhereUniqueInput
+      before?: NexusGenInputs['CMSReservationWhereUniqueInput'] | null; // CMSReservationWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenInputs['CMSReservationOrderByInput'][] | null; // [CMSReservationOrderByInput!]
+      where?: NexusGenInputs['CMSReservationWhereInput'] | null; // CMSReservationWhereInput
+    }
+    cmsReview: { // args
+      where: NexusGenInputs['CMSReviewWhereUniqueInput']; // CMSReviewWhereUniqueInput!
+    }
+    cmsReviews: { // args
+      after?: NexusGenInputs['CMSReviewWhereUniqueInput'] | null; // CMSReviewWhereUniqueInput
+      before?: NexusGenInputs['CMSReviewWhereUniqueInput'] | null; // CMSReviewWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenInputs['CMSReviewOrderByInput'][] | null; // [CMSReviewOrderByInput!]
+      where?: NexusGenInputs['CMSReviewWhereInput'] | null; // CMSReviewWhereInput
+    }
     coupon: { // args
       where: NexusGenInputs['CouponWhereUniqueInput']; // CouponWhereUniqueInput!
     }
@@ -4844,6 +7642,17 @@ export interface NexusGenArgTypes {
     restaurant: { // args
       where: NexusGenInputs['RestaurantWhereUniqueInput']; // RestaurantWhereUniqueInput!
     }
+    restaurantConfig: { // args
+      where: NexusGenInputs['RestaurantConfigWhereUniqueInput']; // RestaurantConfigWhereUniqueInput!
+    }
+    restaurantConfigs: { // args
+      after?: NexusGenInputs['RestaurantConfigWhereUniqueInput'] | null; // RestaurantConfigWhereUniqueInput
+      before?: NexusGenInputs['RestaurantConfigWhereUniqueInput'] | null; // RestaurantConfigWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenInputs['RestaurantConfigOrderByInput'][] | null; // [RestaurantConfigOrderByInput!]
+      where?: NexusGenInputs['RestaurantConfigWhereInput'] | null; // RestaurantConfigWhereInput
+    }
     restaurantPlan: { // args
       where: NexusGenInputs['RestaurantPlanWhereUniqueInput']; // RestaurantPlanWhereUniqueInput!
     }
@@ -4854,6 +7663,28 @@ export interface NexusGenArgTypes {
       last?: number | null; // Int
       orderBy?: NexusGenInputs['RestaurantPlanOrderByInput'][] | null; // [RestaurantPlanOrderByInput!]
       where?: NexusGenInputs['RestaurantPlanWhereInput'] | null; // RestaurantPlanWhereInput
+    }
+    restaurantReview: { // args
+      where: NexusGenInputs['RestaurantReviewWhereUniqueInput']; // RestaurantReviewWhereUniqueInput!
+    }
+    restaurantReviews: { // args
+      after?: NexusGenInputs['RestaurantReviewWhereUniqueInput'] | null; // RestaurantReviewWhereUniqueInput
+      before?: NexusGenInputs['RestaurantReviewWhereUniqueInput'] | null; // RestaurantReviewWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenInputs['RestaurantReviewOrderByInput'][] | null; // [RestaurantReviewOrderByInput!]
+      where?: NexusGenInputs['RestaurantReviewWhereInput'] | null; // RestaurantReviewWhereInput
+    }
+    restaurantSocial: { // args
+      where: NexusGenInputs['RestaurantSocialWhereUniqueInput']; // RestaurantSocialWhereUniqueInput!
+    }
+    restaurantSocials: { // args
+      after?: NexusGenInputs['RestaurantSocialWhereUniqueInput'] | null; // RestaurantSocialWhereUniqueInput
+      before?: NexusGenInputs['RestaurantSocialWhereUniqueInput'] | null; // RestaurantSocialWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenInputs['RestaurantSocialOrderByInput'][] | null; // [RestaurantSocialOrderByInput!]
+      where?: NexusGenInputs['RestaurantSocialWhereInput'] | null; // RestaurantSocialWhereInput
     }
     restaurants: { // args
       after?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput

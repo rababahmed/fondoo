@@ -71,7 +71,7 @@ export const RestaurantMutation = extendType({
     });
     t.crud.deleteOneRestaurant({
       alias: "deleteRestaurant",
-      shield: or(isAdmin(), isOwner(), isManager()),
+      shield: or(isAdmin()),
     });
   },
 });
@@ -79,3 +79,6 @@ export const RestaurantMutation = extendType({
 export * as DeliveryZone from "./DeliveryZone";
 export * as RestaurantPlan from "./RestaurantPlan";
 export * as Schedule from "./schedule";
+export * as RestaurantConfig from "./RestaurantConfig";
+export * as RestaurantSocial from "./RestaurantSocial";
+export * as RestaurantReview from "./RestaurantReview";
