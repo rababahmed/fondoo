@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/button";
-import { FormControl, FormLabel } from "@chakra-ui/form-control";
+import { FormLabel } from "@chakra-ui/form-control";
 import Icon from "@chakra-ui/icon";
 import {
   Input,
@@ -11,8 +11,7 @@ import { Stack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import imageCompression from "browser-image-compression";
-import { Field } from "formik";
-import React, { Fragment, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { CgSoftwareUpload } from "react-icons/cg";
 import { FiImage } from "react-icons/fi";
 import * as Constants from "../../modules/Constants";
@@ -93,7 +92,9 @@ const ImageUpload = (props: Props) => {
     <Stack spacing={0}>
       <FormLabel htmlFor={props.name}>{props.label}</FormLabel>
       <InputGroup>
-        <InputLeftElement pointerEvents="none" children={<FiImage />} />
+        <InputLeftElement pointerEvents="none">
+          <FiImage />
+        </InputLeftElement>
         <InputRightElement w="auto">
           <Button
             loadingText="Uploading"

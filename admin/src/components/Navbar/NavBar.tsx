@@ -24,16 +24,19 @@ import styles from "./Navbar.module.css";
 import { usePrefStore } from "../../store/usePrefStore";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useMediaQuery } from "@chakra-ui/media-query";
+import { useUserStore } from "../../store/useUserStore";
 
 const NavBar = () => {
   const router = useRouter();
   const [currentPath, setCurrentPath] = React.useState("");
   const [isDesktop] = useMediaQuery("(min-width: 640px)");
 
+  const role = useUserStore((state) => state.role);
+
   const toggleHamburger = usePrefStore((state) => state.toggleHamburger);
   const isOpen = usePrefStore((state) => state.hamburger);
 
-  React.useEffect(() => setCurrentPath(router.pathname), []);
+  React.useEffect(() => setCurrentPath(router.pathname), [router.pathname]);
 
   return (
     <div>
@@ -54,7 +57,7 @@ const NavBar = () => {
               toggleHamburger();
             }}
             size="sm"
-            display={!isDesktop ? "block" : "none"}
+            display={isDesktop ? "none" : "block"}
             colorScheme="whiteAlpha"
             aria-label="hamburger"
             icon={<CloseIcon />}
@@ -72,6 +75,25 @@ const NavBar = () => {
             </Box>
           </VStack>
           <VStack align="stretch" p={6} mr={1}>
+            {role === "Owner" ? (
+              <VStack py={4} align="stretch">
+                <NavText text="ADMIN" />
+                <NavButton
+                  href="/admin/dashboard"
+                  icon={MdRestaurantMenu}
+                  text="Dashboard"
+                />
+                <NavButton
+                  href="/admin/Restaurants"
+                  icon={BiFoodMenu}
+                  text="Restaurants"
+                />
+                <NavButton href="/admin/users" icon={BiFoodMenu} text="Users" />
+                <Divider />
+              </VStack>
+            ) : (
+              <div></div>
+            )}
             <NavButton href="/dashboard" icon={AiFillHome} text="Dashboard" />
 
             <NavButton href="/orders" icon={ImCreditCard} text="Orders" />
@@ -80,7 +102,6 @@ const NavBar = () => {
               icon={RiParentLine}
               text="Reservations"
             />
-
             <VStack py={4} align="stretch">
               <NavText text="MENU SETUP" />
               <NavButton

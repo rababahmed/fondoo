@@ -72,7 +72,7 @@ export const CMSHome = () => {
                 ml={6}
                 p={8}
               >
-                <Tag bgColor="gray.300" color="black" size="lg" mb={6}>
+                <Tag bgColor="primary.800" color="white" size="lg" mb={6}>
                   Intro Section
                 </Tag>
                 <HStack spacing="6">
@@ -95,7 +95,7 @@ export const CMSHome = () => {
                 ml={6}
                 p={8}
               >
-                <Tag bgColor="gray.300" color="black" size="lg" mb={6}>
+                <Tag bgColor="primary.800" color="white" size="lg" mb={6}>
                   About Section
                 </Tag>
                 <HStack spacing="6">
@@ -118,7 +118,7 @@ export const CMSHome = () => {
                 ml={6}
                 p={8}
               >
-                <Tag bgColor="gray.300" color="black" size="lg" mb={6}>
+                <Tag bgColor="primary.800" color="white" size="lg" mb={6}>
                   Deals Section
                 </Tag>
                 <HStack spacing="6">
@@ -141,7 +141,7 @@ export const CMSHome = () => {
                 ml={6}
                 p={8}
               >
-                <Tag bgColor="gray.300" color="black" size="lg" mb={6}>
+                <Tag bgColor="primary.800" color="white" size="lg" mb={6}>
                   Reservation Section
                 </Tag>
                 <HStack spacing="6">
@@ -164,7 +164,7 @@ export const CMSHome = () => {
                 ml={6}
                 p={8}
               >
-                <Tag bgColor="gray.300" color="black" size="lg" mb={6}>
+                <Tag bgColor="primary.800" color="white" size="lg" mb={6}>
                   Popular Dishes Section
                 </Tag>
                 <HStack spacing="6">
@@ -186,9 +186,9 @@ export const CMSHome = () => {
                     isLoading={isSLoading}
                     loadingText="Updating"
                     w={40}
-                    bgColor={isSLoading ? "green.500" : "gray.700"}
-                    _active={{ bgColor: "gray.500" }}
-                    _hover={{ bgColor: "gray.800" }}
+                    bgColor={isSLoading ? "green.500" : "primary.800"}
+                    _active={{ bgColor: "primary.800" }}
+                    _hover={{ bgColor: "primary.900" }}
                   >
                     Update
                   </SubmitButton>
