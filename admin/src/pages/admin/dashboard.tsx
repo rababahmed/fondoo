@@ -1,18 +1,21 @@
 import React from "react";
 import { Heading } from "@chakra-ui/layout";
 import Head from "next/head";
-import StatComponent from "../components/Stats/MainStat";
-import TableComponent from "../components/Table/Table";
+import StatComponent from "../../components/Stats/MainStat";
+import TableComponent from "../../components/Table/Table";
 import { Skeleton } from "@chakra-ui/skeleton";
-import { useGQLQuery } from "../shared-hooks/useGQLQuery";
-import DesktopLayout from "../layouts/DesktopLayout";
-import { useUserStore } from "../store/useUserStore";
-import { GET_USER } from "../graphql/user";
+import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
+import DesktopLayout from "../../layouts/DesktopLayout";
+import { useUserStore } from "../../store/useUserStore";
+import { GET_USER } from "../../graphql/user";
 import { Spinner } from "@chakra-ui/spinner";
+import { useRouter } from "next/router";
 
 const DashboardPage = () => {
   const userID = useUserStore((state) => state.userID);
-  const setRestaurant = useUserStore((state) => state.setRestaurant);
+  const role = useUserStore((state) => state.role);
+
+  const router = useRouter();
 
   const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
     "get-unique-user",
@@ -23,8 +26,10 @@ const DashboardPage = () => {
   );
 
   React.useEffect(() => {
-    data ? setRestaurant(data.user.restaurants[0].id) : null;
-  }, [data, setRestaurant]);
+    if (role !== "Admin") {
+      router.push("/dashboard");
+    }
+  }, [router, role]);
 
   return (
     <div>

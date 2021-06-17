@@ -42,14 +42,13 @@ const CMSPage = () => {
                 {({ isOpen }) => (
                   <>
                     <MenuButton
-                      colorScheme="gray"
-                      bgColor="gray.800"
+                      bgColor="primary.800"
                       color="white"
                       _hover={{
-                        background: "gray.900",
+                        background: "primary.900",
                       }}
                       _active={{
-                        background: "gray.800",
+                        background: "primary.800",
                       }}
                       isActive={isOpen}
                       as={Button}

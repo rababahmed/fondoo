@@ -54,7 +54,9 @@ export const ItemsModule = () => {
                 <AccordionItem key={cat.id} p={2}>
                   <AccordionButton rounded="lg">
                     <Box flex="1" textAlign="left">
-                      <Tag size="lg">{cat.name}</Tag>
+                      <Tag size="lg" bgColor="primary.800" color="white">
+                        {cat.name}
+                      </Tag>
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
