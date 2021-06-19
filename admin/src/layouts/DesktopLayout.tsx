@@ -30,7 +30,7 @@ const DesktopLayout = (props: any) => {
             <Header />
             <Box
               maxW="100%"
-              mt={1}
+              maxH="100%"
               py={8}
               px={8}
               ml={isHamburgerOpen ? 260 : 0}
@@ -56,7 +56,6 @@ const DesktopLayout = (props: any) => {
             <Header />
             <Box
               maxW="100%"
-              mt={1}
               py={8}
               px={8}
               ml={isHamburgerOpen ? 260 : 0}

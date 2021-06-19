@@ -40,6 +40,13 @@ router.post("/login", async (req, res) => {
       where: {
         email,
       },
+      include: {
+        restaurants: {
+          select: {
+            id: true,
+          },
+        },
+      },
     });
     if (user) {
       const validPass = await bcrypt.compare(password, user.password);
@@ -56,6 +63,7 @@ router.post("/login", async (req, res) => {
           isAuthenticated: true,
           id: user.id,
           role: user.role,
+          restaurantID: user.restaurants[0].id,
           message: "User authenticated",
         });
       } else {

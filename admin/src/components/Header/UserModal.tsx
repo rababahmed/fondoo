@@ -22,7 +22,7 @@ const UserModal = () => {
 
   const LogoutMutation = async () => {
     await removeUser();
-    router.push("/");
+    router.push("/login");
   };
 
   return (

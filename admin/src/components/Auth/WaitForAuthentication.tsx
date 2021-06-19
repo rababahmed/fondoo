@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useUserStore } from "../../store/useUserStore";
 
-const WaitForAuthentication = (props: any) => {
+const WaitForAuthentication = ({ children }: any) => {
   const isAuthenticated = useUserStore((state) => state.isAuthenticated);
 
   const router = useRouter();
@@ -13,7 +13,7 @@ const WaitForAuthentication = (props: any) => {
     }
   }, [router, isAuthenticated]);
 
-  return <>{isAuthenticated ? props.children : null}</>;
+  return <>{isAuthenticated ? children : <div></div>}</>;
 };
 
 export default WaitForAuthentication;

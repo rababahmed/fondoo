@@ -5,12 +5,16 @@ import { Stat } from "./Stat";
 import { StatLabel } from "./StatLabel";
 import { StatNumber } from "./StatNumber";
 
-const StatComponent = () => {
+interface Props {
+  data: any;
+}
+
+const StatComponent = (props: Props) => {
   return (
     <Box as="section" bg={mode("gray.50", "gray.800")} p="10">
       <Box maxW="7xl" mx="auto" px={{ base: "6", md: "8" }}>
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing="6">
-          {data.map(({ label, value }) => (
+          {props.data.map(({ label, value }: any) => (
             <Stat key={label}>
               <StatLabel>{label}</StatLabel>
               <StatNumber>{value}</StatNumber>

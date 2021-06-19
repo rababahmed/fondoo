@@ -75,7 +75,7 @@ const NavBar = () => {
             </Box>
           </VStack>
           <VStack align="stretch" p={6} mr={1}>
-            {role === "Owner" ? (
+            {role === "Admin" ? (
               <VStack py={4} align="stretch">
                 <NavText text="ADMIN" />
                 <NavButton
@@ -84,7 +84,7 @@ const NavBar = () => {
                   text="Dashboard"
                 />
                 <NavButton
-                  href="/admin/Restaurants"
+                  href="/admin/restaurants"
                   icon={BiFoodMenu}
                   text="Restaurants"
                 />

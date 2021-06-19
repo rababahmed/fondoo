@@ -48,6 +48,7 @@ export const AddItem = () => {
       id: restaurantID,
     }
   );
+  console.log(data);
 
   const initialValues = {
     name: "",
@@ -126,7 +127,7 @@ export const AddItem = () => {
                         name="productCatID"
                         selectProps={{ placeholder: "Select category" }}
                       >
-                        {data.restaurant.productCategory.map((cat: any) => (
+                        {data.productCategories.map((cat: any) => (
                           <option key={cat.id} value={cat.id}>
                             {cat.name}
                           </option>
