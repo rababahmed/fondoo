@@ -12,7 +12,12 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton";
-import { InputControl, SelectControl, SubmitButton } from "formik-chakra-ui";
+import {
+  InputControl,
+  SelectControl,
+  SubmitButton,
+  SwitchControl,
+} from "formik-chakra-ui";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useMutation, useQueryClient } from "react-query";
@@ -23,16 +28,15 @@ import { useRouter } from "next/router";
 
 export const AddRestaurant = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const restaurantID = useUserStore((state) => state.restaurantID);
 
   const initialValues = {
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
-    password: "",
-    phone: "",
-    role: "",
-    restaurantID: restaurantID,
+    domain: "",
+    primaryColor: "",
+    secondaryColor: "",
+    plan: "",
+    isActive: true,
   };
 
   const validationSchema = Yup.object({
@@ -62,7 +66,7 @@ export const AddRestaurant = () => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Add a New User</ModalHeader>
+          <ModalHeader>Add a New Restaurant</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Formik
@@ -75,20 +79,24 @@ export const AddRestaurant = () => {
                 <Box as="form" onSubmit={handleSubmit as any}>
                   <Grid templateColumns="1fr" gap={8}>
                     <Stack spacing="6">
-                      <InputControl name="firstName" label="First Name" />
-                      <InputControl name="lastName" label="Last Name" />
-                      <InputControl name="email" label="Email" />
+                      <InputControl name="name" label="Restaurant Name" />
+                      <InputControl name="email" label="Restaurant Email" />
                       <InputControl
-                        inputProps={{ type: "password" }}
-                        name="password"
-                        label="Password"
+                        inputProps={{ placeholder: "example.com" }}
+                        name="domain"
+                        label="Domain"
                       />
-                      <SelectControl label="Role" name="role">
-                        <option value="Waiter">Waiter</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Owner">Owner</option>
+                      <InputControl name="primaryColor" label="Primary Color" />
+                      <InputControl
+                        name="secondaryColor"
+                        label="Secondary Color"
+                      />
+                      <SelectControl label="Restaurant Plan" name="plan">
+                        <option value="Waiter">STARTER</option>
+                        <option value="Manager">PRO</option>
+                        <option value="Owner">ENTERPRISE</option>
                       </SelectControl>
-                      <InputControl name="phone" label="Phone" />
+                      <SwitchControl name="isActive" label="Active" />
                     </Stack>
                   </Grid>
                   <Stack mt={10} pb={2}>

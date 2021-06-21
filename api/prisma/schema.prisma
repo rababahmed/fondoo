@@ -13,7 +13,7 @@ generator client {
 model Restaurant {
   id                      String             @id @default(uuid())
   name                    String
-  email                   String
+  email                   String?
   logo                    String?
   coverImage              String?
   plan                    RestaurantPlan?    @relation(fields: [restaurantPlanId], references: [id])
@@ -69,6 +69,7 @@ model RestaurantPlan {
 
 model RestaurantConfig {
   id             String     @id @default(cuid())
+  domain         String     @unique
   primaryColor   String
   secondaryColor String
   isActive       Boolean
