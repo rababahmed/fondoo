@@ -63,7 +63,8 @@ router.post("/login", async (req, res) => {
           isAuthenticated: true,
           id: user.id,
           role: user.role,
-          restaurantID: user.restaurants[0].id,
+          restaurantID:
+            user.restaurants.length > 0 ? user.restaurants[0].id : "",
           message: "User authenticated",
         });
       } else {
