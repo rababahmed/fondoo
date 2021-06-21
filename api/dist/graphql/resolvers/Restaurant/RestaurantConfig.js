@@ -8,6 +8,7 @@ exports.RestaurantConfig = nexus_1.objectType({
     name: "RestaurantConfig",
     definition(t) {
         t.model.id();
+        t.model.domain();
         t.model.primaryColor();
         t.model.secondaryColor();
         t.model.isActive();
