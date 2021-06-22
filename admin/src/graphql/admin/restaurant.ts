@@ -21,3 +21,46 @@ export const GET_ALL_RESTAURANTS_INFO = gql`
     }
   }
 `;
+
+export const GET_ALL_RESTAURANT_PLANS = gql`
+  query RestaurantPlans {
+    restaurantPlans(where: { isActive: { equals: true } }) {
+      id
+      name
+      price
+    }
+  }
+`;
+
+export const ADD_NEW_RESTAURANT = gql`
+  mutation CreateRestaurant(
+    $name: String!
+    $primaryColor: String!
+    $secondaryColor: String!
+    $domain: String!
+    $plan: String
+    $isActive: Boolean!
+  ) {
+    createRestaurant(
+      data: {
+        name: $name
+        plan: { connect: { id: $plan } }
+        RestaurantConfig: {
+          create: {
+            domain: $domain
+            primaryColor: $primaryColor
+            secondaryColor: $secondaryColor
+            isActive: $isActive
+          }
+        }
+        CMSHome: { create: {} }
+        CMSAbout: { create: {} }
+        CMSReview: { create: {} }
+        CMSContact: { create: {} }
+        CMSReservation: { create: {} }
+      }
+    ) {
+      id
+    }
+  }
+`;

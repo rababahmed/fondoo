@@ -20,18 +20,18 @@ import {
 } from "formik-chakra-ui";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useMutation, useQueryClient } from "react-query";
-import axios from "axios";
-import * as Constants from "../../Constants";
-import { useUserStore } from "../../../store/useUserStore";
-import { useRouter } from "next/router";
+import { useGQLQuery } from "../../../shared-hooks/useGQLQuery";
+import {
+  ADD_NEW_RESTAURANT,
+  GET_ALL_RESTAURANT_PLANS,
+} from "../../../graphql/admin/restaurant";
+import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
 
 export const AddRestaurant = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialValues = {
     name: "",
-    email: "",
     domain: "",
     primaryColor: "",
     secondaryColor: "",
@@ -39,25 +39,34 @@ export const AddRestaurant = () => {
     isActive: true,
   };
 
+  const urlvalidation = /^(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+
   const validationSchema = Yup.object({
-    firstName: Yup.string(),
-    email: Yup.string(),
+    name: Yup.string().required(),
+    domain: Yup.string().matches(urlvalidation, "Domain is not valid"),
+    primaryColor: Yup.string().required(),
+    secondaryColor: Yup.string().required(),
+    plan: Yup.string().required(),
   });
 
   const [formData, setFormData] = useState(initialValues);
 
-  const router = useRouter();
-
-  const queryClient = useQueryClient();
+  const mutation = useGQLMutation(
+    ADD_NEW_RESTAURANT,
+    formData,
+    "get-all-restaurants-info"
+  );
 
   const onSubmit = async (values: any) => {
-    const addUser = await axios
-      .post(Constants.REST_API_V1 + "/user/signup", values)
-      .then(function (response) {
-        console.log(response);
-      });
-    queryClient.invalidateQueries("get-restaurant-users");
+    setFormData(values);
+    console.log(values);
+    mutation.mutate();
   };
+
+  const getPlans = useGQLQuery(
+    "get-restaurant-plans",
+    GET_ALL_RESTAURANT_PLANS
+  );
 
   return (
     <Box mb={4}>
@@ -80,7 +89,6 @@ export const AddRestaurant = () => {
                   <Grid templateColumns="1fr" gap={8}>
                     <Stack spacing="6">
                       <InputControl name="name" label="Restaurant Name" />
-                      <InputControl name="email" label="Restaurant Email" />
                       <InputControl
                         inputProps={{ placeholder: "example.com" }}
                         name="domain"
@@ -91,10 +99,16 @@ export const AddRestaurant = () => {
                         name="secondaryColor"
                         label="Secondary Color"
                       />
-                      <SelectControl label="Restaurant Plan" name="plan">
-                        <option value="Waiter">STARTER</option>
-                        <option value="Manager">PRO</option>
-                        <option value="Owner">ENTERPRISE</option>
+                      <SelectControl
+                        label="Restaurant Plan"
+                        name="plan"
+                        selectProps={{ placeholder: "Select plan" }}
+                      >
+                        {getPlans.data.restaurantPlans.map((s: any) => (
+                          <option key={s.id} value={s.id}>
+                            {s.name}
+                          </option>
+                        ))}
                       </SelectControl>
                       <SwitchControl name="isActive" label="Active" />
                     </Stack>

@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/layout";
 import React, { useEffect, useState } from "react";
 import { Skeleton } from "@chakra-ui/skeleton";
-import { gql } from "graphql-request";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import {
   Table,
@@ -26,14 +25,18 @@ import {
 } from "@chakra-ui/react";
 import { DELETE_USER, GET_RESTAURANT_USER } from "../../graphql/user";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
-import { useQueryClient } from "react-query";
-import { ResetButton } from "formik-chakra-ui";
 import { FaTrash } from "react-icons/fa";
+import { useUserStore } from "../../store/useUserStore";
 
 export const UsersModule = () => {
+  const restaurantID = useUserStore((state) => state.restaurantID);
+
   const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
     "get-restaurant-users",
-    GET_RESTAURANT_USER
+    GET_RESTAURANT_USER,
+    {
+      id: restaurantID,
+    }
   );
 
   useEffect(() => {}, [isFetching]);

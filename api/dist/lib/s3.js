@@ -29,7 +29,7 @@ exports.s3 = new aws.S3({
     secretAccessKey: process.env.S3_SECRET_KEY,
     region: process.env.S3_BUCKET_REGION,
 });
-const fileFilter = (file, cb) => {
+const fileFilter = (_req, file, cb) => {
     if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
         cb(null, true);
     }
@@ -51,7 +51,7 @@ exports.upload = multer({
         s3: exports.s3,
         bucket: "tezzbites",
         contentType: multerS3.AUTO_CONTENT_TYPE,
-        metadata: function (file, cb) {
+        metadata: function (_req, file, cb) {
             cb(null, { fieldName: file.fieldname, originalName: file.originalname });
         },
         key: async function (req, file, cb) {
