@@ -18,17 +18,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = __importStar(require("express"));
-const passport_1 = __importDefault(require("passport"));
 const userAuthRouter = require("./UserAuth");
-const restaurantRouter = require("./RestaurantRouter");
 const uploadRouter = require("./UploadRouter");
 let v1Router = express.Router();
-v1Router.use("/restaurants", passport_1.default.authenticate("jwt", { session: false }), restaurantRouter);
 v1Router.use("/user", userAuthRouter);
 v1Router.use("/uploads", uploadRouter);
 exports.default = v1Router;

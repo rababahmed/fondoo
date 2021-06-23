@@ -41,7 +41,16 @@ export const Restaurant = objectType({
     t.model.plan({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.restaurantPlanId({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.users({ shield: or(isAdmin(), isOwner(), isManager()) });
-    t.model.RestaurantConfig({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.config();
+    t.model.socials();
+    t.model.CMSHome();
+    t.model.CMSAbout();
+    t.model.CMSReview();
+    t.model.CMSReservation();
+    t.model.CMSContact();
+    t.model.config({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.config({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.config({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.createdAt();
   },
 });

@@ -32,6 +32,7 @@ export const RestaurantsAdminModule = () => {
     GET_ALL_RESTAURANTS_INFO
   );
 
+  console.log(data);
   useEffect(() => {}, [isFetching]);
 
   return (
@@ -66,7 +67,12 @@ export const RestaurantsAdminModule = () => {
                     <Td>{rs.id}</Td>
                     <Td>{rs.plan ? rs.plan.name : ""}</Td>
                     <Td>{rs.country}</Td>
-                    <Td>{rs.priceRange}</Td>
+                    <Td>
+                      {rs.RestaurantConfig.length > 0 &&
+                      rs.RestaurantConfig[0].isActive
+                        ? "Yes"
+                        : "No"}
+                    </Td>
                     <Td>
                       <SwitchRestaurant id={rs.id} />
                     </Td>

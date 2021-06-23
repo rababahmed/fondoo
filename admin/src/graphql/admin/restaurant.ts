@@ -16,8 +16,9 @@ export const GET_ALL_RESTAURANTS_INFO = gql`
       plan {
         name
       }
-      country
-      priceRange
+      RestaurantConfig {
+        isActive
+      }
     }
   }
 `;

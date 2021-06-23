@@ -12,7 +12,7 @@ exports.CMSReservation = nexus_1.objectType({
         t.model.headerDescription();
         t.model.headerImage();
         t.model.isActive();
-        t.model.restaurant();
+        t.model.Restaurant();
     },
 });
 exports.CMSReservationQuery = nexus_1.extendType({

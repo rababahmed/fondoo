@@ -6743,6 +6743,7 @@ export interface NexusGenFieldTypes {
     users: NexusGenRootTypes['User'][]; // [User!]!
   }
   Restaurant: { // field return type
+    RestaurantConfig: NexusGenRootTypes['RestaurantConfig'][]; // [RestaurantConfig!]!
     address: string | null; // String
     businessPhone: string | null; // String
     city: string | null; // String
@@ -7116,6 +7117,7 @@ export interface NexusGenFieldTypeNames {
     users: 'User'
   }
   Restaurant: { // field return type name
+    RestaurantConfig: 'RestaurantConfig'
     address: 'String'
     businessPhone: 'String'
     city: 'String'
@@ -7738,6 +7740,12 @@ export interface NexusGenArgTypes {
     }
   }
   Restaurant: {
+    RestaurantConfig: { // args
+      after?: NexusGenInputs['RestaurantConfigWhereUniqueInput'] | null; // RestaurantConfigWhereUniqueInput
+      before?: NexusGenInputs['RestaurantConfigWhereUniqueInput'] | null; // RestaurantConfigWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
     customers: { // args
       after?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput
       before?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput

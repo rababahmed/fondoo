@@ -10,7 +10,7 @@ export const CMSReview = objectType({
     t.model.headerDescription();
     t.model.headerImage();
     t.model.isActive();
-    t.model.restaurant();
+    t.model.Restaurant();
   },
 });
 

@@ -3627,6 +3627,7 @@ enum QueryMode {
 }
 
 type Restaurant {
+  RestaurantConfig(after: RestaurantConfigWhereUniqueInput, before: RestaurantConfigWhereUniqueInput, first: Int, last: Int): [RestaurantConfig!]!
   address: String
   businessPhone: String
   city: String

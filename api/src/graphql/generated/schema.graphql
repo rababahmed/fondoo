@@ -22,25 +22,13 @@ type CMSAbout {
   headerImage: String
   id: String!
   isActive: Boolean
-  restaurant: Restaurant!
   storyDescription: String
   storyHeading: String
   storyImage: String
 }
 
 input CMSAboutCreateInput {
-  headerDescription: String
-  headerHeading: String
-  headerImage: String
-  id: String
-  isActive: Boolean
-  restaurant: RestaurantCreateNestedOneWithoutCMSAboutInput!
-  storyDescription: String
-  storyHeading: String
-  storyImage: String
-}
-
-input CMSAboutCreateManyRestaurantInput {
+  Restaurant: RestaurantCreateNestedManyWithoutCMSAboutInput
   headerDescription: String
   headerHeading: String
   headerImage: String
@@ -51,16 +39,10 @@ input CMSAboutCreateManyRestaurantInput {
   storyImage: String
 }
 
-input CMSAboutCreateManyRestaurantInputEnvelope {
-  data: [CMSAboutCreateManyRestaurantInput!]
-  skipDuplicates: Boolean
-}
-
-input CMSAboutCreateNestedManyWithoutRestaurantInput {
-  connect: [CMSAboutWhereUniqueInput!]
-  connectOrCreate: [CMSAboutCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSAboutCreateWithoutRestaurantInput!]
-  createMany: CMSAboutCreateManyRestaurantInputEnvelope
+input CMSAboutCreateNestedOneWithoutRestaurantInput {
+  connect: CMSAboutWhereUniqueInput
+  connectOrCreate: CMSAboutCreateOrConnectWithoutRestaurantInput
+  create: CMSAboutCreateWithoutRestaurantInput
 }
 
 input CMSAboutCreateOrConnectWithoutRestaurantInput {
@@ -79,52 +61,19 @@ input CMSAboutCreateWithoutRestaurantInput {
   storyImage: String
 }
 
-input CMSAboutListRelationFilter {
-  every: CMSAboutWhereInput
-  none: CMSAboutWhereInput
-  some: CMSAboutWhereInput
-}
-
 input CMSAboutOrderByInput {
   headerDescription: SortOrder
   headerHeading: SortOrder
   headerImage: SortOrder
   id: SortOrder
   isActive: SortOrder
-  restaurantId: SortOrder
   storyDescription: SortOrder
   storyHeading: SortOrder
   storyImage: SortOrder
 }
 
-input CMSAboutScalarWhereInput {
-  AND: [CMSAboutScalarWhereInput!]
-  NOT: [CMSAboutScalarWhereInput!]
-  OR: [CMSAboutScalarWhereInput!]
-  headerDescription: StringNullableFilter
-  headerHeading: StringNullableFilter
-  headerImage: StringNullableFilter
-  id: StringFilter
-  isActive: BoolNullableFilter
-  restaurantId: StringFilter
-  storyDescription: StringNullableFilter
-  storyHeading: StringNullableFilter
-  storyImage: StringNullableFilter
-}
-
 input CMSAboutUpdateInput {
-  headerDescription: NullableStringFieldUpdateOperationsInput
-  headerHeading: NullableStringFieldUpdateOperationsInput
-  headerImage: NullableStringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  isActive: NullableBoolFieldUpdateOperationsInput
-  restaurant: RestaurantUpdateOneRequiredWithoutCMSAboutInput
-  storyDescription: NullableStringFieldUpdateOperationsInput
-  storyHeading: NullableStringFieldUpdateOperationsInput
-  storyImage: NullableStringFieldUpdateOperationsInput
-}
-
-input CMSAboutUpdateManyMutationInput {
+  Restaurant: RestaurantUpdateManyWithoutCMSAboutInput
   headerDescription: NullableStringFieldUpdateOperationsInput
   headerHeading: NullableStringFieldUpdateOperationsInput
   headerImage: NullableStringFieldUpdateOperationsInput
@@ -135,28 +84,12 @@ input CMSAboutUpdateManyMutationInput {
   storyImage: NullableStringFieldUpdateOperationsInput
 }
 
-input CMSAboutUpdateManyWithWhereWithoutRestaurantInput {
-  data: CMSAboutUpdateManyMutationInput!
-  where: CMSAboutScalarWhereInput!
-}
-
-input CMSAboutUpdateManyWithoutRestaurantInput {
-  connect: [CMSAboutWhereUniqueInput!]
-  connectOrCreate: [CMSAboutCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSAboutCreateWithoutRestaurantInput!]
-  createMany: CMSAboutCreateManyRestaurantInputEnvelope
-  delete: [CMSAboutWhereUniqueInput!]
-  deleteMany: [CMSAboutScalarWhereInput!]
-  disconnect: [CMSAboutWhereUniqueInput!]
-  set: [CMSAboutWhereUniqueInput!]
-  update: [CMSAboutUpdateWithWhereUniqueWithoutRestaurantInput!]
-  updateMany: [CMSAboutUpdateManyWithWhereWithoutRestaurantInput!]
-  upsert: [CMSAboutUpsertWithWhereUniqueWithoutRestaurantInput!]
-}
-
-input CMSAboutUpdateWithWhereUniqueWithoutRestaurantInput {
-  data: CMSAboutUpdateWithoutRestaurantInput!
-  where: CMSAboutWhereUniqueInput!
+input CMSAboutUpdateOneRequiredWithoutRestaurantInput {
+  connect: CMSAboutWhereUniqueInput
+  connectOrCreate: CMSAboutCreateOrConnectWithoutRestaurantInput
+  create: CMSAboutCreateWithoutRestaurantInput
+  update: CMSAboutUpdateWithoutRestaurantInput
+  upsert: CMSAboutUpsertWithoutRestaurantInput
 }
 
 input CMSAboutUpdateWithoutRestaurantInput {
@@ -170,23 +103,21 @@ input CMSAboutUpdateWithoutRestaurantInput {
   storyImage: NullableStringFieldUpdateOperationsInput
 }
 
-input CMSAboutUpsertWithWhereUniqueWithoutRestaurantInput {
+input CMSAboutUpsertWithoutRestaurantInput {
   create: CMSAboutCreateWithoutRestaurantInput!
   update: CMSAboutUpdateWithoutRestaurantInput!
-  where: CMSAboutWhereUniqueInput!
 }
 
 input CMSAboutWhereInput {
   AND: [CMSAboutWhereInput!]
   NOT: [CMSAboutWhereInput!]
   OR: [CMSAboutWhereInput!]
+  Restaurant: RestaurantListRelationFilter
   headerDescription: StringNullableFilter
   headerHeading: StringNullableFilter
   headerImage: StringNullableFilter
   id: StringFilter
   isActive: BoolNullableFilter
-  restaurant: RestaurantWhereInput
-  restaurantId: StringFilter
   storyDescription: StringNullableFilter
   storyHeading: StringNullableFilter
   storyImage: StringNullableFilter
@@ -202,19 +133,10 @@ type CMSContact {
   headerImage: String
   id: String!
   isActive: Boolean
-  restaurant: Restaurant!
 }
 
 input CMSContactCreateInput {
-  headerDescription: String
-  headerHeading: String
-  headerImage: String
-  id: String
-  isActive: Boolean
-  restaurant: RestaurantCreateNestedOneWithoutCMSContactInput!
-}
-
-input CMSContactCreateManyRestaurantInput {
+  Restaurant: RestaurantCreateNestedManyWithoutCMSContactInput
   headerDescription: String
   headerHeading: String
   headerImage: String
@@ -222,16 +144,10 @@ input CMSContactCreateManyRestaurantInput {
   isActive: Boolean
 }
 
-input CMSContactCreateManyRestaurantInputEnvelope {
-  data: [CMSContactCreateManyRestaurantInput!]
-  skipDuplicates: Boolean
-}
-
-input CMSContactCreateNestedManyWithoutRestaurantInput {
-  connect: [CMSContactWhereUniqueInput!]
-  connectOrCreate: [CMSContactCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSContactCreateWithoutRestaurantInput!]
-  createMany: CMSContactCreateManyRestaurantInputEnvelope
+input CMSContactCreateNestedOneWithoutRestaurantInput {
+  connect: CMSContactWhereUniqueInput
+  connectOrCreate: CMSContactCreateOrConnectWithoutRestaurantInput
+  create: CMSContactCreateWithoutRestaurantInput
 }
 
 input CMSContactCreateOrConnectWithoutRestaurantInput {
@@ -247,43 +163,16 @@ input CMSContactCreateWithoutRestaurantInput {
   isActive: Boolean
 }
 
-input CMSContactListRelationFilter {
-  every: CMSContactWhereInput
-  none: CMSContactWhereInput
-  some: CMSContactWhereInput
-}
-
 input CMSContactOrderByInput {
   headerDescription: SortOrder
   headerHeading: SortOrder
   headerImage: SortOrder
   id: SortOrder
   isActive: SortOrder
-  restaurantId: SortOrder
-}
-
-input CMSContactScalarWhereInput {
-  AND: [CMSContactScalarWhereInput!]
-  NOT: [CMSContactScalarWhereInput!]
-  OR: [CMSContactScalarWhereInput!]
-  headerDescription: StringNullableFilter
-  headerHeading: StringNullableFilter
-  headerImage: StringNullableFilter
-  id: StringFilter
-  isActive: BoolNullableFilter
-  restaurantId: StringFilter
 }
 
 input CMSContactUpdateInput {
-  headerDescription: NullableStringFieldUpdateOperationsInput
-  headerHeading: NullableStringFieldUpdateOperationsInput
-  headerImage: NullableStringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  isActive: NullableBoolFieldUpdateOperationsInput
-  restaurant: RestaurantUpdateOneRequiredWithoutCMSContactInput
-}
-
-input CMSContactUpdateManyMutationInput {
+  Restaurant: RestaurantUpdateManyWithoutCMSContactInput
   headerDescription: NullableStringFieldUpdateOperationsInput
   headerHeading: NullableStringFieldUpdateOperationsInput
   headerImage: NullableStringFieldUpdateOperationsInput
@@ -291,28 +180,12 @@ input CMSContactUpdateManyMutationInput {
   isActive: NullableBoolFieldUpdateOperationsInput
 }
 
-input CMSContactUpdateManyWithWhereWithoutRestaurantInput {
-  data: CMSContactUpdateManyMutationInput!
-  where: CMSContactScalarWhereInput!
-}
-
-input CMSContactUpdateManyWithoutRestaurantInput {
-  connect: [CMSContactWhereUniqueInput!]
-  connectOrCreate: [CMSContactCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSContactCreateWithoutRestaurantInput!]
-  createMany: CMSContactCreateManyRestaurantInputEnvelope
-  delete: [CMSContactWhereUniqueInput!]
-  deleteMany: [CMSContactScalarWhereInput!]
-  disconnect: [CMSContactWhereUniqueInput!]
-  set: [CMSContactWhereUniqueInput!]
-  update: [CMSContactUpdateWithWhereUniqueWithoutRestaurantInput!]
-  updateMany: [CMSContactUpdateManyWithWhereWithoutRestaurantInput!]
-  upsert: [CMSContactUpsertWithWhereUniqueWithoutRestaurantInput!]
-}
-
-input CMSContactUpdateWithWhereUniqueWithoutRestaurantInput {
-  data: CMSContactUpdateWithoutRestaurantInput!
-  where: CMSContactWhereUniqueInput!
+input CMSContactUpdateOneRequiredWithoutRestaurantInput {
+  connect: CMSContactWhereUniqueInput
+  connectOrCreate: CMSContactCreateOrConnectWithoutRestaurantInput
+  create: CMSContactCreateWithoutRestaurantInput
+  update: CMSContactUpdateWithoutRestaurantInput
+  upsert: CMSContactUpsertWithoutRestaurantInput
 }
 
 input CMSContactUpdateWithoutRestaurantInput {
@@ -323,23 +196,21 @@ input CMSContactUpdateWithoutRestaurantInput {
   isActive: NullableBoolFieldUpdateOperationsInput
 }
 
-input CMSContactUpsertWithWhereUniqueWithoutRestaurantInput {
+input CMSContactUpsertWithoutRestaurantInput {
   create: CMSContactCreateWithoutRestaurantInput!
   update: CMSContactUpdateWithoutRestaurantInput!
-  where: CMSContactWhereUniqueInput!
 }
 
 input CMSContactWhereInput {
   AND: [CMSContactWhereInput!]
   NOT: [CMSContactWhereInput!]
   OR: [CMSContactWhereInput!]
+  Restaurant: RestaurantListRelationFilter
   headerDescription: StringNullableFilter
   headerHeading: StringNullableFilter
   headerImage: StringNullableFilter
   id: StringFilter
   isActive: BoolNullableFilter
-  restaurant: RestaurantWhereInput
-  restaurantId: StringFilter
 }
 
 input CMSContactWhereUniqueInput {
@@ -363,31 +234,10 @@ type CMSHome {
   reservationDescription: String
   reservationHeading: String
   reservationImage: String
-  restaurant: Restaurant!
 }
 
 input CMSHomeCreateInput {
-  aboutDescription: String
-  aboutHeading: String
-  aboutImage: String
-  dealsDescription: String
-  dealsHeading: String
-  dealsImage: String
-  heroDescription: String
-  heroHeading: String
-  heroImage: String
-  id: String
-  isActive: Boolean
-  popularDishesDescription: String
-  popularDishesHeading: String
-  popularDishesImage: String
-  reservationDescription: String
-  reservationHeading: String
-  reservationImage: String
-  restaurant: RestaurantCreateNestedOneWithoutCMSHomeInput!
-}
-
-input CMSHomeCreateManyRestaurantInput {
+  Restaurant: RestaurantCreateNestedManyWithoutCMSHomeInput
   aboutDescription: String
   aboutHeading: String
   aboutImage: String
@@ -407,16 +257,10 @@ input CMSHomeCreateManyRestaurantInput {
   reservationImage: String
 }
 
-input CMSHomeCreateManyRestaurantInputEnvelope {
-  data: [CMSHomeCreateManyRestaurantInput!]
-  skipDuplicates: Boolean
-}
-
-input CMSHomeCreateNestedManyWithoutRestaurantInput {
-  connect: [CMSHomeWhereUniqueInput!]
-  connectOrCreate: [CMSHomeCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSHomeCreateWithoutRestaurantInput!]
-  createMany: CMSHomeCreateManyRestaurantInputEnvelope
+input CMSHomeCreateNestedOneWithoutRestaurantInput {
+  connect: CMSHomeWhereUniqueInput
+  connectOrCreate: CMSHomeCreateOrConnectWithoutRestaurantInput
+  create: CMSHomeCreateWithoutRestaurantInput
 }
 
 input CMSHomeCreateOrConnectWithoutRestaurantInput {
@@ -444,12 +288,6 @@ input CMSHomeCreateWithoutRestaurantInput {
   reservationImage: String
 }
 
-input CMSHomeListRelationFilter {
-  every: CMSHomeWhereInput
-  none: CMSHomeWhereInput
-  some: CMSHomeWhereInput
-}
-
 input CMSHomeOrderByInput {
   aboutDescription: SortOrder
   aboutHeading: SortOrder
@@ -468,55 +306,10 @@ input CMSHomeOrderByInput {
   reservationDescription: SortOrder
   reservationHeading: SortOrder
   reservationImage: SortOrder
-  restaurantId: SortOrder
-}
-
-input CMSHomeScalarWhereInput {
-  AND: [CMSHomeScalarWhereInput!]
-  NOT: [CMSHomeScalarWhereInput!]
-  OR: [CMSHomeScalarWhereInput!]
-  aboutDescription: StringNullableFilter
-  aboutHeading: StringNullableFilter
-  aboutImage: StringNullableFilter
-  dealsDescription: StringNullableFilter
-  dealsHeading: StringNullableFilter
-  dealsImage: StringNullableFilter
-  heroDescription: StringNullableFilter
-  heroHeading: StringNullableFilter
-  heroImage: StringNullableFilter
-  id: StringFilter
-  isActive: BoolNullableFilter
-  popularDishesDescription: StringNullableFilter
-  popularDishesHeading: StringNullableFilter
-  popularDishesImage: StringNullableFilter
-  reservationDescription: StringNullableFilter
-  reservationHeading: StringNullableFilter
-  reservationImage: StringNullableFilter
-  restaurantId: StringFilter
 }
 
 input CMSHomeUpdateInput {
-  aboutDescription: NullableStringFieldUpdateOperationsInput
-  aboutHeading: NullableStringFieldUpdateOperationsInput
-  aboutImage: NullableStringFieldUpdateOperationsInput
-  dealsDescription: NullableStringFieldUpdateOperationsInput
-  dealsHeading: NullableStringFieldUpdateOperationsInput
-  dealsImage: NullableStringFieldUpdateOperationsInput
-  heroDescription: NullableStringFieldUpdateOperationsInput
-  heroHeading: NullableStringFieldUpdateOperationsInput
-  heroImage: NullableStringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  isActive: NullableBoolFieldUpdateOperationsInput
-  popularDishesDescription: NullableStringFieldUpdateOperationsInput
-  popularDishesHeading: NullableStringFieldUpdateOperationsInput
-  popularDishesImage: NullableStringFieldUpdateOperationsInput
-  reservationDescription: NullableStringFieldUpdateOperationsInput
-  reservationHeading: NullableStringFieldUpdateOperationsInput
-  reservationImage: NullableStringFieldUpdateOperationsInput
-  restaurant: RestaurantUpdateOneRequiredWithoutCMSHomeInput
-}
-
-input CMSHomeUpdateManyMutationInput {
+  Restaurant: RestaurantUpdateManyWithoutCMSHomeInput
   aboutDescription: NullableStringFieldUpdateOperationsInput
   aboutHeading: NullableStringFieldUpdateOperationsInput
   aboutImage: NullableStringFieldUpdateOperationsInput
@@ -536,28 +329,12 @@ input CMSHomeUpdateManyMutationInput {
   reservationImage: NullableStringFieldUpdateOperationsInput
 }
 
-input CMSHomeUpdateManyWithWhereWithoutRestaurantInput {
-  data: CMSHomeUpdateManyMutationInput!
-  where: CMSHomeScalarWhereInput!
-}
-
-input CMSHomeUpdateManyWithoutRestaurantInput {
-  connect: [CMSHomeWhereUniqueInput!]
-  connectOrCreate: [CMSHomeCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSHomeCreateWithoutRestaurantInput!]
-  createMany: CMSHomeCreateManyRestaurantInputEnvelope
-  delete: [CMSHomeWhereUniqueInput!]
-  deleteMany: [CMSHomeScalarWhereInput!]
-  disconnect: [CMSHomeWhereUniqueInput!]
-  set: [CMSHomeWhereUniqueInput!]
-  update: [CMSHomeUpdateWithWhereUniqueWithoutRestaurantInput!]
-  updateMany: [CMSHomeUpdateManyWithWhereWithoutRestaurantInput!]
-  upsert: [CMSHomeUpsertWithWhereUniqueWithoutRestaurantInput!]
-}
-
-input CMSHomeUpdateWithWhereUniqueWithoutRestaurantInput {
-  data: CMSHomeUpdateWithoutRestaurantInput!
-  where: CMSHomeWhereUniqueInput!
+input CMSHomeUpdateOneRequiredWithoutRestaurantInput {
+  connect: CMSHomeWhereUniqueInput
+  connectOrCreate: CMSHomeCreateOrConnectWithoutRestaurantInput
+  create: CMSHomeCreateWithoutRestaurantInput
+  update: CMSHomeUpdateWithoutRestaurantInput
+  upsert: CMSHomeUpsertWithoutRestaurantInput
 }
 
 input CMSHomeUpdateWithoutRestaurantInput {
@@ -580,16 +357,16 @@ input CMSHomeUpdateWithoutRestaurantInput {
   reservationImage: NullableStringFieldUpdateOperationsInput
 }
 
-input CMSHomeUpsertWithWhereUniqueWithoutRestaurantInput {
+input CMSHomeUpsertWithoutRestaurantInput {
   create: CMSHomeCreateWithoutRestaurantInput!
   update: CMSHomeUpdateWithoutRestaurantInput!
-  where: CMSHomeWhereUniqueInput!
 }
 
 input CMSHomeWhereInput {
   AND: [CMSHomeWhereInput!]
   NOT: [CMSHomeWhereInput!]
   OR: [CMSHomeWhereInput!]
+  Restaurant: RestaurantListRelationFilter
   aboutDescription: StringNullableFilter
   aboutHeading: StringNullableFilter
   aboutImage: StringNullableFilter
@@ -607,8 +384,6 @@ input CMSHomeWhereInput {
   reservationDescription: StringNullableFilter
   reservationHeading: StringNullableFilter
   reservationImage: StringNullableFilter
-  restaurant: RestaurantWhereInput
-  restaurantId: StringFilter
 }
 
 input CMSHomeWhereUniqueInput {
@@ -621,19 +396,10 @@ type CMSReservation {
   headerImage: String
   id: String!
   isActive: Boolean
-  restaurant: Restaurant!
 }
 
 input CMSReservationCreateInput {
-  headerDescription: String
-  headerHeading: String
-  headerImage: String
-  id: String
-  isActive: Boolean
-  restaurant: RestaurantCreateNestedOneWithoutCMSReservationInput!
-}
-
-input CMSReservationCreateManyRestaurantInput {
+  Restaurant: RestaurantCreateNestedManyWithoutCMSReservationInput
   headerDescription: String
   headerHeading: String
   headerImage: String
@@ -641,16 +407,10 @@ input CMSReservationCreateManyRestaurantInput {
   isActive: Boolean
 }
 
-input CMSReservationCreateManyRestaurantInputEnvelope {
-  data: [CMSReservationCreateManyRestaurantInput!]
-  skipDuplicates: Boolean
-}
-
-input CMSReservationCreateNestedManyWithoutRestaurantInput {
-  connect: [CMSReservationWhereUniqueInput!]
-  connectOrCreate: [CMSReservationCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSReservationCreateWithoutRestaurantInput!]
-  createMany: CMSReservationCreateManyRestaurantInputEnvelope
+input CMSReservationCreateNestedOneWithoutRestaurantInput {
+  connect: CMSReservationWhereUniqueInput
+  connectOrCreate: CMSReservationCreateOrConnectWithoutRestaurantInput
+  create: CMSReservationCreateWithoutRestaurantInput
 }
 
 input CMSReservationCreateOrConnectWithoutRestaurantInput {
@@ -666,43 +426,16 @@ input CMSReservationCreateWithoutRestaurantInput {
   isActive: Boolean
 }
 
-input CMSReservationListRelationFilter {
-  every: CMSReservationWhereInput
-  none: CMSReservationWhereInput
-  some: CMSReservationWhereInput
-}
-
 input CMSReservationOrderByInput {
   headerDescription: SortOrder
   headerHeading: SortOrder
   headerImage: SortOrder
   id: SortOrder
   isActive: SortOrder
-  restaurantId: SortOrder
-}
-
-input CMSReservationScalarWhereInput {
-  AND: [CMSReservationScalarWhereInput!]
-  NOT: [CMSReservationScalarWhereInput!]
-  OR: [CMSReservationScalarWhereInput!]
-  headerDescription: StringNullableFilter
-  headerHeading: StringNullableFilter
-  headerImage: StringNullableFilter
-  id: StringFilter
-  isActive: BoolNullableFilter
-  restaurantId: StringFilter
 }
 
 input CMSReservationUpdateInput {
-  headerDescription: NullableStringFieldUpdateOperationsInput
-  headerHeading: NullableStringFieldUpdateOperationsInput
-  headerImage: NullableStringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  isActive: NullableBoolFieldUpdateOperationsInput
-  restaurant: RestaurantUpdateOneRequiredWithoutCMSReservationInput
-}
-
-input CMSReservationUpdateManyMutationInput {
+  Restaurant: RestaurantUpdateManyWithoutCMSReservationInput
   headerDescription: NullableStringFieldUpdateOperationsInput
   headerHeading: NullableStringFieldUpdateOperationsInput
   headerImage: NullableStringFieldUpdateOperationsInput
@@ -710,28 +443,12 @@ input CMSReservationUpdateManyMutationInput {
   isActive: NullableBoolFieldUpdateOperationsInput
 }
 
-input CMSReservationUpdateManyWithWhereWithoutRestaurantInput {
-  data: CMSReservationUpdateManyMutationInput!
-  where: CMSReservationScalarWhereInput!
-}
-
-input CMSReservationUpdateManyWithoutRestaurantInput {
-  connect: [CMSReservationWhereUniqueInput!]
-  connectOrCreate: [CMSReservationCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSReservationCreateWithoutRestaurantInput!]
-  createMany: CMSReservationCreateManyRestaurantInputEnvelope
-  delete: [CMSReservationWhereUniqueInput!]
-  deleteMany: [CMSReservationScalarWhereInput!]
-  disconnect: [CMSReservationWhereUniqueInput!]
-  set: [CMSReservationWhereUniqueInput!]
-  update: [CMSReservationUpdateWithWhereUniqueWithoutRestaurantInput!]
-  updateMany: [CMSReservationUpdateManyWithWhereWithoutRestaurantInput!]
-  upsert: [CMSReservationUpsertWithWhereUniqueWithoutRestaurantInput!]
-}
-
-input CMSReservationUpdateWithWhereUniqueWithoutRestaurantInput {
-  data: CMSReservationUpdateWithoutRestaurantInput!
-  where: CMSReservationWhereUniqueInput!
+input CMSReservationUpdateOneRequiredWithoutRestaurantInput {
+  connect: CMSReservationWhereUniqueInput
+  connectOrCreate: CMSReservationCreateOrConnectWithoutRestaurantInput
+  create: CMSReservationCreateWithoutRestaurantInput
+  update: CMSReservationUpdateWithoutRestaurantInput
+  upsert: CMSReservationUpsertWithoutRestaurantInput
 }
 
 input CMSReservationUpdateWithoutRestaurantInput {
@@ -742,23 +459,21 @@ input CMSReservationUpdateWithoutRestaurantInput {
   isActive: NullableBoolFieldUpdateOperationsInput
 }
 
-input CMSReservationUpsertWithWhereUniqueWithoutRestaurantInput {
+input CMSReservationUpsertWithoutRestaurantInput {
   create: CMSReservationCreateWithoutRestaurantInput!
   update: CMSReservationUpdateWithoutRestaurantInput!
-  where: CMSReservationWhereUniqueInput!
 }
 
 input CMSReservationWhereInput {
   AND: [CMSReservationWhereInput!]
   NOT: [CMSReservationWhereInput!]
   OR: [CMSReservationWhereInput!]
+  Restaurant: RestaurantListRelationFilter
   headerDescription: StringNullableFilter
   headerHeading: StringNullableFilter
   headerImage: StringNullableFilter
   id: StringFilter
   isActive: BoolNullableFilter
-  restaurant: RestaurantWhereInput
-  restaurantId: StringFilter
 }
 
 input CMSReservationWhereUniqueInput {
@@ -771,19 +486,10 @@ type CMSReview {
   headerImage: String
   id: String!
   isActive: Boolean
-  restaurant: Restaurant!
 }
 
 input CMSReviewCreateInput {
-  headerDescription: String
-  headerHeading: String
-  headerImage: String
-  id: String
-  isActive: Boolean
-  restaurant: RestaurantCreateNestedOneWithoutCMSReviewInput!
-}
-
-input CMSReviewCreateManyRestaurantInput {
+  Restaurant: RestaurantCreateNestedManyWithoutCMSReviewInput
   headerDescription: String
   headerHeading: String
   headerImage: String
@@ -791,16 +497,10 @@ input CMSReviewCreateManyRestaurantInput {
   isActive: Boolean
 }
 
-input CMSReviewCreateManyRestaurantInputEnvelope {
-  data: [CMSReviewCreateManyRestaurantInput!]
-  skipDuplicates: Boolean
-}
-
-input CMSReviewCreateNestedManyWithoutRestaurantInput {
-  connect: [CMSReviewWhereUniqueInput!]
-  connectOrCreate: [CMSReviewCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSReviewCreateWithoutRestaurantInput!]
-  createMany: CMSReviewCreateManyRestaurantInputEnvelope
+input CMSReviewCreateNestedOneWithoutRestaurantInput {
+  connect: CMSReviewWhereUniqueInput
+  connectOrCreate: CMSReviewCreateOrConnectWithoutRestaurantInput
+  create: CMSReviewCreateWithoutRestaurantInput
 }
 
 input CMSReviewCreateOrConnectWithoutRestaurantInput {
@@ -816,43 +516,16 @@ input CMSReviewCreateWithoutRestaurantInput {
   isActive: Boolean
 }
 
-input CMSReviewListRelationFilter {
-  every: CMSReviewWhereInput
-  none: CMSReviewWhereInput
-  some: CMSReviewWhereInput
-}
-
 input CMSReviewOrderByInput {
   headerDescription: SortOrder
   headerHeading: SortOrder
   headerImage: SortOrder
   id: SortOrder
   isActive: SortOrder
-  restaurantId: SortOrder
-}
-
-input CMSReviewScalarWhereInput {
-  AND: [CMSReviewScalarWhereInput!]
-  NOT: [CMSReviewScalarWhereInput!]
-  OR: [CMSReviewScalarWhereInput!]
-  headerDescription: StringNullableFilter
-  headerHeading: StringNullableFilter
-  headerImage: StringNullableFilter
-  id: StringFilter
-  isActive: BoolNullableFilter
-  restaurantId: StringFilter
 }
 
 input CMSReviewUpdateInput {
-  headerDescription: NullableStringFieldUpdateOperationsInput
-  headerHeading: NullableStringFieldUpdateOperationsInput
-  headerImage: NullableStringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  isActive: NullableBoolFieldUpdateOperationsInput
-  restaurant: RestaurantUpdateOneRequiredWithoutCMSReviewInput
-}
-
-input CMSReviewUpdateManyMutationInput {
+  Restaurant: RestaurantUpdateManyWithoutCMSReviewInput
   headerDescription: NullableStringFieldUpdateOperationsInput
   headerHeading: NullableStringFieldUpdateOperationsInput
   headerImage: NullableStringFieldUpdateOperationsInput
@@ -860,28 +533,12 @@ input CMSReviewUpdateManyMutationInput {
   isActive: NullableBoolFieldUpdateOperationsInput
 }
 
-input CMSReviewUpdateManyWithWhereWithoutRestaurantInput {
-  data: CMSReviewUpdateManyMutationInput!
-  where: CMSReviewScalarWhereInput!
-}
-
-input CMSReviewUpdateManyWithoutRestaurantInput {
-  connect: [CMSReviewWhereUniqueInput!]
-  connectOrCreate: [CMSReviewCreateOrConnectWithoutRestaurantInput!]
-  create: [CMSReviewCreateWithoutRestaurantInput!]
-  createMany: CMSReviewCreateManyRestaurantInputEnvelope
-  delete: [CMSReviewWhereUniqueInput!]
-  deleteMany: [CMSReviewScalarWhereInput!]
-  disconnect: [CMSReviewWhereUniqueInput!]
-  set: [CMSReviewWhereUniqueInput!]
-  update: [CMSReviewUpdateWithWhereUniqueWithoutRestaurantInput!]
-  updateMany: [CMSReviewUpdateManyWithWhereWithoutRestaurantInput!]
-  upsert: [CMSReviewUpsertWithWhereUniqueWithoutRestaurantInput!]
-}
-
-input CMSReviewUpdateWithWhereUniqueWithoutRestaurantInput {
-  data: CMSReviewUpdateWithoutRestaurantInput!
-  where: CMSReviewWhereUniqueInput!
+input CMSReviewUpdateOneRequiredWithoutRestaurantInput {
+  connect: CMSReviewWhereUniqueInput
+  connectOrCreate: CMSReviewCreateOrConnectWithoutRestaurantInput
+  create: CMSReviewCreateWithoutRestaurantInput
+  update: CMSReviewUpdateWithoutRestaurantInput
+  upsert: CMSReviewUpsertWithoutRestaurantInput
 }
 
 input CMSReviewUpdateWithoutRestaurantInput {
@@ -892,23 +549,21 @@ input CMSReviewUpdateWithoutRestaurantInput {
   isActive: NullableBoolFieldUpdateOperationsInput
 }
 
-input CMSReviewUpsertWithWhereUniqueWithoutRestaurantInput {
+input CMSReviewUpsertWithoutRestaurantInput {
   create: CMSReviewCreateWithoutRestaurantInput!
   update: CMSReviewUpdateWithoutRestaurantInput!
-  where: CMSReviewWhereUniqueInput!
 }
 
 input CMSReviewWhereInput {
   AND: [CMSReviewWhereInput!]
   NOT: [CMSReviewWhereInput!]
   OR: [CMSReviewWhereInput!]
+  Restaurant: RestaurantListRelationFilter
   headerDescription: StringNullableFilter
   headerHeading: StringNullableFilter
   headerImage: StringNullableFilter
   id: StringFilter
   isActive: BoolNullableFilter
-  restaurant: RestaurantWhereInput
-  restaurantId: StringFilter
 }
 
 input CMSReviewWhereUniqueInput {
@@ -3627,9 +3282,15 @@ enum QueryMode {
 }
 
 type Restaurant {
+  CMSAbout: CMSAbout!
+  CMSContact: CMSContact!
+  CMSHome: CMSHome!
+  CMSReservation: CMSReservation!
+  CMSReview: CMSReview!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfig!
   country: String
   coverImage: String
   createdAt: DateTime!
@@ -3661,6 +3322,7 @@ type Restaurant {
   restaurantPlanId: String
   schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int): [Schedule!]!
   serviceCharge: String
+  socials: RestaurantSocial!
   url: String
   users(after: UserWhereUniqueInput, before: UserWhereUniqueInput, first: Int, last: Int): [User!]!
   vat: String
@@ -3677,17 +3339,7 @@ type RestaurantConfig {
 }
 
 input RestaurantConfigCreateInput {
-  createdAt: DateTime
-  domain: String!
-  id: String
-  isActive: Boolean!
-  primaryColor: String!
-  restaurant: RestaurantCreateNestedOneWithoutRestaurantConfigInput!
-  secondaryColor: String!
-  updatedAt: DateTime
-}
-
-input RestaurantConfigCreateManyRestaurantInput {
+  Restaurant: RestaurantCreateNestedManyWithoutConfigInput
   createdAt: DateTime
   domain: String!
   id: String
@@ -3697,16 +3349,10 @@ input RestaurantConfigCreateManyRestaurantInput {
   updatedAt: DateTime
 }
 
-input RestaurantConfigCreateManyRestaurantInputEnvelope {
-  data: [RestaurantConfigCreateManyRestaurantInput!]
-  skipDuplicates: Boolean
-}
-
-input RestaurantConfigCreateNestedManyWithoutRestaurantInput {
-  connect: [RestaurantConfigWhereUniqueInput!]
-  connectOrCreate: [RestaurantConfigCreateOrConnectWithoutRestaurantInput!]
-  create: [RestaurantConfigCreateWithoutRestaurantInput!]
-  createMany: RestaurantConfigCreateManyRestaurantInputEnvelope
+input RestaurantConfigCreateNestedOneWithoutRestaurantInput {
+  connect: RestaurantConfigWhereUniqueInput
+  connectOrCreate: RestaurantConfigCreateOrConnectWithoutRestaurantInput
+  create: RestaurantConfigCreateWithoutRestaurantInput
 }
 
 input RestaurantConfigCreateOrConnectWithoutRestaurantInput {
@@ -3724,49 +3370,18 @@ input RestaurantConfigCreateWithoutRestaurantInput {
   updatedAt: DateTime
 }
 
-input RestaurantConfigListRelationFilter {
-  every: RestaurantConfigWhereInput
-  none: RestaurantConfigWhereInput
-  some: RestaurantConfigWhereInput
-}
-
 input RestaurantConfigOrderByInput {
   createdAt: SortOrder
   domain: SortOrder
   id: SortOrder
   isActive: SortOrder
   primaryColor: SortOrder
-  restaurantId: SortOrder
   secondaryColor: SortOrder
   updatedAt: SortOrder
 }
 
-input RestaurantConfigScalarWhereInput {
-  AND: [RestaurantConfigScalarWhereInput!]
-  NOT: [RestaurantConfigScalarWhereInput!]
-  OR: [RestaurantConfigScalarWhereInput!]
-  createdAt: DateTimeFilter
-  domain: StringFilter
-  id: StringFilter
-  isActive: BoolFilter
-  primaryColor: StringFilter
-  restaurantId: StringFilter
-  secondaryColor: StringFilter
-  updatedAt: DateTimeFilter
-}
-
 input RestaurantConfigUpdateInput {
-  createdAt: DateTimeFieldUpdateOperationsInput
-  domain: StringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
-  primaryColor: StringFieldUpdateOperationsInput
-  restaurant: RestaurantUpdateOneRequiredWithoutRestaurantConfigInput
-  secondaryColor: StringFieldUpdateOperationsInput
-  updatedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input RestaurantConfigUpdateManyMutationInput {
+  Restaurant: RestaurantUpdateManyWithoutConfigInput
   createdAt: DateTimeFieldUpdateOperationsInput
   domain: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
@@ -3776,28 +3391,12 @@ input RestaurantConfigUpdateManyMutationInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input RestaurantConfigUpdateManyWithWhereWithoutRestaurantInput {
-  data: RestaurantConfigUpdateManyMutationInput!
-  where: RestaurantConfigScalarWhereInput!
-}
-
-input RestaurantConfigUpdateManyWithoutRestaurantInput {
-  connect: [RestaurantConfigWhereUniqueInput!]
-  connectOrCreate: [RestaurantConfigCreateOrConnectWithoutRestaurantInput!]
-  create: [RestaurantConfigCreateWithoutRestaurantInput!]
-  createMany: RestaurantConfigCreateManyRestaurantInputEnvelope
-  delete: [RestaurantConfigWhereUniqueInput!]
-  deleteMany: [RestaurantConfigScalarWhereInput!]
-  disconnect: [RestaurantConfigWhereUniqueInput!]
-  set: [RestaurantConfigWhereUniqueInput!]
-  update: [RestaurantConfigUpdateWithWhereUniqueWithoutRestaurantInput!]
-  updateMany: [RestaurantConfigUpdateManyWithWhereWithoutRestaurantInput!]
-  upsert: [RestaurantConfigUpsertWithWhereUniqueWithoutRestaurantInput!]
-}
-
-input RestaurantConfigUpdateWithWhereUniqueWithoutRestaurantInput {
-  data: RestaurantConfigUpdateWithoutRestaurantInput!
-  where: RestaurantConfigWhereUniqueInput!
+input RestaurantConfigUpdateOneRequiredWithoutRestaurantInput {
+  connect: RestaurantConfigWhereUniqueInput
+  connectOrCreate: RestaurantConfigCreateOrConnectWithoutRestaurantInput
+  create: RestaurantConfigCreateWithoutRestaurantInput
+  update: RestaurantConfigUpdateWithoutRestaurantInput
+  upsert: RestaurantConfigUpsertWithoutRestaurantInput
 }
 
 input RestaurantConfigUpdateWithoutRestaurantInput {
@@ -3810,23 +3409,21 @@ input RestaurantConfigUpdateWithoutRestaurantInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input RestaurantConfigUpsertWithWhereUniqueWithoutRestaurantInput {
+input RestaurantConfigUpsertWithoutRestaurantInput {
   create: RestaurantConfigCreateWithoutRestaurantInput!
   update: RestaurantConfigUpdateWithoutRestaurantInput!
-  where: RestaurantConfigWhereUniqueInput!
 }
 
 input RestaurantConfigWhereInput {
   AND: [RestaurantConfigWhereInput!]
   NOT: [RestaurantConfigWhereInput!]
   OR: [RestaurantConfigWhereInput!]
+  Restaurant: RestaurantListRelationFilter
   createdAt: DateTimeFilter
   domain: StringFilter
   id: StringFilter
   isActive: BoolFilter
   primaryColor: StringFilter
-  restaurant: RestaurantWhereInput
-  restaurantId: StringFilter
   secondaryColor: StringFilter
   updatedAt: DateTimeFilter
 }
@@ -3837,17 +3434,15 @@ input RestaurantConfigWhereUniqueInput {
 }
 
 input RestaurantCreateInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -3876,17 +3471,23 @@ input RestaurantCreateInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
   vat: String
 }
 
-input RestaurantCreateManyPlanInput {
+input RestaurantCreateManyCMSAboutInput {
   address: String
   businessPhone: String
+  cMSContactId: String!
+  cMSHomeId: String!
+  cMSReservationId: String!
+  cMSReviewId: String!
   city: String
   country: String
   coverImage: String
@@ -3909,6 +3510,267 @@ input RestaurantCreateManyPlanInput {
   postCode: String
   priceRange: String
   reservationPhone: String
+  restaurantConfigId: String!
+  restaurantPlanId: String
+  restaurantSocialId: String!
+  serviceCharge: String
+  updatedAt: DateTime
+  url: String
+  vat: String
+}
+
+input RestaurantCreateManyCMSAboutInputEnvelope {
+  data: [RestaurantCreateManyCMSAboutInput!]
+  skipDuplicates: Boolean
+}
+
+input RestaurantCreateManyCMSContactInput {
+  address: String
+  businessPhone: String
+  cMSAboutId: String!
+  cMSHomeId: String!
+  cMSReservationId: String!
+  cMSReviewId: String!
+  city: String
+  country: String
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  diningStyle: String
+  email: String
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  logo: String
+  name: String!
+  postCode: String
+  priceRange: String
+  reservationPhone: String
+  restaurantConfigId: String!
+  restaurantPlanId: String
+  restaurantSocialId: String!
+  serviceCharge: String
+  updatedAt: DateTime
+  url: String
+  vat: String
+}
+
+input RestaurantCreateManyCMSContactInputEnvelope {
+  data: [RestaurantCreateManyCMSContactInput!]
+  skipDuplicates: Boolean
+}
+
+input RestaurantCreateManyCMSHomeInput {
+  address: String
+  businessPhone: String
+  cMSAboutId: String!
+  cMSContactId: String!
+  cMSReservationId: String!
+  cMSReviewId: String!
+  city: String
+  country: String
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  diningStyle: String
+  email: String
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  logo: String
+  name: String!
+  postCode: String
+  priceRange: String
+  reservationPhone: String
+  restaurantConfigId: String!
+  restaurantPlanId: String
+  restaurantSocialId: String!
+  serviceCharge: String
+  updatedAt: DateTime
+  url: String
+  vat: String
+}
+
+input RestaurantCreateManyCMSHomeInputEnvelope {
+  data: [RestaurantCreateManyCMSHomeInput!]
+  skipDuplicates: Boolean
+}
+
+input RestaurantCreateManyCMSReservationInput {
+  address: String
+  businessPhone: String
+  cMSAboutId: String!
+  cMSContactId: String!
+  cMSHomeId: String!
+  cMSReviewId: String!
+  city: String
+  country: String
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  diningStyle: String
+  email: String
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  logo: String
+  name: String!
+  postCode: String
+  priceRange: String
+  reservationPhone: String
+  restaurantConfigId: String!
+  restaurantPlanId: String
+  restaurantSocialId: String!
+  serviceCharge: String
+  updatedAt: DateTime
+  url: String
+  vat: String
+}
+
+input RestaurantCreateManyCMSReservationInputEnvelope {
+  data: [RestaurantCreateManyCMSReservationInput!]
+  skipDuplicates: Boolean
+}
+
+input RestaurantCreateManyCMSReviewInput {
+  address: String
+  businessPhone: String
+  cMSAboutId: String!
+  cMSContactId: String!
+  cMSHomeId: String!
+  cMSReservationId: String!
+  city: String
+  country: String
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  diningStyle: String
+  email: String
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  logo: String
+  name: String!
+  postCode: String
+  priceRange: String
+  reservationPhone: String
+  restaurantConfigId: String!
+  restaurantPlanId: String
+  restaurantSocialId: String!
+  serviceCharge: String
+  updatedAt: DateTime
+  url: String
+  vat: String
+}
+
+input RestaurantCreateManyCMSReviewInputEnvelope {
+  data: [RestaurantCreateManyCMSReviewInput!]
+  skipDuplicates: Boolean
+}
+
+input RestaurantCreateManyConfigInput {
+  address: String
+  businessPhone: String
+  cMSAboutId: String!
+  cMSContactId: String!
+  cMSHomeId: String!
+  cMSReservationId: String!
+  cMSReviewId: String!
+  city: String
+  country: String
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  diningStyle: String
+  email: String
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  logo: String
+  name: String!
+  postCode: String
+  priceRange: String
+  reservationPhone: String
+  restaurantPlanId: String
+  restaurantSocialId: String!
+  serviceCharge: String
+  updatedAt: DateTime
+  url: String
+  vat: String
+}
+
+input RestaurantCreateManyConfigInputEnvelope {
+  data: [RestaurantCreateManyConfigInput!]
+  skipDuplicates: Boolean
+}
+
+input RestaurantCreateManyPlanInput {
+  address: String
+  businessPhone: String
+  cMSAboutId: String!
+  cMSContactId: String!
+  cMSHomeId: String!
+  cMSReservationId: String!
+  cMSReviewId: String!
+  city: String
+  country: String
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  diningStyle: String
+  email: String
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  logo: String
+  name: String!
+  postCode: String
+  priceRange: String
+  reservationPhone: String
+  restaurantConfigId: String!
+  restaurantSocialId: String!
   serviceCharge: String
   updatedAt: DateTime
   url: String
@@ -3918,6 +3780,91 @@ input RestaurantCreateManyPlanInput {
 input RestaurantCreateManyPlanInputEnvelope {
   data: [RestaurantCreateManyPlanInput!]
   skipDuplicates: Boolean
+}
+
+input RestaurantCreateManySocialsInput {
+  address: String
+  businessPhone: String
+  cMSAboutId: String!
+  cMSContactId: String!
+  cMSHomeId: String!
+  cMSReservationId: String!
+  cMSReviewId: String!
+  city: String
+  country: String
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  diningStyle: String
+  email: String
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  logo: String
+  name: String!
+  postCode: String
+  priceRange: String
+  reservationPhone: String
+  restaurantConfigId: String!
+  restaurantPlanId: String
+  serviceCharge: String
+  updatedAt: DateTime
+  url: String
+  vat: String
+}
+
+input RestaurantCreateManySocialsInputEnvelope {
+  data: [RestaurantCreateManySocialsInput!]
+  skipDuplicates: Boolean
+}
+
+input RestaurantCreateNestedManyWithoutCMSAboutInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSAboutInput!]
+  create: [RestaurantCreateWithoutCMSAboutInput!]
+  createMany: RestaurantCreateManyCMSAboutInputEnvelope
+}
+
+input RestaurantCreateNestedManyWithoutCMSContactInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSContactInput!]
+  create: [RestaurantCreateWithoutCMSContactInput!]
+  createMany: RestaurantCreateManyCMSContactInputEnvelope
+}
+
+input RestaurantCreateNestedManyWithoutCMSHomeInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSHomeInput!]
+  create: [RestaurantCreateWithoutCMSHomeInput!]
+  createMany: RestaurantCreateManyCMSHomeInputEnvelope
+}
+
+input RestaurantCreateNestedManyWithoutCMSReservationInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSReservationInput!]
+  create: [RestaurantCreateWithoutCMSReservationInput!]
+  createMany: RestaurantCreateManyCMSReservationInputEnvelope
+}
+
+input RestaurantCreateNestedManyWithoutCMSReviewInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSReviewInput!]
+  create: [RestaurantCreateWithoutCMSReviewInput!]
+  createMany: RestaurantCreateManyCMSReviewInputEnvelope
+}
+
+input RestaurantCreateNestedManyWithoutConfigInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutConfigInput!]
+  create: [RestaurantCreateWithoutConfigInput!]
+  createMany: RestaurantCreateManyConfigInputEnvelope
 }
 
 input RestaurantCreateNestedManyWithoutCustomersInput {
@@ -3933,40 +3880,17 @@ input RestaurantCreateNestedManyWithoutPlanInput {
   createMany: RestaurantCreateManyPlanInputEnvelope
 }
 
+input RestaurantCreateNestedManyWithoutSocialsInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutSocialsInput!]
+  create: [RestaurantCreateWithoutSocialsInput!]
+  createMany: RestaurantCreateManySocialsInputEnvelope
+}
+
 input RestaurantCreateNestedManyWithoutUsersInput {
   connect: [RestaurantWhereUniqueInput!]
   connectOrCreate: [RestaurantCreateOrConnectWithoutUsersInput!]
   create: [RestaurantCreateWithoutUsersInput!]
-}
-
-input RestaurantCreateNestedOneWithoutCMSAboutInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSAboutInput
-  create: RestaurantCreateWithoutCMSAboutInput
-}
-
-input RestaurantCreateNestedOneWithoutCMSContactInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSContactInput
-  create: RestaurantCreateWithoutCMSContactInput
-}
-
-input RestaurantCreateNestedOneWithoutCMSHomeInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSHomeInput
-  create: RestaurantCreateWithoutCMSHomeInput
-}
-
-input RestaurantCreateNestedOneWithoutCMSReservationInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSReservationInput
-  create: RestaurantCreateWithoutCMSReservationInput
-}
-
-input RestaurantCreateNestedOneWithoutCMSReviewInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSReviewInput
-  create: RestaurantCreateWithoutCMSReviewInput
 }
 
 input RestaurantCreateNestedOneWithoutDeliveryZonesInput {
@@ -3999,22 +3923,10 @@ input RestaurantCreateNestedOneWithoutProductsInput {
   create: RestaurantCreateWithoutProductsInput
 }
 
-input RestaurantCreateNestedOneWithoutRestaurantConfigInput {
+input RestaurantCreateNestedOneWithoutReviewsInput {
   connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutRestaurantConfigInput
-  create: RestaurantCreateWithoutRestaurantConfigInput
-}
-
-input RestaurantCreateNestedOneWithoutRestaurantReviewInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutRestaurantReviewInput
-  create: RestaurantCreateWithoutRestaurantReviewInput
-}
-
-input RestaurantCreateNestedOneWithoutRestaurantSocialInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutRestaurantSocialInput
-  create: RestaurantCreateWithoutRestaurantSocialInput
+  connectOrCreate: RestaurantCreateOrConnectWithoutReviewsInput
+  create: RestaurantCreateWithoutReviewsInput
 }
 
 input RestaurantCreateNestedOneWithoutSchedulesInput {
@@ -4045,6 +3957,11 @@ input RestaurantCreateOrConnectWithoutCMSReservationInput {
 
 input RestaurantCreateOrConnectWithoutCMSReviewInput {
   create: RestaurantCreateWithoutCMSReviewInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantCreateOrConnectWithoutConfigInput {
+  create: RestaurantCreateWithoutConfigInput!
   where: RestaurantWhereUniqueInput!
 }
 
@@ -4083,23 +4000,18 @@ input RestaurantCreateOrConnectWithoutProductsInput {
   where: RestaurantWhereUniqueInput!
 }
 
-input RestaurantCreateOrConnectWithoutRestaurantConfigInput {
-  create: RestaurantCreateWithoutRestaurantConfigInput!
-  where: RestaurantWhereUniqueInput!
-}
-
-input RestaurantCreateOrConnectWithoutRestaurantReviewInput {
-  create: RestaurantCreateWithoutRestaurantReviewInput!
-  where: RestaurantWhereUniqueInput!
-}
-
-input RestaurantCreateOrConnectWithoutRestaurantSocialInput {
-  create: RestaurantCreateWithoutRestaurantSocialInput!
+input RestaurantCreateOrConnectWithoutReviewsInput {
+  create: RestaurantCreateWithoutReviewsInput!
   where: RestaurantWhereUniqueInput!
 }
 
 input RestaurantCreateOrConnectWithoutSchedulesInput {
   create: RestaurantCreateWithoutSchedulesInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantCreateOrConnectWithoutSocialsInput {
+  create: RestaurantCreateWithoutSocialsInput!
   where: RestaurantWhereUniqueInput!
 }
 
@@ -4109,16 +4021,14 @@ input RestaurantCreateOrConnectWithoutUsersInput {
 }
 
 input RestaurantCreateWithoutCMSAboutInput {
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4147,8 +4057,10 @@ input RestaurantCreateWithoutCMSAboutInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4156,16 +4068,14 @@ input RestaurantCreateWithoutCMSAboutInput {
 }
 
 input RestaurantCreateWithoutCMSContactInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4194,8 +4104,10 @@ input RestaurantCreateWithoutCMSContactInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4203,16 +4115,14 @@ input RestaurantCreateWithoutCMSContactInput {
 }
 
 input RestaurantCreateWithoutCMSHomeInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4241,8 +4151,10 @@ input RestaurantCreateWithoutCMSHomeInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4250,16 +4162,14 @@ input RestaurantCreateWithoutCMSHomeInput {
 }
 
 input RestaurantCreateWithoutCMSReservationInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4288,8 +4198,10 @@ input RestaurantCreateWithoutCMSReservationInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4297,13 +4209,58 @@ input RestaurantCreateWithoutCMSReservationInput {
 }
 
 input RestaurantCreateWithoutCMSReviewInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  address: String
+  businessPhone: String
+  city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
+  country: String
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  customers: CustomerCreateNestedManyWithoutRestaurantsInput
+  deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
+  diningStyle: String
+  email: String
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  logo: String
+  name: String!
+  orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
+  orders: OrderCreateNestedManyWithoutRestaurantInput
+  plan: RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+  postCode: String
+  priceRange: String
+  productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
+  products: ProductCreateNestedManyWithoutRestaurantInput
+  reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
+  schedules: ScheduleCreateNestedManyWithoutRestaurantInput
+  serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
+  updatedAt: DateTime
+  url: String
+  users: UserCreateNestedManyWithoutRestaurantsInput
+  vat: String
+}
+
+input RestaurantCreateWithoutConfigInput {
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
@@ -4335,8 +4292,10 @@ input RestaurantCreateWithoutCMSReviewInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4344,17 +4303,15 @@ input RestaurantCreateWithoutCMSReviewInput {
 }
 
 input RestaurantCreateWithoutCustomersInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4382,8 +4339,10 @@ input RestaurantCreateWithoutCustomersInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4391,17 +4350,15 @@ input RestaurantCreateWithoutCustomersInput {
 }
 
 input RestaurantCreateWithoutDeliveryZonesInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4429,8 +4386,10 @@ input RestaurantCreateWithoutDeliveryZonesInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4438,17 +4397,15 @@ input RestaurantCreateWithoutDeliveryZonesInput {
 }
 
 input RestaurantCreateWithoutOrderItemsInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4476,8 +4433,10 @@ input RestaurantCreateWithoutOrderItemsInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4485,17 +4444,15 @@ input RestaurantCreateWithoutOrderItemsInput {
 }
 
 input RestaurantCreateWithoutOrdersInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4523,8 +4480,10 @@ input RestaurantCreateWithoutOrdersInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4532,17 +4491,15 @@ input RestaurantCreateWithoutOrdersInput {
 }
 
 input RestaurantCreateWithoutPlanInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4570,8 +4527,10 @@ input RestaurantCreateWithoutPlanInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4579,17 +4538,15 @@ input RestaurantCreateWithoutPlanInput {
 }
 
 input RestaurantCreateWithoutProductCategoryInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4617,8 +4574,10 @@ input RestaurantCreateWithoutProductCategoryInput {
   priceRange: String
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4626,17 +4585,15 @@ input RestaurantCreateWithoutProductCategoryInput {
 }
 
 input RestaurantCreateWithoutProductsInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4664,25 +4621,26 @@ input RestaurantCreateWithoutProductsInput {
   priceRange: String
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
   vat: String
 }
 
-input RestaurantCreateWithoutRestaurantConfigInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+input RestaurantCreateWithoutReviewsInput {
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4713,100 +4671,7 @@ input RestaurantCreateWithoutRestaurantConfigInput {
   reservationPhone: String
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  updatedAt: DateTime
-  url: String
-  users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
-}
-
-input RestaurantCreateWithoutRestaurantReviewInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
-  address: String
-  businessPhone: String
-  city: String
-  country: String
-  coverImage: String
-  createdAt: DateTime
-  cuisine: String
-  currency: String
-  customers: CustomerCreateNestedManyWithoutRestaurantsInput
-  deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
-  diningStyle: String
-  email: String
-  hasKidsZone: Boolean
-  hasParkingFacilities: Boolean
-  hasPartyFacilities: Boolean
-  id: String
-  isAutoAcceptOrder: Boolean
-  isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
-  logo: String
-  name: String!
-  orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
-  orders: OrderCreateNestedManyWithoutRestaurantInput
-  plan: RestaurantPlanCreateNestedOneWithoutRestaurantsInput
-  postCode: String
-  priceRange: String
-  productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
-  products: ProductCreateNestedManyWithoutRestaurantInput
-  reservationPhone: String
-  schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
-  updatedAt: DateTime
-  url: String
-  users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
-}
-
-input RestaurantCreateWithoutRestaurantSocialInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  address: String
-  businessPhone: String
-  city: String
-  country: String
-  coverImage: String
-  createdAt: DateTime
-  cuisine: String
-  currency: String
-  customers: CustomerCreateNestedManyWithoutRestaurantsInput
-  deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
-  diningStyle: String
-  email: String
-  hasKidsZone: Boolean
-  hasParkingFacilities: Boolean
-  hasPartyFacilities: Boolean
-  id: String
-  isAutoAcceptOrder: Boolean
-  isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
-  logo: String
-  name: String!
-  orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
-  orders: OrderCreateNestedManyWithoutRestaurantInput
-  plan: RestaurantPlanCreateNestedOneWithoutRestaurantsInput
-  postCode: String
-  priceRange: String
-  productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
-  products: ProductCreateNestedManyWithoutRestaurantInput
-  reservationPhone: String
-  schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4814,17 +4679,15 @@ input RestaurantCreateWithoutRestaurantSocialInput {
 }
 
 input RestaurantCreateWithoutSchedulesInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4853,6 +4716,55 @@ input RestaurantCreateWithoutSchedulesInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
+  serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
+  updatedAt: DateTime
+  url: String
+  users: UserCreateNestedManyWithoutRestaurantsInput
+  vat: String
+}
+
+input RestaurantCreateWithoutSocialsInput {
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
+  address: String
+  businessPhone: String
+  city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
+  country: String
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  customers: CustomerCreateNestedManyWithoutRestaurantsInput
+  deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
+  diningStyle: String
+  email: String
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  isDelivery: Boolean
+  isReservation: Boolean
+  isTakeaway: Boolean
+  logo: String
+  name: String!
+  orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
+  orders: OrderCreateNestedManyWithoutRestaurantInput
+  plan: RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+  postCode: String
+  priceRange: String
+  productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
+  products: ProductCreateNestedManyWithoutRestaurantInput
+  reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
+  schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
   updatedAt: DateTime
   url: String
@@ -4861,17 +4773,15 @@ input RestaurantCreateWithoutSchedulesInput {
 }
 
 input RestaurantCreateWithoutUsersInput {
-  CMSAbout: CMSAboutCreateNestedManyWithoutRestaurantInput
-  CMSContact: CMSContactCreateNestedManyWithoutRestaurantInput
-  CMSHome: CMSHomeCreateNestedManyWithoutRestaurantInput
-  CMSReservation: CMSReservationCreateNestedManyWithoutRestaurantInput
-  CMSReview: CMSReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigCreateNestedManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput!
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput!
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput!
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput!
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput!
   address: String
   businessPhone: String
   city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput!
   country: String
   coverImage: String
   createdAt: DateTime
@@ -4900,8 +4810,10 @@ input RestaurantCreateWithoutUsersInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
+  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput!
   updatedAt: DateTime
   url: String
   vat: String
@@ -4916,6 +4828,11 @@ input RestaurantListRelationFilter {
 input RestaurantOrderByInput {
   address: SortOrder
   businessPhone: SortOrder
+  cMSAboutId: SortOrder
+  cMSContactId: SortOrder
+  cMSHomeId: SortOrder
+  cMSReservationId: SortOrder
+  cMSReviewId: SortOrder
   city: SortOrder
   country: SortOrder
   coverImage: SortOrder
@@ -4938,7 +4855,9 @@ input RestaurantOrderByInput {
   postCode: SortOrder
   priceRange: SortOrder
   reservationPhone: SortOrder
+  restaurantConfigId: SortOrder
   restaurantPlanId: SortOrder
+  restaurantSocialId: SortOrder
   serviceCharge: SortOrder
   updatedAt: SortOrder
   url: SortOrder
@@ -5050,7 +4969,7 @@ input RestaurantReviewCreateInput {
   id: String
   isActive: Boolean!
   rating: String!
-  restaurant: RestaurantCreateNestedOneWithoutRestaurantReviewInput!
+  restaurant: RestaurantCreateNestedOneWithoutReviewsInput!
   title: String!
   updatedAt: DateTime
 }
@@ -5117,7 +5036,7 @@ input RestaurantReviewCreateWithoutCustomerInput {
   id: String
   isActive: Boolean!
   rating: String!
-  restaurant: RestaurantCreateNestedOneWithoutRestaurantReviewInput!
+  restaurant: RestaurantCreateNestedOneWithoutReviewsInput!
   title: String!
   updatedAt: DateTime
 }
@@ -5173,7 +5092,7 @@ input RestaurantReviewUpdateInput {
   id: StringFieldUpdateOperationsInput
   isActive: BoolFieldUpdateOperationsInput
   rating: StringFieldUpdateOperationsInput
-  restaurant: RestaurantUpdateOneRequiredWithoutRestaurantReviewInput
+  restaurant: RestaurantUpdateOneRequiredWithoutReviewsInput
   title: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -5242,7 +5161,7 @@ input RestaurantReviewUpdateWithoutCustomerInput {
   id: StringFieldUpdateOperationsInput
   isActive: BoolFieldUpdateOperationsInput
   rating: StringFieldUpdateOperationsInput
-  restaurant: RestaurantUpdateOneRequiredWithoutRestaurantReviewInput
+  restaurant: RestaurantUpdateOneRequiredWithoutReviewsInput
   title: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -5297,6 +5216,11 @@ input RestaurantScalarWhereInput {
   OR: [RestaurantScalarWhereInput!]
   address: StringNullableFilter
   businessPhone: StringNullableFilter
+  cMSAboutId: StringFilter
+  cMSContactId: StringFilter
+  cMSHomeId: StringFilter
+  cMSReservationId: StringFilter
+  cMSReviewId: StringFilter
   city: StringNullableFilter
   country: StringNullableFilter
   coverImage: StringNullableFilter
@@ -5319,7 +5243,9 @@ input RestaurantScalarWhereInput {
   postCode: StringNullableFilter
   priceRange: StringNullableFilter
   reservationPhone: StringNullableFilter
+  restaurantConfigId: StringFilter
   restaurantPlanId: StringNullableFilter
+  restaurantSocialId: StringFilter
   serviceCharge: StringNullableFilter
   updatedAt: DateTimeFilter
   url: StringNullableFilter
@@ -5332,19 +5258,10 @@ type RestaurantSocial {
   instagram: String!
   isActive: Boolean!
   pinterest: String!
-  restaurant: Restaurant!
 }
 
 input RestaurantSocialCreateInput {
-  facebook: String!
-  id: String
-  instagram: String!
-  isActive: Boolean!
-  pinterest: String!
-  restaurant: RestaurantCreateNestedOneWithoutRestaurantSocialInput!
-}
-
-input RestaurantSocialCreateManyRestaurantInput {
+  Restaurant: RestaurantCreateNestedManyWithoutSocialsInput
   facebook: String!
   id: String
   instagram: String!
@@ -5352,16 +5269,10 @@ input RestaurantSocialCreateManyRestaurantInput {
   pinterest: String!
 }
 
-input RestaurantSocialCreateManyRestaurantInputEnvelope {
-  data: [RestaurantSocialCreateManyRestaurantInput!]
-  skipDuplicates: Boolean
-}
-
-input RestaurantSocialCreateNestedManyWithoutRestaurantInput {
-  connect: [RestaurantSocialWhereUniqueInput!]
-  connectOrCreate: [RestaurantSocialCreateOrConnectWithoutRestaurantInput!]
-  create: [RestaurantSocialCreateWithoutRestaurantInput!]
-  createMany: RestaurantSocialCreateManyRestaurantInputEnvelope
+input RestaurantSocialCreateNestedOneWithoutRestaurantInput {
+  connect: RestaurantSocialWhereUniqueInput
+  connectOrCreate: RestaurantSocialCreateOrConnectWithoutRestaurantInput
+  create: RestaurantSocialCreateWithoutRestaurantInput
 }
 
 input RestaurantSocialCreateOrConnectWithoutRestaurantInput {
@@ -5377,43 +5288,16 @@ input RestaurantSocialCreateWithoutRestaurantInput {
   pinterest: String!
 }
 
-input RestaurantSocialListRelationFilter {
-  every: RestaurantSocialWhereInput
-  none: RestaurantSocialWhereInput
-  some: RestaurantSocialWhereInput
-}
-
 input RestaurantSocialOrderByInput {
   facebook: SortOrder
   id: SortOrder
   instagram: SortOrder
   isActive: SortOrder
   pinterest: SortOrder
-  restaurantId: SortOrder
-}
-
-input RestaurantSocialScalarWhereInput {
-  AND: [RestaurantSocialScalarWhereInput!]
-  NOT: [RestaurantSocialScalarWhereInput!]
-  OR: [RestaurantSocialScalarWhereInput!]
-  facebook: StringFilter
-  id: StringFilter
-  instagram: StringFilter
-  isActive: BoolFilter
-  pinterest: StringFilter
-  restaurantId: StringFilter
 }
 
 input RestaurantSocialUpdateInput {
-  facebook: StringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  instagram: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
-  pinterest: StringFieldUpdateOperationsInput
-  restaurant: RestaurantUpdateOneRequiredWithoutRestaurantSocialInput
-}
-
-input RestaurantSocialUpdateManyMutationInput {
+  Restaurant: RestaurantUpdateManyWithoutSocialsInput
   facebook: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   instagram: StringFieldUpdateOperationsInput
@@ -5421,28 +5305,12 @@ input RestaurantSocialUpdateManyMutationInput {
   pinterest: StringFieldUpdateOperationsInput
 }
 
-input RestaurantSocialUpdateManyWithWhereWithoutRestaurantInput {
-  data: RestaurantSocialUpdateManyMutationInput!
-  where: RestaurantSocialScalarWhereInput!
-}
-
-input RestaurantSocialUpdateManyWithoutRestaurantInput {
-  connect: [RestaurantSocialWhereUniqueInput!]
-  connectOrCreate: [RestaurantSocialCreateOrConnectWithoutRestaurantInput!]
-  create: [RestaurantSocialCreateWithoutRestaurantInput!]
-  createMany: RestaurantSocialCreateManyRestaurantInputEnvelope
-  delete: [RestaurantSocialWhereUniqueInput!]
-  deleteMany: [RestaurantSocialScalarWhereInput!]
-  disconnect: [RestaurantSocialWhereUniqueInput!]
-  set: [RestaurantSocialWhereUniqueInput!]
-  update: [RestaurantSocialUpdateWithWhereUniqueWithoutRestaurantInput!]
-  updateMany: [RestaurantSocialUpdateManyWithWhereWithoutRestaurantInput!]
-  upsert: [RestaurantSocialUpsertWithWhereUniqueWithoutRestaurantInput!]
-}
-
-input RestaurantSocialUpdateWithWhereUniqueWithoutRestaurantInput {
-  data: RestaurantSocialUpdateWithoutRestaurantInput!
-  where: RestaurantSocialWhereUniqueInput!
+input RestaurantSocialUpdateOneRequiredWithoutRestaurantInput {
+  connect: RestaurantSocialWhereUniqueInput
+  connectOrCreate: RestaurantSocialCreateOrConnectWithoutRestaurantInput
+  create: RestaurantSocialCreateWithoutRestaurantInput
+  update: RestaurantSocialUpdateWithoutRestaurantInput
+  upsert: RestaurantSocialUpsertWithoutRestaurantInput
 }
 
 input RestaurantSocialUpdateWithoutRestaurantInput {
@@ -5453,23 +5321,21 @@ input RestaurantSocialUpdateWithoutRestaurantInput {
   pinterest: StringFieldUpdateOperationsInput
 }
 
-input RestaurantSocialUpsertWithWhereUniqueWithoutRestaurantInput {
+input RestaurantSocialUpsertWithoutRestaurantInput {
   create: RestaurantSocialCreateWithoutRestaurantInput!
   update: RestaurantSocialUpdateWithoutRestaurantInput!
-  where: RestaurantSocialWhereUniqueInput!
 }
 
 input RestaurantSocialWhereInput {
   AND: [RestaurantSocialWhereInput!]
   NOT: [RestaurantSocialWhereInput!]
   OR: [RestaurantSocialWhereInput!]
+  Restaurant: RestaurantListRelationFilter
   facebook: StringFilter
   id: StringFilter
   instagram: StringFilter
   isActive: BoolFilter
   pinterest: StringFilter
-  restaurant: RestaurantWhereInput
-  restaurantId: StringFilter
 }
 
 input RestaurantSocialWhereUniqueInput {
@@ -5477,17 +5343,15 @@ input RestaurantSocialWhereUniqueInput {
 }
 
 input RestaurantUpdateInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -5516,8 +5380,10 @@ input RestaurantUpdateInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -5555,6 +5421,36 @@ input RestaurantUpdateManyMutationInput {
   vat: NullableStringFieldUpdateOperationsInput
 }
 
+input RestaurantUpdateManyWithWhereWithoutCMSAboutInput {
+  data: RestaurantUpdateManyMutationInput!
+  where: RestaurantScalarWhereInput!
+}
+
+input RestaurantUpdateManyWithWhereWithoutCMSContactInput {
+  data: RestaurantUpdateManyMutationInput!
+  where: RestaurantScalarWhereInput!
+}
+
+input RestaurantUpdateManyWithWhereWithoutCMSHomeInput {
+  data: RestaurantUpdateManyMutationInput!
+  where: RestaurantScalarWhereInput!
+}
+
+input RestaurantUpdateManyWithWhereWithoutCMSReservationInput {
+  data: RestaurantUpdateManyMutationInput!
+  where: RestaurantScalarWhereInput!
+}
+
+input RestaurantUpdateManyWithWhereWithoutCMSReviewInput {
+  data: RestaurantUpdateManyMutationInput!
+  where: RestaurantScalarWhereInput!
+}
+
+input RestaurantUpdateManyWithWhereWithoutConfigInput {
+  data: RestaurantUpdateManyMutationInput!
+  where: RestaurantScalarWhereInput!
+}
+
 input RestaurantUpdateManyWithWhereWithoutCustomersInput {
   data: RestaurantUpdateManyMutationInput!
   where: RestaurantScalarWhereInput!
@@ -5565,9 +5461,98 @@ input RestaurantUpdateManyWithWhereWithoutPlanInput {
   where: RestaurantScalarWhereInput!
 }
 
+input RestaurantUpdateManyWithWhereWithoutSocialsInput {
+  data: RestaurantUpdateManyMutationInput!
+  where: RestaurantScalarWhereInput!
+}
+
 input RestaurantUpdateManyWithWhereWithoutUsersInput {
   data: RestaurantUpdateManyMutationInput!
   where: RestaurantScalarWhereInput!
+}
+
+input RestaurantUpdateManyWithoutCMSAboutInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSAboutInput!]
+  create: [RestaurantCreateWithoutCMSAboutInput!]
+  createMany: RestaurantCreateManyCMSAboutInputEnvelope
+  delete: [RestaurantWhereUniqueInput!]
+  deleteMany: [RestaurantScalarWhereInput!]
+  disconnect: [RestaurantWhereUniqueInput!]
+  set: [RestaurantWhereUniqueInput!]
+  update: [RestaurantUpdateWithWhereUniqueWithoutCMSAboutInput!]
+  updateMany: [RestaurantUpdateManyWithWhereWithoutCMSAboutInput!]
+  upsert: [RestaurantUpsertWithWhereUniqueWithoutCMSAboutInput!]
+}
+
+input RestaurantUpdateManyWithoutCMSContactInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSContactInput!]
+  create: [RestaurantCreateWithoutCMSContactInput!]
+  createMany: RestaurantCreateManyCMSContactInputEnvelope
+  delete: [RestaurantWhereUniqueInput!]
+  deleteMany: [RestaurantScalarWhereInput!]
+  disconnect: [RestaurantWhereUniqueInput!]
+  set: [RestaurantWhereUniqueInput!]
+  update: [RestaurantUpdateWithWhereUniqueWithoutCMSContactInput!]
+  updateMany: [RestaurantUpdateManyWithWhereWithoutCMSContactInput!]
+  upsert: [RestaurantUpsertWithWhereUniqueWithoutCMSContactInput!]
+}
+
+input RestaurantUpdateManyWithoutCMSHomeInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSHomeInput!]
+  create: [RestaurantCreateWithoutCMSHomeInput!]
+  createMany: RestaurantCreateManyCMSHomeInputEnvelope
+  delete: [RestaurantWhereUniqueInput!]
+  deleteMany: [RestaurantScalarWhereInput!]
+  disconnect: [RestaurantWhereUniqueInput!]
+  set: [RestaurantWhereUniqueInput!]
+  update: [RestaurantUpdateWithWhereUniqueWithoutCMSHomeInput!]
+  updateMany: [RestaurantUpdateManyWithWhereWithoutCMSHomeInput!]
+  upsert: [RestaurantUpsertWithWhereUniqueWithoutCMSHomeInput!]
+}
+
+input RestaurantUpdateManyWithoutCMSReservationInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSReservationInput!]
+  create: [RestaurantCreateWithoutCMSReservationInput!]
+  createMany: RestaurantCreateManyCMSReservationInputEnvelope
+  delete: [RestaurantWhereUniqueInput!]
+  deleteMany: [RestaurantScalarWhereInput!]
+  disconnect: [RestaurantWhereUniqueInput!]
+  set: [RestaurantWhereUniqueInput!]
+  update: [RestaurantUpdateWithWhereUniqueWithoutCMSReservationInput!]
+  updateMany: [RestaurantUpdateManyWithWhereWithoutCMSReservationInput!]
+  upsert: [RestaurantUpsertWithWhereUniqueWithoutCMSReservationInput!]
+}
+
+input RestaurantUpdateManyWithoutCMSReviewInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutCMSReviewInput!]
+  create: [RestaurantCreateWithoutCMSReviewInput!]
+  createMany: RestaurantCreateManyCMSReviewInputEnvelope
+  delete: [RestaurantWhereUniqueInput!]
+  deleteMany: [RestaurantScalarWhereInput!]
+  disconnect: [RestaurantWhereUniqueInput!]
+  set: [RestaurantWhereUniqueInput!]
+  update: [RestaurantUpdateWithWhereUniqueWithoutCMSReviewInput!]
+  updateMany: [RestaurantUpdateManyWithWhereWithoutCMSReviewInput!]
+  upsert: [RestaurantUpsertWithWhereUniqueWithoutCMSReviewInput!]
+}
+
+input RestaurantUpdateManyWithoutConfigInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutConfigInput!]
+  create: [RestaurantCreateWithoutConfigInput!]
+  createMany: RestaurantCreateManyConfigInputEnvelope
+  delete: [RestaurantWhereUniqueInput!]
+  deleteMany: [RestaurantScalarWhereInput!]
+  disconnect: [RestaurantWhereUniqueInput!]
+  set: [RestaurantWhereUniqueInput!]
+  update: [RestaurantUpdateWithWhereUniqueWithoutConfigInput!]
+  updateMany: [RestaurantUpdateManyWithWhereWithoutConfigInput!]
+  upsert: [RestaurantUpsertWithWhereUniqueWithoutConfigInput!]
 }
 
 input RestaurantUpdateManyWithoutCustomersInput {
@@ -5597,6 +5582,20 @@ input RestaurantUpdateManyWithoutPlanInput {
   upsert: [RestaurantUpsertWithWhereUniqueWithoutPlanInput!]
 }
 
+input RestaurantUpdateManyWithoutSocialsInput {
+  connect: [RestaurantWhereUniqueInput!]
+  connectOrCreate: [RestaurantCreateOrConnectWithoutSocialsInput!]
+  create: [RestaurantCreateWithoutSocialsInput!]
+  createMany: RestaurantCreateManySocialsInputEnvelope
+  delete: [RestaurantWhereUniqueInput!]
+  deleteMany: [RestaurantScalarWhereInput!]
+  disconnect: [RestaurantWhereUniqueInput!]
+  set: [RestaurantWhereUniqueInput!]
+  update: [RestaurantUpdateWithWhereUniqueWithoutSocialsInput!]
+  updateMany: [RestaurantUpdateManyWithWhereWithoutSocialsInput!]
+  upsert: [RestaurantUpsertWithWhereUniqueWithoutSocialsInput!]
+}
+
 input RestaurantUpdateManyWithoutUsersInput {
   connect: [RestaurantWhereUniqueInput!]
   connectOrCreate: [RestaurantCreateOrConnectWithoutUsersInput!]
@@ -5608,46 +5607,6 @@ input RestaurantUpdateManyWithoutUsersInput {
   update: [RestaurantUpdateWithWhereUniqueWithoutUsersInput!]
   updateMany: [RestaurantUpdateManyWithWhereWithoutUsersInput!]
   upsert: [RestaurantUpsertWithWhereUniqueWithoutUsersInput!]
-}
-
-input RestaurantUpdateOneRequiredWithoutCMSAboutInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSAboutInput
-  create: RestaurantCreateWithoutCMSAboutInput
-  update: RestaurantUpdateWithoutCMSAboutInput
-  upsert: RestaurantUpsertWithoutCMSAboutInput
-}
-
-input RestaurantUpdateOneRequiredWithoutCMSContactInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSContactInput
-  create: RestaurantCreateWithoutCMSContactInput
-  update: RestaurantUpdateWithoutCMSContactInput
-  upsert: RestaurantUpsertWithoutCMSContactInput
-}
-
-input RestaurantUpdateOneRequiredWithoutCMSHomeInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSHomeInput
-  create: RestaurantCreateWithoutCMSHomeInput
-  update: RestaurantUpdateWithoutCMSHomeInput
-  upsert: RestaurantUpsertWithoutCMSHomeInput
-}
-
-input RestaurantUpdateOneRequiredWithoutCMSReservationInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSReservationInput
-  create: RestaurantCreateWithoutCMSReservationInput
-  update: RestaurantUpdateWithoutCMSReservationInput
-  upsert: RestaurantUpsertWithoutCMSReservationInput
-}
-
-input RestaurantUpdateOneRequiredWithoutCMSReviewInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutCMSReviewInput
-  create: RestaurantCreateWithoutCMSReviewInput
-  update: RestaurantUpdateWithoutCMSReviewInput
-  upsert: RestaurantUpsertWithoutCMSReviewInput
 }
 
 input RestaurantUpdateOneRequiredWithoutOrdersInput {
@@ -5666,28 +5625,12 @@ input RestaurantUpdateOneRequiredWithoutProductCategoryInput {
   upsert: RestaurantUpsertWithoutProductCategoryInput
 }
 
-input RestaurantUpdateOneRequiredWithoutRestaurantConfigInput {
+input RestaurantUpdateOneRequiredWithoutReviewsInput {
   connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutRestaurantConfigInput
-  create: RestaurantCreateWithoutRestaurantConfigInput
-  update: RestaurantUpdateWithoutRestaurantConfigInput
-  upsert: RestaurantUpsertWithoutRestaurantConfigInput
-}
-
-input RestaurantUpdateOneRequiredWithoutRestaurantReviewInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutRestaurantReviewInput
-  create: RestaurantCreateWithoutRestaurantReviewInput
-  update: RestaurantUpdateWithoutRestaurantReviewInput
-  upsert: RestaurantUpsertWithoutRestaurantReviewInput
-}
-
-input RestaurantUpdateOneRequiredWithoutRestaurantSocialInput {
-  connect: RestaurantWhereUniqueInput
-  connectOrCreate: RestaurantCreateOrConnectWithoutRestaurantSocialInput
-  create: RestaurantCreateWithoutRestaurantSocialInput
-  update: RestaurantUpdateWithoutRestaurantSocialInput
-  upsert: RestaurantUpsertWithoutRestaurantSocialInput
+  connectOrCreate: RestaurantCreateOrConnectWithoutReviewsInput
+  create: RestaurantCreateWithoutReviewsInput
+  update: RestaurantUpdateWithoutReviewsInput
+  upsert: RestaurantUpsertWithoutReviewsInput
 }
 
 input RestaurantUpdateOneWithoutDeliveryZonesInput {
@@ -5730,6 +5673,36 @@ input RestaurantUpdateOneWithoutSchedulesInput {
   upsert: RestaurantUpsertWithoutSchedulesInput
 }
 
+input RestaurantUpdateWithWhereUniqueWithoutCMSAboutInput {
+  data: RestaurantUpdateWithoutCMSAboutInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpdateWithWhereUniqueWithoutCMSContactInput {
+  data: RestaurantUpdateWithoutCMSContactInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpdateWithWhereUniqueWithoutCMSHomeInput {
+  data: RestaurantUpdateWithoutCMSHomeInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpdateWithWhereUniqueWithoutCMSReservationInput {
+  data: RestaurantUpdateWithoutCMSReservationInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpdateWithWhereUniqueWithoutCMSReviewInput {
+  data: RestaurantUpdateWithoutCMSReviewInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpdateWithWhereUniqueWithoutConfigInput {
+  data: RestaurantUpdateWithoutConfigInput!
+  where: RestaurantWhereUniqueInput!
+}
+
 input RestaurantUpdateWithWhereUniqueWithoutCustomersInput {
   data: RestaurantUpdateWithoutCustomersInput!
   where: RestaurantWhereUniqueInput!
@@ -5740,22 +5713,25 @@ input RestaurantUpdateWithWhereUniqueWithoutPlanInput {
   where: RestaurantWhereUniqueInput!
 }
 
+input RestaurantUpdateWithWhereUniqueWithoutSocialsInput {
+  data: RestaurantUpdateWithoutSocialsInput!
+  where: RestaurantWhereUniqueInput!
+}
+
 input RestaurantUpdateWithWhereUniqueWithoutUsersInput {
   data: RestaurantUpdateWithoutUsersInput!
   where: RestaurantWhereUniqueInput!
 }
 
 input RestaurantUpdateWithoutCMSAboutInput {
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -5784,8 +5760,10 @@ input RestaurantUpdateWithoutCMSAboutInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -5793,16 +5771,14 @@ input RestaurantUpdateWithoutCMSAboutInput {
 }
 
 input RestaurantUpdateWithoutCMSContactInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -5831,8 +5807,10 @@ input RestaurantUpdateWithoutCMSContactInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -5840,16 +5818,14 @@ input RestaurantUpdateWithoutCMSContactInput {
 }
 
 input RestaurantUpdateWithoutCMSHomeInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -5878,8 +5854,10 @@ input RestaurantUpdateWithoutCMSHomeInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -5887,16 +5865,14 @@ input RestaurantUpdateWithoutCMSHomeInput {
 }
 
 input RestaurantUpdateWithoutCMSReservationInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -5925,8 +5901,10 @@ input RestaurantUpdateWithoutCMSReservationInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -5934,13 +5912,58 @@ input RestaurantUpdateWithoutCMSReservationInput {
 }
 
 input RestaurantUpdateWithoutCMSReviewInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  address: NullableStringFieldUpdateOperationsInput
+  businessPhone: NullableStringFieldUpdateOperationsInput
+  city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
+  country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  cuisine: NullableStringFieldUpdateOperationsInput
+  currency: NullableStringFieldUpdateOperationsInput
+  customers: CustomerUpdateManyWithoutRestaurantsInput
+  deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
+  diningStyle: NullableStringFieldUpdateOperationsInput
+  email: NullableStringFieldUpdateOperationsInput
+  hasKidsZone: NullableBoolFieldUpdateOperationsInput
+  hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
+  isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
+  isDelivery: NullableBoolFieldUpdateOperationsInput
+  isReservation: NullableBoolFieldUpdateOperationsInput
+  isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  orderItems: OrderItemUpdateManyWithoutRestaurantInput
+  orders: OrderUpdateManyWithoutRestaurantInput
+  plan: RestaurantPlanUpdateOneWithoutRestaurantsInput
+  postCode: NullableStringFieldUpdateOperationsInput
+  priceRange: NullableStringFieldUpdateOperationsInput
+  productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
+  products: ProductUpdateManyWithoutRestaurantInput
+  reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
+  schedules: ScheduleUpdateManyWithoutRestaurantInput
+  serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: NullableStringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutRestaurantsInput
+  vat: NullableStringFieldUpdateOperationsInput
+}
+
+input RestaurantUpdateWithoutConfigInput {
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
@@ -5972,8 +5995,10 @@ input RestaurantUpdateWithoutCMSReviewInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -5981,17 +6006,15 @@ input RestaurantUpdateWithoutCMSReviewInput {
 }
 
 input RestaurantUpdateWithoutCustomersInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6019,8 +6042,10 @@ input RestaurantUpdateWithoutCustomersInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6028,17 +6053,15 @@ input RestaurantUpdateWithoutCustomersInput {
 }
 
 input RestaurantUpdateWithoutDeliveryZonesInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6066,8 +6089,10 @@ input RestaurantUpdateWithoutDeliveryZonesInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6075,17 +6100,15 @@ input RestaurantUpdateWithoutDeliveryZonesInput {
 }
 
 input RestaurantUpdateWithoutOrderItemsInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6113,8 +6136,10 @@ input RestaurantUpdateWithoutOrderItemsInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6122,17 +6147,15 @@ input RestaurantUpdateWithoutOrderItemsInput {
 }
 
 input RestaurantUpdateWithoutOrdersInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6160,8 +6183,10 @@ input RestaurantUpdateWithoutOrdersInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6169,17 +6194,15 @@ input RestaurantUpdateWithoutOrdersInput {
 }
 
 input RestaurantUpdateWithoutPlanInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6207,8 +6230,10 @@ input RestaurantUpdateWithoutPlanInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6216,17 +6241,15 @@ input RestaurantUpdateWithoutPlanInput {
 }
 
 input RestaurantUpdateWithoutProductCategoryInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6254,8 +6277,10 @@ input RestaurantUpdateWithoutProductCategoryInput {
   priceRange: NullableStringFieldUpdateOperationsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6263,17 +6288,15 @@ input RestaurantUpdateWithoutProductCategoryInput {
 }
 
 input RestaurantUpdateWithoutProductsInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6301,25 +6324,26 @@ input RestaurantUpdateWithoutProductsInput {
   priceRange: NullableStringFieldUpdateOperationsInput
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
   vat: NullableStringFieldUpdateOperationsInput
 }
 
-input RestaurantUpdateWithoutRestaurantConfigInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+input RestaurantUpdateWithoutReviewsInput {
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6350,100 +6374,7 @@ input RestaurantUpdateWithoutRestaurantConfigInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  updatedAt: DateTimeFieldUpdateOperationsInput
-  url: NullableStringFieldUpdateOperationsInput
-  users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
-}
-
-input RestaurantUpdateWithoutRestaurantReviewInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
-  address: NullableStringFieldUpdateOperationsInput
-  businessPhone: NullableStringFieldUpdateOperationsInput
-  city: NullableStringFieldUpdateOperationsInput
-  country: NullableStringFieldUpdateOperationsInput
-  coverImage: NullableStringFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
-  cuisine: NullableStringFieldUpdateOperationsInput
-  currency: NullableStringFieldUpdateOperationsInput
-  customers: CustomerUpdateManyWithoutRestaurantsInput
-  deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
-  diningStyle: NullableStringFieldUpdateOperationsInput
-  email: NullableStringFieldUpdateOperationsInput
-  hasKidsZone: NullableBoolFieldUpdateOperationsInput
-  hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
-  hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
-  isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
-  logo: NullableStringFieldUpdateOperationsInput
-  name: StringFieldUpdateOperationsInput
-  orderItems: OrderItemUpdateManyWithoutRestaurantInput
-  orders: OrderUpdateManyWithoutRestaurantInput
-  plan: RestaurantPlanUpdateOneWithoutRestaurantsInput
-  postCode: NullableStringFieldUpdateOperationsInput
-  priceRange: NullableStringFieldUpdateOperationsInput
-  productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
-  products: ProductUpdateManyWithoutRestaurantInput
-  reservationPhone: NullableStringFieldUpdateOperationsInput
-  schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
-  updatedAt: DateTimeFieldUpdateOperationsInput
-  url: NullableStringFieldUpdateOperationsInput
-  users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
-}
-
-input RestaurantUpdateWithoutRestaurantSocialInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  address: NullableStringFieldUpdateOperationsInput
-  businessPhone: NullableStringFieldUpdateOperationsInput
-  city: NullableStringFieldUpdateOperationsInput
-  country: NullableStringFieldUpdateOperationsInput
-  coverImage: NullableStringFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
-  cuisine: NullableStringFieldUpdateOperationsInput
-  currency: NullableStringFieldUpdateOperationsInput
-  customers: CustomerUpdateManyWithoutRestaurantsInput
-  deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
-  diningStyle: NullableStringFieldUpdateOperationsInput
-  email: NullableStringFieldUpdateOperationsInput
-  hasKidsZone: NullableBoolFieldUpdateOperationsInput
-  hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
-  hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
-  isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
-  logo: NullableStringFieldUpdateOperationsInput
-  name: StringFieldUpdateOperationsInput
-  orderItems: OrderItemUpdateManyWithoutRestaurantInput
-  orders: OrderUpdateManyWithoutRestaurantInput
-  plan: RestaurantPlanUpdateOneWithoutRestaurantsInput
-  postCode: NullableStringFieldUpdateOperationsInput
-  priceRange: NullableStringFieldUpdateOperationsInput
-  productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
-  products: ProductUpdateManyWithoutRestaurantInput
-  reservationPhone: NullableStringFieldUpdateOperationsInput
-  schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6451,17 +6382,15 @@ input RestaurantUpdateWithoutRestaurantSocialInput {
 }
 
 input RestaurantUpdateWithoutSchedulesInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6490,6 +6419,55 @@ input RestaurantUpdateWithoutSchedulesInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
+  serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: NullableStringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutRestaurantsInput
+  vat: NullableStringFieldUpdateOperationsInput
+}
+
+input RestaurantUpdateWithoutSocialsInput {
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
+  address: NullableStringFieldUpdateOperationsInput
+  businessPhone: NullableStringFieldUpdateOperationsInput
+  city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
+  country: NullableStringFieldUpdateOperationsInput
+  coverImage: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  cuisine: NullableStringFieldUpdateOperationsInput
+  currency: NullableStringFieldUpdateOperationsInput
+  customers: CustomerUpdateManyWithoutRestaurantsInput
+  deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
+  diningStyle: NullableStringFieldUpdateOperationsInput
+  email: NullableStringFieldUpdateOperationsInput
+  hasKidsZone: NullableBoolFieldUpdateOperationsInput
+  hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
+  isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
+  isDelivery: NullableBoolFieldUpdateOperationsInput
+  isReservation: NullableBoolFieldUpdateOperationsInput
+  isTakeaway: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  orderItems: OrderItemUpdateManyWithoutRestaurantInput
+  orders: OrderUpdateManyWithoutRestaurantInput
+  plan: RestaurantPlanUpdateOneWithoutRestaurantsInput
+  postCode: NullableStringFieldUpdateOperationsInput
+  priceRange: NullableStringFieldUpdateOperationsInput
+  productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
+  products: ProductUpdateManyWithoutRestaurantInput
+  reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
+  schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
@@ -6498,17 +6476,15 @@ input RestaurantUpdateWithoutSchedulesInput {
 }
 
 input RestaurantUpdateWithoutUsersInput {
-  CMSAbout: CMSAboutUpdateManyWithoutRestaurantInput
-  CMSContact: CMSContactUpdateManyWithoutRestaurantInput
-  CMSHome: CMSHomeUpdateManyWithoutRestaurantInput
-  CMSReservation: CMSReservationUpdateManyWithoutRestaurantInput
-  CMSReview: CMSReviewUpdateManyWithoutRestaurantInput
-  RestaurantConfig: RestaurantConfigUpdateManyWithoutRestaurantInput
-  RestaurantReview: RestaurantReviewUpdateManyWithoutRestaurantInput
-  RestaurantSocial: RestaurantSocialUpdateManyWithoutRestaurantInput
+  CMSAbout: CMSAboutUpdateOneRequiredWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneRequiredWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneRequiredWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneRequiredWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneRequiredWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneRequiredWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -6537,11 +6513,49 @@ input RestaurantUpdateWithoutUsersInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateOneRequiredWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   vat: NullableStringFieldUpdateOperationsInput
+}
+
+input RestaurantUpsertWithWhereUniqueWithoutCMSAboutInput {
+  create: RestaurantCreateWithoutCMSAboutInput!
+  update: RestaurantUpdateWithoutCMSAboutInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpsertWithWhereUniqueWithoutCMSContactInput {
+  create: RestaurantCreateWithoutCMSContactInput!
+  update: RestaurantUpdateWithoutCMSContactInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpsertWithWhereUniqueWithoutCMSHomeInput {
+  create: RestaurantCreateWithoutCMSHomeInput!
+  update: RestaurantUpdateWithoutCMSHomeInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpsertWithWhereUniqueWithoutCMSReservationInput {
+  create: RestaurantCreateWithoutCMSReservationInput!
+  update: RestaurantUpdateWithoutCMSReservationInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpsertWithWhereUniqueWithoutCMSReviewInput {
+  create: RestaurantCreateWithoutCMSReviewInput!
+  update: RestaurantUpdateWithoutCMSReviewInput!
+  where: RestaurantWhereUniqueInput!
+}
+
+input RestaurantUpsertWithWhereUniqueWithoutConfigInput {
+  create: RestaurantCreateWithoutConfigInput!
+  update: RestaurantUpdateWithoutConfigInput!
+  where: RestaurantWhereUniqueInput!
 }
 
 input RestaurantUpsertWithWhereUniqueWithoutCustomersInput {
@@ -6556,35 +6570,16 @@ input RestaurantUpsertWithWhereUniqueWithoutPlanInput {
   where: RestaurantWhereUniqueInput!
 }
 
+input RestaurantUpsertWithWhereUniqueWithoutSocialsInput {
+  create: RestaurantCreateWithoutSocialsInput!
+  update: RestaurantUpdateWithoutSocialsInput!
+  where: RestaurantWhereUniqueInput!
+}
+
 input RestaurantUpsertWithWhereUniqueWithoutUsersInput {
   create: RestaurantCreateWithoutUsersInput!
   update: RestaurantUpdateWithoutUsersInput!
   where: RestaurantWhereUniqueInput!
-}
-
-input RestaurantUpsertWithoutCMSAboutInput {
-  create: RestaurantCreateWithoutCMSAboutInput!
-  update: RestaurantUpdateWithoutCMSAboutInput!
-}
-
-input RestaurantUpsertWithoutCMSContactInput {
-  create: RestaurantCreateWithoutCMSContactInput!
-  update: RestaurantUpdateWithoutCMSContactInput!
-}
-
-input RestaurantUpsertWithoutCMSHomeInput {
-  create: RestaurantCreateWithoutCMSHomeInput!
-  update: RestaurantUpdateWithoutCMSHomeInput!
-}
-
-input RestaurantUpsertWithoutCMSReservationInput {
-  create: RestaurantCreateWithoutCMSReservationInput!
-  update: RestaurantUpdateWithoutCMSReservationInput!
-}
-
-input RestaurantUpsertWithoutCMSReviewInput {
-  create: RestaurantCreateWithoutCMSReviewInput!
-  update: RestaurantUpdateWithoutCMSReviewInput!
 }
 
 input RestaurantUpsertWithoutDeliveryZonesInput {
@@ -6612,19 +6607,9 @@ input RestaurantUpsertWithoutProductsInput {
   update: RestaurantUpdateWithoutProductsInput!
 }
 
-input RestaurantUpsertWithoutRestaurantConfigInput {
-  create: RestaurantCreateWithoutRestaurantConfigInput!
-  update: RestaurantUpdateWithoutRestaurantConfigInput!
-}
-
-input RestaurantUpsertWithoutRestaurantReviewInput {
-  create: RestaurantCreateWithoutRestaurantReviewInput!
-  update: RestaurantUpdateWithoutRestaurantReviewInput!
-}
-
-input RestaurantUpsertWithoutRestaurantSocialInput {
-  create: RestaurantCreateWithoutRestaurantSocialInput!
-  update: RestaurantUpdateWithoutRestaurantSocialInput!
+input RestaurantUpsertWithoutReviewsInput {
+  create: RestaurantCreateWithoutReviewsInput!
+  update: RestaurantUpdateWithoutReviewsInput!
 }
 
 input RestaurantUpsertWithoutSchedulesInput {
@@ -6634,19 +6619,22 @@ input RestaurantUpsertWithoutSchedulesInput {
 
 input RestaurantWhereInput {
   AND: [RestaurantWhereInput!]
-  CMSAbout: CMSAboutListRelationFilter
-  CMSContact: CMSContactListRelationFilter
-  CMSHome: CMSHomeListRelationFilter
-  CMSReservation: CMSReservationListRelationFilter
-  CMSReview: CMSReviewListRelationFilter
+  CMSAbout: CMSAboutWhereInput
+  CMSContact: CMSContactWhereInput
+  CMSHome: CMSHomeWhereInput
+  CMSReservation: CMSReservationWhereInput
+  CMSReview: CMSReviewWhereInput
   NOT: [RestaurantWhereInput!]
   OR: [RestaurantWhereInput!]
-  RestaurantConfig: RestaurantConfigListRelationFilter
-  RestaurantReview: RestaurantReviewListRelationFilter
-  RestaurantSocial: RestaurantSocialListRelationFilter
   address: StringNullableFilter
   businessPhone: StringNullableFilter
+  cMSAboutId: StringFilter
+  cMSContactId: StringFilter
+  cMSHomeId: StringFilter
+  cMSReservationId: StringFilter
+  cMSReviewId: StringFilter
   city: StringNullableFilter
+  config: RestaurantConfigWhereInput
   country: StringNullableFilter
   coverImage: StringNullableFilter
   createdAt: DateTimeFilter
@@ -6675,9 +6663,13 @@ input RestaurantWhereInput {
   productCategory: ProductCategoryListRelationFilter
   products: ProductListRelationFilter
   reservationPhone: StringNullableFilter
+  restaurantConfigId: StringFilter
   restaurantPlanId: StringNullableFilter
+  restaurantSocialId: StringFilter
+  reviews: RestaurantReviewListRelationFilter
   schedules: ScheduleListRelationFilter
   serviceCharge: StringNullableFilter
+  socials: RestaurantSocialWhereInput
   updatedAt: DateTimeFilter
   url: StringNullableFilter
   users: UserListRelationFilter

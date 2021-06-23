@@ -47,16 +47,23 @@ model Restaurant {
   productCategory         ProductCategory[]
   products                Product[]
   users                   User[]
+  config                  RestaurantConfig   @relation(fields: [restaurantConfigId], references: [id])
+  socials                 RestaurantSocial   @relation(fields: [restaurantSocialId], references: [id])
+  CMSHome                 CMSHome            @relation(fields: [cMSHomeId], references: [id])
+  CMSAbout                CMSAbout           @relation(fields: [cMSAboutId], references: [id])
+  CMSReview               CMSReview          @relation(fields: [cMSReviewId], references: [id])
+  CMSReservation          CMSReservation     @relation(fields: [cMSReservationId], references: [id])
+  CMSContact              CMSContact         @relation(fields: [cMSContactId], references: [id])
   createdAt               DateTime           @default(now())
   updatedAt               DateTime           @updatedAt
-  RestaurantConfig        RestaurantConfig[]
-  CMSHome                 CMSHome[]
-  CMSAbout                CMSAbout[]
-  CMSReview               CMSReview[]
-  CMSReservation          CMSReservation[]
-  CMSContact              CMSContact[]
-  RestaurantSocial        RestaurantSocial[]
-  RestaurantReview        RestaurantReview[]
+  restaurantConfigId      String
+  restaurantSocialId      String
+  cMSHomeId               String
+  cMSAboutId              String
+  cMSReviewId             String
+  cMSReservationId        String
+  cMSContactId            String
+  reviews                 RestaurantReview[]
 }
 
 model RestaurantPlan {
@@ -68,25 +75,24 @@ model RestaurantPlan {
 }
 
 model RestaurantConfig {
-  id             String     @id @default(cuid())
-  domain         String     @unique
+  id             String       @id @default(cuid())
+  domain         String       @unique
   primaryColor   String
   secondaryColor String
   isActive       Boolean
-  restaurant     Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId   String
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @updatedAt
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  Restaurant     Restaurant[]
 }
 
 model RestaurantSocial {
-  id           String     @id @default(cuid())
-  facebook     String
-  instagram    String
-  pinterest    String
-  isActive     Boolean
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId String
+  id        String  @id @default(cuid())
+  facebook  String
+  instagram String
+  pinterest String
+  isActive  Boolean
+
+  Restaurant Restaurant[]
 }
 
 model RestaurantReview {
@@ -97,14 +103,14 @@ model RestaurantReview {
   isActive     Boolean
   customer     Customer   @relation(fields: [customerId], references: [id])
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId String
   customerId   String
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
+  restaurantId String
 }
 
 model CMSHome {
-  id                       String     @id @default(cuid())
+  id                       String   @id @default(cuid())
   heroHeading              String?
   heroDescription          String?
   heroImage                String?
@@ -121,12 +127,12 @@ model CMSHome {
   popularDishesDescription String?
   popularDishesImage       String?
   isActive                 Boolean?
-  restaurant               Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId             String
+
+  Restaurant Restaurant[]
 }
 
 model CMSAbout {
-  id                String     @id @default(cuid())
+  id                String   @id @default(cuid())
   headerHeading     String?
   headerDescription String?
   headerImage       String?
@@ -134,38 +140,38 @@ model CMSAbout {
   storyDescription  String?
   storyImage        String?
   isActive          Boolean?
-  restaurant        Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId      String
+
+  Restaurant Restaurant[]
 }
 
 model CMSReview {
-  id                String     @id @default(cuid())
+  id                String   @id @default(cuid())
   headerHeading     String?
   headerDescription String?
   headerImage       String?
   isActive          Boolean?
-  restaurant        Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId      String
+
+  Restaurant Restaurant[]
 }
 
 model CMSReservation {
-  id                String     @id @default(cuid())
+  id                String   @id @default(cuid())
   headerHeading     String?
   headerDescription String?
   headerImage       String?
   isActive          Boolean?
-  restaurant        Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId      String
+
+  Restaurant Restaurant[]
 }
 
 model CMSContact {
-  id                String     @id @default(cuid())
+  id                String   @id @default(cuid())
   headerHeading     String?
   headerDescription String?
   headerImage       String?
   isActive          Boolean?
-  restaurant        Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId      String
+
+  Restaurant Restaurant[]
 }
 
 model ProductCategory {
