@@ -41,6 +41,7 @@ export const Restaurant = objectType({
     t.model.plan({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.restaurantPlanId({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.users({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.RestaurantConfig({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.createdAt();
   },
 });
