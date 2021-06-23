@@ -17,6 +17,7 @@ input BoolNullableFilter {
 }
 
 type CMSAbout {
+  Restaurant(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
   headerDescription: String
   headerHeading: String
   headerImage: String
@@ -128,6 +129,7 @@ input CMSAboutWhereUniqueInput {
 }
 
 type CMSContact {
+  Restaurant(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
   headerDescription: String
   headerHeading: String
   headerImage: String
@@ -218,6 +220,7 @@ input CMSContactWhereUniqueInput {
 }
 
 type CMSHome {
+  Restaurant(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
   aboutDescription: String
   aboutHeading: String
   aboutImage: String
@@ -391,6 +394,7 @@ input CMSHomeWhereUniqueInput {
 }
 
 type CMSReservation {
+  Restaurant(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
   headerDescription: String
   headerHeading: String
   headerImage: String
@@ -481,6 +485,7 @@ input CMSReservationWhereUniqueInput {
 }
 
 type CMSReview {
+  Restaurant(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
   headerDescription: String
   headerHeading: String
   headerImage: String
@@ -3329,6 +3334,7 @@ type Restaurant {
 }
 
 type RestaurantConfig {
+  Restaurant(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
   createdAt: DateTime!
   domain: String!
   id: String!
@@ -5253,20 +5259,21 @@ input RestaurantScalarWhereInput {
 }
 
 type RestaurantSocial {
-  facebook: String!
+  Restaurant(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
+  facebook: String
   id: String!
-  instagram: String!
-  isActive: Boolean!
-  pinterest: String!
+  instagram: String
+  isActive: Boolean
+  pinterest: String
 }
 
 input RestaurantSocialCreateInput {
   Restaurant: RestaurantCreateNestedManyWithoutSocialsInput
-  facebook: String!
+  facebook: String
   id: String
-  instagram: String!
-  isActive: Boolean!
-  pinterest: String!
+  instagram: String
+  isActive: Boolean
+  pinterest: String
 }
 
 input RestaurantSocialCreateNestedOneWithoutRestaurantInput {
@@ -5281,11 +5288,11 @@ input RestaurantSocialCreateOrConnectWithoutRestaurantInput {
 }
 
 input RestaurantSocialCreateWithoutRestaurantInput {
-  facebook: String!
+  facebook: String
   id: String
-  instagram: String!
-  isActive: Boolean!
-  pinterest: String!
+  instagram: String
+  isActive: Boolean
+  pinterest: String
 }
 
 input RestaurantSocialOrderByInput {
@@ -5298,11 +5305,11 @@ input RestaurantSocialOrderByInput {
 
 input RestaurantSocialUpdateInput {
   Restaurant: RestaurantUpdateManyWithoutSocialsInput
-  facebook: StringFieldUpdateOperationsInput
+  facebook: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  instagram: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
-  pinterest: StringFieldUpdateOperationsInput
+  instagram: NullableStringFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  pinterest: NullableStringFieldUpdateOperationsInput
 }
 
 input RestaurantSocialUpdateOneRequiredWithoutRestaurantInput {
@@ -5314,11 +5321,11 @@ input RestaurantSocialUpdateOneRequiredWithoutRestaurantInput {
 }
 
 input RestaurantSocialUpdateWithoutRestaurantInput {
-  facebook: StringFieldUpdateOperationsInput
+  facebook: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  instagram: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
-  pinterest: StringFieldUpdateOperationsInput
+  instagram: NullableStringFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  pinterest: NullableStringFieldUpdateOperationsInput
 }
 
 input RestaurantSocialUpsertWithoutRestaurantInput {
@@ -5331,11 +5338,11 @@ input RestaurantSocialWhereInput {
   NOT: [RestaurantSocialWhereInput!]
   OR: [RestaurantSocialWhereInput!]
   Restaurant: RestaurantListRelationFilter
-  facebook: StringFilter
+  facebook: StringNullableFilter
   id: StringFilter
-  instagram: StringFilter
-  isActive: BoolFilter
-  pinterest: StringFilter
+  instagram: StringNullableFilter
+  isActive: BoolNullableFilter
+  pinterest: StringNullableFilter
 }
 
 input RestaurantSocialWhereUniqueInput {

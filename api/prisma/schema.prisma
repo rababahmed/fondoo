@@ -86,11 +86,11 @@ model RestaurantConfig {
 }
 
 model RestaurantSocial {
-  id        String  @id @default(cuid())
-  facebook  String
-  instagram String
-  pinterest String
-  isActive  Boolean
+  id        String   @id @default(cuid())
+  facebook  String?
+  instagram String?
+  pinterest String?
+  isActive  Boolean?
 
   Restaurant Restaurant[]
 }

@@ -4445,11 +4445,11 @@ export interface NexusGenInputs {
   }
   RestaurantSocialCreateInput: { // input type
     Restaurant?: NexusGenInputs['RestaurantCreateNestedManyWithoutSocialsInput'] | null; // RestaurantCreateNestedManyWithoutSocialsInput
-    facebook: string; // String!
+    facebook?: string | null; // String
     id?: string | null; // String
-    instagram: string; // String!
-    isActive: boolean; // Boolean!
-    pinterest: string; // String!
+    instagram?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    pinterest?: string | null; // String
   }
   RestaurantSocialCreateNestedOneWithoutRestaurantInput: { // input type
     connect?: NexusGenInputs['RestaurantSocialWhereUniqueInput'] | null; // RestaurantSocialWhereUniqueInput
@@ -4461,11 +4461,11 @@ export interface NexusGenInputs {
     where: NexusGenInputs['RestaurantSocialWhereUniqueInput']; // RestaurantSocialWhereUniqueInput!
   }
   RestaurantSocialCreateWithoutRestaurantInput: { // input type
-    facebook: string; // String!
+    facebook?: string | null; // String
     id?: string | null; // String
-    instagram: string; // String!
-    isActive: boolean; // Boolean!
-    pinterest: string; // String!
+    instagram?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    pinterest?: string | null; // String
   }
   RestaurantSocialOrderByInput: { // input type
     facebook?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -4476,11 +4476,11 @@ export interface NexusGenInputs {
   }
   RestaurantSocialUpdateInput: { // input type
     Restaurant?: NexusGenInputs['RestaurantUpdateManyWithoutSocialsInput'] | null; // RestaurantUpdateManyWithoutSocialsInput
-    facebook?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    facebook?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    instagram?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    pinterest?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    instagram?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    pinterest?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   RestaurantSocialUpdateOneRequiredWithoutRestaurantInput: { // input type
     connect?: NexusGenInputs['RestaurantSocialWhereUniqueInput'] | null; // RestaurantSocialWhereUniqueInput
@@ -4490,11 +4490,11 @@ export interface NexusGenInputs {
     upsert?: NexusGenInputs['RestaurantSocialUpsertWithoutRestaurantInput'] | null; // RestaurantSocialUpsertWithoutRestaurantInput
   }
   RestaurantSocialUpdateWithoutRestaurantInput: { // input type
-    facebook?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    facebook?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    instagram?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    pinterest?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    instagram?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    pinterest?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   RestaurantSocialUpsertWithoutRestaurantInput: { // input type
     create: NexusGenInputs['RestaurantSocialCreateWithoutRestaurantInput']; // RestaurantSocialCreateWithoutRestaurantInput!
@@ -4505,11 +4505,11 @@ export interface NexusGenInputs {
     NOT?: NexusGenInputs['RestaurantSocialWhereInput'][] | null; // [RestaurantSocialWhereInput!]
     OR?: NexusGenInputs['RestaurantSocialWhereInput'][] | null; // [RestaurantSocialWhereInput!]
     Restaurant?: NexusGenInputs['RestaurantListRelationFilter'] | null; // RestaurantListRelationFilter
-    facebook?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    facebook?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    instagram?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
-    pinterest?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    instagram?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    pinterest?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
   }
   RestaurantSocialWhereUniqueInput: { // input type
     id?: string | null; // String
@@ -6443,11 +6443,11 @@ export interface NexusGenObjects {
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   RestaurantSocial: { // root type
-    facebook: string; // String!
+    facebook?: string | null; // String
     id: string; // String!
-    instagram: string; // String!
-    isActive: boolean; // Boolean!
-    pinterest: string; // String!
+    instagram?: string | null; // String
+    isActive?: boolean | null; // Boolean
+    pinterest?: string | null; // String
   }
   Schedule: { // root type
     closingTime?: string | null; // String
@@ -6486,6 +6486,7 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnu
 
 export interface NexusGenFieldTypes {
   CMSAbout: { // field return type
+    Restaurant: NexusGenRootTypes['Restaurant'][]; // [Restaurant!]!
     headerDescription: string | null; // String
     headerHeading: string | null; // String
     headerImage: string | null; // String
@@ -6496,6 +6497,7 @@ export interface NexusGenFieldTypes {
     storyImage: string | null; // String
   }
   CMSContact: { // field return type
+    Restaurant: NexusGenRootTypes['Restaurant'][]; // [Restaurant!]!
     headerDescription: string | null; // String
     headerHeading: string | null; // String
     headerImage: string | null; // String
@@ -6503,6 +6505,7 @@ export interface NexusGenFieldTypes {
     isActive: boolean | null; // Boolean
   }
   CMSHome: { // field return type
+    Restaurant: NexusGenRootTypes['Restaurant'][]; // [Restaurant!]!
     aboutDescription: string | null; // String
     aboutHeading: string | null; // String
     aboutImage: string | null; // String
@@ -6521,6 +6524,7 @@ export interface NexusGenFieldTypes {
     reservationImage: string | null; // String
   }
   CMSReservation: { // field return type
+    Restaurant: NexusGenRootTypes['Restaurant'][]; // [Restaurant!]!
     headerDescription: string | null; // String
     headerHeading: string | null; // String
     headerImage: string | null; // String
@@ -6528,6 +6532,7 @@ export interface NexusGenFieldTypes {
     isActive: boolean | null; // Boolean
   }
   CMSReview: { // field return type
+    Restaurant: NexusGenRootTypes['Restaurant'][]; // [Restaurant!]!
     headerDescription: string | null; // String
     headerHeading: string | null; // String
     headerImage: string | null; // String
@@ -6796,6 +6801,7 @@ export interface NexusGenFieldTypes {
     vat: string | null; // String
   }
   RestaurantConfig: { // field return type
+    Restaurant: NexusGenRootTypes['Restaurant'][]; // [Restaurant!]!
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     domain: string; // String!
     id: string; // String!
@@ -6823,11 +6829,12 @@ export interface NexusGenFieldTypes {
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   RestaurantSocial: { // field return type
-    facebook: string; // String!
+    Restaurant: NexusGenRootTypes['Restaurant'][]; // [Restaurant!]!
+    facebook: string | null; // String
     id: string; // String!
-    instagram: string; // String!
-    isActive: boolean; // Boolean!
-    pinterest: string; // String!
+    instagram: string | null; // String
+    isActive: boolean | null; // Boolean
+    pinterest: string | null; // String
   }
   Schedule: { // field return type
     Restaurant: NexusGenRootTypes['Restaurant'] | null; // Restaurant
@@ -6860,6 +6867,7 @@ export interface NexusGenFieldTypes {
 
 export interface NexusGenFieldTypeNames {
   CMSAbout: { // field return type name
+    Restaurant: 'Restaurant'
     headerDescription: 'String'
     headerHeading: 'String'
     headerImage: 'String'
@@ -6870,6 +6878,7 @@ export interface NexusGenFieldTypeNames {
     storyImage: 'String'
   }
   CMSContact: { // field return type name
+    Restaurant: 'Restaurant'
     headerDescription: 'String'
     headerHeading: 'String'
     headerImage: 'String'
@@ -6877,6 +6886,7 @@ export interface NexusGenFieldTypeNames {
     isActive: 'Boolean'
   }
   CMSHome: { // field return type name
+    Restaurant: 'Restaurant'
     aboutDescription: 'String'
     aboutHeading: 'String'
     aboutImage: 'String'
@@ -6895,6 +6905,7 @@ export interface NexusGenFieldTypeNames {
     reservationImage: 'String'
   }
   CMSReservation: { // field return type name
+    Restaurant: 'Restaurant'
     headerDescription: 'String'
     headerHeading: 'String'
     headerImage: 'String'
@@ -6902,6 +6913,7 @@ export interface NexusGenFieldTypeNames {
     isActive: 'Boolean'
   }
   CMSReview: { // field return type name
+    Restaurant: 'Restaurant'
     headerDescription: 'String'
     headerHeading: 'String'
     headerImage: 'String'
@@ -7170,6 +7182,7 @@ export interface NexusGenFieldTypeNames {
     vat: 'String'
   }
   RestaurantConfig: { // field return type name
+    Restaurant: 'Restaurant'
     createdAt: 'DateTime'
     domain: 'String'
     id: 'String'
@@ -7197,6 +7210,7 @@ export interface NexusGenFieldTypeNames {
     updatedAt: 'DateTime'
   }
   RestaurantSocial: { // field return type name
+    Restaurant: 'Restaurant'
     facebook: 'String'
     id: 'String'
     instagram: 'String'
@@ -7233,6 +7247,46 @@ export interface NexusGenFieldTypeNames {
 }
 
 export interface NexusGenArgTypes {
+  CMSAbout: {
+    Restaurant: { // args
+      after?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      before?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
+  CMSContact: {
+    Restaurant: { // args
+      after?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      before?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
+  CMSHome: {
+    Restaurant: { // args
+      after?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      before?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
+  CMSReservation: {
+    Restaurant: { // args
+      after?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      before?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
+  CMSReview: {
+    Restaurant: { // args
+      after?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      before?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
   Coupon: {
     orders: { // args
       after?: NexusGenInputs['OrderWhereUniqueInput'] | null; // OrderWhereUniqueInput
@@ -7801,8 +7855,24 @@ export interface NexusGenArgTypes {
       last?: number | null; // Int
     }
   }
+  RestaurantConfig: {
+    Restaurant: { // args
+      after?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      before?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
   RestaurantPlan: {
     restaurants: { // args
+      after?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      before?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+  }
+  RestaurantSocial: {
+    Restaurant: { // args
       after?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
       before?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
       first?: number | null; // Int
