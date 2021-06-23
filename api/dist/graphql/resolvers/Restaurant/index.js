@@ -62,6 +62,7 @@ exports.Restaurant = nexus_1.objectType({
         t.model.plan({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.restaurantPlanId({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.users({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
+        t.model.RestaurantConfig({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.createdAt();
     },
 });
