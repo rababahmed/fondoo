@@ -23,21 +23,24 @@ const DesktopLayout = (props: any) => {
             flexDirection="column"
             left="0"
             top="0"
-            bg={useColorModeValue("gray.50", "gray.800")}
+            bg="gray.50"
             w="100vw"
             h="100vh"
           >
-            <Header />
             <Box
-              maxW="100%"
+              mt={14}
+              w="100%"
+              pos="fixed"
               h="100vh"
+              overflowX="hidden"
               py={8}
-              px={8}
-              ml={isHamburgerOpen ? 260 : 0}
-              bg={useColorModeValue("gray.50", "gray.800")}
+              px={44}
+              ml={isHamburgerOpen ? 134 : 0}
+              bg="gray.50"
             >
               {props.children}
             </Box>
+            <Header />
             <NavBar />
           </Box>
         ) : (
@@ -49,17 +52,19 @@ const DesktopLayout = (props: any) => {
             flexDirection="column"
             left="0"
             top="0"
-            bg={useColorModeValue("gray.50", "gray.800")}
+            bg="gray.50"
             w="100vw"
             h="100vh"
           >
             <Header />
             <Box
+              mt={14}
+              overflowX="hidden"
               maxW="100%"
               py={8}
               px={8}
               ml={isHamburgerOpen ? 260 : 0}
-              bg={useColorModeValue("gray.50", "gray.800")}
+              bg="gray.50"
             >
               {props.children}
             </Box>

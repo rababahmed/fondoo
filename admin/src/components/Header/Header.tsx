@@ -13,6 +13,9 @@ const Header = () => {
   return (
     <Grid
       bgColor="gray.100"
+      pos="fixed"
+      top="0"
+      left="0"
       shadow="xs"
       w="100%"
       p={2}

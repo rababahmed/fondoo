@@ -59,7 +59,7 @@ const ImageUpload = (props: Props) => {
         })
         .then(function (response) {
           console.log(response);
-          form.setFieldValue(field.name, response.data.data.key);
+          form.setFieldValue(field.name, response.data.key);
           toast({
             title: "Successfully uploaded the image.",
             status: "success",

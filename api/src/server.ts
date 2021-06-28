@@ -6,15 +6,18 @@ import passport from "passport";
 import v1Router from "./routes/v1/index";
 import cors from "cors";
 import { applyPassportStrategy } from "./lib/passport/index";
+import Sentry from "./lib/sentry";
 
 const PORT = process.env.PORT || 4000;
 
 const app = express();
 
 export const main = async () => {
+  app.use(Sentry.Handlers.requestHandler());
   app.use(express.json());
   app.use(passport.initialize());
   app.use(cors());
+  app.use(Sentry.Handlers.errorHandler());
 
   applyPassportStrategy(passport);
 

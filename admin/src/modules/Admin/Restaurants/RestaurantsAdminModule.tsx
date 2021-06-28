@@ -20,6 +20,7 @@ import {
   PopoverFooter,
   ButtonGroup,
   IconButton,
+  Tag,
 } from "@chakra-ui/react";
 import { FaTrash } from "react-icons/fa";
 import { GET_ALL_RESTAURANTS_INFO } from "../../../graphql/admin/restaurant";
@@ -54,7 +55,7 @@ export const RestaurantsAdminModule = () => {
                 <Th>Business ID</Th>
                 <Th>Plan</Th>
                 <Th>Country</Th>
-                <Th>Price Range</Th>
+                <Th>Status</Th>
                 <Th></Th>
               </Tr>
             </Thead>
@@ -68,10 +69,15 @@ export const RestaurantsAdminModule = () => {
                     <Td>{rs.plan ? rs.plan.name : ""}</Td>
                     <Td>{rs.country}</Td>
                     <Td>
-                      {rs.RestaurantConfig.length > 0 &&
-                      rs.RestaurantConfig[0].isActive
-                        ? "Yes"
-                        : "No"}
+                      {rs.config.isActive ? (
+                        <Tag colorScheme="green" variant="solid">
+                          ACTIVE
+                        </Tag>
+                      ) : (
+                        <Tag colorScheme="red" variant="solid">
+                          INACTIVE
+                        </Tag>
+                      )}
                     </Td>
                     <Td>
                       <SwitchRestaurant id={rs.id} />

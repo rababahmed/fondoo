@@ -81,7 +81,7 @@ export const UsersModule = () => {
             </Thead>
 
             <Tbody>
-              {isSuccess &&
+              {isSuccess && data ? (
                 data.restaurant.users.map((user: any) => (
                   <Tr key={user.id}>
                     <Td>{user.firstName}</Td>
@@ -129,7 +129,10 @@ export const UsersModule = () => {
                       </Popover>
                     </Td>
                   </Tr>
-                ))}
+                ))
+              ) : (
+                <div></div>
+              )}
             </Tbody>
           </Table>
         </Box>

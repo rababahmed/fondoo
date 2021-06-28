@@ -16,7 +16,7 @@ export const GET_ALL_RESTAURANTS_INFO = gql`
       plan {
         name
       }
-      RestaurantConfig {
+      config {
         isActive
       }
     }
@@ -46,7 +46,7 @@ export const ADD_NEW_RESTAURANT = gql`
       data: {
         name: $name
         plan: { connect: { id: $plan } }
-        RestaurantConfig: {
+        config: {
           create: {
             domain: $domain
             primaryColor: $primaryColor
@@ -59,6 +59,7 @@ export const ADD_NEW_RESTAURANT = gql`
         CMSReview: { create: {} }
         CMSContact: { create: {} }
         CMSReservation: { create: {} }
+        socials: { create: {} }
       }
     ) {
       id
