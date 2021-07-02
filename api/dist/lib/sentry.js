@@ -19,14 +19,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express = __importStar(require("express"));
-const userAuthRouter = require("./UserAuth");
-const uploadRouter = require("./UploadRouter");
-const adminAuthRouter = require("./AdminAuth");
-let v1Router = express.Router();
-v1Router.use("/user", userAuthRouter);
-v1Router.use("/admin", adminAuthRouter);
-v1Router.use("/uploads", uploadRouter);
-v1Router.use("/uploads", uploadRouter);
-exports.default = v1Router;
-//# sourceMappingURL=index.js.map
+const Sentry = __importStar(require("@sentry/node"));
+Sentry.init({
+    dsn: "https://4e2c451a37cd42cf90488c1200354867@o881594.ingest.sentry.io/5836010",
+    tracesSampleRate: 1.0,
+});
+exports.default = Sentry;
+//# sourceMappingURL=sentry.js.map
