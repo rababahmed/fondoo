@@ -7,3 +7,16 @@ export const GET_ALL_USERS_STAT = gql`
     }
   }
 `;
+
+export const GET_ALL_USERS = gql`
+  query Users {
+    users {
+      id
+      firstName
+      lastName
+      email
+      role
+      phone
+    }
+  }
+`;

@@ -1,7 +1,6 @@
-import { useColorModeValue } from "@chakra-ui/color-mode";
-import { Box, Grid } from "@chakra-ui/layout";
+import { Box } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
-import React, { Component } from "react";
+import React from "react";
 import WaitForAuthentication from "../components/Auth/WaitForAuthentication";
 import Header from "../components/Header/Header";
 import NavBar from "../components/Navbar/NavBar";
