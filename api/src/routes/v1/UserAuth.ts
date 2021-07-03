@@ -11,22 +11,40 @@ router.post("/signup", async (req, res) => {
     const { firstName, lastName, email, password, phone, role, restaurantID } =
       req.body;
     const hash = await bcrypt.hash(password, 10);
-    const result = await prisma.user.create({
-      data: {
-        firstName,
-        lastName,
-        phone,
-        role,
-        email,
-        password: hash,
-        restaurants: {
-          connect: {
-            id: restaurantID,
+    if (restaurantID) {
+      const result = await prisma.user.create({
+        data: {
+          firstName,
+          lastName,
+          phone,
+          role,
+          email,
+          password: hash,
+          restaurants: {
+            connect: {
+              id: restaurantID,
+            },
           },
         },
-      },
-    });
-    res.status(200).send(result);
+      });
+      res
+        .status(200)
+        .send({ message: "User added succesfully", data: result.id });
+    } else {
+      const result = await prisma.user.create({
+        data: {
+          firstName,
+          lastName,
+          phone,
+          role,
+          email,
+          password: hash,
+        },
+      });
+      res
+        .status(200)
+        .send({ message: "User added succesfully", data: result.id });
+    }
   } catch (err) {
     console.log(err);
     res.status(400).send({ message: "Error creating user" });
@@ -68,10 +86,10 @@ router.post("/login", async (req, res) => {
           message: "User authenticated",
         });
       } else {
-        res.status(400).send({ message: "Incorrect Password" });
+        res.status(400).send({ message: "Incorrect Email/Password" });
       }
     } else {
-      res.status(400).send({ message: "Incorrect Email" });
+      res.status(400).send({ message: "Incorrect Email/Password" });
     }
   } catch {
     res.status(400).send({ message: "User not found" });
