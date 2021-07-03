@@ -42,7 +42,7 @@ export const AdminUsersModule = () => {
     {
       id: userId,
     },
-    "get-restaurant-users"
+    "get-all-users"
   );
 
   const handleDelete = async (id: string) => {

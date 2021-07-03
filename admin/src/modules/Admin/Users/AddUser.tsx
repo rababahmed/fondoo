@@ -20,8 +20,8 @@ import * as Yup from "yup";
 import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 import * as Constants from "../../Constants";
-import { useUserStore } from "../../../store/useUserStore";
-import { useRouter } from "next/router";
+import { useGQLQuery } from "../../../shared-hooks/useGQLQuery";
+import { GET_ALL_RESTAURANTS_INFO } from "../../../graphql/admin/restaurant";
 
 export const AdminAddUser = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,7 +32,7 @@ export const AdminAddUser = () => {
     email: "",
     password: "",
     phone: "",
-    role: "Admin",
+    restaurantID: null,
   };
 
   const validationSchema = Yup.object({
@@ -41,6 +41,13 @@ export const AdminAddUser = () => {
   });
 
   const queryClient = useQueryClient();
+
+  const restaurantQuery = useGQLQuery(
+    "get-all-restaurant-selectors",
+    GET_ALL_RESTAURANTS_INFO
+  );
+
+  console.log(restaurantQuery);
 
   const onSubmit = async (values: any) => {
     console.log(values);
@@ -80,6 +87,26 @@ export const AdminAddUser = () => {
                         name="password"
                         label="Password"
                       />
+                      <SelectControl
+                        label="Role"
+                        name="role"
+                        selectProps={{ placeholder: "Select Role" }}
+                      >
+                        <option value="Manager">Manager</option>
+                        <option value="Owner">Restaurant Owner</option>
+                        <option value="Admin">Admin</option>
+                      </SelectControl>
+                      <SelectControl
+                        label="Restaurant"
+                        name="restaurantID"
+                        selectProps={{ placeholder: "Select Restaurant" }}
+                      >
+                        {restaurantQuery.data.restaurants.map((rs: any) => (
+                          <option key={rs.id} value={rs.id}>
+                            {rs.name}
+                          </option>
+                        ))}
+                      </SelectControl>
                       <InputControl name="phone" label="Phone" />
                     </Stack>
                   </Grid>

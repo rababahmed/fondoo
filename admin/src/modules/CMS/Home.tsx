@@ -21,23 +21,45 @@ import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
 import { useToast } from "@chakra-ui/toast";
 import { useUserStore } from "../../store/useUserStore";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
-import { EDIT_RESTAURANT, GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 import { Tag } from "@chakra-ui/tag";
+import { GET_CMS_HOME } from "../../graphql/cms";
 
 export const CMSHome = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
 
   const { data, error, isLoading, isSuccess } = useGQLQuery(
-    "get-restaurant-info",
-    GET_RESTAURANT_INFO,
+    "get-restaurant-cms",
+    GET_CMS_HOME,
     {
       id: restaurantID,
     }
   );
 
   const initialValues = {
-    heading: "",
+    heroHeading: data ? data.restaurant.CMSHome.heroHeading : "",
+    heroDescription: data ? data.restaurant.CMSHome.heroDescription : "",
+    heroImage: data ? data.restaurant.CMSHome.heroImage : "",
+    aboutHeading: data ? data.restaurant.CMSHome.aboutHeading : "",
+    aboutDescription: data ? data.restaurant.CMSHome.aboutDescription : "",
+    aboutImage: data ? data.restaurant.CMSHome.aboutImage : "",
+    dealsHeading: data ? data.restaurant.CMSHome.dealsHeading : "",
+    dealsDescription: data ? data.restaurant.CMSHome.dealsDescription : "",
+    dealsImage: data ? data.restaurant.CMSHome.dealsImage : "",
+    reservationHeading: data ? data.restaurant.CMSHome.reservationHeading : "",
+    reservationDescription: data
+      ? data.restaurant.CMSHome.reservationDescription
+      : "",
+    reservationImage: data ? data.restaurant.CMSHome.reservationImage : "",
+    popularDishesHeading: data
+      ? data.restaurant.CMSHome.popularDishesHeading
+      : "",
+    popularDishesDescription: data
+      ? data.restaurant.CMSHome.popularDishesDescription
+      : "",
+    popularDishesImage: data ? data.restaurant.CMSHome.popularDishesImage : "",
   };
+
+  console.log(data);
 
   const validationSchema = Yup.object({
     name: Yup.string(),
@@ -73,14 +95,11 @@ export const CMSHome = () => {
                 p={8}
               >
                 <Tag bgColor="primary.800" color="white" size="lg" mb={6}>
-                  Intro Section
+                  Hero Section
                 </Tag>
                 <HStack spacing="6">
-                  <TextareaControl name="welcomeHeading" label="Heading" />
-                  <TextareaControl
-                    name="welcomeDescription"
-                    label="Description"
-                  />
+                  <TextareaControl name="heroHeading" label="Heading" />
+                  <TextareaControl name="heroDescription" label="Description" />
                 </HStack>
               </Box>
             </Skeleton>

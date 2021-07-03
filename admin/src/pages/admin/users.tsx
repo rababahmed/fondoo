@@ -14,7 +14,7 @@ const SettingsPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DesktopLayout>
-        <Heading mb={10}>Restaurants</Heading>
+        <Heading mb={10}>Users</Heading>
         <Grid templateColumns="1fr 1fr">
           <Box />
           <Box mr={8} gridArea="right">
