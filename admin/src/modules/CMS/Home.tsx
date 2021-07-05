@@ -22,13 +22,13 @@ import { useToast } from "@chakra-ui/toast";
 import { useUserStore } from "../../store/useUserStore";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { Tag } from "@chakra-ui/tag";
-import { GET_CMS_HOME } from "../../graphql/cms";
+import { GET_CMS_HOME, UPDATE_CMS_HOME } from "../../graphql/cms";
 
 export const CMSHome = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
 
   const { data, error, isLoading, isSuccess } = useGQLQuery(
-    "get-restaurant-cms",
+    "get-restaurant-cms-home",
     GET_CMS_HOME,
     {
       id: restaurantID,
@@ -36,6 +36,7 @@ export const CMSHome = () => {
   );
 
   const initialValues = {
+    restaurantID: restaurantID,
     heroHeading: data ? data.restaurant.CMSHome.heroHeading : "",
     heroDescription: data ? data.restaurant.CMSHome.heroDescription : "",
     heroImage: data ? data.restaurant.CMSHome.heroImage : "",
@@ -68,11 +69,34 @@ export const CMSHome = () => {
 
   const [formData, setFormData] = useState(initialValues);
 
-  const [isSLoading, setIsSLoading] = useState(false);
-
   const toast = useToast();
 
-  const onSubmit = async (values: any) => {};
+  const mutation = useGQLMutation(
+    UPDATE_CMS_HOME,
+    formData,
+    "get-restaurant-info"
+  );
+
+  const onSubmit = async (values: any) => {
+    setFormData(values);
+    const response = await mutation.mutate();
+    if (mutation.isError) {
+      toast({
+        title: "Whoops! There has been an error.",
+        status: "error",
+        isClosable: true,
+        position: "top",
+      });
+    }
+    if (mutation.isSuccess) {
+      toast({
+        title: "Success! Your changes have been saved.",
+        status: "success",
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
 
   return (
     <>
@@ -202,10 +226,10 @@ export const CMSHome = () => {
               <Stack mt={10} pb={2}>
                 <VStack>
                   <SubmitButton
-                    isLoading={isSLoading}
+                    isLoading={mutation.isLoading}
                     loadingText="Updating"
                     w={40}
-                    bgColor={isSLoading ? "green.500" : "primary.800"}
+                    bgColor={mutation.isLoading ? "green.500" : "primary.800"}
                     _active={{ bgColor: "primary.800" }}
                     _hover={{ bgColor: "primary.900" }}
                   >

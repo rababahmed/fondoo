@@ -23,3 +23,41 @@ export const GET_CMS_HOME = gql`
     }
   }
 `;
+
+export const UPDATE_CMS_HOME = gql`
+  mutation UpdateRestaurant(
+    $restaurantID: String
+    $heroHeading: String
+    $heroDescription: String
+    $aboutHeading: String
+    $aboutDescription: String
+    $dealsHeading: String
+    $dealsDescription: String
+    $reservationHeading: String
+    $reservationDescription: String
+    $popularDishesHeading: String
+    $popularDishesDescription: String
+  ) {
+    updateRestaurant(
+      data: {
+        CMSHome: {
+          update: {
+            heroHeading: { set: $heroHeading }
+            heroDescription: { set: $heroDescription }
+            aboutHeading: { set: $aboutHeading }
+            aboutDescription: { set: $aboutDescription }
+            dealsHeading: { set: $dealsHeading }
+            dealsDescription: { set: $dealsDescription }
+            reservationHeading: { set: $reservationHeading }
+            reservationDescription: { set: $reservationDescription }
+            popularDishesHeading: { set: $popularDishesHeading }
+            popularDishesDescription: { set: $popularDishesDescription }
+          }
+        }
+      }
+      where: { id: $restaurantID }
+    ) {
+      id
+    }
+  }
+`;

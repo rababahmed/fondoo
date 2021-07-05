@@ -38,6 +38,7 @@ const DesktopLayout = (props: any) => {
               bg="gray.50"
             >
               {props.children}
+              <Box mb={24}></Box>
             </Box>
             <Header />
             <NavBar />

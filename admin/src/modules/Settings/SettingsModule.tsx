@@ -159,7 +159,7 @@ export const SettingsModule = () => {
                     Party Facilities
                   </CheckboxSingleControl>
                   <CheckboxSingleControl name="hasKidsZone">
-                    Kid's Zone
+                    Kids Zone
                   </CheckboxSingleControl>
                 </Stack>
               </Skeleton>

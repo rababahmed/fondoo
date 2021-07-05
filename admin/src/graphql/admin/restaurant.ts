@@ -54,13 +54,71 @@ export const ADD_NEW_RESTAURANT = gql`
             isActive: $isActive
           }
         }
-        CMSHome: { create: {} }
-        CMSAbout: { create: {} }
-        CMSReview: { create: {} }
-        CMSContact: { create: {} }
-        CMSReservation: { create: {} }
+        CMSHome: {
+          create: {
+            heroHeading: "Welcome to TezzBites"
+            heroDescription: "Authentic Takeaway"
+            aboutHeading: "Delivering Authentic Cuisine"
+            aboutDescription: "straight to your doorstep!"
+            dealsHeading: "Grab the Deals"
+            dealsDescription: ""
+            reservationHeading: "Book a Table"
+            reservationDescription: ""
+            popularDishesHeading: "Discover Our Best-Sellers"
+            popularDishesDescription: ""
+          }
+        }
+        CMSAbout: {
+          create: {
+            headerHeading: "About Us"
+            headerDescription: ""
+            storyHeading: "Our Story"
+            storyDescription: ""
+          }
+        }
+        CMSReview: {
+          create: {
+            headerHeading: "Reviews"
+            headerDescription: "See what our patrons have to say"
+          }
+        }
+        CMSContact: {
+          create: {
+            headerHeading: "Contact Us"
+            headerDescription: "We're a call away"
+          }
+        }
+        CMSReservation: {
+          create: { headerHeading: "Book your Table", headerDescription: "" }
+        }
         socials: { create: {} }
       }
+    ) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_CMS_HOME = gql`
+  mutation UpdateRestaurant($restaurantID: String!) {
+    updateRestaurant(
+      data: {
+        CMSHome: {
+          update: {
+            heroHeading: ""
+            heroDescription: ""
+            aboutHeading: ""
+            aboutDescription: ""
+            dealsHeading: ""
+            dealsDescription: ""
+            reservationHeading: ""
+            reservationDescription: ""
+            popularDishesHeading: ""
+            popularDishesDescription: ""
+          }
+        }
+      }
+      where: { id: $restaurantID }
     ) {
       id
     }
