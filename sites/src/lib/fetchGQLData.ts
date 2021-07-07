@@ -14,7 +14,5 @@ export const useGQLQuery = (
 
   const fetchData = graphQLClient.request(query, variables);
 
-  const data = JSON.stringify(fetchData);
-
   return fetchData;
 };
