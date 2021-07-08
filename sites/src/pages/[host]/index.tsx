@@ -5,6 +5,7 @@ import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 
 export default function Home({ host, data }: any) {
   console.log(data);
+
   return (
     <>
       <Head>
@@ -40,7 +41,7 @@ export async function getStaticProps(context: any) {
       host,
       data,
     },
-    revalidate: 10,
+    // revalidate: 60,
   };
 }
 
