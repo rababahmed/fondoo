@@ -65,6 +65,17 @@ export const GET_RESTAURANT_INFO = gql`
             isActive
           }
         }
+        CMSHome {
+          heroHeading
+          heroDescription
+          heroImage
+          aboutHeading
+          aboutDescription
+          aboutImage
+          dealsHeading
+          dealsDescription
+          dealsImage
+        }
       }
     }
   }
