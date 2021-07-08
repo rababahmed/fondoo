@@ -1,5 +1,8 @@
 module.exports = {
   reactStrictMode: true,
+  images: {
+    domains: ["cdn.tezzbites.com"],
+  },
   async rewrites() {
     return [
       {

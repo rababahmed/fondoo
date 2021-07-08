@@ -1,8 +1,11 @@
 import { gql } from "graphql-request";
 
 export const GET_RESTAURANT_INFO = gql`
-  query RestaurantConfig($domain: String!) {
+  query RestaurantConfig($domain: String) {
     restaurantConfig(where: { domain: $domain }) {
+      primaryColor
+      secondaryColor
+      isActive
       Restaurant {
         id
         name
