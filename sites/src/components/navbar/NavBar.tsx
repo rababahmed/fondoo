@@ -16,7 +16,11 @@ const NavBar = ({ rdata, cdata }: any) => {
           <Img
             onClick={() => router.push("/")}
             _hover={{ cursor: "pointer" }}
-            src={Constants.CDN + rdata.logo}
+            src={
+              rdata.logo
+                ? Constants.CDN + rdata.logo
+                : "https://via.placeholder.com/500x200/ffffff/2e2e2e.png?text=Your+Logo+Here"
+            }
             h={20}
             p={2}
             ml={20}
