@@ -5,11 +5,11 @@ import TopRibbon from "../components/navbar/TopRibbon";
 
 const DefaultLayout = ({ children, rdata, cdata }: any) => {
   return (
-    <>
+    <Box bg="#f3f5f5f3">
       <TopRibbon rdata={rdata} cdata={cdata} />
       <NavBar rdata={rdata} cdata={cdata} />
       <Box>{children}</Box>
-    </>
+    </Box>
   );
 };
 

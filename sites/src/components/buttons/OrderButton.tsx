@@ -9,7 +9,11 @@ interface Props {
 const OrderButton = ({ cdata, text }: Props) => {
   return (
     <>
-      <Button bg="#FF4550" _hover={{ bg: "#FF1F2E" }} color="white">
+      <Button
+        bg={cdata.primaryColor}
+        _hover={{ cursor: "pointer", opacity: "95%" }}
+        color="white"
+      >
         {text}
       </Button>
     </>

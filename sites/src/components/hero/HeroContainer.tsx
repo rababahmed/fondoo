@@ -115,12 +115,12 @@ const HeroContainer = ({ rdata, cdata }: any) => {
                   lineHeight={1.2}
                   fontSize={useBreakpointValue({ base: "sm", md: "md" })}
                   align="center"
-                  bg="#FF4550"
-                  _hover={{ bg: "#FF1F2E", cursor: "pointer" }}
+                  bg={cdata.primaryColor}
+                  _hover={{ cursor: "pointer", opacity: "95%" }}
                   color="white"
                   ml={2}
                 >
-                  Place an Order
+                  See the menu
                 </Text>
               </Center>
             </Stack>
