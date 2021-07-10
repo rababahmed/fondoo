@@ -20,6 +20,7 @@ export default function Home({ host, rdata, cdata }: any) {
       </Head>
       <DefaultLayout rdata={rdata} cdata={cdata}>
         <HeroContainer rdata={rdata} cdata={cdata} />
+
         <Heading>HELLO</Heading>
         <Heading>HELLO</Heading>
         <Heading>HELLO</Heading>

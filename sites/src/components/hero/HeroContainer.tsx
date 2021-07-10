@@ -20,57 +20,58 @@ import Image from "next/image";
 const HeroContainer = ({ rdata, cdata }: any) => {
   return (
     <>
-      {/* <Flex pos="absolute" w="100vw">
-        <Box w="100%" h={560}>
-          <Image
-            src={Constants.CDN + rdata.coverImage}
-            alt="logo"
-            layout="fill"
-            objectFit="cover"
-            priority
-            placeholder="blur"
-            blurDataURL={Constants.CDN + rdata.coverImage}
-          />
-        </Box>
-        <Box
-          pos="absolute"
-          top="0"
-          left="0"
-          h="100%"
-          w="100%"
-          bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
-        >
-          <VStack mt={200} spacing={4} align="center">
-            <Heading size="2xl" color="white" align="center">
-              {rdata.CMSHome.heroHeading}
-            </Heading>
-            <Heading color="white" align="center">
-              {rdata.CMSHome.heroDescription}
-            </Heading>
-            <Stack direction="row">
-              <PrimaryButton text="Book a Table" cdata={cdata} />
-              <OrderButton text="Place an Order" cdata={cdata} />
-            </Stack>
-          </VStack>
-        </Box>
-        <Box pos="absolute" mt={460} w="100%">
-          <Center>
-            <Center bg="white" rounded="md" w="60%" shadow="sm">
-              <Stack py={10}>
-                <Heading size="lg" fontWeight="bold" align="center">
-                  {rdata.CMSHome.dealsHeading}
-                </Heading>
-                <Heading size="sm" fontWeight="semibold" align="center">
-                  {rdata.CMSHome.dealsDescription
-                    ? rdata.CMSHome.dealsDescription
-                    : null}
-                </Heading>
+      <Box>
+        <Flex>
+          <Box pos="relative" w="100%" h={560}>
+            <Image
+              src={Constants.CDN + rdata.coverImage}
+              alt="logo"
+              layout="fill"
+              objectFit="cover"
+              priority
+              placeholder="blur"
+              blurDataURL={Constants.CDN + rdata.coverImage}
+            />
+          </Box>
+          <Box
+            pos="absolute"
+            zIndex="1"
+            h={560}
+            w="100%"
+            bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+          >
+            <VStack mt={200} spacing={4} align="center">
+              <Heading size="2xl" color="white" align="center">
+                {rdata.CMSHome.heroHeading}
+              </Heading>
+              <Heading color="white" align="center">
+                {rdata.CMSHome.heroDescription}
+              </Heading>
+              <Stack direction="row">
+                <PrimaryButton text="Book a Table" cdata={cdata} />
+                <OrderButton text="Place an Order" cdata={cdata} />
               </Stack>
+            </VStack>
+          </Box>
+          <Box zIndex="1" pos="absolute" mt={460} w="100%">
+            <Center>
+              <Center bg="white" rounded="md" w="60%" shadow="sm">
+                <Stack py={10}>
+                  <Heading size="lg" fontWeight="bold" align="center">
+                    {rdata.CMSHome.dealsHeading}
+                  </Heading>
+                  <Heading size="sm" fontWeight="semibold" align="center">
+                    {rdata.CMSHome.dealsDescription
+                      ? rdata.CMSHome.dealsDescription
+                      : null}
+                  </Heading>
+                </Stack>
+              </Center>
             </Center>
-          </Center>
-        </Box>
-      </Flex> */}
-      <Flex
+          </Box>
+        </Flex>
+      </Box>
+      {/* <Flex
         w="full"
         h={560}
         backgroundImage={"url(" + Constants.CDN + rdata.coverImage + ")"}
@@ -168,7 +169,7 @@ const HeroContainer = ({ rdata, cdata }: any) => {
             </Stack>
           </Center>
         </Center>
-      </Box>
+      </Box> */}
     </>
   );
 };

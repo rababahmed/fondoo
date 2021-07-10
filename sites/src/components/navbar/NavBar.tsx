@@ -12,6 +12,7 @@ const NavBar = ({ rdata, cdata }: any) => {
   return (
     <>
       <Grid
+        zIndex="10"
         bg="#353439"
         w="full"
         pos="sticky"

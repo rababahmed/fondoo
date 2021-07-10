@@ -16,7 +16,7 @@ const TopRibbon = ({ rdata, cdata }: any) => {
 
   return (
     <>
-      <Box bg={cdata.secondaryColor} textColor="white">
+      <Box zIndex="10" bg={cdata.secondaryColor} textColor="white">
         <Grid templateColumns="1fr 1fr">
           <Box ml={20} alignItems="start">
             <Stack direction="row">
