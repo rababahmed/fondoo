@@ -43,7 +43,7 @@ const NavBar = ({ rdata, cdata }: any) => {
           alt="logo"
         />
         <Stack
-          display={isDesktop ? "flex" : "none"}
+          display={{ base: "none", sm: "flex" }}
           spacing={3}
           direction="row"
           align="center"
@@ -57,7 +57,7 @@ const NavBar = ({ rdata, cdata }: any) => {
           <NavItem text="Contact" url="/contact" />
         </Stack>
         <Stack
-          d={isDesktop ? "flex" : "none"}
+          display={{ base: "none", sm: "flex" }}
           spacing={2}
           direction="row"
           align="center"
