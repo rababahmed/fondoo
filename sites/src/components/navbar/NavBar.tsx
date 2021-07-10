@@ -1,4 +1,12 @@
-import { Box, Button, Grid, Img, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Grid,
+  Img,
+  Stack,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 import { Constants } from "../../config";
@@ -8,6 +16,8 @@ import NavItem from "./NavItem";
 
 const NavBar = ({ rdata, cdata }: any) => {
   const router = useRouter();
+
+  const [isDesktop] = useMediaQuery("(min-width: 640px)");
 
   return (
     <>
@@ -32,7 +42,13 @@ const NavBar = ({ rdata, cdata }: any) => {
           ml={20}
           alt="logo"
         />
-        <Stack spacing={3} direction="row" align="center" mr={6}>
+        <Stack
+          display={isDesktop ? "flex" : "none"}
+          spacing={3}
+          direction="row"
+          align="center"
+          mr={6}
+        >
           <NavItem text="About" url="/about" />
           <NavItem text="Deals" url="/deals" />
           <NavItem text="Menu" url="/menu" />
@@ -40,7 +56,13 @@ const NavBar = ({ rdata, cdata }: any) => {
           <NavItem text="Reviews" url="/reviews" />
           <NavItem text="Contact" url="/contact" />
         </Stack>
-        <Stack spacing={2} direction="row" align="center" mr={20}>
+        <Stack
+          d={isDesktop ? "flex" : "none"}
+          spacing={2}
+          direction="row"
+          align="center"
+          mr={20}
+        >
           <PrimaryButton cdata={cdata} text="SIGN IN" />
           <OrderButton cdata={cdata} text="ORDER NOW" />
         </Stack>

@@ -1,4 +1,4 @@
-import { Box, Grid, Icon, Stack, Text } from "@chakra-ui/react";
+import { Box, Grid, Icon, Stack, Text, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import RibbonItem from "./RibbonItem";
 import { FiPhoneCall } from "react-icons/fi";
@@ -8,6 +8,8 @@ import { format } from "date-fns";
 const TopRibbon = ({ rdata, cdata }: any) => {
   const serverDate = format(new Date(), "eeee");
 
+  const [isDesktop] = useMediaQuery("(min-width: 640px)");
+
   console.log(serverDate);
 
   const openingData = rdata.schedules.find((x: any) => x.day === serverDate);
@@ -16,7 +18,12 @@ const TopRibbon = ({ rdata, cdata }: any) => {
 
   return (
     <>
-      <Box zIndex="10" bg={cdata.secondaryColor} textColor="white">
+      <Box
+        d={isDesktop ? "block" : "none"}
+        zIndex="10"
+        bg={cdata.secondaryColor}
+        textColor="white"
+      >
         <Grid templateColumns="1fr 1fr">
           <Box ml={20} alignItems="start">
             <Stack direction="row">

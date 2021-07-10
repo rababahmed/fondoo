@@ -29,6 +29,7 @@ const HeroContainer = ({ rdata, cdata }: any) => {
               layout="fill"
               objectFit="cover"
               priority
+              quality="100"
               placeholder="blur"
               blurDataURL={Constants.CDN + rdata.coverImage}
             />
