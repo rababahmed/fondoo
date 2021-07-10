@@ -47,7 +47,8 @@ model Restaurant {
   productCategory         ProductCategory[]
   products                Product[]
   users                   User[]
-  config                  RestaurantConfig   @relation(fields: [restaurantConfigId], references: [id])
+  coupons                 Coupon[]
+  reviews                 RestaurantReview[]
   socials                 RestaurantSocial   @relation(fields: [restaurantSocialId], references: [id])
   CMSHome                 CMSHome            @relation(fields: [cMSHomeId], references: [id])
   CMSAbout                CMSAbout           @relation(fields: [cMSAboutId], references: [id])
@@ -56,14 +57,13 @@ model Restaurant {
   CMSContact              CMSContact         @relation(fields: [cMSContactId], references: [id])
   createdAt               DateTime           @default(now())
   updatedAt               DateTime           @updatedAt
-  restaurantConfigId      String
   restaurantSocialId      String
   cMSHomeId               String
   cMSAboutId              String
   cMSReviewId             String
   cMSReservationId        String
   cMSContactId            String
-  reviews                 RestaurantReview[]
+  RestaurantConfig        RestaurantConfig?
 }
 
 model RestaurantPlan {
@@ -75,23 +75,23 @@ model RestaurantPlan {
 }
 
 model RestaurantConfig {
-  id             String       @id @default(cuid())
-  domain         String       @unique
+  id             String     @id @default(cuid())
+  domain         String     @unique
   primaryColor   String
   secondaryColor String
   isActive       Boolean
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
-  Restaurant     Restaurant[]
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  restaurant     Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId   String
 }
 
 model RestaurantSocial {
-  id        String   @id @default(cuid())
-  facebook  String?
-  instagram String?
-  pinterest String?
-  isActive  Boolean?
-
+  id         String       @id @default(cuid())
+  facebook   String?
+  instagram  String?
+  pinterest  String?
+  isActive   Boolean?
   Restaurant Restaurant[]
 }
 
@@ -250,8 +250,7 @@ model Customer {
   lastName         String
   email            String             @unique
   password         String
-  phone            String
-  token            CustomerToken[]
+  phone            String             @unique
   addresses        CustomerAddress[]
   orders           Order[]
   restaurants      Restaurant[]
@@ -270,15 +269,6 @@ model CustomerAddress {
   customerId    String?
 }
 
-model CustomerToken {
-  id         String    @id @default(cuid())
-  token      String
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
-  Customer   Customer? @relation(fields: [customerId], references: [id])
-  customerId String?
-}
-
 model User {
   id          String       @id @default(cuid())
   createdAt   DateTime     @default(now())
@@ -286,8 +276,7 @@ model User {
   lastName    String
   email       String       @unique
   password    String
-  phone       String?
-  token       UserToken[]
+  phone       String
   restaurants Restaurant[]
   role        Role         @default(Manager)
 }
@@ -299,23 +288,17 @@ enum Role {
   SuperAdmin
 }
 
-model UserToken {
-  id        String   @id @default(cuid())
-  token     String
-  provider  String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  User      User?    @relation(fields: [userId], references: [id])
-  userId    String?
-}
-
 model Coupon {
-  id          String   @id @default(cuid())
-  code        String
-  discount    Discount
-  value       Float
-  description String?
-  orders      Order[]
+  id           String     @id @default(cuid())
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  code         String
+  discount     Discount
+  value        Float
+  description  String?
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  orders       Order[]
+  restaurantId String
 }
 
 enum Discount {

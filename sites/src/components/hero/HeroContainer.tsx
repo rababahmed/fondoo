@@ -15,35 +15,45 @@ import React from "react";
 import { Constants } from "../../config";
 import OrderButton from "../buttons/OrderButton";
 import PrimaryButton from "../buttons/PrimaryButton";
+import Image from "next/image";
 
 const HeroContainer = ({ rdata, cdata }: any) => {
   return (
     <>
-      {/* <Box pos="relative" bg="black">
-        <Img
-          src={Constants.CDN + rdata.coverImage}
-          opacity="70%"
-          w="100%"
-          h={560}
-          objectFit="cover"
-        />
-        <Box pos="absolute" top="0" left="0" h="100%" w="100%">
-          <Center>
-            <Stack mt={200} direction="column" spacing={4} align="center">
-              <Heading size="2xl" color="white" align="center">
-                {rdata.CMSHome.heroHeading}
-              </Heading>
-              <Heading color="white" align="center">
-                {rdata.CMSHome.heroDescription}
-              </Heading>
-              <Stack direction="row">
-                <PrimaryButton text="Book a Table" cdata={cdata} />
-                <OrderButton text="Place an Order" cdata={cdata} />
-              </Stack>
-            </Stack>
-          </Center>
+      {/* <Flex pos="absolute" w="100vw">
+        <Box w="100%" h={560}>
+          <Image
+            src={Constants.CDN + rdata.coverImage}
+            alt="logo"
+            layout="fill"
+            objectFit="cover"
+            priority
+            placeholder="blur"
+            blurDataURL={Constants.CDN + rdata.coverImage}
+          />
         </Box>
-        <Box pos="absolute" mt={-20} w="100%">
+        <Box
+          pos="absolute"
+          top="0"
+          left="0"
+          h="100%"
+          w="100%"
+          bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+        >
+          <VStack mt={200} spacing={4} align="center">
+            <Heading size="2xl" color="white" align="center">
+              {rdata.CMSHome.heroHeading}
+            </Heading>
+            <Heading color="white" align="center">
+              {rdata.CMSHome.heroDescription}
+            </Heading>
+            <Stack direction="row">
+              <PrimaryButton text="Book a Table" cdata={cdata} />
+              <OrderButton text="Place an Order" cdata={cdata} />
+            </Stack>
+          </VStack>
+        </Box>
+        <Box pos="absolute" mt={460} w="100%">
           <Center>
             <Center bg="white" rounded="md" w="60%" shadow="sm">
               <Stack py={10}>
@@ -59,7 +69,7 @@ const HeroContainer = ({ rdata, cdata }: any) => {
             </Center>
           </Center>
         </Box>
-      </Box> */}
+      </Flex> */}
       <Flex
         w="full"
         h={560}
@@ -128,6 +138,22 @@ const HeroContainer = ({ rdata, cdata }: any) => {
         </VStack>
       </Flex>
       <Box mt={-20} w="100%">
+        <Center>
+          <Center bg="white" rounded="md" w="60%" shadow="sm">
+            <Stack py={10}>
+              <Heading size="lg" fontWeight="bold" align="center">
+                {rdata.CMSHome.dealsHeading}
+              </Heading>
+              <Heading size="sm" fontWeight="semibold" align="center">
+                {rdata.CMSHome.dealsDescription
+                  ? rdata.CMSHome.dealsDescription
+                  : null}
+              </Heading>
+            </Stack>
+          </Center>
+        </Center>
+      </Box>
+      <Box mt={40} w="100%">
         <Center>
           <Center bg="white" rounded="md" w="60%" shadow="sm">
             <Stack py={10}>
