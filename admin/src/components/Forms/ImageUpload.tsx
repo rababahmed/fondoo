@@ -38,8 +38,8 @@ const ImageUpload = (props: Props) => {
   const fileUpload = async (e: any) => {
     setIsLoading(true);
     const options = {
-      maxSizeMB: 0.8,
-      maxWidthOrHeight: 1024,
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
       useWebWorker: true,
     };
     const imageFile = e.target.files[0];

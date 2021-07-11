@@ -11,7 +11,7 @@ const HeroContainer = ({ rdata, cdata, imageProps }: any) => {
     <>
       <Box>
         <Flex>
-          <Box pos="relative" w="100%" minH={560}>
+          <Box pos="relative" w="100%" h={560}>
             <Image
               src={imageProps.src}
               alt="logo"

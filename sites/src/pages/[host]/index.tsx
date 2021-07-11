@@ -21,13 +21,6 @@ export default function Home({ host, rdata, cdata, imageProps }: any) {
       </Head>
       <DefaultLayout rdata={rdata} cdata={cdata}>
         <HeroContainer imageProps={imageProps} rdata={rdata} cdata={cdata} />
-
-        <Heading>HELLO</Heading>
-        <Heading>HELLO</Heading>
-        <Heading>HELLO</Heading>
-        <Heading>HELLO</Heading>
-        <Heading>HELLO</Heading>
-        <Heading>HELLO</Heading>
       </DefaultLayout>
     </>
   );
