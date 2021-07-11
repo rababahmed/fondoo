@@ -7,8 +7,9 @@ import TopRibbon from "../../components/navbar/TopRibbon";
 import NavBar from "../../components/navbar/NavBar";
 import HeroContainer from "../../components/hero/HeroContainer";
 import DefaultLayout from "../../layouts/DefaultLayout";
+import { getPlaiceholder } from "plaiceholder";
 
-export default function Home({ host, rdata, cdata }: any) {
+export default function Home({ host, rdata, cdata, imageProps }: any) {
   console.log(rdata);
 
   return (
@@ -19,7 +20,7 @@ export default function Home({ host, rdata, cdata }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DefaultLayout rdata={rdata} cdata={cdata}>
-        <HeroContainer rdata={rdata} cdata={cdata} />
+        <HeroContainer imageProps={imageProps} rdata={rdata} cdata={cdata} />
 
         <Heading>HELLO</Heading>
         <Heading>HELLO</Heading>
@@ -49,11 +50,20 @@ export async function getStaticProps(context: any) {
 
   const cdata = fetchData.restaurantConfig ? fetchData.restaurantConfig : null;
 
+  const { base64, img } = await getPlaiceholder(
+    Constants.CDN + rdata.coverImage
+  );
+  console.log(img);
+
   return {
     props: {
       host,
       rdata,
       cdata,
+      imageProps: {
+        ...img,
+        blurDataURL: base64,
+      },
     },
     revalidate: 30,
   };

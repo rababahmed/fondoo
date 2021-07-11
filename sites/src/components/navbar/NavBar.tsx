@@ -1,7 +1,9 @@
+import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
   Grid,
+  IconButton,
   Img,
   Stack,
   Text,
@@ -27,7 +29,7 @@ const NavBar = ({ rdata, cdata }: any) => {
         w="full"
         pos="sticky"
         top="0"
-        templateColumns="8fr 2fr 2fr"
+        templateColumns={{ base: "8fr 2fr", lg: "8fr 2fr 2fr" }}
       >
         <Img
           onClick={() => router.push("/")}
@@ -43,7 +45,7 @@ const NavBar = ({ rdata, cdata }: any) => {
           alt="logo"
         />
         <Stack
-          display={{ base: "none", sm: "flex" }}
+          display={{ base: "none", lg: "flex" }}
           spacing={3}
           direction="row"
           align="center"
@@ -57,7 +59,7 @@ const NavBar = ({ rdata, cdata }: any) => {
           <NavItem text="Contact" url="/contact" />
         </Stack>
         <Stack
-          display={{ base: "none", sm: "flex" }}
+          display={{ base: "none", lg: "flex" }}
           spacing={2}
           direction="row"
           align="center"
@@ -66,6 +68,16 @@ const NavBar = ({ rdata, cdata }: any) => {
           <PrimaryButton cdata={cdata} text="SIGN IN" />
           <OrderButton cdata={cdata} text="ORDER NOW" />
         </Stack>
+        <Box display={{ base: "block", lg: "none" }} alignSelf="center">
+          <IconButton
+            rounded="md"
+            bg={cdata.primaryColor}
+            color="white"
+            _hover={{ opacity: "0.9" }}
+            aria-label="Search database"
+            icon={<HamburgerIcon />}
+          />
+        </Box>
       </Grid>
     </>
   );

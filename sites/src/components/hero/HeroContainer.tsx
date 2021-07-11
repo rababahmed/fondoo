@@ -1,37 +1,26 @@
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  Grid,
-  Heading,
-  Img,
-  Stack,
-  Text,
-  useBreakpointValue,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Stack, VStack } from "@chakra-ui/react";
 import React from "react";
 import { Constants } from "../../config";
 import OrderButton from "../buttons/OrderButton";
 import PrimaryButton from "../buttons/PrimaryButton";
 import Image from "next/image";
 
-const HeroContainer = ({ rdata, cdata }: any) => {
+const HeroContainer = ({ rdata, cdata, imageProps }: any) => {
+  console.log(imageProps);
   return (
     <>
       <Box>
         <Flex>
-          <Box pos="relative" w="100%" h={560}>
+          <Box pos="relative" w="100%" minH={560}>
             <Image
-              src={Constants.CDN + rdata.coverImage}
+              src={imageProps.src}
               alt="logo"
               layout="fill"
               objectFit="cover"
               priority
               quality="100"
+              blurDataURL={imageProps.blurDataURL}
               placeholder="blur"
-              blurDataURL={Constants.CDN + rdata.coverImage}
             />
           </Box>
           <Box

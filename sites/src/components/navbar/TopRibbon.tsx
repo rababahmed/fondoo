@@ -19,7 +19,7 @@ const TopRibbon = ({ rdata, cdata }: any) => {
   return (
     <>
       <Box
-        display={{ base: "none", sm: "block" }}
+        display={{ base: "none", md: "block" }}
         zIndex="10"
         bg={cdata.secondaryColor}
         textColor="white"
