@@ -42,7 +42,7 @@ exports.CMSHome = nexus_1.objectType({
         t.model.popularDishesHeading();
         t.model.popularDishesDescription();
         t.model.popularDishesImage();
-        t.model.Restaurant();
+        t.model.restaurant();
     },
 });
 exports.CMSHomeQuery = nexus_1.extendType({

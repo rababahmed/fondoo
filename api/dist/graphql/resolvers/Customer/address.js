@@ -10,7 +10,7 @@ exports.CustomerAddress = nexus_1.objectType({
         t.model.city();
         t.model.postCode();
         t.model.country();
-        t.model.Customer();
+        t.model.customer();
         t.model.customerId();
     },
 });

@@ -9,7 +9,7 @@ router.get("/:domain", async (req, res) => {
 
     const result = await prisma.restaurantConfig.findUnique({
       where: { domain: domain },
-      include: { Restaurant: true },
+      include: { restaurant: true },
     });
 
     if (result) {

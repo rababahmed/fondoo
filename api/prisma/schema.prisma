@@ -49,21 +49,22 @@ model Restaurant {
   users                   User[]
   coupons                 Coupon[]
   reviews                 RestaurantReview[]
-  socials                 RestaurantSocial   @relation(fields: [restaurantSocialId], references: [id])
-  CMSHome                 CMSHome            @relation(fields: [cMSHomeId], references: [id])
-  CMSAbout                CMSAbout           @relation(fields: [cMSAboutId], references: [id])
-  CMSReview               CMSReview          @relation(fields: [cMSReviewId], references: [id])
-  CMSReservation          CMSReservation     @relation(fields: [cMSReservationId], references: [id])
-  CMSContact              CMSContact         @relation(fields: [cMSContactId], references: [id])
+  socials                 RestaurantSocial?
+  CMSHome                 CMSHome?
+  CMSAbout                CMSAbout?
+  CMSReview               CMSReview?
+  CMSReservation          CMSReservation?
+  CMSContact              CMSContact?
   createdAt               DateTime           @default(now())
   updatedAt               DateTime           @updatedAt
-  restaurantSocialId      String
   cMSHomeId               String
   cMSAboutId              String
   cMSReviewId             String
   cMSReservationId        String
   cMSContactId            String
-  RestaurantConfig        RestaurantConfig?
+  config                  RestaurantConfig?
+  offers                  Offer[]
+  restaurantSocialId      String?
 }
 
 model RestaurantPlan {
@@ -80,19 +81,22 @@ model RestaurantConfig {
   primaryColor   String
   secondaryColor String
   isActive       Boolean
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @updatedAt
   restaurant     Restaurant @relation(fields: [restaurantId], references: [id])
   restaurantId   String
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
 }
 
 model RestaurantSocial {
-  id         String       @id @default(cuid())
-  facebook   String?
-  instagram  String?
-  pinterest  String?
-  isActive   Boolean?
-  Restaurant Restaurant[]
+  id           String     @id @default(cuid())
+  facebook     String?
+  instagram    String?
+  pinterest    String?
+  isActive     Boolean?
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
 }
 
 model RestaurantReview {
@@ -128,7 +132,8 @@ model CMSHome {
   popularDishesImage       String?
   isActive                 Boolean?
 
-  Restaurant Restaurant[]
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
 }
 
 model CMSAbout {
@@ -141,7 +146,8 @@ model CMSAbout {
   storyImage        String?
   isActive          Boolean?
 
-  Restaurant Restaurant[]
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
 }
 
 model CMSReview {
@@ -151,7 +157,8 @@ model CMSReview {
   headerImage       String?
   isActive          Boolean?
 
-  Restaurant Restaurant[]
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
 }
 
 model CMSReservation {
@@ -161,7 +168,8 @@ model CMSReservation {
   headerImage       String?
   isActive          Boolean?
 
-  Restaurant Restaurant[]
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
 }
 
 model CMSContact {
@@ -171,7 +179,8 @@ model CMSContact {
   headerImage       String?
   isActive          Boolean?
 
-  Restaurant Restaurant[]
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
 }
 
 model ProductCategory {
@@ -197,11 +206,11 @@ model Product {
   spiceLevel        SpiceLevel       @default(None)
   isPopular         Boolean?
   isActive          Boolean?
-  ProductCategory   ProductCategory? @relation(fields: [productCategoryId], references: [id])
+  productCategory   ProductCategory? @relation(fields: [productCategoryId], references: [id])
   productCategoryId String?
-  Restaurant        Restaurant?      @relation(fields: [restaurantId], references: [id])
+  restaurant        Restaurant?      @relation(fields: [restaurantId], references: [id])
   restaurantId      String?
-  OrderItem         OrderItem[]
+  orderItems        OrderItem[]
 }
 
 enum SpiceLevel {
@@ -213,29 +222,29 @@ enum SpiceLevel {
 }
 
 model Schedule {
-  id           String      @id @default(cuid())
-  createdAt    DateTime    @default(now())
+  id           String     @id @default(cuid())
+  createdAt    DateTime   @default(now())
   day          String?
   openingTime  String?
   closingTime  String?
   deliveryTime Int?
   takeawayTime Int?
-  Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
-  restaurantId String?
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
 }
 
 model DeliveryZone {
   id                String      @id @default(cuid())
   createdAt         DateTime    @default(now())
-  zoneTitle         String
-  zonePostCode      String?
+  name              String
+  postCode          String?
   deliveryFeeType   DeliveryFee @default(Fixed)
   deliveryCharge    Int         @default(0)
   minDeliveryAmount Int?
   minDeliveryRadius Int?
   maxDeliveryRadius Int?
-  Restaurant        Restaurant? @relation(fields: [restaurantId], references: [id])
-  restaurantId      String?
+  restaurant        Restaurant  @relation(fields: [restaurantId], references: [id])
+  restaurantId      String
 }
 
 enum DeliveryFee {
@@ -244,18 +253,18 @@ enum DeliveryFee {
 }
 
 model Customer {
-  id               String             @id @default(cuid())
-  createdAt        DateTime           @default(now())
-  firstName        String
-  lastName         String
-  email            String             @unique
-  password         String
-  phone            String             @unique
-  addresses        CustomerAddress[]
-  orders           Order[]
-  restaurants      Restaurant[]
-  updatedAt        DateTime           @updatedAt
-  RestaurantReview RestaurantReview[]
+  id          String             @id @default(cuid())
+  createdAt   DateTime           @default(now())
+  firstName   String
+  lastName    String
+  email       String             @unique
+  password    String
+  phone       String             @unique
+  addresses   CustomerAddress[]
+  orders      Order[]
+  restaurants Restaurant[]
+  updatedAt   DateTime           @updatedAt
+  reviews     RestaurantReview[]
 }
 
 model CustomerAddress {
@@ -265,8 +274,9 @@ model CustomerAddress {
   city          String
   postCode      String
   country       String
-  Customer      Customer? @relation(fields: [customerId], references: [id])
+  customer      Customer? @relation(fields: [customerId], references: [id])
   customerId    String?
+  orders        Order[]
 }
 
 model User {
@@ -286,6 +296,17 @@ enum Role {
   Owner
   Admin
   SuperAdmin
+}
+
+model Offer {
+  id           String     @id @default(cuid())
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  name         String
+  description  String?
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  orders       Order[]
+  restaurantId String
 }
 
 model Coupon {
@@ -313,30 +334,33 @@ model OrderItem {
   total        Int
   spiceLevel   SpiceLevel  @default(None)
   productId    String
-  Order        Order?      @relation(fields: [orderId], references: [id])
-  orderId      Int?
+  order        Order       @relation(fields: [orderId], references: [id])
+  orderId      Int
   createdAt    DateTime    @default(now())
   updatedAt    DateTime    @updatedAt
-  Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
+  restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
   restaurantId String?
 }
 
 model Order {
-  id              Int         @id @default(autoincrement())
-  items           OrderItem[]
-  address         String?
-  discount        Float
-  deliveryCharges Float
-  vat             Float
-  serviceCharge   Float
-  total           Float
-  isAccepted      Boolean
-  Coupon          Coupon?     @relation(fields: [couponId], references: [id])
-  couponId        String?
-  restaurant      Restaurant  @relation(fields: [restaurantId], references: [id])
-  restaurantId    String
-  Customer        Customer?   @relation(fields: [customerId], references: [id])
-  customerId      String?
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
+  id                Int              @id @default(autoincrement())
+  items             OrderItem[]
+  address           CustomerAddress? @relation(fields: [customerAddressId], references: [id])
+  discount          Float
+  deliveryCharge    Float
+  vat               Float
+  serviceCharge     Float
+  total             Float
+  isAccepted        Boolean
+  Coupon            Coupon?          @relation(fields: [couponId], references: [id])
+  couponId          String?
+  offer             Offer?           @relation(fields: [offerId], references: [id])
+  offerId           String?
+  restaurant        Restaurant       @relation(fields: [restaurantId], references: [id])
+  restaurantId      String
+  Customer          Customer?        @relation(fields: [customerId], references: [id])
+  customerId        String?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  customerAddressId String?
 }

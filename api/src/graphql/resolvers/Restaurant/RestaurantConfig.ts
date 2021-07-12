@@ -12,7 +12,7 @@ export const RestaurantConfig = objectType({
     t.model.isActive();
     t.model.createdAt();
     t.model.updatedAt();
-    t.model.Restaurant();
+    t.model.restaurant();
   },
 });
 

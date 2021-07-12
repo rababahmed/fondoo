@@ -21,7 +21,7 @@ export const CMSHome = objectType({
     t.model.popularDishesHeading();
     t.model.popularDishesDescription();
     t.model.popularDishesImage();
-    t.model.Restaurant();
+    t.model.restaurant();
   },
 });
 

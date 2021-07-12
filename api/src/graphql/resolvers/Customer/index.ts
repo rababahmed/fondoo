@@ -8,7 +8,6 @@ export const Customer = objectType({
     t.model.lastName();
     t.model.email();
     t.model.phone();
-    t.model.token();
     t.model.addresses();
     t.model.orders();
     t.model.restaurants();
@@ -36,5 +35,4 @@ export const CustomerMutation = extendType({
   },
 });
 
-export * as CustomerToken from "./token";
 export * as CustomerAddress from "./address";

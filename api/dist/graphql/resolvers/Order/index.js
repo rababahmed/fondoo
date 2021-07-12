@@ -30,7 +30,7 @@ exports.Order = nexus_1.objectType({
         t.model.items();
         t.model.address();
         t.model.discount();
-        t.model.deliveryCharges();
+        t.model.deliveryCharge();
         t.model.vat();
         t.model.serviceCharge();
         t.model.total();

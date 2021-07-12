@@ -11,7 +11,7 @@ exports.RestaurantSocial = nexus_1.objectType({
         t.model.facebook();
         t.model.instagram();
         t.model.pinterest();
-        t.model.Restaurant();
+        t.model.restaurant();
         t.model.isActive();
     },
 });

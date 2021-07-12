@@ -10,7 +10,7 @@ export const CMSContact = objectType({
     t.model.headerDescription();
     t.model.headerImage();
     t.model.isActive();
-    t.model.Restaurant();
+    t.model.restaurant();
   },
 });
 

@@ -30,9 +30,8 @@ interface PrismaModels {
   DeliveryZone: Prisma.DeliveryZone
   Customer: Prisma.Customer
   CustomerAddress: Prisma.CustomerAddress
-  CustomerToken: Prisma.CustomerToken
   User: Prisma.User
-  UserToken: Prisma.UserToken
+  Offer: Prisma.Offer
   Coupon: Prisma.Coupon
   OrderItem: Prisma.OrderItem
   Order: Prisma.Order
@@ -42,113 +41,109 @@ interface PrismaModels {
 interface NexusPrismaInputs {
   Query: {
     restaurants: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'coupons' | 'reviews' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'config' | 'offers' | 'restaurantSocialId'
+      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'restaurantSocialId'
     }
     restaurantPlans: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'price' | 'isActive' | 'restaurants'
       ordering: 'id' | 'name' | 'price' | 'isActive'
     }
     restaurantConfigs: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'createdAt' | 'updatedAt' | 'Restaurant'
-      ordering: 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'restaurantId' | 'createdAt' | 'updatedAt'
     }
     restaurantSocials: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive' | 'Restaurant'
-      ordering: 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive' | 'restaurantId' | 'createdAt' | 'updatedAt'
     }
     restaurantReviews: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customer' | 'restaurant' | 'customerId' | 'createdAt' | 'updatedAt' | 'restaurantId'
       ordering: 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customerId' | 'createdAt' | 'updatedAt' | 'restaurantId'
     }
     cmsHomes: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'heroHeading' | 'heroDescription' | 'heroImage' | 'aboutHeading' | 'aboutDescription' | 'aboutImage' | 'dealsHeading' | 'dealsDescription' | 'dealsImage' | 'reservationHeading' | 'reservationDescription' | 'reservationImage' | 'popularDishesHeading' | 'popularDishesDescription' | 'popularDishesImage' | 'isActive' | 'Restaurant'
-      ordering: 'id' | 'heroHeading' | 'heroDescription' | 'heroImage' | 'aboutHeading' | 'aboutDescription' | 'aboutImage' | 'dealsHeading' | 'dealsDescription' | 'dealsImage' | 'reservationHeading' | 'reservationDescription' | 'reservationImage' | 'popularDishesHeading' | 'popularDishesDescription' | 'popularDishesImage' | 'isActive'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'heroHeading' | 'heroDescription' | 'heroImage' | 'aboutHeading' | 'aboutDescription' | 'aboutImage' | 'dealsHeading' | 'dealsDescription' | 'dealsImage' | 'reservationHeading' | 'reservationDescription' | 'reservationImage' | 'popularDishesHeading' | 'popularDishesDescription' | 'popularDishesImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'heroHeading' | 'heroDescription' | 'heroImage' | 'aboutHeading' | 'aboutDescription' | 'aboutImage' | 'dealsHeading' | 'dealsDescription' | 'dealsImage' | 'reservationHeading' | 'reservationDescription' | 'reservationImage' | 'popularDishesHeading' | 'popularDishesDescription' | 'popularDishesImage' | 'isActive' | 'restaurantId'
     }
     cmsAbouts: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'storyHeading' | 'storyDescription' | 'storyImage' | 'isActive' | 'Restaurant'
-      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'storyHeading' | 'storyDescription' | 'storyImage' | 'isActive'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'storyHeading' | 'storyDescription' | 'storyImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'storyHeading' | 'storyDescription' | 'storyImage' | 'isActive' | 'restaurantId'
     }
     cmsReviews: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'Restaurant'
-      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurantId'
     }
     cmsReservations: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'Restaurant'
-      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurantId'
     }
     cmsContacts: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'Restaurant'
-      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurantId'
     }
     productCategories: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product'
       ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurantId'
     }
     products: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'ProductCategory' | 'productCategoryId' | 'Restaurant' | 'restaurantId' | 'OrderItem'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems'
       ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategoryId' | 'restaurantId'
     }
     schedules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'day' | 'openingTime' | 'closingTime' | 'deliveryTime' | 'takeawayTime' | 'Restaurant' | 'restaurantId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'day' | 'openingTime' | 'closingTime' | 'deliveryTime' | 'takeawayTime' | 'restaurant' | 'restaurantId'
       ordering: 'id' | 'createdAt' | 'day' | 'openingTime' | 'closingTime' | 'deliveryTime' | 'takeawayTime' | 'restaurantId'
     }
     deliveryZones: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'zoneTitle' | 'zonePostCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'Restaurant' | 'restaurantId'
-      ordering: 'id' | 'createdAt' | 'zoneTitle' | 'zonePostCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurantId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'postCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'createdAt' | 'name' | 'postCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurantId'
     }
     customers: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'token' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'RestaurantReview'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'reviews'
       ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'updatedAt'
     }
     customerAddresses: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'streetAddress' | 'city' | 'postCode' | 'country' | 'Customer' | 'customerId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'streetAddress' | 'city' | 'postCode' | 'country' | 'customer' | 'customerId' | 'orders'
       ordering: 'id' | 'createdAt' | 'streetAddress' | 'city' | 'postCode' | 'country' | 'customerId'
     }
-    customerTokens: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'token' | 'createdAt' | 'updatedAt' | 'Customer' | 'customerId'
-      ordering: 'id' | 'token' | 'createdAt' | 'updatedAt' | 'customerId'
-    }
     users: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'token' | 'restaurants' | 'role'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'restaurants' | 'role'
       ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'role'
     }
-    userTokens: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'token' | 'provider' | 'createdAt' | 'updatedAt' | 'User' | 'userId'
-      ordering: 'id' | 'token' | 'provider' | 'createdAt' | 'updatedAt' | 'userId'
+    offers: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'restaurant' | 'orders' | 'restaurantId'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'restaurantId'
     }
     coupons: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'code' | 'discount' | 'value' | 'description' | 'orders'
-      ordering: 'id' | 'code' | 'discount' | 'value' | 'description'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'code' | 'discount' | 'value' | 'description' | 'restaurant' | 'orders' | 'restaurantId'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'code' | 'discount' | 'value' | 'description' | 'restaurantId'
     }
     orderItems: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'Order' | 'orderId' | 'createdAt' | 'updatedAt' | 'Restaurant' | 'restaurantId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'order' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurant' | 'restaurantId'
       ordering: 'id' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurantId'
     }
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharges' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'address' | 'discount' | 'deliveryCharges' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
+      ordering: 'id' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'offerId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
     }
   },
   Restaurant: {
     schedules: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'day' | 'openingTime' | 'closingTime' | 'deliveryTime' | 'takeawayTime' | 'Restaurant' | 'restaurantId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'day' | 'openingTime' | 'closingTime' | 'deliveryTime' | 'takeawayTime' | 'restaurant' | 'restaurantId'
       ordering: 'id' | 'createdAt' | 'day' | 'openingTime' | 'closingTime' | 'deliveryTime' | 'takeawayTime' | 'restaurantId'
     }
     deliveryZones: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'zoneTitle' | 'zonePostCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'Restaurant' | 'restaurantId'
-      ordering: 'id' | 'createdAt' | 'zoneTitle' | 'zonePostCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurantId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'postCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurant' | 'restaurantId'
+      ordering: 'id' | 'createdAt' | 'name' | 'postCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurantId'
     }
     customers: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'token' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'RestaurantReview'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'reviews'
       ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'updatedAt'
     }
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharges' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'address' | 'discount' | 'deliveryCharges' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
+      ordering: 'id' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'offerId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
     }
     orderItems: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'Order' | 'orderId' | 'createdAt' | 'updatedAt' | 'Restaurant' | 'restaurantId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'order' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurant' | 'restaurantId'
       ordering: 'id' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurantId'
     }
     productCategory: {
@@ -156,78 +151,65 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurantId'
     }
     products: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'ProductCategory' | 'productCategoryId' | 'Restaurant' | 'restaurantId' | 'OrderItem'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems'
       ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategoryId' | 'restaurantId'
     }
     users: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'token' | 'restaurants' | 'role'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'restaurants' | 'role'
       ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'role'
+    }
+    coupons: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'code' | 'discount' | 'value' | 'description' | 'restaurant' | 'orders' | 'restaurantId'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'code' | 'discount' | 'value' | 'description' | 'restaurantId'
     }
     reviews: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customer' | 'restaurant' | 'customerId' | 'createdAt' | 'updatedAt' | 'restaurantId'
       ordering: 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customerId' | 'createdAt' | 'updatedAt' | 'restaurantId'
     }
+    offers: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'restaurant' | 'orders' | 'restaurantId'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'restaurantId'
+    }
   }
   RestaurantPlan: {
     restaurants: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'coupons' | 'reviews' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'config' | 'offers' | 'restaurantSocialId'
+      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'restaurantSocialId'
     }
   }
   RestaurantConfig: {
-    Restaurant: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
-    }
+
   }
   RestaurantSocial: {
-    Restaurant: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
-    }
+
   }
   RestaurantReview: {
 
   }
   CMSHome: {
-    Restaurant: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
-    }
+
   }
   CMSAbout: {
-    Restaurant: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
-    }
+
   }
   CMSReview: {
-    Restaurant: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
-    }
+
   }
   CMSReservation: {
-    Restaurant: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
-    }
+
   }
   CMSContact: {
-    Restaurant: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
-    }
+
   }
   ProductCategory: {
     Product: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'ProductCategory' | 'productCategoryId' | 'Restaurant' | 'restaurantId' | 'OrderItem'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems'
       ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategoryId' | 'restaurantId'
     }
   }
   Product: {
-    OrderItem: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'Order' | 'orderId' | 'createdAt' | 'updatedAt' | 'Restaurant' | 'restaurantId'
+    orderItems: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'order' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurant' | 'restaurantId'
       ordering: 'id' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurantId'
     }
   }
@@ -238,50 +220,45 @@ interface NexusPrismaInputs {
 
   }
   Customer: {
-    token: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'token' | 'createdAt' | 'updatedAt' | 'Customer' | 'customerId'
-      ordering: 'id' | 'token' | 'createdAt' | 'updatedAt' | 'customerId'
-    }
     addresses: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'streetAddress' | 'city' | 'postCode' | 'country' | 'Customer' | 'customerId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'streetAddress' | 'city' | 'postCode' | 'country' | 'customer' | 'customerId' | 'orders'
       ordering: 'id' | 'createdAt' | 'streetAddress' | 'city' | 'postCode' | 'country' | 'customerId'
     }
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharges' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'address' | 'discount' | 'deliveryCharges' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
+      ordering: 'id' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'offerId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
     }
     restaurants: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'coupons' | 'reviews' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'config' | 'offers' | 'restaurantSocialId'
+      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'restaurantSocialId'
     }
-    RestaurantReview: {
+    reviews: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customer' | 'restaurant' | 'customerId' | 'createdAt' | 'updatedAt' | 'restaurantId'
       ordering: 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customerId' | 'createdAt' | 'updatedAt' | 'restaurantId'
     }
   }
   CustomerAddress: {
-
-  }
-  CustomerToken: {
-
+    orders: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
+      ordering: 'id' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'offerId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
+    }
   }
   User: {
-    token: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'token' | 'provider' | 'createdAt' | 'updatedAt' | 'User' | 'userId'
-      ordering: 'id' | 'token' | 'provider' | 'createdAt' | 'updatedAt' | 'userId'
-    }
     restaurants: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'config' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'reviews'
-      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'restaurantConfigId' | 'restaurantSocialId' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'coupons' | 'reviews' | 'socials' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact' | 'createdAt' | 'updatedAt' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'config' | 'offers' | 'restaurantSocialId'
+      ordering: 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'isTakeaway' | 'isDelivery' | 'isReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'createdAt' | 'updatedAt' | 'cMSHomeId' | 'cMSAboutId' | 'cMSReviewId' | 'cMSReservationId' | 'cMSContactId' | 'restaurantSocialId'
     }
   }
-  UserToken: {
-
+  Offer: {
+    orders: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
+      ordering: 'id' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'offerId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
+    }
   }
   Coupon: {
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharges' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'address' | 'discount' | 'deliveryCharges' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
+      ordering: 'id' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isAccepted' | 'couponId' | 'offerId' | 'restaurantId' | 'customerId' | 'createdAt' | 'updatedAt' | 'customerAddressId'
     }
   }
   OrderItem: {
@@ -289,7 +266,7 @@ interface NexusPrismaInputs {
   }
   Order: {
     items: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'Order' | 'orderId' | 'createdAt' | 'updatedAt' | 'Restaurant' | 'restaurantId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'order' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurant' | 'restaurantId'
       ordering: 'id' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurantId'
     }
   }
@@ -330,12 +307,10 @@ interface NexusPrismaOutputs {
     customers: 'Customer'
     customerAddress: 'CustomerAddress'
     customerAddresses: 'CustomerAddress'
-    customerToken: 'CustomerToken'
-    customerTokens: 'CustomerToken'
     user: 'User'
     users: 'User'
-    userToken: 'UserToken'
-    userTokens: 'UserToken'
+    offer: 'Offer'
+    offers: 'Offer'
     coupon: 'Coupon'
     coupons: 'Coupon'
     orderItem: 'OrderItem'
@@ -440,24 +415,18 @@ interface NexusPrismaOutputs {
     deleteOneCustomerAddress: 'CustomerAddress'
     deleteManyCustomerAddress: 'AffectedRowsOutput'
     upsertOneCustomerAddress: 'CustomerAddress'
-    createOneCustomerToken: 'CustomerToken'
-    updateOneCustomerToken: 'CustomerToken'
-    updateManyCustomerToken: 'AffectedRowsOutput'
-    deleteOneCustomerToken: 'CustomerToken'
-    deleteManyCustomerToken: 'AffectedRowsOutput'
-    upsertOneCustomerToken: 'CustomerToken'
     createOneUser: 'User'
     updateOneUser: 'User'
     updateManyUser: 'AffectedRowsOutput'
     deleteOneUser: 'User'
     deleteManyUser: 'AffectedRowsOutput'
     upsertOneUser: 'User'
-    createOneUserToken: 'UserToken'
-    updateOneUserToken: 'UserToken'
-    updateManyUserToken: 'AffectedRowsOutput'
-    deleteOneUserToken: 'UserToken'
-    deleteManyUserToken: 'AffectedRowsOutput'
-    upsertOneUserToken: 'UserToken'
+    createOneOffer: 'Offer'
+    updateOneOffer: 'Offer'
+    updateManyOffer: 'AffectedRowsOutput'
+    deleteOneOffer: 'Offer'
+    deleteManyOffer: 'AffectedRowsOutput'
+    upsertOneOffer: 'Offer'
     createOneCoupon: 'Coupon'
     updateOneCoupon: 'Coupon'
     updateManyCoupon: 'AffectedRowsOutput'
@@ -514,7 +483,8 @@ interface NexusPrismaOutputs {
     productCategory: 'ProductCategory'
     products: 'Product'
     users: 'User'
-    config: 'RestaurantConfig'
+    coupons: 'Coupon'
+    reviews: 'RestaurantReview'
     socials: 'RestaurantSocial'
     CMSHome: 'CMSHome'
     CMSAbout: 'CMSAbout'
@@ -523,14 +493,14 @@ interface NexusPrismaOutputs {
     CMSContact: 'CMSContact'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'
-    restaurantConfigId: 'String'
-    restaurantSocialId: 'String'
     cMSHomeId: 'String'
     cMSAboutId: 'String'
     cMSReviewId: 'String'
     cMSReservationId: 'String'
     cMSContactId: 'String'
-    reviews: 'RestaurantReview'
+    config: 'RestaurantConfig'
+    offers: 'Offer'
+    restaurantSocialId: 'String'
   }
   RestaurantPlan: {
     id: 'String'
@@ -545,9 +515,10 @@ interface NexusPrismaOutputs {
     primaryColor: 'String'
     secondaryColor: 'String'
     isActive: 'Boolean'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'
-    Restaurant: 'Restaurant'
   }
   RestaurantSocial: {
     id: 'String'
@@ -555,7 +526,10 @@ interface NexusPrismaOutputs {
     instagram: 'String'
     pinterest: 'String'
     isActive: 'Boolean'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
   }
   RestaurantReview: {
     id: 'String'
@@ -588,7 +562,8 @@ interface NexusPrismaOutputs {
     popularDishesDescription: 'String'
     popularDishesImage: 'String'
     isActive: 'Boolean'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
   }
   CMSAbout: {
     id: 'String'
@@ -599,7 +574,8 @@ interface NexusPrismaOutputs {
     storyDescription: 'String'
     storyImage: 'String'
     isActive: 'Boolean'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
   }
   CMSReview: {
     id: 'String'
@@ -607,7 +583,8 @@ interface NexusPrismaOutputs {
     headerDescription: 'String'
     headerImage: 'String'
     isActive: 'Boolean'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
   }
   CMSReservation: {
     id: 'String'
@@ -615,7 +592,8 @@ interface NexusPrismaOutputs {
     headerDescription: 'String'
     headerImage: 'String'
     isActive: 'Boolean'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
   }
   CMSContact: {
     id: 'String'
@@ -623,7 +601,8 @@ interface NexusPrismaOutputs {
     headerDescription: 'String'
     headerImage: 'String'
     isActive: 'Boolean'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
+    restaurantId: 'String'
   }
   ProductCategory: {
     id: 'String'
@@ -647,11 +626,11 @@ interface NexusPrismaOutputs {
     spiceLevel: 'SpiceLevel'
     isPopular: 'Boolean'
     isActive: 'Boolean'
-    ProductCategory: 'ProductCategory'
+    productCategory: 'ProductCategory'
     productCategoryId: 'String'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
     restaurantId: 'String'
-    OrderItem: 'OrderItem'
+    orderItems: 'OrderItem'
   }
   Schedule: {
     id: 'String'
@@ -661,20 +640,20 @@ interface NexusPrismaOutputs {
     closingTime: 'String'
     deliveryTime: 'Int'
     takeawayTime: 'Int'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
     restaurantId: 'String'
   }
   DeliveryZone: {
     id: 'String'
     createdAt: 'DateTime'
-    zoneTitle: 'String'
-    zonePostCode: 'String'
+    name: 'String'
+    postCode: 'String'
     deliveryFeeType: 'DeliveryFee'
     deliveryCharge: 'Int'
     minDeliveryAmount: 'Int'
     minDeliveryRadius: 'Int'
     maxDeliveryRadius: 'Int'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
     restaurantId: 'String'
   }
   Customer: {
@@ -685,12 +664,11 @@ interface NexusPrismaOutputs {
     email: 'String'
     password: 'String'
     phone: 'String'
-    token: 'CustomerToken'
     addresses: 'CustomerAddress'
     orders: 'Order'
     restaurants: 'Restaurant'
     updatedAt: 'DateTime'
-    RestaurantReview: 'RestaurantReview'
+    reviews: 'RestaurantReview'
   }
   CustomerAddress: {
     id: 'String'
@@ -699,16 +677,9 @@ interface NexusPrismaOutputs {
     city: 'String'
     postCode: 'String'
     country: 'String'
-    Customer: 'Customer'
+    customer: 'Customer'
     customerId: 'String'
-  }
-  CustomerToken: {
-    id: 'String'
-    token: 'String'
-    createdAt: 'DateTime'
-    updatedAt: 'DateTime'
-    Customer: 'Customer'
-    customerId: 'String'
+    orders: 'Order'
   }
   User: {
     id: 'String'
@@ -718,26 +689,30 @@ interface NexusPrismaOutputs {
     email: 'String'
     password: 'String'
     phone: 'String'
-    token: 'UserToken'
     restaurants: 'Restaurant'
     role: 'Role'
   }
-  UserToken: {
+  Offer: {
     id: 'String'
-    token: 'String'
-    provider: 'String'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'
-    User: 'User'
-    userId: 'String'
+    name: 'String'
+    description: 'String'
+    restaurant: 'Restaurant'
+    orders: 'Order'
+    restaurantId: 'String'
   }
   Coupon: {
     id: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
     code: 'String'
     discount: 'Discount'
     value: 'Float'
     description: 'String'
+    restaurant: 'Restaurant'
     orders: 'Order'
+    restaurantId: 'String'
   }
   OrderItem: {
     id: 'String'
@@ -746,31 +721,34 @@ interface NexusPrismaOutputs {
     total: 'Int'
     spiceLevel: 'SpiceLevel'
     productId: 'String'
-    Order: 'Order'
+    order: 'Order'
     orderId: 'Int'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'
-    Restaurant: 'Restaurant'
+    restaurant: 'Restaurant'
     restaurantId: 'String'
   }
   Order: {
     id: 'Int'
     items: 'OrderItem'
-    address: 'String'
+    address: 'CustomerAddress'
     discount: 'Float'
-    deliveryCharges: 'Float'
+    deliveryCharge: 'Float'
     vat: 'Float'
     serviceCharge: 'Float'
     total: 'Float'
     isAccepted: 'Boolean'
     Coupon: 'Coupon'
     couponId: 'String'
+    offer: 'Offer'
+    offerId: 'String'
     restaurant: 'Restaurant'
     restaurantId: 'String'
     Customer: 'Customer'
     customerId: 'String'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'
+    customerAddressId: 'String'
   }
 }
 
@@ -792,9 +770,8 @@ interface NexusPrismaMethods {
   DeliveryZone: Typegen.NexusPrismaFields<'DeliveryZone'>
   Customer: Typegen.NexusPrismaFields<'Customer'>
   CustomerAddress: Typegen.NexusPrismaFields<'CustomerAddress'>
-  CustomerToken: Typegen.NexusPrismaFields<'CustomerToken'>
   User: Typegen.NexusPrismaFields<'User'>
-  UserToken: Typegen.NexusPrismaFields<'UserToken'>
+  Offer: Typegen.NexusPrismaFields<'Offer'>
   Coupon: Typegen.NexusPrismaFields<'Coupon'>
   OrderItem: Typegen.NexusPrismaFields<'OrderItem'>
   Order: Typegen.NexusPrismaFields<'Order'>

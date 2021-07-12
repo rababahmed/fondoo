@@ -12,7 +12,7 @@ exports.CMSContact = nexus_1.objectType({
         t.model.headerDescription();
         t.model.headerImage();
         t.model.isActive();
-        t.model.Restaurant();
+        t.model.restaurant();
     },
 });
 exports.CMSContactQuery = nexus_1.extendType({

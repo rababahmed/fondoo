@@ -19,7 +19,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CustomerAddress = exports.CustomerToken = exports.CustomerMutation = exports.CustomerQuery = exports.Customer = void 0;
+exports.CustomerAddress = exports.CustomerMutation = exports.CustomerQuery = exports.Customer = void 0;
 const nexus_1 = require("nexus");
 exports.Customer = nexus_1.objectType({
     name: "Customer",
@@ -29,7 +29,6 @@ exports.Customer = nexus_1.objectType({
         t.model.lastName();
         t.model.email();
         t.model.phone();
-        t.model.token();
         t.model.addresses();
         t.model.orders();
         t.model.restaurants();
@@ -54,6 +53,5 @@ exports.CustomerMutation = nexus_1.extendType({
         t.crud.deleteOneCustomer({ alias: "deleteCustomer" });
     },
 });
-exports.CustomerToken = __importStar(require("./token"));
 exports.CustomerAddress = __importStar(require("./address"));
 //# sourceMappingURL=index.js.map

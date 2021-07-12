@@ -8,7 +8,7 @@ export const CustomerAddress = objectType({
     t.model.city();
     t.model.postCode();
     t.model.country();
-    t.model.Customer();
+    t.model.customer();
     t.model.customerId();
   },
 });

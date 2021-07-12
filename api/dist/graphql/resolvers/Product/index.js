@@ -34,11 +34,11 @@ exports.Product = nexus_1.objectType({
         t.model.spiceLevel();
         t.model.isPopular();
         t.model.isActive();
-        t.model.ProductCategory();
+        t.model.productCategory();
         t.model.productCategoryId();
-        t.model.Restaurant();
+        t.model.restaurant();
         t.model.restaurantId();
-        t.model.OrderItem();
+        t.model.orderItems();
     },
 });
 exports.ProductQuery = nexus_1.extendType({

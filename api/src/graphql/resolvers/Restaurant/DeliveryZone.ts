@@ -6,14 +6,14 @@ export const DeliveryZone = objectType({
   name: "DeliveryZone",
   definition(t) {
     t.model.id();
-    t.model.zoneTitle();
-    t.model.zonePostCode();
+    t.model.name();
+    t.model.postCode();
     t.model.deliveryFeeType();
     t.model.deliveryCharge();
     t.model.minDeliveryAmount();
     t.model.minDeliveryRadius();
     t.model.maxDeliveryRadius();
-    t.model.Restaurant();
+    t.model.restaurant();
     t.model.restaurantId();
   },
 });

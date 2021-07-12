@@ -15,7 +15,7 @@ exports.CMSAbout = nexus_1.objectType({
         t.model.storyDescription();
         t.model.storyImage();
         t.model.isActive();
-        t.model.Restaurant();
+        t.model.restaurant();
     },
 });
 exports.CMSAboutQuery = nexus_1.extendType({

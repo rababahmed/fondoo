@@ -9,9 +9,9 @@ export const OrderItem = objectType({
     t.model.total();
     t.model.spiceLevel();
     t.model.productId();
-    t.model.Order();
+    t.model.order();
     t.model.orderId();
-    t.model.Restaurant();
+    t.model.restaurant();
     t.model.restaurantId();
   },
 });

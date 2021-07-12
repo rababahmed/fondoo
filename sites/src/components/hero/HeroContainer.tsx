@@ -28,7 +28,7 @@ const HeroContainer = ({ rdata, cdata, imageProps }: any) => {
             zIndex="1"
             h={560}
             w="100%"
-            bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+            bgGradient={"linear(to-r, blackAlpha.600, blackAlpha.600)"}
           >
             <VStack mt={200} spacing={4} align="center">
               <Heading size="2xl" color="white" align="center">

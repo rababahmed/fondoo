@@ -25,6 +25,9 @@ import { usePrefStore } from "../../store/usePrefStore";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { useUserStore } from "../../store/useUserStore";
+import Image from "next/image";
+import * as Logo from "../../../public/tezzbites.png";
+import * as LogoFull from "../../../public/tezzbites-full.png";
 
 const NavBar = () => {
   const router = useRouter();
@@ -70,8 +73,8 @@ const NavBar = () => {
         </Box>
         <Stack>
           <VStack pt={8} mr={1}>
-            <Box mt={6} mb={6}>
-              <Heading color="gray.50">TezzBites</Heading>
+            <Box mt={6} px={6}>
+              <Image src={LogoFull} alt="logo" placeholder="blur" priority />
             </Box>
           </VStack>
           <VStack align="stretch" p={6} mr={1}>

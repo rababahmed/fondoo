@@ -11,7 +11,7 @@ router.get("/:domain", async (req, res) => {
         const { domain } = req.params;
         const result = await PrismaClient_1.default.restaurantConfig.findUnique({
             where: { domain: domain },
-            include: { Restaurant: true },
+            include: { restaurant: true },
         });
         if (result) {
             res.status(200).send({ data: result });

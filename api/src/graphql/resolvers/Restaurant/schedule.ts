@@ -11,7 +11,7 @@ export const Schedule = objectType({
     t.model.closingTime();
     t.model.deliveryTime();
     t.model.takeawayTime();
-    t.model.Restaurant();
+    t.model.restaurant();
     t.model.restaurantId();
   },
 });

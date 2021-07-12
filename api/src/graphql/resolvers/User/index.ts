@@ -12,7 +12,6 @@ export const User = objectType({
     t.model.phone();
     t.model.role();
     t.model.restaurants();
-    t.model.token();
   },
 });
 
@@ -41,5 +40,3 @@ export const UserMutation = extendType({
     });
   },
 });
-
-export * as UserToken from "./token";

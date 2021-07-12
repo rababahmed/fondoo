@@ -13,7 +13,7 @@ export const CMSAbout = objectType({
     t.model.storyDescription();
     t.model.storyImage();
     t.model.isActive();
-    t.model.Restaurant();
+    t.model.restaurant();
   },
 });
 

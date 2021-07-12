@@ -14,7 +14,7 @@ exports.RestaurantConfig = nexus_1.objectType({
         t.model.isActive();
         t.model.createdAt();
         t.model.updatedAt();
-        t.model.Restaurant();
+        t.model.restaurant();
     },
 });
 exports.RestaurantConfigQuery = nexus_1.extendType({

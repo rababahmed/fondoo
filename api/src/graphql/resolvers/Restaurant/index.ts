@@ -48,9 +48,6 @@ export const Restaurant = objectType({
     t.model.CMSReview();
     t.model.CMSReservation();
     t.model.CMSContact();
-    t.model.config({ shield: or(isAdmin(), isOwner(), isManager()) });
-    t.model.config({ shield: or(isAdmin(), isOwner(), isManager()) });
-    t.model.config({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.createdAt();
   },
 });

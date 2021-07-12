@@ -69,9 +69,6 @@ exports.Restaurant = nexus_1.objectType({
         t.model.CMSReview();
         t.model.CMSReservation();
         t.model.CMSContact();
-        t.model.config({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
-        t.model.config({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
-        t.model.config({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.createdAt();
     },
 });
