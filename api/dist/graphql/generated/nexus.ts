@@ -3097,11 +3097,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3128,7 +3128,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3147,11 +3147,11 @@ export interface NexusGenInputs {
   RestaurantCreateManyPlanInput: { // input type
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     country?: string | null; // String
     coverImage?: string | null; // String
@@ -3363,11 +3363,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3394,7 +3394,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3417,11 +3417,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3448,7 +3448,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3471,11 +3471,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3502,7 +3502,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3525,11 +3525,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3556,7 +3556,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3579,11 +3579,11 @@ export interface NexusGenInputs {
     CMSReservation?: NexusGenInputs['CMSReservationCreateNestedOneWithoutRestaurantInput'] | null; // CMSReservationCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3610,7 +3610,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3634,11 +3634,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     country?: string | null; // String
     coupons?: NexusGenInputs['CouponCreateNestedManyWithoutRestaurantInput'] | null; // CouponCreateNestedManyWithoutRestaurantInput
@@ -3664,7 +3664,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3688,11 +3688,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3718,7 +3718,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3742,11 +3742,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3772,7 +3772,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3796,11 +3796,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3826,7 +3826,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3850,11 +3850,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3880,7 +3880,7 @@ export interface NexusGenInputs {
     name: string; // String!
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3904,11 +3904,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3934,7 +3934,7 @@ export interface NexusGenInputs {
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -3958,11 +3958,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -3988,7 +3988,7 @@ export interface NexusGenInputs {
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -4012,11 +4012,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -4066,11 +4066,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -4097,7 +4097,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
@@ -4120,11 +4120,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -4151,7 +4151,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -4174,11 +4174,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -4205,7 +4205,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -4228,11 +4228,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -4259,7 +4259,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -4282,11 +4282,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -4313,7 +4313,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -4336,11 +4336,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewCreateNestedOneWithoutRestaurantInput'] | null; // CMSReviewCreateNestedOneWithoutRestaurantInput
     address?: string | null; // String
     businessPhone?: string | null; // String
-    cMSAboutId: string; // String!
-    cMSContactId: string; // String!
-    cMSHomeId: string; // String!
-    cMSReservationId: string; // String!
-    cMSReviewId: string; // String!
+    cMSAboutId?: string | null; // String
+    cMSContactId?: string | null; // String
+    cMSHomeId?: string | null; // String
+    cMSReservationId?: string | null; // String
+    cMSReviewId?: string | null; // String
     city?: string | null; // String
     config?: NexusGenInputs['RestaurantConfigCreateNestedOneWithoutRestaurantInput'] | null; // RestaurantConfigCreateNestedOneWithoutRestaurantInput
     country?: string | null; // String
@@ -4367,7 +4367,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutRestaurantInput'] | null; // OrderCreateNestedManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput'] | null; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput
+    plan: NexusGenInputs['RestaurantPlanCreateNestedOneWithoutRestaurantsInput']; // RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
     postCode?: string | null; // String
     priceRange?: string | null; // String
     productCategory?: NexusGenInputs['ProductCategoryCreateNestedManyWithoutRestaurantsInput'] | null; // ProductCategoryCreateNestedManyWithoutRestaurantsInput
@@ -4459,12 +4459,10 @@ export interface NexusGenInputs {
     price?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     restaurants?: NexusGenInputs['RestaurantUpdateManyWithoutPlanInput'] | null; // RestaurantUpdateManyWithoutPlanInput
   }
-  RestaurantPlanUpdateOneWithoutRestaurantsInput: { // input type
+  RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput: { // input type
     connect?: NexusGenInputs['RestaurantPlanWhereUniqueInput'] | null; // RestaurantPlanWhereUniqueInput
     connectOrCreate?: NexusGenInputs['RestaurantPlanCreateOrConnectWithoutRestaurantsInput'] | null; // RestaurantPlanCreateOrConnectWithoutRestaurantsInput
     create?: NexusGenInputs['RestaurantPlanCreateWithoutRestaurantsInput'] | null; // RestaurantPlanCreateWithoutRestaurantsInput
-    delete?: boolean | null; // Boolean
-    disconnect?: boolean | null; // Boolean
     update?: NexusGenInputs['RestaurantPlanUpdateWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateWithoutRestaurantsInput
     upsert?: NexusGenInputs['RestaurantPlanUpsertWithoutRestaurantsInput'] | null; // RestaurantPlanUpsertWithoutRestaurantsInput
   }
@@ -4717,11 +4715,11 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['RestaurantScalarWhereInput'][] | null; // [RestaurantScalarWhereInput!]
     address?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     businessPhone?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    cMSAboutId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    cMSContactId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    cMSHomeId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    cMSReservationId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    cMSReviewId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    cMSAboutId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    cMSContactId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    cMSHomeId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    cMSReservationId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    cMSReviewId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     city?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     country?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     coverImage?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
@@ -4744,7 +4742,7 @@ export interface NexusGenInputs {
     postCode?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     priceRange?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     reservationPhone?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    restaurantPlanId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    restaurantPlanId?: NexusGenInputs['StringFilter'] | null; // StringFilter
     restaurantSocialId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     serviceCharge?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
@@ -4846,11 +4844,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -4877,7 +4875,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -4896,11 +4894,11 @@ export interface NexusGenInputs {
   RestaurantUpdateManyMutationInput: { // input type
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     coverImage?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5113,11 +5111,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5144,7 +5142,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5167,11 +5165,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5198,7 +5196,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5221,11 +5219,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5252,7 +5250,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5275,11 +5273,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5306,7 +5304,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5329,11 +5327,11 @@ export interface NexusGenInputs {
     CMSReservation?: NexusGenInputs['CMSReservationUpdateOneWithoutRestaurantInput'] | null; // CMSReservationUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5360,7 +5358,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5384,11 +5382,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     coupons?: NexusGenInputs['CouponUpdateManyWithoutRestaurantInput'] | null; // CouponUpdateManyWithoutRestaurantInput
@@ -5414,7 +5412,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5438,11 +5436,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5468,7 +5466,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5492,11 +5490,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5522,7 +5520,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5546,11 +5544,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5576,7 +5574,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5600,11 +5598,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5630,7 +5628,7 @@ export interface NexusGenInputs {
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5654,11 +5652,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5684,7 +5682,7 @@ export interface NexusGenInputs {
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5708,11 +5706,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5738,7 +5736,7 @@ export interface NexusGenInputs {
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5762,11 +5760,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5816,11 +5814,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5847,7 +5845,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
@@ -5870,11 +5868,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5901,7 +5899,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5924,11 +5922,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5955,7 +5953,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -5978,11 +5976,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -6009,7 +6007,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -6032,11 +6030,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -6063,7 +6061,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -6086,11 +6084,11 @@ export interface NexusGenInputs {
     CMSReview?: NexusGenInputs['CMSReviewUpdateOneWithoutRestaurantInput'] | null; // CMSReviewUpdateOneWithoutRestaurantInput
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     businessPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    cMSAboutId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSContactId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSHomeId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReservationId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    cMSReviewId?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    cMSAboutId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSContactId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSHomeId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReservationId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    cMSReviewId?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     city?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     config?: NexusGenInputs['RestaurantConfigUpdateOneWithoutRestaurantInput'] | null; // RestaurantConfigUpdateOneWithoutRestaurantInput
     country?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -6117,7 +6115,7 @@ export interface NexusGenInputs {
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutRestaurantInput'] | null; // OrderUpdateManyWithoutRestaurantInput
-    plan?: NexusGenInputs['RestaurantPlanUpdateOneWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneWithoutRestaurantsInput
+    plan?: NexusGenInputs['RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput'] | null; // RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     productCategory?: NexusGenInputs['ProductCategoryUpdateManyWithoutRestaurantsInput'] | null; // ProductCategoryUpdateManyWithoutRestaurantsInput
@@ -6222,11 +6220,11 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['RestaurantWhereInput'][] | null; // [RestaurantWhereInput!]
     address?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     businessPhone?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    cMSAboutId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    cMSContactId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    cMSHomeId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    cMSReservationId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    cMSReviewId?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    cMSAboutId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    cMSContactId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    cMSHomeId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    cMSReservationId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    cMSReviewId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     city?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     config?: NexusGenInputs['RestaurantConfigWhereInput'] | null; // RestaurantConfigWhereInput
     country?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
@@ -6259,7 +6257,7 @@ export interface NexusGenInputs {
     productCategory?: NexusGenInputs['ProductCategoryListRelationFilter'] | null; // ProductCategoryListRelationFilter
     products?: NexusGenInputs['ProductListRelationFilter'] | null; // ProductListRelationFilter
     reservationPhone?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    restaurantPlanId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    restaurantPlanId?: NexusGenInputs['StringFilter'] | null; // StringFilter
     restaurantSocialId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     reviews?: NexusGenInputs['RestaurantReviewListRelationFilter'] | null; // RestaurantReviewListRelationFilter
     schedules?: NexusGenInputs['ScheduleListRelationFilter'] | null; // ScheduleListRelationFilter
@@ -6739,7 +6737,7 @@ export interface NexusGenObjects {
     postCode?: string | null; // String
     priceRange?: string | null; // String
     reservationPhone?: string | null; // String
-    restaurantPlanId?: string | null; // String
+    restaurantPlanId: string; // String!
     serviceCharge?: string | null; // String
     url?: string | null; // String
     vat?: string | null; // String
@@ -7089,13 +7087,13 @@ export interface NexusGenFieldTypes {
     name: string; // String!
     orderItems: NexusGenRootTypes['OrderItem'][]; // [OrderItem!]!
     orders: NexusGenRootTypes['Order'][]; // [Order!]!
-    plan: NexusGenRootTypes['RestaurantPlan'] | null; // RestaurantPlan
+    plan: NexusGenRootTypes['RestaurantPlan']; // RestaurantPlan!
     postCode: string | null; // String
     priceRange: string | null; // String
     productCategory: NexusGenRootTypes['ProductCategory'][]; // [ProductCategory!]!
     products: NexusGenRootTypes['Product'][]; // [Product!]!
     reservationPhone: string | null; // String
-    restaurantPlanId: string | null; // String
+    restaurantPlanId: string; // String!
     schedules: NexusGenRootTypes['Schedule'][]; // [Schedule!]!
     serviceCharge: string | null; // String
     socials: NexusGenRootTypes['RestaurantSocial'] | null; // RestaurantSocial
