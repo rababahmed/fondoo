@@ -3800,11 +3800,6 @@ input RestaurantCreateInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -3851,11 +3846,6 @@ input RestaurantCreateInput {
 input RestaurantCreateManyPlanInput {
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   country: String
   coverImage: String
@@ -4107,11 +4097,6 @@ input RestaurantCreateWithoutCMSAboutInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4162,11 +4147,6 @@ input RestaurantCreateWithoutCMSContactInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4217,11 +4197,6 @@ input RestaurantCreateWithoutCMSHomeInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4272,11 +4247,6 @@ input RestaurantCreateWithoutCMSReservationInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4327,11 +4297,6 @@ input RestaurantCreateWithoutCMSReviewInput {
   CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4383,11 +4348,6 @@ input RestaurantCreateWithoutConfigInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   country: String
   coupons: CouponCreateNestedManyWithoutRestaurantInput
@@ -4438,11 +4398,6 @@ input RestaurantCreateWithoutCouponsInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4493,11 +4448,6 @@ input RestaurantCreateWithoutCustomersInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4548,11 +4498,6 @@ input RestaurantCreateWithoutDeliveryZonesInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4603,11 +4548,6 @@ input RestaurantCreateWithoutOffersInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4658,11 +4598,6 @@ input RestaurantCreateWithoutOrderItemsInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4713,11 +4648,6 @@ input RestaurantCreateWithoutOrdersInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4768,11 +4698,6 @@ input RestaurantCreateWithoutPlanInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4823,11 +4748,6 @@ input RestaurantCreateWithoutProductCategoryInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4878,11 +4798,6 @@ input RestaurantCreateWithoutProductsInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4933,11 +4848,6 @@ input RestaurantCreateWithoutReviewsInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -4988,11 +4898,6 @@ input RestaurantCreateWithoutSchedulesInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -5043,11 +4948,6 @@ input RestaurantCreateWithoutSocialsInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -5098,11 +4998,6 @@ input RestaurantCreateWithoutUsersInput {
   CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
   address: String
   businessPhone: String
-  cMSAboutId: String
-  cMSContactId: String
-  cMSHomeId: String
-  cMSReservationId: String
-  cMSReviewId: String
   city: String
   config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
   country: String
@@ -5154,11 +5049,6 @@ input RestaurantListRelationFilter {
 input RestaurantOrderByInput {
   address: SortOrder
   businessPhone: SortOrder
-  cMSAboutId: SortOrder
-  cMSContactId: SortOrder
-  cMSHomeId: SortOrder
-  cMSReservationId: SortOrder
-  cMSReviewId: SortOrder
   city: SortOrder
   country: SortOrder
   coverImage: SortOrder
@@ -5539,11 +5429,6 @@ input RestaurantScalarWhereInput {
   OR: [RestaurantScalarWhereInput!]
   address: StringNullableFilter
   businessPhone: StringNullableFilter
-  cMSAboutId: StringNullableFilter
-  cMSContactId: StringNullableFilter
-  cMSHomeId: StringNullableFilter
-  cMSReservationId: StringNullableFilter
-  cMSReviewId: StringNullableFilter
   city: StringNullableFilter
   country: StringNullableFilter
   coverImage: StringNullableFilter
@@ -5689,11 +5574,6 @@ input RestaurantUpdateInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -5740,11 +5620,6 @@ input RestaurantUpdateInput {
 input RestaurantUpdateManyMutationInput {
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
   coverImage: NullableStringFieldUpdateOperationsInput
@@ -5983,11 +5858,6 @@ input RestaurantUpdateWithoutCMSAboutInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6038,11 +5908,6 @@ input RestaurantUpdateWithoutCMSContactInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6093,11 +5958,6 @@ input RestaurantUpdateWithoutCMSHomeInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6148,11 +6008,6 @@ input RestaurantUpdateWithoutCMSReservationInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6203,11 +6058,6 @@ input RestaurantUpdateWithoutCMSReviewInput {
   CMSReservation: CMSReservationUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6259,11 +6109,6 @@ input RestaurantUpdateWithoutConfigInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   country: NullableStringFieldUpdateOperationsInput
   coupons: CouponUpdateManyWithoutRestaurantInput
@@ -6314,11 +6159,6 @@ input RestaurantUpdateWithoutCouponsInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6369,11 +6209,6 @@ input RestaurantUpdateWithoutCustomersInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6424,11 +6259,6 @@ input RestaurantUpdateWithoutDeliveryZonesInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6479,11 +6309,6 @@ input RestaurantUpdateWithoutOffersInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6534,11 +6359,6 @@ input RestaurantUpdateWithoutOrderItemsInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6589,11 +6409,6 @@ input RestaurantUpdateWithoutOrdersInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6644,11 +6459,6 @@ input RestaurantUpdateWithoutPlanInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6699,11 +6509,6 @@ input RestaurantUpdateWithoutProductCategoryInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6754,11 +6559,6 @@ input RestaurantUpdateWithoutProductsInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6809,11 +6609,6 @@ input RestaurantUpdateWithoutReviewsInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6864,11 +6659,6 @@ input RestaurantUpdateWithoutSchedulesInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6919,11 +6709,6 @@ input RestaurantUpdateWithoutSocialsInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -6974,11 +6759,6 @@ input RestaurantUpdateWithoutUsersInput {
   CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
   address: NullableStringFieldUpdateOperationsInput
   businessPhone: NullableStringFieldUpdateOperationsInput
-  cMSAboutId: NullableStringFieldUpdateOperationsInput
-  cMSContactId: NullableStringFieldUpdateOperationsInput
-  cMSHomeId: NullableStringFieldUpdateOperationsInput
-  cMSReservationId: NullableStringFieldUpdateOperationsInput
-  cMSReviewId: NullableStringFieldUpdateOperationsInput
   city: NullableStringFieldUpdateOperationsInput
   config: RestaurantConfigUpdateOneWithoutRestaurantInput
   country: NullableStringFieldUpdateOperationsInput
@@ -7130,11 +6910,6 @@ input RestaurantWhereInput {
   OR: [RestaurantWhereInput!]
   address: StringNullableFilter
   businessPhone: StringNullableFilter
-  cMSAboutId: StringNullableFilter
-  cMSContactId: StringNullableFilter
-  cMSHomeId: StringNullableFilter
-  cMSReservationId: StringNullableFilter
-  cMSReviewId: StringNullableFilter
   city: StringNullableFilter
   config: RestaurantConfigWhereInput
   country: StringNullableFilter

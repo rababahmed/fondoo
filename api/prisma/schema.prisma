@@ -57,11 +57,6 @@ model Restaurant {
   CMSContact              CMSContact?
   createdAt               DateTime           @default(now())
   updatedAt               DateTime           @updatedAt
-  cMSHomeId               String?
-  cMSAboutId              String?
-  cMSReviewId             String?
-  cMSReservationId        String?
-  cMSContactId            String?
   config                  RestaurantConfig?
   offers                  Offer[]
   restaurantSocialId      String?
