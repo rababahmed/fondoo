@@ -50,16 +50,16 @@ model Restaurant {
   coupons                 Coupon[]
   reviews                 RestaurantReview[]
   socials                 RestaurantSocial?
-  CMSHome                 CMSHome?
-  CMSAbout                CMSAbout?
-  CMSReview               CMSReview?
-  CMSReservation          CMSReservation?
-  CMSContact              CMSContact?
   createdAt               DateTime           @default(now())
   updatedAt               DateTime           @updatedAt
   config                  RestaurantConfig?
   offers                  Offer[]
   restaurantSocialId      String?
+  CMSHome                 CMSHome?
+  CMSAbout                CMSAbout?
+  CMSReview               CMSReview?
+  CMSReservation          CMSReservation?
+  CMSContact              CMSContact?
 }
 
 model RestaurantPlan {
