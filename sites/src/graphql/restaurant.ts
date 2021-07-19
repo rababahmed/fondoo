@@ -6,7 +6,7 @@ export const GET_RESTAURANT_INFO = gql`
       primaryColor
       secondaryColor
       isActive
-      Restaurant {
+      restaurant {
         id
         name
         email
@@ -41,8 +41,8 @@ export const GET_RESTAURANT_INFO = gql`
           takeawayTime
         }
         deliveryZones {
-          zoneTitle
-          zonePostCode
+          name
+          postCode
           deliveryFeeType
           deliveryCharge
           minDeliveryAmount

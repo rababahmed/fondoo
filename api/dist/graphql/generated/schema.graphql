@@ -1865,6 +1865,7 @@ input OfferCreateManyRestaurantInput {
   createdAt: DateTime
   description: String
   id: String
+  isActive: Boolean!
   name: String!
   updatedAt: DateTime
 }
@@ -1901,6 +1902,7 @@ input OfferCreateWithoutOrdersInput {
   createdAt: DateTime
   description: String
   id: String
+  isActive: Boolean!
   name: String!
   restaurant: RestaurantCreateNestedOneWithoutOffersInput!
   updatedAt: DateTime
@@ -1910,6 +1912,7 @@ input OfferCreateWithoutRestaurantInput {
   createdAt: DateTime
   description: String
   id: String
+  isActive: Boolean!
   name: String!
   orders: OrderCreateNestedManyWithoutOfferInput
   updatedAt: DateTime
@@ -1928,6 +1931,7 @@ input OfferScalarWhereInput {
   createdAt: DateTimeFilter
   description: StringNullableFilter
   id: StringFilter
+  isActive: BoolFilter
   name: StringFilter
   restaurantId: StringFilter
   updatedAt: DateTimeFilter
@@ -1937,6 +1941,7 @@ input OfferUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  isActive: BoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -1979,6 +1984,7 @@ input OfferUpdateWithoutOrdersInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  isActive: BoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutOffersInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -1988,6 +1994,7 @@ input OfferUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  isActive: BoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutOfferInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -2011,6 +2018,7 @@ input OfferWhereInput {
   createdAt: DateTimeFilter
   description: StringNullableFilter
   id: StringFilter
+  isActive: BoolFilter
   name: StringFilter
   orders: OrderListRelationFilter
   restaurant: RestaurantWhereInput
@@ -3696,11 +3704,16 @@ type RestaurantConfig {
 input RestaurantConfigCreateInput {
   createdAt: DateTime
   domain: String!
+  heroAccentColor: String
   id: String
   isActive: Boolean!
+  navBarAccentColor: String
+  navBarBgColor: String
   primaryColor: String!
   restaurant: RestaurantCreateNestedOneWithoutConfigInput!
   secondaryColor: String!
+  topRibbonAccentColor: String
+  topRibbonBgColor: String
   updatedAt: DateTime
 }
 
@@ -3718,32 +3731,47 @@ input RestaurantConfigCreateOrConnectWithoutRestaurantInput {
 input RestaurantConfigCreateWithoutRestaurantInput {
   createdAt: DateTime
   domain: String!
+  heroAccentColor: String
   id: String
   isActive: Boolean!
+  navBarAccentColor: String
+  navBarBgColor: String
   primaryColor: String!
   secondaryColor: String!
+  topRibbonAccentColor: String
+  topRibbonBgColor: String
   updatedAt: DateTime
 }
 
 input RestaurantConfigOrderByInput {
   createdAt: SortOrder
   domain: SortOrder
+  heroAccentColor: SortOrder
   id: SortOrder
   isActive: SortOrder
+  navBarAccentColor: SortOrder
+  navBarBgColor: SortOrder
   primaryColor: SortOrder
   restaurantId: SortOrder
   secondaryColor: SortOrder
+  topRibbonAccentColor: SortOrder
+  topRibbonBgColor: SortOrder
   updatedAt: SortOrder
 }
 
 input RestaurantConfigUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   domain: StringFieldUpdateOperationsInput
+  heroAccentColor: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isActive: BoolFieldUpdateOperationsInput
+  navBarAccentColor: NullableStringFieldUpdateOperationsInput
+  navBarBgColor: NullableStringFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutConfigInput
   secondaryColor: StringFieldUpdateOperationsInput
+  topRibbonAccentColor: NullableStringFieldUpdateOperationsInput
+  topRibbonBgColor: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -3760,10 +3788,15 @@ input RestaurantConfigUpdateOneWithoutRestaurantInput {
 input RestaurantConfigUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   domain: StringFieldUpdateOperationsInput
+  heroAccentColor: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isActive: BoolFieldUpdateOperationsInput
+  navBarAccentColor: NullableStringFieldUpdateOperationsInput
+  navBarBgColor: NullableStringFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   secondaryColor: StringFieldUpdateOperationsInput
+  topRibbonAccentColor: NullableStringFieldUpdateOperationsInput
+  topRibbonBgColor: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -3778,12 +3811,17 @@ input RestaurantConfigWhereInput {
   OR: [RestaurantConfigWhereInput!]
   createdAt: DateTimeFilter
   domain: StringFilter
+  heroAccentColor: StringNullableFilter
   id: StringFilter
   isActive: BoolFilter
+  navBarAccentColor: StringNullableFilter
+  navBarBgColor: StringNullableFilter
   primaryColor: StringFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
   secondaryColor: StringFilter
+  topRibbonAccentColor: StringNullableFilter
+  topRibbonBgColor: StringNullableFilter
   updatedAt: DateTimeFilter
 }
 

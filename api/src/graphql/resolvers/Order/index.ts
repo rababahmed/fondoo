@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { extendType, objectType } from "nexus";
 import { or } from "nexus-shield";
 import { isAdmin, isManager, isOwner } from "../../rules/isAuthenticated";
@@ -39,11 +40,17 @@ export const OrderQuery = extendType({
 export const OrderMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.crud.createOneOrder({ alias: "createOrder" });
+    t.crud.createOneOrder({
+      alias: "createOrder",
+      computedInputs: {
+        id: () => nanoid(10),
+      },
+    });
     t.crud.updateOneOrder({ alias: "updateOrder" });
     t.crud.deleteOneOrder({ alias: "deleteOrder" });
   },
 });
 
 export * as Coupon from "./Coupon";
+export * as Offer from "./Offer";
 export * as OrderItem from "./OrderItem";

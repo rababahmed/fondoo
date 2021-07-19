@@ -49,8 +49,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'name' | 'price' | 'isActive'
     }
     restaurantConfigs: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'topRibbonBgColor' | 'topRibbonAccentColor' | 'navBarBgColor' | 'navBarAccentColor' | 'heroAccentColor' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'topRibbonBgColor' | 'topRibbonAccentColor' | 'navBarBgColor' | 'navBarAccentColor' | 'heroAccentColor' | 'restaurantId' | 'createdAt' | 'updatedAt'
     }
     restaurantSocials: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
@@ -109,8 +109,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'role'
     }
     offers: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'restaurant' | 'orders' | 'restaurantId'
-      ordering: 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'restaurantId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'isActive' | 'restaurant' | 'orders' | 'restaurantId'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'isActive' | 'restaurantId'
     }
     coupons: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'code' | 'discount' | 'value' | 'description' | 'restaurant' | 'orders' | 'restaurantId'
@@ -167,8 +167,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'title' | 'description' | 'rating' | 'isActive' | 'customerId' | 'createdAt' | 'updatedAt' | 'restaurantId'
     }
     offers: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'restaurant' | 'orders' | 'restaurantId'
-      ordering: 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'restaurantId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'isActive' | 'restaurant' | 'orders' | 'restaurantId'
+      ordering: 'id' | 'createdAt' | 'updatedAt' | 'name' | 'description' | 'isActive' | 'restaurantId'
     }
   }
   RestaurantPlan: {
@@ -510,6 +510,11 @@ interface NexusPrismaOutputs {
     primaryColor: 'String'
     secondaryColor: 'String'
     isActive: 'Boolean'
+    topRibbonBgColor: 'String'
+    topRibbonAccentColor: 'String'
+    navBarBgColor: 'String'
+    navBarAccentColor: 'String'
+    heroAccentColor: 'String'
     restaurant: 'Restaurant'
     restaurantId: 'String'
     createdAt: 'DateTime'
@@ -693,6 +698,7 @@ interface NexusPrismaOutputs {
     updatedAt: 'DateTime'
     name: 'String'
     description: 'String'
+    isActive: 'Boolean'
     restaurant: 'Restaurant'
     orders: 'Order'
     restaurantId: 'String'

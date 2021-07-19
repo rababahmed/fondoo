@@ -32,15 +32,12 @@ const UserModal = () => {
           <Avatar size="sm"></Avatar>
         </MenuButton>
         <MenuList>
-          <MenuGroup title="Dashboard">
-            <MenuItem>My Restaurants</MenuItem>
-            <MenuItem>Payments</MenuItem>
-          </MenuGroup>
+          <MenuItem>My Restaurants</MenuItem>
+          <MenuItem>Billing</MenuItem>
+          <MenuItem>Usage</MenuItem>
           <MenuDivider />
-          <MenuGroup title="My Account">
-            <MenuItem>Settings</MenuItem>
-            <MenuItem onClick={LogoutMutation}>Logout</MenuItem>
-          </MenuGroup>
+          <MenuItem>Settings</MenuItem>
+          <MenuItem onClick={LogoutMutation}>Logout</MenuItem>
         </MenuList>
       </Menu>
     </Box>

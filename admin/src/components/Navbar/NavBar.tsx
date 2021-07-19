@@ -9,12 +9,12 @@ import {
   VStack,
 } from "@chakra-ui/layout";
 import React from "react";
-import { AiFillHome } from "react-icons/ai";
-import { FaUsers } from "react-icons/fa";
+import { AiFillHome, AiOutlinePercentage, AiOutlineTag } from "react-icons/ai";
 import { FiSettings, FiUsers } from "react-icons/fi";
 import { ImCreditCard } from "react-icons/im";
 import { MdRestaurantMenu, MdSchedule } from "react-icons/md";
 import { BiFoodMenu } from "react-icons/bi";
+import { VscTag } from "react-icons/vsc";
 import { RiParentLine } from "react-icons/ri";
 import { CgWebsite } from "react-icons/cg";
 import { useRouter } from "next/router";
@@ -26,7 +26,6 @@ import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { useUserStore } from "../../store/useUserStore";
 import Image from "next/image";
-import * as Logo from "../../../public/tezzbites.png";
 import * as LogoFull from "../../../public/tezzbites-full.png";
 
 const NavBar = () => {
@@ -116,6 +115,15 @@ const NavBar = () => {
                 href="/menu/categories"
                 icon={BiFoodMenu}
                 text="Categories"
+              />
+            </VStack>
+            <VStack py={4} align="stretch">
+              <NavText text="PROMOTIONS" />
+              <NavButton href="/offers" icon={VscTag} text="Offers" />
+              <NavButton
+                href="/coupons"
+                icon={AiOutlinePercentage}
+                text="Coupons"
               />
             </VStack>
             <VStack py={4} align="stretch">

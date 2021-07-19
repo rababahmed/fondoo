@@ -1514,10 +1514,21 @@ export interface NexusGenInputs {
   NullableStringFieldUpdateOperationsInput: { // input type
     set?: string | null; // String
   }
+  OfferCreateInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    description?: string | null; // String
+    id?: string | null; // String
+    isActive: boolean; // Boolean!
+    name: string; // String!
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutOfferInput'] | null; // OrderCreateNestedManyWithoutOfferInput
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOffersInput']; // RestaurantCreateNestedOneWithoutOffersInput!
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
   OfferCreateManyRestaurantInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     description?: string | null; // String
     id?: string | null; // String
+    isActive: boolean; // Boolean!
     name: string; // String!
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
@@ -1548,6 +1559,7 @@ export interface NexusGenInputs {
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     description?: string | null; // String
     id?: string | null; // String
+    isActive: boolean; // Boolean!
     name: string; // String!
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOffersInput']; // RestaurantCreateNestedOneWithoutOffersInput!
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
@@ -1556,6 +1568,7 @@ export interface NexusGenInputs {
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     description?: string | null; // String
     id?: string | null; // String
+    isActive: boolean; // Boolean!
     name: string; // String!
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutOfferInput'] | null; // OrderCreateNestedManyWithoutOfferInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
@@ -1565,6 +1578,15 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['OfferWhereInput'] | null; // OfferWhereInput
     some?: NexusGenInputs['OfferWhereInput'] | null; // OfferWhereInput
   }
+  OfferOrderByInput: { // input type
+    createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    description?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    name?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
   OfferScalarWhereInput: { // input type
     AND?: NexusGenInputs['OfferScalarWhereInput'][] | null; // [OfferScalarWhereInput!]
     NOT?: NexusGenInputs['OfferScalarWhereInput'][] | null; // [OfferScalarWhereInput!]
@@ -1572,14 +1594,26 @@ export interface NexusGenInputs {
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     description?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+  }
+  OfferUpdateInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutOfferInput'] | null; // OrderUpdateManyWithoutOfferInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOffersInput'] | null; // RestaurantUpdateOneRequiredWithoutOffersInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   OfferUpdateManyMutationInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
@@ -1617,6 +1651,7 @@ export interface NexusGenInputs {
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOffersInput'] | null; // RestaurantUpdateOneRequiredWithoutOffersInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
@@ -1625,6 +1660,7 @@ export interface NexusGenInputs {
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutOfferInput'] | null; // OrderUpdateManyWithoutOfferInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
@@ -1645,6 +1681,7 @@ export interface NexusGenInputs {
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     description?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
     orders?: NexusGenInputs['OrderListRelationFilter'] | null; // OrderListRelationFilter
     restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
@@ -3004,11 +3041,16 @@ export interface NexusGenInputs {
   RestaurantConfigCreateInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     domain: string; // String!
+    heroAccentColor?: string | null; // String
     id?: string | null; // String
     isActive: boolean; // Boolean!
+    navBarAccentColor?: string | null; // String
+    navBarBgColor?: string | null; // String
     primaryColor: string; // String!
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutConfigInput']; // RestaurantCreateNestedOneWithoutConfigInput!
     secondaryColor: string; // String!
+    topRibbonAccentColor?: string | null; // String
+    topRibbonBgColor?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   RestaurantConfigCreateNestedOneWithoutRestaurantInput: { // input type
@@ -3023,30 +3065,45 @@ export interface NexusGenInputs {
   RestaurantConfigCreateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     domain: string; // String!
+    heroAccentColor?: string | null; // String
     id?: string | null; // String
     isActive: boolean; // Boolean!
+    navBarAccentColor?: string | null; // String
+    navBarBgColor?: string | null; // String
     primaryColor: string; // String!
     secondaryColor: string; // String!
+    topRibbonAccentColor?: string | null; // String
+    topRibbonBgColor?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   RestaurantConfigOrderByInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     domain?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    heroAccentColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    navBarAccentColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    navBarBgColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
     primaryColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     secondaryColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    topRibbonAccentColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    topRibbonBgColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   RestaurantConfigUpdateInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     domain?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    heroAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    navBarAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    navBarBgColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutConfigInput'] | null; // RestaurantUpdateOneRequiredWithoutConfigInput
     secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    topRibbonAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    topRibbonBgColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   RestaurantConfigUpdateOneWithoutRestaurantInput: { // input type
@@ -3061,10 +3118,15 @@ export interface NexusGenInputs {
   RestaurantConfigUpdateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     domain?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    heroAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    navBarAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    navBarBgColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    topRibbonAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    topRibbonBgColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   RestaurantConfigUpsertWithoutRestaurantInput: { // input type
@@ -3077,12 +3139,17 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['RestaurantConfigWhereInput'][] | null; // [RestaurantConfigWhereInput!]
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     domain?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    heroAccentColor?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    navBarAccentColor?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    navBarBgColor?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     primaryColor?: NexusGenInputs['StringFilter'] | null; // StringFilter
     restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
     secondaryColor?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    topRibbonAccentColor?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    topRibbonBgColor?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
   }
   RestaurantConfigWhereUniqueInput: { // input type
@@ -6444,6 +6511,14 @@ export interface NexusGenObjects {
     restaurantId: string; // String!
   }
   Mutation: {};
+  Offer: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    description?: string | null; // String
+    id: string; // String!
+    isActive: boolean; // Boolean!
+    name: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
   Order: { // root type
     couponId?: string | null; // String
     customerId?: string | null; // String
@@ -6681,6 +6756,7 @@ export interface NexusGenFieldTypes {
     createCustomer: NexusGenRootTypes['Customer']; // Customer!
     createCustomerAddress: NexusGenRootTypes['CustomerAddress']; // CustomerAddress!
     createDeliveryZone: NexusGenRootTypes['DeliveryZone']; // DeliveryZone!
+    createOffer: NexusGenRootTypes['Offer']; // Offer!
     createOrder: NexusGenRootTypes['Order']; // Order!
     createOrderItem: NexusGenRootTypes['OrderItem']; // OrderItem!
     createProduct: NexusGenRootTypes['Product']; // Product!
@@ -6701,6 +6777,7 @@ export interface NexusGenFieldTypes {
     deleteCustomer: NexusGenRootTypes['Customer'] | null; // Customer
     deleteCustomerAddress: NexusGenRootTypes['CustomerAddress'] | null; // CustomerAddress
     deleteDeliveryZone: NexusGenRootTypes['DeliveryZone'] | null; // DeliveryZone
+    deleteOffer: NexusGenRootTypes['Offer'] | null; // Offer
     deleteOrder: NexusGenRootTypes['Order'] | null; // Order
     deleteOrderItem: NexusGenRootTypes['OrderItem'] | null; // OrderItem
     deleteProduct: NexusGenRootTypes['Product'] | null; // Product
@@ -6721,6 +6798,7 @@ export interface NexusGenFieldTypes {
     updateCustomer: NexusGenRootTypes['Customer'] | null; // Customer
     updateCustomerAddress: NexusGenRootTypes['CustomerAddress'] | null; // CustomerAddress
     updateDeliveryZone: NexusGenRootTypes['DeliveryZone'] | null; // DeliveryZone
+    updateOffer: NexusGenRootTypes['Offer'] | null; // Offer
     updateOrder: NexusGenRootTypes['Order'] | null; // Order
     updateOrderItem: NexusGenRootTypes['OrderItem'] | null; // OrderItem
     updateProduct: NexusGenRootTypes['Product'] | null; // Product
@@ -6732,6 +6810,16 @@ export interface NexusGenFieldTypes {
     updateRestaurantSocial: NexusGenRootTypes['RestaurantSocial'] | null; // RestaurantSocial
     updateSchedule: NexusGenRootTypes['Schedule'] | null; // Schedule
     updateUser: NexusGenRootTypes['User'] | null; // User
+  }
+  Offer: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    description: string | null; // String
+    id: string; // String!
+    isActive: boolean; // Boolean!
+    name: string; // String!
+    orders: NexusGenRootTypes['Order'][]; // [Order!]!
+    restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   Order: { // field return type
     Coupon: NexusGenRootTypes['Coupon'] | null; // Coupon
@@ -6807,6 +6895,8 @@ export interface NexusGenFieldTypes {
     customers: NexusGenRootTypes['Customer'][]; // [Customer!]!
     deliveryZone: NexusGenRootTypes['DeliveryZone'] | null; // DeliveryZone
     deliveryZones: NexusGenRootTypes['DeliveryZone'][]; // [DeliveryZone!]!
+    offer: NexusGenRootTypes['Offer'] | null; // Offer
+    offers: NexusGenRootTypes['Offer'][]; // [Offer!]!
     order: NexusGenRootTypes['Order'] | null; // Order
     orderItem: NexusGenRootTypes['OrderItem'] | null; // OrderItem
     orderItems: NexusGenRootTypes['OrderItem'][]; // [OrderItem!]!
@@ -7037,6 +7127,7 @@ export interface NexusGenFieldTypeNames {
     createCustomer: 'Customer'
     createCustomerAddress: 'CustomerAddress'
     createDeliveryZone: 'DeliveryZone'
+    createOffer: 'Offer'
     createOrder: 'Order'
     createOrderItem: 'OrderItem'
     createProduct: 'Product'
@@ -7057,6 +7148,7 @@ export interface NexusGenFieldTypeNames {
     deleteCustomer: 'Customer'
     deleteCustomerAddress: 'CustomerAddress'
     deleteDeliveryZone: 'DeliveryZone'
+    deleteOffer: 'Offer'
     deleteOrder: 'Order'
     deleteOrderItem: 'OrderItem'
     deleteProduct: 'Product'
@@ -7077,6 +7169,7 @@ export interface NexusGenFieldTypeNames {
     updateCustomer: 'Customer'
     updateCustomerAddress: 'CustomerAddress'
     updateDeliveryZone: 'DeliveryZone'
+    updateOffer: 'Offer'
     updateOrder: 'Order'
     updateOrderItem: 'OrderItem'
     updateProduct: 'Product'
@@ -7088,6 +7181,16 @@ export interface NexusGenFieldTypeNames {
     updateRestaurantSocial: 'RestaurantSocial'
     updateSchedule: 'Schedule'
     updateUser: 'User'
+  }
+  Offer: { // field return type name
+    createdAt: 'DateTime'
+    description: 'String'
+    id: 'String'
+    isActive: 'Boolean'
+    name: 'String'
+    orders: 'Order'
+    restaurant: 'Restaurant'
+    updatedAt: 'DateTime'
   }
   Order: { // field return type name
     Coupon: 'Coupon'
@@ -7163,6 +7266,8 @@ export interface NexusGenFieldTypeNames {
     customers: 'Customer'
     deliveryZone: 'DeliveryZone'
     deliveryZones: 'DeliveryZone'
+    offer: 'Offer'
+    offers: 'Offer'
     order: 'Order'
     orderItem: 'OrderItem'
     orderItems: 'OrderItem'
@@ -7346,6 +7451,9 @@ export interface NexusGenArgTypes {
     createDeliveryZone: { // args
       data: NexusGenInputs['DeliveryZoneCreateInput']; // DeliveryZoneCreateInput!
     }
+    createOffer: { // args
+      data: NexusGenInputs['OfferCreateInput']; // OfferCreateInput!
+    }
     createOrder: { // args
       data: NexusGenInputs['OrderCreateInput']; // OrderCreateInput!
     }
@@ -7405,6 +7513,9 @@ export interface NexusGenArgTypes {
     }
     deleteDeliveryZone: { // args
       where: NexusGenInputs['DeliveryZoneWhereUniqueInput']; // DeliveryZoneWhereUniqueInput!
+    }
+    deleteOffer: { // args
+      where: NexusGenInputs['OfferWhereUniqueInput']; // OfferWhereUniqueInput!
     }
     deleteOrder: { // args
       where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
@@ -7475,6 +7586,10 @@ export interface NexusGenArgTypes {
       data: NexusGenInputs['DeliveryZoneUpdateInput']; // DeliveryZoneUpdateInput!
       where: NexusGenInputs['DeliveryZoneWhereUniqueInput']; // DeliveryZoneWhereUniqueInput!
     }
+    updateOffer: { // args
+      data: NexusGenInputs['OfferUpdateInput']; // OfferUpdateInput!
+      where: NexusGenInputs['OfferWhereUniqueInput']; // OfferWhereUniqueInput!
+    }
     updateOrder: { // args
       data: NexusGenInputs['OrderUpdateInput']; // OrderUpdateInput!
       where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
@@ -7518,6 +7633,14 @@ export interface NexusGenArgTypes {
     updateUser: { // args
       data: NexusGenInputs['UserUpdateInput']; // UserUpdateInput!
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
+    }
+  }
+  Offer: {
+    orders: { // args
+      after?: NexusGenInputs['OrderWhereUniqueInput'] | null; // OrderWhereUniqueInput
+      before?: NexusGenInputs['OrderWhereUniqueInput'] | null; // OrderWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
     }
   }
   Order: {
@@ -7643,6 +7766,17 @@ export interface NexusGenArgTypes {
       last?: number | null; // Int
       orderBy?: NexusGenInputs['DeliveryZoneOrderByInput'][] | null; // [DeliveryZoneOrderByInput!]
       where?: NexusGenInputs['DeliveryZoneWhereInput'] | null; // DeliveryZoneWhereInput
+    }
+    offer: { // args
+      where: NexusGenInputs['OfferWhereUniqueInput']; // OfferWhereUniqueInput!
+    }
+    offers: { // args
+      after?: NexusGenInputs['OfferWhereUniqueInput'] | null; // OfferWhereUniqueInput
+      before?: NexusGenInputs['OfferWhereUniqueInput'] | null; // OfferWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenInputs['OfferOrderByInput'][] | null; // [OfferOrderByInput!]
+      where?: NexusGenInputs['OfferWhereInput'] | null; // OfferWhereInput
     }
     order: { // args
       where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!

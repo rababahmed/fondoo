@@ -19,7 +19,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrderItem = exports.Coupon = exports.OrderMutation = exports.OrderQuery = exports.Order = void 0;
+exports.OrderItem = exports.Offer = exports.Coupon = exports.OrderMutation = exports.OrderQuery = exports.Order = void 0;
+const nanoid_1 = require("nanoid");
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
@@ -58,11 +59,17 @@ exports.OrderQuery = nexus_1.extendType({
 exports.OrderMutation = nexus_1.extendType({
     type: "Mutation",
     definition(t) {
-        t.crud.createOneOrder({ alias: "createOrder" });
+        t.crud.createOneOrder({
+            alias: "createOrder",
+            computedInputs: {
+                id: () => nanoid_1.nanoid(10),
+            },
+        });
         t.crud.updateOneOrder({ alias: "updateOrder" });
         t.crud.deleteOneOrder({ alias: "deleteOrder" });
     },
 });
 exports.Coupon = __importStar(require("./Coupon"));
+exports.Offer = __importStar(require("./Offer"));
 exports.OrderItem = __importStar(require("./OrderItem"));
 //# sourceMappingURL=index.js.map

@@ -71,15 +71,20 @@ model RestaurantPlan {
 }
 
 model RestaurantConfig {
-  id             String     @id @default(cuid())
-  domain         String     @unique
-  primaryColor   String
-  secondaryColor String
-  isActive       Boolean
-  restaurant     Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId   String
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @updatedAt
+  id                   String     @id @default(cuid())
+  domain               String     @unique
+  primaryColor         String
+  secondaryColor       String
+  isActive             Boolean
+  topRibbonBgColor     String?
+  topRibbonAccentColor String?
+  navBarBgColor        String?
+  navBarAccentColor    String?
+  heroAccentColor      String?
+  restaurant           Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId         String
+  createdAt            DateTime   @default(now())
+  updatedAt            DateTime   @updatedAt
 }
 
 model RestaurantSocial {
@@ -299,6 +304,7 @@ model Offer {
   updatedAt    DateTime   @updatedAt
   name         String
   description  String?
+  isActive     Boolean
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   orders       Order[]
   restaurantId String
