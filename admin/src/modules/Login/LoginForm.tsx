@@ -35,8 +35,7 @@ export const LoginForm = () => {
           response.data.id,
           response.data.role,
           response.data.token,
-          response.data.restaurantID,
-          response.data.firstName
+          response.data.restaurantID
         );
         if (response.data.isAuthenticated === true) {
           if (response.data.role !== "Admin") {
