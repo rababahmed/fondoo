@@ -25,6 +25,12 @@ const TezzBitesGA = () => {
         data-domain="tezzbites.com"
         src="https://plausible.io/js/plausible.js"
       ></script>
+      <script
+        async
+        defer
+        data-website-id="f6c8adb0-065d-4511-8eaf-f77ced31d8f4"
+        src="http://localhost:3000/umami.js"
+      ></script>
     </Head>
   );
 };

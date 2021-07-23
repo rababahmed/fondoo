@@ -48,6 +48,23 @@ export const GET_RESTAURANT_INFO = gql`
   }
 `;
 
+export const GET_RESTAURANT_OFFERS = gql`
+  query Offers($id: String) {
+    restaurant(where: { id: $id }) {
+      offers {
+        id
+        name
+        description
+        isActive
+        orders {
+          id
+        }
+        createdAt
+      }
+    }
+  }
+`;
+
 export const GET_RESTAURANT_SCHEDULES = gql`
   query RestaurantSchedules($id: String) {
     schedules(where: { restaurantId: { equals: $id } }) {

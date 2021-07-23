@@ -12,27 +12,28 @@ const Header = () => {
 
   return (
     <Grid
-      bgColor="gray.100"
+      bgColor="white"
       pos="fixed"
       top="0"
       left="0"
-      shadow="xs"
+      shadow="sm"
       w="100%"
       p={2}
       templateColumns="1fr 1fr"
     >
-      <IconButton
-        onClick={() => {
-          toggleHamburger();
-        }}
-        ml={4}
-        size="md"
-        aria-label="hamburger"
-        icon={!isOpen ? <HamburgerIcon /> : <CloseIcon />}
-        justifySelf="start"
-      >
-        Hello
-      </IconButton>
+      <Box>
+        <IconButton
+          onClick={() => {
+            toggleHamburger();
+          }}
+          ml={4}
+          display={{ base: "block", md: "none" }}
+          size="md"
+          aria-label="hamburger"
+          icon={!isOpen ? <HamburgerIcon /> : <CloseIcon />}
+          justifySelf="start"
+        ></IconButton>
+      </Box>
       <Box justifySelf="end">
         <UserModal />
       </Box>

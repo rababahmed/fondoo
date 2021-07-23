@@ -51,6 +51,7 @@ export const useUserStore = create<User>(
         token: "",
         restaurantID: "",
         role: "",
+        fullname: "",
         setUser: (id, role, token, restaurantID) =>
           set((state) => {
             return {

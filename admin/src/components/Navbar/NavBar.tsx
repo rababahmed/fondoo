@@ -27,6 +27,8 @@ import { useMediaQuery } from "@chakra-ui/media-query";
 import { useUserStore } from "../../store/useUserStore";
 import Image from "next/image";
 import * as LogoFull from "../../../public/tezzbites-full.png";
+import RestaurantNav from "./RestaurantNav";
+import { Center } from "@chakra-ui/react";
 
 const NavBar = () => {
   const router = useRouter();
@@ -53,6 +55,10 @@ const NavBar = () => {
         bottom="0"
         className={styles.navbar}
       >
+        <Center mr={2} mt={10}>
+          <RestaurantNav />
+        </Center>
+
         <Box>
           <IconButton
             onClick={() => {
@@ -70,12 +76,8 @@ const NavBar = () => {
             mb={4}
           />
         </Box>
+
         <Stack>
-          <VStack pt={8} mr={1}>
-            <Box mt={6} px={6}>
-              <Image src={LogoFull} alt="logo" placeholder="blur" priority />
-            </Box>
-          </VStack>
           <VStack align="stretch" p={6} mr={1}>
             {role === "Admin" ? (
               <VStack py={4} align="stretch">
@@ -119,9 +121,13 @@ const NavBar = () => {
             </VStack>
             <VStack py={4} align="stretch">
               <NavText text="PROMOTIONS" />
-              <NavButton href="/offers" icon={VscTag} text="Offers" />
               <NavButton
-                href="/coupons"
+                href="/promotions/offers"
+                icon={VscTag}
+                text="Offers"
+              />
+              <NavButton
+                href="/promotions/coupons"
                 icon={AiOutlinePercentage}
                 text="Coupons"
               />

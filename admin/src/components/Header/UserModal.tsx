@@ -14,6 +14,7 @@ import React from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { useUserStore } from "../../store/useUserStore";
 import { useRouter } from "next/router";
+import { HStack, Text } from "@chakra-ui/react";
 
 const UserModal = () => {
   const router = useRouter();
@@ -28,8 +29,11 @@ const UserModal = () => {
   return (
     <Box mr={4}>
       <Menu>
-        <MenuButton as={Button}>
-          <Avatar size="sm"></Avatar>
+        <MenuButton as={Button} bg="white">
+          <HStack>
+            <Avatar size="sm"></Avatar>
+            <Text>Tezz Digital</Text>
+          </HStack>
         </MenuButton>
         <MenuList>
           <MenuItem>My Restaurants</MenuItem>
