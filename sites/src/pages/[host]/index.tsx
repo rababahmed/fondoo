@@ -21,9 +21,13 @@ export default function Home({ host, rdata, cdata, imageProps }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <TezzBitesGA />
-      <DefaultLayout rdata={rdata} cdata={cdata}>
-        <HeroContainer imageProps={imageProps} rdata={rdata} cdata={cdata} />
-      </DefaultLayout>
+      {rdata && cdata ? (
+        <DefaultLayout rdata={rdata} cdata={cdata}>
+          <HeroContainer imageProps={imageProps} rdata={rdata} cdata={cdata} />
+        </DefaultLayout>
+      ) : (
+        <div>Site data not found</div>
+      )}
     </>
   );
 }

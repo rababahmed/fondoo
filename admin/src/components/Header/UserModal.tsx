@@ -32,7 +32,7 @@ const UserModal = () => {
         <MenuButton as={Button} bg="white">
           <HStack>
             <Avatar size="sm"></Avatar>
-            <Text>Tezz Digital</Text>
+            <Text>King</Text>
           </HStack>
         </MenuButton>
         <MenuList>

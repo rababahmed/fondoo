@@ -80,7 +80,6 @@ model RestaurantConfig {
   topRibbonAccentColor String?
   navBarBgColor        String?
   navBarAccentColor    String?
-  heroAccentColor      String?
   restaurant           Restaurant @relation(fields: [restaurantId], references: [id])
   restaurantId         String
   createdAt            DateTime   @default(now())
@@ -304,6 +303,8 @@ model Offer {
   updatedAt    DateTime   @updatedAt
   name         String
   description  String?
+  startDate    DateTime?
+  endDate      DateTime?
   isActive     Boolean
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   orders       Order[]
@@ -317,6 +318,8 @@ model Coupon {
   code         String
   discount     Discount
   value        Float
+  startDate    DateTime?
+  endDate      DateTime?
   description  String?
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   orders       Order[]
