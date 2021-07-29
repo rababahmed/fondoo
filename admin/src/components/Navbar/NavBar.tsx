@@ -48,15 +48,12 @@ const NavBar = () => {
         display={isOpen ? "block" : "none"}
         pos="fixed"
         overflowY="auto"
-        bgColor="#F6F6F7"
+        bgColor="gray.900"
         zIndex="1"
         h="100%"
         w={240}
         top="0"
         bottom="0"
-        border="1px"
-        borderColor="gray.200"
-        shadow="xs"
         className={styles.navbar}
       >
         <Box>
@@ -106,7 +103,7 @@ const NavBar = () => {
               icon={RiParentLine}
               text="Reservations"
             />
-            <VStack py={2} align="stretch">
+            <VStack py={4} align="stretch">
               <NavText text="MENU SETUP" />
               <NavButton
                 href="/menu/items"
@@ -119,7 +116,7 @@ const NavBar = () => {
                 text="Categories"
               />
             </VStack>
-            <VStack py={2} align="stretch">
+            <VStack py={4} align="stretch">
               <NavText text="PROMOTIONS" />
               <NavButton
                 href="/promotions/offers"
@@ -132,7 +129,7 @@ const NavBar = () => {
                 text="Coupons"
               />
             </VStack>
-            <VStack py={2} align="stretch">
+            <VStack py={4} align="stretch">
               <NavText text="MANAGEMENT" />
               <NavButton href="/cms" icon={CgWebsite} text="CMS" />
               <NavButton href="/users" icon={FiUsers} text="Users" />
