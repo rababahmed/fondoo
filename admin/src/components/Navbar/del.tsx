@@ -28,7 +28,14 @@ import { useUserStore } from "../../store/useUserStore";
 import Image from "next/image";
 import * as LogoFull from "../../../public/tezzbites-full.png";
 import RestaurantNav from "./RestaurantNav";
-import { Center } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Center,
+} from "@chakra-ui/react";
 
 const NavBar = () => {
   const router = useRouter();
@@ -98,7 +105,7 @@ const NavBar = () => {
             ) : (
               <div></div>
             )}
-            <NavButton href="/dashboard" icon={AiFillHome} text="Dashboard" />
+            {/* <NavButton href="/dashboard" icon={AiFillHome} text="Dashboard" />
 
             <NavButton href="/orders" icon={ImCreditCard} text="Orders" />
             <NavButton
@@ -106,7 +113,7 @@ const NavBar = () => {
               icon={RiParentLine}
               text="Reservations"
             />
-            <VStack py={2} align="stretch">
+            <VStack py={4} align="stretch">
               <NavText text="MENU SETUP" />
               <NavButton
                 href="/menu/items"
@@ -119,7 +126,7 @@ const NavBar = () => {
                 text="Categories"
               />
             </VStack>
-            <VStack py={2} align="stretch">
+            <VStack py={4} align="stretch">
               <NavText text="PROMOTIONS" />
               <NavButton
                 href="/promotions/offers"
@@ -132,13 +139,55 @@ const NavBar = () => {
                 text="Coupons"
               />
             </VStack>
-            <VStack py={2} align="stretch">
+            <VStack py={4} align="stretch">
               <NavText text="MANAGEMENT" />
               <NavButton href="/cms" icon={CgWebsite} text="CMS" />
               <NavButton href="/users" icon={FiUsers} text="Users" />
               <NavButton href="/schedule" icon={MdSchedule} text="Schedule" />
               <NavButton href="/settings" icon={FiSettings} text="Settings" />
-            </VStack>
+            </VStack> */}
+
+            <Box
+              fontSize={16}
+              fontWeight={"semibold"}
+              flex="1"
+              textAlign="left"
+              px={2}
+              py={2}
+              borderRadius={2}
+              color={currentPath === "/dashboard" ? "primary.800" : "black"}
+              _hover={{ cursor: "pointer", bg: "#ECECEC" }}
+            >
+              <HStack>
+                <ImCreditCard />
+                <Box>Dashboard</Box>
+              </HStack>
+            </Box>
+
+            <Accordion allowToggle>
+              <AccordionItem border="none">
+                <AccordionButton borderRadius={2} px={2}>
+                  <Box
+                    fontSize={16}
+                    fontWeight={"semibold"}
+                    flex="1"
+                    textAlign="left"
+                  >
+                    <HStack>
+                      <ImCreditCard />
+                      <Box>Orders</Box>
+                    </HStack>
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+
+                <AccordionPanel pb={4}>
+                  <Box flex="1" textAlign="left" _hover={{ cursor: "pointer" }}>
+                    Section 1 title
+                  </Box>
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
           </VStack>
         </Stack>
       </Box>

@@ -11,6 +11,7 @@ const queryClient = new QueryClient();
 export const theme = extendTheme({
   colors: {
     primary: {
+      1000: "#D4222E",
       900: "#FF1F2E",
       800: "#FF4550",
       700: "#FF5E69",

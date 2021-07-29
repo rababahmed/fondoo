@@ -3,7 +3,7 @@ import { Box, Grid, Heading } from "@chakra-ui/layout";
 import Head from "next/head";
 import React from "react";
 import Header from "../../components/Header/Header";
-import NavBar from "../../components/Navbar/NavBar";
+import NavBar from "../../components/Navbar/del";
 import DesktopLayout from "../../layouts/DesktopLayout";
 
 import { SettingsModule } from "../../modules/Settings/SettingsModule";
