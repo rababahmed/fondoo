@@ -15,9 +15,16 @@ import { AiOutlineUser } from "react-icons/ai";
 import { useUserStore } from "../../store/useUserStore";
 import { useRouter } from "next/router";
 import { HStack, Text } from "@chakra-ui/react";
+import { GET_USER } from "../../graphql/user";
+import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 
 const UserModal = () => {
   const router = useRouter();
+
+  const userId = useUserStore((state) => state.userID);
+  const { data } = useGQLQuery("get-user-fullname", GET_USER, {
+    id: userId,
+  });
 
   const removeUser = useUserStore((state) => state.removeUser);
 
@@ -32,7 +39,9 @@ const UserModal = () => {
         <MenuButton as={Button} bg="white">
           <HStack>
             <Avatar size="sm"></Avatar>
-            <Text>King</Text>
+            <Text>
+              {data && data.user.firstName} {data && data.user.lastName}
+            </Text>
           </HStack>
         </MenuButton>
         <MenuList>

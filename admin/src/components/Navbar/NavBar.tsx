@@ -49,16 +49,13 @@ const NavBar = () => {
         pos="fixed"
         overflowY="auto"
         bgColor="gray.900"
+        zIndex="1"
         h="100%"
-        w={260}
+        w={240}
         top="0"
         bottom="0"
         className={styles.navbar}
       >
-        <Center mr={2} mt={10}>
-          <RestaurantNav />
-        </Center>
-
         <Box>
           <IconButton
             onClick={() => {
@@ -77,8 +74,8 @@ const NavBar = () => {
           />
         </Box>
 
-        <Stack>
-          <VStack align="stretch" p={6} mr={1}>
+        <Stack mt={16}>
+          <VStack align="stretch" px={4} mr={1}>
             {role === "Admin" ? (
               <VStack py={4} align="stretch">
                 <NavText text="ADMIN" />

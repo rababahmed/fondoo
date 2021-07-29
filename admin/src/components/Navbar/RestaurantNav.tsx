@@ -2,7 +2,6 @@ import {
   Avatar,
   Box,
   Button,
-  Image,
   Menu,
   MenuButton,
   MenuItem,
@@ -15,6 +14,8 @@ import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 import { GET_USER } from "../../graphql/user";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { useUserStore } from "../../store/useUserStore";
+import Image from "next/image";
+import Logo from "../../../public/tezzbites.png";
 
 const RestaurantNav = () => {
   const restaurantId = useUserStore((state) => state.restaurantID);
@@ -35,39 +36,33 @@ const RestaurantNav = () => {
       <Menu strategy="fixed">
         <MenuButton
           as={Button}
-          bg={"gray.900"}
-          _hover={{ bg: "gray.700" }}
-          _active={{ bg: "gray.700" }}
-          color="white"
+          bg={"white"}
           leftIcon={
-            <Image
-              boxSize="2rem"
-              borderRadius="full"
-              src="tezzbites.png"
-              alt="Logo"
-              mr="12px"
-            />
+            <Box boxSize="2rem">
+              <Image src={Logo} alt="Logo" />
+            </Box>
           }
           rightIcon={<HiOutlineSwitchVertical />}
         >
           {data && data.restaurant ? data.restaurant.name : "Select"}
         </MenuButton>
-        {userData.data && userData.data.user.restaurants ? (
-          <MenuList>
-            {userData.data.user.restaurants.map((r: any) => (
+
+        <MenuList>
+          {userData.data && userData.data.user.restaurants ? (
+            userData.data.user.restaurants.map((r: any) => (
               <MenuItem key={r.id} minH="40px">
                 {r.name}
               </MenuItem>
-            ))}
-          </MenuList>
-        ) : (
-          <MenuList>
-            <Text p={4} size="xl">
-              No Restaurants Found..
-              <br /> <span>Try adding a new restaurant.</span>
-            </Text>
-          </MenuList>
-        )}
+            ))
+          ) : (
+            <Box>
+              <Text p={4} size="xl">
+                No Restaurants Found..
+                <br /> <span>Try adding a new restaurant.</span>
+              </Text>
+            </Box>
+          )}
+        </MenuList>
       </Menu>
     </>
   );

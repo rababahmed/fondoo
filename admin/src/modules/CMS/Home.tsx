@@ -23,6 +23,7 @@ import { useUserStore } from "../../store/useUserStore";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { Tag } from "@chakra-ui/tag";
 import { GET_CMS_HOME, UPDATE_CMS_HOME } from "../../graphql/cms";
+import SaveButton from "../../components/Buttons/SaveButton";
 
 export const CMSHome = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
@@ -225,16 +226,7 @@ export const CMSHome = () => {
             <Skeleton isLoaded={!isLoading}>
               <Stack mt={10} pb={2}>
                 <VStack>
-                  <SubmitButton
-                    isLoading={mutation.isLoading}
-                    loadingText="Updating"
-                    w={40}
-                    bgColor={mutation.isLoading ? "green.500" : "primary.800"}
-                    _active={{ bgColor: "primary.800" }}
-                    _hover={{ bgColor: "primary.900" }}
-                  >
-                    Update
-                  </SubmitButton>
+                  <SaveButton isLoading={mutation.isLoading} />
                 </VStack>
               </Stack>
             </Skeleton>

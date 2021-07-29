@@ -22,7 +22,7 @@ const DesktopLayout = (props: any) => {
             flexDirection="column"
             left="0"
             top="0"
-            bg="gray.50"
+            bg="#F6F6F7"
             w="100vw"
             h="100vh"
           >
@@ -35,13 +35,13 @@ const DesktopLayout = (props: any) => {
               py={8}
               px={44}
               ml={isHamburgerOpen ? 134 : 0}
-              bg="gray.50"
+              bg="#F6F6F7"
             >
               {props.children}
               <Box mb={24}></Box>
             </Box>
-            <Header />
             <NavBar />
+            <Header />
           </Box>
         ) : (
           <Box
@@ -52,7 +52,7 @@ const DesktopLayout = (props: any) => {
             flexDirection="column"
             left="0"
             top="0"
-            bg="gray.50"
+            bg="#F6F6F7"
             w="100vw"
             h="100vh"
           >
@@ -63,8 +63,8 @@ const DesktopLayout = (props: any) => {
               maxW="100%"
               py={8}
               px={8}
-              ml={isHamburgerOpen ? 260 : 0}
-              bg="gray.50"
+              ml={isHamburgerOpen ? 240 : 0}
+              bg="#F6F6F7"
             >
               {props.children}
             </Box>
