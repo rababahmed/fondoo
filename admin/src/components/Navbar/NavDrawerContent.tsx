@@ -30,7 +30,7 @@ import * as LogoFull from "../../../public/tezzbites-full.png";
 import RestaurantNav from "./RestaurantNav";
 import { Center } from "@chakra-ui/react";
 
-const NavBar = () => {
+const NavDrawerContent = () => {
   const router = useRouter();
   const [currentPath, setCurrentPath] = React.useState("");
   const [isDesktop] = useMediaQuery("(min-width: 640px)");
@@ -45,13 +45,11 @@ const NavBar = () => {
   return (
     <div>
       <Box
-        display={{ base: "none", md: "block" }}
-        pos="fixed"
         overflowY="auto"
         bgColor="gray.900"
         zIndex="2"
         h="100%"
-        w={240}
+        w={"full"}
         top="0"
         bottom="0"
         className={styles.navbar}
@@ -128,4 +126,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavDrawerContent;

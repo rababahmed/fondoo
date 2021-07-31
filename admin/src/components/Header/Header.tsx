@@ -4,6 +4,7 @@ import { Box, Grid } from "@chakra-ui/layout";
 import { Center, HStack } from "@chakra-ui/react";
 import React from "react";
 import { usePrefStore } from "../../store/usePrefStore";
+import NavDrawer from "../Navbar/NavDrawer";
 import RestaurantNav from "../Navbar/RestaurantNav";
 import UserModal from "./UserModal";
 
@@ -22,27 +23,12 @@ const Header = () => {
       w="100%"
       p={2}
       templateColumns="1fr 1fr"
-      zIndex="2"
+      zIndex="1"
     >
-      <HStack>
-        <Box>
-          <IconButton
-            onClick={() => {
-              toggleHamburger();
-            }}
-            ml={4}
-            display={{ base: "block", md: "none" }}
-            size="md"
-            aria-label="hamburger"
-            icon={!isOpen ? <HamburgerIcon /> : <CloseIcon />}
-            justifySelf="start"
-          ></IconButton>
-        </Box>
-        <Box>
-          <RestaurantNav />
-        </Box>
-      </HStack>
-
+      <Box display={{ base: "block", md: "none" }} ml={2}>
+        <NavDrawer />
+      </Box>
+      <Box display={{ base: "none", md: "block" }}></Box>
       <Box justifySelf="end">
         <UserModal />
       </Box>

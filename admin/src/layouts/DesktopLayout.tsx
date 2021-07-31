@@ -34,14 +34,14 @@ const DesktopLayout = (props: any) => {
               overflowX="hidden"
               py={8}
               px={44}
-              ml={isHamburgerOpen ? 134 : 0}
+              ml={{ base: 0, md: 134 }}
               bg="#F6F6F7"
             >
               {props.children}
               <Box mb={24}></Box>
             </Box>
-            <NavBar />
             <Header />
+            <NavBar />
           </Box>
         ) : (
           <Box
@@ -63,7 +63,7 @@ const DesktopLayout = (props: any) => {
               maxW="100%"
               py={8}
               px={8}
-              ml={isHamburgerOpen ? 240 : 0}
+              ml={{ base: 0, md: 240 }}
               bg="#F6F6F7"
             >
               {props.children}
