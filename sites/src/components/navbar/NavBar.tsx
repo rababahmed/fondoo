@@ -29,7 +29,8 @@ const NavBar = ({ rdata, cdata }: any) => {
         w="full"
         pos="sticky"
         top="0"
-        templateColumns={{ base: "8fr 2fr", lg: "8fr 2fr 2fr" }}
+        templateColumns={{ base: "8fr 2fr", md: "8fr 2fr 2fr" }}
+        px={{ base: 20, md: 72 }}
       >
         <Img
           onClick={() => router.push("/")}
@@ -41,7 +42,6 @@ const NavBar = ({ rdata, cdata }: any) => {
           }
           h={20}
           p={2}
-          ml={20}
           alt="logo"
         />
         <Stack
@@ -63,12 +63,15 @@ const NavBar = ({ rdata, cdata }: any) => {
           spacing={2}
           direction="row"
           align="center"
-          mr={20}
         >
           <PrimaryButton cdata={cdata} text="SIGN IN" />
           <OrderButton cdata={cdata} text="ORDER NOW" />
         </Stack>
-        <Box display={{ base: "block", lg: "none" }} alignSelf="center">
+        <Box
+          display={{ base: "block", lg: "none" }}
+          alignSelf="center"
+          justifySelf="center"
+        >
           <IconButton
             rounded="md"
             bg={cdata.primaryColor}

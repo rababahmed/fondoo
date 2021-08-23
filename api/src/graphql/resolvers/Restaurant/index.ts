@@ -34,6 +34,7 @@ export const Restaurant = objectType({
     t.model.schedules();
     t.model.deliveryZones();
     t.model.customers({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.offers();
     t.model.orders({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.orderItems({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.productCategory();

@@ -10,6 +10,9 @@ exports.Coupon = nexus_1.objectType({
         t.model.discount();
         t.model.value();
         t.model.description();
+        t.model.startDate();
+        t.model.endDate();
+        t.model.restaurant();
         t.model.orders();
     },
 });

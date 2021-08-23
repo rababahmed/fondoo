@@ -55,6 +55,7 @@ exports.Restaurant = nexus_1.objectType({
         t.model.schedules();
         t.model.deliveryZones();
         t.model.customers({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
+        t.model.offers();
         t.model.orders({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.orderItems({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.productCategory();

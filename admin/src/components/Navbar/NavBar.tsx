@@ -29,6 +29,7 @@ import Image from "next/image";
 import * as LogoFull from "../../../public/tezzbites-full.png";
 import RestaurantNav from "./RestaurantNav";
 import { Center } from "@chakra-ui/react";
+import OrderButton from "./OrderButton";
 
 const NavBar = () => {
   const router = useRouter();
@@ -82,7 +83,7 @@ const NavBar = () => {
             )}
             <NavButton href="/dashboard" icon={AiFillHome} text="Dashboard" />
 
-            <NavButton href="/orders" icon={ImCreditCard} text="Orders" />
+            <OrderButton href="/orders" icon={ImCreditCard} text="Orders" />
             <NavButton
               href="/reservations"
               icon={RiParentLine}
