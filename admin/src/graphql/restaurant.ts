@@ -48,23 +48,6 @@ export const GET_RESTAURANT_INFO = gql`
   }
 `;
 
-export const GET_RESTAURANT_OFFERS = gql`
-  query Offers($id: String) {
-    restaurant(where: { id: $id }) {
-      offers {
-        id
-        name
-        description
-        isActive
-        orders {
-          id
-        }
-        createdAt
-      }
-    }
-  }
-`;
-
 export const GET_RESTAURANT_SCHEDULES = gql`
   query RestaurantSchedules($id: String) {
     schedules(where: { restaurantId: { equals: $id } }) {
@@ -135,6 +118,25 @@ export const DELETE_RESTAURANT_SCHEDULE = gql`
   mutation DeleteSchedule($id: String) {
     deleteSchedule(where: { id: $id }) {
       id
+    }
+  }
+`;
+
+export const GET_RESTAURANT_OFFERS = gql`
+  query Offers($id: String) {
+    restaurant(where: { id: $id }) {
+      offers {
+        id
+        name
+        description
+        startDate
+        endDate
+        isActive
+        orders {
+          id
+        }
+        createdAt
+      }
     }
   }
 `;

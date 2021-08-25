@@ -27,13 +27,14 @@ import { DELETE_USER, GET_RESTAURANT_USER } from "../../../graphql/user";
 import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
 import { FaTrash } from "react-icons/fa";
 import { useUserStore } from "../../../store/useUserStore";
+import { GET_RESTAURANT_OFFERS } from "../../../graphql/restaurant";
 
 export const OffersModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
 
   const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
-    "get-restaurant-users",
-    GET_RESTAURANT_USER,
+    "get-restaurant-offers",
+    GET_RESTAURANT_OFFERS,
     {
       id: restaurantID,
     }
@@ -73,21 +74,24 @@ export const OffersModule = () => {
               <Tr>
                 <Th>Name</Th>
                 <Th>Description</Th>
-                <Th>Date Created</Th>
+                <Th>Start Date</Th>
+                <Th>End Date</Th>
+                <Th>Claimed</Th>
                 <Th>Active</Th>
-                <Th>Action</Th>
+                <Th>Created</Th>
               </Tr>
             </Thead>
 
             <Tbody>
               {isSuccess && data ? (
-                data.restaurant.users.map((user: any) => (
-                  <Tr key={user.id}>
-                    <Td>{user.firstName}</Td>
-                    <Td>{user.lastName}</Td>
-                    <Td>{user.email}</Td>
-                    <Td>{user.role}</Td>
-                    <Td>{user.phone}</Td>
+                data.restaurant.restaurant.offers.map((offer: any) => (
+                  <Tr key={offer.id}>
+                    <Td>{offer.name}</Td>
+                    <Td>{offer.description}</Td>
+                    <Td>{offer.startDate}</Td>
+                    <Td>{offer.endDate}</Td>
+                    <Td>{offer.isActive ? "Yes" : "No"}</Td>
+                    <Td>{offer.createdAt}</Td>
                     <Td>
                       <Popover>
                         {({ isOpen, onClose }) => (
@@ -106,7 +110,7 @@ export const OffersModule = () => {
                               <PopoverCloseButton />
                               <PopoverHeader>Confirmation!</PopoverHeader>
                               <PopoverBody>
-                                Are you sure you want to delete this user?
+                                Are you sure you want to delete this offer?
                               </PopoverBody>
                               <PopoverFooter d="flex" justifyContent="flex-end">
                                 <ButtonGroup size="sm">
@@ -114,7 +118,7 @@ export const OffersModule = () => {
                                     Cancel
                                   </Button>
                                   <Button
-                                    onClick={() => handleDelete(user.id)}
+                                    onClick={() => handleDelete(offer.id)}
                                     isDisabled={mutation.isLoading}
                                     colorScheme="red"
                                   >
@@ -130,7 +134,12 @@ export const OffersModule = () => {
                   </Tr>
                 ))
               ) : (
-                <div></div>
+                <Tr>
+                  <Td>
+                    No offers found. Try creating one with the button to your
+                    top-right.
+                  </Td>
+                </Tr>
               )}
             </Tbody>
           </Table>
