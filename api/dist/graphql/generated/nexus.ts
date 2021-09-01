@@ -1562,23 +1562,23 @@ export interface NexusGenInputs {
   OfferCreateInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     description?: string | null; // String
-    endDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    endDate?: string | null; // String
     id?: string | null; // String
-    isActive: boolean; // Boolean!
-    name: string; // String!
+    isActive?: boolean | null; // Boolean
+    name?: string | null; // String
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutOfferInput'] | null; // OrderCreateNestedManyWithoutOfferInput
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOffersInput']; // RestaurantCreateNestedOneWithoutOffersInput!
-    startDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    startDate?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   OfferCreateManyRestaurantInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     description?: string | null; // String
-    endDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    endDate?: string | null; // String
     id?: string | null; // String
-    isActive: boolean; // Boolean!
-    name: string; // String!
-    startDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    isActive?: boolean | null; // Boolean
+    name?: string | null; // String
+    startDate?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   OfferCreateManyRestaurantInputEnvelope: { // input type
@@ -1607,23 +1607,23 @@ export interface NexusGenInputs {
   OfferCreateWithoutOrdersInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     description?: string | null; // String
-    endDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    endDate?: string | null; // String
     id?: string | null; // String
-    isActive: boolean; // Boolean!
-    name: string; // String!
+    isActive?: boolean | null; // Boolean
+    name?: string | null; // String
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOffersInput']; // RestaurantCreateNestedOneWithoutOffersInput!
-    startDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    startDate?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   OfferCreateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     description?: string | null; // String
-    endDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    endDate?: string | null; // String
     id?: string | null; // String
-    isActive: boolean; // Boolean!
-    name: string; // String!
+    isActive?: boolean | null; // Boolean
+    name?: string | null; // String
     orders?: NexusGenInputs['OrderCreateNestedManyWithoutOfferInput'] | null; // OrderCreateNestedManyWithoutOfferInput
-    startDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    startDate?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   OfferListRelationFilter: { // input type
@@ -1648,34 +1648,34 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['OfferScalarWhereInput'][] | null; // [OfferScalarWhereInput!]
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     description?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    endDate?: NexusGenInputs['DateTimeNullableFilter'] | null; // DateTimeNullableFilter
+    endDate?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
-    name?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    name?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    startDate?: NexusGenInputs['DateTimeNullableFilter'] | null; // DateTimeNullableFilter
+    startDate?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
   }
   OfferUpdateInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    endDate?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    endDate?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    name?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutOfferInput'] | null; // OrderUpdateManyWithoutOfferInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOffersInput'] | null; // RestaurantUpdateOneRequiredWithoutOffersInput
-    startDate?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    startDate?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   OfferUpdateManyMutationInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    endDate?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    endDate?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    startDate?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    name?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    startDate?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   OfferUpdateManyWithWhereWithoutRestaurantInput: { // input type
@@ -1711,23 +1711,23 @@ export interface NexusGenInputs {
   OfferUpdateWithoutOrdersInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    endDate?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    endDate?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    name?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOffersInput'] | null; // RestaurantUpdateOneRequiredWithoutOffersInput
-    startDate?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    startDate?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   OfferUpdateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     description?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    endDate?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    endDate?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    name?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     orders?: NexusGenInputs['OrderUpdateManyWithoutOfferInput'] | null; // OrderUpdateManyWithoutOfferInput
-    startDate?: NexusGenInputs['NullableDateTimeFieldUpdateOperationsInput'] | null; // NullableDateTimeFieldUpdateOperationsInput
+    startDate?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   OfferUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
@@ -1745,14 +1745,14 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['OfferWhereInput'][] | null; // [OfferWhereInput!]
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     description?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    endDate?: NexusGenInputs['DateTimeNullableFilter'] | null; // DateTimeNullableFilter
+    endDate?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
-    name?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    name?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     orders?: NexusGenInputs['OrderListRelationFilter'] | null; // OrderListRelationFilter
     restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    startDate?: NexusGenInputs['DateTimeNullableFilter'] | null; // DateTimeNullableFilter
+    startDate?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
   }
   OfferWhereUniqueInput: { // input type
@@ -6577,11 +6577,11 @@ export interface NexusGenObjects {
   Offer: { // root type
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     description?: string | null; // String
-    endDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    endDate?: string | null; // String
     id: string; // String!
-    isActive: boolean; // Boolean!
-    name: string; // String!
-    startDate?: NexusGenScalars['DateTime'] | null; // DateTime
+    isActive?: boolean | null; // Boolean
+    name?: string | null; // String
+    startDate?: string | null; // String
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   Order: { // root type
@@ -6882,13 +6882,13 @@ export interface NexusGenFieldTypes {
   Offer: { // field return type
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     description: string | null; // String
-    endDate: NexusGenScalars['DateTime'] | null; // DateTime
+    endDate: string | null; // String
     id: string; // String!
-    isActive: boolean; // Boolean!
-    name: string; // String!
+    isActive: boolean | null; // Boolean
+    name: string | null; // String
     orders: NexusGenRootTypes['Order'][]; // [Order!]!
     restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
-    startDate: NexusGenScalars['DateTime'] | null; // DateTime
+    startDate: string | null; // String
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   Order: { // field return type
@@ -7259,13 +7259,13 @@ export interface NexusGenFieldTypeNames {
   Offer: { // field return type name
     createdAt: 'DateTime'
     description: 'String'
-    endDate: 'DateTime'
+    endDate: 'String'
     id: 'String'
     isActive: 'Boolean'
     name: 'String'
     orders: 'Order'
     restaurant: 'Restaurant'
-    startDate: 'DateTime'
+    startDate: 'String'
     updatedAt: 'DateTime'
   }
   Order: { // field return type name

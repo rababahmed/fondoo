@@ -28,21 +28,20 @@ import { FaTrash } from "react-icons/fa";
 import { useUserStore } from "../../../store/useUserStore";
 import {
   DELETE_RESTAURANT_OFFER,
+  GET_RESTAURANT_COUPONS,
   GET_RESTAURANT_OFFERS,
 } from "../../../graphql/restaurant";
 
-export const OffersModule = () => {
+export const CouponsModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
 
   const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
-    "get-restaurant-offers",
-    GET_RESTAURANT_OFFERS,
+    "get-restaurant-coupons",
+    GET_RESTAURANT_COUPONS,
     {
       id: restaurantID,
     }
   );
-
-  console.log(`Data: ${data}`);
 
   useEffect(() => {}, [isFetching]);
 
@@ -76,27 +75,28 @@ export const OffersModule = () => {
           <Table variant="simple">
             <Thead>
               <Tr>
-                <Th>Name</Th>
+                <Th>Code</Th>
                 <Th>Description</Th>
+                <Th>Discount Type</Th>
+                <Th>Value</Th>
                 <Th>Start Date</Th>
                 <Th>End Date</Th>
-                <Th>Claimed</Th>
-                <Th>Active</Th>
-                <Th>Created</Th>
+                <Th>Orders</Th>
               </Tr>
             </Thead>
 
             <Tbody>
-              {isSuccess && data.restaurant.offers ? (
-                data.restaurant.offers.map((offer: any) => (
-                  <Tr key={offer.id}>
-                    <Td>{offer.name}</Td>
-                    <Td>{offer.description}</Td>
-                    <Td>{offer.startDate}</Td>
-                    <Td>{offer.endDate}</Td>
+              {isSuccess && data.restaurant.coupons ? (
+                data.restaurant.coupons.map((coupon: any) => (
+                  <Tr key={coupon.id}>
+                    <Td>{coupon.code}</Td>
+                    <Td>{coupon.description}</Td>
+                    <Td>{coupon.discount}</Td>
+                    <Td>{coupon.value}</Td>
                     <Td>0</Td>
-                    <Td>{offer.isActive ? "Yes" : "No"}</Td>
-                    <Td>{offer.createdAt}</Td>
+                    <Td>{coupon.startDate}</Td>
+                    <Td>{coupon.endDate}</Td>
+                    <Td>{coupon.orders.length}</Td>
                     <Td>
                       <Popover>
                         {({ isOpen, onClose }) => (
@@ -115,7 +115,7 @@ export const OffersModule = () => {
                               <PopoverCloseButton />
                               <PopoverHeader>Confirmation!</PopoverHeader>
                               <PopoverBody>
-                                Are you sure you want to delete this offer?
+                                Are you sure you want to delete this coupon?
                               </PopoverBody>
                               <PopoverFooter d="flex" justifyContent="flex-end">
                                 <ButtonGroup size="sm">
@@ -123,7 +123,7 @@ export const OffersModule = () => {
                                     Cancel
                                   </Button>
                                   <Button
-                                    onClick={() => handleDelete(offer.id)}
+                                    onClick={() => handleDelete(coupon.id)}
                                     isDisabled={mutation.isLoading}
                                     colorScheme="red"
                                   >

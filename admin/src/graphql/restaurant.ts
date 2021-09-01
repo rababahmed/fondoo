@@ -140,3 +140,86 @@ export const GET_RESTAURANT_OFFERS = gql`
     }
   }
 `;
+
+export const ADD_RESTAURANT_OFFER = gql`
+  mutation AddOffer(
+    $id: String
+    $name: String
+    $description: String
+    $startDate: String
+    $endDate: String
+    $isActive: Boolean
+  ) {
+    createOffer(
+      data: {
+        name: $name
+        description: $description
+        startDate: $startDate
+        endDate: $endDate
+        isActive: $isActive
+        restaurant: { connect: { id: $id } }
+      }
+    ) {
+      id
+      name
+    }
+  }
+`;
+
+export const DELETE_RESTAURANT_OFFER = gql`
+  mutation deleteOffer($id: String) {
+    deleteOffer(where: { id: $id }) {
+      id
+    }
+  }
+`;
+
+export const GET_RESTAURANT_COUPONS = gql`
+  query Coupons($id: String) {
+    restaurant(where: { id: $id }) {
+      coupons {
+        id
+        code
+        discount
+        value
+        description
+        startDate
+        endDate
+        orders {
+          id
+        }
+      }
+    }
+  }
+`;
+
+export enum Discount {
+  Fixed,
+  Percent,
+}
+
+export const ADD_RESTAURANT_COUPON = gql`
+  mutation AddCoupon(
+    $id: String
+    $code: String!
+    $description: String
+    $discount: Discount!
+    $value: Float!
+    $startDate: String
+    $endDate: String
+  ) {
+    createCoupon(
+      data: {
+        code: $code
+        description: $description
+        discount: $discount
+        value: $value
+        startDate: $startDate
+        endDate: $endDate
+        restaurant: { connect: { id: $id } }
+      }
+    ) {
+      id
+    }
+  }
+`;

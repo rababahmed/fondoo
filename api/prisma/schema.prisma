@@ -301,11 +301,11 @@ model Offer {
   id           String     @id @default(cuid())
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
-  name         String
+  name         String?
   description  String?
-  startDate    DateTime?
-  endDate      DateTime?
-  isActive     Boolean
+  startDate    String?
+  endDate      String?
+  isActive     Boolean?
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   orders       Order[]
   restaurantId String
@@ -318,8 +318,8 @@ model Coupon {
   code         String
   discount     Discount
   value        Float
-  startDate    DateTime?
-  endDate      DateTime?
+  startDate    String?
+  endDate      String?
   description  String?
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   orders       Order[]

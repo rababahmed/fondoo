@@ -18,6 +18,7 @@ import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import {
   CheckboxSingleControl,
   InputControl,
+  NumberInputControl,
   SelectControl,
   SubmitButton,
 } from "formik-chakra-ui";
@@ -29,32 +30,36 @@ import * as Constants from "../../Constants";
 import { useUserStore } from "../../../store/useUserStore";
 import { useRouter } from "next/router";
 import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
-import { ADD_RESTAURANT_OFFER } from "../../../graphql/restaurant";
+import {
+  ADD_RESTAURANT_COUPON,
+  ADD_RESTAURANT_OFFER,
+} from "../../../graphql/restaurant";
 
-export const AddOffer = () => {
+export const AddCoupon = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const restaurantID = useUserStore((state) => state.restaurantID);
 
   const initialValues = {
-    name: "",
+    code: "",
     description: "",
+    discount: undefined,
+    value: 0.0,
     startDate: undefined,
     endDate: undefined,
-    isActive: true,
     id: restaurantID,
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string(),
+    code: Yup.string(),
     description: Yup.string(),
   });
 
   const [formData, setFormData] = useState(initialValues);
 
   const mutation = useGQLMutation(
-    ADD_RESTAURANT_OFFER,
+    ADD_RESTAURANT_COUPON,
     formData,
-    "get-restaurant-offers"
+    "get-restaurant-coupons"
   );
 
   const router = useRouter();
@@ -70,12 +75,12 @@ export const AddOffer = () => {
 
   return (
     <Box mb={4}>
-      <PrimaryButton onClick={onOpen} title="Add Offer" />
+      <PrimaryButton onClick={onOpen} title="Add Coupon" />
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Add a New Offer</ModalHeader>
+          <ModalHeader>Add a New Coupon</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Formik
@@ -88,8 +93,20 @@ export const AddOffer = () => {
                 <Box as="form" onSubmit={handleSubmit as any}>
                   <Grid templateColumns="1fr" gap={8}>
                     <Stack spacing="6">
-                      <InputControl name="name" label="Campaign Name" />
+                      <InputControl name="code" label="Code" />
                       <InputControl name="description" label="Description" />
+                      <SelectControl
+                        label="Discount Type"
+                        name="discount"
+                        selectProps={{ placeholder: "Select type" }}
+                      >
+                        <option value="Fixed">Fixed</option>
+                        <option value="Percent">Percent</option>
+                      </SelectControl>
+                      <NumberInputControl
+                        name="value"
+                        label="Discount Amount"
+                      />
                       <InputControl
                         inputProps={{ type: "date" }}
                         name="startDate"
@@ -100,10 +117,6 @@ export const AddOffer = () => {
                         name="endDate"
                         label="End Date"
                       />
-
-                      <CheckboxSingleControl name="isActive">
-                        Active
-                      </CheckboxSingleControl>
                     </Stack>
                   </Grid>
                   <Stack mt={10} pb={2}>

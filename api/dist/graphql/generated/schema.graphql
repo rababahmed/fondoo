@@ -1918,37 +1918,37 @@ input NullableStringFieldUpdateOperationsInput {
 type Offer {
   createdAt: DateTime!
   description: String
-  endDate: DateTime
+  endDate: String
   id: String!
-  isActive: Boolean!
-  name: String!
+  isActive: Boolean
+  name: String
   orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
   restaurant: Restaurant!
-  startDate: DateTime
+  startDate: String
   updatedAt: DateTime!
 }
 
 input OfferCreateInput {
   createdAt: DateTime
   description: String
-  endDate: DateTime
+  endDate: String
   id: String
-  isActive: Boolean!
-  name: String!
+  isActive: Boolean
+  name: String
   orders: OrderCreateNestedManyWithoutOfferInput
   restaurant: RestaurantCreateNestedOneWithoutOffersInput!
-  startDate: DateTime
+  startDate: String
   updatedAt: DateTime
 }
 
 input OfferCreateManyRestaurantInput {
   createdAt: DateTime
   description: String
-  endDate: DateTime
+  endDate: String
   id: String
-  isActive: Boolean!
-  name: String!
-  startDate: DateTime
+  isActive: Boolean
+  name: String
+  startDate: String
   updatedAt: DateTime
 }
 
@@ -1983,24 +1983,24 @@ input OfferCreateOrConnectWithoutRestaurantInput {
 input OfferCreateWithoutOrdersInput {
   createdAt: DateTime
   description: String
-  endDate: DateTime
+  endDate: String
   id: String
-  isActive: Boolean!
-  name: String!
+  isActive: Boolean
+  name: String
   restaurant: RestaurantCreateNestedOneWithoutOffersInput!
-  startDate: DateTime
+  startDate: String
   updatedAt: DateTime
 }
 
 input OfferCreateWithoutRestaurantInput {
   createdAt: DateTime
   description: String
-  endDate: DateTime
+  endDate: String
   id: String
-  isActive: Boolean!
-  name: String!
+  isActive: Boolean
+  name: String
   orders: OrderCreateNestedManyWithoutOfferInput
-  startDate: DateTime
+  startDate: String
   updatedAt: DateTime
 }
 
@@ -2028,36 +2028,36 @@ input OfferScalarWhereInput {
   OR: [OfferScalarWhereInput!]
   createdAt: DateTimeFilter
   description: StringNullableFilter
-  endDate: DateTimeNullableFilter
+  endDate: StringNullableFilter
   id: StringFilter
-  isActive: BoolFilter
-  name: StringFilter
+  isActive: BoolNullableFilter
+  name: StringNullableFilter
   restaurantId: StringFilter
-  startDate: DateTimeNullableFilter
+  startDate: StringNullableFilter
   updatedAt: DateTimeFilter
 }
 
 input OfferUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
-  endDate: NullableDateTimeFieldUpdateOperationsInput
+  endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
-  name: StringFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutOfferInput
   restaurant: RestaurantUpdateOneRequiredWithoutOffersInput
-  startDate: NullableDateTimeFieldUpdateOperationsInput
+  startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input OfferUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
-  endDate: NullableDateTimeFieldUpdateOperationsInput
+  endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
-  name: StringFieldUpdateOperationsInput
-  startDate: NullableDateTimeFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
+  startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -2098,24 +2098,24 @@ input OfferUpdateWithWhereUniqueWithoutRestaurantInput {
 input OfferUpdateWithoutOrdersInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
-  endDate: NullableDateTimeFieldUpdateOperationsInput
+  endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
-  name: StringFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutOffersInput
-  startDate: NullableDateTimeFieldUpdateOperationsInput
+  startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input OfferUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
-  endDate: NullableDateTimeFieldUpdateOperationsInput
+  endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
-  name: StringFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutOfferInput
-  startDate: NullableDateTimeFieldUpdateOperationsInput
+  startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -2136,14 +2136,14 @@ input OfferWhereInput {
   OR: [OfferWhereInput!]
   createdAt: DateTimeFilter
   description: StringNullableFilter
-  endDate: DateTimeNullableFilter
+  endDate: StringNullableFilter
   id: StringFilter
-  isActive: BoolFilter
-  name: StringFilter
+  isActive: BoolNullableFilter
+  name: StringNullableFilter
   orders: OrderListRelationFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
-  startDate: DateTimeNullableFilter
+  startDate: StringNullableFilter
   updatedAt: DateTimeFilter
 }
 
