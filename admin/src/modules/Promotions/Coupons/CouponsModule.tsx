@@ -93,7 +93,7 @@ export const CouponsModule = () => {
                     <Td>{coupon.description}</Td>
                     <Td>{coupon.discount}</Td>
                     <Td>{coupon.value}</Td>
-                    <Td>0</Td>
+                    <Td>{coupon.orders.length}</Td>
                     <Td>{coupon.startDate}</Td>
                     <Td>{coupon.endDate}</Td>
                     <Td>{coupon.orders.length}</Td>

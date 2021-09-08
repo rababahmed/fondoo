@@ -7001,6 +7001,7 @@ export interface NexusGenFieldTypes {
     city: string | null; // String
     config: NexusGenRootTypes['RestaurantConfig'] | null; // RestaurantConfig
     country: string | null; // String
+    coupons: NexusGenRootTypes['Coupon'][]; // [Coupon!]!
     coverImage: string | null; // String
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     cuisine: string | null; // String
@@ -7378,6 +7379,7 @@ export interface NexusGenFieldTypeNames {
     city: 'String'
     config: 'RestaurantConfig'
     country: 'String'
+    coupons: 'Coupon'
     coverImage: 'String'
     createdAt: 'DateTime'
     cuisine: 'String'
@@ -7974,6 +7976,12 @@ export interface NexusGenArgTypes {
     }
   }
   Restaurant: {
+    coupons: { // args
+      after?: NexusGenInputs['CouponWhereUniqueInput'] | null; // CouponWhereUniqueInput
+      before?: NexusGenInputs['CouponWhereUniqueInput'] | null; // CouponWhereUniqueInput
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
     customers: { // args
       after?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput
       before?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput

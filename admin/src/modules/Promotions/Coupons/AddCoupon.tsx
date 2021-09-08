@@ -34,6 +34,7 @@ import {
   ADD_RESTAURANT_COUPON,
   ADD_RESTAURANT_OFFER,
 } from "../../../graphql/restaurant";
+import FormInput from "../../../components/Forms/FormInput";
 
 export const AddCoupon = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -42,8 +43,8 @@ export const AddCoupon = () => {
   const initialValues = {
     code: "",
     description: "",
-    discount: undefined,
-    value: 0.0,
+    discount: "",
+    value: "",
     startDate: undefined,
     endDate: undefined,
     id: restaurantID,
@@ -58,7 +59,15 @@ export const AddCoupon = () => {
 
   const mutation = useGQLMutation(
     ADD_RESTAURANT_COUPON,
-    formData,
+    {
+      code: formData.code,
+      description: formData.description,
+      discount: formData.discount,
+      value: parseFloat(formData.value),
+      startDate: formData.startDate,
+      endDate: formData.endDate,
+      id: restaurantID,
+    },
     "get-restaurant-coupons"
   );
 
@@ -107,6 +116,12 @@ export const AddCoupon = () => {
                         name="value"
                         label="Discount Amount"
                       />
+                      {/* <FormInput
+                        id="value"
+                        label="Discount Amount"
+                        type="number"
+                        step="0.01"
+                      /> */}
                       <InputControl
                         inputProps={{ type: "date" }}
                         name="startDate"

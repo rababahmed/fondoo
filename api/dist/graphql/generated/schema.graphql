@@ -3777,6 +3777,7 @@ type Restaurant {
   city: String
   config: RestaurantConfig
   country: String
+  coupons(after: CouponWhereUniqueInput, before: CouponWhereUniqueInput, first: Int, last: Int): [Coupon!]!
   coverImage: String
   createdAt: DateTime!
   cuisine: String
