@@ -31,6 +31,9 @@ const main = async () => {
     });
     apolloServer.applyMiddleware({ app });
     app.use("/v1", index_1.default);
+    app.get("/", (req, res) => {
+        res.status(200).send("All systems operational");
+    });
     app.listen(PORT, () => {
         console.log(`🚀 Server ready at http://localhost:${PORT}`);
     });

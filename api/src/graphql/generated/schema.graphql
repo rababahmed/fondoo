@@ -599,11 +599,11 @@ type Coupon {
   code: String!
   description: String
   discount: Discount!
-  endDate: DateTime
+  endDate: String
   id: String!
   orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
   restaurant: Restaurant!
-  startDate: DateTime
+  startDate: String
   value: Float!
 }
 
@@ -612,11 +612,11 @@ input CouponCreateInput {
   createdAt: DateTime
   description: String
   discount: Discount!
-  endDate: DateTime
+  endDate: String
   id: String
   orders: OrderCreateNestedManyWithoutCouponInput
   restaurant: RestaurantCreateNestedOneWithoutCouponsInput!
-  startDate: DateTime
+  startDate: String
   updatedAt: DateTime
   value: Float!
 }
@@ -626,9 +626,9 @@ input CouponCreateManyRestaurantInput {
   createdAt: DateTime
   description: String
   discount: Discount!
-  endDate: DateTime
+  endDate: String
   id: String
-  startDate: DateTime
+  startDate: String
   updatedAt: DateTime
   value: Float!
 }
@@ -666,10 +666,10 @@ input CouponCreateWithoutOrdersInput {
   createdAt: DateTime
   description: String
   discount: Discount!
-  endDate: DateTime
+  endDate: String
   id: String
   restaurant: RestaurantCreateNestedOneWithoutCouponsInput!
-  startDate: DateTime
+  startDate: String
   updatedAt: DateTime
   value: Float!
 }
@@ -679,10 +679,10 @@ input CouponCreateWithoutRestaurantInput {
   createdAt: DateTime
   description: String
   discount: Discount!
-  endDate: DateTime
+  endDate: String
   id: String
   orders: OrderCreateNestedManyWithoutCouponInput
-  startDate: DateTime
+  startDate: String
   updatedAt: DateTime
   value: Float!
 }
@@ -714,10 +714,10 @@ input CouponScalarWhereInput {
   createdAt: DateTimeFilter
   description: StringNullableFilter
   discount: EnumDiscountFilter
-  endDate: DateTimeNullableFilter
+  endDate: StringNullableFilter
   id: StringFilter
   restaurantId: StringFilter
-  startDate: DateTimeNullableFilter
+  startDate: StringNullableFilter
   updatedAt: DateTimeFilter
   value: FloatFilter
 }
@@ -727,11 +727,11 @@ input CouponUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   discount: EnumDiscountFieldUpdateOperationsInput
-  endDate: NullableDateTimeFieldUpdateOperationsInput
+  endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutCouponInput
   restaurant: RestaurantUpdateOneRequiredWithoutCouponsInput
-  startDate: NullableDateTimeFieldUpdateOperationsInput
+  startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   value: FloatFieldUpdateOperationsInput
 }
@@ -741,9 +741,9 @@ input CouponUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   discount: EnumDiscountFieldUpdateOperationsInput
-  endDate: NullableDateTimeFieldUpdateOperationsInput
+  endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  startDate: NullableDateTimeFieldUpdateOperationsInput
+  startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   value: FloatFieldUpdateOperationsInput
 }
@@ -787,10 +787,10 @@ input CouponUpdateWithoutOrdersInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   discount: EnumDiscountFieldUpdateOperationsInput
-  endDate: NullableDateTimeFieldUpdateOperationsInput
+  endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutCouponsInput
-  startDate: NullableDateTimeFieldUpdateOperationsInput
+  startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   value: FloatFieldUpdateOperationsInput
 }
@@ -800,10 +800,10 @@ input CouponUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   discount: EnumDiscountFieldUpdateOperationsInput
-  endDate: NullableDateTimeFieldUpdateOperationsInput
+  endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutCouponInput
-  startDate: NullableDateTimeFieldUpdateOperationsInput
+  startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   value: FloatFieldUpdateOperationsInput
 }
@@ -827,12 +827,12 @@ input CouponWhereInput {
   createdAt: DateTimeFilter
   description: StringNullableFilter
   discount: EnumDiscountFilter
-  endDate: DateTimeNullableFilter
+  endDate: StringNullableFilter
   id: StringFilter
   orders: OrderListRelationFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
-  startDate: DateTimeNullableFilter
+  startDate: StringNullableFilter
   updatedAt: DateTimeFilter
   value: FloatFilter
 }
@@ -1404,17 +1404,6 @@ input DateTimeFilter {
   notIn: [DateTime!]
 }
 
-input DateTimeNullableFilter {
-  equals: DateTime
-  gt: DateTime
-  gte: DateTime
-  in: [DateTime!]
-  lt: DateTime
-  lte: DateTime
-  not: NestedDateTimeNullableFilter
-  notIn: [DateTime!]
-}
-
 enum DeliveryFee {
   Fixed
   Percent
@@ -1795,17 +1784,6 @@ input NestedDateTimeFilter {
   notIn: [DateTime!]
 }
 
-input NestedDateTimeNullableFilter {
-  equals: DateTime
-  gt: DateTime
-  gte: DateTime
-  in: [DateTime!]
-  lt: DateTime
-  lte: DateTime
-  not: NestedDateTimeNullableFilter
-  notIn: [DateTime!]
-}
-
 input NestedEnumDeliveryFeeFilter {
   equals: DeliveryFee
   in: [DeliveryFee!]
@@ -1897,10 +1875,6 @@ input NestedStringNullableFilter {
 
 input NullableBoolFieldUpdateOperationsInput {
   set: Boolean
-}
-
-input NullableDateTimeFieldUpdateOperationsInput {
-  set: DateTime
 }
 
 input NullableIntFieldUpdateOperationsInput {
