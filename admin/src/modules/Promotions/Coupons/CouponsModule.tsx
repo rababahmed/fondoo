@@ -27,6 +27,7 @@ import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
 import { FaTrash } from "react-icons/fa";
 import { useUserStore } from "../../../store/useUserStore";
 import {
+  DELETE_RESTAURANT_COUPON,
   DELETE_RESTAURANT_OFFER,
   GET_RESTAURANT_COUPONS,
   GET_RESTAURANT_OFFERS,
@@ -45,19 +46,19 @@ export const CouponsModule = () => {
 
   useEffect(() => {}, [isFetching]);
 
-  const [offerId, setOfferId] = useState("");
+  const [couponId, setCouponId] = useState("");
 
   const mutation = useGQLMutation(
-    DELETE_RESTAURANT_OFFER,
+    DELETE_RESTAURANT_COUPON,
     {
-      id: offerId,
+      id: couponId,
     },
-    "get-restaurant-offers"
+    "get-restaurant-coupons"
   );
 
   const handleDelete = async (id: string) => {
-    const setOffer = await setOfferId(id);
-    const deleteOffer = await mutation.mutate(setOffer);
+    const setCoupon = await setCouponId(id);
+    const deletecoupon = await mutation.mutate(setCoupon);
   };
 
   return (
@@ -81,7 +82,7 @@ export const CouponsModule = () => {
                 <Th>Value</Th>
                 <Th>Start Date</Th>
                 <Th>End Date</Th>
-                <Th>Orders</Th>
+                <Th>Claimed</Th>
               </Tr>
             </Thead>
 
@@ -93,7 +94,6 @@ export const CouponsModule = () => {
                     <Td>{coupon.description}</Td>
                     <Td>{coupon.discount}</Td>
                     <Td>{coupon.value}</Td>
-                    <Td>{coupon.orders.length}</Td>
                     <Td>{coupon.startDate}</Td>
                     <Td>{coupon.endDate}</Td>
                     <Td>{coupon.orders.length}</Td>

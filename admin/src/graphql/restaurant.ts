@@ -223,3 +223,11 @@ export const ADD_RESTAURANT_COUPON = gql`
     }
   }
 `;
+
+export const DELETE_RESTAURANT_COUPON = gql`
+  mutation deleteCoupon($id: String) {
+    deleteCoupon(where: { id: $id }) {
+      id
+    }
+  }
+`;
