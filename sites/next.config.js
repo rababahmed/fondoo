@@ -3,7 +3,7 @@ const { withPlaiceholder } = require("@plaiceholder/next");
 module.exports = withPlaiceholder({
   reactStrictMode: true,
   images: {
-    domains: ["cdn.tezzbites.com"],
+    domains: ["cdn.tezzbites.com", "images.unsplash.com", "i2.wp.com"],
   },
   async rewrites() {
     return [

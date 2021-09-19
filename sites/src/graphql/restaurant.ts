@@ -75,6 +75,18 @@ export const GET_RESTAURANT_INFO = gql`
           dealsHeading
           dealsDescription
           dealsImage
+          popularDishesHeading
+          popularDishesDescription
+          popularDishesImage
+        }
+        coupons {
+          id
+          code
+          discount
+          value
+          description
+          startDate
+          endDate
         }
       }
     }

@@ -9,6 +9,8 @@ import HeroContainer from "../../components/hero/HeroContainer";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import { getPlaiceholder } from "plaiceholder";
 import TezzBitesGA from "../../components/analytics/TezzBitesGA";
+import PopularDishesContainer from "../../modules/home/PopularDishesContainer";
+import { AboutContainer } from "../../modules/home/AboutContainer";
 
 export default function Home({ host, rdata, cdata, imageProps }: any) {
   console.log(rdata);
@@ -23,7 +25,10 @@ export default function Home({ host, rdata, cdata, imageProps }: any) {
       <TezzBitesGA />
       {rdata && cdata ? (
         <DefaultLayout rdata={rdata} cdata={cdata}>
-          <HeroContainer imageProps={imageProps} rdata={rdata} cdata={cdata} />
+          <HeroContainer imageProps={imageProps} rdata={rdata} cdata={cdata}>
+            <AboutContainer />
+            <PopularDishesContainer rdata={rdata} cdata={cdata} />
+          </HeroContainer>
         </DefaultLayout>
       ) : (
         <div>Site data not found</div>
