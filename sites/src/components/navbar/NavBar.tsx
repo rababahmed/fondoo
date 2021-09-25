@@ -14,6 +14,7 @@ import React from "react";
 import { Constants } from "../../config";
 import OrderButton from "../buttons/OrderButton";
 import PrimaryButton from "../buttons/PrimaryButton";
+import MobileNav from "./MobileNav";
 import NavItem from "./NavItem";
 
 const NavBar = ({ rdata, cdata }: any) => {
@@ -72,14 +73,7 @@ const NavBar = ({ rdata, cdata }: any) => {
           alignSelf="center"
           justifySelf="center"
         >
-          <IconButton
-            rounded="md"
-            bg={cdata.primaryColor}
-            color="white"
-            _hover={{ opacity: "0.9" }}
-            aria-label="Search database"
-            icon={<HamburgerIcon />}
-          />
+          <MobileNav cdata={cdata} />
         </Box>
       </Grid>
     </>
