@@ -36,7 +36,10 @@ const PopularDishesContainer = ({ rdata, cdata }: any) => {
                 imgW={"300"}
                 imgH={"200"}
               >
-                <HStack spacing={100}>
+                <SimpleGrid
+                  columns={{ base: 1, md: 2 }}
+                  spacing={{ base: 5, md: 5 }}
+                >
                   <Box
                     fontSize="2xl"
                     color={useColorModeValue("gray.800", "white")}
@@ -49,7 +52,7 @@ const PopularDishesContainer = ({ rdata, cdata }: any) => {
                   <Box>
                     <OrderButton cdata={cdata} text={"See menu"} />
                   </Box>
-                </HStack>
+                </SimpleGrid>
               </CardWithImage>
               <CardWithImage
                 title="Chicken Fry"
@@ -57,7 +60,10 @@ const PopularDishesContainer = ({ rdata, cdata }: any) => {
                 imgW={"300"}
                 imgH={"200"}
               >
-                <HStack spacing={100}>
+                <SimpleGrid
+                  columns={{ base: 1, md: 2 }}
+                  spacing={{ base: 5, md: 5 }}
+                >
                   <Box
                     fontSize="2xl"
                     color={useColorModeValue("gray.800", "white")}
@@ -70,7 +76,7 @@ const PopularDishesContainer = ({ rdata, cdata }: any) => {
                   <Box>
                     <OrderButton cdata={cdata} text={"See menu"} />
                   </Box>
-                </HStack>
+                </SimpleGrid>
               </CardWithImage>
               <CardWithImage
                 title="Chicken Fry"
@@ -78,7 +84,10 @@ const PopularDishesContainer = ({ rdata, cdata }: any) => {
                 imgW={"300"}
                 imgH={"200"}
               >
-                <HStack spacing={100}>
+                <SimpleGrid
+                  columns={{ base: 1, md: 2 }}
+                  spacing={{ base: 5, md: 5 }}
+                >
                   <Box
                     fontSize="2xl"
                     color={useColorModeValue("gray.800", "white")}
@@ -91,7 +100,7 @@ const PopularDishesContainer = ({ rdata, cdata }: any) => {
                   <Box>
                     <OrderButton cdata={cdata} text={"See menu"} />
                   </Box>
-                </HStack>
+                </SimpleGrid>
               </CardWithImage>
             </SimpleGrid>
           </Stack>

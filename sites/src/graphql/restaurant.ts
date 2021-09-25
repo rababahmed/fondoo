@@ -78,6 +78,9 @@ export const GET_RESTAURANT_INFO = gql`
           popularDishesHeading
           popularDishesDescription
           popularDishesImage
+          reservationHeading
+          reservationDescription
+          reservationImage
         }
         coupons {
           id

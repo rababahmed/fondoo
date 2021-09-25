@@ -5,7 +5,7 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 
 export const AboutContainer = () => {
   return (
-    <Box mt={10} bg={"white"}>
+    <Box bg={"white"}>
       <Container maxW={"7xl"} p="12">
         <Box
           marginTop={{ base: "1", sm: "5" }}

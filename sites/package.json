@@ -6,7 +6,9 @@
     "dev": "next dev -p 8000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.14",
@@ -18,6 +20,8 @@
     "axios": "^0.21.1",
     "date-fns": "^2.22.1",
     "embla-carousel": "^4.5.3",
+    "formik": "^2.2.9",
+    "formik-chakra-ui": "^1.4.7",
     "framer-motion": "^4",
     "graphql": "^15.5.1",
     "graphql-request": "^3.4.0",
@@ -28,10 +32,17 @@
     "react-icons": "^4.2.0",
     "react-query": "^3.18.1",
     "react-stickynode": "^3.1.0",
-    "sharp": "^0.28.3"
+    "sharp": "^0.28.3",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/react": "^6.3.8",
     "@types/react": "17.0.13",
+    "babel-loader": "^8.2.2",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
     "typescript": "4.3.5"

@@ -3,6 +3,7 @@ import React from "react";
 import NavBar from "../components/navbar/NavBar";
 import TopRibbon from "../components/navbar/TopRibbon";
 import Sticky from "react-stickynode";
+import Footer from "../components/footer/Footer";
 
 const DefaultLayout = ({ children, rdata, cdata }: any) => {
   return (
@@ -11,6 +12,7 @@ const DefaultLayout = ({ children, rdata, cdata }: any) => {
         <TopRibbon rdata={rdata} cdata={cdata} />
         <NavBar rdata={rdata} cdata={cdata} />
         {children}
+        <Footer rdata={rdata} cdata={cdata} />
       </Box>
     </>
   );

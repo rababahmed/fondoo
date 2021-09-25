@@ -44,32 +44,31 @@ const HeroContainer = ({ rdata, cdata, imageProps, children }: any) => {
               </Stack>
             </VStack>
           </Box>
-          <Box zIndex="1" pos="absolute" mt={460} w="100%">
-            <Center>
-              <Center
-                bg="white"
-                rounded="md"
-                w={{ base: "80%", md: "60%" }}
-                shadow="sm"
-              >
-                <VStack spacing={8} px={{ base: 10, md: 0 }} py={8}>
-                  <Stack>
-                    <Heading size="xl" fontWeight="bold" align="center">
-                      {rdata.CMSHome.dealsHeading}
-                    </Heading>
-                    <Heading size="md" fontWeight="semibold" align="center">
-                      {rdata.CMSHome.dealsDescription
-                        ? rdata.CMSHome.dealsDescription
-                        : null}
-                    </Heading>
-                  </Stack>
-                  <DealsModule rdata={rdata} cdata={cdata} />
-                </VStack>
-              </Center>
-            </Center>
-            {children}
-          </Box>
         </Flex>
+        <Box zIndex="1" my={10} w="100%">
+          <Center>
+            <Center
+              bg="white"
+              rounded="md"
+              w={{ base: "80%", md: "60%" }}
+              shadow="sm"
+            >
+              <VStack spacing={8} px={{ base: 10, md: 0 }} py={8}>
+                <Stack>
+                  <Heading size="xl" fontWeight="bold" align="center">
+                    {rdata.CMSHome.dealsHeading}
+                  </Heading>
+                  <Heading size="md" fontWeight="semibold" align="center">
+                    {rdata.CMSHome.dealsDescription
+                      ? rdata.CMSHome.dealsDescription
+                      : null}
+                  </Heading>
+                </Stack>
+                <DealsModule rdata={rdata} cdata={cdata} />
+              </VStack>
+            </Center>
+          </Center>
+        </Box>
       </Box>
     </>
   );

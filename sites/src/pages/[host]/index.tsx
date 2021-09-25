@@ -2,15 +2,14 @@ import { GraphQLClient } from "graphql-request";
 import Head from "next/head";
 import { Constants } from "../../config";
 import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
-import { Box, Heading, Img } from "@chakra-ui/react";
-import TopRibbon from "../../components/navbar/TopRibbon";
-import NavBar from "../../components/navbar/NavBar";
 import HeroContainer from "../../components/hero/HeroContainer";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import { getPlaiceholder } from "plaiceholder";
 import TezzBitesGA from "../../components/analytics/TezzBitesGA";
 import PopularDishesContainer from "../../modules/home/PopularDishesContainer";
 import { AboutContainer } from "../../modules/home/AboutContainer";
+import ReservationContainer from "../../modules/home/ReservationContainer";
+import { Stack } from "@chakra-ui/layout";
 
 export default function Home({ host, rdata, cdata, imageProps }: any) {
   console.log(rdata);
@@ -25,10 +24,16 @@ export default function Home({ host, rdata, cdata, imageProps }: any) {
       <TezzBitesGA />
       {rdata && cdata ? (
         <DefaultLayout rdata={rdata} cdata={cdata}>
-          <HeroContainer imageProps={imageProps} rdata={rdata} cdata={cdata}>
+          <Stack>
+            <HeroContainer
+              imageProps={imageProps}
+              rdata={rdata}
+              cdata={cdata}
+            />
             <AboutContainer />
             <PopularDishesContainer rdata={rdata} cdata={cdata} />
-          </HeroContainer>
+            <ReservationContainer rdata={rdata} cdata={cdata} />
+          </Stack>
         </DefaultLayout>
       ) : (
         <div>Site data not found</div>

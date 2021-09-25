@@ -49,10 +49,13 @@ const CardWithImage = (props: Props) => {
             color={useColorModeValue("gray.700", "white")}
             fontSize={"2xl"}
             fontFamily={"body"}
+            isTruncated
           >
             {props.title}
           </Heading>
-          <Text color={"gray.500"}>{props.description}</Text>
+          <Text color={"gray.500"} isTruncated>
+            {props.description}
+          </Text>
           {props.children}
         </Stack>
       </Box>
