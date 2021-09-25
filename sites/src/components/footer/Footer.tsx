@@ -1,24 +1,42 @@
 import { Box, HStack, SimpleGrid, Stack, Text } from "@chakra-ui/layout";
 import { Heading } from "@chakra-ui/react";
 import React from "react";
+import ClickableText from "../misc/ClickableText";
 
 const Footer = ({ rdata, cdata }: any) => {
   return (
     <Box bg="#353439" pos="relative" bottom={0} left={0} w="100%" color="white">
-      <SimpleGrid columns={{ base: 1, sm: 3 }} spacing={20} py={14} px={60}>
+      <SimpleGrid
+        columns={{ base: 1, sm: 3 }}
+        spacing={20}
+        py={14}
+        px={{ base: 2, sm: 60 }}
+      >
         <Stack spacing={4}>
           <Heading size="md">Contact Us</Heading>
           <Stack spacing={2}>
             <Text fontWeight="semibold">Address</Text>
-            <Text>{rdata.address}</Text>
+            <ClickableText
+              text={rdata.address}
+              url={"https://www.google.com/maps/search/" + rdata.address}
+              fontSize="sm"
+            />
           </Stack>
           <Stack spacing={2}>
             <Text fontWeight="semibold">Call us at</Text>
-            <Text>{rdata.businessPhone}</Text>
+            <ClickableText
+              text={rdata.businessPhone}
+              url={"tel:" + rdata.businessPhone}
+              fontSize="sm"
+            />
           </Stack>
           <Stack spacing={2}>
             <Text fontWeight="semibold">Send an email</Text>
-            <Text>{rdata.email}</Text>
+            <ClickableText
+              text={rdata.email}
+              url={"mail:" + rdata.email}
+              fontSize="sm"
+            />
           </Stack>
           <Stack direction={"column"} spacing={2}></Stack>
         </Stack>
@@ -70,7 +88,12 @@ const Footer = ({ rdata, cdata }: any) => {
           <Heading size="md">Stay in the loop</Heading>
         </Stack>
       </SimpleGrid>
-      <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={20} py={4} px={60}>
+      <SimpleGrid
+        columns={{ base: 1, sm: 2 }}
+        spacing={20}
+        py={4}
+        px={{ base: 2, sm: 60 }}
+      >
         <Text fontWeight="semibold" size="md">
           TezzBites Partner Restaurant. ©2021 TezzBites. All Rights Reserved
         </Text>

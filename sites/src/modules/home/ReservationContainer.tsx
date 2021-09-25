@@ -17,7 +17,7 @@ const ReservationContainer = ({ rdata, cdata }: any) => {
                   ? rdata.CMSHome.reservationDescription
                   : null}
               </Heading>
-              <Box w="600px">
+              <Box w={{ base: "full", sm: "600px" }}>
                 <ReservationCard cdata={cdata} />
               </Box>
             </Stack>

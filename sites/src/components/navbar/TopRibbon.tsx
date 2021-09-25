@@ -1,6 +1,6 @@
 import { Box, Grid, Icon, Stack, Text, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
-import RibbonItem from "./RibbonItem";
+import RibbonItem from "../misc/ClickableText";
 import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { format } from "date-fns";
