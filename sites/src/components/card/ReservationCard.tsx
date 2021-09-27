@@ -9,7 +9,14 @@ import { CalendarIcon, PhoneIcon } from "@chakra-ui/icons";
 import FormInputField from "../form/FormInputField";
 import { BsCalendar, BsClock, BsPeople } from "react-icons/bs";
 
-const ReservationCard = ({ cdata, rdata }: any) => {
+interface Props {
+  cdata: any;
+  rdata: any;
+  bg?: string;
+  title?: string;
+}
+
+const ReservationCard = ({ cdata, rdata, bg, title }: any) => {
   const initialValues = {
     firstName: "",
     lastName: "",
@@ -33,16 +40,16 @@ const ReservationCard = ({ cdata, rdata }: any) => {
       <Box
         maxW={"600px"}
         w={"full"}
-        bg={"#F3F5F5"}
+        bg={bg || "#F3F5F5"}
         shadow={"lg"}
-        rounded={"md"}
+        rounded={"lg"}
         border={"1px"}
         borderColor={"gray.100"}
         overflow={"hidden"}
         p={10}
       >
         <Heading size="xl" mb={6} fontWeight="semibold" align="center">
-          Reservation
+          {title || "Reservation"}
         </Heading>
         <Formik
           onSubmit={onSubmit}

@@ -1,19 +1,17 @@
+import { Center, Stack } from "@chakra-ui/layout";
 import { GraphQLClient } from "graphql-request";
 import Head from "next/head";
-import { Constants } from "../../config";
-import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
-import HeroContainer from "../../components/hero/HeroContainer";
-import DefaultLayout from "../../layouts/DefaultLayout";
 import { getPlaiceholder } from "plaiceholder";
 import TezzBitesGA from "../../components/analytics/TezzBitesGA";
-import PopularDishesContainer from "../../modules/home/PopularDishesContainer";
-import { AboutContainer } from "../../modules/home/AboutContainer";
+import Header from "../../components/card/Header";
+import ReservationCard from "../../components/card/ReservationCard";
+import { Constants } from "../../config";
+import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
+import DefaultLayout from "../../layouts/DefaultLayout";
+import { AboutPage } from "../../modules/about/AboutPage";
 import ReservationContainer from "../../modules/home/ReservationContainer";
-import { Stack } from "@chakra-ui/layout";
 
-export default function Home({ host, rdata, cdata, imageProps }: any) {
-  console.log(rdata);
-
+export default function Reservation({ host, rdata, cdata, imageProps }: any) {
   return (
     <>
       <Head>
@@ -24,16 +22,20 @@ export default function Home({ host, rdata, cdata, imageProps }: any) {
       <TezzBitesGA />
       {rdata && cdata ? (
         <DefaultLayout rdata={rdata} cdata={cdata}>
-          <Stack>
-            <HeroContainer
-              imageProps={imageProps}
+          <Header
+            rdata={rdata}
+            cdata={cdata}
+            imageProps={imageProps}
+            heading="Reservation"
+          />
+          <Center py={10}>
+            <ReservationCard
               rdata={rdata}
               cdata={cdata}
+              bg="white"
+              title="Book a table"
             />
-            <AboutContainer rdata={rdata} cdata={cdata} />
-            <PopularDishesContainer rdata={rdata} cdata={cdata} />
-            <ReservationContainer rdata={rdata} cdata={cdata} />
-          </Stack>
+          </Center>
         </DefaultLayout>
       ) : (
         <div>Site data not found</div>

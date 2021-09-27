@@ -3,11 +3,13 @@ import { GraphQLClient } from "graphql-request";
 import Head from "next/head";
 import { getPlaiceholder } from "plaiceholder";
 import TezzBitesGA from "../../components/analytics/TezzBitesGA";
+import Header from "../../components/card/Header";
 import { Constants } from "../../config";
 import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 import DefaultLayout from "../../layouts/DefaultLayout";
+import { AboutPage } from "../../modules/about/AboutPage";
 
-export default function Home({ host, rdata, cdata, imageProps }: any) {
+export default function About({ host, rdata, cdata, imageProps }: any) {
   return (
     <>
       <Head>
@@ -18,7 +20,13 @@ export default function Home({ host, rdata, cdata, imageProps }: any) {
       <TezzBitesGA />
       {rdata && cdata ? (
         <DefaultLayout rdata={rdata} cdata={cdata}>
-          <Stack></Stack>
+          <Header
+            rdata={rdata}
+            cdata={cdata}
+            imageProps={imageProps}
+            heading="Our Story"
+          />
+          <AboutPage rdata={rdata} cdata={cdata} />
         </DefaultLayout>
       ) : (
         <div>Site data not found</div>

@@ -3,42 +3,16 @@ import React from "react";
 import Image from "next/image";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 
-export const AboutContainer = ({ rdata, cdata }: any) => {
+export const AboutPage = ({ rdata, cdata }: any) => {
   return (
     <Box bg={"white"}>
-      <Container maxW={"7xl"} p="12">
+      <Container maxW={"7xl"} px={32} py={20}>
         <Box
           marginTop={{ base: "1", sm: "5" }}
           display="flex"
           flexDirection={{ base: "column", sm: "row" }}
           justifyContent="space-between"
         >
-          <Box
-            display="flex"
-            flex="1"
-            marginRight="3"
-            position="relative"
-            alignItems="center"
-          >
-            <Box
-              width={{ base: "100%", sm: "85%" }}
-              zIndex="2"
-              marginLeft={{ base: "0", sm: "15%" }}
-              marginTop="0"
-            >
-              <Box maxW={"400px"} w={"full"}>
-                <Image
-                  src={
-                    "https://i2.wp.com/klfoodie.com/wp-content/uploads/2021/07/17-1.jpeg?resize=708%2C708&ssl=1"
-                  }
-                  alt="some good alt text"
-                  width={"400px"}
-                  height={"400px"}
-                  objectFit="cover"
-                />
-              </Box>
-            </Box>
-          </Box>
           <Box
             display="flex"
             flex="1"

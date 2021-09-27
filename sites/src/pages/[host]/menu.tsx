@@ -1,19 +1,15 @@
+import { Stack } from "@chakra-ui/layout";
 import { GraphQLClient } from "graphql-request";
 import Head from "next/head";
-import { Constants } from "../../config";
-import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
-import HeroContainer from "../../components/hero/HeroContainer";
-import DefaultLayout from "../../layouts/DefaultLayout";
 import { getPlaiceholder } from "plaiceholder";
 import TezzBitesGA from "../../components/analytics/TezzBitesGA";
-import PopularDishesContainer from "../../modules/home/PopularDishesContainer";
-import { AboutContainer } from "../../modules/home/AboutContainer";
-import ReservationContainer from "../../modules/home/ReservationContainer";
-import { Stack } from "@chakra-ui/layout";
+import Header from "../../components/card/Header";
+import { Constants } from "../../config";
+import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
+import DefaultLayout from "../../layouts/DefaultLayout";
+import { AboutPage } from "../../modules/about/AboutPage";
 
-export default function Home({ host, rdata, cdata, imageProps }: any) {
-  console.log(rdata);
-
+export default function Menu({ host, rdata, cdata, imageProps }: any) {
   return (
     <>
       <Head>
@@ -24,16 +20,13 @@ export default function Home({ host, rdata, cdata, imageProps }: any) {
       <TezzBitesGA />
       {rdata && cdata ? (
         <DefaultLayout rdata={rdata} cdata={cdata}>
-          <Stack>
-            <HeroContainer
-              imageProps={imageProps}
-              rdata={rdata}
-              cdata={cdata}
-            />
-            <AboutContainer rdata={rdata} cdata={cdata} />
-            <PopularDishesContainer rdata={rdata} cdata={cdata} />
-            <ReservationContainer rdata={rdata} cdata={cdata} />
-          </Stack>
+          <Header
+            rdata={rdata}
+            cdata={cdata}
+            imageProps={imageProps}
+            heading="Menu"
+          />
+          <AboutPage rdata={rdata} cdata={cdata} />
         </DefaultLayout>
       ) : (
         <div>Site data not found</div>
