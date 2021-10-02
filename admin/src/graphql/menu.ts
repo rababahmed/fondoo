@@ -133,7 +133,7 @@ export const ADD_MENU_ITEM = gql`
         isPopular: $isPopular
         price: $price
         spiceLevel: $spiceLevel
-        ProductCategory: { connect: { id: $productCatID } }
+        productCategory: { connect: { id: $productCatID } }
         Restaurant: { connect: { id: $restaurantID } }
       }
     ) {

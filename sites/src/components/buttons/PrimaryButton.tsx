@@ -11,6 +11,7 @@ const PrimaryButton = ({ cdata, text }: Props) => {
     <>
       <Button
         bg={cdata.secondaryColor}
+        rounded={"full"}
         _hover={{ opacity: "0.9" }}
         color="white"
       >

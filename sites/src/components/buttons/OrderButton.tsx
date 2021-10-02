@@ -11,6 +11,7 @@ const OrderButton = ({ cdata, text }: Props) => {
     <>
       <Button
         bg={cdata.primaryColor}
+        rounded={"full"}
         _hover={{ cursor: "pointer", opacity: "95%" }}
         color="white"
       >

@@ -8,6 +8,7 @@ import { Constants } from "../../config";
 import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import { AboutPage } from "../../modules/about/AboutPage";
+import { MenuContainer } from "../../modules/menu/MenuContainer";
 
 export default function Menu({ host, rdata, cdata, imageProps }: any) {
   return (
@@ -26,7 +27,7 @@ export default function Menu({ host, rdata, cdata, imageProps }: any) {
             imageProps={imageProps}
             heading="Menu"
           />
-          <AboutPage rdata={rdata} cdata={cdata} />
+          <MenuContainer rdata={rdata} cdata={cdata} />
         </DefaultLayout>
       ) : (
         <div>Site data not found</div>

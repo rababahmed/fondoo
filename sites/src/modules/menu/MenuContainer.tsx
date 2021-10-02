@@ -14,7 +14,12 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 import CardWithoutImage from "../../components/card/CardWithoutImage";
 import CardWithIllustration from "../../components/card/CardWithIllustration";
 
-export const ContactContainer = ({ rdata, cdata }: any) => {
+interface Props {
+  rdata: any;
+  cdata: any;
+}
+
+export const MenuContainer = ({ rdata, cdata }: Props) => {
   return (
     <>
       <Center p={10}>
