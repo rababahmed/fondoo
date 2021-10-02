@@ -65,7 +65,7 @@ const NavBar = ({ rdata, cdata }: any) => {
           align="center"
         >
           <PrimaryButton cdata={cdata} text="SIGN IN" />
-          <OrderButton cdata={cdata} text="ORDER NOW" />
+          <OrderButton cdata={cdata} text="ORDER NOW" url="/order" />
         </Stack>
         <Box
           display={{ base: "block", lg: "none" }}

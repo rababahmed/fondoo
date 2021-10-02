@@ -6,13 +6,15 @@ import {
   Stack,
   Avatar,
   useColorModeValue,
+  Divider,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 interface Props {
-  title: string;
-  description: string;
+  rdata: any;
+  cdata: any;
   isMenu?: boolean;
   titleBg?: any;
   cardW?: any;
@@ -22,7 +24,7 @@ interface Props {
   children?: any;
 }
 
-const CardWithoutImage = (props: Props) => {
+const RestaurantCard = (props: Props) => {
   return (
     <>
       <Box
@@ -35,7 +37,7 @@ const CardWithoutImage = (props: Props) => {
         borderColor={"gray.100"}
         overflow={"hidden"}
       >
-        <Stack px={10} py={5}>
+        <Stack px={5} py={5}>
           <Heading
             color={props.titleBg ? "white" : "black"}
             px={props.titleBg ? 4 : 0}
@@ -45,14 +47,29 @@ const CardWithoutImage = (props: Props) => {
             fontSize={"2xl"}
             fontFamily={"body"}
           >
-            {props.title}
+            {props.rdata.name}
           </Heading>
-          <Text color={"gray.500"}>{props.description}</Text>
-          <Box p={props.isMenu ? 4 : 0}>{props.children}</Box>
+          <Text color={"gray.500"}>{props.rdata.cuisine}</Text>
+          <Stack>
+            <Stack
+              direction={"row"}
+              spacing={0}
+              color={props.cdata.primaryColor}
+            >
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+            </Stack>
+            <Divider variant="solid" borderColor={"gray.400"} />
+            <Text fontWeight="semibold">Min Delivery Amount ৳500</Text>
+            <Text fontWeight="semibold">Opens at 12:00 PM - 10:00 PM</Text>
+          </Stack>
         </Stack>
       </Box>
     </>
   );
 };
 
-export default CardWithoutImage;
+export default RestaurantCard;

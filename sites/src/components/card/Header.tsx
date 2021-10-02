@@ -1,20 +1,39 @@
-import { Box, Center, Flex, Heading, Stack, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+  VStack,
+} from "@chakra-ui/layout";
 import React from "react";
 import { Constants } from "../../config";
 import OrderButton from "../buttons/OrderButton";
 import PrimaryButton from "../buttons/PrimaryButton";
 import Image from "next/image";
 import DealsModule from "../../modules/home/DealsContainer";
+import CardWithoutImage from "./CardWithoutImage";
+import { AiOutlineStar } from "react-icons/ai";
+import RestaurantCard from "./RestaurantCard";
 
 interface Props {
   rdata: any;
   cdata: any;
-  heading: string;
+  heading?: string;
   imageProps: any;
+  isOrderPage?: boolean;
   children?: any;
 }
 
-const Header = ({ rdata, cdata, imageProps, children, heading }: Props) => {
+const Header = ({
+  rdata,
+  cdata,
+  imageProps,
+  children,
+  heading,
+  isOrderPage,
+}: Props) => {
   return (
     <>
       <Box>
@@ -31,19 +50,38 @@ const Header = ({ rdata, cdata, imageProps, children, heading }: Props) => {
               placeholder="blur"
             />
           </Box>
-          <Box
-            pos="absolute"
-            zIndex="1"
-            h={260}
-            w="100%"
-            bgGradient={"linear(to-r, blackAlpha.600, blackAlpha.600)"}
-          >
-            <VStack mt={110} spacing={4} align="center">
-              <Heading size="2xl" color="white" align="center">
-                {heading}
-              </Heading>
-            </VStack>
-          </Box>
+          {isOrderPage ? (
+            <Box
+              pos="absolute"
+              zIndex="1"
+              h={260}
+              w="100%"
+              bgGradient={"linear(to-r, blackAlpha.600, blackAlpha.600)"}
+            >
+              <VStack
+                mt={14}
+                mr={{ base: 0, lg: 800 }}
+                spacing={4}
+                align="center"
+              >
+                <RestaurantCard rdata={rdata} cdata={cdata} />
+              </VStack>
+            </Box>
+          ) : (
+            <Box
+              pos="absolute"
+              zIndex="1"
+              h={260}
+              w="100%"
+              bgGradient={"linear(to-r, blackAlpha.600, blackAlpha.600)"}
+            >
+              <VStack mt={110} spacing={4} align="center">
+                <Heading size="2xl" color="white" align="center">
+                  {heading}
+                </Heading>
+              </VStack>
+            </Box>
+          )}
         </Flex>
       </Box>
     </>

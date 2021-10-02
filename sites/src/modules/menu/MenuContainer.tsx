@@ -7,6 +7,8 @@ import {
   Center,
   SimpleGrid,
   Stack,
+  Divider,
+  Grid,
 } from "@chakra-ui/layout";
 import React from "react";
 import Image from "next/image";
@@ -24,22 +26,31 @@ export const MenuContainer = ({ rdata, cdata }: Props) => {
     <>
       <Center p={10}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 4, md: 4 }}>
-          <Stack spacing={4}>
+          {rdata.productCategory.map((cat: any) => (
             <CardWithoutImage
-              title="Address"
-              description="Soi 71, Level 1 Concord Baksh Tower, 11/A Kemal Ataturk Ave, Dhaka 1213"
-            />
-            <CardWithoutImage
-              title="Contact"
-              description={"Phone:" + " " + "01730315706"}
+              cardW={600}
+              titleBg={cdata.secondaryColor}
+              isMenu={true}
+              key={cat.id}
+              title={cat.name}
+              description={cat.description}
             >
-              <Text color={"gray.500"}>Email: {"nashra@soi71.net"}</Text>
+              {cat.Product.map((p: any) => (
+                <Box key={p.id}>
+                  <Grid templateColumns={{ base: "30fr 2fr" }}>
+                    <Text
+                      fontSize={{ base: "md", md: "lg" }}
+                      fontWeight={"semibold"}
+                    >
+                      {p.name}
+                    </Text>
+                    <Text fontSize={{ base: "md", md: "lg" }}>{p.price}</Text>
+                  </Grid>
+                  <Divider color={"black"} />
+                </Box>
+              ))}
             </CardWithoutImage>
-            <CardWithoutImage title="Social" description="Connect with us" />
-          </Stack>
-          <Stack>
-            <CardWithIllustration rdata={rdata} cdata={cdata} />
-          </Stack>
+          ))}
         </SimpleGrid>
       </Center>
     </>
