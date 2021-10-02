@@ -134,7 +134,7 @@ export const ADD_MENU_ITEM = gql`
         price: $price
         spiceLevel: $spiceLevel
         productCategory: { connect: { id: $productCatID } }
-        Restaurant: { connect: { id: $restaurantID } }
+        restaurant: { connect: { id: $restaurantID } }
       }
     ) {
       name
