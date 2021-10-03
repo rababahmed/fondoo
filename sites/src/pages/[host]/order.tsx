@@ -9,6 +9,7 @@ import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import { AboutPage } from "../../modules/about/AboutPage";
 import { MenuContainer } from "../../modules/menu/MenuContainer";
+import { OrderContainer } from "../../modules/order/OrderContainer";
 
 export default function Order({ host, rdata, cdata, imageProps }: any) {
   return (
@@ -27,7 +28,7 @@ export default function Order({ host, rdata, cdata, imageProps }: any) {
             imageProps={imageProps}
             isOrderPage={true}
           />
-          <MenuContainer rdata={rdata} cdata={cdata} />
+          <OrderContainer rdata={rdata} cdata={cdata} />
         </DefaultLayout>
       ) : (
         <div>Site data not found</div>

@@ -64,7 +64,7 @@ const RestaurantCard = (props: Props) => {
             </Stack>
             <Divider variant="solid" borderColor={"gray.400"} />
             <Text fontWeight="semibold">Min Delivery Amount ৳500</Text>
-            <Text fontWeight="semibold">Opens at 12:00 PM - 10:00 PM</Text>
+            <Text fontWeight="semibold">Open Hours: 12:00 PM - 10:00 PM</Text>
           </Stack>
         </Stack>
       </Box>

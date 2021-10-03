@@ -59,10 +59,10 @@ const Header = ({
               bgGradient={"linear(to-r, blackAlpha.600, blackAlpha.600)"}
             >
               <VStack
-                mt={14}
-                mr={{ base: 0, lg: 800 }}
+                p={14}
+                px={{ base: 0, md: 60 }}
                 spacing={4}
-                align="center"
+                align={{ base: "center", md: "start" }}
               >
                 <RestaurantCard rdata={rdata} cdata={cdata} />
               </VStack>
