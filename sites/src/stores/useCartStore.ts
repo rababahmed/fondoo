@@ -1,9 +1,12 @@
 import create from "zustand";
 import { configurePersist } from "zustand-persist";
 import { devtools } from "zustand/middleware";
+import omit from "lodash/omit";
 
 interface Cart {
   cart: any;
+  decreaseQuantity: (id: string) => void;
+  increaseQuantity: (id: string) => void;
   addToCart: (
     id: string,
     name: string,
@@ -41,6 +44,57 @@ export const useCartStore = create<Cart>(
     //   },
     (set) => ({
       cart: [],
+      decreaseQuantity: (id) =>
+        set((state) => {
+          const isPresent = state.cart.find((p: any) => p.id === id);
+          if (!isPresent) {
+            return {
+              ...state,
+            };
+          }
+
+          const updatedCart = state.cart.map((p: any) =>
+            p.id === id
+              ? {
+                  ...p,
+                  quantity: p.quantity - 1,
+                  total: p.total - p.price,
+                }
+              : p
+          );
+
+          const isQuantityZero = state.cart.find((p: any) => p.quantity === 0);
+
+          return {
+            ...state,
+            cart: isQuantityZero
+              ? omit(state, [state.cart.find((p: any) => p.id === id)])
+              : updatedCart,
+          };
+        }),
+      increaseQuantity: (id) =>
+        set((state) => {
+          const isPresent = state.cart.find((p: any) => p.id === id);
+          if (!isPresent) {
+            return {
+              ...state,
+            };
+          }
+          const updatedCart = state.cart.map((p: any) =>
+            p.id === id
+              ? {
+                  ...p,
+                  quantity: p.quantity + 1,
+                  total: p.total + p.price,
+                }
+              : p
+          );
+
+          return {
+            ...state,
+            cart: updatedCart,
+          };
+        }),
       addToCart: (id, name, quantity, price) =>
         set((state) => {
           const isPresent = state.cart.find((p: any) => p.id === id);
@@ -50,7 +104,7 @@ export const useCartStore = create<Cart>(
               ...state,
               cart: [
                 ...state.cart,
-                { id, name, price: price * quantity, quantity },
+                { id, name, price, total: price * quantity, quantity },
               ],
             };
           }
@@ -60,7 +114,7 @@ export const useCartStore = create<Cart>(
               ? {
                   ...p,
                   quantity: p.quantity + quantity,
-                  price: price * (p.quantity + quantity),
+                  total: price * (p.quantity + quantity),
                 }
               : p
           );

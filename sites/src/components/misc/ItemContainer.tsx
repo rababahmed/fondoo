@@ -53,9 +53,7 @@ const ItemContainer = ({ rdata, cdata, p }: Props) => {
                   aria-label="Minus"
                   icon={<BiMinusCircle />}
                   onClick={() => setQuantity(quantity - 1)}
-                >
-                  -
-                </IconButton>
+                />
                 <NumberInput
                   defaultValue={1}
                   value={quantity}
@@ -72,15 +70,15 @@ const ItemContainer = ({ rdata, cdata, p }: Props) => {
                   aria-label="Add"
                   icon={<IoMdAddCircleOutline />}
                   onClick={() => setQuantity(quantity + 1)}
-                >
-                  +
-                </IconButton>
+                />
               </HStack>
               <PrimaryButton
                 cdata={cdata}
                 text={"Add to Cart"}
                 onClick={() => {
                   addToCart(p.id, p.name, quantity, p.price);
+                  setQuantity(1);
+                  onClose();
                 }}
               />
             </HStack>

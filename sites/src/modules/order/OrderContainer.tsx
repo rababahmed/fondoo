@@ -29,7 +29,7 @@ interface Props {
 }
 
 export const OrderContainer = ({ rdata, cdata }: Props) => {
-  const [isDelivery, setIsDelivery] = React.useState(false);
+  const [isDelivery, setIsDelivery] = React.useState(true);
 
   return (
     <>
