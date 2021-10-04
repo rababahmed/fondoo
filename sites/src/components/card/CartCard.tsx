@@ -108,7 +108,7 @@ const CartCard = (props: Props) => {
             <Box py={1} />
             <PrimaryButton
               cdata={props.cdata}
-              text={"Checkout" + " - ৳" + (getArraySum(subTotal) * 25) / 100}
+              text={"Checkout" + " - ৳" + (getArraySum(subTotal) * 125) / 100}
             />
           </Stack>
         </Stack>
