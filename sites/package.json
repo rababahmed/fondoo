@@ -33,7 +33,9 @@
     "react-query": "^3.18.1",
     "react-stickynode": "^3.1.0",
     "sharp": "^0.28.3",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "zustand": "^3.5.12",
+    "zustand-persist": "^0.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",

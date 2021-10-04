@@ -17,6 +17,8 @@ import OrderButton from "../buttons/OrderButton";
 import ItemCard from "../card/ItemCard";
 import { BiMinusCircle } from "react-icons/bi";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import PrimaryButton from "../buttons/PrimaryButton";
+import { useCartStore } from "../../stores/useCartStore";
 
 interface Props {
   rdata: any;
@@ -27,6 +29,8 @@ interface Props {
 const ItemContainer = ({ rdata, cdata, p }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [quantity, setQuantity] = React.useState(1);
+
+  const addToCart = useCartStore((state) => state.addToCart);
 
   return (
     <>
@@ -72,7 +76,13 @@ const ItemContainer = ({ rdata, cdata, p }: Props) => {
                   +
                 </IconButton>
               </HStack>
-              <OrderButton cdata={cdata} text={"Add to Cart"} />
+              <PrimaryButton
+                cdata={cdata}
+                text={"Add to Cart"}
+                onClick={() => {
+                  addToCart(p.id, p.name, quantity, p.price);
+                }}
+              />
             </HStack>
           </ModalFooter>
         </ModalContent>

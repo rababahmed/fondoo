@@ -12243,6 +12243,16 @@ yup@^0.32.9:
     property-expr "^2.0.4"
     toposort "^2.0.2"
 
+zustand-persist@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/zustand-persist/-/zustand-persist-0.3.1.tgz#471da113301934dc0a8f4fa31945617f404215e4"
+  integrity sha512-L/feyrmpmZIjm5gKWqXXdOHS+DwqD37tn0U5byTvFWuEDe0zd8qmGxReSo8WSOBM8diPp3BAWYN5epJbhjUK9A==
+
+zustand@^3.5.12:
+  version "3.5.12"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-3.5.12.tgz#407a8685eb286a32d7f560e74966993bbff1dae8"
+  integrity sha512-Cv9fX/yM5HXYODkn3Q/HMmMofnmZw3yqM73VT/3rQEvI/04Yl0OFNO24qMofhN82xTPWcCffkGPFCMq8r67Whg==
+
 zwitch@^1.0.0:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/zwitch/-/zwitch-1.0.5.tgz#d11d7381ffed16b742f6af7b3f223d5cd9fe9920"

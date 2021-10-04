@@ -13,7 +13,7 @@ import { useRouter } from "next/dist/client/router";
 import React from "react";
 import { Constants } from "../../config";
 import OrderButton from "../buttons/OrderButton";
-import PrimaryButton from "../buttons/PrimaryButton";
+import PrimaryButton from "../buttons/SecondaryButton";
 import MobileNav from "./MobileNav";
 import NavItem from "./NavItem";
 

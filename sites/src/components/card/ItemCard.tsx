@@ -35,7 +35,6 @@ const ItemCard = (props: Props) => {
         borderWidth="1px"
         rounded="md"
         bg={useColorModeValue("white", "gray.900")}
-        maxW="sm"
         cursor="pointer"
       >
         <Box w={"full"} overflow={"hidden"}>
