@@ -60,7 +60,7 @@ const Header = ({
             >
               <VStack
                 p={14}
-                px={{ base: 0, md: 60 }}
+                px={{ base: 0, md: 60, "2xl": 96 }}
                 spacing={4}
                 align={{ base: "center", md: "start" }}
               >

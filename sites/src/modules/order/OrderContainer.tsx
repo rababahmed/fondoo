@@ -38,7 +38,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
           w="full"
           spacing={6}
           py={{ base: 0, md: 10 }}
-          px={{ base: 0, md: 10, lg: 20, xl: 20 }}
+          px={{ base: 0, md: 10, lg: 20, xl: 20, "2xl": 60 }}
         >
           <Flex
             w="full"
@@ -121,7 +121,11 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
               <ItemContainer cdata={cdata} rdata={rdata} />
             </SimpleGrid> */}
             <Box pos={"sticky"}>
-              <CartCard title={"My Order"} titleBg={cdata.primaryColor} />
+              <CartCard
+                title={"My Order"}
+                titleBg={cdata.primaryColor}
+                cdata={cdata}
+              />
             </Box>
           </Grid>
         </Stack>
