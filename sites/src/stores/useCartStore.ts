@@ -46,13 +46,6 @@ export const useCartStore = create<Cart>(
       cart: [],
       decreaseQuantity: (id) =>
         set((state) => {
-          const isPresent = state.cart.find((p: any) => p.id === id);
-          if (!isPresent) {
-            return {
-              ...state,
-            };
-          }
-
           const isQuantityMinimum = state.cart.find((p: any) => p.quantity < 2);
 
           if (isQuantityMinimum) {

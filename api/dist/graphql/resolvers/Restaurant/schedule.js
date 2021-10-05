@@ -11,8 +11,7 @@ exports.Schedule = nexus_1.objectType({
         t.model.day();
         t.model.openingTime();
         t.model.closingTime();
-        t.model.deliveryTime();
-        t.model.takeawayTime();
+        t.model.pickupTime();
         t.model.restaurant();
         t.model.restaurantId();
     },

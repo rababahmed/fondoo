@@ -7,6 +7,9 @@ export const DeliveryZone = objectType({
   definition(t) {
     t.model.id();
     t.model.name();
+    t.model.deliveryTime();
+    t.model.isPreOrder();
+    t.model.preOrderInstructions();
     t.model.postCode();
     t.model.deliveryFeeType();
     t.model.deliveryCharge();

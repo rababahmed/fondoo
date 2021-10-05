@@ -26,9 +26,9 @@ export const Restaurant = objectType({
     t.model.hasParkingFacilities();
     t.model.hasPartyFacilities();
     t.model.hasKidsZone();
-    t.model.isTakeaway();
-    t.model.isDelivery();
-    t.model.isReservation();
+    t.model.hasPickup();
+    t.model.hasDelivery();
+    t.model.hasReservation();
     t.model.isAutoAcceptOrder();
     t.model.isAutoAcceptReservation();
     t.model.schedules();

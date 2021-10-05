@@ -1410,41 +1410,50 @@ enum DeliveryFee {
 }
 
 type DeliveryZone {
-  deliveryCharge: Int!
+  deliveryCharge: Float!
   deliveryFeeType: DeliveryFee!
+  deliveryTime: Int
   id: String!
-  maxDeliveryRadius: Int
-  minDeliveryAmount: Int
-  minDeliveryRadius: Int
+  isPreOrder: Boolean
+  maxDeliveryRadius: Float
+  minDeliveryAmount: Float
+  minDeliveryRadius: Float
   name: String!
   postCode: String
+  preOrderInstructions: String
   restaurant: Restaurant!
   restaurantId: String!
 }
 
 input DeliveryZoneCreateInput {
   createdAt: DateTime
-  deliveryCharge: Int
+  deliveryCharge: Float
   deliveryFeeType: DeliveryFee
+  deliveryTime: Int
   id: String
-  maxDeliveryRadius: Int
-  minDeliveryAmount: Int
-  minDeliveryRadius: Int
+  isPreOrder: Boolean
+  maxDeliveryRadius: Float
+  minDeliveryAmount: Float
+  minDeliveryRadius: Float
   name: String!
   postCode: String
+  preOrderInstructions: String
   restaurant: RestaurantCreateNestedOneWithoutDeliveryZonesInput!
 }
 
 input DeliveryZoneCreateManyRestaurantInput {
   createdAt: DateTime
-  deliveryCharge: Int
+  deliveryCharge: Float
   deliveryFeeType: DeliveryFee
+  deliveryTime: Int
   id: String
-  maxDeliveryRadius: Int
-  minDeliveryAmount: Int
-  minDeliveryRadius: Int
+  isPreOrder: Boolean
+  maxDeliveryRadius: Float
+  minDeliveryAmount: Float
+  minDeliveryRadius: Float
   name: String!
   postCode: String
+  preOrderInstructions: String
 }
 
 input DeliveryZoneCreateManyRestaurantInputEnvelope {
@@ -1466,14 +1475,17 @@ input DeliveryZoneCreateOrConnectWithoutRestaurantInput {
 
 input DeliveryZoneCreateWithoutRestaurantInput {
   createdAt: DateTime
-  deliveryCharge: Int
+  deliveryCharge: Float
   deliveryFeeType: DeliveryFee
+  deliveryTime: Int
   id: String
-  maxDeliveryRadius: Int
-  minDeliveryAmount: Int
-  minDeliveryRadius: Int
+  isPreOrder: Boolean
+  maxDeliveryRadius: Float
+  minDeliveryAmount: Float
+  minDeliveryRadius: Float
   name: String!
   postCode: String
+  preOrderInstructions: String
 }
 
 input DeliveryZoneListRelationFilter {
@@ -1486,12 +1498,15 @@ input DeliveryZoneOrderByInput {
   createdAt: SortOrder
   deliveryCharge: SortOrder
   deliveryFeeType: SortOrder
+  deliveryTime: SortOrder
   id: SortOrder
+  isPreOrder: SortOrder
   maxDeliveryRadius: SortOrder
   minDeliveryAmount: SortOrder
   minDeliveryRadius: SortOrder
   name: SortOrder
   postCode: SortOrder
+  preOrderInstructions: SortOrder
   restaurantId: SortOrder
 }
 
@@ -1500,40 +1515,49 @@ input DeliveryZoneScalarWhereInput {
   NOT: [DeliveryZoneScalarWhereInput!]
   OR: [DeliveryZoneScalarWhereInput!]
   createdAt: DateTimeFilter
-  deliveryCharge: IntFilter
+  deliveryCharge: FloatFilter
   deliveryFeeType: EnumDeliveryFeeFilter
+  deliveryTime: IntNullableFilter
   id: StringFilter
-  maxDeliveryRadius: IntNullableFilter
-  minDeliveryAmount: IntNullableFilter
-  minDeliveryRadius: IntNullableFilter
+  isPreOrder: BoolNullableFilter
+  maxDeliveryRadius: FloatNullableFilter
+  minDeliveryAmount: FloatNullableFilter
+  minDeliveryRadius: FloatNullableFilter
   name: StringFilter
   postCode: StringNullableFilter
+  preOrderInstructions: StringNullableFilter
   restaurantId: StringFilter
 }
 
 input DeliveryZoneUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: IntFieldUpdateOperationsInput
+  deliveryCharge: FloatFieldUpdateOperationsInput
   deliveryFeeType: EnumDeliveryFeeFieldUpdateOperationsInput
+  deliveryTime: NullableIntFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  maxDeliveryRadius: NullableIntFieldUpdateOperationsInput
-  minDeliveryAmount: NullableIntFieldUpdateOperationsInput
-  minDeliveryRadius: NullableIntFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
+  maxDeliveryRadius: NullableFloatFieldUpdateOperationsInput
+  minDeliveryAmount: NullableFloatFieldUpdateOperationsInput
+  minDeliveryRadius: NullableFloatFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   postCode: NullableStringFieldUpdateOperationsInput
+  preOrderInstructions: NullableStringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutDeliveryZonesInput
 }
 
 input DeliveryZoneUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: IntFieldUpdateOperationsInput
+  deliveryCharge: FloatFieldUpdateOperationsInput
   deliveryFeeType: EnumDeliveryFeeFieldUpdateOperationsInput
+  deliveryTime: NullableIntFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  maxDeliveryRadius: NullableIntFieldUpdateOperationsInput
-  minDeliveryAmount: NullableIntFieldUpdateOperationsInput
-  minDeliveryRadius: NullableIntFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
+  maxDeliveryRadius: NullableFloatFieldUpdateOperationsInput
+  minDeliveryAmount: NullableFloatFieldUpdateOperationsInput
+  minDeliveryRadius: NullableFloatFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   postCode: NullableStringFieldUpdateOperationsInput
+  preOrderInstructions: NullableStringFieldUpdateOperationsInput
 }
 
 input DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput {
@@ -1562,14 +1586,17 @@ input DeliveryZoneUpdateWithWhereUniqueWithoutRestaurantInput {
 
 input DeliveryZoneUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: IntFieldUpdateOperationsInput
+  deliveryCharge: FloatFieldUpdateOperationsInput
   deliveryFeeType: EnumDeliveryFeeFieldUpdateOperationsInput
+  deliveryTime: NullableIntFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  maxDeliveryRadius: NullableIntFieldUpdateOperationsInput
-  minDeliveryAmount: NullableIntFieldUpdateOperationsInput
-  minDeliveryRadius: NullableIntFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
+  maxDeliveryRadius: NullableFloatFieldUpdateOperationsInput
+  minDeliveryAmount: NullableFloatFieldUpdateOperationsInput
+  minDeliveryRadius: NullableFloatFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   postCode: NullableStringFieldUpdateOperationsInput
+  preOrderInstructions: NullableStringFieldUpdateOperationsInput
 }
 
 input DeliveryZoneUpsertWithWhereUniqueWithoutRestaurantInput {
@@ -1583,14 +1610,17 @@ input DeliveryZoneWhereInput {
   NOT: [DeliveryZoneWhereInput!]
   OR: [DeliveryZoneWhereInput!]
   createdAt: DateTimeFilter
-  deliveryCharge: IntFilter
+  deliveryCharge: FloatFilter
   deliveryFeeType: EnumDeliveryFeeFilter
+  deliveryTime: IntNullableFilter
   id: StringFilter
-  maxDeliveryRadius: IntNullableFilter
-  minDeliveryAmount: IntNullableFilter
-  minDeliveryRadius: IntNullableFilter
+  isPreOrder: BoolNullableFilter
+  maxDeliveryRadius: FloatNullableFilter
+  minDeliveryAmount: FloatNullableFilter
+  minDeliveryRadius: FloatNullableFilter
   name: StringFilter
   postCode: StringNullableFilter
+  preOrderInstructions: StringNullableFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
 }
@@ -1664,6 +1694,17 @@ input FloatFilter {
   lt: Float
   lte: Float
   not: NestedFloatFilter
+  notIn: [Float!]
+}
+
+input FloatNullableFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatNullableFilter
   notIn: [Float!]
 }
 
@@ -1823,6 +1864,17 @@ input NestedFloatFilter {
   notIn: [Float!]
 }
 
+input NestedFloatNullableFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: NestedFloatNullableFilter
+  notIn: [Float!]
+}
+
 input NestedIntFilter {
   equals: Int
   gt: Int
@@ -1875,6 +1927,14 @@ input NestedStringNullableFilter {
 
 input NullableBoolFieldUpdateOperationsInput {
   set: Boolean
+}
+
+input NullableFloatFieldUpdateOperationsInput {
+  decrement: Float
+  divide: Float
+  increment: Float
+  multiply: Float
+  set: Float
 }
 
 input NullableIntFieldUpdateOperationsInput {
@@ -3760,15 +3820,15 @@ type Restaurant {
   deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int): [DeliveryZone!]!
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String!
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers(after: OfferWhereUniqueInput, before: OfferWhereUniqueInput, first: Int, last: Int): [Offer!]!
@@ -3943,15 +4003,15 @@ input RestaurantCreateInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -3985,15 +4045,15 @@ input RestaurantCreateManyPlanInput {
   currency: String
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   postCode: String
@@ -4240,15 +4300,15 @@ input RestaurantCreateWithoutCMSAboutInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4290,15 +4350,15 @@ input RestaurantCreateWithoutCMSContactInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4340,15 +4400,15 @@ input RestaurantCreateWithoutCMSHomeInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4390,15 +4450,15 @@ input RestaurantCreateWithoutCMSReservationInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4440,15 +4500,15 @@ input RestaurantCreateWithoutCMSReviewInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4490,15 +4550,15 @@ input RestaurantCreateWithoutConfigInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4540,15 +4600,15 @@ input RestaurantCreateWithoutCouponsInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4590,15 +4650,15 @@ input RestaurantCreateWithoutCustomersInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4640,15 +4700,15 @@ input RestaurantCreateWithoutDeliveryZonesInput {
   customers: CustomerCreateNestedManyWithoutRestaurantsInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4691,15 +4751,15 @@ input RestaurantCreateWithoutOffersInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
@@ -4741,15 +4801,15 @@ input RestaurantCreateWithoutOrderItemsInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4791,15 +4851,15 @@ input RestaurantCreateWithoutOrdersInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4841,15 +4901,15 @@ input RestaurantCreateWithoutPlanInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4891,15 +4951,15 @@ input RestaurantCreateWithoutProductCategoryInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4941,15 +5001,15 @@ input RestaurantCreateWithoutProductsInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -4991,15 +5051,15 @@ input RestaurantCreateWithoutReviewsInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -5041,15 +5101,15 @@ input RestaurantCreateWithoutSchedulesInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -5091,15 +5151,15 @@ input RestaurantCreateWithoutSocialsInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -5141,15 +5201,15 @@ input RestaurantCreateWithoutUsersInput {
   deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
   diningStyle: String
   email: String
+  hasDelivery: Boolean
   hasKidsZone: Boolean
   hasParkingFacilities: Boolean
   hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
   id: String
   isAutoAcceptOrder: Boolean
   isAutoAcceptReservation: Boolean
-  isDelivery: Boolean
-  isReservation: Boolean
-  isTakeaway: Boolean
   logo: String
   name: String!
   offers: OfferCreateNestedManyWithoutRestaurantInput
@@ -5188,15 +5248,15 @@ input RestaurantOrderByInput {
   currency: SortOrder
   diningStyle: SortOrder
   email: SortOrder
+  hasDelivery: SortOrder
   hasKidsZone: SortOrder
   hasParkingFacilities: SortOrder
   hasPartyFacilities: SortOrder
+  hasPickup: SortOrder
+  hasReservation: SortOrder
   id: SortOrder
   isAutoAcceptOrder: SortOrder
   isAutoAcceptReservation: SortOrder
-  isDelivery: SortOrder
-  isReservation: SortOrder
-  isTakeaway: SortOrder
   logo: SortOrder
   name: SortOrder
   postCode: SortOrder
@@ -5568,15 +5628,15 @@ input RestaurantScalarWhereInput {
   currency: StringNullableFilter
   diningStyle: StringNullableFilter
   email: StringNullableFilter
+  hasDelivery: BoolNullableFilter
   hasKidsZone: BoolNullableFilter
   hasParkingFacilities: BoolNullableFilter
   hasPartyFacilities: BoolNullableFilter
+  hasPickup: BoolNullableFilter
+  hasReservation: BoolNullableFilter
   id: StringFilter
   isAutoAcceptOrder: BoolNullableFilter
   isAutoAcceptReservation: BoolNullableFilter
-  isDelivery: BoolNullableFilter
-  isReservation: BoolNullableFilter
-  isTakeaway: BoolNullableFilter
   logo: StringNullableFilter
   name: StringFilter
   postCode: StringNullableFilter
@@ -5717,15 +5777,15 @@ input RestaurantUpdateInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -5759,15 +5819,15 @@ input RestaurantUpdateManyMutationInput {
   currency: NullableStringFieldUpdateOperationsInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   postCode: NullableStringFieldUpdateOperationsInput
@@ -6001,15 +6061,15 @@ input RestaurantUpdateWithoutCMSAboutInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6051,15 +6111,15 @@ input RestaurantUpdateWithoutCMSContactInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6101,15 +6161,15 @@ input RestaurantUpdateWithoutCMSHomeInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6151,15 +6211,15 @@ input RestaurantUpdateWithoutCMSReservationInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6201,15 +6261,15 @@ input RestaurantUpdateWithoutCMSReviewInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6251,15 +6311,15 @@ input RestaurantUpdateWithoutConfigInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6301,15 +6361,15 @@ input RestaurantUpdateWithoutCouponsInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6351,15 +6411,15 @@ input RestaurantUpdateWithoutCustomersInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6401,15 +6461,15 @@ input RestaurantUpdateWithoutDeliveryZonesInput {
   customers: CustomerUpdateManyWithoutRestaurantsInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6452,15 +6512,15 @@ input RestaurantUpdateWithoutOffersInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutRestaurantInput
@@ -6502,15 +6562,15 @@ input RestaurantUpdateWithoutOrderItemsInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6552,15 +6612,15 @@ input RestaurantUpdateWithoutOrdersInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6602,15 +6662,15 @@ input RestaurantUpdateWithoutPlanInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6652,15 +6712,15 @@ input RestaurantUpdateWithoutProductCategoryInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6702,15 +6762,15 @@ input RestaurantUpdateWithoutProductsInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6752,15 +6812,15 @@ input RestaurantUpdateWithoutReviewsInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6802,15 +6862,15 @@ input RestaurantUpdateWithoutSchedulesInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6852,15 +6912,15 @@ input RestaurantUpdateWithoutSocialsInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -6902,15 +6962,15 @@ input RestaurantUpdateWithoutUsersInput {
   deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
   diningStyle: NullableStringFieldUpdateOperationsInput
   email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
   hasKidsZone: NullableBoolFieldUpdateOperationsInput
   hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
   hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
   isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
-  isDelivery: NullableBoolFieldUpdateOperationsInput
-  isReservation: NullableBoolFieldUpdateOperationsInput
-  isTakeaway: NullableBoolFieldUpdateOperationsInput
   logo: NullableStringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   offers: OfferUpdateManyWithoutRestaurantInput
@@ -7053,15 +7113,15 @@ input RestaurantWhereInput {
   deliveryZones: DeliveryZoneListRelationFilter
   diningStyle: StringNullableFilter
   email: StringNullableFilter
+  hasDelivery: BoolNullableFilter
   hasKidsZone: BoolNullableFilter
   hasParkingFacilities: BoolNullableFilter
   hasPartyFacilities: BoolNullableFilter
+  hasPickup: BoolNullableFilter
+  hasReservation: BoolNullableFilter
   id: StringFilter
   isAutoAcceptOrder: BoolNullableFilter
   isAutoAcceptReservation: BoolNullableFilter
-  isDelivery: BoolNullableFilter
-  isReservation: BoolNullableFilter
-  isTakeaway: BoolNullableFilter
   logo: StringNullableFilter
   name: StringFilter
   offers: OfferListRelationFilter
@@ -7099,33 +7159,30 @@ enum Role {
 type Schedule {
   closingTime: String
   day: String
-  deliveryTime: Int
   id: String!
   openingTime: String
+  pickupTime: Int
   restaurant: Restaurant!
   restaurantId: String!
-  takeawayTime: Int
 }
 
 input ScheduleCreateInput {
   closingTime: String
   createdAt: DateTime
   day: String
-  deliveryTime: Int
   id: String
   openingTime: String
+  pickupTime: Int
   restaurant: RestaurantCreateNestedOneWithoutSchedulesInput!
-  takeawayTime: Int
 }
 
 input ScheduleCreateManyRestaurantInput {
   closingTime: String
   createdAt: DateTime
   day: String
-  deliveryTime: Int
   id: String
   openingTime: String
-  takeawayTime: Int
+  pickupTime: Int
 }
 
 input ScheduleCreateManyRestaurantInputEnvelope {
@@ -7149,10 +7206,9 @@ input ScheduleCreateWithoutRestaurantInput {
   closingTime: String
   createdAt: DateTime
   day: String
-  deliveryTime: Int
   id: String
   openingTime: String
-  takeawayTime: Int
+  pickupTime: Int
 }
 
 input ScheduleListRelationFilter {
@@ -7165,11 +7221,10 @@ input ScheduleOrderByInput {
   closingTime: SortOrder
   createdAt: SortOrder
   day: SortOrder
-  deliveryTime: SortOrder
   id: SortOrder
   openingTime: SortOrder
+  pickupTime: SortOrder
   restaurantId: SortOrder
-  takeawayTime: SortOrder
 }
 
 input ScheduleScalarWhereInput {
@@ -7179,32 +7234,29 @@ input ScheduleScalarWhereInput {
   closingTime: StringNullableFilter
   createdAt: DateTimeFilter
   day: StringNullableFilter
-  deliveryTime: IntNullableFilter
   id: StringFilter
   openingTime: StringNullableFilter
+  pickupTime: IntNullableFilter
   restaurantId: StringFilter
-  takeawayTime: IntNullableFilter
 }
 
 input ScheduleUpdateInput {
   closingTime: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   day: NullableStringFieldUpdateOperationsInput
-  deliveryTime: NullableIntFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   openingTime: NullableStringFieldUpdateOperationsInput
+  pickupTime: NullableIntFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutSchedulesInput
-  takeawayTime: NullableIntFieldUpdateOperationsInput
 }
 
 input ScheduleUpdateManyMutationInput {
   closingTime: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   day: NullableStringFieldUpdateOperationsInput
-  deliveryTime: NullableIntFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   openingTime: NullableStringFieldUpdateOperationsInput
-  takeawayTime: NullableIntFieldUpdateOperationsInput
+  pickupTime: NullableIntFieldUpdateOperationsInput
 }
 
 input ScheduleUpdateManyWithWhereWithoutRestaurantInput {
@@ -7235,10 +7287,9 @@ input ScheduleUpdateWithoutRestaurantInput {
   closingTime: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   day: NullableStringFieldUpdateOperationsInput
-  deliveryTime: NullableIntFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   openingTime: NullableStringFieldUpdateOperationsInput
-  takeawayTime: NullableIntFieldUpdateOperationsInput
+  pickupTime: NullableIntFieldUpdateOperationsInput
 }
 
 input ScheduleUpsertWithWhereUniqueWithoutRestaurantInput {
@@ -7254,12 +7305,11 @@ input ScheduleWhereInput {
   closingTime: StringNullableFilter
   createdAt: DateTimeFilter
   day: StringNullableFilter
-  deliveryTime: IntNullableFilter
   id: StringFilter
   openingTime: StringNullableFilter
+  pickupTime: IntNullableFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
-  takeawayTime: IntNullableFilter
 }
 
 input ScheduleWhereUniqueInput {

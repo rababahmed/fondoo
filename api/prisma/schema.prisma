@@ -34,9 +34,9 @@ model Restaurant {
   hasParkingFacilities    Boolean?
   hasPartyFacilities      Boolean?
   hasKidsZone             Boolean?
-  isTakeaway              Boolean?
-  isDelivery              Boolean?
-  isReservation           Boolean?
+  hasPickup               Boolean?
+  hasDelivery             Boolean?
+  hasReservation          Boolean?
   isAutoAcceptOrder       Boolean?
   isAutoAcceptReservation Boolean?
   schedules               Schedule[]
@@ -226,24 +226,26 @@ model Schedule {
   day          String?
   openingTime  String?
   closingTime  String?
-  deliveryTime Int?
-  takeawayTime Int?
+  pickupTime   Int?
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   restaurantId String
 }
 
 model DeliveryZone {
-  id                String      @id @default(cuid())
-  createdAt         DateTime    @default(now())
-  name              String
-  postCode          String?
-  deliveryFeeType   DeliveryFee @default(Fixed)
-  deliveryCharge    Int         @default(0)
-  minDeliveryAmount Int?
-  minDeliveryRadius Int?
-  maxDeliveryRadius Int?
-  restaurant        Restaurant  @relation(fields: [restaurantId], references: [id])
-  restaurantId      String
+  id                   String      @id @default(cuid())
+  createdAt            DateTime    @default(now())
+  name                 String
+  deliveryTime         Int?
+  isPreOrder           Boolean?
+  preOrderInstructions String?
+  postCode             String?
+  deliveryFeeType      DeliveryFee @default(Fixed)
+  deliveryCharge       Float       @default(0)
+  minDeliveryAmount    Float?
+  minDeliveryRadius    Float?
+  maxDeliveryRadius    Float?
+  restaurant           Restaurant  @relation(fields: [restaurantId], references: [id])
+  restaurantId         String
 }
 
 enum DeliveryFee {
