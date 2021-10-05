@@ -21,10 +21,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = __importStar(require("express"));
 const userAuthRouter = require("./UserAuth");
+const customerAuthRouter = require("./CustomerAuth");
 const uploadRouter = require("./UploadRouter");
 const restaurantRouter = require("./restaurantRouter");
 let v1Router = express.Router();
 v1Router.use("/user", userAuthRouter);
+v1Router.use("/customer", customerAuthRouter);
 v1Router.use("/uploads", uploadRouter);
 v1Router.use("/restaurant", restaurantRouter);
 exports.default = v1Router;
