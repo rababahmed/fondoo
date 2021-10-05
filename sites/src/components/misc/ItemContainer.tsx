@@ -1,5 +1,5 @@
 import { Button, IconButton } from "@chakra-ui/button";
-import { Box } from "@chakra-ui/layout";
+import { Box, Stack, Text } from "@chakra-ui/layout";
 import { useDisclosure } from "@chakra-ui/hooks";
 import {
   Modal,
@@ -19,14 +19,16 @@ import { BiMinusCircle } from "react-icons/bi";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import PrimaryButton from "../buttons/PrimaryButton";
 import { useCartStore } from "../../stores/useCartStore";
+import Image from "next/image";
 
 interface Props {
   rdata: any;
   cdata: any;
   p: any;
+  image?: any;
 }
 
-const ItemContainer = ({ rdata, cdata, p }: Props) => {
+const ItemContainer = ({ rdata, cdata, p, image }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [quantity, setQuantity] = React.useState(1);
 
@@ -41,7 +43,23 @@ const ItemContainer = ({ rdata, cdata, p }: Props) => {
         <ModalContent>
           <ModalHeader>{p.name}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>{p.description}</ModalBody>
+          <ModalBody>
+            <Stack>
+              <Box>
+                <Image
+                  alt="card-image"
+                  src={
+                    image ||
+                    "https://i2.wp.com/klfoodie.com/wp-content/uploads/2021/07/17-1.jpeg?resize=708%2C708&ssl=1"
+                  }
+                  width={400}
+                  height={400}
+                  objectFit="contain"
+                />
+              </Box>
+              <Text>{p.description}</Text>
+            </Stack>
+          </ModalBody>
 
           <ModalFooter borderWidth="1px">
             <HStack spacing={2}>

@@ -40,7 +40,7 @@ const CartCard = (props: Props) => {
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
 
-  const subTotal = cart.map((p: any) => p.total);
+  const subTotal = cart.length > 0 ? cart.map((p: any) => p.total) : null;
 
   console.log(subTotal);
 
@@ -56,6 +56,9 @@ const CartCard = (props: Props) => {
     <>
       <Box
         // w={"full"}
+        // zIndex="10"
+        // top="34"
+        // pos={"sticky"}
         bg={useColorModeValue("white", "gray.900")}
         shadow={"lg"}
         rounded={"md"}

@@ -9,6 +9,8 @@ import {
   Divider,
   LinkOverlay,
   LinkBox,
+  Grid,
+  Flex,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
@@ -38,23 +40,38 @@ const ItemCard = (props: Props) => {
         cursor="pointer"
       >
         <Box w={"full"} overflow={"hidden"}>
-          <Stack px={5} py={5}>
-            <Heading
-              color={props.titleBg ? "white" : "black"}
-              px={props.titleBg ? 4 : 0}
-              py={props.titleBg ? 2 : 0}
-              rounded={props.titleBg ? "sm" : "none"}
-              bgColor={props.titleBg || "transparent"}
-              fontSize={"md"}
-              fontFamily={"body"}
-            >
-              <LinkOverlay onClick={props.onClick}>{props.p.name}</LinkOverlay>
-            </Heading>
-            <Text color={"gray.500"} isTruncated fontSize={"sm"}>
-              {props.p.description}
-            </Text>
-            <Text fontWeight="semibold">৳{props.p.price}</Text>
-          </Stack>
+          <LinkOverlay onClick={props.onClick}>
+            <Flex justifyContent={"space-between"} alignItems={"center"}>
+              <Stack px={5} py={5}>
+                <Heading
+                  color={props.titleBg ? "white" : "black"}
+                  px={props.titleBg ? 4 : 0}
+                  py={props.titleBg ? 2 : 0}
+                  rounded={props.titleBg ? "sm" : "none"}
+                  bgColor={props.titleBg || "transparent"}
+                  fontSize={"md"}
+                  fontFamily={"body"}
+                >
+                  {props.p.name}
+                </Heading>
+                <Text color={"gray.500"} isTruncated fontSize={"sm"}>
+                  {props.p.description}
+                </Text>
+                <Text fontWeight="semibold">৳{props.p.price}</Text>
+              </Stack>
+
+              <Image
+                alt="card-image"
+                src={
+                  props.image ||
+                  "https://i2.wp.com/klfoodie.com/wp-content/uploads/2021/07/17-1.jpeg?resize=708%2C708&ssl=1"
+                }
+                height={props.imgH || 130}
+                width={props.imgW || 130}
+                objectFit="contain"
+              />
+            </Flex>
+          </LinkOverlay>
         </Box>
       </LinkBox>
     </>

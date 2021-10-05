@@ -53,6 +53,17 @@ export const useCartStore = create<Cart>(
             };
           }
 
+          const isQuantityMinimum = state.cart.find((p: any) => p.quantity < 2);
+
+          if (isQuantityMinimum) {
+            const reducedCart = state.cart.filter((p: any) => p.id !== id);
+
+            return {
+              ...state,
+              cart: reducedCart,
+            };
+          }
+
           const updatedCart = state.cart.map((p: any) =>
             p.id === id
               ? {
@@ -63,13 +74,9 @@ export const useCartStore = create<Cart>(
               : p
           );
 
-          const isQuantityZero = state.cart.find((p: any) => p.quantity === 0);
-
           return {
             ...state,
-            cart: isQuantityZero
-              ? omit(state, [state.cart.find((p: any) => p.id === id)])
-              : updatedCart,
+            cart: updatedCart,
           };
         }),
       increaseQuantity: (id) =>

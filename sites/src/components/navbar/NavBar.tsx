@@ -20,6 +20,8 @@ import NavItem from "./NavItem";
 const NavBar = ({ rdata, cdata }: any) => {
   const router = useRouter();
 
+  const isOrderPage = router.pathname == "/order";
+
   const [isDesktop] = useMediaQuery("(min-width: 640px)");
 
   return (
@@ -28,7 +30,7 @@ const NavBar = ({ rdata, cdata }: any) => {
         zIndex="10"
         bg="#353439"
         w="full"
-        pos="sticky"
+        pos={"sticky"}
         top="0"
         templateColumns={{ base: "4fr 4fr", md: "8fr 2fr 2fr" }}
         px={{ base: 8, md: 72 }}

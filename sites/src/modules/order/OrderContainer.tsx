@@ -22,6 +22,8 @@ import ItemCard from "../../components/card/ItemCard";
 import ReservationCard from "../../components/card/ReservationCard";
 import ItemContainer from "../../components/misc/ItemContainer";
 import CartCard from "../../components/card/CartCard";
+import ClickableText from "../../components/misc/ClickableText";
+import MenuNavItem from "../../components/misc/MenuNavItem";
 
 interface Props {
   rdata: any;
@@ -46,6 +48,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
             alignItems="center"
             px={{ base: 10, md: 40 }}
             direction="row"
+            mt={{ base: 6, md: 0 }}
           >
             <Box></Box>
             <Box bg="#dddddd" rounded="full">
@@ -75,18 +78,37 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
               </Button>
             </Box>
           </Flex>
-
+          <Box zIndex="10" pos="sticky" top="20" px={{ base: 0, md: 40 }}>
+            <Stack
+              direction="row"
+              bg="white"
+              borderBottomWidth="1px"
+              w="full"
+              spacing={6}
+              px={6}
+              overflowX="scroll"
+              className="menuItemNav"
+            >
+              {rdata.productCategory.map((cat: any) => (
+                <MenuNavItem
+                  text={cat.name}
+                  url={`#${cat.name}`}
+                  key={cat.id}
+                />
+              ))}
+            </Stack>
+          </Box>
           <Grid
             templateColumns={{ base: "1fr", md: "4fr 2fr" }}
             px={{ base: 0, md: 40 }}
           >
             <Stack spacing={6}>
               {rdata.productCategory.map((cat: any) => (
-                <Stack key={cat.id} px={8} spacing={4}>
+                <Stack id={cat.name} key={cat.id} px={8} spacing={4}>
                   <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                     {cat.name}
                   </Text>
-                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
+                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
                     {cat.Product.map((p: any) => (
                       <ItemContainer
                         key={p.id}
@@ -120,7 +142,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
               <ItemContainer cdata={cdata} rdata={rdata} />
               <ItemContainer cdata={cdata} rdata={rdata} />
             </SimpleGrid> */}
-            <Box pos={"sticky"}>
+            <Box>
               <CartCard
                 title={"My Order"}
                 titleBg={cdata.primaryColor}
