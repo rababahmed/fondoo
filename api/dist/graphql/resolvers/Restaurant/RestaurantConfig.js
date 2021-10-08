@@ -11,6 +11,7 @@ exports.RestaurantConfig = nexus_1.objectType({
         t.model.domain();
         t.model.primaryColor();
         t.model.secondaryColor();
+        t.model.hasDarkNavBg();
         t.model.isActive();
         t.model.createdAt();
         t.model.updatedAt();

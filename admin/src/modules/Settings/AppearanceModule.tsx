@@ -18,7 +18,7 @@ import { EDIT_RESTAURANT, GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 
 import ImageUpload from "../../components/Forms/ImageUpload";
 
-export const SettingsModule = () => {
+export const AppearanceModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
   const token = useUserStore((state) => state.token);
 

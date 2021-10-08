@@ -123,6 +123,7 @@ export interface NexusGenInputs {
   }
   CMSAboutWhereUniqueInput: { // input type
     id?: string | null; // String
+    restaurantId?: string | null; // String
   }
   CMSContactCreateInput: { // input type
     headerDescription?: string | null; // String
@@ -198,6 +199,7 @@ export interface NexusGenInputs {
   }
   CMSContactWhereUniqueInput: { // input type
     id?: string | null; // String
+    restaurantId?: string | null; // String
   }
   CMSHomeCreateInput: { // input type
     aboutDescription?: string | null; // String
@@ -345,6 +347,7 @@ export interface NexusGenInputs {
   }
   CMSHomeWhereUniqueInput: { // input type
     id?: string | null; // String
+    restaurantId?: string | null; // String
   }
   CMSReservationCreateInput: { // input type
     headerDescription?: string | null; // String
@@ -420,6 +423,7 @@ export interface NexusGenInputs {
   }
   CMSReservationWhereUniqueInput: { // input type
     id?: string | null; // String
+    restaurantId?: string | null; // String
   }
   CMSReviewCreateInput: { // input type
     headerDescription?: string | null; // String
@@ -495,6 +499,7 @@ export interface NexusGenInputs {
   }
   CMSReviewWhereUniqueInput: { // input type
     id?: string | null; // String
+    restaurantId?: string | null; // String
   }
   CouponCreateInput: { // input type
     code: string; // String!
@@ -1188,26 +1193,32 @@ export interface NexusGenInputs {
   }
   DeliveryZoneCreateInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
-    deliveryCharge?: number | null; // Int
+    deliveryCharge?: number | null; // Float
     deliveryFeeType?: NexusGenEnums['DeliveryFee'] | null; // DeliveryFee
+    deliveryTime?: number | null; // Int
     id?: string | null; // String
-    maxDeliveryRadius?: number | null; // Int
-    minDeliveryAmount?: number | null; // Int
-    minDeliveryRadius?: number | null; // Int
+    isPreOrder?: boolean | null; // Boolean
+    maxDeliveryRadius?: number | null; // Float
+    minDeliveryAmount?: number | null; // Float
+    minDeliveryRadius?: number | null; // Float
     name: string; // String!
     postCode?: string | null; // String
+    preOrderInstructions?: string | null; // String
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutDeliveryZonesInput']; // RestaurantCreateNestedOneWithoutDeliveryZonesInput!
   }
   DeliveryZoneCreateManyRestaurantInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
-    deliveryCharge?: number | null; // Int
+    deliveryCharge?: number | null; // Float
     deliveryFeeType?: NexusGenEnums['DeliveryFee'] | null; // DeliveryFee
+    deliveryTime?: number | null; // Int
     id?: string | null; // String
-    maxDeliveryRadius?: number | null; // Int
-    minDeliveryAmount?: number | null; // Int
-    minDeliveryRadius?: number | null; // Int
+    isPreOrder?: boolean | null; // Boolean
+    maxDeliveryRadius?: number | null; // Float
+    minDeliveryAmount?: number | null; // Float
+    minDeliveryRadius?: number | null; // Float
     name: string; // String!
     postCode?: string | null; // String
+    preOrderInstructions?: string | null; // String
   }
   DeliveryZoneCreateManyRestaurantInputEnvelope: { // input type
     data?: NexusGenInputs['DeliveryZoneCreateManyRestaurantInput'][] | null; // [DeliveryZoneCreateManyRestaurantInput!]
@@ -1225,14 +1236,17 @@ export interface NexusGenInputs {
   }
   DeliveryZoneCreateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
-    deliveryCharge?: number | null; // Int
+    deliveryCharge?: number | null; // Float
     deliveryFeeType?: NexusGenEnums['DeliveryFee'] | null; // DeliveryFee
+    deliveryTime?: number | null; // Int
     id?: string | null; // String
-    maxDeliveryRadius?: number | null; // Int
-    minDeliveryAmount?: number | null; // Int
-    minDeliveryRadius?: number | null; // Int
+    isPreOrder?: boolean | null; // Boolean
+    maxDeliveryRadius?: number | null; // Float
+    minDeliveryAmount?: number | null; // Float
+    minDeliveryRadius?: number | null; // Float
     name: string; // String!
     postCode?: string | null; // String
+    preOrderInstructions?: string | null; // String
   }
   DeliveryZoneListRelationFilter: { // input type
     every?: NexusGenInputs['DeliveryZoneWhereInput'] | null; // DeliveryZoneWhereInput
@@ -1243,12 +1257,15 @@ export interface NexusGenInputs {
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     deliveryCharge?: NexusGenEnums['SortOrder'] | null; // SortOrder
     deliveryFeeType?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    deliveryTime?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isPreOrder?: NexusGenEnums['SortOrder'] | null; // SortOrder
     maxDeliveryRadius?: NexusGenEnums['SortOrder'] | null; // SortOrder
     minDeliveryAmount?: NexusGenEnums['SortOrder'] | null; // SortOrder
     minDeliveryRadius?: NexusGenEnums['SortOrder'] | null; // SortOrder
     name?: NexusGenEnums['SortOrder'] | null; // SortOrder
     postCode?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    preOrderInstructions?: NexusGenEnums['SortOrder'] | null; // SortOrder
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   DeliveryZoneScalarWhereInput: { // input type
@@ -1256,38 +1273,47 @@ export interface NexusGenInputs {
     NOT?: NexusGenInputs['DeliveryZoneScalarWhereInput'][] | null; // [DeliveryZoneScalarWhereInput!]
     OR?: NexusGenInputs['DeliveryZoneScalarWhereInput'][] | null; // [DeliveryZoneScalarWhereInput!]
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
-    deliveryCharge?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    deliveryCharge?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
     deliveryFeeType?: NexusGenInputs['EnumDeliveryFeeFilter'] | null; // EnumDeliveryFeeFilter
+    deliveryTime?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    maxDeliveryRadius?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
-    minDeliveryAmount?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
-    minDeliveryRadius?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
+    isPreOrder?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    maxDeliveryRadius?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
+    minDeliveryAmount?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
+    minDeliveryRadius?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
     postCode?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    preOrderInstructions?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
   }
   DeliveryZoneUpdateInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
-    deliveryCharge?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
+    deliveryCharge?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     deliveryFeeType?: NexusGenInputs['EnumDeliveryFeeFieldUpdateOperationsInput'] | null; // EnumDeliveryFeeFieldUpdateOperationsInput
+    deliveryTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    maxDeliveryRadius?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
-    minDeliveryAmount?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
-    minDeliveryRadius?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    maxDeliveryRadius?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    minDeliveryAmount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    minDeliveryRadius?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    preOrderInstructions?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutDeliveryZonesInput'] | null; // RestaurantUpdateOneRequiredWithoutDeliveryZonesInput
   }
   DeliveryZoneUpdateManyMutationInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
-    deliveryCharge?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
+    deliveryCharge?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     deliveryFeeType?: NexusGenInputs['EnumDeliveryFeeFieldUpdateOperationsInput'] | null; // EnumDeliveryFeeFieldUpdateOperationsInput
+    deliveryTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    maxDeliveryRadius?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
-    minDeliveryAmount?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
-    minDeliveryRadius?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    maxDeliveryRadius?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    minDeliveryAmount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    minDeliveryRadius?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    preOrderInstructions?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput: { // input type
     data: NexusGenInputs['DeliveryZoneUpdateManyMutationInput']; // DeliveryZoneUpdateManyMutationInput!
@@ -1312,14 +1338,17 @@ export interface NexusGenInputs {
   }
   DeliveryZoneUpdateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
-    deliveryCharge?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
+    deliveryCharge?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     deliveryFeeType?: NexusGenInputs['EnumDeliveryFeeFieldUpdateOperationsInput'] | null; // EnumDeliveryFeeFieldUpdateOperationsInput
+    deliveryTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    maxDeliveryRadius?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
-    minDeliveryAmount?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
-    minDeliveryRadius?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    maxDeliveryRadius?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    minDeliveryAmount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    minDeliveryRadius?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    preOrderInstructions?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   DeliveryZoneUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
     create: NexusGenInputs['DeliveryZoneCreateWithoutRestaurantInput']; // DeliveryZoneCreateWithoutRestaurantInput!
@@ -1331,14 +1360,17 @@ export interface NexusGenInputs {
     NOT?: NexusGenInputs['DeliveryZoneWhereInput'][] | null; // [DeliveryZoneWhereInput!]
     OR?: NexusGenInputs['DeliveryZoneWhereInput'][] | null; // [DeliveryZoneWhereInput!]
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
-    deliveryCharge?: NexusGenInputs['IntFilter'] | null; // IntFilter
+    deliveryCharge?: NexusGenInputs['FloatFilter'] | null; // FloatFilter
     deliveryFeeType?: NexusGenInputs['EnumDeliveryFeeFilter'] | null; // EnumDeliveryFeeFilter
+    deliveryTime?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    maxDeliveryRadius?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
-    minDeliveryAmount?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
-    minDeliveryRadius?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
+    isPreOrder?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    maxDeliveryRadius?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
+    minDeliveryAmount?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
+    minDeliveryRadius?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
     postCode?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    preOrderInstructions?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
   }
@@ -1396,6 +1428,16 @@ export interface NexusGenInputs {
     lt?: number | null; // Float
     lte?: number | null; // Float
     not?: NexusGenInputs['NestedFloatFilter'] | null; // NestedFloatFilter
+    notIn?: number[] | null; // [Float!]
+  }
+  FloatNullableFilter: { // input type
+    equals?: number | null; // Float
+    gt?: number | null; // Float
+    gte?: number | null; // Float
+    in?: number[] | null; // [Float!]
+    lt?: number | null; // Float
+    lte?: number | null; // Float
+    not?: NexusGenInputs['NestedFloatNullableFilter'] | null; // NestedFloatNullableFilter
     notIn?: number[] | null; // [Float!]
   }
   IntFieldUpdateOperationsInput: { // input type
@@ -1477,6 +1519,16 @@ export interface NexusGenInputs {
     not?: NexusGenInputs['NestedFloatFilter'] | null; // NestedFloatFilter
     notIn?: number[] | null; // [Float!]
   }
+  NestedFloatNullableFilter: { // input type
+    equals?: number | null; // Float
+    gt?: number | null; // Float
+    gte?: number | null; // Float
+    in?: number[] | null; // [Float!]
+    lt?: number | null; // Float
+    lte?: number | null; // Float
+    not?: NexusGenInputs['NestedFloatNullableFilter'] | null; // NestedFloatNullableFilter
+    notIn?: number[] | null; // [Float!]
+  }
   NestedIntFilter: { // input type
     equals?: number | null; // Int
     gt?: number | null; // Int
@@ -1525,6 +1577,13 @@ export interface NexusGenInputs {
   }
   NullableBoolFieldUpdateOperationsInput: { // input type
     set?: boolean | null; // Boolean
+  }
+  NullableFloatFieldUpdateOperationsInput: { // input type
+    decrement?: number | null; // Float
+    divide?: number | null; // Float
+    increment?: number | null; // Float
+    multiply?: number | null; // Float
+    set?: number | null; // Float
   }
   NullableIntFieldUpdateOperationsInput: { // input type
     decrement?: number | null; // Int
@@ -3085,15 +3144,12 @@ export interface NexusGenInputs {
   RestaurantConfigCreateInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     domain: string; // String!
+    hasDarkNavBg?: boolean | null; // Boolean
     id?: string | null; // String
     isActive: boolean; // Boolean!
-    navBarAccentColor?: string | null; // String
-    navBarBgColor?: string | null; // String
     primaryColor: string; // String!
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutConfigInput']; // RestaurantCreateNestedOneWithoutConfigInput!
     secondaryColor: string; // String!
-    topRibbonAccentColor?: string | null; // String
-    topRibbonBgColor?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   RestaurantConfigCreateNestedOneWithoutRestaurantInput: { // input type
@@ -3108,42 +3164,33 @@ export interface NexusGenInputs {
   RestaurantConfigCreateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     domain: string; // String!
+    hasDarkNavBg?: boolean | null; // Boolean
     id?: string | null; // String
     isActive: boolean; // Boolean!
-    navBarAccentColor?: string | null; // String
-    navBarBgColor?: string | null; // String
     primaryColor: string; // String!
     secondaryColor: string; // String!
-    topRibbonAccentColor?: string | null; // String
-    topRibbonBgColor?: string | null; // String
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   RestaurantConfigOrderByInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     domain?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    hasDarkNavBg?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    navBarAccentColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    navBarBgColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
     primaryColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     secondaryColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    topRibbonAccentColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    topRibbonBgColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   RestaurantConfigUpdateInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     domain?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasDarkNavBg?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    navBarAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    navBarBgColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutConfigInput'] | null; // RestaurantUpdateOneRequiredWithoutConfigInput
     secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    topRibbonAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    topRibbonBgColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   RestaurantConfigUpdateOneWithoutRestaurantInput: { // input type
@@ -3158,14 +3205,11 @@ export interface NexusGenInputs {
   RestaurantConfigUpdateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     domain?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    hasDarkNavBg?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    navBarAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    navBarBgColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    topRibbonAccentColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    topRibbonBgColor?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   RestaurantConfigUpsertWithoutRestaurantInput: { // input type
@@ -3178,21 +3222,19 @@ export interface NexusGenInputs {
     OR?: NexusGenInputs['RestaurantConfigWhereInput'][] | null; // [RestaurantConfigWhereInput!]
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     domain?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    hasDarkNavBg?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
-    navBarAccentColor?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    navBarBgColor?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     primaryColor?: NexusGenInputs['StringFilter'] | null; // StringFilter
     restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
     secondaryColor?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    topRibbonAccentColor?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    topRibbonBgColor?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
   }
   RestaurantConfigWhereUniqueInput: { // input type
     domain?: string | null; // String
     id?: string | null; // String
+    restaurantId?: string | null; // String
   }
   RestaurantCreateInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -3214,15 +3256,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3255,15 +3297,15 @@ export interface NexusGenInputs {
     currency?: string | null; // String
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     postCode?: string | null; // String
@@ -3470,15 +3512,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3519,15 +3561,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3568,15 +3610,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3617,15 +3659,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3666,15 +3708,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3715,15 +3757,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3764,15 +3806,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3813,15 +3855,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3862,15 +3904,15 @@ export interface NexusGenInputs {
     customers?: NexusGenInputs['CustomerCreateNestedManyWithoutRestaurantsInput'] | null; // CustomerCreateNestedManyWithoutRestaurantsInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -3912,15 +3954,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     orderItems?: NexusGenInputs['OrderItemCreateNestedManyWithoutRestaurantInput'] | null; // OrderItemCreateNestedManyWithoutRestaurantInput
@@ -3961,15 +4003,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -4010,15 +4052,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -4059,15 +4101,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -4108,15 +4150,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -4157,15 +4199,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -4206,15 +4248,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -4255,15 +4297,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -4304,15 +4346,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -4353,15 +4395,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneCreateNestedManyWithoutRestaurantInput'] | null; // DeliveryZoneCreateNestedManyWithoutRestaurantInput
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id?: string | null; // String
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     offers?: NexusGenInputs['OfferCreateNestedManyWithoutRestaurantInput'] | null; // OfferCreateNestedManyWithoutRestaurantInput
@@ -4398,15 +4440,15 @@ export interface NexusGenInputs {
     currency?: NexusGenEnums['SortOrder'] | null; // SortOrder
     diningStyle?: NexusGenEnums['SortOrder'] | null; // SortOrder
     email?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    hasDelivery?: NexusGenEnums['SortOrder'] | null; // SortOrder
     hasKidsZone?: NexusGenEnums['SortOrder'] | null; // SortOrder
     hasParkingFacilities?: NexusGenEnums['SortOrder'] | null; // SortOrder
     hasPartyFacilities?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    hasPickup?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    hasReservation?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isAutoAcceptOrder?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isAutoAcceptReservation?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    isDelivery?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    isReservation?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    isTakeaway?: NexusGenEnums['SortOrder'] | null; // SortOrder
     logo?: NexusGenEnums['SortOrder'] | null; // SortOrder
     name?: NexusGenEnums['SortOrder'] | null; // SortOrder
     postCode?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -4718,15 +4760,15 @@ export interface NexusGenInputs {
     currency?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     diningStyle?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     email?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    hasDelivery?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     hasKidsZone?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     hasParkingFacilities?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     hasPartyFacilities?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    hasPickup?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    hasReservation?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     isAutoAcceptOrder?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     isAutoAcceptReservation?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
-    isDelivery?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
-    isReservation?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
-    isTakeaway?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     logo?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
     postCode?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
@@ -4825,6 +4867,7 @@ export interface NexusGenInputs {
   }
   RestaurantSocialWhereUniqueInput: { // input type
     id?: string | null; // String
+    restaurantId?: string | null; // String
   }
   RestaurantUpdateInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -4846,15 +4889,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -4887,15 +4930,15 @@ export interface NexusGenInputs {
     currency?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5103,15 +5146,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5152,15 +5195,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5201,15 +5244,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5250,15 +5293,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5299,15 +5342,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5348,15 +5391,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5397,15 +5440,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5446,15 +5489,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5495,15 +5538,15 @@ export interface NexusGenInputs {
     customers?: NexusGenInputs['CustomerUpdateManyWithoutRestaurantsInput'] | null; // CustomerUpdateManyWithoutRestaurantsInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5545,15 +5588,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     orderItems?: NexusGenInputs['OrderItemUpdateManyWithoutRestaurantInput'] | null; // OrderItemUpdateManyWithoutRestaurantInput
@@ -5594,15 +5637,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5643,15 +5686,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5692,15 +5735,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5741,15 +5784,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5790,15 +5833,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5839,15 +5882,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5888,15 +5931,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5937,15 +5980,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -5986,15 +6029,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneUpdateManyWithoutRestaurantInput'] | null; // DeliveryZoneUpdateManyWithoutRestaurantInput
     diningStyle?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     email?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    hasDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasKidsZone?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasParkingFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     hasPartyFacilities?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasPickup?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    hasReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAutoAcceptOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     isAutoAcceptReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isDelivery?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isReservation?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
-    isTakeaway?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     logo?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     offers?: NexusGenInputs['OfferUpdateManyWithoutRestaurantInput'] | null; // OfferUpdateManyWithoutRestaurantInput
@@ -6117,15 +6160,15 @@ export interface NexusGenInputs {
     deliveryZones?: NexusGenInputs['DeliveryZoneListRelationFilter'] | null; // DeliveryZoneListRelationFilter
     diningStyle?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     email?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    hasDelivery?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     hasKidsZone?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     hasParkingFacilities?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     hasPartyFacilities?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    hasPickup?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    hasReservation?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     isAutoAcceptOrder?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     isAutoAcceptReservation?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
-    isDelivery?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
-    isReservation?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
-    isTakeaway?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     logo?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
     offers?: NexusGenInputs['OfferListRelationFilter'] | null; // OfferListRelationFilter
@@ -6155,20 +6198,18 @@ export interface NexusGenInputs {
     closingTime?: string | null; // String
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     day?: string | null; // String
-    deliveryTime?: number | null; // Int
     id?: string | null; // String
     openingTime?: string | null; // String
+    pickupTime?: number | null; // Int
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutSchedulesInput']; // RestaurantCreateNestedOneWithoutSchedulesInput!
-    takeawayTime?: number | null; // Int
   }
   ScheduleCreateManyRestaurantInput: { // input type
     closingTime?: string | null; // String
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     day?: string | null; // String
-    deliveryTime?: number | null; // Int
     id?: string | null; // String
     openingTime?: string | null; // String
-    takeawayTime?: number | null; // Int
+    pickupTime?: number | null; // Int
   }
   ScheduleCreateManyRestaurantInputEnvelope: { // input type
     data?: NexusGenInputs['ScheduleCreateManyRestaurantInput'][] | null; // [ScheduleCreateManyRestaurantInput!]
@@ -6188,10 +6229,9 @@ export interface NexusGenInputs {
     closingTime?: string | null; // String
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     day?: string | null; // String
-    deliveryTime?: number | null; // Int
     id?: string | null; // String
     openingTime?: string | null; // String
-    takeawayTime?: number | null; // Int
+    pickupTime?: number | null; // Int
   }
   ScheduleListRelationFilter: { // input type
     every?: NexusGenInputs['ScheduleWhereInput'] | null; // ScheduleWhereInput
@@ -6202,11 +6242,10 @@ export interface NexusGenInputs {
     closingTime?: NexusGenEnums['SortOrder'] | null; // SortOrder
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     day?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    deliveryTime?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     openingTime?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    pickupTime?: NexusGenEnums['SortOrder'] | null; // SortOrder
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
-    takeawayTime?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   ScheduleScalarWhereInput: { // input type
     AND?: NexusGenInputs['ScheduleScalarWhereInput'][] | null; // [ScheduleScalarWhereInput!]
@@ -6215,30 +6254,27 @@ export interface NexusGenInputs {
     closingTime?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     day?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    deliveryTime?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     openingTime?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    pickupTime?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    takeawayTime?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
   }
   ScheduleUpdateInput: { // input type
     closingTime?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     day?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    deliveryTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     openingTime?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    pickupTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutSchedulesInput'] | null; // RestaurantUpdateOneRequiredWithoutSchedulesInput
-    takeawayTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
   }
   ScheduleUpdateManyMutationInput: { // input type
     closingTime?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     day?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    deliveryTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     openingTime?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    takeawayTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
+    pickupTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
   }
   ScheduleUpdateManyWithWhereWithoutRestaurantInput: { // input type
     data: NexusGenInputs['ScheduleUpdateManyMutationInput']; // ScheduleUpdateManyMutationInput!
@@ -6265,10 +6301,9 @@ export interface NexusGenInputs {
     closingTime?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     day?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    deliveryTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     openingTime?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    takeawayTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
+    pickupTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
   }
   ScheduleUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
     create: NexusGenInputs['ScheduleCreateWithoutRestaurantInput']; // ScheduleCreateWithoutRestaurantInput!
@@ -6282,12 +6317,11 @@ export interface NexusGenInputs {
     closingTime?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     day?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    deliveryTime?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     openingTime?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    pickupTime?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
     restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    takeawayTime?: NexusGenInputs['IntNullableFilter'] | null; // IntNullableFilter
   }
   ScheduleWhereUniqueInput: { // input type
     id?: string | null; // String
@@ -6540,14 +6574,17 @@ export interface NexusGenObjects {
     streetAddress: string; // String!
   }
   DeliveryZone: { // root type
-    deliveryCharge: number; // Int!
+    deliveryCharge: number; // Float!
     deliveryFeeType: NexusGenEnums['DeliveryFee']; // DeliveryFee!
+    deliveryTime?: number | null; // Int
     id: string; // String!
-    maxDeliveryRadius?: number | null; // Int
-    minDeliveryAmount?: number | null; // Int
-    minDeliveryRadius?: number | null; // Int
+    isPreOrder?: boolean | null; // Boolean
+    maxDeliveryRadius?: number | null; // Float
+    minDeliveryAmount?: number | null; // Float
+    minDeliveryRadius?: number | null; // Float
     name: string; // String!
     postCode?: string | null; // String
+    preOrderInstructions?: string | null; // String
     restaurantId: string; // String!
   }
   Mutation: {};
@@ -6615,15 +6652,15 @@ export interface NexusGenObjects {
     currency?: string | null; // String
     diningStyle?: string | null; // String
     email?: string | null; // String
+    hasDelivery?: boolean | null; // Boolean
     hasKidsZone?: boolean | null; // Boolean
     hasParkingFacilities?: boolean | null; // Boolean
     hasPartyFacilities?: boolean | null; // Boolean
+    hasPickup?: boolean | null; // Boolean
+    hasReservation?: boolean | null; // Boolean
     id: string; // String!
     isAutoAcceptOrder?: boolean | null; // Boolean
     isAutoAcceptReservation?: boolean | null; // Boolean
-    isDelivery?: boolean | null; // Boolean
-    isReservation?: boolean | null; // Boolean
-    isTakeaway?: boolean | null; // Boolean
     logo?: string | null; // String
     name: string; // String!
     postCode?: string | null; // String
@@ -6668,11 +6705,10 @@ export interface NexusGenObjects {
   Schedule: { // root type
     closingTime?: string | null; // String
     day?: string | null; // String
-    deliveryTime?: number | null; // Int
     id: string; // String!
     openingTime?: string | null; // String
+    pickupTime?: number | null; // Int
     restaurantId: string; // String!
-    takeawayTime?: number | null; // Int
   }
   User: { // root type
     email: string; // String!
@@ -6780,14 +6816,17 @@ export interface NexusGenFieldTypes {
     streetAddress: string; // String!
   }
   DeliveryZone: { // field return type
-    deliveryCharge: number; // Int!
+    deliveryCharge: number; // Float!
     deliveryFeeType: NexusGenEnums['DeliveryFee']; // DeliveryFee!
+    deliveryTime: number | null; // Int
     id: string; // String!
-    maxDeliveryRadius: number | null; // Int
-    minDeliveryAmount: number | null; // Int
-    minDeliveryRadius: number | null; // Int
+    isPreOrder: boolean | null; // Boolean
+    maxDeliveryRadius: number | null; // Float
+    minDeliveryAmount: number | null; // Float
+    minDeliveryRadius: number | null; // Float
     name: string; // String!
     postCode: string | null; // String
+    preOrderInstructions: string | null; // String
     restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
     restaurantId: string; // String!
   }
@@ -6987,15 +7026,15 @@ export interface NexusGenFieldTypes {
     deliveryZones: NexusGenRootTypes['DeliveryZone'][]; // [DeliveryZone!]!
     diningStyle: string | null; // String
     email: string | null; // String
+    hasDelivery: boolean | null; // Boolean
     hasKidsZone: boolean | null; // Boolean
     hasParkingFacilities: boolean | null; // Boolean
     hasPartyFacilities: boolean | null; // Boolean
+    hasPickup: boolean | null; // Boolean
+    hasReservation: boolean | null; // Boolean
     id: string; // String!
     isAutoAcceptOrder: boolean | null; // Boolean
     isAutoAcceptReservation: boolean | null; // Boolean
-    isDelivery: boolean | null; // Boolean
-    isReservation: boolean | null; // Boolean
-    isTakeaway: boolean | null; // Boolean
     logo: string | null; // String
     name: string; // String!
     offers: NexusGenRootTypes['Offer'][]; // [Offer!]!
@@ -7054,12 +7093,11 @@ export interface NexusGenFieldTypes {
   Schedule: { // field return type
     closingTime: string | null; // String
     day: string | null; // String
-    deliveryTime: number | null; // Int
     id: string; // String!
     openingTime: string | null; // String
+    pickupTime: number | null; // Int
     restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
     restaurantId: string; // String!
-    takeawayTime: number | null; // Int
   }
   User: { // field return type
     email: string; // String!
@@ -7158,14 +7196,17 @@ export interface NexusGenFieldTypeNames {
     streetAddress: 'String'
   }
   DeliveryZone: { // field return type name
-    deliveryCharge: 'Int'
+    deliveryCharge: 'Float'
     deliveryFeeType: 'DeliveryFee'
+    deliveryTime: 'Int'
     id: 'String'
-    maxDeliveryRadius: 'Int'
-    minDeliveryAmount: 'Int'
-    minDeliveryRadius: 'Int'
+    isPreOrder: 'Boolean'
+    maxDeliveryRadius: 'Float'
+    minDeliveryAmount: 'Float'
+    minDeliveryRadius: 'Float'
     name: 'String'
     postCode: 'String'
+    preOrderInstructions: 'String'
     restaurant: 'Restaurant'
     restaurantId: 'String'
   }
@@ -7365,15 +7406,15 @@ export interface NexusGenFieldTypeNames {
     deliveryZones: 'DeliveryZone'
     diningStyle: 'String'
     email: 'String'
+    hasDelivery: 'Boolean'
     hasKidsZone: 'Boolean'
     hasParkingFacilities: 'Boolean'
     hasPartyFacilities: 'Boolean'
+    hasPickup: 'Boolean'
+    hasReservation: 'Boolean'
     id: 'String'
     isAutoAcceptOrder: 'Boolean'
     isAutoAcceptReservation: 'Boolean'
-    isDelivery: 'Boolean'
-    isReservation: 'Boolean'
-    isTakeaway: 'Boolean'
     logo: 'String'
     name: 'String'
     offers: 'Offer'
@@ -7432,12 +7473,11 @@ export interface NexusGenFieldTypeNames {
   Schedule: { // field return type name
     closingTime: 'String'
     day: 'String'
-    deliveryTime: 'Int'
     id: 'String'
     openingTime: 'String'
+    pickupTime: 'Int'
     restaurant: 'Restaurant'
     restaurantId: 'String'
-    takeawayTime: 'Int'
   }
   User: { // field return type name
     email: 'String'

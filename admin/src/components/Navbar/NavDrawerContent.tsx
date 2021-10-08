@@ -15,7 +15,7 @@ import { ImCreditCard } from "react-icons/im";
 import { MdRestaurantMenu, MdSchedule } from "react-icons/md";
 import { BiFoodMenu } from "react-icons/bi";
 import { VscTag } from "react-icons/vsc";
-import { RiParentLine } from "react-icons/ri";
+import { RiEBike2Line, RiParentLine } from "react-icons/ri";
 import { CgWebsite } from "react-icons/cg";
 import { useRouter } from "next/router";
 import NavButton from "./NavButton";
@@ -117,6 +117,11 @@ const NavDrawerContent = () => {
               <NavButton href="/cms" icon={CgWebsite} text="CMS" />
               <NavButton href="/users" icon={FiUsers} text="Users" />
               <NavButton href="/schedule" icon={MdSchedule} text="Schedule" />
+              <NavButton
+                href="/schedule"
+                icon={RiEBike2Line}
+                text="Fulfilment"
+              />
               <NavButton href="/settings" icon={FiSettings} text="Settings" />
             </VStack>
           </VStack>

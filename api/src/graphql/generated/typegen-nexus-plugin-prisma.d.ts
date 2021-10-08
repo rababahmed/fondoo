@@ -49,8 +49,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'name' | 'price' | 'isActive'
     }
     restaurantConfigs: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'topRibbonBgColor' | 'topRibbonAccentColor' | 'navBarBgColor' | 'navBarAccentColor' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'topRibbonBgColor' | 'topRibbonAccentColor' | 'navBarBgColor' | 'navBarAccentColor' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurantId' | 'createdAt' | 'updatedAt'
     }
     restaurantSocials: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'facebook' | 'instagram' | 'pinterest' | 'isActive' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
@@ -510,10 +510,7 @@ interface NexusPrismaOutputs {
     primaryColor: 'String'
     secondaryColor: 'String'
     isActive: 'Boolean'
-    topRibbonBgColor: 'String'
-    topRibbonAccentColor: 'String'
-    navBarBgColor: 'String'
-    navBarAccentColor: 'String'
+    hasDarkNavBg: 'Boolean'
     restaurant: 'Restaurant'
     restaurantId: 'String'
     createdAt: 'DateTime'

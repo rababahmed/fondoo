@@ -130,6 +130,7 @@ input CMSAboutWhereInput {
 
 input CMSAboutWhereUniqueInput {
   id: String
+  restaurantId: String
 }
 
 type CMSContact {
@@ -225,6 +226,7 @@ input CMSContactWhereInput {
 
 input CMSContactWhereUniqueInput {
   id: String
+  restaurantId: String
 }
 
 type CMSHome {
@@ -403,6 +405,7 @@ input CMSHomeWhereInput {
 
 input CMSHomeWhereUniqueInput {
   id: String
+  restaurantId: String
 }
 
 type CMSReservation {
@@ -498,6 +501,7 @@ input CMSReservationWhereInput {
 
 input CMSReservationWhereUniqueInput {
   id: String
+  restaurantId: String
 }
 
 type CMSReview {
@@ -593,6 +597,7 @@ input CMSReviewWhereInput {
 
 input CMSReviewWhereUniqueInput {
   id: String
+  restaurantId: String
 }
 
 type Coupon {
@@ -3852,6 +3857,7 @@ type Restaurant {
 type RestaurantConfig {
   createdAt: DateTime!
   domain: String!
+  hasDarkNavBg: Boolean
   id: String!
   isActive: Boolean!
   primaryColor: String!
@@ -3863,15 +3869,12 @@ type RestaurantConfig {
 input RestaurantConfigCreateInput {
   createdAt: DateTime
   domain: String!
+  hasDarkNavBg: Boolean
   id: String
   isActive: Boolean!
-  navBarAccentColor: String
-  navBarBgColor: String
   primaryColor: String!
   restaurant: RestaurantCreateNestedOneWithoutConfigInput!
   secondaryColor: String!
-  topRibbonAccentColor: String
-  topRibbonBgColor: String
   updatedAt: DateTime
 }
 
@@ -3889,44 +3892,35 @@ input RestaurantConfigCreateOrConnectWithoutRestaurantInput {
 input RestaurantConfigCreateWithoutRestaurantInput {
   createdAt: DateTime
   domain: String!
+  hasDarkNavBg: Boolean
   id: String
   isActive: Boolean!
-  navBarAccentColor: String
-  navBarBgColor: String
   primaryColor: String!
   secondaryColor: String!
-  topRibbonAccentColor: String
-  topRibbonBgColor: String
   updatedAt: DateTime
 }
 
 input RestaurantConfigOrderByInput {
   createdAt: SortOrder
   domain: SortOrder
+  hasDarkNavBg: SortOrder
   id: SortOrder
   isActive: SortOrder
-  navBarAccentColor: SortOrder
-  navBarBgColor: SortOrder
   primaryColor: SortOrder
   restaurantId: SortOrder
   secondaryColor: SortOrder
-  topRibbonAccentColor: SortOrder
-  topRibbonBgColor: SortOrder
   updatedAt: SortOrder
 }
 
 input RestaurantConfigUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   domain: StringFieldUpdateOperationsInput
+  hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isActive: BoolFieldUpdateOperationsInput
-  navBarAccentColor: NullableStringFieldUpdateOperationsInput
-  navBarBgColor: NullableStringFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutConfigInput
   secondaryColor: StringFieldUpdateOperationsInput
-  topRibbonAccentColor: NullableStringFieldUpdateOperationsInput
-  topRibbonBgColor: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -3943,14 +3937,11 @@ input RestaurantConfigUpdateOneWithoutRestaurantInput {
 input RestaurantConfigUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   domain: StringFieldUpdateOperationsInput
+  hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isActive: BoolFieldUpdateOperationsInput
-  navBarAccentColor: NullableStringFieldUpdateOperationsInput
-  navBarBgColor: NullableStringFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   secondaryColor: StringFieldUpdateOperationsInput
-  topRibbonAccentColor: NullableStringFieldUpdateOperationsInput
-  topRibbonBgColor: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -3965,22 +3956,20 @@ input RestaurantConfigWhereInput {
   OR: [RestaurantConfigWhereInput!]
   createdAt: DateTimeFilter
   domain: StringFilter
+  hasDarkNavBg: BoolNullableFilter
   id: StringFilter
   isActive: BoolFilter
-  navBarAccentColor: StringNullableFilter
-  navBarBgColor: StringNullableFilter
   primaryColor: StringFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
   secondaryColor: StringFilter
-  topRibbonAccentColor: StringNullableFilter
-  topRibbonBgColor: StringNullableFilter
   updatedAt: DateTimeFilter
 }
 
 input RestaurantConfigWhereUniqueInput {
   domain: String
   id: String
+  restaurantId: String
 }
 
 input RestaurantCreateInput {
@@ -5755,6 +5744,7 @@ input RestaurantSocialWhereInput {
 
 input RestaurantSocialWhereUniqueInput {
   id: String
+  restaurantId: String
 }
 
 input RestaurantUpdateInput {

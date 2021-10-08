@@ -71,19 +71,16 @@ model RestaurantPlan {
 }
 
 model RestaurantConfig {
-  id                   String     @id @default(cuid())
-  domain               String     @unique
-  primaryColor         String
-  secondaryColor       String
-  isActive             Boolean
-  topRibbonBgColor     String?
-  topRibbonAccentColor String?
-  navBarBgColor        String?
-  navBarAccentColor    String?
-  restaurant           Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId         String
-  createdAt            DateTime   @default(now())
-  updatedAt            DateTime   @updatedAt
+  id             String     @id @default(cuid())
+  domain         String     @unique
+  primaryColor   String
+  secondaryColor String
+  isActive       Boolean
+  hasDarkNavBg   Boolean?
+  restaurant     Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId   String     @unique
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
 }
 
 model RestaurantSocial {
@@ -93,7 +90,7 @@ model RestaurantSocial {
   pinterest    String?
   isActive     Boolean?
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId String
+  restaurantId String     @unique
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 }
@@ -132,7 +129,7 @@ model CMSHome {
   isActive                 Boolean?
 
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId String
+  restaurantId String     @unique
 }
 
 model CMSAbout {
@@ -146,7 +143,7 @@ model CMSAbout {
   isActive          Boolean?
 
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId String
+  restaurantId String     @unique
 }
 
 model CMSReview {
@@ -157,7 +154,7 @@ model CMSReview {
   isActive          Boolean?
 
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId String
+  restaurantId String     @unique
 }
 
 model CMSReservation {
@@ -168,7 +165,7 @@ model CMSReservation {
   isActive          Boolean?
 
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId String
+  restaurantId String     @unique
 }
 
 model CMSContact {
@@ -179,7 +176,7 @@ model CMSContact {
   isActive          Boolean?
 
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId String
+  restaurantId String     @unique
 }
 
 model ProductCategory {

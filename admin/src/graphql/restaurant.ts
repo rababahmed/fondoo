@@ -55,8 +55,7 @@ export const GET_RESTAURANT_SCHEDULES = gql`
       day
       openingTime
       closingTime
-      deliveryTime
-      takeawayTime
+      pickupTime
     }
   }
 `;
@@ -66,8 +65,7 @@ export const ADD_RESTAURANT_SCHEDULE = gql`
     $day: String
     $openingTime: String
     $closingTime: String
-    $deliveryTime: Int
-    $takeawayTime: Int
+    $pickupTime: Int
     $restaurantID: String
   ) {
     createSchedule(
@@ -75,8 +73,7 @@ export const ADD_RESTAURANT_SCHEDULE = gql`
         day: $day
         openingTime: $openingTime
         closingTime: $closingTime
-        deliveryTime: $deliveryTime
-        takeawayTime: $takeawayTime
+        pickupTime: $pickupTime
         Restaurant: { connect: { id: $restaurantID } }
       }
     ) {
@@ -84,8 +81,7 @@ export const ADD_RESTAURANT_SCHEDULE = gql`
       day
       openingTime
       closingTime
-      deliveryTime
-      takeawayTime
+      pickupTime
     }
   }
 `;
@@ -95,17 +91,15 @@ export const EDIT_RESTAURANT_SCHEDULE = gql`
     $id: String
     $day: String
     $openingTime: String
-    $closingTime: String
-    $deliveryTime: Int
-    $takeawayTime: Int
+    $closingTime: Strin
+    $pickupTime: Int
   ) {
     updateSchedule(
       data: {
         day: { set: $day }
         openingTime: { set: $openingTime }
         closingTime: { set: $closingTime }
-        deliveryTime: { set: $deliveryTime }
-        takeawayTime: { set: $takeawayTime }
+        pickupTime: { set: $pickupTime }
       }
       where: { id: $id }
     ) {
@@ -228,6 +222,61 @@ export const DELETE_RESTAURANT_COUPON = gql`
   mutation deleteCoupon($id: String) {
     deleteCoupon(where: { id: $id }) {
       id
+    }
+  }
+`;
+
+export enum DeliveryFee {
+  Fixed,
+  Percent,
+}
+
+export const ADD_RESTAURANT_DELIVERY_ZONE = gql`
+  mutation AddDeliveryZone(
+    $id: String
+    $name: String!
+    $deliveryTime: Int
+    $deliveryFeeType: DeliveryFee
+    $deliveryCharge: Float
+    $isPreOrder: Boolean
+    $preOrderInstructions: String
+  ) {
+    createDeliveryZone(
+      data: {
+        name: $name
+        deliveryTime: $deliveryTime
+        deliveryFeeType: $deliveryFeeType
+        deliveryCharge: $deliveryCharge
+        isPreOrder: $isPreOrder
+        preOrderInstructions: $preOrderInstructions
+        restaurant: { connect: { id: $id } }
+      }
+    ) {
+      id
+    }
+  }
+`;
+
+export const DELETE_RESTAURANT_DELIVERY_ZONE = gql`
+  mutation deleteDeliveryZone($id: String) {
+    deleteDeliveryZone(where: { id: $id }) {
+      id
+    }
+  }
+`;
+
+export const GET_RESTAURANT_DELIVERY_ZONES = gql`
+  query DeliveryZones($id: String) {
+    restaurant(where: { id: $id }) {
+      deliveryZones {
+        id
+        name
+        deliveryTime
+        deliveryFeeType
+        deliveryCharge
+        isPreOrder
+        preOrderInstructions
+      }
     }
   }
 `;
