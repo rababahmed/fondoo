@@ -17,6 +17,7 @@ import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { EDIT_RESTAURANT, GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 
 import ImageUpload from "../../components/Forms/ImageUpload";
+import SaveButton from "../../components/Buttons/SaveButton";
 
 export const SettingsModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
@@ -182,16 +183,7 @@ export const SettingsModule = () => {
             <Skeleton isLoaded={!isLoading}>
               <Stack mt={10} pb={2}>
                 <VStack>
-                  <SubmitButton
-                    isLoading={mutation.isLoading}
-                    loadingText="Updating"
-                    w={40}
-                    bgColor="gray.700"
-                    _active={{ bgColor: "gray.500" }}
-                    _hover={{ bgColor: "gray.800" }}
-                  >
-                    Update
-                  </SubmitButton>
+                  <SaveButton isLoading={mutation.isLoading} />
                 </VStack>
               </Stack>
             </Skeleton>

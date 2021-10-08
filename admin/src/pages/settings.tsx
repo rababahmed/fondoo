@@ -8,6 +8,7 @@ import { SettingsModule } from "../modules/Settings/SettingsModule";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { RiEBike2Fill } from "react-icons/ri";
 import { FaPalette } from "react-icons/fa";
+import { AppearanceModule } from "../modules/Settings/AppearanceModule";
 
 const SettingsPage = () => {
   return (
@@ -36,7 +37,9 @@ const SettingsPage = () => {
             <TabPanel>
               <SettingsModule />
             </TabPanel>
-            <TabPanel></TabPanel>
+            <TabPanel>
+              <AppearanceModule />
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </DesktopLayout>

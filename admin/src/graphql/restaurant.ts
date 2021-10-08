@@ -280,3 +280,37 @@ export const GET_RESTAURANT_DELIVERY_ZONES = gql`
     }
   }
 `;
+
+export const GET_RESTAURANT_CONFIG = gql`
+  query RestaurantConfig($id: String) {
+    restaurant(where: { id: $id }) {
+      config {
+        id
+        domain
+        primaryColor
+        secondaryColor
+        hasDarkNavBg
+      }
+    }
+  }
+`;
+
+export const UPDATE_RESTAURANT_APPEARANCE = gql`
+  mutation UpdateRestaurantAppearance(
+    $id: String
+    $primaryColor: String
+    $secondaryColor: String
+    $hasDarkNavBg: Boolean
+  ) {
+    updateRestaurantConfig(
+      where: { restaurantId: $id }
+      data: {
+        primaryColor: { set: $primaryColor }
+        secondaryColor: { set: $secondaryColor }
+        hasDarkNavBg: { set: $hasDarkNavBg }
+      }
+    ) {
+      id
+    }
+  }
+`;
