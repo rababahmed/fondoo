@@ -6674,6 +6674,7 @@ export interface NexusGenObjects {
   RestaurantConfig: { // root type
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     domain: string; // String!
+    hasDarkNavBg?: boolean | null; // Boolean
     id: string; // String!
     isActive: boolean; // Boolean!
     primaryColor: string; // String!
@@ -7057,6 +7058,7 @@ export interface NexusGenFieldTypes {
   RestaurantConfig: { // field return type
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     domain: string; // String!
+    hasDarkNavBg: boolean | null; // Boolean
     id: string; // String!
     isActive: boolean; // Boolean!
     primaryColor: string; // String!
@@ -7437,6 +7439,7 @@ export interface NexusGenFieldTypeNames {
   RestaurantConfig: { // field return type name
     createdAt: 'DateTime'
     domain: 'String'
+    hasDarkNavBg: 'Boolean'
     id: 'String'
     isActive: 'Boolean'
     primaryColor: 'String'

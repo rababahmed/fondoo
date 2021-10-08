@@ -3857,6 +3857,7 @@ type Restaurant {
 type RestaurantConfig {
   createdAt: DateTime!
   domain: String!
+  hasDarkNavBg: Boolean
   id: String!
   isActive: Boolean!
   primaryColor: String!
