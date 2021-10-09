@@ -45,7 +45,11 @@ exports.ProductQuery = nexus_1.extendType({
     type: "Query",
     definition(t) {
         t.crud.product();
-        t.crud.products();
+        t.crud.products({
+            filtering: true,
+            ordering: true,
+            pagination: true,
+        });
     },
 });
 exports.ProductMutation = nexus_1.extendType({

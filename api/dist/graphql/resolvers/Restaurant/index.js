@@ -52,15 +52,27 @@ exports.Restaurant = nexus_1.objectType({
         t.model.hasReservation();
         t.model.isAutoAcceptOrder();
         t.model.isAutoAcceptReservation();
-        t.model.schedules();
-        t.model.deliveryZones();
+        t.model.schedules({
+            filtering: true,
+            ordering: true,
+            pagination: true,
+        });
+        t.model.deliveryZones({
+            filtering: true,
+            ordering: true,
+            pagination: true,
+        });
         t.model.customers({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.offers();
         t.model.coupons();
         t.model.orders({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.orderItems({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
-        t.model.productCategory();
-        t.model.products();
+        t.model.productCategory({
+            filtering: true,
+            ordering: true,
+            pagination: true,
+        });
+        t.model.products({ filtering: true, ordering: true, pagination: true });
         t.model.plan({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.restaurantPlanId({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
         t.model.users({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });

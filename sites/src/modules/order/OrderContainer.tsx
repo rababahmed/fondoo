@@ -24,6 +24,7 @@ import ItemContainer from "../../components/misc/ItemContainer";
 import CartCard from "../../components/card/CartCard";
 import ClickableText from "../../components/misc/ClickableText";
 import MenuNavItem from "../../components/misc/MenuNavItem";
+import { Constants } from "../../config";
 
 interface Props {
   rdata: any;
@@ -113,6 +114,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
                       <ItemContainer
                         key={p.id}
                         cdata={cdata}
+                        image={p.image}
                         rdata={rdata}
                         p={p}
                       />

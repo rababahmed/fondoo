@@ -3657,6 +3657,20 @@ input ProductListRelationFilter {
   some: ProductWhereInput
 }
 
+input ProductOrderByInput {
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  image: SortOrder
+  isActive: SortOrder
+  isPopular: SortOrder
+  name: SortOrder
+  price: SortOrder
+  productCategoryId: SortOrder
+  restaurantId: SortOrder
+  spiceLevel: SortOrder
+}
+
 input ProductScalarWhereInput {
   AND: [ProductScalarWhereInput!]
   NOT: [ProductScalarWhereInput!]
@@ -3868,7 +3882,7 @@ type Query {
   product(where: ProductWhereUniqueInput!): Product
   productCategories(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int, orderBy: [ProductCategoryOrderByInput!], where: ProductCategoryWhereInput): [ProductCategory!]!
   productCategory(where: ProductCategoryWhereUniqueInput!): ProductCategory
-  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int): [Product!]!
+  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByInput!], where: ProductWhereInput): [Product!]!
   restaurant(where: RestaurantWhereUniqueInput!): Restaurant
   restaurantConfig(where: RestaurantConfigWhereUniqueInput!): RestaurantConfig
   restaurantConfigs(after: RestaurantConfigWhereUniqueInput, before: RestaurantConfigWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantConfigOrderByInput!], where: RestaurantConfigWhereInput): [RestaurantConfig!]!
@@ -3907,7 +3921,7 @@ type Restaurant {
   cuisine: String
   currency: String
   customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int): [Customer!]!
-  deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int): [DeliveryZone!]!
+  deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int, orderBy: [DeliveryZoneOrderByInput!], where: DeliveryZoneWhereInput): [DeliveryZone!]!
   diningStyle: String
   email: String
   hasDelivery: Boolean
@@ -3927,11 +3941,11 @@ type Restaurant {
   plan: RestaurantPlan!
   postCode: String
   priceRange: String
-  productCategory(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int): [ProductCategory!]!
-  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int): [Product!]!
+  productCategory(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int, orderBy: [ProductCategoryOrderByInput!], where: ProductCategoryWhereInput): [ProductCategory!]!
+  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByInput!], where: ProductWhereInput): [Product!]!
   reservationPhone: String
   restaurantPlanId: String!
-  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int): [Schedule!]!
+  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int, orderBy: [ScheduleOrderByInput!], where: ScheduleWhereInput): [Schedule!]!
   serviceCharge: Float
   socials(after: RestaurantSocialWhereUniqueInput, before: RestaurantSocialWhereUniqueInput, first: Int, last: Int): [RestaurantSocial!]!
   url: String

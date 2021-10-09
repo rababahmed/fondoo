@@ -20,6 +20,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import PrimaryButton from "../buttons/PrimaryButton";
 import { useCartStore } from "../../stores/useCartStore";
 import Image from "next/image";
+import { Constants } from "../../config";
 
 interface Props {
   rdata: any;
@@ -36,7 +37,13 @@ const ItemContainer = ({ rdata, cdata, p, image }: Props) => {
 
   return (
     <>
-      <ItemCard cdata={cdata} rdata={rdata} onClick={onOpen} p={p} />
+      <ItemCard
+        cdata={cdata}
+        rdata={rdata}
+        onClick={onOpen}
+        p={p}
+        image={image}
+      />
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
@@ -48,10 +55,7 @@ const ItemContainer = ({ rdata, cdata, p, image }: Props) => {
               <Box>
                 <Image
                   alt="card-image"
-                  src={
-                    image ||
-                    "https://i2.wp.com/klfoodie.com/wp-content/uploads/2021/07/17-1.jpeg?resize=708%2C708&ssl=1"
-                  }
+                  src={image ? Constants.CDN + image : Constants.imgPlaceholder}
                   width={400}
                   height={400}
                   objectFit="contain"

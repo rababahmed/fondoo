@@ -11,10 +11,12 @@ import {
   LinkBox,
   Grid,
   Flex,
+  VStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { Constants } from "../../config";
 
 interface Props {
   rdata: any;
@@ -39,19 +41,11 @@ const ItemCard = (props: Props) => {
         bg={useColorModeValue("white", "gray.900")}
         cursor="pointer"
       >
-        <Box w={"full"} overflow={"hidden"}>
+        <Box w="full" isTruncated>
           <LinkOverlay onClick={props.onClick}>
             <Flex justifyContent={"space-between"} alignItems={"center"}>
-              <Stack px={5} py={5}>
-                <Heading
-                  color={props.titleBg ? "white" : "black"}
-                  px={props.titleBg ? 4 : 0}
-                  py={props.titleBg ? 2 : 0}
-                  rounded={props.titleBg ? "sm" : "none"}
-                  bgColor={props.titleBg || "transparent"}
-                  fontSize={"md"}
-                  fontFamily={"body"}
-                >
+              <Stack px={5} py={5} maxW={180}>
+                <Heading color={"black"} fontSize={"md"} isTruncated>
                   {props.p.name}
                 </Heading>
                 <Text color={"gray.500"} isTruncated fontSize={"sm"}>
@@ -63,8 +57,9 @@ const ItemCard = (props: Props) => {
               <Image
                 alt="card-image"
                 src={
-                  props.image ||
-                  "https://i2.wp.com/klfoodie.com/wp-content/uploads/2021/07/17-1.jpeg?resize=708%2C708&ssl=1"
+                  props.image
+                    ? Constants.CDN + props.image
+                    : Constants.imgPlaceholder
                 }
                 height={props.imgH || 130}
                 width={props.imgW || 130}

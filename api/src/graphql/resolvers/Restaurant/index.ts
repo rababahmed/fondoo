@@ -31,15 +31,27 @@ export const Restaurant = objectType({
     t.model.hasReservation();
     t.model.isAutoAcceptOrder();
     t.model.isAutoAcceptReservation();
-    t.model.schedules();
-    t.model.deliveryZones();
+    t.model.schedules({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
+    t.model.deliveryZones({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
     t.model.customers({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.offers();
     t.model.coupons();
     t.model.orders({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.orderItems({ shield: or(isAdmin(), isOwner(), isManager()) });
-    t.model.productCategory();
-    t.model.products();
+    t.model.productCategory({
+      filtering: true,
+      ordering: true,
+      pagination: true,
+    });
+    t.model.products({ filtering: true, ordering: true, pagination: true });
     t.model.plan({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.restaurantPlanId({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.users({ shield: or(isAdmin(), isOwner(), isManager()) });
