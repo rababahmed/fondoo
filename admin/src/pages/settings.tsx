@@ -23,7 +23,7 @@ const SettingsPage = () => {
       <DesktopLayout>
         <Heading mb={10}>Settings</Heading>
         <Tabs variant="soft-rounded" colorScheme={"blackAlpha"}>
-          <TabList>
+          <TabList overflowX={"auto"}>
             <Tab>
               <Stack direction="row" alignItems="center">
                 <Text>{<BsFillInfoCircleFill />}</Text> <Text>Information</Text>

@@ -3352,12 +3352,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateManyPlanInput: { // input type
     address?: string | null; // String
@@ -3384,10 +3384,10 @@ export interface NexusGenInputs {
     postCode?: string | null; // String
     priceRange?: string | null; // String
     reservationPhone?: string | null; // String
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateManyPlanInputEnvelope: { // input type
     data?: NexusGenInputs['RestaurantCreateManyPlanInput'][] | null; // [RestaurantCreateManyPlanInput!]
@@ -3606,12 +3606,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutCMSContactInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -3654,12 +3654,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutCMSHomeInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -3702,12 +3702,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutCMSReservationInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -3750,12 +3750,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutCMSReviewInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -3798,12 +3798,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutConfigInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -3846,12 +3846,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutCouponsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -3894,12 +3894,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutCustomersInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -3942,12 +3942,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutDeliveryZonesInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -3990,12 +3990,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutOffersInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4038,12 +4038,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutOrderItemsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4086,12 +4086,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutOrdersInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4134,12 +4134,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutPlanInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4182,12 +4182,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutProductCategoryInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4230,12 +4230,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutProductsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4278,12 +4278,12 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutReviewsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4326,12 +4326,12 @@ export interface NexusGenInputs {
     products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
     reservationPhone?: string | null; // String
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutSchedulesInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4374,12 +4374,12 @@ export interface NexusGenInputs {
     products?: NexusGenInputs['ProductCreateNestedManyWithoutRestaurantInput'] | null; // ProductCreateNestedManyWithoutRestaurantInput
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutSocialsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4423,11 +4423,11 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
     users?: NexusGenInputs['UserCreateNestedManyWithoutRestaurantsInput'] | null; // UserCreateNestedManyWithoutRestaurantsInput
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantCreateWithoutUsersInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutCreateNestedOneWithoutRestaurantInput'] | null; // CMSAboutCreateNestedOneWithoutRestaurantInput
@@ -4471,11 +4471,11 @@ export interface NexusGenInputs {
     reservationPhone?: string | null; // String
     reviews?: NexusGenInputs['RestaurantReviewCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantReviewCreateNestedManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleCreateNestedManyWithoutRestaurantInput'] | null; // ScheduleCreateNestedManyWithoutRestaurantInput
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     socials?: NexusGenInputs['RestaurantSocialCreateNestedManyWithoutRestaurantInput'] | null; // RestaurantSocialCreateNestedManyWithoutRestaurantInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     url?: string | null; // String
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantListRelationFilter: { // input type
     every?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
@@ -4827,10 +4827,10 @@ export interface NexusGenInputs {
     priceRange?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     reservationPhone?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     restaurantPlanId?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    serviceCharge?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    serviceCharge?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     url?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
-    vat?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    vat?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
   }
   RestaurantSocialCreateInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
@@ -5007,12 +5007,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateManyMutationInput: { // input type
     address?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
@@ -5039,10 +5039,10 @@ export interface NexusGenInputs {
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     priceRange?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateManyWithWhereWithoutCustomersInput: { // input type
     data: NexusGenInputs['RestaurantUpdateManyMutationInput']; // RestaurantUpdateManyMutationInput!
@@ -5262,12 +5262,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutCMSContactInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5310,12 +5310,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutCMSHomeInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5358,12 +5358,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutCMSReservationInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5406,12 +5406,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutCMSReviewInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5454,12 +5454,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutConfigInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5502,12 +5502,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutCouponsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5550,12 +5550,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutCustomersInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5598,12 +5598,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutDeliveryZonesInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5646,12 +5646,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutOffersInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5694,12 +5694,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutOrderItemsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5742,12 +5742,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutOrdersInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5790,12 +5790,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutPlanInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5838,12 +5838,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutProductCategoryInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5886,12 +5886,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutProductsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5934,12 +5934,12 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutReviewsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -5982,12 +5982,12 @@ export interface NexusGenInputs {
     products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutSchedulesInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -6030,12 +6030,12 @@ export interface NexusGenInputs {
     products?: NexusGenInputs['ProductUpdateManyWithoutRestaurantInput'] | null; // ProductUpdateManyWithoutRestaurantInput
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutSocialsInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -6079,11 +6079,11 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     users?: NexusGenInputs['UserUpdateManyWithoutRestaurantsInput'] | null; // UserUpdateManyWithoutRestaurantsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpdateWithoutUsersInput: { // input type
     CMSAbout?: NexusGenInputs['CMSAboutUpdateOneWithoutRestaurantInput'] | null; // CMSAboutUpdateOneWithoutRestaurantInput
@@ -6127,11 +6127,11 @@ export interface NexusGenInputs {
     reservationPhone?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     reviews?: NexusGenInputs['RestaurantReviewUpdateManyWithoutRestaurantInput'] | null; // RestaurantReviewUpdateManyWithoutRestaurantInput
     schedules?: NexusGenInputs['ScheduleUpdateManyWithoutRestaurantInput'] | null; // ScheduleUpdateManyWithoutRestaurantInput
-    serviceCharge?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     socials?: NexusGenInputs['RestaurantSocialUpdateManyWithoutRestaurantInput'] | null; // RestaurantSocialUpdateManyWithoutRestaurantInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     url?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
-    vat?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
   }
   RestaurantUpsertWithWhereUniqueWithoutCustomersInput: { // input type
     create: NexusGenInputs['RestaurantCreateWithoutCustomersInput']; // RestaurantCreateWithoutCustomersInput!
@@ -6258,12 +6258,12 @@ export interface NexusGenInputs {
     restaurantPlanId?: NexusGenInputs['StringFilter'] | null; // StringFilter
     reviews?: NexusGenInputs['RestaurantReviewListRelationFilter'] | null; // RestaurantReviewListRelationFilter
     schedules?: NexusGenInputs['ScheduleListRelationFilter'] | null; // ScheduleListRelationFilter
-    serviceCharge?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    serviceCharge?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
     socials?: NexusGenInputs['RestaurantSocialListRelationFilter'] | null; // RestaurantSocialListRelationFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
     url?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     users?: NexusGenInputs['UserListRelationFilter'] | null; // UserListRelationFilter
-    vat?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    vat?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
   }
   RestaurantWhereUniqueInput: { // input type
     id?: string | null; // String
@@ -6745,9 +6745,9 @@ export interface NexusGenObjects {
     priceRange?: string | null; // String
     reservationPhone?: string | null; // String
     restaurantPlanId: string; // String!
-    serviceCharge?: string | null; // String
+    serviceCharge?: number | null; // Float
     url?: string | null; // String
-    vat?: string | null; // String
+    vat?: number | null; // Float
   }
   RestaurantConfig: { // root type
     createdAt: NexusGenScalars['DateTime']; // DateTime!
@@ -7129,11 +7129,11 @@ export interface NexusGenFieldTypes {
     reservationPhone: string | null; // String
     restaurantPlanId: string; // String!
     schedules: NexusGenRootTypes['Schedule'][]; // [Schedule!]!
-    serviceCharge: string | null; // String
+    serviceCharge: number | null; // Float
     socials: NexusGenRootTypes['RestaurantSocial'][]; // [RestaurantSocial!]!
     url: string | null; // String
     users: NexusGenRootTypes['User'][]; // [User!]!
-    vat: string | null; // String
+    vat: number | null; // Float
   }
   RestaurantConfig: { // field return type
     createdAt: NexusGenScalars['DateTime']; // DateTime!
@@ -7512,11 +7512,11 @@ export interface NexusGenFieldTypeNames {
     reservationPhone: 'String'
     restaurantPlanId: 'String'
     schedules: 'Schedule'
-    serviceCharge: 'String'
+    serviceCharge: 'Float'
     socials: 'RestaurantSocial'
     url: 'String'
     users: 'User'
-    vat: 'String'
+    vat: 'Float'
   }
   RestaurantConfig: { // field return type name
     createdAt: 'DateTime'

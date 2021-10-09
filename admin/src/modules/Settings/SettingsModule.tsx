@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import {
   CheckboxSingleControl,
   InputControl,
+  NumberInputControl,
   SubmitButton,
 } from "formik-chakra-ui";
 import { useGetRestaurant } from "../../shared-hooks/useGetRestaurant";
@@ -40,12 +41,12 @@ export const SettingsModule = () => {
     priceRange: (isSuccess && data.restaurant.priceRange) || "",
     cuisine: (isSuccess && data.restaurant.cuisine) || "",
     email: (isSuccess && data.restaurant.email) || "",
-    reservationPhone: (isSuccess && data.restaurant.reservationPhone) || "",
+    currency: (isSuccess && data.restaurant.currency) || "",
     postCode: (isSuccess && data.restaurant.postCode) || "",
     vat: (isSuccess && data.restaurant.vat) || "",
     logo: (isSuccess && data.restaurant.logo) || "",
     url: (isSuccess && data.restaurant.url) || "",
-    streetAddress: (isSuccess && data.restaurant.streetAddress) || "",
+    address: (isSuccess && data.restaurant.address) || "",
     country: (isSuccess && data.restaurant.country) || "",
     serviceCharge: (isSuccess && data.restaurant.serviceCharge) || "",
   };
@@ -86,7 +87,14 @@ export const SettingsModule = () => {
   };
 
   return (
-    <Box as="section" rounded="lg" shadow="base" bgColor="white" p={8}>
+    <Box
+      as="section"
+      rounded="lg"
+      shadow="base"
+      bgColor="white"
+      p={8}
+      overflowX={"auto"}
+    >
       <Formik
         onSubmit={onSubmit}
         initialValues={initialValues}
@@ -95,7 +103,7 @@ export const SettingsModule = () => {
       >
         {({ handleSubmit }) => (
           <Box as="form" onSubmit={handleSubmit as any}>
-            <Grid templateColumns="1fr 1fr 1fr" gap={8}>
+            <Grid templateColumns={{ base: "1fr", md: "1fr 1fr 1fr" }} gap={8}>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
                   <InputControl name="name" label="Restaurant Name" />
@@ -114,12 +122,9 @@ export const SettingsModule = () => {
                 <Stack spacing="6">
                   <InputControl name="cuisine" label="Cuisine" />
                   <InputControl name="email" label="Restaurant Email" />
-                  <InputControl
-                    name="reservationPhone"
-                    label="Reservation Phone"
-                  />
+                  <InputControl name="currency" label="Currency" />
                   <InputControl name="postCode" label="Post Code" />
-                  <InputControl name="vat" label="VAT" />
+                  <NumberInputControl name="vat" label="VAT (in percentage)" />
                 </Stack>
               </Skeleton>
               <Skeleton isLoaded={!isLoading}>
@@ -135,14 +140,17 @@ export const SettingsModule = () => {
                     label="Restaurant URL"
                     inputProps={{ placeholder: "your-site.com" }}
                   />
-                  <InputControl name="streetAddress" label="Street Address" />
+                  <InputControl name="address" label="Street Address" />
                   <InputControl name="country" label="Country" />
-                  <InputControl name="serviceCharge" label="Service Charge" />
+                  <NumberInputControl
+                    name="serviceCharge"
+                    label="Service Fee (in percentage)"
+                  />
                 </Stack>
               </Skeleton>
             </Grid>
             <Box mt={12} mb={6} />
-            <Grid templateColumns="1fr 1fr 1fr" gap={6}>
+            <Grid templateColumns={{ base: "1fr", md: "1fr 1fr 1fr" }} gap={6}>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
                   <CheckboxSingleControl name="hasParking">
@@ -158,13 +166,13 @@ export const SettingsModule = () => {
               </Skeleton>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
-                  <CheckboxSingleControl name="delivery">
+                  <CheckboxSingleControl name="hasDelivery">
                     Delivery
                   </CheckboxSingleControl>
-                  <CheckboxSingleControl name="takeaway">
+                  <CheckboxSingleControl name="hasPickup">
                     Takeaway
                   </CheckboxSingleControl>
-                  <CheckboxSingleControl name="reservation">
+                  <CheckboxSingleControl name="hasReservation">
                     Reservation
                   </CheckboxSingleControl>
                 </Stack>

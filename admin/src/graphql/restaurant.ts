@@ -35,15 +35,20 @@ export const GET_RESTAURANT_INFO = gql`
   query Restaurant($id: String) {
     restaurant(where: { id: $id }) {
       name
-      email
-      url
-      logo
       coverImage
+      businessPhone
       city
       priceRange
+      cuisine
+      email
+      currency
+      postCode
       vat
-      businessPhone
+      logo
+      url
       address
+      country
+      serviceCharge
     }
   }
 `;

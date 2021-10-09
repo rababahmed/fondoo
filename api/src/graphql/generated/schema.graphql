@@ -3932,11 +3932,11 @@ type Restaurant {
   reservationPhone: String
   restaurantPlanId: String!
   schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int): [Schedule!]!
-  serviceCharge: String
+  serviceCharge: Float
   socials(after: RestaurantSocialWhereUniqueInput, before: RestaurantSocialWhereUniqueInput, first: Int, last: Int): [RestaurantSocial!]!
   url: String
   users(after: UserWhereUniqueInput, before: UserWhereUniqueInput, first: Int, last: Int): [User!]!
-  vat: String
+  vat: Float
 }
 
 type RestaurantConfig {
@@ -4099,12 +4099,12 @@ input RestaurantCreateInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateManyPlanInput {
@@ -4132,10 +4132,10 @@ input RestaurantCreateManyPlanInput {
   postCode: String
   priceRange: String
   reservationPhone: String
-  serviceCharge: String
+  serviceCharge: Float
   updatedAt: DateTime
   url: String
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateManyPlanInputEnvelope {
@@ -4394,12 +4394,12 @@ input RestaurantCreateWithoutCMSAboutInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutCMSContactInput {
@@ -4443,12 +4443,12 @@ input RestaurantCreateWithoutCMSContactInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutCMSHomeInput {
@@ -4492,12 +4492,12 @@ input RestaurantCreateWithoutCMSHomeInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutCMSReservationInput {
@@ -4541,12 +4541,12 @@ input RestaurantCreateWithoutCMSReservationInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutCMSReviewInput {
@@ -4590,12 +4590,12 @@ input RestaurantCreateWithoutCMSReviewInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutConfigInput {
@@ -4639,12 +4639,12 @@ input RestaurantCreateWithoutConfigInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutCouponsInput {
@@ -4688,12 +4688,12 @@ input RestaurantCreateWithoutCouponsInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutCustomersInput {
@@ -4737,12 +4737,12 @@ input RestaurantCreateWithoutCustomersInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutDeliveryZonesInput {
@@ -4786,12 +4786,12 @@ input RestaurantCreateWithoutDeliveryZonesInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutOffersInput {
@@ -4835,12 +4835,12 @@ input RestaurantCreateWithoutOffersInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutOrderItemsInput {
@@ -4884,12 +4884,12 @@ input RestaurantCreateWithoutOrderItemsInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutOrdersInput {
@@ -4933,12 +4933,12 @@ input RestaurantCreateWithoutOrdersInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutPlanInput {
@@ -4982,12 +4982,12 @@ input RestaurantCreateWithoutPlanInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutProductCategoryInput {
@@ -5031,12 +5031,12 @@ input RestaurantCreateWithoutProductCategoryInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutProductsInput {
@@ -5080,12 +5080,12 @@ input RestaurantCreateWithoutProductsInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutReviewsInput {
@@ -5129,12 +5129,12 @@ input RestaurantCreateWithoutReviewsInput {
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutSchedulesInput {
@@ -5178,12 +5178,12 @@ input RestaurantCreateWithoutSchedulesInput {
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutSocialsInput {
@@ -5228,11 +5228,11 @@ input RestaurantCreateWithoutSocialsInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
-  vat: String
+  vat: Float
 }
 
 input RestaurantCreateWithoutUsersInput {
@@ -5277,11 +5277,11 @@ input RestaurantCreateWithoutUsersInput {
   reservationPhone: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
-  serviceCharge: String
+  serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
-  vat: String
+  vat: Float
 }
 
 input RestaurantListRelationFilter {
@@ -5695,10 +5695,10 @@ input RestaurantScalarWhereInput {
   priceRange: StringNullableFilter
   reservationPhone: StringNullableFilter
   restaurantPlanId: StringFilter
-  serviceCharge: StringNullableFilter
+  serviceCharge: FloatNullableFilter
   updatedAt: DateTimeFilter
   url: StringNullableFilter
-  vat: StringNullableFilter
+  vat: FloatNullableFilter
 }
 
 type RestaurantSocial {
@@ -5902,12 +5902,12 @@ input RestaurantUpdateInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateManyMutationInput {
@@ -5935,10 +5935,10 @@ input RestaurantUpdateManyMutationInput {
   postCode: NullableStringFieldUpdateOperationsInput
   priceRange: NullableStringFieldUpdateOperationsInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateManyWithWhereWithoutCustomersInput {
@@ -6184,12 +6184,12 @@ input RestaurantUpdateWithoutCMSAboutInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutCMSContactInput {
@@ -6233,12 +6233,12 @@ input RestaurantUpdateWithoutCMSContactInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutCMSHomeInput {
@@ -6282,12 +6282,12 @@ input RestaurantUpdateWithoutCMSHomeInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutCMSReservationInput {
@@ -6331,12 +6331,12 @@ input RestaurantUpdateWithoutCMSReservationInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutCMSReviewInput {
@@ -6380,12 +6380,12 @@ input RestaurantUpdateWithoutCMSReviewInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutConfigInput {
@@ -6429,12 +6429,12 @@ input RestaurantUpdateWithoutConfigInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutCouponsInput {
@@ -6478,12 +6478,12 @@ input RestaurantUpdateWithoutCouponsInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutCustomersInput {
@@ -6527,12 +6527,12 @@ input RestaurantUpdateWithoutCustomersInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutDeliveryZonesInput {
@@ -6576,12 +6576,12 @@ input RestaurantUpdateWithoutDeliveryZonesInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutOffersInput {
@@ -6625,12 +6625,12 @@ input RestaurantUpdateWithoutOffersInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutOrderItemsInput {
@@ -6674,12 +6674,12 @@ input RestaurantUpdateWithoutOrderItemsInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutOrdersInput {
@@ -6723,12 +6723,12 @@ input RestaurantUpdateWithoutOrdersInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutPlanInput {
@@ -6772,12 +6772,12 @@ input RestaurantUpdateWithoutPlanInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutProductCategoryInput {
@@ -6821,12 +6821,12 @@ input RestaurantUpdateWithoutProductCategoryInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutProductsInput {
@@ -6870,12 +6870,12 @@ input RestaurantUpdateWithoutProductsInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutReviewsInput {
@@ -6919,12 +6919,12 @@ input RestaurantUpdateWithoutReviewsInput {
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutSchedulesInput {
@@ -6968,12 +6968,12 @@ input RestaurantUpdateWithoutSchedulesInput {
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutSocialsInput {
@@ -7018,11 +7018,11 @@ input RestaurantUpdateWithoutSocialsInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpdateWithoutUsersInput {
@@ -7067,11 +7067,11 @@ input RestaurantUpdateWithoutUsersInput {
   reservationPhone: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
-  serviceCharge: NullableStringFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
-  vat: NullableStringFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input RestaurantUpsertWithWhereUniqueWithoutCustomersInput {
@@ -7218,12 +7218,12 @@ input RestaurantWhereInput {
   restaurantPlanId: StringFilter
   reviews: RestaurantReviewListRelationFilter
   schedules: ScheduleListRelationFilter
-  serviceCharge: StringNullableFilter
+  serviceCharge: FloatNullableFilter
   socials: RestaurantSocialListRelationFilter
   updatedAt: DateTimeFilter
   url: StringNullableFilter
   users: UserListRelationFilter
-  vat: StringNullableFilter
+  vat: FloatNullableFilter
 }
 
 input RestaurantWhereUniqueInput {
