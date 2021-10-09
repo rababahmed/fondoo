@@ -23,11 +23,12 @@ import {
   SelectControl,
   SubmitButton,
 } from "formik-chakra-ui";
-import { Formik } from "formik";
+import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import { useUserStore } from "../../../store/useUserStore";
 import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
 import { ADD_MENU_ITEM, GET_MENU_CATEGORIES } from "../../../graphql/menu";
+import ImageUpload from "../../../components/Forms/ImageUpload";
 
 enum SpiceLevel {
   None,
@@ -55,6 +56,7 @@ export const AddItem = () => {
     description: "",
     spiceLevel: "",
     price: "",
+    image: "",
     isActive: false,
     isPopular: false,
     productCatID: "",
@@ -64,7 +66,8 @@ export const AddItem = () => {
   const validationSchema = Yup.object({
     name: Yup.string().required(),
     description: Yup.string().required(),
-    price: Yup.number().integer().required(),
+    price: Yup.number().required(),
+    image: Yup.string(),
     spiceLevel: Yup.string().required("Please select a spice level"),
     productCatID: Yup.string().required("Please select a category"),
   });
@@ -77,7 +80,8 @@ export const AddItem = () => {
       name: formData.name,
       description: formData.description,
       spiceLevel: formData.spiceLevel,
-      price: parseInt(formData.price),
+      price: parseFloat(formData.price),
+      image: formData.image,
       isActive: formData.isActive,
       isPopular: formData.isPopular,
       productCatID: formData.productCatID,
@@ -114,6 +118,12 @@ export const AddItem = () => {
                     <Stack spacing="6">
                       <InputControl name="name" label="Name" />
                       <InputControl name="description" label="Description" />
+                      <Field
+                        name="image"
+                        id="image"
+                        label="Image"
+                        component={ImageUpload}
+                      />
                       <RadioGroupControl name="spiceLevel" label="Spice Level">
                         <Radio value="None">None</Radio>
                         <Radio value="Mild">Mild</Radio>
@@ -121,7 +131,11 @@ export const AddItem = () => {
                         <Radio value="Hot">Hot</Radio>
                         <Radio value="ExtraHot">Extra Hot</Radio>
                       </RadioGroupControl>
-                      <NumberInputControl name="price" label="Price" />
+                      <NumberInputControl
+                        name="price"
+                        label="Price"
+                        numberInputProps={{ precision: 2 }}
+                      />
                       <SelectControl
                         label="Category"
                         name="productCatID"

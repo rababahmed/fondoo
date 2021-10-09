@@ -3933,7 +3933,7 @@ type Restaurant {
   restaurantPlanId: String!
   schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int): [Schedule!]!
   serviceCharge: String
-  socials: RestaurantSocial
+  socials(after: RestaurantSocialWhereUniqueInput, before: RestaurantSocialWhereUniqueInput, first: Int, last: Int): [RestaurantSocial!]!
   url: String
   users(after: UserWhereUniqueInput, before: UserWhereUniqueInput, first: Int, last: Int): [User!]!
   vat: String
@@ -4097,11 +4097,10 @@ input RestaurantCreateInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4133,7 +4132,6 @@ input RestaurantCreateManyPlanInput {
   postCode: String
   priceRange: String
   reservationPhone: String
-  restaurantSocialId: String
   serviceCharge: String
   updatedAt: DateTime
   url: String
@@ -4394,11 +4392,10 @@ input RestaurantCreateWithoutCMSAboutInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4444,11 +4441,10 @@ input RestaurantCreateWithoutCMSContactInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4494,11 +4490,10 @@ input RestaurantCreateWithoutCMSHomeInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4544,11 +4539,10 @@ input RestaurantCreateWithoutCMSReservationInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4594,11 +4588,10 @@ input RestaurantCreateWithoutCMSReviewInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4644,11 +4637,10 @@ input RestaurantCreateWithoutConfigInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4694,11 +4686,10 @@ input RestaurantCreateWithoutCouponsInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4744,11 +4735,10 @@ input RestaurantCreateWithoutCustomersInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4794,11 +4784,10 @@ input RestaurantCreateWithoutDeliveryZonesInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4844,11 +4833,10 @@ input RestaurantCreateWithoutOffersInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4894,11 +4882,10 @@ input RestaurantCreateWithoutOrderItemsInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4944,11 +4931,10 @@ input RestaurantCreateWithoutOrdersInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4994,11 +4980,10 @@ input RestaurantCreateWithoutPlanInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5044,11 +5029,10 @@ input RestaurantCreateWithoutProductCategoryInput {
   priceRange: String
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5094,11 +5078,10 @@ input RestaurantCreateWithoutProductsInput {
   priceRange: String
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5145,10 +5128,9 @@ input RestaurantCreateWithoutReviewsInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5195,10 +5177,9 @@ input RestaurantCreateWithoutSchedulesInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5245,7 +5226,6 @@ input RestaurantCreateWithoutSocialsInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
@@ -5295,11 +5275,10 @@ input RestaurantCreateWithoutUsersInput {
   productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
   products: ProductCreateNestedManyWithoutRestaurantInput
   reservationPhone: String
-  restaurantSocialId: String
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: String
-  socials: RestaurantSocialCreateNestedOneWithoutRestaurantInput
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   vat: String
@@ -5337,7 +5316,6 @@ input RestaurantOrderByInput {
   priceRange: SortOrder
   reservationPhone: SortOrder
   restaurantPlanId: SortOrder
-  restaurantSocialId: SortOrder
   serviceCharge: SortOrder
   updatedAt: SortOrder
   url: SortOrder
@@ -5717,7 +5695,6 @@ input RestaurantScalarWhereInput {
   priceRange: StringNullableFilter
   reservationPhone: StringNullableFilter
   restaurantPlanId: StringFilter
-  restaurantSocialId: StringNullableFilter
   serviceCharge: StringNullableFilter
   updatedAt: DateTimeFilter
   url: StringNullableFilter
@@ -5742,10 +5719,25 @@ input RestaurantSocialCreateInput {
   url: String
 }
 
-input RestaurantSocialCreateNestedOneWithoutRestaurantInput {
-  connect: RestaurantSocialWhereUniqueInput
-  connectOrCreate: RestaurantSocialCreateOrConnectWithoutRestaurantInput
-  create: RestaurantSocialCreateWithoutRestaurantInput
+input RestaurantSocialCreateManyRestaurantInput {
+  createdAt: DateTime
+  id: String
+  isActive: Boolean
+  network: String
+  updatedAt: DateTime
+  url: String
+}
+
+input RestaurantSocialCreateManyRestaurantInputEnvelope {
+  data: [RestaurantSocialCreateManyRestaurantInput!]
+  skipDuplicates: Boolean
+}
+
+input RestaurantSocialCreateNestedManyWithoutRestaurantInput {
+  connect: [RestaurantSocialWhereUniqueInput!]
+  connectOrCreate: [RestaurantSocialCreateOrConnectWithoutRestaurantInput!]
+  create: [RestaurantSocialCreateWithoutRestaurantInput!]
+  createMany: RestaurantSocialCreateManyRestaurantInputEnvelope
 }
 
 input RestaurantSocialCreateOrConnectWithoutRestaurantInput {
@@ -5762,6 +5754,12 @@ input RestaurantSocialCreateWithoutRestaurantInput {
   url: String
 }
 
+input RestaurantSocialListRelationFilter {
+  every: RestaurantSocialWhereInput
+  none: RestaurantSocialWhereInput
+  some: RestaurantSocialWhereInput
+}
+
 input RestaurantSocialOrderByInput {
   createdAt: SortOrder
   id: SortOrder
@@ -5770,6 +5768,19 @@ input RestaurantSocialOrderByInput {
   restaurantId: SortOrder
   updatedAt: SortOrder
   url: SortOrder
+}
+
+input RestaurantSocialScalarWhereInput {
+  AND: [RestaurantSocialScalarWhereInput!]
+  NOT: [RestaurantSocialScalarWhereInput!]
+  OR: [RestaurantSocialScalarWhereInput!]
+  createdAt: DateTimeFilter
+  id: StringFilter
+  isActive: BoolNullableFilter
+  network: StringNullableFilter
+  restaurantId: StringFilter
+  updatedAt: DateTimeFilter
+  url: StringNullableFilter
 }
 
 input RestaurantSocialUpdateInput {
@@ -5782,14 +5793,37 @@ input RestaurantSocialUpdateInput {
   url: NullableStringFieldUpdateOperationsInput
 }
 
-input RestaurantSocialUpdateOneWithoutRestaurantInput {
-  connect: RestaurantSocialWhereUniqueInput
-  connectOrCreate: RestaurantSocialCreateOrConnectWithoutRestaurantInput
-  create: RestaurantSocialCreateWithoutRestaurantInput
-  delete: Boolean
-  disconnect: Boolean
-  update: RestaurantSocialUpdateWithoutRestaurantInput
-  upsert: RestaurantSocialUpsertWithoutRestaurantInput
+input RestaurantSocialUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  network: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: NullableStringFieldUpdateOperationsInput
+}
+
+input RestaurantSocialUpdateManyWithWhereWithoutRestaurantInput {
+  data: RestaurantSocialUpdateManyMutationInput!
+  where: RestaurantSocialScalarWhereInput!
+}
+
+input RestaurantSocialUpdateManyWithoutRestaurantInput {
+  connect: [RestaurantSocialWhereUniqueInput!]
+  connectOrCreate: [RestaurantSocialCreateOrConnectWithoutRestaurantInput!]
+  create: [RestaurantSocialCreateWithoutRestaurantInput!]
+  createMany: RestaurantSocialCreateManyRestaurantInputEnvelope
+  delete: [RestaurantSocialWhereUniqueInput!]
+  deleteMany: [RestaurantSocialScalarWhereInput!]
+  disconnect: [RestaurantSocialWhereUniqueInput!]
+  set: [RestaurantSocialWhereUniqueInput!]
+  update: [RestaurantSocialUpdateWithWhereUniqueWithoutRestaurantInput!]
+  updateMany: [RestaurantSocialUpdateManyWithWhereWithoutRestaurantInput!]
+  upsert: [RestaurantSocialUpsertWithWhereUniqueWithoutRestaurantInput!]
+}
+
+input RestaurantSocialUpdateWithWhereUniqueWithoutRestaurantInput {
+  data: RestaurantSocialUpdateWithoutRestaurantInput!
+  where: RestaurantSocialWhereUniqueInput!
 }
 
 input RestaurantSocialUpdateWithoutRestaurantInput {
@@ -5801,9 +5835,10 @@ input RestaurantSocialUpdateWithoutRestaurantInput {
   url: NullableStringFieldUpdateOperationsInput
 }
 
-input RestaurantSocialUpsertWithoutRestaurantInput {
+input RestaurantSocialUpsertWithWhereUniqueWithoutRestaurantInput {
   create: RestaurantSocialCreateWithoutRestaurantInput!
   update: RestaurantSocialUpdateWithoutRestaurantInput!
+  where: RestaurantSocialWhereUniqueInput!
 }
 
 input RestaurantSocialWhereInput {
@@ -5865,11 +5900,10 @@ input RestaurantUpdateInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -5901,7 +5935,6 @@ input RestaurantUpdateManyMutationInput {
   postCode: NullableStringFieldUpdateOperationsInput
   priceRange: NullableStringFieldUpdateOperationsInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
@@ -6149,11 +6182,10 @@ input RestaurantUpdateWithoutCMSAboutInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6199,11 +6231,10 @@ input RestaurantUpdateWithoutCMSContactInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6249,11 +6280,10 @@ input RestaurantUpdateWithoutCMSHomeInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6299,11 +6329,10 @@ input RestaurantUpdateWithoutCMSReservationInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6349,11 +6378,10 @@ input RestaurantUpdateWithoutCMSReviewInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6399,11 +6427,10 @@ input RestaurantUpdateWithoutConfigInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6449,11 +6476,10 @@ input RestaurantUpdateWithoutCouponsInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6499,11 +6525,10 @@ input RestaurantUpdateWithoutCustomersInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6549,11 +6574,10 @@ input RestaurantUpdateWithoutDeliveryZonesInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6599,11 +6623,10 @@ input RestaurantUpdateWithoutOffersInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6649,11 +6672,10 @@ input RestaurantUpdateWithoutOrderItemsInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6699,11 +6721,10 @@ input RestaurantUpdateWithoutOrdersInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6749,11 +6770,10 @@ input RestaurantUpdateWithoutPlanInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6799,11 +6819,10 @@ input RestaurantUpdateWithoutProductCategoryInput {
   priceRange: NullableStringFieldUpdateOperationsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6849,11 +6868,10 @@ input RestaurantUpdateWithoutProductsInput {
   priceRange: NullableStringFieldUpdateOperationsInput
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6900,10 +6918,9 @@ input RestaurantUpdateWithoutReviewsInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6950,10 +6967,9 @@ input RestaurantUpdateWithoutSchedulesInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7000,7 +7016,6 @@ input RestaurantUpdateWithoutSocialsInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
@@ -7050,11 +7065,10 @@ input RestaurantUpdateWithoutUsersInput {
   productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
   products: ProductUpdateManyWithoutRestaurantInput
   reservationPhone: NullableStringFieldUpdateOperationsInput
-  restaurantSocialId: NullableStringFieldUpdateOperationsInput
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableStringFieldUpdateOperationsInput
-  socials: RestaurantSocialUpdateOneWithoutRestaurantInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   vat: NullableStringFieldUpdateOperationsInput
@@ -7202,11 +7216,10 @@ input RestaurantWhereInput {
   products: ProductListRelationFilter
   reservationPhone: StringNullableFilter
   restaurantPlanId: StringFilter
-  restaurantSocialId: StringNullableFilter
   reviews: RestaurantReviewListRelationFilter
   schedules: ScheduleListRelationFilter
   serviceCharge: StringNullableFilter
-  socials: RestaurantSocialWhereInput
+  socials: RestaurantSocialListRelationFilter
   updatedAt: DateTimeFilter
   url: StringNullableFilter
   users: UserListRelationFilter

@@ -49,12 +49,11 @@ model Restaurant {
   users                   User[]
   coupons                 Coupon[]
   reviews                 RestaurantReview[]
-  socials                 RestaurantSocial?
+  socials                 RestaurantSocial[]
   createdAt               DateTime           @default(now())
   updatedAt               DateTime           @updatedAt
   config                  RestaurantConfig?
   offers                  Offer[]
-  restaurantSocialId      String?
   CMSHome                 CMSHome?
   CMSAbout                CMSAbout?
   CMSReview               CMSReview?

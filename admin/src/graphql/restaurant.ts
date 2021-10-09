@@ -123,6 +123,7 @@ export const GET_RESTAURANT_OFFERS = gql`
         id
         name
         description
+        image
         startDate
         endDate
         isActive
@@ -140,6 +141,7 @@ export const ADD_RESTAURANT_OFFER = gql`
     $id: String
     $name: String
     $description: String
+    $image: String
     $startDate: String
     $endDate: String
     $isActive: Boolean
@@ -149,6 +151,7 @@ export const ADD_RESTAURANT_OFFER = gql`
         name: $name
         description: $description
         startDate: $startDate
+        image: $image
         endDate: $endDate
         isActive: $isActive
         restaurant: { connect: { id: $id } }
@@ -175,6 +178,7 @@ export const GET_RESTAURANT_COUPONS = gql`
         id
         code
         discount
+        image
         value
         description
         startDate
@@ -197,6 +201,7 @@ export const ADD_RESTAURANT_COUPON = gql`
     $id: String
     $code: String!
     $description: String
+    $image: String
     $discount: Discount!
     $value: Float!
     $startDate: String
@@ -207,6 +212,7 @@ export const ADD_RESTAURANT_COUPON = gql`
         code: $code
         description: $description
         discount: $discount
+        image: $image
         value: $value
         startDate: $startDate
         endDate: $endDate
@@ -310,6 +316,47 @@ export const UPDATE_RESTAURANT_APPEARANCE = gql`
         hasDarkNavBg: { set: $hasDarkNavBg }
       }
     ) {
+      id
+    }
+  }
+`;
+
+export const GET_RESTAURANT_SOCIALS = gql`
+  query RestaurantSocials($id: String) {
+    restaurant(where: { id: $id }) {
+      socials {
+        network
+        url
+        isActive
+      }
+    }
+  }
+`;
+
+export const ADD_RESTAURANT_SOCIAL = gql`
+  mutation AddRestaurantSocial(
+    $id: String
+    $network: String
+    $url: String
+    $isActive: Boolean
+  ) {
+    createRestaurantSocial(
+      data: {
+        network: $network
+        url: $url
+        isActive: $isActive
+        restaurant: { connect: { id: $id } }
+      }
+    ) {
+      id
+      network
+    }
+  }
+`;
+
+export const DELETE_RESTAURANT_SOCIAL = gql`
+  mutation deleteRestaurantSocial($id: String) {
+    deleteRestaurantSocial(where: { id: $id }) {
       id
     }
   }

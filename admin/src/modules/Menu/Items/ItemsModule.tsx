@@ -23,6 +23,8 @@ import { GET_MENU_ITEMS } from "../../../graphql/menu";
 import { useUserStore } from "../../../store/useUserStore";
 import { EditItem } from "./EditItem";
 import { DeleteItem } from "./DeleteItem";
+import Image from "next/image";
+import { Config } from "../../../lib/config";
 
 export const ItemsModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
@@ -67,6 +69,7 @@ export const ItemsModule = () => {
                           <Tr>
                             <Th>Name</Th>
                             <Th>Description</Th>
+                            <Th>Image</Th>
                             <Th>Price</Th>
                             <Th>Spice Level</Th>
                             <Th>Active</Th>
@@ -78,7 +81,16 @@ export const ItemsModule = () => {
                           {cat.Product.map((product: any) => (
                             <Tr key={product.id}>
                               <Td>{product.name}</Td>
-                              <Td>{product.description}</Td>
+                              <Td isTruncated>{product.description}</Td>
+                              <Td>
+                                <Image
+                                  src={Config.CDN + product.image}
+                                  alt={product.name}
+                                  width={40}
+                                  height={40}
+                                  objectFit={"cover"}
+                                />
+                              </Td>
                               <Td>{product.price}</Td>
                               <Td>{product.spiceLevel}</Td>
                               <Td>{product.isActive ? "Yes" : "No"}</Td>
@@ -89,6 +101,7 @@ export const ItemsModule = () => {
                                     id={product.id}
                                     name={product.name}
                                     description={product.description}
+                                    image={product.image}
                                     spiceLevel={product.spiceLevel}
                                     price={product.price}
                                     isActive={product.isActive}

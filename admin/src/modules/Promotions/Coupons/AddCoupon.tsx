@@ -22,7 +22,7 @@ import {
   SelectControl,
   SubmitButton,
 } from "formik-chakra-ui";
-import { Formik } from "formik";
+import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
@@ -35,6 +35,7 @@ import {
   ADD_RESTAURANT_OFFER,
 } from "../../../graphql/restaurant";
 import FormInput from "../../../components/Forms/FormInput";
+import ImageUpload from "../../../components/Forms/ImageUpload";
 
 export const AddCoupon = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -45,6 +46,7 @@ export const AddCoupon = () => {
     description: "",
     discount: "",
     value: "",
+    image: "",
     startDate: undefined,
     endDate: undefined,
     id: restaurantID,
@@ -64,6 +66,7 @@ export const AddCoupon = () => {
       description: formData.description,
       discount: formData.discount,
       value: parseFloat(formData.value),
+      image: formData.image,
       startDate: formData.startDate,
       endDate: formData.endDate,
       id: restaurantID,
@@ -104,6 +107,12 @@ export const AddCoupon = () => {
                     <Stack spacing="6">
                       <InputControl name="code" label="Code" />
                       <InputControl name="description" label="Description" />
+                      <Field
+                        name="image"
+                        id="image"
+                        label="Image"
+                        component={ImageUpload}
+                      />
                       <SelectControl
                         label="Discount Type"
                         name="discount"
@@ -116,12 +125,7 @@ export const AddCoupon = () => {
                         name="value"
                         label="Discount Amount"
                       />
-                      {/* <FormInput
-                        id="value"
-                        label="Discount Amount"
-                        type="number"
-                        step="0.01"
-                      /> */}
+
                       <InputControl
                         inputProps={{ type: "date" }}
                         name="startDate"

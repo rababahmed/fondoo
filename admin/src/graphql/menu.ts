@@ -97,6 +97,7 @@ export const GET_MENU_ITEMS = gql`
         id
         name
         description
+        image
         price
         spiceLevel
         isPopular
@@ -120,7 +121,8 @@ export const ADD_MENU_ITEM = gql`
     $description: String
     $isActive: Boolean
     $isPopular: Boolean
-    $price: Int
+    $image: String
+    $price: Float
     $spiceLevel: SpiceLevel
     $productCatID: String
     $restaurantID: String
@@ -132,6 +134,7 @@ export const ADD_MENU_ITEM = gql`
         isActive: $isActive
         isPopular: $isPopular
         price: $price
+        image: $image
         spiceLevel: $spiceLevel
         productCategory: { connect: { id: $productCatID } }
         restaurant: { connect: { id: $restaurantID } }
@@ -147,7 +150,8 @@ export const EDIT_MENU_ITEM = gql`
     $id: String
     $name: String
     $description: String
-    $price: Int
+    $price: Float
+    $image: String
     $spiceLevel: SpiceLevel
     $isActive: Boolean
     $isPopular: Boolean
@@ -160,6 +164,7 @@ export const EDIT_MENU_ITEM = gql`
         isPopular: { set: $isPopular }
         spiceLevel: { set: $spiceLevel }
         price: { set: $price }
+        image: { set: $image }
       }
       where: { id: $id }
     ) {

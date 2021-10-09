@@ -21,7 +21,7 @@ import {
   SelectControl,
   SubmitButton,
 } from "formik-chakra-ui";
-import { Formik } from "formik";
+import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
@@ -30,6 +30,7 @@ import { useUserStore } from "../../../store/useUserStore";
 import { useRouter } from "next/router";
 import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
 import { ADD_RESTAURANT_OFFER } from "../../../graphql/restaurant";
+import ImageUpload from "../../../components/Forms/ImageUpload";
 
 export const AddOffer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -38,6 +39,7 @@ export const AddOffer = () => {
   const initialValues = {
     name: "",
     description: "",
+    image: "",
     startDate: undefined,
     endDate: undefined,
     isActive: true,
@@ -90,6 +92,12 @@ export const AddOffer = () => {
                     <Stack spacing="6">
                       <InputControl name="name" label="Campaign Name" />
                       <InputControl name="description" label="Description" />
+                      <Field
+                        name="image"
+                        id="image"
+                        label="Image"
+                        component={ImageUpload}
+                      />
                       <InputControl
                         inputProps={{ type: "date" }}
                         name="startDate"

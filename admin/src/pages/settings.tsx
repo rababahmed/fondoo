@@ -6,9 +6,11 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import DesktopLayout from "../layouts/DesktopLayout";
 import { SettingsModule } from "../modules/Settings/SettingsModule";
 import { BsFillInfoCircleFill } from "react-icons/bs";
-import { RiEBike2Fill } from "react-icons/ri";
-import { FaPalette } from "react-icons/fa";
+import { RiEBike2Fill, RiSafariFill, RiShareFill } from "react-icons/ri";
+import { FaPalette, FaSafari } from "react-icons/fa";
 import { AppearanceModule } from "../modules/Settings/AppearanceModule";
+import { BiRadar } from "react-icons/bi";
+import { SocialsModule } from "../modules/Settings/SocialsModule";
 
 const SettingsPage = () => {
   return (
@@ -32,6 +34,16 @@ const SettingsPage = () => {
                 <Text>{<FaPalette />}</Text> <Text>Appearance</Text>
               </Stack>
             </Tab>
+            <Tab>
+              <Stack direction="row" alignItems="center">
+                <Text>{<RiShareFill />}</Text> <Text>Socials</Text>
+              </Stack>
+            </Tab>
+            {/* <Tab>
+              <Stack direction="row" alignItems="center">
+                <Text>{<FaSafari />}</Text> <Text>Domain</Text>
+              </Stack>
+            </Tab> */}
           </TabList>
           <TabPanels>
             <TabPanel>
@@ -39,6 +51,9 @@ const SettingsPage = () => {
             </TabPanel>
             <TabPanel>
               <AppearanceModule />
+            </TabPanel>
+            <TabPanel>
+              <SocialsModule />
             </TabPanel>
           </TabPanels>
         </Tabs>

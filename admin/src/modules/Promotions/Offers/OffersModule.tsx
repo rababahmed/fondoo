@@ -30,6 +30,8 @@ import {
   DELETE_RESTAURANT_OFFER,
   GET_RESTAURANT_OFFERS,
 } from "../../../graphql/restaurant";
+import Image from "next/image";
+import { Config } from "../../../lib/config";
 
 export const OffersModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
@@ -78,6 +80,7 @@ export const OffersModule = () => {
               <Tr>
                 <Th>Name</Th>
                 <Th>Description</Th>
+                <Th>Image</Th>
                 <Th>Start Date</Th>
                 <Th>End Date</Th>
                 <Th>Claimed</Th>
@@ -92,6 +95,15 @@ export const OffersModule = () => {
                   <Tr key={offer.id}>
                     <Td>{offer.name}</Td>
                     <Td>{offer.description}</Td>
+                    <Td>
+                      <Image
+                        src={Config.CDN + offer.image}
+                        alt={offer.name}
+                        width={40}
+                        height={40}
+                        objectFit={"cover"}
+                      />
+                    </Td>
                     <Td>{offer.startDate}</Td>
                     <Td>{offer.endDate}</Td>
                     <Td>0</Td>

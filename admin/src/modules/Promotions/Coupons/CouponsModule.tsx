@@ -32,6 +32,8 @@ import {
   GET_RESTAURANT_COUPONS,
   GET_RESTAURANT_OFFERS,
 } from "../../../graphql/restaurant";
+import { Config } from "../../../lib/config";
+import Image from "next/image";
 
 export const CouponsModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
@@ -78,6 +80,7 @@ export const CouponsModule = () => {
               <Tr>
                 <Th>Code</Th>
                 <Th>Description</Th>
+                <Th>Image</Th>
                 <Th>Discount Type</Th>
                 <Th>Value</Th>
                 <Th>Start Date</Th>
@@ -92,6 +95,15 @@ export const CouponsModule = () => {
                   <Tr key={coupon.id}>
                     <Td>{coupon.code}</Td>
                     <Td>{coupon.description}</Td>
+                    <Td>
+                      <Image
+                        src={Config.CDN + coupon.image}
+                        alt={coupon.name}
+                        width={40}
+                        height={40}
+                        objectFit={"cover"}
+                      />
+                    </Td>
                     <Td>{coupon.discount}</Td>
                     <Td>{coupon.value}</Td>
                     <Td>{coupon.startDate}</Td>

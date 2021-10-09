@@ -17,11 +17,12 @@ import {
   RadioGroupControl,
   SubmitButton,
 } from "formik-chakra-ui";
-import { Formik } from "formik";
+import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
 import { EDIT_MENU_ITEM, UPDATE_MENU_CATEGORY } from "../../../graphql/menu";
 import { EditIcon } from "@chakra-ui/icons";
+import ImageUpload from "../../../components/Forms/ImageUpload";
 
 enum SpiceLevel {
   None,
@@ -35,6 +36,7 @@ interface Props {
   id: String;
   name: String;
   description: String;
+  image: String;
   spiceLevel: SpiceLevel;
   price: Number;
   isActive: Boolean;
@@ -49,6 +51,7 @@ export const EditItem = (props: Props) => {
     name: props.name,
     description: props.description,
     spiceLevel: props.spiceLevel,
+    image: props.image,
     price: props.price,
     isActive: props.isActive,
     isPopular: props.isPopular,
@@ -101,6 +104,12 @@ export const EditItem = (props: Props) => {
                   <Stack spacing="6">
                     <InputControl name="name" label="Name" />
                     <InputControl name="description" label="Description" />
+                    <Field
+                      name="image"
+                      id="image"
+                      label="Image"
+                      component={ImageUpload}
+                    />
                     <RadioGroupControl name="spiceLevel" label="Spice Level">
                       <Radio value="None">None</Radio>
                       <Radio value="Mild">Mild</Radio>
