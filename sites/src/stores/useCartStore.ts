@@ -40,7 +40,7 @@ export const useCartStore = create<Cart>(
   devtools(
     // persist(
     //   {
-    //     key: "user-store",
+    //     key: "cart-store",
     //   },
     (set) => ({
       cart: [],

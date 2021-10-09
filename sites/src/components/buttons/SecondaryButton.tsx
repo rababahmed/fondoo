@@ -4,9 +4,10 @@ import React from "react";
 interface Props {
   cdata: any;
   text: String;
+  onClick?: any;
 }
 
-const SecondaryButton = ({ cdata, text }: Props) => {
+const SecondaryButton = ({ cdata, text, onClick }: Props) => {
   return (
     <>
       <Button
@@ -14,6 +15,7 @@ const SecondaryButton = ({ cdata, text }: Props) => {
         rounded={"full"}
         _hover={{ opacity: "0.9" }}
         color="white"
+        onClick={onClick}
       >
         {text}
       </Button>

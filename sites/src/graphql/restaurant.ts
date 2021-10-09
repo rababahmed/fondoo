@@ -48,12 +48,12 @@ export const GET_RESTAURANT_INFO = gql`
           minDeliveryRadius
           maxDeliveryRadius
         }
-        productCategory {
+        productCategory(orderBy: { createdAt: asc }) {
           name
           description
           isActive
           isFeatured
-          Product {
+          Product(orderBy: { isPopular: desc }) {
             id
             name
             description

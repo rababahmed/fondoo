@@ -60,10 +60,9 @@ const CartCard = (props: Props) => {
         // top="34"
         // pos={"sticky"}
         bg={useColorModeValue("white", "gray.900")}
-        shadow={"lg"}
         rounded={"md"}
-        border={"1px"}
-        borderColor={"gray.100"}
+        borderWidth={"1px"}
+        borderColor={"gray.200"}
         overflow={"hidden"}
       >
         <Stack>

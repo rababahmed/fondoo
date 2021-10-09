@@ -12,13 +12,17 @@ import {
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 import { Constants } from "../../config";
+import LoginModal from "../../modules/auth/LoginModal";
+import { useUserStore } from "../../stores/useUserStore";
 import OrderButton from "../buttons/OrderButton";
+import SecondaryButton from "../buttons/SecondaryButton";
 import PrimaryButton from "../buttons/SecondaryButton";
 import MobileNav from "./MobileNav";
 import NavItem from "./NavItem";
 
 const NavBar = ({ rdata, cdata }: any) => {
   const router = useRouter();
+  const isAuthenticated = useUserStore((state) => state.isAuthenticated);
 
   const isOrderPage = router.pathname == "/order";
 
@@ -66,7 +70,15 @@ const NavBar = ({ rdata, cdata }: any) => {
           direction="row"
           align="center"
         >
-          <PrimaryButton cdata={cdata} text="SIGN IN" />
+          {isAuthenticated ? (
+            <SecondaryButton
+              cdata={cdata}
+              text="MY ACCOUNT"
+              onClick={() => router.push("/my-account")}
+            />
+          ) : (
+            <LoginModal rdata={rdata} cdata={cdata} />
+          )}
           <OrderButton cdata={cdata} text="ORDER NOW" url="/order" />
         </Stack>
         <Box
