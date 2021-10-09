@@ -29,6 +29,7 @@ exports.Order = nexus_1.objectType({
     definition(t) {
         t.model.id();
         t.model.items();
+        t.model.fulfilmentType();
         t.model.address();
         t.model.discount();
         t.model.deliveryCharge();

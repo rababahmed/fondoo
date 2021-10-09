@@ -8,6 +8,7 @@ export const Order = objectType({
   definition(t) {
     t.model.id();
     t.model.items();
+    t.model.fulfilmentType();
     t.model.address();
     t.model.discount();
     t.model.deliveryCharge();

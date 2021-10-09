@@ -85,9 +85,8 @@ model RestaurantConfig {
 
 model RestaurantSocial {
   id           String     @id @default(cuid())
-  facebook     String?
-  instagram    String?
-  pinterest    String?
+  network      String?
+  url          String?
   isActive     Boolean?
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   restaurantId String     @unique
@@ -198,7 +197,7 @@ model Product {
   name              String
   description       String?
   image             String?
-  price             Int?
+  price             Float?
   spiceLevel        SpiceLevel       @default(None)
   isPopular         Boolean?
   isActive          Boolean?
@@ -302,6 +301,7 @@ model Offer {
   updatedAt    DateTime   @updatedAt
   name         String?
   description  String?
+  image        String?
   startDate    String?
   endDate      String?
   isActive     Boolean?
@@ -317,6 +317,7 @@ model Coupon {
   code         String
   discount     Discount
   value        Float
+  image        String?
   startDate    String?
   endDate      String?
   description  String?
@@ -334,27 +335,33 @@ model OrderItem {
   id           String      @id @default(cuid())
   product      Product     @relation(fields: [productId], references: [id])
   quantity     Int         @default(1)
-  total        Int
+  total        Float
   spiceLevel   SpiceLevel  @default(None)
   productId    String
   order        Order       @relation(fields: [orderId], references: [id])
-  orderId      Int
+  orderId      String
   createdAt    DateTime    @default(now())
   updatedAt    DateTime    @updatedAt
   restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
   restaurantId String?
 }
 
+enum FulfilmentType {
+  Delivery
+  Pickup
+}
+
 model Order {
-  id                Int              @id @default(autoincrement())
+  id                String           @id @default(cuid())
   items             OrderItem[]
+  fulfilmentType    FulfilmentType
   address           CustomerAddress? @relation(fields: [customerAddressId], references: [id])
-  discount          Float
-  deliveryCharge    Float
-  vat               Float
-  serviceCharge     Float
-  total             Float
-  isAccepted        Boolean
+  discount          Float?
+  deliveryCharge    Float?
+  vat               Float?
+  serviceCharge     Float?
+  total             Float?
+  isAccepted        Boolean?
   Coupon            Coupon?          @relation(fields: [couponId], references: [id])
   couponId          String?
   offer             Offer?           @relation(fields: [offerId], references: [id])

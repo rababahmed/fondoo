@@ -8,6 +8,7 @@ exports.Offer = nexus_1.objectType({
         t.model.id();
         t.model.name();
         t.model.description();
+        t.model.image();
         t.model.startDate();
         t.model.endDate();
         t.model.isActive();

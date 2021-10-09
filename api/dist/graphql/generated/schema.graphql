@@ -619,6 +619,7 @@ input CouponCreateInput {
   discount: Discount!
   endDate: String
   id: String
+  image: String
   orders: OrderCreateNestedManyWithoutCouponInput
   restaurant: RestaurantCreateNestedOneWithoutCouponsInput!
   startDate: String
@@ -633,6 +634,7 @@ input CouponCreateManyRestaurantInput {
   discount: Discount!
   endDate: String
   id: String
+  image: String
   startDate: String
   updatedAt: DateTime
   value: Float!
@@ -673,6 +675,7 @@ input CouponCreateWithoutOrdersInput {
   discount: Discount!
   endDate: String
   id: String
+  image: String
   restaurant: RestaurantCreateNestedOneWithoutCouponsInput!
   startDate: String
   updatedAt: DateTime
@@ -686,6 +689,7 @@ input CouponCreateWithoutRestaurantInput {
   discount: Discount!
   endDate: String
   id: String
+  image: String
   orders: OrderCreateNestedManyWithoutCouponInput
   startDate: String
   updatedAt: DateTime
@@ -705,6 +709,7 @@ input CouponOrderByInput {
   discount: SortOrder
   endDate: SortOrder
   id: SortOrder
+  image: SortOrder
   restaurantId: SortOrder
   startDate: SortOrder
   updatedAt: SortOrder
@@ -721,6 +726,7 @@ input CouponScalarWhereInput {
   discount: EnumDiscountFilter
   endDate: StringNullableFilter
   id: StringFilter
+  image: StringNullableFilter
   restaurantId: StringFilter
   startDate: StringNullableFilter
   updatedAt: DateTimeFilter
@@ -734,6 +740,7 @@ input CouponUpdateInput {
   discount: EnumDiscountFieldUpdateOperationsInput
   endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutCouponInput
   restaurant: RestaurantUpdateOneRequiredWithoutCouponsInput
   startDate: NullableStringFieldUpdateOperationsInput
@@ -748,6 +755,7 @@ input CouponUpdateManyMutationInput {
   discount: EnumDiscountFieldUpdateOperationsInput
   endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
   startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   value: FloatFieldUpdateOperationsInput
@@ -794,6 +802,7 @@ input CouponUpdateWithoutOrdersInput {
   discount: EnumDiscountFieldUpdateOperationsInput
   endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutCouponsInput
   startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -807,6 +816,7 @@ input CouponUpdateWithoutRestaurantInput {
   discount: EnumDiscountFieldUpdateOperationsInput
   endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutCouponInput
   startDate: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -834,6 +844,7 @@ input CouponWhereInput {
   discount: EnumDiscountFilter
   endDate: StringNullableFilter
   id: StringFilter
+  image: StringNullableFilter
   orders: OrderListRelationFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
@@ -1661,6 +1672,17 @@ input EnumDiscountFilter {
   notIn: [Discount!]
 }
 
+input EnumFulfilmentTypeFieldUpdateOperationsInput {
+  set: FulfilmentType
+}
+
+input EnumFulfilmentTypeFilter {
+  equals: FulfilmentType
+  in: [FulfilmentType!]
+  not: NestedEnumFulfilmentTypeFilter
+  notIn: [FulfilmentType!]
+}
+
 input EnumRoleFieldUpdateOperationsInput {
   set: Role
 }
@@ -1711,6 +1733,11 @@ input FloatNullableFilter {
   lte: Float
   not: NestedFloatNullableFilter
   notIn: [Float!]
+}
+
+enum FulfilmentType {
+  Delivery
+  Pickup
 }
 
 input IntFieldUpdateOperationsInput {
@@ -1844,6 +1871,13 @@ input NestedEnumDiscountFilter {
   notIn: [Discount!]
 }
 
+input NestedEnumFulfilmentTypeFilter {
+  equals: FulfilmentType
+  in: [FulfilmentType!]
+  not: NestedEnumFulfilmentTypeFilter
+  notIn: [FulfilmentType!]
+}
+
 input NestedEnumRoleFilter {
   equals: Role
   in: [Role!]
@@ -1972,6 +2006,7 @@ input OfferCreateInput {
   description: String
   endDate: String
   id: String
+  image: String
   isActive: Boolean
   name: String
   orders: OrderCreateNestedManyWithoutOfferInput
@@ -1985,6 +2020,7 @@ input OfferCreateManyRestaurantInput {
   description: String
   endDate: String
   id: String
+  image: String
   isActive: Boolean
   name: String
   startDate: String
@@ -2024,6 +2060,7 @@ input OfferCreateWithoutOrdersInput {
   description: String
   endDate: String
   id: String
+  image: String
   isActive: Boolean
   name: String
   restaurant: RestaurantCreateNestedOneWithoutOffersInput!
@@ -2036,6 +2073,7 @@ input OfferCreateWithoutRestaurantInput {
   description: String
   endDate: String
   id: String
+  image: String
   isActive: Boolean
   name: String
   orders: OrderCreateNestedManyWithoutOfferInput
@@ -2054,6 +2092,7 @@ input OfferOrderByInput {
   description: SortOrder
   endDate: SortOrder
   id: SortOrder
+  image: SortOrder
   isActive: SortOrder
   name: SortOrder
   restaurantId: SortOrder
@@ -2069,6 +2108,7 @@ input OfferScalarWhereInput {
   description: StringNullableFilter
   endDate: StringNullableFilter
   id: StringFilter
+  image: StringNullableFilter
   isActive: BoolNullableFilter
   name: StringNullableFilter
   restaurantId: StringFilter
@@ -2081,6 +2121,7 @@ input OfferUpdateInput {
   description: NullableStringFieldUpdateOperationsInput
   endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutOfferInput
@@ -2094,6 +2135,7 @@ input OfferUpdateManyMutationInput {
   description: NullableStringFieldUpdateOperationsInput
   endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   startDate: NullableStringFieldUpdateOperationsInput
@@ -2139,6 +2181,7 @@ input OfferUpdateWithoutOrdersInput {
   description: NullableStringFieldUpdateOperationsInput
   endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutOffersInput
@@ -2151,6 +2194,7 @@ input OfferUpdateWithoutRestaurantInput {
   description: NullableStringFieldUpdateOperationsInput
   endDate: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   orders: OrderUpdateManyWithoutOfferInput
@@ -2177,6 +2221,7 @@ input OfferWhereInput {
   description: StringNullableFilter
   endDate: StringNullableFilter
   id: StringFilter
+  image: StringNullableFilter
   isActive: BoolNullableFilter
   name: StringNullableFilter
   orders: OrderListRelationFilter
@@ -2196,16 +2241,16 @@ type Order {
   address: CustomerAddress
   couponId: String
   customerId: String
-  deliveryCharge: Float!
-  discount: Float!
-  id: Int!
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  id: String!
+  isAccepted: Boolean
   items(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
   restaurant: Restaurant!
   restaurantId: String!
-  serviceCharge: Float!
-  total: Float!
-  vat: Float!
+  serviceCharge: Float
+  total: Float
+  vat: Float
 }
 
 input OrderCreateInput {
@@ -2213,32 +2258,34 @@ input OrderCreateInput {
   Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
-  deliveryCharge: Float!
-  discount: Float!
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  isAccepted: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateManyAddressInput {
   couponId: String
   createdAt: DateTime
   customerId: String
-  deliveryCharge: Float!
-  discount: Float!
-  id: Int
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   offerId: String
   restaurantId: String!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateManyAddressInputEnvelope {
@@ -2250,16 +2297,17 @@ input OrderCreateManyCouponInput {
   createdAt: DateTime
   customerAddressId: String
   customerId: String
-  deliveryCharge: Float!
-  discount: Float!
-  id: Int
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   offerId: String
   restaurantId: String!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateManyCouponInputEnvelope {
@@ -2271,16 +2319,17 @@ input OrderCreateManyCustomerInput {
   couponId: String
   createdAt: DateTime
   customerAddressId: String
-  deliveryCharge: Float!
-  discount: Float!
-  id: Int
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   offerId: String
   restaurantId: String!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateManyCustomerInputEnvelope {
@@ -2293,15 +2342,16 @@ input OrderCreateManyOfferInput {
   createdAt: DateTime
   customerAddressId: String
   customerId: String
-  deliveryCharge: Float!
-  discount: Float!
-  id: Int
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   restaurantId: String!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateManyOfferInputEnvelope {
@@ -2314,15 +2364,16 @@ input OrderCreateManyRestaurantInput {
   createdAt: DateTime
   customerAddressId: String
   customerId: String
-  deliveryCharge: Float!
-  discount: Float!
-  id: Int
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   offerId: String
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateManyRestaurantInputEnvelope {
@@ -2405,48 +2456,54 @@ input OrderCreateWithoutAddressInput {
   Coupon: CouponCreateNestedOneWithoutOrdersInput
   Customer: CustomerCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
-  deliveryCharge: Float!
-  discount: Float!
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateWithoutCouponInput {
   Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
-  deliveryCharge: Float!
-  discount: Float!
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateWithoutCustomerInput {
   Coupon: CouponCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
-  deliveryCharge: Float!
-  discount: Float!
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateWithoutItemsInput {
@@ -2454,15 +2511,17 @@ input OrderCreateWithoutItemsInput {
   Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
-  deliveryCharge: Float!
-  discount: Float!
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateWithoutOfferInput {
@@ -2470,15 +2529,17 @@ input OrderCreateWithoutOfferInput {
   Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
-  deliveryCharge: Float!
-  discount: Float!
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 input OrderCreateWithoutRestaurantInput {
@@ -2486,28 +2547,30 @@ input OrderCreateWithoutRestaurantInput {
   Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
-  deliveryCharge: Float!
-  discount: Float!
-  isAccepted: Boolean!
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
-  serviceCharge: Float!
-  total: Float!
+  serviceCharge: Float
+  total: Float
   updatedAt: DateTime
-  vat: Float!
+  vat: Float
 }
 
 type OrderItem {
   id: String!
   order: Order!
-  orderId: Int!
+  orderId: String!
   product: Product!
   productId: String!
   quantity: Int!
   restaurant: Restaurant
   restaurantId: String
   spiceLevel: SpiceLevel!
-  total: Int!
+  total: Float!
 }
 
 input OrderItemCreateInput {
@@ -2518,7 +2581,7 @@ input OrderItemCreateInput {
   quantity: Int
   restaurant: RestaurantCreateNestedOneWithoutOrderItemsInput
   spiceLevel: SpiceLevel
-  total: Int!
+  total: Float!
   updatedAt: DateTime
 }
 
@@ -2529,7 +2592,7 @@ input OrderItemCreateManyOrderInput {
   quantity: Int
   restaurantId: String
   spiceLevel: SpiceLevel
-  total: Int!
+  total: Float!
   updatedAt: DateTime
 }
 
@@ -2541,11 +2604,11 @@ input OrderItemCreateManyOrderInputEnvelope {
 input OrderItemCreateManyProductInput {
   createdAt: DateTime
   id: String
-  orderId: Int!
+  orderId: String!
   quantity: Int
   restaurantId: String
   spiceLevel: SpiceLevel
-  total: Int!
+  total: Float!
   updatedAt: DateTime
 }
 
@@ -2557,11 +2620,11 @@ input OrderItemCreateManyProductInputEnvelope {
 input OrderItemCreateManyRestaurantInput {
   createdAt: DateTime
   id: String
-  orderId: Int!
+  orderId: String!
   productId: String!
   quantity: Int
   spiceLevel: SpiceLevel
-  total: Int!
+  total: Float!
   updatedAt: DateTime
 }
 
@@ -2613,7 +2676,7 @@ input OrderItemCreateWithoutOrderInput {
   quantity: Int
   restaurant: RestaurantCreateNestedOneWithoutOrderItemsInput
   spiceLevel: SpiceLevel
-  total: Int!
+  total: Float!
   updatedAt: DateTime
 }
 
@@ -2624,7 +2687,7 @@ input OrderItemCreateWithoutProductInput {
   quantity: Int
   restaurant: RestaurantCreateNestedOneWithoutOrderItemsInput
   spiceLevel: SpiceLevel
-  total: Int!
+  total: Float!
   updatedAt: DateTime
 }
 
@@ -2635,7 +2698,7 @@ input OrderItemCreateWithoutRestaurantInput {
   product: ProductCreateNestedOneWithoutOrderItemsInput!
   quantity: Int
   spiceLevel: SpiceLevel
-  total: Int!
+  total: Float!
   updatedAt: DateTime
 }
 
@@ -2663,12 +2726,12 @@ input OrderItemScalarWhereInput {
   OR: [OrderItemScalarWhereInput!]
   createdAt: DateTimeFilter
   id: StringFilter
-  orderId: IntFilter
+  orderId: StringFilter
   productId: StringFilter
   quantity: IntFilter
   restaurantId: StringNullableFilter
   spiceLevel: EnumSpiceLevelFilter
-  total: IntFilter
+  total: FloatFilter
   updatedAt: DateTimeFilter
 }
 
@@ -2680,7 +2743,7 @@ input OrderItemUpdateInput {
   quantity: IntFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneWithoutOrderItemsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
-  total: IntFieldUpdateOperationsInput
+  total: FloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -2689,7 +2752,7 @@ input OrderItemUpdateManyMutationInput {
   id: StringFieldUpdateOperationsInput
   quantity: IntFieldUpdateOperationsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
-  total: IntFieldUpdateOperationsInput
+  total: FloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -2772,7 +2835,7 @@ input OrderItemUpdateWithoutOrderInput {
   quantity: IntFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneWithoutOrderItemsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
-  total: IntFieldUpdateOperationsInput
+  total: FloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -2783,7 +2846,7 @@ input OrderItemUpdateWithoutProductInput {
   quantity: IntFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneWithoutOrderItemsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
-  total: IntFieldUpdateOperationsInput
+  total: FloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -2794,7 +2857,7 @@ input OrderItemUpdateWithoutRestaurantInput {
   product: ProductUpdateOneRequiredWithoutOrderItemsInput
   quantity: IntFieldUpdateOperationsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
-  total: IntFieldUpdateOperationsInput
+  total: FloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -2823,14 +2886,14 @@ input OrderItemWhereInput {
   createdAt: DateTimeFilter
   id: StringFilter
   order: OrderWhereInput
-  orderId: IntFilter
+  orderId: StringFilter
   product: ProductWhereInput
   productId: StringFilter
   quantity: IntFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringNullableFilter
   spiceLevel: EnumSpiceLevelFilter
-  total: IntFilter
+  total: FloatFilter
   updatedAt: DateTimeFilter
 }
 
@@ -2851,6 +2914,7 @@ input OrderOrderByInput {
   customerId: SortOrder
   deliveryCharge: SortOrder
   discount: SortOrder
+  fulfilmentType: SortOrder
   id: SortOrder
   isAccepted: SortOrder
   offerId: SortOrder
@@ -2869,16 +2933,17 @@ input OrderScalarWhereInput {
   createdAt: DateTimeFilter
   customerAddressId: StringNullableFilter
   customerId: StringNullableFilter
-  deliveryCharge: FloatFilter
-  discount: FloatFilter
-  id: IntFilter
-  isAccepted: BoolFilter
+  deliveryCharge: FloatNullableFilter
+  discount: FloatNullableFilter
+  fulfilmentType: EnumFulfilmentTypeFilter
+  id: StringFilter
+  isAccepted: BoolNullableFilter
   offerId: StringNullableFilter
   restaurantId: StringFilter
-  serviceCharge: FloatFilter
-  total: FloatFilter
+  serviceCharge: FloatNullableFilter
+  total: FloatNullableFilter
   updatedAt: DateTimeFilter
-  vat: FloatFilter
+  vat: FloatNullableFilter
 }
 
 input OrderUpdateInput {
@@ -2886,27 +2951,31 @@ input OrderUpdateInput {
   Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: FloatFieldUpdateOperationsInput
-  discount: FloatFieldUpdateOperationsInput
-  isAccepted: BoolFieldUpdateOperationsInput
+  deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  discount: NullableFloatFieldUpdateOperationsInput
+  fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAccepted: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
-  serviceCharge: FloatFieldUpdateOperationsInput
-  total: FloatFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  vat: FloatFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input OrderUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: FloatFieldUpdateOperationsInput
-  discount: FloatFieldUpdateOperationsInput
-  isAccepted: BoolFieldUpdateOperationsInput
-  serviceCharge: FloatFieldUpdateOperationsInput
-  total: FloatFieldUpdateOperationsInput
+  deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  discount: NullableFloatFieldUpdateOperationsInput
+  fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAccepted: NullableBoolFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  vat: FloatFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input OrderUpdateManyWithWhereWithoutAddressInput {
@@ -3041,48 +3110,54 @@ input OrderUpdateWithoutAddressInput {
   Coupon: CouponUpdateOneWithoutOrdersInput
   Customer: CustomerUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: FloatFieldUpdateOperationsInput
-  discount: FloatFieldUpdateOperationsInput
-  isAccepted: BoolFieldUpdateOperationsInput
+  deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  discount: NullableFloatFieldUpdateOperationsInput
+  fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAccepted: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
-  serviceCharge: FloatFieldUpdateOperationsInput
-  total: FloatFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  vat: FloatFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input OrderUpdateWithoutCouponInput {
   Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: FloatFieldUpdateOperationsInput
-  discount: FloatFieldUpdateOperationsInput
-  isAccepted: BoolFieldUpdateOperationsInput
+  deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  discount: NullableFloatFieldUpdateOperationsInput
+  fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAccepted: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
-  serviceCharge: FloatFieldUpdateOperationsInput
-  total: FloatFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  vat: FloatFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input OrderUpdateWithoutCustomerInput {
   Coupon: CouponUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: FloatFieldUpdateOperationsInput
-  discount: FloatFieldUpdateOperationsInput
-  isAccepted: BoolFieldUpdateOperationsInput
+  deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  discount: NullableFloatFieldUpdateOperationsInput
+  fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAccepted: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
-  serviceCharge: FloatFieldUpdateOperationsInput
-  total: FloatFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  vat: FloatFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input OrderUpdateWithoutItemsInput {
@@ -3090,15 +3165,17 @@ input OrderUpdateWithoutItemsInput {
   Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: FloatFieldUpdateOperationsInput
-  discount: FloatFieldUpdateOperationsInput
-  isAccepted: BoolFieldUpdateOperationsInput
+  deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  discount: NullableFloatFieldUpdateOperationsInput
+  fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAccepted: NullableBoolFieldUpdateOperationsInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
-  serviceCharge: FloatFieldUpdateOperationsInput
-  total: FloatFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  vat: FloatFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input OrderUpdateWithoutOfferInput {
@@ -3106,15 +3183,17 @@ input OrderUpdateWithoutOfferInput {
   Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: FloatFieldUpdateOperationsInput
-  discount: FloatFieldUpdateOperationsInput
-  isAccepted: BoolFieldUpdateOperationsInput
+  deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  discount: NullableFloatFieldUpdateOperationsInput
+  fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAccepted: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
-  serviceCharge: FloatFieldUpdateOperationsInput
-  total: FloatFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  vat: FloatFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input OrderUpdateWithoutRestaurantInput {
@@ -3122,15 +3201,17 @@ input OrderUpdateWithoutRestaurantInput {
   Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
-  deliveryCharge: FloatFieldUpdateOperationsInput
-  discount: FloatFieldUpdateOperationsInput
-  isAccepted: BoolFieldUpdateOperationsInput
+  deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  discount: NullableFloatFieldUpdateOperationsInput
+  fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAccepted: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
-  serviceCharge: FloatFieldUpdateOperationsInput
-  total: FloatFieldUpdateOperationsInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  vat: FloatFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
 }
 
 input OrderUpsertWithWhereUniqueWithoutAddressInput {
@@ -3179,23 +3260,24 @@ input OrderWhereInput {
   createdAt: DateTimeFilter
   customerAddressId: StringNullableFilter
   customerId: StringNullableFilter
-  deliveryCharge: FloatFilter
-  discount: FloatFilter
-  id: IntFilter
-  isAccepted: BoolFilter
+  deliveryCharge: FloatNullableFilter
+  discount: FloatNullableFilter
+  fulfilmentType: EnumFulfilmentTypeFilter
+  id: StringFilter
+  isAccepted: BoolNullableFilter
   items: OrderItemListRelationFilter
   offer: OfferWhereInput
   offerId: StringNullableFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
-  serviceCharge: FloatFilter
-  total: FloatFilter
+  serviceCharge: FloatNullableFilter
+  total: FloatNullableFilter
   updatedAt: DateTimeFilter
-  vat: FloatFilter
+  vat: FloatNullableFilter
 }
 
 input OrderWhereUniqueInput {
-  id: Int
+  id: String
 }
 
 type Product {
@@ -3206,7 +3288,7 @@ type Product {
   isPopular: Boolean
   name: String!
   orderItems(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
-  price: Int
+  price: Float
   productCategory: ProductCategory
   productCategoryId: String
   restaurant: Restaurant
@@ -3447,7 +3529,7 @@ input ProductCreateInput {
   isPopular: Boolean
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutProductInput
-  price: Int
+  price: Float
   productCategory: ProductCategoryCreateNestedOneWithoutProductInput
   restaurant: RestaurantCreateNestedOneWithoutProductsInput
   spiceLevel: SpiceLevel
@@ -3461,7 +3543,7 @@ input ProductCreateManyProductCategoryInput {
   isActive: Boolean
   isPopular: Boolean
   name: String!
-  price: Int
+  price: Float
   restaurantId: String
   spiceLevel: SpiceLevel
 }
@@ -3479,7 +3561,7 @@ input ProductCreateManyRestaurantInput {
   isActive: Boolean
   isPopular: Boolean
   name: String!
-  price: Int
+  price: Float
   productCategoryId: String
   spiceLevel: SpiceLevel
 }
@@ -3532,7 +3614,7 @@ input ProductCreateWithoutOrderItemsInput {
   isActive: Boolean
   isPopular: Boolean
   name: String!
-  price: Int
+  price: Float
   productCategory: ProductCategoryCreateNestedOneWithoutProductInput
   restaurant: RestaurantCreateNestedOneWithoutProductsInput
   spiceLevel: SpiceLevel
@@ -3547,7 +3629,7 @@ input ProductCreateWithoutProductCategoryInput {
   isPopular: Boolean
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutProductInput
-  price: Int
+  price: Float
   restaurant: RestaurantCreateNestedOneWithoutProductsInput
   spiceLevel: SpiceLevel
 }
@@ -3561,7 +3643,7 @@ input ProductCreateWithoutRestaurantInput {
   isPopular: Boolean
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutProductInput
-  price: Int
+  price: Float
   productCategory: ProductCategoryCreateNestedOneWithoutProductInput
   spiceLevel: SpiceLevel
 }
@@ -3583,7 +3665,7 @@ input ProductScalarWhereInput {
   isActive: BoolNullableFilter
   isPopular: BoolNullableFilter
   name: StringFilter
-  price: IntNullableFilter
+  price: FloatNullableFilter
   productCategoryId: StringNullableFilter
   restaurantId: StringNullableFilter
   spiceLevel: EnumSpiceLevelFilter
@@ -3598,7 +3680,7 @@ input ProductUpdateInput {
   isPopular: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutProductInput
-  price: NullableIntFieldUpdateOperationsInput
+  price: NullableFloatFieldUpdateOperationsInput
   productCategory: ProductCategoryUpdateOneWithoutProductInput
   restaurant: RestaurantUpdateOneWithoutProductsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
@@ -3612,7 +3694,7 @@ input ProductUpdateManyMutationInput {
   isActive: NullableBoolFieldUpdateOperationsInput
   isPopular: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  price: NullableIntFieldUpdateOperationsInput
+  price: NullableFloatFieldUpdateOperationsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
 }
 
@@ -3680,7 +3762,7 @@ input ProductUpdateWithoutOrderItemsInput {
   isActive: NullableBoolFieldUpdateOperationsInput
   isPopular: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
-  price: NullableIntFieldUpdateOperationsInput
+  price: NullableFloatFieldUpdateOperationsInput
   productCategory: ProductCategoryUpdateOneWithoutProductInput
   restaurant: RestaurantUpdateOneWithoutProductsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
@@ -3695,7 +3777,7 @@ input ProductUpdateWithoutProductCategoryInput {
   isPopular: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutProductInput
-  price: NullableIntFieldUpdateOperationsInput
+  price: NullableFloatFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneWithoutProductsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
 }
@@ -3709,7 +3791,7 @@ input ProductUpdateWithoutRestaurantInput {
   isPopular: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutProductInput
-  price: NullableIntFieldUpdateOperationsInput
+  price: NullableFloatFieldUpdateOperationsInput
   productCategory: ProductCategoryUpdateOneWithoutProductInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
 }
@@ -3743,7 +3825,7 @@ input ProductWhereInput {
   isPopular: BoolNullableFilter
   name: StringFilter
   orderItems: OrderItemListRelationFilter
-  price: IntNullableFilter
+  price: FloatNullableFilter
   productCategory: ProductCategoryWhereInput
   productCategoryId: StringNullableFilter
   restaurant: RestaurantWhereInput
@@ -5640,23 +5722,19 @@ input RestaurantScalarWhereInput {
 }
 
 type RestaurantSocial {
-  facebook: String
   id: String!
-  instagram: String
   isActive: Boolean
-  pinterest: String
   restaurant: Restaurant!
 }
 
 input RestaurantSocialCreateInput {
   createdAt: DateTime
-  facebook: String
   id: String
-  instagram: String
   isActive: Boolean
-  pinterest: String
+  network: String
   restaurant: RestaurantCreateNestedOneWithoutSocialsInput!
   updatedAt: DateTime
+  url: String
 }
 
 input RestaurantSocialCreateNestedOneWithoutRestaurantInput {
@@ -5672,34 +5750,31 @@ input RestaurantSocialCreateOrConnectWithoutRestaurantInput {
 
 input RestaurantSocialCreateWithoutRestaurantInput {
   createdAt: DateTime
-  facebook: String
   id: String
-  instagram: String
   isActive: Boolean
-  pinterest: String
+  network: String
   updatedAt: DateTime
+  url: String
 }
 
 input RestaurantSocialOrderByInput {
   createdAt: SortOrder
-  facebook: SortOrder
   id: SortOrder
-  instagram: SortOrder
   isActive: SortOrder
-  pinterest: SortOrder
+  network: SortOrder
   restaurantId: SortOrder
   updatedAt: SortOrder
+  url: SortOrder
 }
 
 input RestaurantSocialUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  facebook: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  instagram: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
-  pinterest: NullableStringFieldUpdateOperationsInput
+  network: NullableStringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutSocialsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  url: NullableStringFieldUpdateOperationsInput
 }
 
 input RestaurantSocialUpdateOneWithoutRestaurantInput {
@@ -5714,12 +5789,11 @@ input RestaurantSocialUpdateOneWithoutRestaurantInput {
 
 input RestaurantSocialUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  facebook: NullableStringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  instagram: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
-  pinterest: NullableStringFieldUpdateOperationsInput
+  network: NullableStringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  url: NullableStringFieldUpdateOperationsInput
 }
 
 input RestaurantSocialUpsertWithoutRestaurantInput {
@@ -5732,14 +5806,13 @@ input RestaurantSocialWhereInput {
   NOT: [RestaurantSocialWhereInput!]
   OR: [RestaurantSocialWhereInput!]
   createdAt: DateTimeFilter
-  facebook: StringNullableFilter
   id: StringFilter
-  instagram: StringNullableFilter
   isActive: BoolNullableFilter
-  pinterest: StringNullableFilter
+  network: StringNullableFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
   updatedAt: DateTimeFilter
+  url: StringNullableFilter
 }
 
 input RestaurantSocialWhereUniqueInput {

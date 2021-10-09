@@ -8,6 +8,7 @@ export const Coupon = objectType({
     t.model.discount();
     t.model.value();
     t.model.description();
+    t.model.image();
     t.model.startDate();
     t.model.endDate();
     t.model.restaurant();

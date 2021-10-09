@@ -6,9 +6,8 @@ export const RestaurantSocial = objectType({
   name: "RestaurantSocial",
   definition(t) {
     t.model.id();
-    t.model.facebook();
-    t.model.instagram();
-    t.model.pinterest();
+    t.model.network();
+    t.model.url();
     t.model.restaurant();
     t.model.isActive();
   },
