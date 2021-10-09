@@ -325,6 +325,7 @@ export const GET_RESTAURANT_SOCIALS = gql`
   query RestaurantSocials($id: String) {
     restaurant(where: { id: $id }) {
       socials {
+        id
         network
         url
         isActive

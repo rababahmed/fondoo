@@ -70,7 +70,7 @@ export const SocialsModule = () => {
     {
       id: socialId,
     },
-    "get-restaurant-offers"
+    "get-restaurant-socials"
   );
 
   const handleDelete = async (id: string) => {
