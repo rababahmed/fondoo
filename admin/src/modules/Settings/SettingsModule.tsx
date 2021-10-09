@@ -43,12 +43,24 @@ export const SettingsModule = () => {
     email: (isSuccess && data.restaurant.email) || "",
     currency: (isSuccess && data.restaurant.currency) || "",
     postCode: (isSuccess && data.restaurant.postCode) || "",
-    vat: (isSuccess && data.restaurant.vat) || "",
+    vat: (isSuccess && data.restaurant.vat) || undefined,
     logo: (isSuccess && data.restaurant.logo) || "",
     url: (isSuccess && data.restaurant.url) || "",
     address: (isSuccess && data.restaurant.address) || "",
     country: (isSuccess && data.restaurant.country) || "",
-    serviceCharge: (isSuccess && data.restaurant.serviceCharge) || "",
+    serviceCharge: (isSuccess && data.restaurant.serviceCharge) || undefined,
+    hasParkingFacilities:
+      (isSuccess && data.restaurant.hasParkingFacilities) || false,
+    hasPartyFacilities:
+      (isSuccess && data.restaurant.hasPartyFacilities) || false,
+    hasKidsZone: (isSuccess && data.restaurant.hasKidsZone) || false,
+    hasDelivery: (isSuccess && data.restaurant.hasDelivery) || false,
+    hasPickup: (isSuccess && data.restaurant.hasPickup) || false,
+    hasReservation: (isSuccess && data.restaurant.hasReservation) || false,
+    isAutoAcceptOrder:
+      (isSuccess && data.restaurant.isAutoAcceptOrder) || false,
+    isAutoAcceptReservation:
+      (isSuccess && data.restaurant.isAutoAcceptReservation) || false,
   };
 
   const validationSchema = Yup.object({
@@ -62,7 +74,32 @@ export const SettingsModule = () => {
 
   const mutation = useGQLMutation(
     EDIT_RESTAURANT,
-    formData,
+    {
+      id: restaurantID,
+      name: formData.name,
+      coverImage: formData.coverImage,
+      businessPhone: formData.businessPhone,
+      city: formData.city,
+      priceRange: formData.priceRange,
+      cuisine: formData.cuisine,
+      email: formData.email,
+      currency: formData.currency,
+      postCode: formData.postCode,
+      vat: parseFloat(formData.vat),
+      logo: formData.logo,
+      url: formData.url,
+      address: formData.address,
+      country: formData.country,
+      serviceCharge: parseFloat(formData.serviceCharge),
+      hasParkingFacilities: formData.hasParkingFacilities,
+      hasPartyFacilities: formData.hasPartyFacilities,
+      hasKidsZone: formData.hasKidsZone,
+      hasDelivery: formData.hasDelivery,
+      hasPickup: formData.hasPickup,
+      hasReservation: formData.hasReservation,
+      isAutoAcceptOrder: formData.isAutoAcceptOrder,
+      isAutoAcceptReservation: formData.isAutoAcceptReservation,
+    },
     "get-restaurant-info"
   );
 

@@ -24,22 +24,22 @@ const SettingsPage = () => {
         <Heading mb={10}>Settings</Heading>
         <Tabs variant="soft-rounded" colorScheme={"blackAlpha"}>
           <TabList overflowX={"auto"}>
-            <Tab>
+            <Tab _focus={{ ringColor: "transparent" }}>
               <Stack direction="row" alignItems="center">
                 <Text>{<BsFillInfoCircleFill />}</Text> <Text>Information</Text>
               </Stack>
             </Tab>
-            <Tab>
+            <Tab _focus={{ ringColor: "transparent" }}>
               <Stack direction="row" alignItems="center">
                 <Text>{<FaPalette />}</Text> <Text>Appearance</Text>
               </Stack>
             </Tab>
-            <Tab>
+            <Tab _focus={{ ringColor: "transparent" }}>
               <Stack direction="row" alignItems="center">
                 <Text>{<RiShareFill />}</Text> <Text>Socials</Text>
               </Stack>
             </Tab>
-            {/* <Tab>
+            {/* <Tab _focus={{ ringColor: "transparent" }}>
               <Stack direction="row" alignItems="center">
                 <Text>{<FaSafari />}</Text> <Text>Domain</Text>
               </Stack>

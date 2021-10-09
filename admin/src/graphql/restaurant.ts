@@ -4,24 +4,54 @@ export const EDIT_RESTAURANT = gql`
   mutation UpdateRestaurant(
     $id: String
     $name: String
-    $logo: String
     $coverImage: String
-    $email: String
-    $url: String
     $businessPhone: String
     $city: String
     $priceRange: String
+    $cuisine: String
+    $email: String
+    $currency: String
+    $postCode: String
+    $vat: Float
+    $logo: String
+    $url: String
+    $address: String
+    $country: String
+    $serviceCharge: Float
+    $hasParkingFacilities: Boolean
+    $hasPartyFacilities: Boolean
+    $hasKidsZone: Boolean
+    $hasDelivery: Boolean
+    $hasPickup: Boolean
+    $hasReservation: Boolean
+    $isAutoAcceptOrder: Boolean
+    $isAutoAcceptReservation: Boolean
   ) {
     updateRestaurant(
       data: {
         name: { set: $name }
-        email: { set: $email }
-        url: { set: $url }
-        logo: { set: $logo }
         coverImage: { set: $coverImage }
         businessPhone: { set: $businessPhone }
         city: { set: $city }
         priceRange: { set: $priceRange }
+        cuisine: { set: $cuisine }
+        email: { set: $email }
+        currency: { set: $currency }
+        postCode: { set: $postCode }
+        vat: { set: $vat }
+        logo: { set: $logo }
+        url: { set: $url }
+        address: { set: $address }
+        country: { set: $country }
+        serviceCharge: { set: $serviceCharge }
+        hasParkingFacilities: { set: $hasParkingFacilities }
+        hasPartyFacilities: { set: $hasPartyFacilities }
+        hasKidsZone: { set: $hasKidsZone }
+        hasDelivery: { set: $hasDelivery }
+        hasPickup: { set: $hasPickup }
+        hasReservation: { set: $hasReservation }
+        isAutoAcceptOrder: { set: $isAutoAcceptOrder }
+        isAutoAcceptReservation: { set: $isAutoAcceptReservation }
       }
       where: { id: $id }
     ) {
@@ -49,6 +79,14 @@ export const GET_RESTAURANT_INFO = gql`
       address
       country
       serviceCharge
+      hasParkingFacilities
+      hasPartyFacilities
+      hasKidsZone
+      hasDelivery
+      hasPickup
+      hasReservation
+      isAutoAcceptOrder
+      isAutoAcceptReservation
     }
   }
 `;
