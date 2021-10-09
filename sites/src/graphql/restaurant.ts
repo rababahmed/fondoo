@@ -28,17 +28,16 @@ export const GET_RESTAURANT_INFO = gql`
         hasParkingFacilities
         hasPartyFacilities
         hasKidsZone
-        isTakeaway
-        isDelivery
-        isReservation
+        hasPickup
+        hasDelivery
+        hasReservation
         isAutoAcceptOrder
         isAutoAcceptReservation
         schedules {
           day
           openingTime
           closingTime
-          deliveryTime
-          takeawayTime
+          pickupTime
         }
         deliveryZones {
           name
