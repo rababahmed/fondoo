@@ -7858,6 +7858,8 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['ProductWhereUniqueInput'] | null; // ProductWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
+      orderBy?: NexusGenInputs['ProductOrderByInput'][] | null; // [ProductOrderByInput!]
+      where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
   }
   Query: {

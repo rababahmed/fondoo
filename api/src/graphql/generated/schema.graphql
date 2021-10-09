@@ -3300,7 +3300,7 @@ type Product {
 }
 
 type ProductCategory {
-  Product(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int): [Product!]!
+  Product(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByInput!], where: ProductWhereInput): [Product!]!
   description: String
   id: String!
   image: String

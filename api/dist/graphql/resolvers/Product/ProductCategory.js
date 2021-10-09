@@ -15,7 +15,11 @@ exports.ProductCategory = nexus_1.objectType({
         t.model.isFeatured();
         t.model.restaurants();
         t.model.restaurantId();
-        t.model.Product();
+        t.model.Product({
+            filtering: true,
+            ordering: true,
+            pagination: true,
+        });
     },
 });
 exports.ProductCategoryQuery = nexus_1.extendType({
