@@ -14,14 +14,14 @@ const cors_1 = __importDefault(require("cors"));
 const index_2 = require("./lib/passport/index");
 const sentry_1 = __importDefault(require("./lib/sentry"));
 const PORT = process.env.PORT || 4000;
-const app = express_1.default();
+const app = (0, express_1.default)();
 const main = async () => {
     app.use(sentry_1.default.Handlers.requestHandler());
     app.use(express_1.default.json());
     app.use(passport_1.default.initialize());
-    app.use(cors_1.default());
+    app.use((0, cors_1.default)());
     app.use(sentry_1.default.Handlers.errorHandler());
-    index_2.applyPassportStrategy(passport_1.default);
+    (0, index_2.applyPassportStrategy)(passport_1.default);
     const apolloServer = new apollo_server_express_1.ApolloServer({
         schema: schema_1.schema,
         introspection: true,

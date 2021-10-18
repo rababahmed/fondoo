@@ -23,23 +23,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.schema = void 0;
-const nexus_plugin_prisma_1 = require("nexus-plugin-prisma");
+const nexus_plugin_prisma_1 = require("@kenchi/nexus-plugin-prisma");
 const nexus_1 = require("nexus");
 const path_1 = __importDefault(require("path"));
 const types = __importStar(require("./resolvers"));
 const nexus_shield_1 = require("nexus-shield");
 const apollo_server_errors_1 = require("apollo-server-errors");
-exports.schema = nexus_1.makeSchema({
+exports.schema = (0, nexus_1.makeSchema)({
     types,
     plugins: [
-        nexus_plugin_prisma_1.nexusPrisma({
+        (0, nexus_plugin_prisma_1.nexusPrisma)({
             experimentalCRUD: true,
             shouldGenerateArtifacts: true,
             outputs: {
                 typegen: __dirname + "/generated/typegen-nexus-plugin-prisma.d.ts",
             },
         }),
-        nexus_shield_1.nexusShield({
+        (0, nexus_shield_1.nexusShield)({
             defaultError: new apollo_server_errors_1.ForbiddenError("Access Denied"),
             defaultRule: nexus_shield_1.allow,
         }),

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CouponMutation = exports.CouponQuery = exports.Coupon = void 0;
 const nexus_1 = require("nexus");
-exports.Coupon = nexus_1.objectType({
+exports.Coupon = (0, nexus_1.objectType)({
     name: "Coupon",
     definition(t) {
         t.model.id();
@@ -17,7 +17,7 @@ exports.Coupon = nexus_1.objectType({
         t.model.orders();
     },
 });
-exports.CouponQuery = nexus_1.extendType({
+exports.CouponQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.coupon();
@@ -28,7 +28,7 @@ exports.CouponQuery = nexus_1.extendType({
         });
     },
 });
-exports.CouponMutation = nexus_1.extendType({
+exports.CouponMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneCoupon({ alias: "createCoupon" });

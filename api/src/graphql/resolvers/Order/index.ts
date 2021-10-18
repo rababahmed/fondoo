@@ -9,6 +9,7 @@ export const Order = objectType({
     t.model.id();
     t.model.items();
     t.model.fulfilmentType();
+    t.model.deliveryZone();
     t.model.address();
     t.model.discount();
     t.model.deliveryCharge();
@@ -22,6 +23,7 @@ export const Order = objectType({
     t.model.restaurantId();
     t.model.Customer();
     t.model.customerId();
+    t.model.deliveryZoneId();
   },
 });
 

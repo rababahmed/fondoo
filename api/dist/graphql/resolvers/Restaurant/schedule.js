@@ -4,7 +4,7 @@ exports.ScheduleMutation = exports.ScheduleQuery = exports.Schedule = void 0;
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
-exports.Schedule = nexus_1.objectType({
+exports.Schedule = (0, nexus_1.objectType)({
     name: "Schedule",
     definition(t) {
         t.model.id();
@@ -16,7 +16,7 @@ exports.Schedule = nexus_1.objectType({
         t.model.restaurantId();
     },
 });
-exports.ScheduleQuery = nexus_1.extendType({
+exports.ScheduleQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.schedule();
@@ -27,19 +27,19 @@ exports.ScheduleQuery = nexus_1.extendType({
         });
     },
 });
-exports.ScheduleMutation = nexus_1.extendType({
+exports.ScheduleMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneSchedule({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "createSchedule",
         });
         t.crud.updateOneSchedule({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "updateSchedule",
         });
         t.crud.deleteOneSchedule({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "deleteSchedule",
         });
     },

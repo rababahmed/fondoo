@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderItemMutation = exports.OrderItemQuery = exports.OrderItem = void 0;
 const nexus_1 = require("nexus");
-exports.OrderItem = nexus_1.objectType({
+exports.OrderItem = (0, nexus_1.objectType)({
     name: "OrderItem",
     definition(t) {
         t.model.id();
@@ -17,7 +17,7 @@ exports.OrderItem = nexus_1.objectType({
         t.model.restaurantId();
     },
 });
-exports.OrderItemQuery = nexus_1.extendType({
+exports.OrderItemQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.orderItem();
@@ -28,7 +28,7 @@ exports.OrderItemQuery = nexus_1.extendType({
         });
     },
 });
-exports.OrderItemMutation = nexus_1.extendType({
+exports.OrderItemMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneOrderItem({ alias: "createOrderItem" });

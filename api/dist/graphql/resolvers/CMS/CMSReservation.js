@@ -4,7 +4,7 @@ exports.CMSReservationMutation = exports.CMSReservationQuery = exports.CMSReserv
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
-exports.CMSReservation = nexus_1.objectType({
+exports.CMSReservation = (0, nexus_1.objectType)({
     name: "CMSReservation",
     definition(t) {
         t.model.id();
@@ -15,7 +15,7 @@ exports.CMSReservation = nexus_1.objectType({
         t.model.restaurant();
     },
 });
-exports.CMSReservationQuery = nexus_1.extendType({
+exports.CMSReservationQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.cmsReservation();
@@ -26,19 +26,19 @@ exports.CMSReservationQuery = nexus_1.extendType({
         });
     },
 });
-exports.CMSReservationMutation = nexus_1.extendType({
+exports.CMSReservationMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneCMSReservation({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "createCMSReservation",
         });
         t.crud.updateOneCMSReservation({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "updateCMSReservation",
         });
         t.crud.deleteOneCMSReservation({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "deleteCMSReservation",
         });
     },

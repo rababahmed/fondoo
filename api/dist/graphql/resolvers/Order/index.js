@@ -24,12 +24,13 @@ const nanoid_1 = require("nanoid");
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
-exports.Order = nexus_1.objectType({
+exports.Order = (0, nexus_1.objectType)({
     name: "Order",
     definition(t) {
         t.model.id();
         t.model.items();
         t.model.fulfilmentType();
+        t.model.deliveryZone();
         t.model.address();
         t.model.discount();
         t.model.deliveryCharge();
@@ -43,9 +44,10 @@ exports.Order = nexus_1.objectType({
         t.model.restaurantId();
         t.model.Customer();
         t.model.customerId();
+        t.model.deliveryZoneId();
     },
 });
-exports.OrderQuery = nexus_1.extendType({
+exports.OrderQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.order();
@@ -53,17 +55,17 @@ exports.OrderQuery = nexus_1.extendType({
             filtering: true,
             ordering: true,
             pagination: true,
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
         });
     },
 });
-exports.OrderMutation = nexus_1.extendType({
+exports.OrderMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneOrder({
             alias: "createOrder",
             computedInputs: {
-                id: () => nanoid_1.nanoid(10),
+                id: () => (0, nanoid_1.nanoid)(10),
             },
         });
         t.crud.updateOneOrder({ alias: "updateOrder" });

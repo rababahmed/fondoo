@@ -4,8 +4,8 @@
  */
 
 
-import { Context } from "./../../context"
-import { FieldShieldResolver, ObjectTypeShieldResolver } from "nexus-shield"
+import type { Context } from "./../../context"
+import type { FieldShieldResolver, ObjectTypeShieldResolver } from "nexus-shield"
 
 
 declare global {
@@ -61,12 +61,13 @@ export interface NexusGenInputs {
     storyHeading?: string | null; // String
     storyImage?: string | null; // String
   }
-  CMSAboutOrderByInput: { // input type
+  CMSAboutOrderByWithRelationInput: { // input type
     headerDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
     headerHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
     headerImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     storyDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
     storyHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -149,12 +150,13 @@ export interface NexusGenInputs {
     id?: string | null; // String
     isActive?: boolean | null; // Boolean
   }
-  CMSContactOrderByInput: { // input type
+  CMSContactOrderByWithRelationInput: { // input type
     headerDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
     headerHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
     headerImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   CMSContactUpdateInput: { // input type
@@ -249,7 +251,7 @@ export interface NexusGenInputs {
     reservationHeading?: string | null; // String
     reservationImage?: string | null; // String
   }
-  CMSHomeOrderByInput: { // input type
+  CMSHomeOrderByWithRelationInput: { // input type
     aboutDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
     aboutHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
     aboutImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -267,6 +269,7 @@ export interface NexusGenInputs {
     reservationDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
     reservationHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
     reservationImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   CMSHomeUpdateInput: { // input type
@@ -373,12 +376,13 @@ export interface NexusGenInputs {
     id?: string | null; // String
     isActive?: boolean | null; // Boolean
   }
-  CMSReservationOrderByInput: { // input type
+  CMSReservationOrderByWithRelationInput: { // input type
     headerDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
     headerHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
     headerImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   CMSReservationUpdateInput: { // input type
@@ -449,12 +453,13 @@ export interface NexusGenInputs {
     id?: string | null; // String
     isActive?: boolean | null; // Boolean
   }
-  CMSReviewOrderByInput: { // input type
+  CMSReviewOrderByWithRelationInput: { // input type
     headerDescription?: NexusGenEnums['SortOrder'] | null; // SortOrder
     headerHeading?: NexusGenEnums['SortOrder'] | null; // SortOrder
     headerImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   CMSReviewUpdateInput: { // input type
@@ -581,7 +586,10 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['CouponWhereInput'] | null; // CouponWhereInput
     some?: NexusGenInputs['CouponWhereInput'] | null; // CouponWhereInput
   }
-  CouponOrderByInput: { // input type
+  CouponOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  CouponOrderByWithRelationInput: { // input type
     code?: NexusGenEnums['SortOrder'] | null; // SortOrder
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     description?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -589,6 +597,8 @@ export interface NexusGenInputs {
     endDate?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     image?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    orders?: NexusGenInputs['OrderOrderByRelationAggregateInput'] | null; // OrderOrderByRelationAggregateInput
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     startDate?: NexusGenEnums['SortOrder'] | null; // SortOrder
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -786,12 +796,17 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['CustomerAddressWhereInput'] | null; // CustomerAddressWhereInput
     some?: NexusGenInputs['CustomerAddressWhereInput'] | null; // CustomerAddressWhereInput
   }
-  CustomerAddressOrderByInput: { // input type
+  CustomerAddressOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  CustomerAddressOrderByWithRelationInput: { // input type
     city?: NexusGenEnums['SortOrder'] | null; // SortOrder
     country?: NexusGenEnums['SortOrder'] | null; // SortOrder
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    customer?: NexusGenInputs['CustomerOrderByWithRelationInput'] | null; // CustomerOrderByWithRelationInput
     customerId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    orders?: NexusGenInputs['OrderOrderByRelationAggregateInput'] | null; // OrderOrderByRelationAggregateInput
     postCode?: NexusGenEnums['SortOrder'] | null; // SortOrder
     streetAddress?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
@@ -1006,14 +1021,21 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['CustomerWhereInput'] | null; // CustomerWhereInput
     some?: NexusGenInputs['CustomerWhereInput'] | null; // CustomerWhereInput
   }
-  CustomerOrderByInput: { // input type
+  CustomerOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  CustomerOrderByWithRelationInput: { // input type
+    addresses?: NexusGenInputs['CustomerAddressOrderByRelationAggregateInput'] | null; // CustomerAddressOrderByRelationAggregateInput
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     email?: NexusGenEnums['SortOrder'] | null; // SortOrder
     firstName?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     lastName?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    orders?: NexusGenInputs['OrderOrderByRelationAggregateInput'] | null; // OrderOrderByRelationAggregateInput
     password?: NexusGenEnums['SortOrder'] | null; // SortOrder
     phone?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurants?: NexusGenInputs['RestaurantOrderByRelationAggregateInput'] | null; // RestaurantOrderByRelationAggregateInput
+    reviews?: NexusGenInputs['RestaurantReviewOrderByRelationAggregateInput'] | null; // RestaurantReviewOrderByRelationAggregateInput
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   CustomerScalarWhereInput: { // input type
@@ -1213,6 +1235,7 @@ export interface NexusGenInputs {
     minDeliveryAmount?: number | null; // Float
     minDeliveryRadius?: number | null; // Float
     name: string; // String!
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutDeliveryZoneInput'] | null; // OrderCreateNestedManyWithoutDeliveryZoneInput
     postCode?: string | null; // String
     preOrderInstructions?: string | null; // String
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutDeliveryZonesInput']; // RestaurantCreateNestedOneWithoutDeliveryZonesInput!
@@ -1241,11 +1264,20 @@ export interface NexusGenInputs {
     create?: NexusGenInputs['DeliveryZoneCreateWithoutRestaurantInput'][] | null; // [DeliveryZoneCreateWithoutRestaurantInput!]
     createMany?: NexusGenInputs['DeliveryZoneCreateManyRestaurantInputEnvelope'] | null; // DeliveryZoneCreateManyRestaurantInputEnvelope
   }
+  DeliveryZoneCreateNestedOneWithoutOrdersInput: { // input type
+    connect?: NexusGenInputs['DeliveryZoneWhereUniqueInput'] | null; // DeliveryZoneWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['DeliveryZoneCreateOrConnectWithoutOrdersInput'] | null; // DeliveryZoneCreateOrConnectWithoutOrdersInput
+    create?: NexusGenInputs['DeliveryZoneCreateWithoutOrdersInput'] | null; // DeliveryZoneCreateWithoutOrdersInput
+  }
+  DeliveryZoneCreateOrConnectWithoutOrdersInput: { // input type
+    create: NexusGenInputs['DeliveryZoneCreateWithoutOrdersInput']; // DeliveryZoneCreateWithoutOrdersInput!
+    where: NexusGenInputs['DeliveryZoneWhereUniqueInput']; // DeliveryZoneWhereUniqueInput!
+  }
   DeliveryZoneCreateOrConnectWithoutRestaurantInput: { // input type
     create: NexusGenInputs['DeliveryZoneCreateWithoutRestaurantInput']; // DeliveryZoneCreateWithoutRestaurantInput!
     where: NexusGenInputs['DeliveryZoneWhereUniqueInput']; // DeliveryZoneWhereUniqueInput!
   }
-  DeliveryZoneCreateWithoutRestaurantInput: { // input type
+  DeliveryZoneCreateWithoutOrdersInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     deliveryCharge?: number | null; // Float
     deliveryFeeType?: NexusGenEnums['DeliveryFee'] | null; // DeliveryFee
@@ -1258,13 +1290,32 @@ export interface NexusGenInputs {
     name: string; // String!
     postCode?: string | null; // String
     preOrderInstructions?: string | null; // String
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutDeliveryZonesInput']; // RestaurantCreateNestedOneWithoutDeliveryZonesInput!
+  }
+  DeliveryZoneCreateWithoutRestaurantInput: { // input type
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deliveryCharge?: number | null; // Float
+    deliveryFeeType?: NexusGenEnums['DeliveryFee'] | null; // DeliveryFee
+    deliveryTime?: number | null; // Int
+    id?: string | null; // String
+    isPreOrder?: boolean | null; // Boolean
+    maxDeliveryRadius?: number | null; // Float
+    minDeliveryAmount?: number | null; // Float
+    minDeliveryRadius?: number | null; // Float
+    name: string; // String!
+    orders?: NexusGenInputs['OrderCreateNestedManyWithoutDeliveryZoneInput'] | null; // OrderCreateNestedManyWithoutDeliveryZoneInput
+    postCode?: string | null; // String
+    preOrderInstructions?: string | null; // String
   }
   DeliveryZoneListRelationFilter: { // input type
     every?: NexusGenInputs['DeliveryZoneWhereInput'] | null; // DeliveryZoneWhereInput
     none?: NexusGenInputs['DeliveryZoneWhereInput'] | null; // DeliveryZoneWhereInput
     some?: NexusGenInputs['DeliveryZoneWhereInput'] | null; // DeliveryZoneWhereInput
   }
-  DeliveryZoneOrderByInput: { // input type
+  DeliveryZoneOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  DeliveryZoneOrderByWithRelationInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     deliveryCharge?: NexusGenEnums['SortOrder'] | null; // SortOrder
     deliveryFeeType?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -1275,8 +1326,10 @@ export interface NexusGenInputs {
     minDeliveryAmount?: NexusGenEnums['SortOrder'] | null; // SortOrder
     minDeliveryRadius?: NexusGenEnums['SortOrder'] | null; // SortOrder
     name?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    orders?: NexusGenInputs['OrderOrderByRelationAggregateInput'] | null; // OrderOrderByRelationAggregateInput
     postCode?: NexusGenEnums['SortOrder'] | null; // SortOrder
     preOrderInstructions?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   DeliveryZoneScalarWhereInput: { // input type
@@ -1308,6 +1361,7 @@ export interface NexusGenInputs {
     minDeliveryAmount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     minDeliveryRadius?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutDeliveryZoneInput'] | null; // OrderUpdateManyWithoutDeliveryZoneInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     preOrderInstructions?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutDeliveryZonesInput'] | null; // RestaurantUpdateOneRequiredWithoutDeliveryZonesInput
@@ -1343,11 +1397,20 @@ export interface NexusGenInputs {
     updateMany?: NexusGenInputs['DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput'][] | null; // [DeliveryZoneUpdateManyWithWhereWithoutRestaurantInput!]
     upsert?: NexusGenInputs['DeliveryZoneUpsertWithWhereUniqueWithoutRestaurantInput'][] | null; // [DeliveryZoneUpsertWithWhereUniqueWithoutRestaurantInput!]
   }
+  DeliveryZoneUpdateOneWithoutOrdersInput: { // input type
+    connect?: NexusGenInputs['DeliveryZoneWhereUniqueInput'] | null; // DeliveryZoneWhereUniqueInput
+    connectOrCreate?: NexusGenInputs['DeliveryZoneCreateOrConnectWithoutOrdersInput'] | null; // DeliveryZoneCreateOrConnectWithoutOrdersInput
+    create?: NexusGenInputs['DeliveryZoneCreateWithoutOrdersInput'] | null; // DeliveryZoneCreateWithoutOrdersInput
+    delete?: boolean | null; // Boolean
+    disconnect?: boolean | null; // Boolean
+    update?: NexusGenInputs['DeliveryZoneUpdateWithoutOrdersInput'] | null; // DeliveryZoneUpdateWithoutOrdersInput
+    upsert?: NexusGenInputs['DeliveryZoneUpsertWithoutOrdersInput'] | null; // DeliveryZoneUpsertWithoutOrdersInput
+  }
   DeliveryZoneUpdateWithWhereUniqueWithoutRestaurantInput: { // input type
     data: NexusGenInputs['DeliveryZoneUpdateWithoutRestaurantInput']; // DeliveryZoneUpdateWithoutRestaurantInput!
     where: NexusGenInputs['DeliveryZoneWhereUniqueInput']; // DeliveryZoneWhereUniqueInput!
   }
-  DeliveryZoneUpdateWithoutRestaurantInput: { // input type
+  DeliveryZoneUpdateWithoutOrdersInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deliveryCharge?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
     deliveryFeeType?: NexusGenInputs['EnumDeliveryFeeFieldUpdateOperationsInput'] | null; // EnumDeliveryFeeFieldUpdateOperationsInput
@@ -1360,11 +1423,31 @@ export interface NexusGenInputs {
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     preOrderInstructions?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutDeliveryZonesInput'] | null; // RestaurantUpdateOneRequiredWithoutDeliveryZonesInput
+  }
+  DeliveryZoneUpdateWithoutRestaurantInput: { // input type
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deliveryCharge?: NexusGenInputs['FloatFieldUpdateOperationsInput'] | null; // FloatFieldUpdateOperationsInput
+    deliveryFeeType?: NexusGenInputs['EnumDeliveryFeeFieldUpdateOperationsInput'] | null; // EnumDeliveryFeeFieldUpdateOperationsInput
+    deliveryTime?: NexusGenInputs['NullableIntFieldUpdateOperationsInput'] | null; // NullableIntFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    maxDeliveryRadius?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    minDeliveryAmount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    minDeliveryRadius?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    orders?: NexusGenInputs['OrderUpdateManyWithoutDeliveryZoneInput'] | null; // OrderUpdateManyWithoutDeliveryZoneInput
+    postCode?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    preOrderInstructions?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
   }
   DeliveryZoneUpsertWithWhereUniqueWithoutRestaurantInput: { // input type
     create: NexusGenInputs['DeliveryZoneCreateWithoutRestaurantInput']; // DeliveryZoneCreateWithoutRestaurantInput!
     update: NexusGenInputs['DeliveryZoneUpdateWithoutRestaurantInput']; // DeliveryZoneUpdateWithoutRestaurantInput!
     where: NexusGenInputs['DeliveryZoneWhereUniqueInput']; // DeliveryZoneWhereUniqueInput!
+  }
+  DeliveryZoneUpsertWithoutOrdersInput: { // input type
+    create: NexusGenInputs['DeliveryZoneCreateWithoutOrdersInput']; // DeliveryZoneCreateWithoutOrdersInput!
+    update: NexusGenInputs['DeliveryZoneUpdateWithoutOrdersInput']; // DeliveryZoneUpdateWithoutOrdersInput!
   }
   DeliveryZoneWhereInput: { // input type
     AND?: NexusGenInputs['DeliveryZoneWhereInput'][] | null; // [DeliveryZoneWhereInput!]
@@ -1380,6 +1463,7 @@ export interface NexusGenInputs {
     minDeliveryAmount?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
     minDeliveryRadius?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    orders?: NexusGenInputs['OrderListRelationFilter'] | null; // OrderListRelationFilter
     postCode?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     preOrderInstructions?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
@@ -1697,7 +1781,10 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['OfferWhereInput'] | null; // OfferWhereInput
     some?: NexusGenInputs['OfferWhereInput'] | null; // OfferWhereInput
   }
-  OfferOrderByInput: { // input type
+  OfferOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  OfferOrderByWithRelationInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     description?: NexusGenEnums['SortOrder'] | null; // SortOrder
     endDate?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -1705,6 +1792,8 @@ export interface NexusGenInputs {
     image?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
     name?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    orders?: NexusGenInputs['OrderOrderByRelationAggregateInput'] | null; // OrderOrderByRelationAggregateInput
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     startDate?: NexusGenEnums['SortOrder'] | null; // SortOrder
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -1837,9 +1926,11 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressCreateNestedOneWithoutOrdersInput'] | null; // CustomerAddressCreateNestedOneWithoutOrdersInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     deliveryCharge?: number | null; // Float
+    deliveryZone?: NexusGenInputs['DeliveryZoneCreateNestedOneWithoutOrdersInput'] | null; // DeliveryZoneCreateNestedOneWithoutOrdersInput
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     items?: NexusGenInputs['OrderItemCreateNestedManyWithoutOrderInput'] | null; // OrderItemCreateNestedManyWithoutOrderInput
     offer?: NexusGenInputs['OfferCreateNestedOneWithoutOrdersInput'] | null; // OfferCreateNestedOneWithoutOrdersInput
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOrdersInput']; // RestaurantCreateNestedOneWithoutOrdersInput!
@@ -1853,10 +1944,12 @@ export interface NexusGenInputs {
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     customerId?: string | null; // String
     deliveryCharge?: number | null; // Float
+    deliveryZoneId?: string | null; // String
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     offerId?: string | null; // String
     restaurantId: string; // String!
     serviceCharge?: number | null; // Float
@@ -1873,10 +1966,12 @@ export interface NexusGenInputs {
     customerAddressId?: string | null; // String
     customerId?: string | null; // String
     deliveryCharge?: number | null; // Float
+    deliveryZoneId?: string | null; // String
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     offerId?: string | null; // String
     restaurantId: string; // String!
     serviceCharge?: number | null; // Float
@@ -1893,10 +1988,12 @@ export interface NexusGenInputs {
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     customerAddressId?: string | null; // String
     deliveryCharge?: number | null; // Float
+    deliveryZoneId?: string | null; // String
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     offerId?: string | null; // String
     restaurantId: string; // String!
     serviceCharge?: number | null; // Float
@@ -1908,7 +2005,7 @@ export interface NexusGenInputs {
     data?: NexusGenInputs['OrderCreateManyCustomerInput'][] | null; // [OrderCreateManyCustomerInput!]
     skipDuplicates?: boolean | null; // Boolean
   }
-  OrderCreateManyOfferInput: { // input type
+  OrderCreateManyDeliveryZoneInput: { // input type
     couponId?: string | null; // String
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     customerAddressId?: string | null; // String
@@ -1918,6 +2015,30 @@ export interface NexusGenInputs {
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
+    offerId?: string | null; // String
+    restaurantId: string; // String!
+    serviceCharge?: number | null; // Float
+    total?: number | null; // Float
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    vat?: number | null; // Float
+  }
+  OrderCreateManyDeliveryZoneInputEnvelope: { // input type
+    data?: NexusGenInputs['OrderCreateManyDeliveryZoneInput'][] | null; // [OrderCreateManyDeliveryZoneInput!]
+    skipDuplicates?: boolean | null; // Boolean
+  }
+  OrderCreateManyOfferInput: { // input type
+    couponId?: string | null; // String
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    customerAddressId?: string | null; // String
+    customerId?: string | null; // String
+    deliveryCharge?: number | null; // Float
+    deliveryZoneId?: string | null; // String
+    discount?: number | null; // Float
+    fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
+    id?: string | null; // String
+    isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     restaurantId: string; // String!
     serviceCharge?: number | null; // Float
     total?: number | null; // Float
@@ -1934,10 +2055,12 @@ export interface NexusGenInputs {
     customerAddressId?: string | null; // String
     customerId?: string | null; // String
     deliveryCharge?: number | null; // Float
+    deliveryZoneId?: string | null; // String
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     offerId?: string | null; // String
     serviceCharge?: number | null; // Float
     total?: number | null; // Float
@@ -1965,6 +2088,12 @@ export interface NexusGenInputs {
     connectOrCreate?: NexusGenInputs['OrderCreateOrConnectWithoutCustomerInput'][] | null; // [OrderCreateOrConnectWithoutCustomerInput!]
     create?: NexusGenInputs['OrderCreateWithoutCustomerInput'][] | null; // [OrderCreateWithoutCustomerInput!]
     createMany?: NexusGenInputs['OrderCreateManyCustomerInputEnvelope'] | null; // OrderCreateManyCustomerInputEnvelope
+  }
+  OrderCreateNestedManyWithoutDeliveryZoneInput: { // input type
+    connect?: NexusGenInputs['OrderWhereUniqueInput'][] | null; // [OrderWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['OrderCreateOrConnectWithoutDeliveryZoneInput'][] | null; // [OrderCreateOrConnectWithoutDeliveryZoneInput!]
+    create?: NexusGenInputs['OrderCreateWithoutDeliveryZoneInput'][] | null; // [OrderCreateWithoutDeliveryZoneInput!]
+    createMany?: NexusGenInputs['OrderCreateManyDeliveryZoneInputEnvelope'] | null; // OrderCreateManyDeliveryZoneInputEnvelope
   }
   OrderCreateNestedManyWithoutOfferInput: { // input type
     connect?: NexusGenInputs['OrderWhereUniqueInput'][] | null; // [OrderWhereUniqueInput!]
@@ -1995,6 +2124,10 @@ export interface NexusGenInputs {
     create: NexusGenInputs['OrderCreateWithoutCustomerInput']; // OrderCreateWithoutCustomerInput!
     where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
   }
+  OrderCreateOrConnectWithoutDeliveryZoneInput: { // input type
+    create: NexusGenInputs['OrderCreateWithoutDeliveryZoneInput']; // OrderCreateWithoutDeliveryZoneInput!
+    where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
+  }
   OrderCreateOrConnectWithoutItemsInput: { // input type
     create: NexusGenInputs['OrderCreateWithoutItemsInput']; // OrderCreateWithoutItemsInput!
     where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
@@ -2012,10 +2145,12 @@ export interface NexusGenInputs {
     Customer?: NexusGenInputs['CustomerCreateNestedOneWithoutOrdersInput'] | null; // CustomerCreateNestedOneWithoutOrdersInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     deliveryCharge?: number | null; // Float
+    deliveryZone?: NexusGenInputs['DeliveryZoneCreateNestedOneWithoutOrdersInput'] | null; // DeliveryZoneCreateNestedOneWithoutOrdersInput
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     items?: NexusGenInputs['OrderItemCreateNestedManyWithoutOrderInput'] | null; // OrderItemCreateNestedManyWithoutOrderInput
     offer?: NexusGenInputs['OfferCreateNestedOneWithoutOrdersInput'] | null; // OfferCreateNestedOneWithoutOrdersInput
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOrdersInput']; // RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2029,10 +2164,12 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressCreateNestedOneWithoutOrdersInput'] | null; // CustomerAddressCreateNestedOneWithoutOrdersInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     deliveryCharge?: number | null; // Float
+    deliveryZone?: NexusGenInputs['DeliveryZoneCreateNestedOneWithoutOrdersInput'] | null; // DeliveryZoneCreateNestedOneWithoutOrdersInput
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     items?: NexusGenInputs['OrderItemCreateNestedManyWithoutOrderInput'] | null; // OrderItemCreateNestedManyWithoutOrderInput
     offer?: NexusGenInputs['OfferCreateNestedOneWithoutOrdersInput'] | null; // OfferCreateNestedOneWithoutOrdersInput
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOrdersInput']; // RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2046,10 +2183,31 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressCreateNestedOneWithoutOrdersInput'] | null; // CustomerAddressCreateNestedOneWithoutOrdersInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     deliveryCharge?: number | null; // Float
+    deliveryZone?: NexusGenInputs['DeliveryZoneCreateNestedOneWithoutOrdersInput'] | null; // DeliveryZoneCreateNestedOneWithoutOrdersInput
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
+    items?: NexusGenInputs['OrderItemCreateNestedManyWithoutOrderInput'] | null; // OrderItemCreateNestedManyWithoutOrderInput
+    offer?: NexusGenInputs['OfferCreateNestedOneWithoutOrdersInput'] | null; // OfferCreateNestedOneWithoutOrdersInput
+    restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOrdersInput']; // RestaurantCreateNestedOneWithoutOrdersInput!
+    serviceCharge?: number | null; // Float
+    total?: number | null; // Float
+    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    vat?: number | null; // Float
+  }
+  OrderCreateWithoutDeliveryZoneInput: { // input type
+    Coupon?: NexusGenInputs['CouponCreateNestedOneWithoutOrdersInput'] | null; // CouponCreateNestedOneWithoutOrdersInput
+    Customer?: NexusGenInputs['CustomerCreateNestedOneWithoutOrdersInput'] | null; // CustomerCreateNestedOneWithoutOrdersInput
+    address?: NexusGenInputs['CustomerAddressCreateNestedOneWithoutOrdersInput'] | null; // CustomerAddressCreateNestedOneWithoutOrdersInput
+    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    deliveryCharge?: number | null; // Float
+    discount?: number | null; // Float
+    fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
+    id?: string | null; // String
+    isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     items?: NexusGenInputs['OrderItemCreateNestedManyWithoutOrderInput'] | null; // OrderItemCreateNestedManyWithoutOrderInput
     offer?: NexusGenInputs['OfferCreateNestedOneWithoutOrdersInput'] | null; // OfferCreateNestedOneWithoutOrdersInput
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOrdersInput']; // RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2064,10 +2222,12 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressCreateNestedOneWithoutOrdersInput'] | null; // CustomerAddressCreateNestedOneWithoutOrdersInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     deliveryCharge?: number | null; // Float
+    deliveryZone?: NexusGenInputs['DeliveryZoneCreateNestedOneWithoutOrdersInput'] | null; // DeliveryZoneCreateNestedOneWithoutOrdersInput
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     offer?: NexusGenInputs['OfferCreateNestedOneWithoutOrdersInput'] | null; // OfferCreateNestedOneWithoutOrdersInput
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOrdersInput']; // RestaurantCreateNestedOneWithoutOrdersInput!
     serviceCharge?: number | null; // Float
@@ -2081,10 +2241,12 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressCreateNestedOneWithoutOrdersInput'] | null; // CustomerAddressCreateNestedOneWithoutOrdersInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     deliveryCharge?: number | null; // Float
+    deliveryZone?: NexusGenInputs['DeliveryZoneCreateNestedOneWithoutOrdersInput'] | null; // DeliveryZoneCreateNestedOneWithoutOrdersInput
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     items?: NexusGenInputs['OrderItemCreateNestedManyWithoutOrderInput'] | null; // OrderItemCreateNestedManyWithoutOrderInput
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutOrdersInput']; // RestaurantCreateNestedOneWithoutOrdersInput!
     serviceCharge?: number | null; // Float
@@ -2098,10 +2260,12 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressCreateNestedOneWithoutOrdersInput'] | null; // CustomerAddressCreateNestedOneWithoutOrdersInput
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
     deliveryCharge?: number | null; // Float
+    deliveryZone?: NexusGenInputs['DeliveryZoneCreateNestedOneWithoutOrdersInput'] | null; // DeliveryZoneCreateNestedOneWithoutOrdersInput
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id?: string | null; // String
     isAccepted?: boolean | null; // Boolean
+    isPreOrder?: boolean | null; // Boolean
     items?: NexusGenInputs['OrderItemCreateNestedManyWithoutOrderInput'] | null; // OrderItemCreateNestedManyWithoutOrderInput
     offer?: NexusGenInputs['OfferCreateNestedOneWithoutOrdersInput'] | null; // OfferCreateNestedOneWithoutOrdersInput
     serviceCharge?: number | null; // Float
@@ -2227,12 +2391,18 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['OrderItemWhereInput'] | null; // OrderItemWhereInput
     some?: NexusGenInputs['OrderItemWhereInput'] | null; // OrderItemWhereInput
   }
-  OrderItemOrderByInput: { // input type
+  OrderItemOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  OrderItemOrderByWithRelationInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    order?: NexusGenInputs['OrderOrderByWithRelationInput'] | null; // OrderOrderByWithRelationInput
     orderId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    product?: NexusGenInputs['ProductOrderByWithRelationInput'] | null; // ProductOrderByWithRelationInput
     productId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     quantity?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     spiceLevel?: NexusGenEnums['SortOrder'] | null; // SortOrder
     total?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -2404,17 +2574,29 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['OrderWhereInput'] | null; // OrderWhereInput
     some?: NexusGenInputs['OrderWhereInput'] | null; // OrderWhereInput
   }
-  OrderOrderByInput: { // input type
+  OrderOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  OrderOrderByWithRelationInput: { // input type
+    Coupon?: NexusGenInputs['CouponOrderByWithRelationInput'] | null; // CouponOrderByWithRelationInput
+    Customer?: NexusGenInputs['CustomerOrderByWithRelationInput'] | null; // CustomerOrderByWithRelationInput
+    address?: NexusGenInputs['CustomerAddressOrderByWithRelationInput'] | null; // CustomerAddressOrderByWithRelationInput
     couponId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     customerAddressId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     customerId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     deliveryCharge?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    deliveryZone?: NexusGenInputs['DeliveryZoneOrderByWithRelationInput'] | null; // DeliveryZoneOrderByWithRelationInput
+    deliveryZoneId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     discount?: NexusGenEnums['SortOrder'] | null; // SortOrder
     fulfilmentType?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isAccepted?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    isPreOrder?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    items?: NexusGenInputs['OrderItemOrderByRelationAggregateInput'] | null; // OrderItemOrderByRelationAggregateInput
+    offer?: NexusGenInputs['OfferOrderByWithRelationInput'] | null; // OfferOrderByWithRelationInput
     offerId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     serviceCharge?: NexusGenEnums['SortOrder'] | null; // SortOrder
     total?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -2430,10 +2612,12 @@ export interface NexusGenInputs {
     customerAddressId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     customerId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     deliveryCharge?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
+    deliveryZoneId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     discount?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFilter'] | null; // EnumFulfilmentTypeFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     isAccepted?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    isPreOrder?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     offerId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
     serviceCharge?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
@@ -2447,10 +2631,12 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressUpdateOneWithoutOrdersInput'] | null; // CustomerAddressUpdateOneWithoutOrdersInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deliveryCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    deliveryZone?: NexusGenInputs['DeliveryZoneUpdateOneWithoutOrdersInput'] | null; // DeliveryZoneUpdateOneWithoutOrdersInput
     discount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFieldUpdateOperationsInput'] | null; // EnumFulfilmentTypeFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAccepted?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     items?: NexusGenInputs['OrderItemUpdateManyWithoutOrderInput'] | null; // OrderItemUpdateManyWithoutOrderInput
     offer?: NexusGenInputs['OfferUpdateOneWithoutOrdersInput'] | null; // OfferUpdateOneWithoutOrdersInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOrdersInput'] | null; // RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -2466,6 +2652,7 @@ export interface NexusGenInputs {
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFieldUpdateOperationsInput'] | null; // EnumFulfilmentTypeFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAccepted?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     total?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
@@ -2480,6 +2667,10 @@ export interface NexusGenInputs {
     where: NexusGenInputs['OrderScalarWhereInput']; // OrderScalarWhereInput!
   }
   OrderUpdateManyWithWhereWithoutCustomerInput: { // input type
+    data: NexusGenInputs['OrderUpdateManyMutationInput']; // OrderUpdateManyMutationInput!
+    where: NexusGenInputs['OrderScalarWhereInput']; // OrderScalarWhereInput!
+  }
+  OrderUpdateManyWithWhereWithoutDeliveryZoneInput: { // input type
     data: NexusGenInputs['OrderUpdateManyMutationInput']; // OrderUpdateManyMutationInput!
     where: NexusGenInputs['OrderScalarWhereInput']; // OrderScalarWhereInput!
   }
@@ -2530,6 +2721,19 @@ export interface NexusGenInputs {
     updateMany?: NexusGenInputs['OrderUpdateManyWithWhereWithoutCustomerInput'][] | null; // [OrderUpdateManyWithWhereWithoutCustomerInput!]
     upsert?: NexusGenInputs['OrderUpsertWithWhereUniqueWithoutCustomerInput'][] | null; // [OrderUpsertWithWhereUniqueWithoutCustomerInput!]
   }
+  OrderUpdateManyWithoutDeliveryZoneInput: { // input type
+    connect?: NexusGenInputs['OrderWhereUniqueInput'][] | null; // [OrderWhereUniqueInput!]
+    connectOrCreate?: NexusGenInputs['OrderCreateOrConnectWithoutDeliveryZoneInput'][] | null; // [OrderCreateOrConnectWithoutDeliveryZoneInput!]
+    create?: NexusGenInputs['OrderCreateWithoutDeliveryZoneInput'][] | null; // [OrderCreateWithoutDeliveryZoneInput!]
+    createMany?: NexusGenInputs['OrderCreateManyDeliveryZoneInputEnvelope'] | null; // OrderCreateManyDeliveryZoneInputEnvelope
+    delete?: NexusGenInputs['OrderWhereUniqueInput'][] | null; // [OrderWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['OrderScalarWhereInput'][] | null; // [OrderScalarWhereInput!]
+    disconnect?: NexusGenInputs['OrderWhereUniqueInput'][] | null; // [OrderWhereUniqueInput!]
+    set?: NexusGenInputs['OrderWhereUniqueInput'][] | null; // [OrderWhereUniqueInput!]
+    update?: NexusGenInputs['OrderUpdateWithWhereUniqueWithoutDeliveryZoneInput'][] | null; // [OrderUpdateWithWhereUniqueWithoutDeliveryZoneInput!]
+    updateMany?: NexusGenInputs['OrderUpdateManyWithWhereWithoutDeliveryZoneInput'][] | null; // [OrderUpdateManyWithWhereWithoutDeliveryZoneInput!]
+    upsert?: NexusGenInputs['OrderUpsertWithWhereUniqueWithoutDeliveryZoneInput'][] | null; // [OrderUpsertWithWhereUniqueWithoutDeliveryZoneInput!]
+  }
   OrderUpdateManyWithoutOfferInput: { // input type
     connect?: NexusGenInputs['OrderWhereUniqueInput'][] | null; // [OrderWhereUniqueInput!]
     connectOrCreate?: NexusGenInputs['OrderCreateOrConnectWithoutOfferInput'][] | null; // [OrderCreateOrConnectWithoutOfferInput!]
@@ -2575,6 +2779,10 @@ export interface NexusGenInputs {
     data: NexusGenInputs['OrderUpdateWithoutCustomerInput']; // OrderUpdateWithoutCustomerInput!
     where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
   }
+  OrderUpdateWithWhereUniqueWithoutDeliveryZoneInput: { // input type
+    data: NexusGenInputs['OrderUpdateWithoutDeliveryZoneInput']; // OrderUpdateWithoutDeliveryZoneInput!
+    where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
+  }
   OrderUpdateWithWhereUniqueWithoutOfferInput: { // input type
     data: NexusGenInputs['OrderUpdateWithoutOfferInput']; // OrderUpdateWithoutOfferInput!
     where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
@@ -2588,10 +2796,12 @@ export interface NexusGenInputs {
     Customer?: NexusGenInputs['CustomerUpdateOneWithoutOrdersInput'] | null; // CustomerUpdateOneWithoutOrdersInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deliveryCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    deliveryZone?: NexusGenInputs['DeliveryZoneUpdateOneWithoutOrdersInput'] | null; // DeliveryZoneUpdateOneWithoutOrdersInput
     discount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFieldUpdateOperationsInput'] | null; // EnumFulfilmentTypeFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAccepted?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     items?: NexusGenInputs['OrderItemUpdateManyWithoutOrderInput'] | null; // OrderItemUpdateManyWithoutOrderInput
     offer?: NexusGenInputs['OfferUpdateOneWithoutOrdersInput'] | null; // OfferUpdateOneWithoutOrdersInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOrdersInput'] | null; // RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -2605,10 +2815,12 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressUpdateOneWithoutOrdersInput'] | null; // CustomerAddressUpdateOneWithoutOrdersInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deliveryCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    deliveryZone?: NexusGenInputs['DeliveryZoneUpdateOneWithoutOrdersInput'] | null; // DeliveryZoneUpdateOneWithoutOrdersInput
     discount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFieldUpdateOperationsInput'] | null; // EnumFulfilmentTypeFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAccepted?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     items?: NexusGenInputs['OrderItemUpdateManyWithoutOrderInput'] | null; // OrderItemUpdateManyWithoutOrderInput
     offer?: NexusGenInputs['OfferUpdateOneWithoutOrdersInput'] | null; // OfferUpdateOneWithoutOrdersInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOrdersInput'] | null; // RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -2622,10 +2834,31 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressUpdateOneWithoutOrdersInput'] | null; // CustomerAddressUpdateOneWithoutOrdersInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deliveryCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    deliveryZone?: NexusGenInputs['DeliveryZoneUpdateOneWithoutOrdersInput'] | null; // DeliveryZoneUpdateOneWithoutOrdersInput
     discount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFieldUpdateOperationsInput'] | null; // EnumFulfilmentTypeFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAccepted?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    items?: NexusGenInputs['OrderItemUpdateManyWithoutOrderInput'] | null; // OrderItemUpdateManyWithoutOrderInput
+    offer?: NexusGenInputs['OfferUpdateOneWithoutOrdersInput'] | null; // OfferUpdateOneWithoutOrdersInput
+    restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOrdersInput'] | null; // RestaurantUpdateOneRequiredWithoutOrdersInput
+    serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    total?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    vat?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+  }
+  OrderUpdateWithoutDeliveryZoneInput: { // input type
+    Coupon?: NexusGenInputs['CouponUpdateOneWithoutOrdersInput'] | null; // CouponUpdateOneWithoutOrdersInput
+    Customer?: NexusGenInputs['CustomerUpdateOneWithoutOrdersInput'] | null; // CustomerUpdateOneWithoutOrdersInput
+    address?: NexusGenInputs['CustomerAddressUpdateOneWithoutOrdersInput'] | null; // CustomerAddressUpdateOneWithoutOrdersInput
+    createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    deliveryCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    discount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFieldUpdateOperationsInput'] | null; // EnumFulfilmentTypeFieldUpdateOperationsInput
+    id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    isAccepted?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     items?: NexusGenInputs['OrderItemUpdateManyWithoutOrderInput'] | null; // OrderItemUpdateManyWithoutOrderInput
     offer?: NexusGenInputs['OfferUpdateOneWithoutOrdersInput'] | null; // OfferUpdateOneWithoutOrdersInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOrdersInput'] | null; // RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -2640,10 +2873,12 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressUpdateOneWithoutOrdersInput'] | null; // CustomerAddressUpdateOneWithoutOrdersInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deliveryCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    deliveryZone?: NexusGenInputs['DeliveryZoneUpdateOneWithoutOrdersInput'] | null; // DeliveryZoneUpdateOneWithoutOrdersInput
     discount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFieldUpdateOperationsInput'] | null; // EnumFulfilmentTypeFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAccepted?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     offer?: NexusGenInputs['OfferUpdateOneWithoutOrdersInput'] | null; // OfferUpdateOneWithoutOrdersInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOrdersInput'] | null; // RestaurantUpdateOneRequiredWithoutOrdersInput
     serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
@@ -2657,10 +2892,12 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressUpdateOneWithoutOrdersInput'] | null; // CustomerAddressUpdateOneWithoutOrdersInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deliveryCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    deliveryZone?: NexusGenInputs['DeliveryZoneUpdateOneWithoutOrdersInput'] | null; // DeliveryZoneUpdateOneWithoutOrdersInput
     discount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFieldUpdateOperationsInput'] | null; // EnumFulfilmentTypeFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAccepted?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     items?: NexusGenInputs['OrderItemUpdateManyWithoutOrderInput'] | null; // OrderItemUpdateManyWithoutOrderInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutOrdersInput'] | null; // RestaurantUpdateOneRequiredWithoutOrdersInput
     serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
@@ -2674,10 +2911,12 @@ export interface NexusGenInputs {
     address?: NexusGenInputs['CustomerAddressUpdateOneWithoutOrdersInput'] | null; // CustomerAddressUpdateOneWithoutOrdersInput
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
     deliveryCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
+    deliveryZone?: NexusGenInputs['DeliveryZoneUpdateOneWithoutOrdersInput'] | null; // DeliveryZoneUpdateOneWithoutOrdersInput
     discount?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFieldUpdateOperationsInput'] | null; // EnumFulfilmentTypeFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isAccepted?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
+    isPreOrder?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     items?: NexusGenInputs['OrderItemUpdateManyWithoutOrderInput'] | null; // OrderItemUpdateManyWithoutOrderInput
     offer?: NexusGenInputs['OfferUpdateOneWithoutOrdersInput'] | null; // OfferUpdateOneWithoutOrdersInput
     serviceCharge?: NexusGenInputs['NullableFloatFieldUpdateOperationsInput'] | null; // NullableFloatFieldUpdateOperationsInput
@@ -2698,6 +2937,11 @@ export interface NexusGenInputs {
   OrderUpsertWithWhereUniqueWithoutCustomerInput: { // input type
     create: NexusGenInputs['OrderCreateWithoutCustomerInput']; // OrderCreateWithoutCustomerInput!
     update: NexusGenInputs['OrderUpdateWithoutCustomerInput']; // OrderUpdateWithoutCustomerInput!
+    where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
+  }
+  OrderUpsertWithWhereUniqueWithoutDeliveryZoneInput: { // input type
+    create: NexusGenInputs['OrderCreateWithoutDeliveryZoneInput']; // OrderCreateWithoutDeliveryZoneInput!
+    update: NexusGenInputs['OrderUpdateWithoutDeliveryZoneInput']; // OrderUpdateWithoutDeliveryZoneInput!
     where: NexusGenInputs['OrderWhereUniqueInput']; // OrderWhereUniqueInput!
   }
   OrderUpsertWithWhereUniqueWithoutOfferInput: { // input type
@@ -2726,10 +2970,13 @@ export interface NexusGenInputs {
     customerAddressId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     customerId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     deliveryCharge?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
+    deliveryZone?: NexusGenInputs['DeliveryZoneWhereInput'] | null; // DeliveryZoneWhereInput
+    deliveryZoneId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     discount?: NexusGenInputs['FloatNullableFilter'] | null; // FloatNullableFilter
     fulfilmentType?: NexusGenInputs['EnumFulfilmentTypeFilter'] | null; // EnumFulfilmentTypeFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     isAccepted?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
+    isPreOrder?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     items?: NexusGenInputs['OrderItemListRelationFilter'] | null; // OrderItemListRelationFilter
     offer?: NexusGenInputs['OfferWhereInput'] | null; // OfferWhereInput
     offerId?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
@@ -2811,7 +3058,11 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['ProductCategoryWhereInput'] | null; // ProductCategoryWhereInput
     some?: NexusGenInputs['ProductCategoryWhereInput'] | null; // ProductCategoryWhereInput
   }
-  ProductCategoryOrderByInput: { // input type
+  ProductCategoryOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  ProductCategoryOrderByWithRelationInput: { // input type
+    Product?: NexusGenInputs['ProductOrderByRelationAggregateInput'] | null; // ProductOrderByRelationAggregateInput
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     description?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -2820,6 +3071,7 @@ export interface NexusGenInputs {
     isFeatured?: NexusGenEnums['SortOrder'] | null; // SortOrder
     name?: NexusGenEnums['SortOrder'] | null; // SortOrder
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurants?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
   }
   ProductCategoryScalarWhereInput: { // input type
     AND?: NexusGenInputs['ProductCategoryScalarWhereInput'][] | null; // [ProductCategoryScalarWhereInput!]
@@ -3050,7 +3302,10 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     some?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
   }
-  ProductOrderByInput: { // input type
+  ProductOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  ProductOrderByWithRelationInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     description?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -3058,8 +3313,11 @@ export interface NexusGenInputs {
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isPopular?: NexusGenEnums['SortOrder'] | null; // SortOrder
     name?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    orderItems?: NexusGenInputs['OrderItemOrderByRelationAggregateInput'] | null; // OrderItemOrderByRelationAggregateInput
     price?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    productCategory?: NexusGenInputs['ProductCategoryOrderByWithRelationInput'] | null; // ProductCategoryOrderByWithRelationInput
     productCategoryId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     spiceLevel?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
@@ -3258,13 +3516,14 @@ export interface NexusGenInputs {
     secondaryColor: string; // String!
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
-  RestaurantConfigOrderByInput: { // input type
+  RestaurantConfigOrderByWithRelationInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     domain?: NexusGenEnums['SortOrder'] | null; // SortOrder
     hasDarkNavBg?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
     primaryColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     secondaryColor?: NexusGenEnums['SortOrder'] | null; // SortOrder
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -4495,15 +4754,27 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
     some?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
   }
-  RestaurantOrderByInput: { // input type
+  RestaurantOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  RestaurantOrderByWithRelationInput: { // input type
+    CMSAbout?: NexusGenInputs['CMSAboutOrderByWithRelationInput'] | null; // CMSAboutOrderByWithRelationInput
+    CMSContact?: NexusGenInputs['CMSContactOrderByWithRelationInput'] | null; // CMSContactOrderByWithRelationInput
+    CMSHome?: NexusGenInputs['CMSHomeOrderByWithRelationInput'] | null; // CMSHomeOrderByWithRelationInput
+    CMSReservation?: NexusGenInputs['CMSReservationOrderByWithRelationInput'] | null; // CMSReservationOrderByWithRelationInput
+    CMSReview?: NexusGenInputs['CMSReviewOrderByWithRelationInput'] | null; // CMSReviewOrderByWithRelationInput
     address?: NexusGenEnums['SortOrder'] | null; // SortOrder
     businessPhone?: NexusGenEnums['SortOrder'] | null; // SortOrder
     city?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    config?: NexusGenInputs['RestaurantConfigOrderByWithRelationInput'] | null; // RestaurantConfigOrderByWithRelationInput
     country?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    coupons?: NexusGenInputs['CouponOrderByRelationAggregateInput'] | null; // CouponOrderByRelationAggregateInput
     coverImage?: NexusGenEnums['SortOrder'] | null; // SortOrder
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     cuisine?: NexusGenEnums['SortOrder'] | null; // SortOrder
     currency?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    customers?: NexusGenInputs['CustomerOrderByRelationAggregateInput'] | null; // CustomerOrderByRelationAggregateInput
+    deliveryZones?: NexusGenInputs['DeliveryZoneOrderByRelationAggregateInput'] | null; // DeliveryZoneOrderByRelationAggregateInput
     diningStyle?: NexusGenEnums['SortOrder'] | null; // SortOrder
     email?: NexusGenEnums['SortOrder'] | null; // SortOrder
     hasDelivery?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -4517,13 +4788,23 @@ export interface NexusGenInputs {
     isAutoAcceptReservation?: NexusGenEnums['SortOrder'] | null; // SortOrder
     logo?: NexusGenEnums['SortOrder'] | null; // SortOrder
     name?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    offers?: NexusGenInputs['OfferOrderByRelationAggregateInput'] | null; // OfferOrderByRelationAggregateInput
+    orderItems?: NexusGenInputs['OrderItemOrderByRelationAggregateInput'] | null; // OrderItemOrderByRelationAggregateInput
+    orders?: NexusGenInputs['OrderOrderByRelationAggregateInput'] | null; // OrderOrderByRelationAggregateInput
+    plan?: NexusGenInputs['RestaurantPlanOrderByWithRelationInput'] | null; // RestaurantPlanOrderByWithRelationInput
     postCode?: NexusGenEnums['SortOrder'] | null; // SortOrder
     priceRange?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    productCategory?: NexusGenInputs['ProductCategoryOrderByRelationAggregateInput'] | null; // ProductCategoryOrderByRelationAggregateInput
+    products?: NexusGenInputs['ProductOrderByRelationAggregateInput'] | null; // ProductOrderByRelationAggregateInput
     reservationPhone?: NexusGenEnums['SortOrder'] | null; // SortOrder
     restaurantPlanId?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    reviews?: NexusGenInputs['RestaurantReviewOrderByRelationAggregateInput'] | null; // RestaurantReviewOrderByRelationAggregateInput
+    schedules?: NexusGenInputs['ScheduleOrderByRelationAggregateInput'] | null; // ScheduleOrderByRelationAggregateInput
     serviceCharge?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    socials?: NexusGenInputs['RestaurantSocialOrderByRelationAggregateInput'] | null; // RestaurantSocialOrderByRelationAggregateInput
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     url?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    users?: NexusGenInputs['UserOrderByRelationAggregateInput'] | null; // UserOrderByRelationAggregateInput
     vat?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   RestaurantPlanCreateInput: { // input type
@@ -4548,11 +4829,12 @@ export interface NexusGenInputs {
     name: string; // String!
     price: number; // Float!
   }
-  RestaurantPlanOrderByInput: { // input type
+  RestaurantPlanOrderByWithRelationInput: { // input type
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
     name?: NexusGenEnums['SortOrder'] | null; // SortOrder
     price?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurants?: NexusGenInputs['RestaurantOrderByRelationAggregateInput'] | null; // RestaurantOrderByRelationAggregateInput
   }
   RestaurantPlanUpdateInput: { // input type
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -4675,13 +4957,18 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['RestaurantReviewWhereInput'] | null; // RestaurantReviewWhereInput
     some?: NexusGenInputs['RestaurantReviewWhereInput'] | null; // RestaurantReviewWhereInput
   }
-  RestaurantReviewOrderByInput: { // input type
+  RestaurantReviewOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  RestaurantReviewOrderByWithRelationInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    customer?: NexusGenInputs['CustomerOrderByWithRelationInput'] | null; // CustomerOrderByWithRelationInput
     customerId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     description?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
     rating?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     title?: NexusGenEnums['SortOrder'] | null; // SortOrder
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -4889,11 +5176,15 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['RestaurantSocialWhereInput'] | null; // RestaurantSocialWhereInput
     some?: NexusGenInputs['RestaurantSocialWhereInput'] | null; // RestaurantSocialWhereInput
   }
-  RestaurantSocialOrderByInput: { // input type
+  RestaurantSocialOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  RestaurantSocialOrderByWithRelationInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     isActive?: NexusGenEnums['SortOrder'] | null; // SortOrder
     network?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     url?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -6325,13 +6616,17 @@ export interface NexusGenInputs {
     none?: NexusGenInputs['ScheduleWhereInput'] | null; // ScheduleWhereInput
     some?: NexusGenInputs['ScheduleWhereInput'] | null; // ScheduleWhereInput
   }
-  ScheduleOrderByInput: { // input type
+  ScheduleOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
+  }
+  ScheduleOrderByWithRelationInput: { // input type
     closingTime?: NexusGenEnums['SortOrder'] | null; // SortOrder
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
     day?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     openingTime?: NexusGenEnums['SortOrder'] | null; // SortOrder
     pickupTime?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    restaurant?: NexusGenInputs['RestaurantOrderByWithRelationInput'] | null; // RestaurantOrderByWithRelationInput
     restaurantId?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   ScheduleScalarWhereInput: { // input type
@@ -6478,6 +6773,9 @@ export interface NexusGenInputs {
     every?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     none?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     some?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+  }
+  UserOrderByRelationAggregateInput: { // input type
+    _count?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   UserScalarWhereInput: { // input type
     AND?: NexusGenInputs['UserScalarWhereInput'][] | null; // [UserScalarWhereInput!]
@@ -6692,6 +6990,7 @@ export interface NexusGenObjects {
     couponId?: string | null; // String
     customerId?: string | null; // String
     deliveryCharge?: number | null; // Float
+    deliveryZoneId?: string | null; // String
     discount?: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id: string; // String!
@@ -7007,6 +7306,8 @@ export interface NexusGenFieldTypes {
     couponId: string | null; // String
     customerId: string | null; // String
     deliveryCharge: number | null; // Float
+    deliveryZone: NexusGenRootTypes['DeliveryZone'] | null; // DeliveryZone
+    deliveryZoneId: string | null; // String
     discount: number | null; // Float
     fulfilmentType: NexusGenEnums['FulfilmentType']; // FulfilmentType!
     id: string; // String!
@@ -7390,6 +7691,8 @@ export interface NexusGenFieldTypeNames {
     couponId: 'String'
     customerId: 'String'
     deliveryCharge: 'Float'
+    deliveryZone: 'DeliveryZone'
+    deliveryZoneId: 'String'
     discount: 'Float'
     fulfilmentType: 'FulfilmentType'
     id: 'String'
@@ -7858,7 +8161,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['ProductWhereUniqueInput'] | null; // ProductWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['ProductOrderByInput'][] | null; // [ProductOrderByInput!]
+      orderBy?: NexusGenInputs['ProductOrderByWithRelationInput'][] | null; // [ProductOrderByWithRelationInput!]
       where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
   }
@@ -7871,7 +8174,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['CMSAboutWhereUniqueInput'] | null; // CMSAboutWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['CMSAboutOrderByInput'][] | null; // [CMSAboutOrderByInput!]
+      orderBy?: NexusGenInputs['CMSAboutOrderByWithRelationInput'][] | null; // [CMSAboutOrderByWithRelationInput!]
       where?: NexusGenInputs['CMSAboutWhereInput'] | null; // CMSAboutWhereInput
     }
     cmsContact: { // args
@@ -7882,7 +8185,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['CMSContactWhereUniqueInput'] | null; // CMSContactWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['CMSContactOrderByInput'][] | null; // [CMSContactOrderByInput!]
+      orderBy?: NexusGenInputs['CMSContactOrderByWithRelationInput'][] | null; // [CMSContactOrderByWithRelationInput!]
       where?: NexusGenInputs['CMSContactWhereInput'] | null; // CMSContactWhereInput
     }
     cmsHome: { // args
@@ -7893,7 +8196,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['CMSHomeWhereUniqueInput'] | null; // CMSHomeWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['CMSHomeOrderByInput'][] | null; // [CMSHomeOrderByInput!]
+      orderBy?: NexusGenInputs['CMSHomeOrderByWithRelationInput'][] | null; // [CMSHomeOrderByWithRelationInput!]
       where?: NexusGenInputs['CMSHomeWhereInput'] | null; // CMSHomeWhereInput
     }
     cmsReservation: { // args
@@ -7904,7 +8207,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['CMSReservationWhereUniqueInput'] | null; // CMSReservationWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['CMSReservationOrderByInput'][] | null; // [CMSReservationOrderByInput!]
+      orderBy?: NexusGenInputs['CMSReservationOrderByWithRelationInput'][] | null; // [CMSReservationOrderByWithRelationInput!]
       where?: NexusGenInputs['CMSReservationWhereInput'] | null; // CMSReservationWhereInput
     }
     cmsReview: { // args
@@ -7915,7 +8218,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['CMSReviewWhereUniqueInput'] | null; // CMSReviewWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['CMSReviewOrderByInput'][] | null; // [CMSReviewOrderByInput!]
+      orderBy?: NexusGenInputs['CMSReviewOrderByWithRelationInput'][] | null; // [CMSReviewOrderByWithRelationInput!]
       where?: NexusGenInputs['CMSReviewWhereInput'] | null; // CMSReviewWhereInput
     }
     coupon: { // args
@@ -7926,7 +8229,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['CouponWhereUniqueInput'] | null; // CouponWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['CouponOrderByInput'][] | null; // [CouponOrderByInput!]
+      orderBy?: NexusGenInputs['CouponOrderByWithRelationInput'][] | null; // [CouponOrderByWithRelationInput!]
       where?: NexusGenInputs['CouponWhereInput'] | null; // CouponWhereInput
     }
     customer: { // args
@@ -7940,7 +8243,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['CustomerAddressWhereUniqueInput'] | null; // CustomerAddressWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['CustomerAddressOrderByInput'][] | null; // [CustomerAddressOrderByInput!]
+      orderBy?: NexusGenInputs['CustomerAddressOrderByWithRelationInput'][] | null; // [CustomerAddressOrderByWithRelationInput!]
       where?: NexusGenInputs['CustomerAddressWhereInput'] | null; // CustomerAddressWhereInput
     }
     customers: { // args
@@ -7948,7 +8251,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['CustomerOrderByInput'][] | null; // [CustomerOrderByInput!]
+      orderBy?: NexusGenInputs['CustomerOrderByWithRelationInput'][] | null; // [CustomerOrderByWithRelationInput!]
       where?: NexusGenInputs['CustomerWhereInput'] | null; // CustomerWhereInput
     }
     deliveryZone: { // args
@@ -7959,7 +8262,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['DeliveryZoneWhereUniqueInput'] | null; // DeliveryZoneWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['DeliveryZoneOrderByInput'][] | null; // [DeliveryZoneOrderByInput!]
+      orderBy?: NexusGenInputs['DeliveryZoneOrderByWithRelationInput'][] | null; // [DeliveryZoneOrderByWithRelationInput!]
       where?: NexusGenInputs['DeliveryZoneWhereInput'] | null; // DeliveryZoneWhereInput
     }
     offer: { // args
@@ -7970,7 +8273,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['OfferWhereUniqueInput'] | null; // OfferWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['OfferOrderByInput'][] | null; // [OfferOrderByInput!]
+      orderBy?: NexusGenInputs['OfferOrderByWithRelationInput'][] | null; // [OfferOrderByWithRelationInput!]
       where?: NexusGenInputs['OfferWhereInput'] | null; // OfferWhereInput
     }
     order: { // args
@@ -7984,7 +8287,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['OrderItemWhereUniqueInput'] | null; // OrderItemWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['OrderItemOrderByInput'][] | null; // [OrderItemOrderByInput!]
+      orderBy?: NexusGenInputs['OrderItemOrderByWithRelationInput'][] | null; // [OrderItemOrderByWithRelationInput!]
       where?: NexusGenInputs['OrderItemWhereInput'] | null; // OrderItemWhereInput
     }
     orders: { // args
@@ -7992,7 +8295,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['OrderWhereUniqueInput'] | null; // OrderWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['OrderOrderByInput'][] | null; // [OrderOrderByInput!]
+      orderBy?: NexusGenInputs['OrderOrderByWithRelationInput'][] | null; // [OrderOrderByWithRelationInput!]
       where?: NexusGenInputs['OrderWhereInput'] | null; // OrderWhereInput
     }
     product: { // args
@@ -8003,7 +8306,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['ProductCategoryWhereUniqueInput'] | null; // ProductCategoryWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['ProductCategoryOrderByInput'][] | null; // [ProductCategoryOrderByInput!]
+      orderBy?: NexusGenInputs['ProductCategoryOrderByWithRelationInput'][] | null; // [ProductCategoryOrderByWithRelationInput!]
       where?: NexusGenInputs['ProductCategoryWhereInput'] | null; // ProductCategoryWhereInput
     }
     productCategory: { // args
@@ -8014,7 +8317,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['ProductWhereUniqueInput'] | null; // ProductWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['ProductOrderByInput'][] | null; // [ProductOrderByInput!]
+      orderBy?: NexusGenInputs['ProductOrderByWithRelationInput'][] | null; // [ProductOrderByWithRelationInput!]
       where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
     restaurant: { // args
@@ -8028,7 +8331,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['RestaurantConfigWhereUniqueInput'] | null; // RestaurantConfigWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['RestaurantConfigOrderByInput'][] | null; // [RestaurantConfigOrderByInput!]
+      orderBy?: NexusGenInputs['RestaurantConfigOrderByWithRelationInput'][] | null; // [RestaurantConfigOrderByWithRelationInput!]
       where?: NexusGenInputs['RestaurantConfigWhereInput'] | null; // RestaurantConfigWhereInput
     }
     restaurantPlan: { // args
@@ -8039,7 +8342,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['RestaurantPlanWhereUniqueInput'] | null; // RestaurantPlanWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['RestaurantPlanOrderByInput'][] | null; // [RestaurantPlanOrderByInput!]
+      orderBy?: NexusGenInputs['RestaurantPlanOrderByWithRelationInput'][] | null; // [RestaurantPlanOrderByWithRelationInput!]
       where?: NexusGenInputs['RestaurantPlanWhereInput'] | null; // RestaurantPlanWhereInput
     }
     restaurantReview: { // args
@@ -8050,7 +8353,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['RestaurantReviewWhereUniqueInput'] | null; // RestaurantReviewWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['RestaurantReviewOrderByInput'][] | null; // [RestaurantReviewOrderByInput!]
+      orderBy?: NexusGenInputs['RestaurantReviewOrderByWithRelationInput'][] | null; // [RestaurantReviewOrderByWithRelationInput!]
       where?: NexusGenInputs['RestaurantReviewWhereInput'] | null; // RestaurantReviewWhereInput
     }
     restaurantSocial: { // args
@@ -8061,7 +8364,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['RestaurantSocialWhereUniqueInput'] | null; // RestaurantSocialWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['RestaurantSocialOrderByInput'][] | null; // [RestaurantSocialOrderByInput!]
+      orderBy?: NexusGenInputs['RestaurantSocialOrderByWithRelationInput'][] | null; // [RestaurantSocialOrderByWithRelationInput!]
       where?: NexusGenInputs['RestaurantSocialWhereInput'] | null; // RestaurantSocialWhereInput
     }
     restaurants: { // args
@@ -8069,7 +8372,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['RestaurantWhereUniqueInput'] | null; // RestaurantWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['RestaurantOrderByInput'][] | null; // [RestaurantOrderByInput!]
+      orderBy?: NexusGenInputs['RestaurantOrderByWithRelationInput'][] | null; // [RestaurantOrderByWithRelationInput!]
       where?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
     }
     schedule: { // args
@@ -8080,7 +8383,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['ScheduleWhereUniqueInput'] | null; // ScheduleWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['ScheduleOrderByInput'][] | null; // [ScheduleOrderByInput!]
+      orderBy?: NexusGenInputs['ScheduleOrderByWithRelationInput'][] | null; // [ScheduleOrderByWithRelationInput!]
       where?: NexusGenInputs['ScheduleWhereInput'] | null; // ScheduleWhereInput
     }
     user: { // args
@@ -8111,7 +8414,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['DeliveryZoneWhereUniqueInput'] | null; // DeliveryZoneWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['DeliveryZoneOrderByInput'][] | null; // [DeliveryZoneOrderByInput!]
+      orderBy?: NexusGenInputs['DeliveryZoneOrderByWithRelationInput'][] | null; // [DeliveryZoneOrderByWithRelationInput!]
       where?: NexusGenInputs['DeliveryZoneWhereInput'] | null; // DeliveryZoneWhereInput
     }
     offers: { // args
@@ -8137,7 +8440,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['ProductCategoryWhereUniqueInput'] | null; // ProductCategoryWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['ProductCategoryOrderByInput'][] | null; // [ProductCategoryOrderByInput!]
+      orderBy?: NexusGenInputs['ProductCategoryOrderByWithRelationInput'][] | null; // [ProductCategoryOrderByWithRelationInput!]
       where?: NexusGenInputs['ProductCategoryWhereInput'] | null; // ProductCategoryWhereInput
     }
     products: { // args
@@ -8145,7 +8448,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['ProductWhereUniqueInput'] | null; // ProductWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['ProductOrderByInput'][] | null; // [ProductOrderByInput!]
+      orderBy?: NexusGenInputs['ProductOrderByWithRelationInput'][] | null; // [ProductOrderByWithRelationInput!]
       where?: NexusGenInputs['ProductWhereInput'] | null; // ProductWhereInput
     }
     schedules: { // args
@@ -8153,7 +8456,7 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['ScheduleWhereUniqueInput'] | null; // ScheduleWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenInputs['ScheduleOrderByInput'][] | null; // [ScheduleOrderByInput!]
+      orderBy?: NexusGenInputs['ScheduleOrderByWithRelationInput'][] | null; // [ScheduleOrderByWithRelationInput!]
       where?: NexusGenInputs['ScheduleWhereInput'] | null; // ScheduleWhereInput
     }
     socials: { // args
@@ -8250,6 +8553,8 @@ declare global {
      * Default authorization rule to execute on all fields of this object
      */
     shield?: ObjectTypeShieldResolver<TypeName>
+  }
+  interface NexusGenPluginInputTypeConfig<TypeName extends string> {
   }
   interface NexusGenPluginFieldConfig<TypeName extends string, FieldName extends string> {
     /**

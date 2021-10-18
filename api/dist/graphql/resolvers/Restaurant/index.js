@@ -23,7 +23,7 @@ exports.RestaurantReview = exports.RestaurantSocial = exports.RestaurantConfig =
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
-exports.Restaurant = nexus_1.objectType({
+exports.Restaurant = (0, nexus_1.objectType)({
     name: "Restaurant",
     definition(t) {
         t.model.id();
@@ -62,20 +62,20 @@ exports.Restaurant = nexus_1.objectType({
             ordering: true,
             pagination: true,
         });
-        t.model.customers({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
+        t.model.customers({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
         t.model.offers();
         t.model.coupons();
-        t.model.orders({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
-        t.model.orderItems({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
+        t.model.orders({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
+        t.model.orderItems({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
         t.model.productCategory({
             filtering: true,
             ordering: true,
             pagination: true,
         });
         t.model.products({ filtering: true, ordering: true, pagination: true });
-        t.model.plan({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
-        t.model.restaurantPlanId({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
-        t.model.users({ shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()) });
+        t.model.plan({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
+        t.model.restaurantPlanId({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
+        t.model.users({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
         t.model.config();
         t.model.socials();
         t.model.CMSHome();
@@ -86,7 +86,7 @@ exports.Restaurant = nexus_1.objectType({
         t.model.createdAt();
     },
 });
-exports.RestaurantQuery = nexus_1.extendType({
+exports.RestaurantQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.restaurant();
@@ -94,24 +94,24 @@ exports.RestaurantQuery = nexus_1.extendType({
             filtering: true,
             ordering: true,
             pagination: true,
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
         });
     },
 });
-exports.RestaurantMutation = nexus_1.extendType({
+exports.RestaurantMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneRestaurant({
             alias: "createRestaurant",
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)()),
         });
         t.crud.updateOneRestaurant({
             alias: "updateRestaurant",
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
         });
         t.crud.deleteOneRestaurant({
             alias: "deleteRestaurant",
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)()),
         });
     },
 });

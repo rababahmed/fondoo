@@ -22,6 +22,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { useCartStore } from "../../stores/useCartStore";
 import PrimaryButton from "../buttons/PrimaryButton";
 import { MdShoppingCart } from "react-icons/md";
+import { useRouter } from "next/router";
 
 interface Props {
   title: string;
@@ -52,6 +53,9 @@ const CartCard = (props: Props) => {
     return total;
   };
 
+  const router = useRouter();
+  console.log(router.pathname);
+
   return (
     <>
       <Box
@@ -64,6 +68,9 @@ const CartCard = (props: Props) => {
         borderWidth={"1px"}
         borderColor={"gray.200"}
         overflow={"hidden"}
+        mb={
+          router.pathname === "/[host]/order/checkout" ? { base: 10, md: 0 } : 0
+        }
       >
         <Stack>
           <Heading
@@ -161,13 +168,38 @@ const CartCard = (props: Props) => {
                   ৳{(getArraySum(subTotal) * 0) / 100}
                 </Text>
               </Grid>
-              <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
+              {router.pathname === "/[host]/order/checkout" ? (
+                <>
+                  <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
 
-              <Box py={1} />
-              <PrimaryButton
-                cdata={props.cdata}
-                text={"Checkout" + " - ৳" + (getArraySum(subTotal) * 125) / 100}
-              />
+                  <Box py={1} />
+                  <Grid templateColumns={"2fr 2fr"}>
+                    <Text fontSize={"md"} fontWeight={"semibold"}>
+                      Total
+                    </Text>
+                    <Text
+                      fontSize={"md"}
+                      fontWeight={"semibold"}
+                      textAlign={"end"}
+                    >
+                      ৳{(getArraySum(subTotal) * 125) / 100}
+                    </Text>
+                  </Grid>
+                </>
+              ) : (
+                <>
+                  <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
+
+                  <Box py={1} />
+                  <PrimaryButton
+                    cdata={props.cdata}
+                    text={
+                      "Checkout" + " - ৳" + (getArraySum(subTotal) * 125) / 100
+                    }
+                    onClick={() => router.push("/order/checkout")}
+                  />
+                </>
+              )}
             </Stack>
           ) : (
             <Stack

@@ -21,7 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerAddress = exports.CustomerMutation = exports.CustomerQuery = exports.Customer = void 0;
 const nexus_1 = require("nexus");
-exports.Customer = nexus_1.objectType({
+exports.Customer = (0, nexus_1.objectType)({
     name: "Customer",
     definition(t) {
         t.model.id();
@@ -34,7 +34,7 @@ exports.Customer = nexus_1.objectType({
         t.model.restaurants();
     },
 });
-exports.CustomerQuery = nexus_1.extendType({
+exports.CustomerQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.customer();
@@ -45,7 +45,7 @@ exports.CustomerQuery = nexus_1.extendType({
         });
     },
 });
-exports.CustomerMutation = nexus_1.extendType({
+exports.CustomerMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneCustomer({ alias: "createCustomer" });

@@ -62,12 +62,13 @@ input CMSAboutCreateWithoutRestaurantInput {
   storyImage: String
 }
 
-input CMSAboutOrderByInput {
+input CMSAboutOrderByWithRelationInput {
   headerDescription: SortOrder
   headerHeading: SortOrder
   headerImage: SortOrder
   id: SortOrder
   isActive: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   storyDescription: SortOrder
   storyHeading: SortOrder
@@ -170,12 +171,13 @@ input CMSContactCreateWithoutRestaurantInput {
   isActive: Boolean
 }
 
-input CMSContactOrderByInput {
+input CMSContactOrderByWithRelationInput {
   headerDescription: SortOrder
   headerHeading: SortOrder
   headerImage: SortOrder
   id: SortOrder
   isActive: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
 }
 
@@ -301,7 +303,7 @@ input CMSHomeCreateWithoutRestaurantInput {
   reservationImage: String
 }
 
-input CMSHomeOrderByInput {
+input CMSHomeOrderByWithRelationInput {
   aboutDescription: SortOrder
   aboutHeading: SortOrder
   aboutImage: SortOrder
@@ -319,6 +321,7 @@ input CMSHomeOrderByInput {
   reservationDescription: SortOrder
   reservationHeading: SortOrder
   reservationImage: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
 }
 
@@ -445,12 +448,13 @@ input CMSReservationCreateWithoutRestaurantInput {
   isActive: Boolean
 }
 
-input CMSReservationOrderByInput {
+input CMSReservationOrderByWithRelationInput {
   headerDescription: SortOrder
   headerHeading: SortOrder
   headerImage: SortOrder
   id: SortOrder
   isActive: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
 }
 
@@ -541,12 +545,13 @@ input CMSReviewCreateWithoutRestaurantInput {
   isActive: Boolean
 }
 
-input CMSReviewOrderByInput {
+input CMSReviewOrderByWithRelationInput {
   headerDescription: SortOrder
   headerHeading: SortOrder
   headerImage: SortOrder
   id: SortOrder
   isActive: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
 }
 
@@ -703,7 +708,11 @@ input CouponListRelationFilter {
   some: CouponWhereInput
 }
 
-input CouponOrderByInput {
+input CouponOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input CouponOrderByWithRelationInput {
   code: SortOrder
   createdAt: SortOrder
   description: SortOrder
@@ -711,6 +720,8 @@ input CouponOrderByInput {
   endDate: SortOrder
   id: SortOrder
   image: SortOrder
+  orders: OrderOrderByRelationAggregateInput
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   startDate: SortOrder
   updatedAt: SortOrder
@@ -953,12 +964,18 @@ input CustomerAddressListRelationFilter {
   some: CustomerAddressWhereInput
 }
 
-input CustomerAddressOrderByInput {
+input CustomerAddressOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input CustomerAddressOrderByWithRelationInput {
   city: SortOrder
   country: SortOrder
   createdAt: SortOrder
+  customer: CustomerOrderByWithRelationInput
   customerId: SortOrder
   id: SortOrder
+  orders: OrderOrderByRelationAggregateInput
   postCode: SortOrder
   streetAddress: SortOrder
 }
@@ -1201,14 +1218,22 @@ input CustomerListRelationFilter {
   some: CustomerWhereInput
 }
 
-input CustomerOrderByInput {
+input CustomerOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input CustomerOrderByWithRelationInput {
+  addresses: CustomerAddressOrderByRelationAggregateInput
   createdAt: SortOrder
   email: SortOrder
   firstName: SortOrder
   id: SortOrder
   lastName: SortOrder
+  orders: OrderOrderByRelationAggregateInput
   password: SortOrder
   phone: SortOrder
+  restaurants: RestaurantOrderByRelationAggregateInput
+  reviews: RestaurantReviewOrderByRelationAggregateInput
   updatedAt: SortOrder
 }
 
@@ -1453,6 +1478,7 @@ input DeliveryZoneCreateInput {
   minDeliveryAmount: Float
   minDeliveryRadius: Float
   name: String!
+  orders: OrderCreateNestedManyWithoutDeliveryZoneInput
   postCode: String
   preOrderInstructions: String
   restaurant: RestaurantCreateNestedOneWithoutDeliveryZonesInput!
@@ -1485,9 +1511,36 @@ input DeliveryZoneCreateNestedManyWithoutRestaurantInput {
   createMany: DeliveryZoneCreateManyRestaurantInputEnvelope
 }
 
+input DeliveryZoneCreateNestedOneWithoutOrdersInput {
+  connect: DeliveryZoneWhereUniqueInput
+  connectOrCreate: DeliveryZoneCreateOrConnectWithoutOrdersInput
+  create: DeliveryZoneCreateWithoutOrdersInput
+}
+
+input DeliveryZoneCreateOrConnectWithoutOrdersInput {
+  create: DeliveryZoneCreateWithoutOrdersInput!
+  where: DeliveryZoneWhereUniqueInput!
+}
+
 input DeliveryZoneCreateOrConnectWithoutRestaurantInput {
   create: DeliveryZoneCreateWithoutRestaurantInput!
   where: DeliveryZoneWhereUniqueInput!
+}
+
+input DeliveryZoneCreateWithoutOrdersInput {
+  createdAt: DateTime
+  deliveryCharge: Float
+  deliveryFeeType: DeliveryFee
+  deliveryTime: Int
+  id: String
+  isPreOrder: Boolean
+  maxDeliveryRadius: Float
+  minDeliveryAmount: Float
+  minDeliveryRadius: Float
+  name: String!
+  postCode: String
+  preOrderInstructions: String
+  restaurant: RestaurantCreateNestedOneWithoutDeliveryZonesInput!
 }
 
 input DeliveryZoneCreateWithoutRestaurantInput {
@@ -1501,6 +1554,7 @@ input DeliveryZoneCreateWithoutRestaurantInput {
   minDeliveryAmount: Float
   minDeliveryRadius: Float
   name: String!
+  orders: OrderCreateNestedManyWithoutDeliveryZoneInput
   postCode: String
   preOrderInstructions: String
 }
@@ -1511,7 +1565,11 @@ input DeliveryZoneListRelationFilter {
   some: DeliveryZoneWhereInput
 }
 
-input DeliveryZoneOrderByInput {
+input DeliveryZoneOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input DeliveryZoneOrderByWithRelationInput {
   createdAt: SortOrder
   deliveryCharge: SortOrder
   deliveryFeeType: SortOrder
@@ -1522,8 +1580,10 @@ input DeliveryZoneOrderByInput {
   minDeliveryAmount: SortOrder
   minDeliveryRadius: SortOrder
   name: SortOrder
+  orders: OrderOrderByRelationAggregateInput
   postCode: SortOrder
   preOrderInstructions: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
 }
 
@@ -1557,6 +1617,7 @@ input DeliveryZoneUpdateInput {
   minDeliveryAmount: NullableFloatFieldUpdateOperationsInput
   minDeliveryRadius: NullableFloatFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  orders: OrderUpdateManyWithoutDeliveryZoneInput
   postCode: NullableStringFieldUpdateOperationsInput
   preOrderInstructions: NullableStringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutDeliveryZonesInput
@@ -1596,9 +1657,35 @@ input DeliveryZoneUpdateManyWithoutRestaurantInput {
   upsert: [DeliveryZoneUpsertWithWhereUniqueWithoutRestaurantInput!]
 }
 
+input DeliveryZoneUpdateOneWithoutOrdersInput {
+  connect: DeliveryZoneWhereUniqueInput
+  connectOrCreate: DeliveryZoneCreateOrConnectWithoutOrdersInput
+  create: DeliveryZoneCreateWithoutOrdersInput
+  delete: Boolean
+  disconnect: Boolean
+  update: DeliveryZoneUpdateWithoutOrdersInput
+  upsert: DeliveryZoneUpsertWithoutOrdersInput
+}
+
 input DeliveryZoneUpdateWithWhereUniqueWithoutRestaurantInput {
   data: DeliveryZoneUpdateWithoutRestaurantInput!
   where: DeliveryZoneWhereUniqueInput!
+}
+
+input DeliveryZoneUpdateWithoutOrdersInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deliveryCharge: FloatFieldUpdateOperationsInput
+  deliveryFeeType: EnumDeliveryFeeFieldUpdateOperationsInput
+  deliveryTime: NullableIntFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
+  maxDeliveryRadius: NullableFloatFieldUpdateOperationsInput
+  minDeliveryAmount: NullableFloatFieldUpdateOperationsInput
+  minDeliveryRadius: NullableFloatFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  postCode: NullableStringFieldUpdateOperationsInput
+  preOrderInstructions: NullableStringFieldUpdateOperationsInput
+  restaurant: RestaurantUpdateOneRequiredWithoutDeliveryZonesInput
 }
 
 input DeliveryZoneUpdateWithoutRestaurantInput {
@@ -1612,6 +1699,7 @@ input DeliveryZoneUpdateWithoutRestaurantInput {
   minDeliveryAmount: NullableFloatFieldUpdateOperationsInput
   minDeliveryRadius: NullableFloatFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  orders: OrderUpdateManyWithoutDeliveryZoneInput
   postCode: NullableStringFieldUpdateOperationsInput
   preOrderInstructions: NullableStringFieldUpdateOperationsInput
 }
@@ -1620,6 +1708,11 @@ input DeliveryZoneUpsertWithWhereUniqueWithoutRestaurantInput {
   create: DeliveryZoneCreateWithoutRestaurantInput!
   update: DeliveryZoneUpdateWithoutRestaurantInput!
   where: DeliveryZoneWhereUniqueInput!
+}
+
+input DeliveryZoneUpsertWithoutOrdersInput {
+  create: DeliveryZoneCreateWithoutOrdersInput!
+  update: DeliveryZoneUpdateWithoutOrdersInput!
 }
 
 input DeliveryZoneWhereInput {
@@ -1636,6 +1729,7 @@ input DeliveryZoneWhereInput {
   minDeliveryAmount: FloatNullableFilter
   minDeliveryRadius: FloatNullableFilter
   name: StringFilter
+  orders: OrderListRelationFilter
   postCode: StringNullableFilter
   preOrderInstructions: StringNullableFilter
   restaurant: RestaurantWhereInput
@@ -2089,7 +2183,11 @@ input OfferListRelationFilter {
   some: OfferWhereInput
 }
 
-input OfferOrderByInput {
+input OfferOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input OfferOrderByWithRelationInput {
   createdAt: SortOrder
   description: SortOrder
   endDate: SortOrder
@@ -2097,6 +2195,8 @@ input OfferOrderByInput {
   image: SortOrder
   isActive: SortOrder
   name: SortOrder
+  orders: OrderOrderByRelationAggregateInput
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   startDate: SortOrder
   updatedAt: SortOrder
@@ -2244,6 +2344,8 @@ type Order {
   couponId: String
   customerId: String
   deliveryCharge: Float
+  deliveryZone: DeliveryZone
+  deliveryZoneId: String
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String!
@@ -2262,9 +2364,11 @@ input OrderCreateInput {
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
   deliveryCharge: Float
+  deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
   fulfilmentType: FulfilmentType!
   isAccepted: Boolean
+  isPreOrder: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2279,10 +2383,12 @@ input OrderCreateManyAddressInput {
   createdAt: DateTime
   customerId: String
   deliveryCharge: Float
+  deliveryZoneId: String
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
   offerId: String
   restaurantId: String!
   serviceCharge: Float
@@ -2301,10 +2407,12 @@ input OrderCreateManyCouponInput {
   customerAddressId: String
   customerId: String
   deliveryCharge: Float
+  deliveryZoneId: String
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
   offerId: String
   restaurantId: String!
   serviceCharge: Float
@@ -2323,10 +2431,12 @@ input OrderCreateManyCustomerInput {
   createdAt: DateTime
   customerAddressId: String
   deliveryCharge: Float
+  deliveryZoneId: String
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
   offerId: String
   restaurantId: String!
   serviceCharge: Float
@@ -2340,7 +2450,7 @@ input OrderCreateManyCustomerInputEnvelope {
   skipDuplicates: Boolean
 }
 
-input OrderCreateManyOfferInput {
+input OrderCreateManyDeliveryZoneInput {
   couponId: String
   createdAt: DateTime
   customerAddressId: String
@@ -2350,6 +2460,32 @@ input OrderCreateManyOfferInput {
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
+  offerId: String
+  restaurantId: String!
+  serviceCharge: Float
+  total: Float
+  updatedAt: DateTime
+  vat: Float
+}
+
+input OrderCreateManyDeliveryZoneInputEnvelope {
+  data: [OrderCreateManyDeliveryZoneInput!]
+  skipDuplicates: Boolean
+}
+
+input OrderCreateManyOfferInput {
+  couponId: String
+  createdAt: DateTime
+  customerAddressId: String
+  customerId: String
+  deliveryCharge: Float
+  deliveryZoneId: String
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
+  isPreOrder: Boolean
   restaurantId: String!
   serviceCharge: Float
   total: Float
@@ -2368,10 +2504,12 @@ input OrderCreateManyRestaurantInput {
   customerAddressId: String
   customerId: String
   deliveryCharge: Float
+  deliveryZoneId: String
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
   offerId: String
   serviceCharge: Float
   total: Float
@@ -2403,6 +2541,13 @@ input OrderCreateNestedManyWithoutCustomerInput {
   connectOrCreate: [OrderCreateOrConnectWithoutCustomerInput!]
   create: [OrderCreateWithoutCustomerInput!]
   createMany: OrderCreateManyCustomerInputEnvelope
+}
+
+input OrderCreateNestedManyWithoutDeliveryZoneInput {
+  connect: [OrderWhereUniqueInput!]
+  connectOrCreate: [OrderCreateOrConnectWithoutDeliveryZoneInput!]
+  create: [OrderCreateWithoutDeliveryZoneInput!]
+  createMany: OrderCreateManyDeliveryZoneInputEnvelope
 }
 
 input OrderCreateNestedManyWithoutOfferInput {
@@ -2440,6 +2585,11 @@ input OrderCreateOrConnectWithoutCustomerInput {
   where: OrderWhereUniqueInput!
 }
 
+input OrderCreateOrConnectWithoutDeliveryZoneInput {
+  create: OrderCreateWithoutDeliveryZoneInput!
+  where: OrderWhereUniqueInput!
+}
+
 input OrderCreateOrConnectWithoutItemsInput {
   create: OrderCreateWithoutItemsInput!
   where: OrderWhereUniqueInput!
@@ -2460,10 +2610,12 @@ input OrderCreateWithoutAddressInput {
   Customer: CustomerCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
   deliveryCharge: Float
+  deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2478,10 +2630,12 @@ input OrderCreateWithoutCouponInput {
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
   deliveryCharge: Float
+  deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2496,10 +2650,32 @@ input OrderCreateWithoutCustomerInput {
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
   deliveryCharge: Float
+  deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
+  items: OrderItemCreateNestedManyWithoutOrderInput
+  offer: OfferCreateNestedOneWithoutOrdersInput
+  restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
+  serviceCharge: Float
+  total: Float
+  updatedAt: DateTime
+  vat: Float
+}
+
+input OrderCreateWithoutDeliveryZoneInput {
+  Coupon: CouponCreateNestedOneWithoutOrdersInput
+  Customer: CustomerCreateNestedOneWithoutOrdersInput
+  address: CustomerAddressCreateNestedOneWithoutOrdersInput
+  createdAt: DateTime
+  deliveryCharge: Float
+  discount: Float
+  fulfilmentType: FulfilmentType!
+  id: String
+  isAccepted: Boolean
+  isPreOrder: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2515,10 +2691,12 @@ input OrderCreateWithoutItemsInput {
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
   deliveryCharge: Float
+  deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
   serviceCharge: Float
@@ -2533,10 +2711,12 @@ input OrderCreateWithoutOfferInput {
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
   deliveryCharge: Float
+  deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
   serviceCharge: Float
@@ -2551,10 +2731,12 @@ input OrderCreateWithoutRestaurantInput {
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
   deliveryCharge: Float
+  deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
+  isPreOrder: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   serviceCharge: Float
@@ -2711,12 +2893,19 @@ input OrderItemListRelationFilter {
   some: OrderItemWhereInput
 }
 
-input OrderItemOrderByInput {
+input OrderItemOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input OrderItemOrderByWithRelationInput {
   createdAt: SortOrder
   id: SortOrder
+  order: OrderOrderByWithRelationInput
   orderId: SortOrder
+  product: ProductOrderByWithRelationInput
   productId: SortOrder
   quantity: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   spiceLevel: SortOrder
   total: SortOrder
@@ -2910,17 +3099,30 @@ input OrderListRelationFilter {
   some: OrderWhereInput
 }
 
-input OrderOrderByInput {
+input OrderOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input OrderOrderByWithRelationInput {
+  Coupon: CouponOrderByWithRelationInput
+  Customer: CustomerOrderByWithRelationInput
+  address: CustomerAddressOrderByWithRelationInput
   couponId: SortOrder
   createdAt: SortOrder
   customerAddressId: SortOrder
   customerId: SortOrder
   deliveryCharge: SortOrder
+  deliveryZone: DeliveryZoneOrderByWithRelationInput
+  deliveryZoneId: SortOrder
   discount: SortOrder
   fulfilmentType: SortOrder
   id: SortOrder
   isAccepted: SortOrder
+  isPreOrder: SortOrder
+  items: OrderItemOrderByRelationAggregateInput
+  offer: OfferOrderByWithRelationInput
   offerId: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   serviceCharge: SortOrder
   total: SortOrder
@@ -2937,10 +3139,12 @@ input OrderScalarWhereInput {
   customerAddressId: StringNullableFilter
   customerId: StringNullableFilter
   deliveryCharge: FloatNullableFilter
+  deliveryZoneId: StringNullableFilter
   discount: FloatNullableFilter
   fulfilmentType: EnumFulfilmentTypeFilter
   id: StringFilter
   isAccepted: BoolNullableFilter
+  isPreOrder: BoolNullableFilter
   offerId: StringNullableFilter
   restaurantId: StringFilter
   serviceCharge: FloatNullableFilter
@@ -2955,10 +3159,12 @@ input OrderUpdateInput {
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
   fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -2975,6 +3181,7 @@ input OrderUpdateManyMutationInput {
   fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -2992,6 +3199,11 @@ input OrderUpdateManyWithWhereWithoutCouponInput {
 }
 
 input OrderUpdateManyWithWhereWithoutCustomerInput {
+  data: OrderUpdateManyMutationInput!
+  where: OrderScalarWhereInput!
+}
+
+input OrderUpdateManyWithWhereWithoutDeliveryZoneInput {
   data: OrderUpdateManyMutationInput!
   where: OrderScalarWhereInput!
 }
@@ -3048,6 +3260,20 @@ input OrderUpdateManyWithoutCustomerInput {
   upsert: [OrderUpsertWithWhereUniqueWithoutCustomerInput!]
 }
 
+input OrderUpdateManyWithoutDeliveryZoneInput {
+  connect: [OrderWhereUniqueInput!]
+  connectOrCreate: [OrderCreateOrConnectWithoutDeliveryZoneInput!]
+  create: [OrderCreateWithoutDeliveryZoneInput!]
+  createMany: OrderCreateManyDeliveryZoneInputEnvelope
+  delete: [OrderWhereUniqueInput!]
+  deleteMany: [OrderScalarWhereInput!]
+  disconnect: [OrderWhereUniqueInput!]
+  set: [OrderWhereUniqueInput!]
+  update: [OrderUpdateWithWhereUniqueWithoutDeliveryZoneInput!]
+  updateMany: [OrderUpdateManyWithWhereWithoutDeliveryZoneInput!]
+  upsert: [OrderUpsertWithWhereUniqueWithoutDeliveryZoneInput!]
+}
+
 input OrderUpdateManyWithoutOfferInput {
   connect: [OrderWhereUniqueInput!]
   connectOrCreate: [OrderCreateOrConnectWithoutOfferInput!]
@@ -3099,6 +3325,11 @@ input OrderUpdateWithWhereUniqueWithoutCustomerInput {
   where: OrderWhereUniqueInput!
 }
 
+input OrderUpdateWithWhereUniqueWithoutDeliveryZoneInput {
+  data: OrderUpdateWithoutDeliveryZoneInput!
+  where: OrderWhereUniqueInput!
+}
+
 input OrderUpdateWithWhereUniqueWithoutOfferInput {
   data: OrderUpdateWithoutOfferInput!
   where: OrderWhereUniqueInput!
@@ -3114,10 +3345,12 @@ input OrderUpdateWithoutAddressInput {
   Customer: CustomerUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
   fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -3132,10 +3365,12 @@ input OrderUpdateWithoutCouponInput {
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
   fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -3150,10 +3385,32 @@ input OrderUpdateWithoutCustomerInput {
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
   fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
+  items: OrderItemUpdateManyWithoutOrderInput
+  offer: OfferUpdateOneWithoutOrdersInput
+  restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  total: NullableFloatFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  vat: NullableFloatFieldUpdateOperationsInput
+}
+
+input OrderUpdateWithoutDeliveryZoneInput {
+  Coupon: CouponUpdateOneWithoutOrdersInput
+  Customer: CustomerUpdateOneWithoutOrdersInput
+  address: CustomerAddressUpdateOneWithoutOrdersInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  discount: NullableFloatFieldUpdateOperationsInput
+  fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAccepted: NullableBoolFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -3169,10 +3426,12 @@ input OrderUpdateWithoutItemsInput {
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
   fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
@@ -3187,10 +3446,12 @@ input OrderUpdateWithoutOfferInput {
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
   fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
@@ -3205,10 +3466,12 @@ input OrderUpdateWithoutRestaurantInput {
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
+  deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
   fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
+  isPreOrder: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
@@ -3232,6 +3495,12 @@ input OrderUpsertWithWhereUniqueWithoutCouponInput {
 input OrderUpsertWithWhereUniqueWithoutCustomerInput {
   create: OrderCreateWithoutCustomerInput!
   update: OrderUpdateWithoutCustomerInput!
+  where: OrderWhereUniqueInput!
+}
+
+input OrderUpsertWithWhereUniqueWithoutDeliveryZoneInput {
+  create: OrderCreateWithoutDeliveryZoneInput!
+  update: OrderUpdateWithoutDeliveryZoneInput!
   where: OrderWhereUniqueInput!
 }
 
@@ -3264,10 +3533,13 @@ input OrderWhereInput {
   customerAddressId: StringNullableFilter
   customerId: StringNullableFilter
   deliveryCharge: FloatNullableFilter
+  deliveryZone: DeliveryZoneWhereInput
+  deliveryZoneId: StringNullableFilter
   discount: FloatNullableFilter
   fulfilmentType: EnumFulfilmentTypeFilter
   id: StringFilter
   isAccepted: BoolNullableFilter
+  isPreOrder: BoolNullableFilter
   items: OrderItemListRelationFilter
   offer: OfferWhereInput
   offerId: StringNullableFilter
@@ -3300,7 +3572,7 @@ type Product {
 }
 
 type ProductCategory {
-  Product(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByInput!], where: ProductWhereInput): [Product!]!
+  Product(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByWithRelationInput!], where: ProductWhereInput): [Product!]!
   description: String
   id: String!
   image: String
@@ -3389,7 +3661,12 @@ input ProductCategoryListRelationFilter {
   some: ProductCategoryWhereInput
 }
 
-input ProductCategoryOrderByInput {
+input ProductCategoryOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input ProductCategoryOrderByWithRelationInput {
+  Product: ProductOrderByRelationAggregateInput
   createdAt: SortOrder
   description: SortOrder
   id: SortOrder
@@ -3398,6 +3675,7 @@ input ProductCategoryOrderByInput {
   isFeatured: SortOrder
   name: SortOrder
   restaurantId: SortOrder
+  restaurants: RestaurantOrderByWithRelationInput
 }
 
 input ProductCategoryScalarWhereInput {
@@ -3657,7 +3935,11 @@ input ProductListRelationFilter {
   some: ProductWhereInput
 }
 
-input ProductOrderByInput {
+input ProductOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input ProductOrderByWithRelationInput {
   createdAt: SortOrder
   description: SortOrder
   id: SortOrder
@@ -3665,8 +3947,11 @@ input ProductOrderByInput {
   isActive: SortOrder
   isPopular: SortOrder
   name: SortOrder
+  orderItems: OrderItemOrderByRelationAggregateInput
   price: SortOrder
+  productCategory: ProductCategoryOrderByWithRelationInput
   productCategoryId: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   spiceLevel: SortOrder
 }
@@ -3856,45 +4141,45 @@ input ProductWhereUniqueInput {
 
 type Query {
   cmsAbout(where: CMSAboutWhereUniqueInput!): CMSAbout
-  cmsAbouts(after: CMSAboutWhereUniqueInput, before: CMSAboutWhereUniqueInput, first: Int, last: Int, orderBy: [CMSAboutOrderByInput!], where: CMSAboutWhereInput): [CMSAbout!]!
+  cmsAbouts(after: CMSAboutWhereUniqueInput, before: CMSAboutWhereUniqueInput, first: Int, last: Int, orderBy: [CMSAboutOrderByWithRelationInput!], where: CMSAboutWhereInput): [CMSAbout!]!
   cmsContact(where: CMSContactWhereUniqueInput!): CMSContact
-  cmsContacts(after: CMSContactWhereUniqueInput, before: CMSContactWhereUniqueInput, first: Int, last: Int, orderBy: [CMSContactOrderByInput!], where: CMSContactWhereInput): [CMSContact!]!
+  cmsContacts(after: CMSContactWhereUniqueInput, before: CMSContactWhereUniqueInput, first: Int, last: Int, orderBy: [CMSContactOrderByWithRelationInput!], where: CMSContactWhereInput): [CMSContact!]!
   cmsHome(where: CMSHomeWhereUniqueInput!): CMSHome
-  cmsHomes(after: CMSHomeWhereUniqueInput, before: CMSHomeWhereUniqueInput, first: Int, last: Int, orderBy: [CMSHomeOrderByInput!], where: CMSHomeWhereInput): [CMSHome!]!
+  cmsHomes(after: CMSHomeWhereUniqueInput, before: CMSHomeWhereUniqueInput, first: Int, last: Int, orderBy: [CMSHomeOrderByWithRelationInput!], where: CMSHomeWhereInput): [CMSHome!]!
   cmsReservation(where: CMSReservationWhereUniqueInput!): CMSReservation
-  cmsReservations(after: CMSReservationWhereUniqueInput, before: CMSReservationWhereUniqueInput, first: Int, last: Int, orderBy: [CMSReservationOrderByInput!], where: CMSReservationWhereInput): [CMSReservation!]!
+  cmsReservations(after: CMSReservationWhereUniqueInput, before: CMSReservationWhereUniqueInput, first: Int, last: Int, orderBy: [CMSReservationOrderByWithRelationInput!], where: CMSReservationWhereInput): [CMSReservation!]!
   cmsReview(where: CMSReviewWhereUniqueInput!): CMSReview
-  cmsReviews(after: CMSReviewWhereUniqueInput, before: CMSReviewWhereUniqueInput, first: Int, last: Int, orderBy: [CMSReviewOrderByInput!], where: CMSReviewWhereInput): [CMSReview!]!
+  cmsReviews(after: CMSReviewWhereUniqueInput, before: CMSReviewWhereUniqueInput, first: Int, last: Int, orderBy: [CMSReviewOrderByWithRelationInput!], where: CMSReviewWhereInput): [CMSReview!]!
   coupon(where: CouponWhereUniqueInput!): Coupon
-  coupons(after: CouponWhereUniqueInput, before: CouponWhereUniqueInput, first: Int, last: Int, orderBy: [CouponOrderByInput!], where: CouponWhereInput): [Coupon!]!
+  coupons(after: CouponWhereUniqueInput, before: CouponWhereUniqueInput, first: Int, last: Int, orderBy: [CouponOrderByWithRelationInput!], where: CouponWhereInput): [Coupon!]!
   customer(where: CustomerWhereUniqueInput!): Customer
   customerAddress(where: CustomerAddressWhereUniqueInput!): CustomerAddress
-  customerAddresses(after: CustomerAddressWhereUniqueInput, before: CustomerAddressWhereUniqueInput, first: Int, last: Int, orderBy: [CustomerAddressOrderByInput!], where: CustomerAddressWhereInput): [CustomerAddress!]!
-  customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int, orderBy: [CustomerOrderByInput!], where: CustomerWhereInput): [Customer!]!
+  customerAddresses(after: CustomerAddressWhereUniqueInput, before: CustomerAddressWhereUniqueInput, first: Int, last: Int, orderBy: [CustomerAddressOrderByWithRelationInput!], where: CustomerAddressWhereInput): [CustomerAddress!]!
+  customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int, orderBy: [CustomerOrderByWithRelationInput!], where: CustomerWhereInput): [Customer!]!
   deliveryZone(where: DeliveryZoneWhereUniqueInput!): DeliveryZone
-  deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int, orderBy: [DeliveryZoneOrderByInput!], where: DeliveryZoneWhereInput): [DeliveryZone!]!
+  deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int, orderBy: [DeliveryZoneOrderByWithRelationInput!], where: DeliveryZoneWhereInput): [DeliveryZone!]!
   offer(where: OfferWhereUniqueInput!): Offer
-  offers(after: OfferWhereUniqueInput, before: OfferWhereUniqueInput, first: Int, last: Int, orderBy: [OfferOrderByInput!], where: OfferWhereInput): [Offer!]!
+  offers(after: OfferWhereUniqueInput, before: OfferWhereUniqueInput, first: Int, last: Int, orderBy: [OfferOrderByWithRelationInput!], where: OfferWhereInput): [Offer!]!
   order(where: OrderWhereUniqueInput!): Order
   orderItem(where: OrderItemWhereUniqueInput!): OrderItem
-  orderItems(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int, orderBy: [OrderItemOrderByInput!], where: OrderItemWhereInput): [OrderItem!]!
-  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int, orderBy: [OrderOrderByInput!], where: OrderWhereInput): [Order!]!
+  orderItems(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int, orderBy: [OrderItemOrderByWithRelationInput!], where: OrderItemWhereInput): [OrderItem!]!
+  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int, orderBy: [OrderOrderByWithRelationInput!], where: OrderWhereInput): [Order!]!
   product(where: ProductWhereUniqueInput!): Product
-  productCategories(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int, orderBy: [ProductCategoryOrderByInput!], where: ProductCategoryWhereInput): [ProductCategory!]!
+  productCategories(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int, orderBy: [ProductCategoryOrderByWithRelationInput!], where: ProductCategoryWhereInput): [ProductCategory!]!
   productCategory(where: ProductCategoryWhereUniqueInput!): ProductCategory
-  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByInput!], where: ProductWhereInput): [Product!]!
+  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByWithRelationInput!], where: ProductWhereInput): [Product!]!
   restaurant(where: RestaurantWhereUniqueInput!): Restaurant
   restaurantConfig(where: RestaurantConfigWhereUniqueInput!): RestaurantConfig
-  restaurantConfigs(after: RestaurantConfigWhereUniqueInput, before: RestaurantConfigWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantConfigOrderByInput!], where: RestaurantConfigWhereInput): [RestaurantConfig!]!
+  restaurantConfigs(after: RestaurantConfigWhereUniqueInput, before: RestaurantConfigWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantConfigOrderByWithRelationInput!], where: RestaurantConfigWhereInput): [RestaurantConfig!]!
   restaurantPlan(where: RestaurantPlanWhereUniqueInput!): RestaurantPlan
-  restaurantPlans(after: RestaurantPlanWhereUniqueInput, before: RestaurantPlanWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantPlanOrderByInput!], where: RestaurantPlanWhereInput): [RestaurantPlan!]!
+  restaurantPlans(after: RestaurantPlanWhereUniqueInput, before: RestaurantPlanWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantPlanOrderByWithRelationInput!], where: RestaurantPlanWhereInput): [RestaurantPlan!]!
   restaurantReview(where: RestaurantReviewWhereUniqueInput!): RestaurantReview
-  restaurantReviews(after: RestaurantReviewWhereUniqueInput, before: RestaurantReviewWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantReviewOrderByInput!], where: RestaurantReviewWhereInput): [RestaurantReview!]!
+  restaurantReviews(after: RestaurantReviewWhereUniqueInput, before: RestaurantReviewWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantReviewOrderByWithRelationInput!], where: RestaurantReviewWhereInput): [RestaurantReview!]!
   restaurantSocial(where: RestaurantSocialWhereUniqueInput!): RestaurantSocial
-  restaurantSocials(after: RestaurantSocialWhereUniqueInput, before: RestaurantSocialWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantSocialOrderByInput!], where: RestaurantSocialWhereInput): [RestaurantSocial!]!
-  restaurants(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantOrderByInput!], where: RestaurantWhereInput): [Restaurant!]!
+  restaurantSocials(after: RestaurantSocialWhereUniqueInput, before: RestaurantSocialWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantSocialOrderByWithRelationInput!], where: RestaurantSocialWhereInput): [RestaurantSocial!]!
+  restaurants(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantOrderByWithRelationInput!], where: RestaurantWhereInput): [Restaurant!]!
   schedule(where: ScheduleWhereUniqueInput!): Schedule
-  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int, orderBy: [ScheduleOrderByInput!], where: ScheduleWhereInput): [Schedule!]!
+  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int, orderBy: [ScheduleOrderByWithRelationInput!], where: ScheduleWhereInput): [Schedule!]!
   user(where: UserWhereUniqueInput!): User
   users(after: UserWhereUniqueInput, before: UserWhereUniqueInput, first: Int, last: Int): [User!]!
 }
@@ -3921,7 +4206,7 @@ type Restaurant {
   cuisine: String
   currency: String
   customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int): [Customer!]!
-  deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int, orderBy: [DeliveryZoneOrderByInput!], where: DeliveryZoneWhereInput): [DeliveryZone!]!
+  deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int, orderBy: [DeliveryZoneOrderByWithRelationInput!], where: DeliveryZoneWhereInput): [DeliveryZone!]!
   diningStyle: String
   email: String
   hasDelivery: Boolean
@@ -3941,11 +4226,11 @@ type Restaurant {
   plan: RestaurantPlan!
   postCode: String
   priceRange: String
-  productCategory(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int, orderBy: [ProductCategoryOrderByInput!], where: ProductCategoryWhereInput): [ProductCategory!]!
-  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByInput!], where: ProductWhereInput): [Product!]!
+  productCategory(after: ProductCategoryWhereUniqueInput, before: ProductCategoryWhereUniqueInput, first: Int, last: Int, orderBy: [ProductCategoryOrderByWithRelationInput!], where: ProductCategoryWhereInput): [ProductCategory!]!
+  products(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByWithRelationInput!], where: ProductWhereInput): [Product!]!
   reservationPhone: String
   restaurantPlanId: String!
-  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int, orderBy: [ScheduleOrderByInput!], where: ScheduleWhereInput): [Schedule!]!
+  schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int, orderBy: [ScheduleOrderByWithRelationInput!], where: ScheduleWhereInput): [Schedule!]!
   serviceCharge: Float
   socials(after: RestaurantSocialWhereUniqueInput, before: RestaurantSocialWhereUniqueInput, first: Int, last: Int): [RestaurantSocial!]!
   url: String
@@ -3999,13 +4284,14 @@ input RestaurantConfigCreateWithoutRestaurantInput {
   updatedAt: DateTime
 }
 
-input RestaurantConfigOrderByInput {
+input RestaurantConfigOrderByWithRelationInput {
   createdAt: SortOrder
   domain: SortOrder
   hasDarkNavBg: SortOrder
   id: SortOrder
   isActive: SortOrder
   primaryColor: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   secondaryColor: SortOrder
   updatedAt: SortOrder
@@ -5304,15 +5590,28 @@ input RestaurantListRelationFilter {
   some: RestaurantWhereInput
 }
 
-input RestaurantOrderByInput {
+input RestaurantOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input RestaurantOrderByWithRelationInput {
+  CMSAbout: CMSAboutOrderByWithRelationInput
+  CMSContact: CMSContactOrderByWithRelationInput
+  CMSHome: CMSHomeOrderByWithRelationInput
+  CMSReservation: CMSReservationOrderByWithRelationInput
+  CMSReview: CMSReviewOrderByWithRelationInput
   address: SortOrder
   businessPhone: SortOrder
   city: SortOrder
+  config: RestaurantConfigOrderByWithRelationInput
   country: SortOrder
+  coupons: CouponOrderByRelationAggregateInput
   coverImage: SortOrder
   createdAt: SortOrder
   cuisine: SortOrder
   currency: SortOrder
+  customers: CustomerOrderByRelationAggregateInput
+  deliveryZones: DeliveryZoneOrderByRelationAggregateInput
   diningStyle: SortOrder
   email: SortOrder
   hasDelivery: SortOrder
@@ -5326,13 +5625,23 @@ input RestaurantOrderByInput {
   isAutoAcceptReservation: SortOrder
   logo: SortOrder
   name: SortOrder
+  offers: OfferOrderByRelationAggregateInput
+  orderItems: OrderItemOrderByRelationAggregateInput
+  orders: OrderOrderByRelationAggregateInput
+  plan: RestaurantPlanOrderByWithRelationInput
   postCode: SortOrder
   priceRange: SortOrder
+  productCategory: ProductCategoryOrderByRelationAggregateInput
+  products: ProductOrderByRelationAggregateInput
   reservationPhone: SortOrder
   restaurantPlanId: SortOrder
+  reviews: RestaurantReviewOrderByRelationAggregateInput
+  schedules: ScheduleOrderByRelationAggregateInput
   serviceCharge: SortOrder
+  socials: RestaurantSocialOrderByRelationAggregateInput
   updatedAt: SortOrder
   url: SortOrder
+  users: UserOrderByRelationAggregateInput
   vat: SortOrder
 }
 
@@ -5370,11 +5679,12 @@ input RestaurantPlanCreateWithoutRestaurantsInput {
   price: Float!
 }
 
-input RestaurantPlanOrderByInput {
+input RestaurantPlanOrderByWithRelationInput {
   id: SortOrder
   isActive: SortOrder
   name: SortOrder
   price: SortOrder
+  restaurants: RestaurantOrderByRelationAggregateInput
 }
 
 input RestaurantPlanUpdateInput {
@@ -5528,13 +5838,19 @@ input RestaurantReviewListRelationFilter {
   some: RestaurantReviewWhereInput
 }
 
-input RestaurantReviewOrderByInput {
+input RestaurantReviewOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input RestaurantReviewOrderByWithRelationInput {
   createdAt: SortOrder
+  customer: CustomerOrderByWithRelationInput
   customerId: SortOrder
   description: SortOrder
   id: SortOrder
   isActive: SortOrder
   rating: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   title: SortOrder
   updatedAt: SortOrder
@@ -5774,11 +6090,16 @@ input RestaurantSocialListRelationFilter {
   some: RestaurantSocialWhereInput
 }
 
-input RestaurantSocialOrderByInput {
+input RestaurantSocialOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input RestaurantSocialOrderByWithRelationInput {
   createdAt: SortOrder
   id: SortOrder
   isActive: SortOrder
   network: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   updatedAt: SortOrder
   url: SortOrder
@@ -7312,13 +7633,18 @@ input ScheduleListRelationFilter {
   some: ScheduleWhereInput
 }
 
-input ScheduleOrderByInput {
+input ScheduleOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input ScheduleOrderByWithRelationInput {
   closingTime: SortOrder
   createdAt: SortOrder
   day: SortOrder
   id: SortOrder
   openingTime: SortOrder
   pickupTime: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
 }
 
@@ -7506,6 +7832,10 @@ input UserListRelationFilter {
   every: UserWhereInput
   none: UserWhereInput
   some: UserWhereInput
+}
+
+input UserOrderByRelationAggregateInput {
+  _count: SortOrder
 }
 
 input UserScalarWhereInput {

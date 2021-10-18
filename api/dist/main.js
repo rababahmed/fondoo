@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv = __importStar(require("dotenv"));
 const server_1 = require("./server");
 dotenv.config();
-server_1.main().catch((e) => {
+(0, server_1.main)().catch((e) => {
     throw e;
 });
 //# sourceMappingURL=main.js.map

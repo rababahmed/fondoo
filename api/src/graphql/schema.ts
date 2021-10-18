@@ -1,4 +1,4 @@
-import { nexusPrisma } from "nexus-plugin-prisma";
+import { nexusPrisma } from "@kenchi/nexus-plugin-prisma";
 import { makeSchema } from "nexus";
 import path from "path";
 import * as types from "./resolvers";

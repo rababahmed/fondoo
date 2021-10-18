@@ -38,93 +38,95 @@ const { persist, purge } = configurePersist({
 
 export const useCartStore = create<Cart>(
   devtools(
-    // persist(
-    //   {
-    //     key: "cart-store",
-    //   },
-    (set) => ({
-      cart: [],
-      decreaseQuantity: (id) =>
-        set((state) => {
-          const isQuantityMinimum = state.cart.find((p: any) => p.quantity < 2);
+    persist(
+      {
+        key: "cart-store",
+      },
+      (set) => ({
+        cart: [],
+        decreaseQuantity: (id) =>
+          set((state) => {
+            const isQuantityMinimum = state.cart.find(
+              (p: any) => p.quantity < 2
+            );
 
-          if (isQuantityMinimum) {
-            const reducedCart = state.cart.filter((p: any) => p.id !== id);
+            if (isQuantityMinimum) {
+              const reducedCart = state.cart.filter((p: any) => p.id !== id);
+
+              return {
+                ...state,
+                cart: reducedCart,
+              };
+            }
+
+            const updatedCart = state.cart.map((p: any) =>
+              p.id === id
+                ? {
+                    ...p,
+                    quantity: p.quantity - 1,
+                    total: p.total - p.price,
+                  }
+                : p
+            );
 
             return {
               ...state,
-              cart: reducedCart,
+              cart: updatedCart,
             };
-          }
+          }),
+        increaseQuantity: (id) =>
+          set((state) => {
+            const isPresent = state.cart.find((p: any) => p.id === id);
+            if (!isPresent) {
+              return {
+                ...state,
+              };
+            }
+            const updatedCart = state.cart.map((p: any) =>
+              p.id === id
+                ? {
+                    ...p,
+                    quantity: p.quantity + 1,
+                    total: p.total + p.price,
+                  }
+                : p
+            );
 
-          const updatedCart = state.cart.map((p: any) =>
-            p.id === id
-              ? {
-                  ...p,
-                  quantity: p.quantity - 1,
-                  total: p.total - p.price,
-                }
-              : p
-          );
-
-          return {
-            ...state,
-            cart: updatedCart,
-          };
-        }),
-      increaseQuantity: (id) =>
-        set((state) => {
-          const isPresent = state.cart.find((p: any) => p.id === id);
-          if (!isPresent) {
             return {
               ...state,
+              cart: updatedCart,
             };
-          }
-          const updatedCart = state.cart.map((p: any) =>
-            p.id === id
-              ? {
-                  ...p,
-                  quantity: p.quantity + 1,
-                  total: p.total + p.price,
-                }
-              : p
-          );
+          }),
+        addToCart: (id, name, quantity, price) =>
+          set((state) => {
+            const isPresent = state.cart.find((p: any) => p.id === id);
 
-          return {
-            ...state,
-            cart: updatedCart,
-          };
-        }),
-      addToCart: (id, name, quantity, price) =>
-        set((state) => {
-          const isPresent = state.cart.find((p: any) => p.id === id);
+            if (!isPresent) {
+              return {
+                ...state,
+                cart: [
+                  ...state.cart,
+                  { id, name, price, total: price * quantity, quantity },
+                ],
+              };
+            }
 
-          if (!isPresent) {
+            const updatedCart = state.cart.map((p: any) =>
+              p.id === id
+                ? {
+                    ...p,
+                    quantity: p.quantity + quantity,
+                    total: price * (p.quantity + quantity),
+                  }
+                : p
+            );
+
             return {
               ...state,
-              cart: [
-                ...state.cart,
-                { id, name, price, total: price * quantity, quantity },
-              ],
+              cart: updatedCart,
             };
-          }
-
-          const updatedCart = state.cart.map((p: any) =>
-            p.id === id
-              ? {
-                  ...p,
-                  quantity: p.quantity + quantity,
-                  total: price * (p.quantity + quantity),
-                }
-              : p
-          );
-
-          return {
-            ...state,
-            cart: updatedCart,
-          };
-        }),
-    })
+          }),
+      })
+    )
   )
-  // )
 );

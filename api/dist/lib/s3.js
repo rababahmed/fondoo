@@ -38,7 +38,7 @@ const fileFilter = (_req, file, cb) => {
     }
 };
 const formatFilename = (filename) => {
-    const date = date_fns_1.format(new Date(), "yyyyMMdd");
+    const date = (0, date_fns_1.format)(new Date(), "yyyyMMdd");
     const randomString = Math.random().toString(36).substring(2, 7);
     const cleanFileName = filename.toLowerCase().replace(/[^a-z0-9.]/g, "-");
     const newFilename = `${date}-${randomString}-${cleanFileName}`;

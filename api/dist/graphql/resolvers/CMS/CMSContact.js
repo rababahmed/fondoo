@@ -4,7 +4,7 @@ exports.CMSContactMutation = exports.CMSContactQuery = exports.CMSContact = void
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
-exports.CMSContact = nexus_1.objectType({
+exports.CMSContact = (0, nexus_1.objectType)({
     name: "CMSContact",
     definition(t) {
         t.model.id();
@@ -15,7 +15,7 @@ exports.CMSContact = nexus_1.objectType({
         t.model.restaurant();
     },
 });
-exports.CMSContactQuery = nexus_1.extendType({
+exports.CMSContactQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.cmsContact();
@@ -26,19 +26,19 @@ exports.CMSContactQuery = nexus_1.extendType({
         });
     },
 });
-exports.CMSContactMutation = nexus_1.extendType({
+exports.CMSContactMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneCMSContact({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "createCMSContact",
         });
         t.crud.updateOneCMSContact({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "updateCMSContact",
         });
         t.crud.deleteOneCMSContact({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "deleteCMSContact",
         });
     },

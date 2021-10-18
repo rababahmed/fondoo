@@ -34,34 +34,34 @@ const { persist, purge } = configurePersist({
 
 export const useUserStore = create<User>(
   devtools(
-    // persist(
-    //   {
-    //     key: "user-store",
-    //   },
-    (set) => ({
-      isAuthenticated: false,
-      userID: "",
-      token: "",
-      role: "",
-      setUser: (id, token) =>
-        set((state) => {
-          return {
-            ...state,
-            userID: id,
-            token: token,
-            isAuthenticated: true,
-          };
-        }),
-      removeUser: () =>
-        set((state) => {
-          return {
-            ...state,
-            userID: "",
-            token: "",
-            isAuthenticated: false,
-          };
-        }),
-    })
+    persist(
+      {
+        key: "user-store",
+      },
+      (set) => ({
+        isAuthenticated: false,
+        userID: "",
+        token: "",
+        role: "",
+        setUser: (id, token) =>
+          set((state) => {
+            return {
+              ...state,
+              userID: id,
+              token: token,
+              isAuthenticated: true,
+            };
+          }),
+        removeUser: () =>
+          set((state) => {
+            return {
+              ...state,
+              userID: "",
+              token: "",
+              isAuthenticated: false,
+            };
+          }),
+      })
+    )
   )
-  // )
 );

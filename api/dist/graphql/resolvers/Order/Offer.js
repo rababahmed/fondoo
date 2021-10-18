@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OfferMutation = exports.OfferQuery = exports.Offer = void 0;
 const nexus_1 = require("nexus");
-exports.Offer = nexus_1.objectType({
+exports.Offer = (0, nexus_1.objectType)({
     name: "Offer",
     definition(t) {
         t.model.id();
@@ -18,7 +18,7 @@ exports.Offer = nexus_1.objectType({
         t.model.createdAt();
     },
 });
-exports.OfferQuery = nexus_1.extendType({
+exports.OfferQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.offer();
@@ -29,7 +29,7 @@ exports.OfferQuery = nexus_1.extendType({
         });
     },
 });
-exports.OfferMutation = nexus_1.extendType({
+exports.OfferMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneOffer({ alias: "createOffer" });

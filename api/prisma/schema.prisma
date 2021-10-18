@@ -241,6 +241,7 @@ model DeliveryZone {
   maxDeliveryRadius    Float?
   restaurant           Restaurant  @relation(fields: [restaurantId], references: [id])
   restaurantId         String
+  orders               Order[]
 }
 
 enum DeliveryFee {
@@ -354,12 +355,14 @@ model Order {
   id                String           @id @default(cuid())
   items             OrderItem[]
   fulfilmentType    FulfilmentType
+  deliveryZone      DeliveryZone?    @relation(fields: [deliveryZoneId], references: [id])   
   address           CustomerAddress? @relation(fields: [customerAddressId], references: [id])
   discount          Float?
   deliveryCharge    Float?
   vat               Float?
   serviceCharge     Float?
   total             Float?
+  isPreOrder        Boolean?
   isAccepted        Boolean?
   Coupon            Coupon?          @relation(fields: [couponId], references: [id])
   couponId          String?
@@ -371,5 +374,6 @@ model Order {
   customerId        String?
   createdAt         DateTime         @default(now())
   updatedAt         DateTime         @updatedAt
+  deliveryZoneId    String?   
   customerAddressId String?
 }

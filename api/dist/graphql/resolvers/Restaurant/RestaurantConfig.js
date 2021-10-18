@@ -4,7 +4,7 @@ exports.RestaurantConfigMutation = exports.RestaurantConfigQuery = exports.Resta
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
-exports.RestaurantConfig = nexus_1.objectType({
+exports.RestaurantConfig = (0, nexus_1.objectType)({
     name: "RestaurantConfig",
     definition(t) {
         t.model.id();
@@ -18,7 +18,7 @@ exports.RestaurantConfig = nexus_1.objectType({
         t.model.restaurant();
     },
 });
-exports.RestaurantConfigQuery = nexus_1.extendType({
+exports.RestaurantConfigQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.restaurantConfig();
@@ -26,24 +26,24 @@ exports.RestaurantConfigQuery = nexus_1.extendType({
             filtering: true,
             ordering: true,
             pagination: true,
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)()),
         });
     },
 });
-exports.RestaurantConfigMutation = nexus_1.extendType({
+exports.RestaurantConfigMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneRestaurantConfig({
             alias: "createRestaurantConfig",
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)()),
         });
         t.crud.updateOneRestaurantConfig({
             alias: "updateRestaurantConfig",
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
         });
         t.crud.deleteOneRestaurantConfig({
             alias: "deleteRestaurantConfig",
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)()),
         });
     },
 });

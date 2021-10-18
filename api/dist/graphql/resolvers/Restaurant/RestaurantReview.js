@@ -4,7 +4,7 @@ exports.RestaurantReviewMutation = exports.RestaurantReviewQuery = exports.Resta
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
-exports.RestaurantReview = nexus_1.objectType({
+exports.RestaurantReview = (0, nexus_1.objectType)({
     name: "RestaurantReview",
     definition(t) {
         t.model.id();
@@ -18,7 +18,7 @@ exports.RestaurantReview = nexus_1.objectType({
         t.model.updatedAt();
     },
 });
-exports.RestaurantReviewQuery = nexus_1.extendType({
+exports.RestaurantReviewQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.restaurantReview();
@@ -29,7 +29,7 @@ exports.RestaurantReviewQuery = nexus_1.extendType({
         });
     },
 });
-exports.RestaurantReviewMutation = nexus_1.extendType({
+exports.RestaurantReviewMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneRestaurantReview({
@@ -37,11 +37,11 @@ exports.RestaurantReviewMutation = nexus_1.extendType({
         });
         t.crud.updateOneRestaurantReview({
             alias: "updateRestaurantReview",
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
         });
         t.crud.deleteOneRestaurantReview({
             alias: "deleteRestaurantReview",
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
         });
     },
 });

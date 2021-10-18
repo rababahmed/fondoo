@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerMutation = exports.CustomerQuery = exports.CustomerAddress = void 0;
 const nexus_1 = require("nexus");
-exports.CustomerAddress = nexus_1.objectType({
+exports.CustomerAddress = (0, nexus_1.objectType)({
     name: "CustomerAddress",
     definition(t) {
         t.model.id();
@@ -14,7 +14,7 @@ exports.CustomerAddress = nexus_1.objectType({
         t.model.customerId();
     },
 });
-exports.CustomerQuery = nexus_1.extendType({
+exports.CustomerQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.customerAddress();
@@ -25,7 +25,7 @@ exports.CustomerQuery = nexus_1.extendType({
         });
     },
 });
-exports.CustomerMutation = nexus_1.extendType({
+exports.CustomerMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneCustomerAddress({ alias: "createCustomerAddress" });

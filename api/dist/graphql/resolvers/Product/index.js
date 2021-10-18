@@ -23,7 +23,7 @@ exports.ProductCategory = exports.ProductMutation = exports.ProductQuery = expor
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
-exports.Product = nexus_1.objectType({
+exports.Product = (0, nexus_1.objectType)({
     name: "Product",
     definition(t) {
         t.model.id();
@@ -41,7 +41,7 @@ exports.Product = nexus_1.objectType({
         t.model.orderItems();
     },
 });
-exports.ProductQuery = nexus_1.extendType({
+exports.ProductQuery = (0, nexus_1.extendType)({
     type: "Query",
     definition(t) {
         t.crud.product();
@@ -52,19 +52,19 @@ exports.ProductQuery = nexus_1.extendType({
         });
     },
 });
-exports.ProductMutation = nexus_1.extendType({
+exports.ProductMutation = (0, nexus_1.extendType)({
     type: "Mutation",
     definition(t) {
         t.crud.createOneProduct({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "createProduct",
         });
         t.crud.updateOneProduct({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "updateProduct",
         });
         t.crud.deleteOneProduct({
-            shield: nexus_shield_1.or(isAuthenticated_1.isAdmin(), isAuthenticated_1.isOwner(), isAuthenticated_1.isManager()),
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
             alias: "deleteProduct",
         });
     },
