@@ -1,8 +1,17 @@
 import React from "react";
-import { Box, SimpleGrid, Stack, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  SimpleGrid,
+  Skeleton,
+  Stack,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { Formik } from "formik";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
 import * as Yup from "yup";
+import { useGQLQuery } from "../../hooks/useGQLQuery";
+import { useUserStore } from "../../stores/useUserStore";
+import { GET_USER_DETAILS } from "../../graphql/user";
 
 interface Props {
   rdata: any;
@@ -10,19 +19,26 @@ interface Props {
 }
 
 const AccountDetails = ({ rdata, cdata }: Props) => {
+  const userId = useUserStore((state) => state.userID);
+
+  const { data, error, isLoading, isSuccess } = useGQLQuery(
+    "get-user-details",
+    GET_USER_DETAILS,
+    {
+      id: userId,
+    }
+  );
+
   const initialValues = {
-    email: "",
-    password: "",
+    firstName: (isSuccess && data.customer.firstName) || "",
+    lastName: (isSuccess && data.customer.lastName) || "",
+    email: (isSuccess && data.customer.email) || "",
+    phone: (isSuccess && data.customer.phone) || "",
   };
 
   const validationSchema = Yup.object({
     email: Yup.string().required("Email is required."),
-    password: Yup.string().required("Password is required."),
   });
-
-  const PasswordProps = {
-    type: "password",
-  };
 
   return (
     <>
@@ -39,19 +55,22 @@ const AccountDetails = ({ rdata, cdata }: Props) => {
         <Formik
           onSubmit={() => console.log("hello")}
           initialValues={initialValues}
+          enableReinitialize={true}
           validationSchema={validationSchema}
         >
           {({ handleSubmit }) => (
             <Box as="form" onSubmit={handleSubmit as any}>
               <Stack spacing="6">
-                <SimpleGrid columns={2} spacing={6}>
-                  <InputControl name="firstName" label="First Name" />
-                  <InputControl name="lastName" label="Last Name" />
-                  <InputControl name="email" label="Email" />
-                  <InputControl name="phone" label="Phone" />
-                </SimpleGrid>
+                <Skeleton isLoaded={!isLoading}>
+                  <SimpleGrid columns={2} spacing={6}>
+                    <InputControl name="firstName" label="First Name" />
+                    <InputControl name="lastName" label="Last Name" />
+                    <InputControl name="email" label="Email" />
+                    <InputControl name="phone" label="Phone" />
+                  </SimpleGrid>
+                </Skeleton>
                 <Box>
-                  <Stack mt={4} pb={2}>
+                  <Stack mt={4} pb={2} px={10}>
                     <SubmitButton
                       loadingText="Logging in"
                       bgColor={cdata.secondaryColor}

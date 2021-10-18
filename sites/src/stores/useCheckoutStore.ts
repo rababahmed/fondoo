@@ -3,16 +3,12 @@ import { configurePersist } from "zustand-persist";
 import { devtools } from "zustand/middleware";
 import omit from "lodash/omit";
 
-interface Cart {
-  cart: any;
-  decreaseQuantity: (id: string) => void;
-  increaseQuantity: (id: string) => void;
-  addToCart: (
-    id: string,
-    name: string,
-    quantity: number,
-    price: number
-  ) => void;
+interface Checkout {
+  fulfilmentType: string;
+  deliveryZoneId: string;
+  deliveryFee: number;
+  setFulfilmentType: (fulfilmentType: string) => void;
+  setDelivery: (id: string, fee: number) => void;
 }
 
 const isBrowser = typeof window !== "undefined";
@@ -36,95 +32,33 @@ const { persist, purge } = configurePersist({
   rootKey: "root",
 });
 
-export const useCheckoutStore = create<Cart>(
+export const useCheckoutStore = create<Checkout>(
   devtools(
-    // persist(
-    //   {
-    //     key: "cart-store",
-    //   },
-    (set) => ({
-      cart: [],
-      decreaseQuantity: (id) =>
-        set((state) => {
-          const isQuantityMinimum = state.cart.find((p: any) => p.quantity < 2);
+    persist(
+      {
+        key: "checkout-store",
+      },
+      (set) => ({
+        fulfilmentType: "",
+        deliveryZoneId: "",
 
-          if (isQuantityMinimum) {
-            const reducedCart = state.cart.filter((p: any) => p.id !== id);
-
+        deliveryFee: 0,
+        setFulfilmentType: (fulfilmentType) =>
+          set((state) => {
             return {
               ...state,
-              cart: reducedCart,
+              fulfilmentType: fulfilmentType,
             };
-          }
-
-          const updatedCart = state.cart.map((p: any) =>
-            p.id === id
-              ? {
-                  ...p,
-                  quantity: p.quantity - 1,
-                  total: p.total - p.price,
-                }
-              : p
-          );
-
-          return {
-            ...state,
-            cart: updatedCart,
-          };
-        }),
-      increaseQuantity: (id) =>
-        set((state) => {
-          const isPresent = state.cart.find((p: any) => p.id === id);
-          if (!isPresent) {
+          }),
+        setDelivery: (id, fee) =>
+          set((state) => {
             return {
               ...state,
+              deliveryZoneId: id,
+              deliveryFee: fee,
             };
-          }
-          const updatedCart = state.cart.map((p: any) =>
-            p.id === id
-              ? {
-                  ...p,
-                  quantity: p.quantity + 1,
-                  total: p.total + p.price,
-                }
-              : p
-          );
-
-          return {
-            ...state,
-            cart: updatedCart,
-          };
-        }),
-      addToCart: (id, name, quantity, price) =>
-        set((state) => {
-          const isPresent = state.cart.find((p: any) => p.id === id);
-
-          if (!isPresent) {
-            return {
-              ...state,
-              cart: [
-                ...state.cart,
-                { id, name, price, total: price * quantity, quantity },
-              ],
-            };
-          }
-
-          const updatedCart = state.cart.map((p: any) =>
-            p.id === id
-              ? {
-                  ...p,
-                  quantity: p.quantity + quantity,
-                  total: price * (p.quantity + quantity),
-                }
-              : p
-          );
-
-          return {
-            ...state,
-            cart: updatedCart,
-          };
-        }),
-    })
+          }),
+      })
+    )
   )
-  // )
 );

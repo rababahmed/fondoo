@@ -80,16 +80,17 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
               border={"1px"}
               borderColor={"gray.200"}
               overflow={"hidden"}
+              gridRowStart={{ base: 2, md: 1 }}
             >
               <Stack px={8} spacing={4}>
                 <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
-                  Delivery Details
+                  Time
                 </Text>
                 <FlatCard title="5:45PM" description="DELIVERY" />
               </Stack>
               <Stack px={8} spacing={4}>
                 <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
-                  Delivery Address
+                  Address
                 </Text>
                 <FlatCard>
                   <Stack direction={"row"}>
@@ -108,7 +109,7 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
               </Stack>
               <Stack px={8} spacing={4}>
                 <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
-                  Payment Method
+                  Payment
                 </Text>
                 <FlatCard
                   boxProps={{ bg: "#52BE80", maxW: 200, cursor: "pointer" }}
@@ -133,7 +134,7 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
               </Stack>
             </Stack>
 
-            <Box>
+            <Box px={{ base: 4, md: 0 }}>
               <CartCard
                 title={"My Order"}
                 titleBg={cdata.primaryColor}

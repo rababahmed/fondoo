@@ -8,7 +8,11 @@ import {
   Stack,
   Button,
   useColorModeValue,
+  Skeleton,
 } from "@chakra-ui/react";
+import { GET_USER_DETAILS } from "../../graphql/user";
+import { useGQLQuery } from "../../hooks/useGQLQuery";
+import { useUserStore } from "../../stores/useUserStore";
 
 interface Props {
   rdata: any;
@@ -16,6 +20,18 @@ interface Props {
 }
 
 export default function AccountCard({ rdata, cdata }: Props) {
+  const userId = useUserStore((state) => state.userID);
+
+  const { data, error, isLoading, isSuccess } = useGQLQuery(
+    "get-user-details",
+    GET_USER_DETAILS,
+    {
+      id: userId,
+    }
+  );
+
+  console.log(data);
+
   return (
     <Center>
       <Box
@@ -32,24 +48,47 @@ export default function AccountCard({ rdata, cdata }: Props) {
           <Avatar size="2xl" bg={cdata.secondaryColor} name="Rabab Ahmed" />
         </Flex>
         <Box p={6}>
-          <Stack spacing={0} align={"center"} mb={5}>
-            <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
-              Rabab Ahmed
-            </Heading>
-            <Text color={"gray.500"} textAlign={"center"}>
-              House 956, Road 13, Block G, Bashundhara R/A
-            </Text>
-          </Stack>
-
+          <Skeleton isLoaded={!isLoading}>
+            <Stack spacing={0} align={"center"} mb={5}>
+              <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
+                {isSuccess && data.customer.firstName}{" "}
+                {isSuccess && data.customer.lastName}
+              </Heading>
+              <Text color={"gray.500"} textAlign={"center"}>
+                {isSuccess && data.customer.addresses
+                  ? data.customer.addresses[0].streetAddress
+                  : null}
+                ,{" "}
+                {isSuccess && data.customer.addresses
+                  ? data.customer.addresses[0].city
+                  : null}{" "}
+                {isSuccess && data.customer.addresses
+                  ? data.customer.addresses[0].postCode
+                  : null}
+                ,{" "}
+                {isSuccess && data.customer.addresses
+                  ? data.customer.addresses[0].country
+                  : null}
+              </Text>
+            </Stack>
+          </Skeleton>
           <Stack direction={"row"} justify={"center"} spacing={6}>
             <Stack spacing={0} align={"center"}>
-              <Text fontWeight={600}>10</Text>
+              <Text fontWeight={600}>
+                {isSuccess && data.customer.orders
+                  ? data.customer.orders.length
+                  : 0}
+              </Text>
               <Text fontSize={"sm"} color={"gray.500"}>
                 Orders
               </Text>
             </Stack>
             <Stack spacing={0} align={"center"}>
-              <Text fontWeight={600}>2</Text>
+              <Text fontWeight={600}>
+                {isSuccess && data.customer.orders
+                  ? data.customer.orders.length
+                  : 0}
+              </Text>
               <Text fontSize={"sm"} color={"gray.500"}>
                 Reservations
               </Text>

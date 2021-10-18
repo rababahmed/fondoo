@@ -17,6 +17,7 @@ import Image from "next/image";
 import { Constants } from "../../config";
 import AccountCard from "./AccountCard";
 import AccountDetails from "./AccountDetails";
+import AddressDetails from "./AddressDetails";
 
 interface Props {
   rdata: any;
@@ -56,7 +57,7 @@ export const AccountContainer = ({ rdata, cdata }: Props) => {
                     <AccountDetails rdata={rdata} cdata={cdata} />
                   </TabPanel>
                   <TabPanel>
-                    <p>two!</p>
+                    <AddressDetails rdata={rdata} cdata={cdata} />
                   </TabPanel>
                 </TabPanels>
               </Tabs>
