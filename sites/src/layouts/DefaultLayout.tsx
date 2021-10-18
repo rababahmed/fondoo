@@ -4,6 +4,7 @@ import NavBar from "../components/navbar/NavBar";
 import TopRibbon from "../components/navbar/TopRibbon";
 import Sticky from "react-stickynode";
 import Footer from "../components/footer/Footer";
+import NextNprogress from "nextjs-progressbar";
 
 const DefaultLayout = ({ children, rdata, cdata }: any) => {
   return (
@@ -13,6 +14,14 @@ const DefaultLayout = ({ children, rdata, cdata }: any) => {
         <NavBar rdata={rdata} cdata={cdata} />
         {children}
         <Footer rdata={rdata} cdata={cdata} />
+        <NextNprogress
+          color={cdata.primaryColor}
+          startPosition={0.3}
+          stopDelayMs={200}
+          height={2}
+          showOnShallow={true}
+          options={{ showSpinner: false }}
+        />
       </Box>
     </>
   );
