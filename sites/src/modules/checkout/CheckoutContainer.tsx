@@ -30,7 +30,6 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
   const deliveryZoneId = useCheckoutStore((state) => state.deliveryZoneId);
   const fulfilmentType = useCheckoutStore((state) => state.fulfilmentType);
   const userId = useUserStore((state) => state.userID);
-  const setAddress = useUserStore((state) => state.setAddress);
 
   const { data, error, isLoading, isSuccess } = useGQLQuery(
     "get-user-details",
@@ -40,12 +39,10 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
     }
   );
 
-  setAddress(data && data.customer.addresses[0].id);
-
   const deliverySchedule = rdata.deliveryZones.find(
     (d: any) => d.id === deliveryZoneId
   );
-  const deliveryTime = deliverySchedule.deliveryTime;
+  const deliveryTime = deliverySchedule?.deliveryTime;
   const deliveryETA = format(
     add(new Date(), {
       minutes: deliveryTime,
@@ -93,7 +90,10 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
                 <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                   Time
                 </Text>
-                <FlatCard title={deliveryETA} description={fulfilmentType} />
+                <FlatCard
+                  title={deliveryETA || ""}
+                  description={fulfilmentType || ""}
+                />
               </Stack>
               <Stack px={8} spacing={4}>
                 <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
