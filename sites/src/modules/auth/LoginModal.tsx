@@ -21,6 +21,8 @@ import { Formik } from "formik";
 import axios from "axios";
 import { Constants } from "../../config";
 import { useUserStore } from "../../stores/useUserStore";
+import { useGQLQuery } from "../../hooks/useGQLQuery";
+import { GET_USER_DETAILS } from "../../graphql/user";
 
 interface Props {
   rdata: any;
@@ -45,6 +47,8 @@ const LoginModal = ({ rdata, cdata }: Props) => {
   };
 
   const toast = useToast();
+
+  const setAddress = useUserStore((state) => state.setAddress);
 
   const onSubmit = async (values: any) => {
     const login = await axios

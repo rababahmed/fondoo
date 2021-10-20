@@ -1,5 +1,5 @@
 import { Box, Text, Stack, Flex, Grid, SimpleGrid } from "@chakra-ui/layout";
-import { Icon } from "@chakra-ui/react";
+import { Icon, Skeleton } from "@chakra-ui/react";
 import React from "react";
 import Image from "next/image";
 import { useColorModeValue } from "@chakra-ui/color-mode";
@@ -12,6 +12,14 @@ import { Constants } from "../../config";
 import FlatCard from "../../components/card/FlatCard";
 import { GiMoneyStack } from "react-icons/gi";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
+import DeliveryModal from "../order/DeliveryModal";
+import { add, format } from "date-fns";
+import { useCheckoutStore } from "../../stores/useCheckoutStore";
+import { useGQLQuery } from "../../hooks/useGQLQuery";
+import { GET_USER_DETAILS, PLACE_ORDER } from "../../graphql/user";
+import { useUserStore } from "../../stores/useUserStore";
+import { useGQLMutation } from "../../hooks/useGQLMutation";
+import PlaceOrderButton from "../../components/buttons/PlaceOrderButton";
 
 interface Props {
   rdata: any;
@@ -19,7 +27,31 @@ interface Props {
 }
 
 export const CheckoutContainer = ({ rdata, cdata }: Props) => {
-  const [isDelivery, setIsDelivery] = React.useState(true);
+  const deliveryZoneId = useCheckoutStore((state) => state.deliveryZoneId);
+  const fulfilmentType = useCheckoutStore((state) => state.fulfilmentType);
+  const userId = useUserStore((state) => state.userID);
+  const setAddress = useUserStore((state) => state.setAddress);
+
+  const { data, error, isLoading, isSuccess } = useGQLQuery(
+    "get-user-details",
+    GET_USER_DETAILS,
+    {
+      id: userId,
+    }
+  );
+
+  setAddress(data && data.customer.addresses[0].id);
+
+  const deliverySchedule = rdata.deliveryZones.find(
+    (d: any) => d.id === deliveryZoneId
+  );
+  const deliveryTime = deliverySchedule.deliveryTime;
+  const deliveryETA = format(
+    add(new Date(), {
+      minutes: deliveryTime,
+    }),
+    "p"
+  );
 
   return (
     <>
@@ -39,32 +71,7 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
             mt={{ base: 6, md: 0 }}
           >
             <Box></Box>
-            <Box bg="#dddddd" rounded="full">
-              <Button
-                bg={isDelivery ? "transparent" : "black"}
-                color={isDelivery ? "black" : "white"}
-                _hover={isDelivery ? { bg: "#cacaca" } : { bg: "gray.900" }}
-                rounded="full"
-                size={"sm"}
-                onClick={() => {
-                  setIsDelivery(false);
-                }}
-              >
-                Pickup
-              </Button>
-              <Button
-                bg={isDelivery ? "black" : "transparent"}
-                color={isDelivery ? "white" : "black"}
-                _hover={isDelivery ? { bg: "gray.900" } : { bg: "#cacaca" }}
-                rounded="full"
-                size={"sm"}
-                onClick={() => {
-                  setIsDelivery(true);
-                }}
-              >
-                Delivery
-              </Button>
-            </Box>
+            <DeliveryModal rdata={rdata} cdata={cdata} />
           </Flex>
 
           <Grid
@@ -86,24 +93,35 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
                 <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                   Time
                 </Text>
-                <FlatCard title="5:45PM" description="DELIVERY" />
+                <FlatCard title={deliveryETA} description={fulfilmentType} />
               </Stack>
               <Stack px={8} spacing={4}>
                 <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                   Address
                 </Text>
                 <FlatCard>
-                  <Stack direction={"row"}>
-                    <Text fontWeight={"semibold"}>Name:</Text>
-                    <Text>Rabab Ahmed</Text>
-                  </Stack>
+                  <Skeleton isLoaded={!isLoading}>
+                    <Stack direction={"row"}>
+                      <Text fontWeight={"semibold"}>Name:</Text>
+                      <Text>
+                        {(isSuccess && data.customer.firstName) || ""}{" "}
+                        {(isSuccess && data.customer.lastName) || ""}
+                      </Text>
+                    </Stack>
+                  </Skeleton>
                   <Stack direction={"row"}>
                     <Text fontWeight={"semibold"}>Address:</Text>
-                    <Text>House XX, Road XX, Block XX, Gulshan</Text>
+                    <Text>
+                      {(isSuccess &&
+                        data.customer.addresses[0].streetAddress) ||
+                        ""}
+                      , {(isSuccess && data.customer.addresses[0].city) || ""}{" "}
+                      {(isSuccess && data.customer.addresses[0].postCode) || ""}
+                    </Text>
                   </Stack>
                   <Stack direction={"row"}>
                     <Text fontWeight={"semibold"}>Contact:</Text>
-                    <Text>+88016XXXXXXX</Text>
+                    <Text>{(isSuccess && data.customer.phone) || ""}</Text>
                   </Stack>
                 </FlatCard>
               </Stack>
@@ -129,7 +147,7 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
                 </FlatCard>
 
                 <Stack py={4} px={{ base: 4, md: 20 }}>
-                  <PrimaryButton cdata={cdata} text="PLACE ORDER" />
+                  <PlaceOrderButton rdata={rdata} cdata={cdata} />
                 </Stack>
               </Stack>
             </Stack>
@@ -139,6 +157,7 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
                 title={"My Order"}
                 titleBg={cdata.primaryColor}
                 cdata={cdata}
+                rdata={rdata}
               />
             </Box>
           </Grid>

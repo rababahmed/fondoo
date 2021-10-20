@@ -34,21 +34,24 @@ export const GET_RESTAURANT_INFO = gql`
         isAutoAcceptOrder
         isAutoAcceptReservation
         schedules {
+          id
           day
           openingTime
           closingTime
           pickupTime
         }
         deliveryZones {
+          id
           name
           postCode
           deliveryFeeType
           deliveryCharge
-          minDeliveryAmount
-          minDeliveryRadius
-          maxDeliveryRadius
+          deliveryTime
+          isPreOrder
+          preOrderInstructions
         }
         productCategory(orderBy: { createdAt: asc }) {
+          id
           name
           description
           isActive

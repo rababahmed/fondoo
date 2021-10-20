@@ -11,6 +11,7 @@ import {
   Grid,
   Flex,
 } from "@chakra-ui/layout";
+import { useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import Image from "next/image";
 import { useColorModeValue } from "@chakra-ui/color-mode";
@@ -25,6 +26,8 @@ import CartCard from "../../components/card/CartCard";
 import ClickableText from "../../components/misc/ClickableText";
 import MenuNavItem from "../../components/misc/MenuNavItem";
 import { Constants } from "../../config";
+import { useCheckoutStore } from "../../stores/useCheckoutStore";
+import DeliveryModal from "./DeliveryModal";
 
 interface Props {
   rdata: any;
@@ -32,8 +35,6 @@ interface Props {
 }
 
 export const OrderContainer = ({ rdata, cdata }: Props) => {
-  const [isDelivery, setIsDelivery] = React.useState(true);
-
   return (
     <>
       <Box bg={"white"}>
@@ -52,32 +53,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
             mt={{ base: 6, md: 0 }}
           >
             <Box></Box>
-            <Box bg="#dddddd" rounded="full">
-              <Button
-                bg={isDelivery ? "transparent" : "black"}
-                color={isDelivery ? "black" : "white"}
-                _hover={isDelivery ? { bg: "#cacaca" } : { bg: "gray.900" }}
-                rounded="full"
-                size={"sm"}
-                onClick={() => {
-                  setIsDelivery(false);
-                }}
-              >
-                Pickup
-              </Button>
-              <Button
-                bg={isDelivery ? "black" : "transparent"}
-                color={isDelivery ? "white" : "black"}
-                _hover={isDelivery ? { bg: "gray.900" } : { bg: "#cacaca" }}
-                rounded="full"
-                size={"sm"}
-                onClick={() => {
-                  setIsDelivery(true);
-                }}
-              >
-                Delivery
-              </Button>
-            </Box>
+            <DeliveryModal rdata={rdata} cdata={cdata} />
           </Flex>
           <Box zIndex="10" pos="sticky" top="20" px={{ base: 0, md: 40 }}>
             <Stack
@@ -149,6 +125,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
                 title={"My Order"}
                 titleBg={cdata.primaryColor}
                 cdata={cdata}
+                rdata={rdata}
               />
             </Box>
           </Grid>

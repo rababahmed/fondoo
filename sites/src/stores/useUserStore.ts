@@ -7,7 +7,9 @@ interface User {
   isAuthenticated: boolean;
   userID: string;
   token: string;
+  addressId: string;
   setUser: (id: string, token: string) => void;
+  setAddress: (id: string) => void;
   removeUser: () => void;
 }
 
@@ -43,6 +45,7 @@ export const useUserStore = create<User>(
         userID: "",
         token: "",
         role: "",
+        addressId: "",
         setUser: (id, token) =>
           set((state) => {
             return {
@@ -52,12 +55,20 @@ export const useUserStore = create<User>(
               isAuthenticated: true,
             };
           }),
+        setAddress: (id) =>
+          set((state) => {
+            return {
+              ...state,
+              addressId: id,
+            };
+          }),
         removeUser: () =>
           set((state) => {
             return {
               ...state,
               userID: "",
               token: "",
+              addressId: "",
               isAuthenticated: false,
             };
           }),

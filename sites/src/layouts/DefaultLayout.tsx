@@ -5,6 +5,7 @@ import TopRibbon from "../components/navbar/TopRibbon";
 import Sticky from "react-stickynode";
 import Footer from "../components/footer/Footer";
 import NextNprogress from "nextjs-progressbar";
+import { useCheckoutStore } from "../stores/useCheckoutStore";
 
 const DefaultLayout = ({ children, rdata, cdata }: any) => {
   return (
@@ -18,7 +19,7 @@ const DefaultLayout = ({ children, rdata, cdata }: any) => {
           color={cdata.primaryColor}
           startPosition={0.3}
           stopDelayMs={200}
-          height={2}
+          height={3}
           showOnShallow={true}
           options={{ showSpinner: false }}
         />

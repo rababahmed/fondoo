@@ -6,7 +6,19 @@ import omit from "lodash/omit";
 interface Checkout {
   fulfilmentType: string;
   deliveryZoneId: string;
-  deliveryFee: number;
+  deliveryCharge: number;
+  discount: number;
+  vat: number;
+  serviceCharge: number;
+  total: number;
+  isPreOrder: boolean;
+  isAccepted: boolean;
+  handleDiscountChange: (value: any) => void;
+  handleVatChange: (value: any) => void;
+  handleServiceChargeChange: (value: any) => void;
+  handleTotalChange: (value: any) => void;
+  handleIsPreOrderChange: (value: any) => void;
+  handleIsAcceptedChange: (value: any) => void;
   setFulfilmentType: (fulfilmentType: string) => void;
   setDelivery: (id: string, fee: number) => void;
 }
@@ -41,8 +53,55 @@ export const useCheckoutStore = create<Checkout>(
       (set) => ({
         fulfilmentType: "",
         deliveryZoneId: "",
-
-        deliveryFee: 0,
+        deliveryCharge: 0,
+        discount: 0,
+        vat: 0,
+        serviceCharge: 0,
+        total: 0,
+        isPreOrder: false,
+        isAccepted: false,
+        handleDiscountChange: (value) =>
+          set((state) => {
+            return {
+              ...state,
+              discount: value,
+            };
+          }),
+        handleVatChange: (value) =>
+          set((state) => {
+            return {
+              ...state,
+              vat: value,
+            };
+          }),
+        handleServiceChargeChange: (value) =>
+          set((state) => {
+            return {
+              ...state,
+              serviceCharge: value,
+            };
+          }),
+        handleTotalChange: (value) =>
+          set((state) => {
+            return {
+              ...state,
+              total: value,
+            };
+          }),
+        handleIsPreOrderChange: (value) =>
+          set((state) => {
+            return {
+              ...state,
+              isPreOrder: value,
+            };
+          }),
+        handleIsAcceptedChange: (value) =>
+          set((state) => {
+            return {
+              ...state,
+              isAccepted: value,
+            };
+          }),
         setFulfilmentType: (fulfilmentType) =>
           set((state) => {
             return {
@@ -55,7 +114,7 @@ export const useCheckoutStore = create<Checkout>(
             return {
               ...state,
               deliveryZoneId: id,
-              deliveryFee: fee,
+              deliveryCharge: fee,
             };
           }),
       })

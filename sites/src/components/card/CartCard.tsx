@@ -23,10 +23,12 @@ import { useCartStore } from "../../stores/useCartStore";
 import PrimaryButton from "../buttons/PrimaryButton";
 import { MdShoppingCart } from "react-icons/md";
 import { useRouter } from "next/router";
+import { useCheckoutStore } from "../../stores/useCheckoutStore";
 
 interface Props {
   title: string;
   cdata: any;
+  rdata: any;
   isMenu?: boolean;
   titleBg?: any;
   cardW?: any;
@@ -40,10 +42,17 @@ const CartCard = (props: Props) => {
   const cart = useCartStore((state) => state.cart);
   const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
   const increaseQuantity = useCartStore((state) => state.increaseQuantity);
-
-  const subTotal = cart.length > 0 ? cart.map((p: any) => p.total) : null;
-
-  console.log(subTotal);
+  const vat = useCheckoutStore((state) => state.vat);
+  const serviceCharge = useCheckoutStore((state) => state.serviceCharge);
+  const deliveryCharge = useCheckoutStore((state) => state.deliveryCharge);
+  const total = useCheckoutStore((state) => state.total);
+  const handleVatChange = useCheckoutStore((state) => state.handleVatChange);
+  const handleServiceChargeChange = useCheckoutStore(
+    (state) => state.handleServiceChargeChange
+  );
+  const handleTotalChange = useCheckoutStore(
+    (state) => state.handleTotalChange
+  );
 
   const getArraySum = (a: any) => {
     let total = 0;
@@ -52,6 +61,23 @@ const CartCard = (props: Props) => {
     }
     return total;
   };
+
+  const subTotal = cart.length > 0 ? cart.map((p: any) => p.total) : null;
+
+  const calculateVat = handleVatChange(
+    (getArraySum(subTotal) * props.rdata.vat) / 100
+  );
+
+  const calculateServiceCharge = handleServiceChargeChange(
+    (getArraySum(subTotal) * props.rdata.serviceCharge) / 100
+  );
+
+  const calculateTotal = handleTotalChange(
+    (getArraySum(subTotal) *
+      (100 + props.rdata.vat + props.rdata.serviceCharge)) /
+      100 +
+      deliveryCharge
+  );
 
   const router = useRouter();
   console.log(router.pathname);
@@ -135,20 +161,20 @@ const CartCard = (props: Props) => {
                 </Grid>
               ))}
               <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
-              <Grid templateColumns={"2fr 2fr"}>
+              <Grid templateColumns={"2fr 2fr"} w="full">
                 <Text fontSize={"sm"}>Subtotal</Text>
                 <Text fontSize={"sm"} textAlign={"end"}>
                   ৳{getArraySum(subTotal)}
                 </Text>
               </Grid>
-              <Grid templateColumns={"2fr 2fr"}>
+              <Grid templateColumns={"2fr 2fr"} w="full">
                 <Text fontSize={"sm"}>VAT</Text>
                 <Text fontSize={"sm"} textAlign={"end"}>
-                  ৳{(getArraySum(subTotal) * 15) / 100}
+                  ৳{vat}
                 </Text>
               </Grid>
-              <Grid templateColumns={"2fr 2fr"}>
-                <SimpleGrid columns={2} alignItems={"center"}>
+              <Grid templateColumns={"2fr 2fr"} w="full">
+                <SimpleGrid columns={2} alignItems={"center"} w="full">
                   <Text fontSize={"sm"}>Service Fee</Text>
                   <Tooltip
                     label="This service fee helps us operate our online ordering service."
@@ -159,13 +185,13 @@ const CartCard = (props: Props) => {
                   </Tooltip>
                 </SimpleGrid>
                 <Text fontSize={"sm"} textAlign={"end"}>
-                  ৳{(getArraySum(subTotal) * 10) / 100}
+                  ৳{serviceCharge}
                 </Text>
               </Grid>
-              <Grid templateColumns={"2fr 2fr"}>
+              <Grid templateColumns={"2fr 2fr"} w="full">
                 <Text fontSize={"sm"}>Delivery Fee</Text>
                 <Text fontSize={"sm"} textAlign={"end"}>
-                  ৳{(getArraySum(subTotal) * 0) / 100}
+                  ৳{deliveryCharge}
                 </Text>
               </Grid>
               {router.pathname === "/[host]/order/checkout" ? (
@@ -173,7 +199,7 @@ const CartCard = (props: Props) => {
                   <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
 
                   <Box py={1} />
-                  <Grid templateColumns={"2fr 2fr"}>
+                  <Grid templateColumns={"2fr 2fr"} w="full">
                     <Text fontSize={"md"} fontWeight={"semibold"}>
                       Total
                     </Text>
@@ -182,7 +208,7 @@ const CartCard = (props: Props) => {
                       fontWeight={"semibold"}
                       textAlign={"end"}
                     >
-                      ৳{(getArraySum(subTotal) * 125) / 100}
+                      ৳{total}
                     </Text>
                   </Grid>
                 </>
@@ -193,9 +219,7 @@ const CartCard = (props: Props) => {
                   <Box py={1} />
                   <PrimaryButton
                     cdata={props.cdata}
-                    text={
-                      "Checkout" + " - ৳" + (getArraySum(subTotal) * 125) / 100
-                    }
+                    text={"Checkout" + " - ৳" + total}
                     onClick={() => router.push("/order/checkout")}
                   />
                 </>

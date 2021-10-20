@@ -12,6 +12,7 @@ import React from "react";
 
 interface Props {
   title?: string;
+  onClick?: any;
   description?: string;
   isPayment?: boolean;
   titleBg?: any;
@@ -33,6 +34,7 @@ const FlatCard = (props: Props) => {
         border={"1px"}
         borderColor={"gray.200"}
         overflow={"hidden"}
+        onClick={props.onClick}
         {...props.boxProps}
       >
         <Stack px={props.isPayment ? 4 : 6} py={props.isPayment ? 2 : 5}>

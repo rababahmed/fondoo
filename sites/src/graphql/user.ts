@@ -8,6 +8,7 @@ export const GET_USER_DETAILS = gql`
       email
       phone
       addresses {
+        id
         streetAddress
         city
         postCode
@@ -49,6 +50,29 @@ export const GET_USER_DETAILS = gql`
     }
   }
 `;
+
+export const UPDATE_USER_DETAILS = gql`
+  mutation UpdateUser(
+    $id: String
+    $firstName: String
+    $lastname: String
+    $email: String
+    $phone: String
+  ) {
+    updateCustomer(
+      data: {
+        firstName: { set: $firstName }
+        lastName: { set: $lastName }
+        email: { set: $email }
+        phone: { set: $phone }
+      }
+      where: { id: $id }
+    ) {
+      id
+    }
+  }
+`;
+
 export const ADD_CUSTOMER_ADDRESS = gql`
   mutation AddAddress(
     $id: String
@@ -64,6 +88,47 @@ export const ADD_CUSTOMER_ADDRESS = gql`
         postCode: $postCode
         country: $country
         customer: { connect: { id: $id } }
+      }
+    ) {
+      id
+    }
+  }
+`;
+
+export enum FulfilmentType {
+  Delivery,
+  Pickup,
+}
+
+export const PLACE_ORDER = gql`
+  mutation PlaceOrder(
+    $fulfilmentType: FulfilmentType!
+    $discount: Float
+    $deliveryCharge: Float
+    $vat: Float
+    $serviceCharge: Float
+    $total: Float
+    $isPreOrder: Boolean
+    $isAccepted: Boolean
+    $cart: [OrderItemCreateManyOrderInput!]
+    $deliveryZoneId: String
+    $customerAddressId: String
+    $restaurantId: String
+  ) {
+    createOrder(
+      data: {
+        fulfilmentType: $fulfilmentType
+        discount: $discount
+        deliveryCharge: $deliveryCharge
+        vat: $vat
+        serviceCharge: $serviceCharge
+        total: $total
+        isPreOrder: $isPreOrder
+        isAccepted: $isAccepted
+        items: { createMany: { data: $cart, skipDuplicates: true } }
+        deliveryZone: { connect: { id: $deliveryZoneId } }
+        address: { connect: { id: $customerAddressId } }
+        restaurant: { connect: { id: $restaurantId } }
       }
     ) {
       id

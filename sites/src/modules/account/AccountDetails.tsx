@@ -11,7 +11,8 @@ import { InputControl, SubmitButton } from "formik-chakra-ui";
 import * as Yup from "yup";
 import { useGQLQuery } from "../../hooks/useGQLQuery";
 import { useUserStore } from "../../stores/useUserStore";
-import { GET_USER_DETAILS } from "../../graphql/user";
+import { GET_USER_DETAILS, UPDATE_USER_DETAILS } from "../../graphql/user";
+import { useGQLMutation } from "../../hooks/useGQLMutation";
 
 interface Props {
   rdata: any;
@@ -40,6 +41,19 @@ const AccountDetails = ({ rdata, cdata }: Props) => {
     email: Yup.string().required("Email is required."),
   });
 
+  const [formData, setFormData] = React.useState(initialValues);
+
+  const mutation = useGQLMutation(
+    UPDATE_USER_DETAILS,
+    formData,
+    "get-user-details"
+  );
+
+  const onSubmit = async (values: any) => {
+    const payload = setFormData(values);
+    mutation.mutate();
+  };
+
   return (
     <>
       <Box
@@ -53,7 +67,7 @@ const AccountDetails = ({ rdata, cdata }: Props) => {
         overflow={"hidden"}
       >
         <Formik
-          onSubmit={() => console.log("hello")}
+          onSubmit={onSubmit}
           initialValues={initialValues}
           enableReinitialize={true}
           validationSchema={validationSchema}
@@ -72,7 +86,7 @@ const AccountDetails = ({ rdata, cdata }: Props) => {
                 <Box>
                   <Stack mt={4} pb={2} px={10}>
                     <SubmitButton
-                      loadingText="Logging in"
+                      loadingText="Saving"
                       bgColor={cdata.secondaryColor}
                       _hover={{ opacity: "0.9" }}
                     >
