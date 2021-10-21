@@ -59,7 +59,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
     isAccepted: isAccepted,
     cart: formattedCart,
     deliveryZoneId: deliveryZoneId,
-    customerAddressId: isSuccess && data.customer.addresses[0].id,
+    customerAddressId: "ckuwtms7b1557b7qmbk7erkby",
     restaurantId: rdata.id,
   };
 
@@ -72,22 +72,25 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const router = useRouter();
 
   const onClick = async () => {
-    try {
-      await mutation.mutateAsync();
-      mutation.isSuccess &&
+    const createOrder = await mutation
+      .mutateAsync()
+      .then((response) => {
+        console.log(response);
+        const orderData = response.createOrder;
         toast({
           position: "top",
           title: "Your order has been placed!",
+          description: `Order ID - ${orderData.id}`,
           status: "success",
           duration: 5000,
           variant: "solid",
           isClosable: true,
         });
-      console.log("ORDER:" + mutation.data);
-      setRecentOrderId(mutation.data?.createOrder.id);
-      mutation.isSuccess && router.push("/order/confirmed");
-    } catch (error) {
-      mutation.isError &&
+        console.log(orderData.id);
+        setRecentOrderId(orderData.id);
+        mutation.reset();
+      })
+      .catch((error) => {
         toast({
           position: "top",
           title: "Could not find place order! Please try again later.",
@@ -97,12 +100,11 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
           variant: "solid",
           isClosable: true,
         });
-    }
-    // if (mutation.isError) {
-    // }
-
-    // if (mutation.isSuccess) {
-    // }
+        mutation.reset();
+      })
+      .finally(() => {
+        router.push("/order/confirmed");
+      });
   };
 
   return (
