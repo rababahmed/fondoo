@@ -6,6 +6,8 @@ import { useCartStore } from "../../stores/useCartStore";
 import { useCheckoutStore } from "../../stores/useCheckoutStore";
 import { useUserStore } from "../../stores/useUserStore";
 import PrimaryButton from "./PrimaryButton";
+import { useToast } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 interface Props {
   rdata: any;
@@ -23,6 +25,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const deliveryZoneId = useCheckoutStore((state) => state.deliveryZoneId);
   const customerAddressId = useUserStore((state) => state.addressId);
   const cart = useCartStore((state) => state.cart);
+  const setRecentOrderId = useUserStore((state) => state.setRecentOrderId);
 
   const userId = useUserStore((state) => state.userID);
 
@@ -64,15 +67,55 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
 
   const mutation = useGQLMutation(PLACE_ORDER, formData);
 
-  const onSubmit = async () => {
-    mutation.mutate();
-  };
+  const toast = useToast();
 
-  console.log(initialValues);
+  const router = useRouter();
+
+  const onClick = async () => {
+    try {
+      await mutation.mutateAsync();
+      mutation.isSuccess &&
+        toast({
+          position: "top",
+          title: "Your order has been placed!",
+          status: "success",
+          duration: 5000,
+          variant: "solid",
+          isClosable: true,
+        });
+      console.log("ORDER:" + mutation.data);
+      setRecentOrderId(mutation.data?.createOrder.id);
+      mutation.isSuccess && router.push("/order/confirmed");
+    } catch (error) {
+      mutation.isError &&
+        toast({
+          position: "top",
+          title: "Could not find place order! Please try again later.",
+          description: "If the issue persists please call us and let us know!",
+          status: "error",
+          duration: 5000,
+          variant: "solid",
+          isClosable: true,
+        });
+    }
+    // if (mutation.isError) {
+    // }
+
+    // if (mutation.isSuccess) {
+    // }
+  };
 
   return (
     <>
-      <PrimaryButton cdata={cdata} text="PLACE ORDER" onClick={onSubmit} />
+      <PrimaryButton
+        cdata={cdata}
+        text="PLACE ORDER"
+        onClick={onClick}
+        buttonProps={{
+          isLoading: mutation.isLoading,
+          loadingText: "Placing Order",
+        }}
+      />
     </>
   );
 };

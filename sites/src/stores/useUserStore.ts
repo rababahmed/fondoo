@@ -8,6 +8,8 @@ interface User {
   userID: string;
   token: string;
   addressId: string;
+  recentOrderId: string;
+  setRecentOrderId: (id: string) => void;
   setUser: (id: string, token: string) => void;
   setAddress: (id: string) => void;
   removeUser: () => void;
@@ -46,6 +48,14 @@ export const useUserStore = create<User>(
         token: "",
         role: "",
         addressId: "",
+        recentOrderId: "",
+        setRecentOrderId: (id) =>
+          set((state) => {
+            return {
+              ...state,
+              recentOrderId: id,
+            };
+          }),
         setUser: (id, token) =>
           set((state) => {
             return {

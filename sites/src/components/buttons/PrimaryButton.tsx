@@ -7,9 +7,10 @@ interface Props {
   text: string;
   onClick?: any;
   url?: any;
+  buttonProps?: any;
 }
 
-const PrimaryButton = ({ cdata, text, url, onClick }: Props) => {
+const PrimaryButton = ({ cdata, text, url, onClick, buttonProps }: Props) => {
   const router = useRouter();
   return (
     <>
@@ -19,6 +20,7 @@ const PrimaryButton = ({ cdata, text, url, onClick }: Props) => {
         rounded={"full"}
         _hover={{ cursor: "pointer", opacity: "95%" }}
         color="white"
+        {...buttonProps}
       >
         {text}
       </Button>
