@@ -1,10 +1,15 @@
 import { Box, HStack, SimpleGrid, Stack, Text } from "@chakra-ui/layout";
 import { Heading } from "@chakra-ui/react";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import React from "react";
 import ClickableText from "../misc/ClickableText";
 
 const Footer = ({ rdata, cdata }: any) => {
+  const fmtTime = (str: any) => {
+    let [hh, mm] = str.split(":");
+    return `${hh > 12 ? hh % 12 : hh}${`:${mm}`}${hh >= 12 ? " PM" : "AM"}`;
+  };
+
   return (
     <Box bg="#353439" pos="relative" bottom={0} left={0} w="100%" color="white">
       <SimpleGrid
@@ -54,7 +59,7 @@ const Footer = ({ rdata, cdata }: any) => {
             <HStack key={s.id} columns={2} spacing={6}>
               <Text fontWeight="semibold">{s.day}</Text>
               <Text>
-                {format(s.openingTime, "p")} to {format(s.closingTime, "p")}
+                {fmtTime(s.openingTime)} to {fmtTime(s.closingTime)}
               </Text>
             </HStack>
           ))}
