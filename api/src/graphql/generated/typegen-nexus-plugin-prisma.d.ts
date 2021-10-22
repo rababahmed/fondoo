@@ -121,8 +121,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'order' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurant' | 'restaurantId'
     }
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
-      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
     }
   },
   Restaurant: {
@@ -139,8 +139,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'reviews'
     }
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
-      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
     }
     orderItems: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'order' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurant' | 'restaurantId'
@@ -222,8 +222,8 @@ interface NexusPrismaInputs {
   }
   DeliveryZone: {
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
-      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
     }
   }
   Customer: {
@@ -232,8 +232,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'createdAt' | 'streetAddress' | 'city' | 'postCode' | 'country' | 'customer' | 'customerId' | 'orders'
     }
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
-      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
     }
     restaurants: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'email' | 'logo' | 'coverImage' | 'plan' | 'restaurantPlanId' | 'businessPhone' | 'reservationPhone' | 'url' | 'cuisine' | 'address' | 'city' | 'postCode' | 'country' | 'currency' | 'priceRange' | 'diningStyle' | 'vat' | 'serviceCharge' | 'hasParkingFacilities' | 'hasPartyFacilities' | 'hasKidsZone' | 'hasPickup' | 'hasDelivery' | 'hasReservation' | 'isAutoAcceptOrder' | 'isAutoAcceptReservation' | 'schedules' | 'deliveryZones' | 'customers' | 'orders' | 'orderItems' | 'productCategory' | 'products' | 'users' | 'coupons' | 'reviews' | 'socials' | 'createdAt' | 'updatedAt' | 'config' | 'offers' | 'CMSHome' | 'CMSAbout' | 'CMSReview' | 'CMSReservation' | 'CMSContact'
@@ -246,8 +246,8 @@ interface NexusPrismaInputs {
   }
   CustomerAddress: {
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
-      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
     }
   }
   User: {
@@ -258,14 +258,14 @@ interface NexusPrismaInputs {
   }
   Offer: {
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
-      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
     }
   }
   Coupon: {
     orders: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
-      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isPreOrder' | 'isAccepted' | 'Coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'Customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
+      ordering: 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
     }
   }
   OrderItem: {
@@ -750,15 +750,16 @@ interface NexusPrismaOutputs {
     vat: 'Float'
     serviceCharge: 'Float'
     total: 'Float'
+    isViewed: 'Boolean'
     isPreOrder: 'Boolean'
     isAccepted: 'Boolean'
-    Coupon: 'Coupon'
+    coupon: 'Coupon'
     couponId: 'String'
     offer: 'Offer'
     offerId: 'String'
     restaurant: 'Restaurant'
     restaurantId: 'String'
-    Customer: 'Customer'
+    customer: 'Customer'
     customerId: 'String'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'

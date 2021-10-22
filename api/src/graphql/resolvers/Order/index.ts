@@ -17,11 +17,13 @@ export const Order = objectType({
     t.model.serviceCharge();
     t.model.total();
     t.model.isAccepted();
-    t.model.Coupon();
+    t.model.isPreOrder();
+    t.model.isViewed();
+    t.model.coupon();
     t.model.couponId();
     t.model.restaurant();
     t.model.restaurantId();
-    t.model.Customer();
+    t.model.customer();
     t.model.customerId();
     t.model.deliveryZoneId();
   },

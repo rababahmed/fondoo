@@ -405,3 +405,44 @@ export const DELETE_RESTAURANT_SOCIAL = gql`
     }
   }
 `;
+
+export const GET_RESTAURANT_ORDERS = gql`
+  query RestaurantOrders($id: String) {
+    restaurant(where: { id: $id }) {
+      orders {
+        id
+        items {
+          id
+          product {
+            id
+            name
+            description
+            price
+          }
+          quantity
+          total
+        }
+        Customer {
+          id
+          firstName
+          lastName
+          email
+          phone
+        }
+        address {
+          id
+          streetAddress
+          city
+          postCode
+          country
+        }
+        deliveryCharge
+        fulfilmentType
+        serviceCharge
+        vat
+        total
+        isAccepted
+      }
+    }
+  }
+`;

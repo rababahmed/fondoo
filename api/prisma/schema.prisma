@@ -355,25 +355,26 @@ model Order {
   id                String           @id @default(cuid())
   items             OrderItem[]
   fulfilmentType    FulfilmentType
-  deliveryZone      DeliveryZone?    @relation(fields: [deliveryZoneId], references: [id])   
+  deliveryZone      DeliveryZone?    @relation(fields: [deliveryZoneId], references: [id])
   address           CustomerAddress? @relation(fields: [customerAddressId], references: [id])
   discount          Float?
   deliveryCharge    Float?
   vat               Float?
   serviceCharge     Float?
   total             Float?
+  isViewed          Boolean?
   isPreOrder        Boolean?
   isAccepted        Boolean?
-  Coupon            Coupon?          @relation(fields: [couponId], references: [id])
+  coupon            Coupon?          @relation(fields: [couponId], references: [id])
   couponId          String?
   offer             Offer?           @relation(fields: [offerId], references: [id])
   offerId           String?
   restaurant        Restaurant       @relation(fields: [restaurantId], references: [id])
   restaurantId      String
-  Customer          Customer?        @relation(fields: [customerId], references: [id])
+  customer          Customer?        @relation(fields: [customerId], references: [id])
   customerId        String?
   createdAt         DateTime         @default(now())
   updatedAt         DateTime         @updatedAt
-  deliveryZoneId    String?   
+  deliveryZoneId    String?
   customerAddressId String?
 }

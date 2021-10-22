@@ -2338,10 +2338,10 @@ input OfferWhereUniqueInput {
 }
 
 type Order {
-  Coupon: Coupon
-  Customer: Customer
   address: CustomerAddress
+  coupon: Coupon
   couponId: String
+  customer: Customer
   customerId: String
   deliveryCharge: Float
   deliveryZone: DeliveryZone
@@ -2350,6 +2350,8 @@ type Order {
   fulfilmentType: FulfilmentType!
   id: String!
   isAccepted: Boolean
+  isPreOrder: Boolean
+  isViewed: Boolean
   items(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
   restaurant: Restaurant!
   restaurantId: String!
@@ -2359,16 +2361,17 @@ type Order {
 }
 
 input OrderCreateInput {
-  Coupon: CouponCreateNestedOneWithoutOrdersInput
-  Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
+  coupon: CouponCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
+  customer: CustomerCreateNestedOneWithoutOrdersInput
   deliveryCharge: Float
   deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
   fulfilmentType: FulfilmentType!
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2389,6 +2392,7 @@ input OrderCreateManyAddressInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   offerId: String
   restaurantId: String!
   serviceCharge: Float
@@ -2413,6 +2417,7 @@ input OrderCreateManyCouponInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   offerId: String
   restaurantId: String!
   serviceCharge: Float
@@ -2437,6 +2442,7 @@ input OrderCreateManyCustomerInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   offerId: String
   restaurantId: String!
   serviceCharge: Float
@@ -2461,6 +2467,7 @@ input OrderCreateManyDeliveryZoneInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   offerId: String
   restaurantId: String!
   serviceCharge: Float
@@ -2486,6 +2493,7 @@ input OrderCreateManyOfferInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   restaurantId: String!
   serviceCharge: Float
   total: Float
@@ -2510,6 +2518,7 @@ input OrderCreateManyRestaurantInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   offerId: String
   serviceCharge: Float
   total: Float
@@ -2606,9 +2615,9 @@ input OrderCreateOrConnectWithoutRestaurantInput {
 }
 
 input OrderCreateWithoutAddressInput {
-  Coupon: CouponCreateNestedOneWithoutOrdersInput
-  Customer: CustomerCreateNestedOneWithoutOrdersInput
+  coupon: CouponCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
+  customer: CustomerCreateNestedOneWithoutOrdersInput
   deliveryCharge: Float
   deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
@@ -2616,6 +2625,7 @@ input OrderCreateWithoutAddressInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2626,9 +2636,9 @@ input OrderCreateWithoutAddressInput {
 }
 
 input OrderCreateWithoutCouponInput {
-  Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
+  customer: CustomerCreateNestedOneWithoutOrdersInput
   deliveryCharge: Float
   deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
@@ -2636,6 +2646,7 @@ input OrderCreateWithoutCouponInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2646,8 +2657,8 @@ input OrderCreateWithoutCouponInput {
 }
 
 input OrderCreateWithoutCustomerInput {
-  Coupon: CouponCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
+  coupon: CouponCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
   deliveryCharge: Float
   deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
@@ -2656,6 +2667,7 @@ input OrderCreateWithoutCustomerInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2666,16 +2678,17 @@ input OrderCreateWithoutCustomerInput {
 }
 
 input OrderCreateWithoutDeliveryZoneInput {
-  Coupon: CouponCreateNestedOneWithoutOrdersInput
-  Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
+  coupon: CouponCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
+  customer: CustomerCreateNestedOneWithoutOrdersInput
   deliveryCharge: Float
   discount: Float
   fulfilmentType: FulfilmentType!
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
@@ -2686,10 +2699,10 @@ input OrderCreateWithoutDeliveryZoneInput {
 }
 
 input OrderCreateWithoutItemsInput {
-  Coupon: CouponCreateNestedOneWithoutOrdersInput
-  Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
+  coupon: CouponCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
+  customer: CustomerCreateNestedOneWithoutOrdersInput
   deliveryCharge: Float
   deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
@@ -2697,6 +2710,7 @@ input OrderCreateWithoutItemsInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   offer: OfferCreateNestedOneWithoutOrdersInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
   serviceCharge: Float
@@ -2706,10 +2720,10 @@ input OrderCreateWithoutItemsInput {
 }
 
 input OrderCreateWithoutOfferInput {
-  Coupon: CouponCreateNestedOneWithoutOrdersInput
-  Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
+  coupon: CouponCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
+  customer: CustomerCreateNestedOneWithoutOrdersInput
   deliveryCharge: Float
   deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
@@ -2717,6 +2731,7 @@ input OrderCreateWithoutOfferInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   restaurant: RestaurantCreateNestedOneWithoutOrdersInput!
   serviceCharge: Float
@@ -2726,10 +2741,10 @@ input OrderCreateWithoutOfferInput {
 }
 
 input OrderCreateWithoutRestaurantInput {
-  Coupon: CouponCreateNestedOneWithoutOrdersInput
-  Customer: CustomerCreateNestedOneWithoutOrdersInput
   address: CustomerAddressCreateNestedOneWithoutOrdersInput
+  coupon: CouponCreateNestedOneWithoutOrdersInput
   createdAt: DateTime
+  customer: CustomerCreateNestedOneWithoutOrdersInput
   deliveryCharge: Float
   deliveryZone: DeliveryZoneCreateNestedOneWithoutOrdersInput
   discount: Float
@@ -2737,6 +2752,7 @@ input OrderCreateWithoutRestaurantInput {
   id: String
   isAccepted: Boolean
   isPreOrder: Boolean
+  isViewed: Boolean
   items: OrderItemCreateNestedManyWithoutOrderInput
   offer: OfferCreateNestedOneWithoutOrdersInput
   serviceCharge: Float
@@ -3104,11 +3120,11 @@ input OrderOrderByRelationAggregateInput {
 }
 
 input OrderOrderByWithRelationInput {
-  Coupon: CouponOrderByWithRelationInput
-  Customer: CustomerOrderByWithRelationInput
   address: CustomerAddressOrderByWithRelationInput
+  coupon: CouponOrderByWithRelationInput
   couponId: SortOrder
   createdAt: SortOrder
+  customer: CustomerOrderByWithRelationInput
   customerAddressId: SortOrder
   customerId: SortOrder
   deliveryCharge: SortOrder
@@ -3119,6 +3135,7 @@ input OrderOrderByWithRelationInput {
   id: SortOrder
   isAccepted: SortOrder
   isPreOrder: SortOrder
+  isViewed: SortOrder
   items: OrderItemOrderByRelationAggregateInput
   offer: OfferOrderByWithRelationInput
   offerId: SortOrder
@@ -3145,6 +3162,7 @@ input OrderScalarWhereInput {
   id: StringFilter
   isAccepted: BoolNullableFilter
   isPreOrder: BoolNullableFilter
+  isViewed: BoolNullableFilter
   offerId: StringNullableFilter
   restaurantId: StringFilter
   serviceCharge: FloatNullableFilter
@@ -3154,10 +3172,10 @@ input OrderScalarWhereInput {
 }
 
 input OrderUpdateInput {
-  Coupon: CouponUpdateOneWithoutOrdersInput
-  Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
+  coupon: CouponUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
+  customer: CustomerUpdateOneWithoutOrdersInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
   deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
@@ -3165,6 +3183,7 @@ input OrderUpdateInput {
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
   isPreOrder: NullableBoolFieldUpdateOperationsInput
+  isViewed: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -3182,6 +3201,7 @@ input OrderUpdateManyMutationInput {
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
   isPreOrder: NullableBoolFieldUpdateOperationsInput
+  isViewed: NullableBoolFieldUpdateOperationsInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   total: NullableFloatFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -3341,9 +3361,9 @@ input OrderUpdateWithWhereUniqueWithoutRestaurantInput {
 }
 
 input OrderUpdateWithoutAddressInput {
-  Coupon: CouponUpdateOneWithoutOrdersInput
-  Customer: CustomerUpdateOneWithoutOrdersInput
+  coupon: CouponUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
+  customer: CustomerUpdateOneWithoutOrdersInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
   deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
@@ -3351,6 +3371,7 @@ input OrderUpdateWithoutAddressInput {
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
   isPreOrder: NullableBoolFieldUpdateOperationsInput
+  isViewed: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -3361,9 +3382,9 @@ input OrderUpdateWithoutAddressInput {
 }
 
 input OrderUpdateWithoutCouponInput {
-  Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
+  customer: CustomerUpdateOneWithoutOrdersInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
   deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
@@ -3371,6 +3392,7 @@ input OrderUpdateWithoutCouponInput {
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
   isPreOrder: NullableBoolFieldUpdateOperationsInput
+  isViewed: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -3381,8 +3403,8 @@ input OrderUpdateWithoutCouponInput {
 }
 
 input OrderUpdateWithoutCustomerInput {
-  Coupon: CouponUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
+  coupon: CouponUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
   deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
@@ -3391,6 +3413,7 @@ input OrderUpdateWithoutCustomerInput {
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
   isPreOrder: NullableBoolFieldUpdateOperationsInput
+  isViewed: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -3401,16 +3424,17 @@ input OrderUpdateWithoutCustomerInput {
 }
 
 input OrderUpdateWithoutDeliveryZoneInput {
-  Coupon: CouponUpdateOneWithoutOrdersInput
-  Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
+  coupon: CouponUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
+  customer: CustomerUpdateOneWithoutOrdersInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
   discount: NullableFloatFieldUpdateOperationsInput
   fulfilmentType: EnumFulfilmentTypeFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
   isPreOrder: NullableBoolFieldUpdateOperationsInput
+  isViewed: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
@@ -3421,10 +3445,10 @@ input OrderUpdateWithoutDeliveryZoneInput {
 }
 
 input OrderUpdateWithoutItemsInput {
-  Coupon: CouponUpdateOneWithoutOrdersInput
-  Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
+  coupon: CouponUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
+  customer: CustomerUpdateOneWithoutOrdersInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
   deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
@@ -3432,6 +3456,7 @@ input OrderUpdateWithoutItemsInput {
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
   isPreOrder: NullableBoolFieldUpdateOperationsInput
+  isViewed: NullableBoolFieldUpdateOperationsInput
   offer: OfferUpdateOneWithoutOrdersInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
@@ -3441,10 +3466,10 @@ input OrderUpdateWithoutItemsInput {
 }
 
 input OrderUpdateWithoutOfferInput {
-  Coupon: CouponUpdateOneWithoutOrdersInput
-  Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
+  coupon: CouponUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
+  customer: CustomerUpdateOneWithoutOrdersInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
   deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
@@ -3452,6 +3477,7 @@ input OrderUpdateWithoutOfferInput {
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
   isPreOrder: NullableBoolFieldUpdateOperationsInput
+  isViewed: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   restaurant: RestaurantUpdateOneRequiredWithoutOrdersInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
@@ -3461,10 +3487,10 @@ input OrderUpdateWithoutOfferInput {
 }
 
 input OrderUpdateWithoutRestaurantInput {
-  Coupon: CouponUpdateOneWithoutOrdersInput
-  Customer: CustomerUpdateOneWithoutOrdersInput
   address: CustomerAddressUpdateOneWithoutOrdersInput
+  coupon: CouponUpdateOneWithoutOrdersInput
   createdAt: DateTimeFieldUpdateOperationsInput
+  customer: CustomerUpdateOneWithoutOrdersInput
   deliveryCharge: NullableFloatFieldUpdateOperationsInput
   deliveryZone: DeliveryZoneUpdateOneWithoutOrdersInput
   discount: NullableFloatFieldUpdateOperationsInput
@@ -3472,6 +3498,7 @@ input OrderUpdateWithoutRestaurantInput {
   id: StringFieldUpdateOperationsInput
   isAccepted: NullableBoolFieldUpdateOperationsInput
   isPreOrder: NullableBoolFieldUpdateOperationsInput
+  isViewed: NullableBoolFieldUpdateOperationsInput
   items: OrderItemUpdateManyWithoutOrderInput
   offer: OfferUpdateOneWithoutOrdersInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
@@ -3523,13 +3550,13 @@ input OrderUpsertWithoutItemsInput {
 
 input OrderWhereInput {
   AND: [OrderWhereInput!]
-  Coupon: CouponWhereInput
-  Customer: CustomerWhereInput
   NOT: [OrderWhereInput!]
   OR: [OrderWhereInput!]
   address: CustomerAddressWhereInput
+  coupon: CouponWhereInput
   couponId: StringNullableFilter
   createdAt: DateTimeFilter
+  customer: CustomerWhereInput
   customerAddressId: StringNullableFilter
   customerId: StringNullableFilter
   deliveryCharge: FloatNullableFilter
@@ -3540,6 +3567,7 @@ input OrderWhereInput {
   id: StringFilter
   isAccepted: BoolNullableFilter
   isPreOrder: BoolNullableFilter
+  isViewed: BoolNullableFilter
   items: OrderItemListRelationFilter
   offer: OfferWhereInput
   offerId: StringNullableFilter
