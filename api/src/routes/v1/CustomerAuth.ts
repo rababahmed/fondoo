@@ -68,10 +68,16 @@ router.post("/login", async (req, res) => {
               expiresIn: config.passport.expiresIn,
             }
           );
+          const address = await prisma.customerAddress.findFirst({
+            where: {
+              customerId: customer.id,
+            },
+          });
           res.status(200).send({
             token: token,
             isAuthenticated: true,
             id: customer.id,
+            customerAddressId: address?.id,
             message: "customer authenticated",
           });
         } else {

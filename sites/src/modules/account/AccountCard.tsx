@@ -10,6 +10,7 @@ import {
   useColorModeValue,
   Skeleton,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { GET_USER_DETAILS } from "../../graphql/user";
 import { useGQLQuery } from "../../hooks/useGQLQuery";
 import { useUserStore } from "../../stores/useUserStore";
@@ -21,6 +22,9 @@ interface Props {
 
 export default function AccountCard({ rdata, cdata }: Props) {
   const userId = useUserStore((state) => state.userID);
+  const removeUser = useUserStore((state) => state.removeUser);
+
+  const router = useRouter();
 
   const { data, error, isLoading, isSuccess } = useGQLQuery(
     "get-user-details",
@@ -29,6 +33,11 @@ export default function AccountCard({ rdata, cdata }: Props) {
       id: userId,
     }
   );
+
+  const onSignout = () => {
+    removeUser();
+    router.push("/");
+  };
 
   console.log(data);
 
@@ -97,6 +106,7 @@ export default function AccountCard({ rdata, cdata }: Props) {
 
           <Button
             w={"full"}
+            onClick={onSignout}
             mt={8}
             bg={cdata.secondaryColor}
             color={"white"}

@@ -86,10 +86,16 @@ router.post("/login", async (req, res) => {
                     const token = jwt.sign({ id: customer.id, restaurantId: restaurantId }, config_1.config.passport.secret, {
                         expiresIn: config_1.config.passport.expiresIn,
                     });
+                    const address = await PrismaClient_1.default.customerAddress.findFirst({
+                        where: {
+                            customerId: customer.id,
+                        },
+                    });
                     res.status(200).send({
                         token: token,
                         isAuthenticated: true,
                         id: customer.id,
+                        customerAddressId: address?.id,
                         message: "customer authenticated",
                     });
                 }

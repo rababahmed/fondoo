@@ -27,16 +27,6 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const cart = useCartStore((state) => state.cart);
   const setRecentOrderId = useUserStore((state) => state.setRecentOrderId);
 
-  const userId = useUserStore((state) => state.userID);
-
-  const { data, error, isLoading, isSuccess } = useGQLQuery(
-    "get-user-details",
-    GET_USER_DETAILS,
-    {
-      id: userId,
-    }
-  );
-
   const formattedCart = cart.map((item: any) => {
     return {
       productId: item.id,
@@ -59,7 +49,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
     isAccepted: isAccepted,
     cart: formattedCart,
     deliveryZoneId: deliveryZoneId,
-    customerAddressId: "ckuwtms7b1557b7qmbk7erkby",
+    customerAddressId: customerAddressId,
     restaurantId: rdata.id,
   };
 

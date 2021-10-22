@@ -10,7 +10,7 @@ interface User {
   addressId: string;
   recentOrderId: string;
   setRecentOrderId: (id: string) => void;
-  setUser: (id: string, token: string) => void;
+  setUser: (id: string, token: string, customerAddressId: string) => void;
   setAddress: (id: string) => void;
   removeUser: () => void;
 }
@@ -56,13 +56,14 @@ export const useUserStore = create<User>(
               recentOrderId: id,
             };
           }),
-        setUser: (id, token) =>
+        setUser: (id, token, customerAddressId) =>
           set((state) => {
             return {
               ...state,
               userID: id,
               token: token,
               isAuthenticated: true,
+              customerAddressId: customerAddressId,
             };
           }),
         setAddress: (id) =>
