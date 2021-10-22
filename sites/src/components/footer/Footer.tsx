@@ -1,5 +1,6 @@
 import { Box, HStack, SimpleGrid, Stack, Text } from "@chakra-ui/layout";
 import { Heading } from "@chakra-ui/react";
+import { format } from "date-fns";
 import React from "react";
 import ClickableText from "../misc/ClickableText";
 
@@ -17,8 +18,15 @@ const Footer = ({ rdata, cdata }: any) => {
           <Stack spacing={2}>
             <Text fontWeight="semibold">Address</Text>
             <ClickableText
-              text={rdata.address}
-              url={"https://www.google.com/maps/search/" + rdata.address}
+              text={rdata.address + ", " + rdata.city + " " + rdata.postCode}
+              url={
+                "https://www.google.com/maps/search/" +
+                rdata.address +
+                ", " +
+                rdata.city +
+                " " +
+                rdata.postCode
+              }
               fontSize="sm"
             />
           </Stack>
@@ -42,47 +50,29 @@ const Footer = ({ rdata, cdata }: any) => {
         </Stack>
         <Stack spacing={3}>
           <Heading size="md">Opening Hours</Heading>
-          <HStack columns={2} spacing={6}>
-            <Text fontWeight="semibold">Sunday</Text>
-            <Text>12:00 pm to 10:00 pm</Text>
-          </HStack>
-          <HStack columns={2} spacing={6}>
-            <Text fontWeight="semibold">Sunday</Text>
-            <Text>12:00 pm to 10:00 pm</Text>
-          </HStack>
-          <HStack columns={2} spacing={6}>
-            <Text fontWeight="semibold">Sunday</Text>
-            <Text>12:00 pm to 10:00 pm</Text>
-          </HStack>
-          <HStack columns={2} spacing={6}>
-            <Text fontWeight="semibold">Sunday</Text>
-            <Text>12:00 pm to 10:00 pm</Text>
-          </HStack>
-          <HStack columns={2} spacing={6}>
-            <Text fontWeight="semibold">Sunday</Text>
-            <Text>12:00 pm to 10:00 pm</Text>
-          </HStack>
-          <HStack columns={2} spacing={6}>
-            <Text fontWeight="semibold">Sunday</Text>
-            <Text>12:00 pm to 10:00 pm</Text>
-          </HStack>
-          <HStack columns={2} spacing={6}>
-            <Text fontWeight="semibold">Sunday</Text>
-            <Text>12:00 pm to 10:00 pm</Text>
-          </HStack>
+          {rdata.schedules?.map((s: any) => (
+            <HStack key={s.id} columns={2} spacing={6}>
+              <Text fontWeight="semibold">{s.day}</Text>
+              <Text>
+                {format(s.openingTime, "p")} to {format(s.closingTime, "p")}
+              </Text>
+            </HStack>
+          ))}
         </Stack>
         <Stack spacing={6}>
           <Stack spacing={3}>
             <Heading size="md">Delivery Areas</Heading>
             <Box>
-              <HStack columns={2} spacing={3}>
-                <Text fontWeight="semibold">Gulshan 1</Text>
-                <Text>Free Delivery</Text>
-              </HStack>
-              <HStack columns={2} spacing={3}>
-                <Text fontWeight="semibold">Gulshan 2</Text>
-                <Text>Free Delivery</Text>
-              </HStack>
+              {rdata.deliveryZones?.map((d: any) => (
+                <HStack key={d.id} columns={2} spacing={3}>
+                  <Text fontWeight="semibold">{d.name}</Text>
+                  <Text>
+                    {d.deliveryCharge === 0
+                      ? "Free Delivery"
+                      : rdata.currency + d.deliveryCharge}
+                  </Text>
+                </HStack>
+              ))}
             </Box>
           </Stack>
           <Heading size="md">Stay in the loop</Heading>

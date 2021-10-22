@@ -1,7 +1,10 @@
 import { GraphQLClient } from "graphql-request";
 import Head from "next/head";
 import { Constants } from "../../config";
-import { GET_RESTAURANT_INFO } from "../../graphql/restaurant";
+import {
+  GET_POPULAR_DISHES,
+  GET_RESTAURANT_INFO,
+} from "../../graphql/restaurant";
 import HeroContainer from "../../components/hero/HeroContainer";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import { getPlaiceholder } from "plaiceholder";
@@ -11,7 +14,13 @@ import { AboutContainer } from "../../modules/home/AboutContainer";
 import ReservationContainer from "../../modules/home/ReservationContainer";
 import { Stack } from "@chakra-ui/layout";
 
-export default function Home({ host, rdata, cdata, imageProps }: any) {
+export default function Home({
+  host,
+  rdata,
+  cdata,
+  imageProps,
+  popularDishesData,
+}: any) {
   console.log(rdata);
 
   return (
@@ -31,7 +40,11 @@ export default function Home({ host, rdata, cdata, imageProps }: any) {
               cdata={cdata}
             />
             <AboutContainer rdata={rdata} cdata={cdata} />
-            <PopularDishesContainer rdata={rdata} cdata={cdata} />
+            <PopularDishesContainer
+              rdata={rdata}
+              cdata={cdata}
+              popularDishesData={popularDishesData}
+            />
             <ReservationContainer rdata={rdata} cdata={cdata} />
           </Stack>
         </DefaultLayout>
@@ -45,7 +58,7 @@ export default function Home({ host, rdata, cdata, imageProps }: any) {
 export async function getStaticProps(context: any) {
   const host = context.params.host;
 
-  const endpoint = Constants.GraphQL_API;
+  const endpoint = Constants.GraphQL_API_CDN;
 
   const graphQLClient = new GraphQLClient(endpoint);
 
@@ -64,11 +77,19 @@ export async function getStaticProps(context: any) {
   );
   console.log(img);
 
+  const fetchPopularDishesData = await graphQLClient.request(
+    GET_POPULAR_DISHES,
+    {
+      id: rdata.id,
+    }
+  );
+
   return {
     props: {
       host,
       rdata,
       cdata,
+      popularDishesData: fetchPopularDishesData,
       imageProps: {
         ...img,
         blurDataURL: base64,

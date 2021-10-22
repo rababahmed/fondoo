@@ -12,8 +12,9 @@ import {
 import React from "react";
 import OrderButton from "../../components/buttons/OrderButton";
 import CardWithImage from "../../components/card/CardWithImage";
+import { Constants } from "../../config";
 
-const PopularDishesContainer = ({ rdata, cdata }: any) => {
+const PopularDishesContainer = ({ rdata, cdata, popularDishesData }: any) => {
   const [isDesktop] = useMediaQuery("(min-width: 1280px)");
 
   return (
@@ -30,78 +31,35 @@ const PopularDishesContainer = ({ rdata, cdata }: any) => {
                 : null}
             </Heading>
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
-              <CardWithImage
-                title="Chicken Fry"
-                description="So tasty"
-                imgW={"300"}
-                imgH={"200"}
-              >
-                <SimpleGrid
-                  columns={{ base: 1, md: 2 }}
-                  spacing={{ base: 5, md: 5 }}
+              {popularDishesData.products.map((d: any) => (
+                <CardWithImage
+                  key={d.id}
+                  title={d.name}
+                  description={d.description}
+                  image={d.image}
+                  imgW={"300"}
+                  imgH={"200"}
                 >
-                  <Box
-                    fontSize="2xl"
-                    color={useColorModeValue("gray.800", "white")}
+                  <SimpleGrid
+                    columns={{ base: 1, md: 2 }}
+                    spacing={{ base: 5, md: 5 }}
                   >
-                    <Box as="span" color={"gray.600"} fontSize="lg">
-                      ৳
+                    <Box fontSize="2xl" color={"gray.800"}>
+                      <Box as="span" color={"gray.600"} fontSize="lg">
+                        {rdata.currency}
+                      </Box>
+                      {d.price}
                     </Box>
-                    500
-                  </Box>
-                  <Box>
-                    <OrderButton cdata={cdata} text={"See menu"} />
-                  </Box>
-                </SimpleGrid>
-              </CardWithImage>
-              <CardWithImage
-                title="Chicken Fry"
-                description="So tasty"
-                imgW={"300"}
-                imgH={"200"}
-              >
-                <SimpleGrid
-                  columns={{ base: 1, md: 2 }}
-                  spacing={{ base: 5, md: 5 }}
-                >
-                  <Box
-                    fontSize="2xl"
-                    color={useColorModeValue("gray.800", "white")}
-                  >
-                    <Box as="span" color={"gray.600"} fontSize="lg">
-                      ৳
+                    <Box>
+                      <OrderButton
+                        cdata={cdata}
+                        text={"See menu"}
+                        url="/menu"
+                      />
                     </Box>
-                    500
-                  </Box>
-                  <Box>
-                    <OrderButton cdata={cdata} text={"See menu"} />
-                  </Box>
-                </SimpleGrid>
-              </CardWithImage>
-              <CardWithImage
-                title="Chicken Fry"
-                description="So tasty"
-                imgW={"300"}
-                imgH={"200"}
-              >
-                <SimpleGrid
-                  columns={{ base: 1, md: 2 }}
-                  spacing={{ base: 5, md: 5 }}
-                >
-                  <Box
-                    fontSize="2xl"
-                    color={useColorModeValue("gray.800", "white")}
-                  >
-                    <Box as="span" color={"gray.600"} fontSize="lg">
-                      ৳
-                    </Box>
-                    500
-                  </Box>
-                  <Box>
-                    <OrderButton cdata={cdata} text={"See menu"} />
-                  </Box>
-                </SimpleGrid>
-              </CardWithImage>
+                  </SimpleGrid>
+                </CardWithImage>
+              ))}
             </SimpleGrid>
           </Stack>
         </Center>

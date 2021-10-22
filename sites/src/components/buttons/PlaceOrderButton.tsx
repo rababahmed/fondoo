@@ -79,6 +79,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
         console.log(orderData.id);
         setRecentOrderId(orderData.id);
         mutation.reset();
+        router.push("/order/confirmed");
       })
       .catch((error) => {
         toast({
@@ -91,9 +92,6 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
           isClosable: true,
         });
         mutation.reset();
-      })
-      .finally(() => {
-        router.push("/order/confirmed");
       });
   };
 

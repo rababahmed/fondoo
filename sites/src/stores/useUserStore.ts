@@ -63,7 +63,7 @@ export const useUserStore = create<User>(
               userID: id,
               token: token,
               isAuthenticated: true,
-              customerAddressId: customerAddressId,
+              addressId: customerAddressId,
             };
           }),
         setAddress: (id) =>

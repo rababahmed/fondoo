@@ -5,6 +5,7 @@ import CardWithImage from "../../components/card/CardWithImage";
 import { BsClock } from "react-icons/bs";
 import { formatDistance } from "date-fns";
 import OrderButton from "../../components/buttons/OrderButton";
+import { Constants } from "../../config";
 
 const DealsContainer = ({ rdata, cdata }: any) => {
   return (
@@ -16,6 +17,7 @@ const DealsContainer = ({ rdata, cdata }: any) => {
               key={c.id}
               title={c.code}
               description={c.description}
+              image={c.image}
             >
               <Stack direction="row" align="center">
                 <Icon as={BsClock} />

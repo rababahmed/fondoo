@@ -84,9 +84,15 @@ export const GET_RESTAURANT_INFO = gql`
           reservationDescription
           reservationImage
         }
+        CMSAbout {
+          storyHeading
+          storyDescription
+          storyImage
+        }
         coupons {
           id
           code
+          image
           discount
           value
           description
@@ -94,6 +100,27 @@ export const GET_RESTAURANT_INFO = gql`
           endDate
         }
       }
+    }
+  }
+`;
+
+export const GET_POPULAR_DISHES = gql`
+  query RestaurantPopularDishes($id: String) {
+    products(
+      where: {
+        restaurantId: { equals: $id }
+        isPopular: { equals: true }
+        isActive: { equals: true }
+      }
+    ) {
+      id
+      name
+      description
+      image
+      price
+      spiceLevel
+      isPopular
+      isActive
     }
   }
 `;

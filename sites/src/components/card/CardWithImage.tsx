@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
+import { Constants } from "../../config";
 
 interface Props {
   title: string;
@@ -35,8 +36,9 @@ const CardWithImage = (props: Props) => {
         <Image
           alt="card-image"
           src={
-            props.image ||
-            "https://i2.wp.com/klfoodie.com/wp-content/uploads/2021/07/17-1.jpeg?resize=708%2C708&ssl=1"
+            props.image
+              ? Constants.CDN + props.image
+              : "https://i2.wp.com/klfoodie.com/wp-content/uploads/2021/07/17-1.jpeg?resize=708%2C708&ssl=1"
           }
           height={props.imgH || 300}
           width={props.imgW || 360}

@@ -22,13 +22,19 @@ export const ContactContainer = ({ rdata, cdata }: any) => {
           <Stack spacing={4}>
             <CardWithoutImage
               title="Address"
-              description="Soi 71, Level 1 Concord Baksh Tower, 11/A Kemal Ataturk Ave, Dhaka 1213"
+              description={
+                rdata.address ? rdata.address + " " + rdata.postCode : ""
+              }
             />
             <CardWithoutImage
               title="Contact"
-              description={"Phone:" + " " + "01730315706"}
+              description={
+                "Phone:" + " " + rdata.businessPhone ? rdata.businessPhone : ""
+              }
             >
-              <Text color={"gray.500"}>Email: {"nashra@soi71.net"}</Text>
+              <Text color={"gray.500"}>
+                Email: {rdata.email ? rdata.email : ""}
+              </Text>
             </CardWithoutImage>
             <CardWithoutImage title="Social" description="Connect with us" />
           </Stack>

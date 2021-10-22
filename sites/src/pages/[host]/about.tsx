@@ -38,7 +38,7 @@ export default function About({ host, rdata, cdata, imageProps }: any) {
 export async function getStaticProps(context: any) {
   const host = context.params.host;
 
-  const endpoint = Constants.GraphQL_API;
+  const endpoint = Constants.GraphQL_API_CDN;
 
   const graphQLClient = new GraphQLClient(endpoint);
 

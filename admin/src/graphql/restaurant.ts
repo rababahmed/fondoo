@@ -117,7 +117,7 @@ export const ADD_RESTAURANT_SCHEDULE = gql`
         openingTime: $openingTime
         closingTime: $closingTime
         pickupTime: $pickupTime
-        Restaurant: { connect: { id: $restaurantID } }
+        restaurant: { connect: { id: $restaurantID } }
       }
     ) {
       id
