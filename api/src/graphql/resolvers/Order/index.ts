@@ -26,6 +26,8 @@ export const Order = objectType({
     t.model.customer();
     t.model.customerId();
     t.model.deliveryZoneId();
+    t.model.createdAt();
+    t.model.updatedAt();
   },
 });
 

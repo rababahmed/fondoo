@@ -73,7 +73,7 @@ const OrdersModule = () => {
                         <Text>{o.customer?.phone}</Text>
                       </Stack>
                     </Td>
-                    <Td>{o.deliveryFeeType}</Td>
+                    <Td>{o.createdAt || ""}</Td>
                     <Td>{o.isPreOrder ? "Yes" : "No"}</Td>
                     <Td>{o.deliveryZone.name}</Td>
                     <Td>{o.total}</Td>

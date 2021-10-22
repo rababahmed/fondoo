@@ -47,6 +47,8 @@ exports.Order = (0, nexus_1.objectType)({
         t.model.customer();
         t.model.customerId();
         t.model.deliveryZoneId();
+        t.model.createdAt();
+        t.model.updatedAt();
     },
 });
 exports.OrderQuery = (0, nexus_1.extendType)({
