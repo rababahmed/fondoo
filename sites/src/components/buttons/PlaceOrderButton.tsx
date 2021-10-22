@@ -24,6 +24,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const isAccepted = useCheckoutStore((state) => state.isAccepted);
   const deliveryZoneId = useCheckoutStore((state) => state.deliveryZoneId);
   const customerAddressId = useUserStore((state) => state.addressId);
+  const customerId = useUserStore((state) => state.userID);
   const cart = useCartStore((state) => state.cart);
   const setRecentOrderId = useUserStore((state) => state.setRecentOrderId);
 
@@ -50,6 +51,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
     cart: formattedCart,
     deliveryZoneId: deliveryZoneId,
     customerAddressId: customerAddressId,
+    customerId: customerId,
     restaurantId: rdata.id,
   };
 

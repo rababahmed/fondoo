@@ -10,6 +10,7 @@ import {
   Th,
   Tbody,
   Td,
+  Text,
 } from "@chakra-ui/react";
 import { Formik } from "formik";
 import { InputControl } from "formik-chakra-ui";
@@ -49,12 +50,12 @@ const OrdersModule = () => {
           <Table variant="simple">
             <Thead>
               <Tr>
-                <Th>Zone Name</Th>
-                <Th>Delivery Time</Th>
-                <Th>Delivery Fee Type</Th>
-                <Th>Delivery Fee</Th>
-                <Th>Pre-Order Only</Th>
-                <Th>Pre-Order Instructions</Th>
+                <Th>Order ID</Th>
+                <Th>Customer</Th>
+                <Th>Date</Th>
+                <Th>Pre-Order</Th>
+                <Th>Delivery Area</Th>
+                <Th>Total</Th>
                 <Th></Th>
               </Tr>
             </Thead>
@@ -63,25 +64,32 @@ const OrdersModule = () => {
               {isSuccess &&
                 data.restaurant.orders.map((o: any) => (
                   <Tr key={o.id}>
-                    <Td>{o.Customer.firstName + o.Customer.lastName}</Td>
-                    <Td>{o.deliveryTime}</Td>
-                    <Td>{o.deliveryFeeType}</Td>
-                    <Td>{o.deliveryCharge}</Td>
-                    <Td>{o.isPreOrder ? "Yes" : "No"}</Td>
-                    <Td isTruncated>{o.preOrderInstructions}</Td>
+                    <Td>{o.id}</Td>
                     <Td>
+                      <Stack>
+                        <Text>
+                          {o.customer?.firstName + " " + o.customer?.lastName}
+                        </Text>
+                        <Text>{o.customer?.phone}</Text>
+                      </Stack>
+                    </Td>
+                    <Td>{o.deliveryFeeType}</Td>
+                    <Td>{o.isPreOrder ? "Yes" : "No"}</Td>
+                    <Td>{o.deliveryZone.name}</Td>
+                    <Td>{o.total}</Td>
+                    {/* <Td>
                       <Stack direction="row">
-                        {/* <Editdhedule
+                        <EditSchedule
                         id={d.id}
                         day={d.day}
                         openingTime={d.openingTime}
                         closingTime={d.closingTime}
                         deliveryTime={d.deliveryTime}
                         takeawayTime={d.takeawayTime}
-                      /> */}
-                        {/* <DeleteDeliveryZone id={d.id} /> */}
+                      />
+                        <DeleteDeliveryZone id={d.id} />
                       </Stack>
-                    </Td>
+                    </Td> */}
                   </Tr>
                 ))}
             </Tbody>

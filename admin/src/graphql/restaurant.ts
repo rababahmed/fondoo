@@ -422,7 +422,7 @@ export const GET_RESTAURANT_ORDERS = gql`
           quantity
           total
         }
-        Customer {
+        customer {
           id
           firstName
           lastName
@@ -436,12 +436,19 @@ export const GET_RESTAURANT_ORDERS = gql`
           postCode
           country
         }
+        deliveryZone {
+          id
+          name
+          deliveryTime
+        }
         deliveryCharge
         fulfilmentType
         serviceCharge
         vat
         total
         isAccepted
+        isViewed
+        isPreOrder
       }
     }
   }

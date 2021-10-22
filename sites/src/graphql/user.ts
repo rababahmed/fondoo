@@ -112,6 +112,7 @@ export const PLACE_ORDER = gql`
     $isAccepted: Boolean
     $cart: [OrderItemCreateManyOrderInput!]
     $deliveryZoneId: String
+    $customerId: String
     $customerAddressId: String
     $restaurantId: String
   ) {
@@ -126,6 +127,7 @@ export const PLACE_ORDER = gql`
         isPreOrder: $isPreOrder
         isAccepted: $isAccepted
         items: { createMany: { data: $cart, skipDuplicates: true } }
+        customer: { connect: { id: $customerId } }
         deliveryZone: { connect: { id: $deliveryZoneId } }
         address: { connect: { id: $customerAddressId } }
         restaurant: { connect: { id: $restaurantId } }
