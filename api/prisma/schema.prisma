@@ -2,27 +2,30 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  shadowDatabaseUrl    = env("SHADOW_DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
 }
 
 model Restaurant {
   id                      String             @id @default(uuid())
   name                    String
   email                   String?
-  logo                    String?
-  coverImage              String?
+  logo                    String?            @db.VarChar(512)
+  coverImage              String?            @db.VarChar(512)
   plan                    RestaurantPlan     @relation(fields: [restaurantPlanId], references: [id])
   restaurantPlanId        String
   businessPhone           String?
   reservationPhone        String?
   url                     String?
   cuisine                 String?
-  address                 String?
+  address                 String?            @db.VarChar(512)
   city                    String?
   postCode                String?
   country                 String?
@@ -96,8 +99,8 @@ model RestaurantSocial {
 model RestaurantReview {
   id           String     @id @default(cuid())
   title        String
-  description  String
-  rating       String
+  description  String     @db.VarChar(512)
+  rating       Int
   isActive     Boolean
   customer     Customer   @relation(fields: [customerId], references: [id])
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
@@ -111,19 +114,19 @@ model CMSHome {
   id                       String   @id @default(cuid())
   heroHeading              String?
   heroDescription          String?
-  heroImage                String?
+  heroImage                String?  @db.VarChar(512)
   aboutHeading             String?
   aboutDescription         String?
-  aboutImage               String?
+  aboutImage               String?  @db.VarChar(512)
   dealsHeading             String?
   dealsDescription         String?
-  dealsImage               String?
+  dealsImage               String?  @db.VarChar(512)
   reservationHeading       String?
   reservationDescription   String?
-  reservationImage         String?
+  reservationImage         String?  @db.VarChar(512)
   popularDishesHeading     String?
   popularDishesDescription String?
-  popularDishesImage       String?
+  popularDishesImage       String?  @db.VarChar(512)
   isActive                 Boolean?
 
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
@@ -134,10 +137,10 @@ model CMSAbout {
   id                String   @id @default(cuid())
   headerHeading     String?
   headerDescription String?
-  headerImage       String?
+  headerImage       String?  @db.VarChar(512)
   storyHeading      String?
-  storyDescription  String?
-  storyImage        String?
+  storyDescription  String?  @db.VarChar(5120)
+  storyImage        String?  @db.VarChar(512)
   isActive          Boolean?
 
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
@@ -181,8 +184,8 @@ model ProductCategory {
   id           String     @id @default(cuid())
   createdAt    DateTime   @default(now())
   name         String
-  description  String?
-  image        String?
+  description  String?    @db.VarChar(1024)
+  image        String?    @db.VarChar(512)
   isActive     Boolean?
   isFeatured   Boolean?
   restaurants  Restaurant @relation(fields: [restaurantId], references: [id])
@@ -194,8 +197,8 @@ model Product {
   id                String           @id @default(cuid())
   createdAt         DateTime         @default(now())
   name              String
-  description       String?
-  image             String?
+  description       String?          @db.VarChar(2048)
+  image             String?          @db.VarChar(512)
   price             Float?
   spiceLevel        SpiceLevel       @default(None)
   isPopular         Boolean?
@@ -267,7 +270,7 @@ model Customer {
 model CustomerAddress {
   id            String    @id @default(cuid())
   createdAt     DateTime  @default(now())
-  streetAddress String
+  streetAddress String    @db.VarChar(512)
   city          String
   postCode      String
   country       String
@@ -300,8 +303,8 @@ model Offer {
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
   name         String?
-  description  String?
-  image        String?
+  description  String?    @db.VarChar(1024)
+  image        String?    @db.VarChar(512)
   startDate    String?
   endDate      String?
   isActive     Boolean?
@@ -317,10 +320,10 @@ model Coupon {
   code         String
   discount     Discount
   value        Float
-  image        String?
+  image        String?    @db.VarChar(512)
   startDate    String?
   endDate      String?
-  description  String?
+  description  String?    @db.VarChar(1024)
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   orders       Order[]
   restaurantId String

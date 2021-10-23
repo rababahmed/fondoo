@@ -536,7 +536,7 @@ interface NexusPrismaOutputs {
     id: 'String'
     title: 'String'
     description: 'String'
-    rating: 'String'
+    rating: 'Int'
     isActive: 'Boolean'
     customer: 'Customer'
     restaurant: 'Restaurant'
