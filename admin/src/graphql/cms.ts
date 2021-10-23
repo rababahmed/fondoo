@@ -61,3 +61,39 @@ export const UPDATE_CMS_HOME = gql`
     }
   }
 `;
+
+export const GET_CMS_ABOUT = gql`
+  query CMSAbout($id: String) {
+    restaurant(where: { id: $id }) {
+      CMSAbout {
+        storyHeading
+        storyDescription
+        storyImage
+      }
+    }
+  }
+`;
+
+export const UPDATE_CMS_ABOUT = gql`
+  mutation UpdateCMSAbout(
+    $restaurantID: String
+    $storyImage: String
+    $storyHeading: String
+    $storyDescription: String
+  ) {
+    updateRestaurant(
+      data: {
+        CMSAbout: {
+          update: {
+            storyImage: { set: $storyImage }
+            storyHeading: { set: $storyHeading }
+            storyDescription: { set: $storyDescription }
+          }
+        }
+      }
+      where: { id: $restaurantID }
+    ) {
+      id
+    }
+  }
+`;

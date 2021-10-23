@@ -71,13 +71,6 @@ const CMSPage = () => {
                       >
                         About
                       </MenuItem>
-                      <MenuItem
-                        onClick={() => {
-                          setPage("Deals");
-                        }}
-                      >
-                        Deals
-                      </MenuItem>
                     </MenuList>
                   </>
                 )}
@@ -87,7 +80,6 @@ const CMSPage = () => {
         </Grid>
         {page === "Home" ? <CMSHome /> : null}
         {page === "About" ? <CMSAbout /> : null}
-        {page === "Deals" ? <CMSAbout /> : null}
       </DesktopLayout>
     </div>
   );
