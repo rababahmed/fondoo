@@ -21,6 +21,11 @@ import {
   GET_RESTAURANT_DELIVERY_ZONES,
   GET_RESTAURANT_ORDERS,
 } from "../../graphql/restaurant";
+import { formatISO } from "date-fns/esm";
+import { format, parseISO } from "date-fns";
+import { RejectOrder } from "./RejectOrder";
+import { AcceptOrder } from "./AcceptOrder";
+import OrderActions from "./OrderActions";
 // import { DeleteDeliveryZone } from "../.DeleteDeliveryZone";
 
 const OrdersModule = () => {
@@ -52,7 +57,7 @@ const OrdersModule = () => {
               <Tr>
                 <Th>Order ID</Th>
                 <Th>Customer</Th>
-                <Th>Date</Th>
+                <Th>Date and Time</Th>
                 <Th>Pre-Order</Th>
                 <Th>Delivery Area</Th>
                 <Th>Total</Th>
@@ -73,23 +78,13 @@ const OrdersModule = () => {
                         <Text>{o.customer?.phone}</Text>
                       </Stack>
                     </Td>
-                    <Td>{o.createdAt || ""}</Td>
+                    <Td>{format(parseISO(o.createdAt), "PP, p") || ""}</Td>
                     <Td>{o.isPreOrder ? "Yes" : "No"}</Td>
                     <Td>{o.deliveryZone.name}</Td>
                     <Td>{o.total}</Td>
-                    {/* <Td>
-                      <Stack direction="row">
-                        <EditSchedule
-                        id={d.id}
-                        day={d.day}
-                        openingTime={d.openingTime}
-                        closingTime={d.closingTime}
-                        deliveryTime={d.deliveryTime}
-                        takeawayTime={d.takeawayTime}
-                      />
-                        <DeleteDeliveryZone id={d.id} />
-                      </Stack>
-                    </Td> */}
+                    <Td>
+                      <OrderActions o={o} />
+                    </Td>
                   </Tr>
                 ))}
             </Tbody>

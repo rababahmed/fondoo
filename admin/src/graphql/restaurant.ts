@@ -449,6 +449,8 @@ export const GET_RESTAURANT_ORDERS = gql`
         isAccepted
         isViewed
         isPreOrder
+        createdAt
+        updatedAt
       }
     }
   }

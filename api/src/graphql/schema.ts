@@ -1,5 +1,5 @@
 import { nexusPrisma } from "@kenchi/nexus-plugin-prisma";
-import { makeSchema } from "nexus";
+import { declarativeWrappingPlugin, makeSchema } from "nexus";
 import path from "path";
 import * as types from "./resolvers";
 import { allow, nexusShield } from "nexus-shield";
@@ -19,6 +19,7 @@ export const schema = makeSchema({
       defaultError: new ForbiddenError("Access Denied"),
       defaultRule: allow,
     }),
+    declarativeWrappingPlugin(),
   ],
   outputs: {
     schema: path.join(__dirname, "/generated/schema.graphql"),

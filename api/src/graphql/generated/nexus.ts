@@ -7014,6 +7014,7 @@ export interface NexusGenObjects {
   }
   Order: { // root type
     couponId?: string | null; // String
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
     customerId?: string | null; // String
     deliveryCharge?: number | null; // Float
     deliveryZoneId?: string | null; // String
@@ -7026,6 +7027,7 @@ export interface NexusGenObjects {
     restaurantId: string; // String!
     serviceCharge?: number | null; // Float
     total?: number | null; // Float
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
     vat?: number | null; // Float
   }
   OrderItem: { // root type
@@ -7331,6 +7333,7 @@ export interface NexusGenFieldTypes {
     address: NexusGenRootTypes['CustomerAddress'] | null; // CustomerAddress
     coupon: NexusGenRootTypes['Coupon'] | null; // Coupon
     couponId: string | null; // String
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
     customer: NexusGenRootTypes['Customer'] | null; // Customer
     customerId: string | null; // String
     deliveryCharge: number | null; // Float
@@ -7347,6 +7350,7 @@ export interface NexusGenFieldTypes {
     restaurantId: string; // String!
     serviceCharge: number | null; // Float
     total: number | null; // Float
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
     vat: number | null; // Float
   }
   OrderItem: { // field return type
@@ -7718,6 +7722,7 @@ export interface NexusGenFieldTypeNames {
     address: 'CustomerAddress'
     coupon: 'Coupon'
     couponId: 'String'
+    createdAt: 'DateTime'
     customer: 'Customer'
     customerId: 'String'
     deliveryCharge: 'Float'
@@ -7734,6 +7739,7 @@ export interface NexusGenFieldTypeNames {
     restaurantId: 'String'
     serviceCharge: 'Float'
     total: 'Float'
+    updatedAt: 'DateTime'
     vat: 'Float'
   }
   OrderItem: { // field return type name
@@ -8593,11 +8599,71 @@ declare global {
      * Authorization rule to execute for this field
      */
     shield?: FieldShieldResolver<TypeName, FieldName>
+    /**
+     * Whether the type can be null
+     * @default (depends on whether nullability is configured in type or schema)
+     * @see declarativeWrappingPlugin
+     */
+    nullable?: boolean
+    /**
+     * Whether the type is list of values, or just a single value.
+     * If list is true, we assume the type is a list. If list is an array,
+     * we'll assume that it's a list with the depth. The boolean indicates whether
+     * the type is required (non-null), where true = nonNull, false = nullable.
+     * @see declarativeWrappingPlugin
+     */
+    list?: true | boolean[]
+    /**
+     * Whether the type should be non null, `required: true` = `nullable: false`
+     * @default (depends on whether nullability is configured in type or schema)
+     * @see declarativeWrappingPlugin
+     */
+    required?: boolean
   }
   interface NexusGenPluginInputFieldConfig<TypeName extends string, FieldName extends string> {
+    /**
+     * Whether the type can be null
+     * @default (depends on whether nullability is configured in type or schema)
+     * @see declarativeWrappingPlugin
+     */
+    nullable?: boolean
+    /**
+     * Whether the type is list of values, or just a single value.
+     * If list is true, we assume the type is a list. If list is an array,
+     * we'll assume that it's a list with the depth. The boolean indicates whether
+     * the type is required (non-null), where true = nonNull, false = nullable.
+     * @see declarativeWrappingPlugin
+     */
+    list?: true | boolean[]
+    /**
+     * Whether the type should be non null, `required: true` = `nullable: false`
+     * @default (depends on whether nullability is configured in type or schema)
+     * @see declarativeWrappingPlugin
+     */
+    required?: boolean
   }
   interface NexusGenPluginSchemaConfig {
   }
   interface NexusGenPluginArgConfig {
+    /**
+     * Whether the type can be null
+     * @default (depends on whether nullability is configured in type or schema)
+     * @see declarativeWrappingPlugin
+     */
+    nullable?: boolean
+    /**
+     * Whether the type is list of values, or just a single value.
+     * If list is true, we assume the type is a list. If list is an array,
+     * we'll assume that it's a list with the depth. The boolean indicates whether
+     * the type is required (non-null), where true = nonNull, false = nullable.
+     * @see declarativeWrappingPlugin
+     */
+    list?: true | boolean[]
+    /**
+     * Whether the type should be non null, `required: true` = `nullable: false`
+     * @default (depends on whether nullability is configured in type or schema)
+     * @see declarativeWrappingPlugin
+     */
+    required?: boolean
   }
 }

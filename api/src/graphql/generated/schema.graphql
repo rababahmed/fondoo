@@ -2341,6 +2341,7 @@ type Order {
   address: CustomerAddress
   coupon: Coupon
   couponId: String
+  createdAt: DateTime!
   customer: Customer
   customerId: String
   deliveryCharge: Float
@@ -2357,6 +2358,7 @@ type Order {
   restaurantId: String!
   serviceCharge: Float
   total: Float
+  updatedAt: DateTime!
   vat: Float
 }
 
