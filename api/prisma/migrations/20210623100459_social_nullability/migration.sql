@@ -1,5 +1,0 @@
--- AlterTable
-ALTER TABLE "RestaurantSocial" ALTER COLUMN "facebook" DROP NOT NULL,
-ALTER COLUMN "instagram" DROP NOT NULL,
-ALTER COLUMN "pinterest" DROP NOT NULL,
-ALTER COLUMN "isActive" DROP NOT NULL;

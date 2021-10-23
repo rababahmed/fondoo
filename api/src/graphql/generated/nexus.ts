@@ -4905,7 +4905,7 @@ export interface NexusGenInputs {
     description: string; // String!
     id?: string | null; // String
     isActive: boolean; // Boolean!
-    rating: string; // String!
+    rating: number; // Int!
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutReviewsInput']; // RestaurantCreateNestedOneWithoutReviewsInput!
     title: string; // String!
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
@@ -4915,7 +4915,7 @@ export interface NexusGenInputs {
     description: string; // String!
     id?: string | null; // String
     isActive: boolean; // Boolean!
-    rating: string; // String!
+    rating: number; // Int!
     restaurantId: string; // String!
     title: string; // String!
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
@@ -4930,7 +4930,7 @@ export interface NexusGenInputs {
     description: string; // String!
     id?: string | null; // String
     isActive: boolean; // Boolean!
-    rating: string; // String!
+    rating: number; // Int!
     title: string; // String!
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
@@ -4963,7 +4963,7 @@ export interface NexusGenInputs {
     description: string; // String!
     id?: string | null; // String
     isActive: boolean; // Boolean!
-    rating: string; // String!
+    rating: number; // Int!
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutReviewsInput']; // RestaurantCreateNestedOneWithoutReviewsInput!
     title: string; // String!
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
@@ -4974,7 +4974,7 @@ export interface NexusGenInputs {
     description: string; // String!
     id?: string | null; // String
     isActive: boolean; // Boolean!
-    rating: string; // String!
+    rating: number; // Int!
     title: string; // String!
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
@@ -5008,7 +5008,7 @@ export interface NexusGenInputs {
     description?: NexusGenInputs['StringFilter'] | null; // StringFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
-    rating?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    rating?: NexusGenInputs['IntFilter'] | null; // IntFilter
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
     title?: NexusGenInputs['StringFilter'] | null; // StringFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
@@ -5019,7 +5019,7 @@ export interface NexusGenInputs {
     description?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    rating?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    rating?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutReviewsInput'] | null; // RestaurantUpdateOneRequiredWithoutReviewsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
@@ -5029,7 +5029,7 @@ export interface NexusGenInputs {
     description?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    rating?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    rating?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
@@ -5080,7 +5080,7 @@ export interface NexusGenInputs {
     description?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    rating?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    rating?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutReviewsInput'] | null; // RestaurantUpdateOneRequiredWithoutReviewsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
@@ -5091,7 +5091,7 @@ export interface NexusGenInputs {
     description?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
-    rating?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
+    rating?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
     title?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
@@ -5115,7 +5115,7 @@ export interface NexusGenInputs {
     description?: NexusGenInputs['StringFilter'] | null; // StringFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
     isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
-    rating?: NexusGenInputs['StringFilter'] | null; // StringFilter
+    rating?: NexusGenInputs['IntFilter'] | null; // IntFilter
     restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
     title?: NexusGenInputs['StringFilter'] | null; // StringFilter
@@ -6746,7 +6746,6 @@ export interface NexusGenInputs {
     in?: string[] | null; // [String!]
     lt?: string | null; // String
     lte?: string | null; // String
-    mode?: NexusGenEnums['QueryMode'] | null; // QueryMode
     not?: NexusGenInputs['NestedStringFilter'] | null; // NestedStringFilter
     notIn?: string[] | null; // [String!]
     startsWith?: string | null; // String
@@ -6760,7 +6759,6 @@ export interface NexusGenInputs {
     in?: string[] | null; // [String!]
     lt?: string | null; // String
     lte?: string | null; // String
-    mode?: NexusGenEnums['QueryMode'] | null; // QueryMode
     not?: NexusGenInputs['NestedStringNullableFilter'] | null; // NestedStringNullableFilter
     notIn?: string[] | null; // [String!]
     startsWith?: string | null; // String
@@ -6896,7 +6894,6 @@ export interface NexusGenEnums {
   DeliveryFee: "Fixed" | "Percent"
   Discount: "Fixed" | "Percent"
   FulfilmentType: "Delivery" | "Pickup"
-  QueryMode: "default" | "insensitive"
   Role: "Admin" | "Manager" | "Owner" | "SuperAdmin"
   SortOrder: "asc" | "desc"
   SpiceLevel: "ExtraHot" | "Hot" | "Medium" | "Mild" | "None"
@@ -7112,7 +7109,7 @@ export interface NexusGenObjects {
     description: string; // String!
     id: string; // String!
     isActive: boolean; // Boolean!
-    rating: string; // String!
+    rating: number; // Int!
     title: string; // String!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
@@ -7507,7 +7504,7 @@ export interface NexusGenFieldTypes {
     description: string; // String!
     id: string; // String!
     isActive: boolean; // Boolean!
-    rating: string; // String!
+    rating: number; // Int!
     restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
     title: string; // String!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
@@ -7896,7 +7893,7 @@ export interface NexusGenFieldTypeNames {
     description: 'String'
     id: 'String'
     isActive: 'Boolean'
-    rating: 'String'
+    rating: 'Int'
     restaurant: 'Restaurant'
     title: 'String'
     updatedAt: 'DateTime'
