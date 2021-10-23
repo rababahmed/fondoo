@@ -3,11 +3,12 @@ import { useRouter } from "next/dist/client/router";
 import React from "react";
 
 interface Props {
+  cdata: any;
   text: String;
   url: any;
 }
 
-const NavItem = ({ text, url }: Props) => {
+const NavItem = ({ text, url, cdata }: Props) => {
   const router = useRouter();
   return (
     <>
@@ -15,8 +16,8 @@ const NavItem = ({ text, url }: Props) => {
         onClick={() => router.push(url)}
         _hover={{ cursor: "pointer", opacity: "90%" }}
         fontSize="xl"
-        fontWeight="semibold"
-        color="white"
+        fontWeight="bold"
+        color={cdata.hasDarkNavBg ? "white" : "black"}
       >
         {text}
       </Text>

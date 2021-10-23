@@ -73,7 +73,9 @@ export async function getStaticProps(context: any) {
   const cdata = fetchData.restaurantConfig ? fetchData.restaurantConfig : null;
 
   const { base64, img } = await getPlaiceholder(
-    rdata.coverImage ? Constants.CDN + rdata.coverImage : ""
+    rdata.coverImage
+      ? Constants.CDN + rdata.coverImage
+      : Constants.imgPlaceholder
   );
   console.log(img);
 

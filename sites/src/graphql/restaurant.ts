@@ -5,6 +5,7 @@ export const GET_RESTAURANT_INFO = gql`
     restaurantConfig(where: { domain: $domain }) {
       primaryColor
       secondaryColor
+      hasDarkNavBg
       isActive
       restaurant {
         id

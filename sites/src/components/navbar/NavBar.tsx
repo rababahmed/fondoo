@@ -32,10 +32,13 @@ const NavBar = ({ rdata, cdata }: any) => {
     <>
       <Grid
         zIndex="10"
-        bg="#353439"
+        bg={cdata.hasDarkNavBg ? "#353439" : "white"}
         w="full"
         pos={"sticky"}
         top="0"
+        border={"1px"}
+        borderColor={"gray.100"}
+        shadow={"sm"}
         templateColumns={{ base: "4fr 4fr", md: "8fr 2fr 2fr" }}
         px={{ base: 8, md: 72 }}
       >
@@ -58,11 +61,11 @@ const NavBar = ({ rdata, cdata }: any) => {
           align="center"
           mr={6}
         >
-          <NavItem text="About" url="/about" />
-          <NavItem text="Deals" url="/deals" />
-          <NavItem text="Menu" url="/menu" />
-          <NavItem text="Reservation" url="/reservation" />
-          <NavItem text="Contact" url="/contact" />
+          <NavItem text="About" url="/about" cdata={cdata} />
+          <NavItem text="Deals" url="/deals" cdata={cdata} />
+          <NavItem text="Menu" url="/menu" cdata={cdata} />
+          <NavItem text="Reservation" url="/reservation" cdata={cdata} />
+          <NavItem text="Contact" url="/contact" cdata={cdata} />
         </Stack>
         <Stack
           display={{ base: "none", lg: "flex" }}
