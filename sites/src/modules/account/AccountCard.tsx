@@ -34,6 +34,8 @@ export default function AccountCard({ rdata, cdata }: Props) {
     }
   );
 
+  console.log(data);
+
   const onSignout = () => {
     removeUser();
     router.push("/");
@@ -60,23 +62,23 @@ export default function AccountCard({ rdata, cdata }: Props) {
           <Skeleton isLoaded={!isLoading}>
             <Stack spacing={0} align={"center"} mb={5}>
               <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
-                {isSuccess && data.customer.firstName}{" "}
-                {isSuccess && data.customer.lastName}
+                {(isSuccess && data.customer.firstName) || ""}{" "}
+                {(isSuccess && data.customer.lastName) || ""}
               </Heading>
               <Text color={"gray.500"} textAlign={"center"}>
                 {isSuccess && data.customer.addresses
-                  ? data.customer.addresses[0].streetAddress
+                  ? data.customer.addresses[0]?.streetAddress
                   : null}
                 ,{" "}
                 {isSuccess && data.customer.addresses
-                  ? data.customer.addresses[0].city
+                  ? data.customer.addresses[0]?.city
                   : null}{" "}
                 {isSuccess && data.customer.addresses
-                  ? data.customer.addresses[0].postCode
+                  ? data.customer.addresses[0]?.postCode
                   : null}
                 ,{" "}
                 {isSuccess && data.customer.addresses
-                  ? data.customer.addresses[0].country
+                  ? data.customer.addresses[0]?.country
                   : null}
               </Text>
             </Stack>
@@ -93,11 +95,7 @@ export default function AccountCard({ rdata, cdata }: Props) {
               </Text>
             </Stack>
             <Stack spacing={0} align={"center"}>
-              <Text fontWeight={600}>
-                {isSuccess && data.customer.orders
-                  ? data.customer.orders.length
-                  : 0}
-              </Text>
+              <Text fontWeight={600}>{0}</Text>
               <Text fontSize={"sm"} color={"gray.500"}>
                 Reservations
               </Text>

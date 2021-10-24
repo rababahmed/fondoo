@@ -24,9 +24,7 @@ import { Formik } from "formik";
 import axios from "axios";
 import { Constants } from "../../config";
 import { useUserStore } from "../../stores/useUserStore";
-import { useGQLQuery } from "../../hooks/useGQLQuery";
-import { GET_USER_DETAILS } from "../../graphql/user";
-import SignupModal from "./SignupModal";
+
 import { useSiteStore } from "../../stores/useSiteStore";
 
 interface Props {
@@ -34,8 +32,7 @@ interface Props {
   cdata: any;
 }
 
-const LoginModal = ({ rdata, cdata }: Props) => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+const SignupModal = ({ rdata, cdata }: Props) => {
   const setUser = useUserStore((state) => state.setUser);
 
   const initialValues = {
@@ -44,8 +41,14 @@ const LoginModal = ({ rdata, cdata }: Props) => {
   };
 
   const validationSchema = Yup.object({
+    firstName: Yup.string().required("First name is required."),
+    lastName: Yup.string().required("Last name is required."),
     email: Yup.string().required("Email is required."),
+    phone: Yup.string().required("Phone is required."),
     password: Yup.string().required("Password is required."),
+    confirmPassword: Yup.string()
+      .required("Confirm your password.")
+      .oneOf([Yup.ref("password"), null], "Passwords do not match."),
   });
 
   const PasswordProps = {
@@ -89,19 +92,19 @@ const LoginModal = ({ rdata, cdata }: Props) => {
       });
   };
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const isOpen = useSiteStore((state) => state.signUpModal);
   const setSignUpModal = useSiteStore((state) => state.setSignUpModal);
+
+  const onClose = () => {
+    setSignUpModal(false);
+  };
 
   return (
     <>
-      <SecondaryButton onClick={onOpen} cdata={cdata} text="SIGN IN" />
-      <SignupModal rdata={rdata} cdata={cdata} />
-
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered size={"lg"}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Sign In</ModalHeader>
+          <ModalHeader>Create Account</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Formik
@@ -111,12 +114,31 @@ const LoginModal = ({ rdata, cdata }: Props) => {
             >
               {({ handleSubmit }) => (
                 <Box as="form" onSubmit={handleSubmit as any}>
-                  <Stack spacing="6">
-                    <InputControl name="email" label="Email" />
+                  <Stack spacing={4}>
+                    <Stack
+                      direction={{ base: "column", md: "row" }}
+                      spacing={4}
+                    >
+                      <InputControl name="firstName" label="First Name" />
+                      <InputControl name="lastName" label="Last Name" />
+                    </Stack>
+                    <Stack
+                      direction={{ base: "column", md: "row" }}
+                      spacing={4}
+                    >
+                      <InputControl name="email" label="Email" />
+                      <InputControl name="phone" label="Phone" />
+                    </Stack>
+
                     <InputControl
                       inputProps={PasswordProps}
                       name="password"
                       label="Password"
+                    />
+                    <InputControl
+                      inputProps={PasswordProps}
+                      name="confirmPassword"
+                      label=" Retype Password"
                     />
 
                     <Box>
@@ -126,7 +148,7 @@ const LoginModal = ({ rdata, cdata }: Props) => {
                           bgColor={cdata.secondaryColor}
                           _hover={{ opacity: "0.9" }}
                         >
-                          Login
+                          Sign up
                         </SubmitButton>
                       </Stack>
                     </Box>
@@ -135,26 +157,10 @@ const LoginModal = ({ rdata, cdata }: Props) => {
               )}
             </Formik>
           </ModalBody>
-          <ModalFooter justifyContent={"center"}>
-            <Stack direction={"row"}>
-              <Text>Don&apos;t have an account? </Text>
-              <Text
-                color={cdata.primaryColor}
-                fontWeight={"bold"}
-                cursor={"pointer"}
-                onClick={() => {
-                  onClose();
-                  setSignUpModal(true);
-                }}
-              >
-                Sign up
-              </Text>
-            </Stack>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>
   );
 };
 
-export default LoginModal;
+export default SignupModal;
