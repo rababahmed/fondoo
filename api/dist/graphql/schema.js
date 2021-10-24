@@ -43,6 +43,7 @@ exports.schema = (0, nexus_1.makeSchema)({
             defaultError: new apollo_server_errors_1.ForbiddenError("Access Denied"),
             defaultRule: nexus_shield_1.allow,
         }),
+        (0, nexus_1.declarativeWrappingPlugin)(),
     ],
     outputs: {
         schema: path_1.default.join(__dirname, "/generated/schema.graphql"),
