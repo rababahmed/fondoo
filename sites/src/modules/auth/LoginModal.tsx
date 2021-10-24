@@ -60,12 +60,12 @@ const LoginModal = ({ rdata, cdata }: Props) => {
     const login = await axios
       .post(Constants.REST_API_V1 + "/customer/login", values)
       .then(function (response) {
-        setUser(
-          response.data.id,
-          response.data.token,
-          response.data.customerAddressId
-        );
         if (response.data.isAuthenticated === true) {
+          setUser(
+            response.data.id,
+            response.data.token,
+            response.data.customerAddressId
+          );
           onClose();
         }
         toast({

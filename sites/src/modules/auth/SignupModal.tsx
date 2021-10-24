@@ -36,8 +36,12 @@ const SignupModal = ({ rdata, cdata }: Props) => {
   const setUser = useUserStore((state) => state.setUser);
 
   const initialValues = {
+    firstName: "",
+    lastName: "",
     email: "",
+    phone: "",
     password: "",
+    restaurantId: rdata.id,
   };
 
   const validationSchema = Yup.object({
@@ -55,20 +59,21 @@ const SignupModal = ({ rdata, cdata }: Props) => {
     type: "password",
   };
 
+  const [formData, setFormData] = React.useState(initialValues);
+
   const toast = useToast();
 
-  const setAddress = useUserStore((state) => state.setAddress);
-
   const onSubmit = async (values: any) => {
+    setFormData(values);
     const login = await axios
-      .post(Constants.REST_API_V1 + "/customer/login", values)
+      .post(Constants.REST_API_V1 + "/customer/signup", formData)
       .then(function (response) {
-        setUser(
-          response.data.id,
-          response.data.token,
-          response.data.customerAddressId
-        );
         if (response.data.isAuthenticated === true) {
+          setUser(
+            response.data.id,
+            response.data.token,
+            response.data.customerAddressId
+          );
           onClose();
         }
         toast({

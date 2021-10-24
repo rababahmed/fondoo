@@ -47,29 +47,21 @@ router.post("/signup", async (req, res) => {
                     },
                 },
             });
-            const customer = await PrismaClient_1.default.customer.findUnique({
-                where: {
-                    email,
-                },
-            });
-            const validPass = await bcrypt.compare(password, customer?.password);
+            const validPass = await bcrypt.compare(password, result?.password);
             if (validPass) {
-                const token = jwt.sign({ id: customer?.id, restaurantId: restaurantId }, config_1.config.passport.secret, {
+                const token = jwt.sign({ id: result?.id, restaurantId: restaurantId }, config_1.config.passport.secret, {
                     expiresIn: config_1.config.passport.expiresIn,
                 });
                 res.status(200).send({
                     token: token,
                     isAuthenticated: true,
-                    id: customer?.id,
+                    id: result?.id,
                     message: "User authenticated",
                 });
             }
             else {
                 res.status(400).send({ message: "Could not auto log in user" });
             }
-            res
-                .status(200)
-                .send({ message: "User signed up succesfully", data: result.id });
         }
         res.status(400).send({ message: "Failed to sign up user" });
     }
