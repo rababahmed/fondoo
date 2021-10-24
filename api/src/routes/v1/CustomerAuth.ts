@@ -8,10 +8,10 @@ const router = express.Router();
 
 router.post("/signup", async (req, res) => {
   try {
-    const { firstName, lastName, email, password, phone, restaurantID } =
+    const { firstName, lastName, email, password, phone, restaurantId } =
       req.body;
     const hash = await bcrypt.hash(password, 10);
-    if (restaurantID) {
+    if (restaurantId) {
       const result = await prisma.customer.create({
         data: {
           firstName,
@@ -21,28 +21,39 @@ router.post("/signup", async (req, res) => {
           password: hash,
           restaurants: {
             connect: {
-              id: restaurantID,
+              id: restaurantId,
             },
           },
         },
       });
-      res
-        .status(200)
-        .send({ message: "User signed up succesfully", data: result.id });
-    } else {
-      const result = await prisma.customer.create({
-        data: {
-          firstName,
-          lastName,
-          phone,
+      const customer = await prisma.customer.findUnique({
+        where: {
           email,
-          password: hash,
         },
       });
+      const validPass = await bcrypt.compare(password, customer?.password);
+      if (validPass) {
+        const token = jwt.sign(
+          { id: customer?.id, restaurantId: restaurantId },
+          config.passport.secret,
+          {
+            expiresIn: config.passport.expiresIn,
+          }
+        );
+        res.status(200).send({
+          token: token,
+          isAuthenticated: true,
+          id: customer?.id,
+          message: "User authenticated",
+        });
+      } else {
+        res.status(400).send({ message: "Could not auto log in user" });
+      }
       res
         .status(200)
         .send({ message: "User signed up succesfully", data: result.id });
     }
+    res.status(400).send({ message: "Failed to sign up user" });
   } catch (err) {
     console.log(err);
     res.status(400).send({ message: "Error signing up user" });
@@ -86,34 +97,34 @@ router.post("/login", async (req, res) => {
       } else {
         res.status(400).send({ message: "Incorrect Email/Password" });
       }
-      if (phone) {
-        const customer = await prisma.customer.findUnique({
-          where: {
-            phone,
-          },
-        });
-        if (customer) {
-          const validPass = await bcrypt.compare(password, customer.password);
-          if (validPass) {
-            const token = jwt.sign(
-              { id: customer.id, restaurantId: restaurantId },
-              config.passport.secret,
-              {
-                expiresIn: config.passport.expiresIn,
-              }
-            );
-            res.status(200).send({
-              token: token,
-              isAuthenticated: true,
-              id: customer.id,
-              message: "User authenticated",
-            });
-          } else {
-            res.status(400).send({ message: "Incorrect Email/Password" });
-          }
+    }
+    if (phone) {
+      const customer = await prisma.customer.findUnique({
+        where: {
+          phone,
+        },
+      });
+      if (customer) {
+        const validPass = await bcrypt.compare(password, customer.password);
+        if (validPass) {
+          const token = jwt.sign(
+            { id: customer.id, restaurantId: restaurantId },
+            config.passport.secret,
+            {
+              expiresIn: config.passport.expiresIn,
+            }
+          );
+          res.status(200).send({
+            token: token,
+            isAuthenticated: true,
+            id: customer.id,
+            message: "User authenticated",
+          });
         } else {
           res.status(400).send({ message: "Incorrect Email/Password" });
         }
+      } else {
+        res.status(400).send({ message: "Incorrect Email/Password" });
       }
     }
   } catch {
