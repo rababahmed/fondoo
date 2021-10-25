@@ -43,10 +43,10 @@ const LoginModal = ({ rdata, cdata, isCheckoutPage }: Props) => {
   const setLoginModal = useSiteStore((state) => state.setLoginModal);
 
   const onOpen = () => {
-    setSignUpModal(true);
+    setLoginModal(true);
   };
   const onClose = () => {
-    setSignUpModal(false);
+    setLoginModal(false);
   };
 
   const initialValues = {

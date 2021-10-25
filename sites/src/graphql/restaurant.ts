@@ -100,6 +100,15 @@ export const GET_RESTAURANT_INFO = gql`
           startDate
           endDate
         }
+        offers {
+          id
+          name
+          description
+          image
+          startDate
+          endDate
+          isActive
+        }
       }
     }
   }
