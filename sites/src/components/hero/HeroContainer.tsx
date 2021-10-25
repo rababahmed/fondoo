@@ -5,8 +5,12 @@ import OrderButton from "../buttons/OrderButton";
 import PrimaryButton from "../buttons/SecondaryButton";
 import Image from "next/image";
 import DealsModule from "../../modules/home/DealsContainer";
+import SecondaryButton from "../buttons/SecondaryButton";
+import { useRouter } from "next/router";
 
 const HeroContainer = ({ rdata, cdata, imageProps, children }: any) => {
+  const router = useRouter();
+
   console.log(imageProps);
   return (
     <>
@@ -39,8 +43,18 @@ const HeroContainer = ({ rdata, cdata, imageProps, children }: any) => {
                 {rdata.CMSHome.heroDescription}
               </Heading>
               <Stack direction="row">
-                <PrimaryButton text="Book a Table" cdata={cdata} />
-                <OrderButton text="Place an Order" cdata={cdata} />
+                <SecondaryButton
+                  text="Book a Table"
+                  cdata={cdata}
+                  onClick={() => {
+                    router.push("/reservation");
+                  }}
+                />
+                <OrderButton
+                  text="Place an Order"
+                  cdata={cdata}
+                  url={"/order"}
+                />
               </Stack>
             </VStack>
           </Box>

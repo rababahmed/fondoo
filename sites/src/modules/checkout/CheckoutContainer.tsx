@@ -30,6 +30,7 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
   const deliveryZoneId = useCheckoutStore((state) => state.deliveryZoneId);
   const fulfilmentType = useCheckoutStore((state) => state.fulfilmentType);
   const userId = useUserStore((state) => state.userID);
+  const setAddress = useUserStore((state) => state.setAddress);
 
   const { data, error, isLoading, isSuccess } = useGQLQuery(
     "get-user-details",
@@ -38,6 +39,10 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
       id: userId,
     }
   );
+
+  React.useEffect(() => {
+    setAddress(data?.customer?.addresses[0]?.id);
+  }, [data, setAddress]);
 
   const deliverySchedule = rdata.deliveryZones.find(
     (d: any) => d.id === deliveryZoneId
@@ -104,8 +109,8 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
                     <Stack direction={"row"}>
                       <Text fontWeight={"semibold"}>Name:</Text>
                       <Text>
-                        {(isSuccess && data.customer.firstName) || ""}{" "}
-                        {(isSuccess && data.customer.lastName) || ""}
+                        {(isSuccess && data.customer?.firstName) || ""}{" "}
+                        {(isSuccess && data.customer?.lastName) || ""}
                       </Text>
                     </Stack>
                   </Skeleton>
@@ -113,15 +118,16 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
                     <Text fontWeight={"semibold"}>Address:</Text>
                     <Text>
                       {(isSuccess &&
-                        data.customer.addresses[0].streetAddress) ||
+                        data.customer?.addresses[0]?.streetAddress) ||
                         ""}
-                      , {(isSuccess && data.customer.addresses[0].city) || ""}{" "}
-                      {(isSuccess && data.customer.addresses[0].postCode) || ""}
+                      , {(isSuccess && data.customer?.addresses[0]?.city) || ""}{" "}
+                      {(isSuccess && data.customer?.addresses[0]?.postCode) ||
+                        ""}
                     </Text>
                   </Stack>
                   <Stack direction={"row"}>
                     <Text fontWeight={"semibold"}>Contact:</Text>
-                    <Text>{(isSuccess && data.customer.phone) || ""}</Text>
+                    <Text>{(isSuccess && data.customer?.phone) || ""}</Text>
                   </Stack>
                 </FlatCard>
               </Stack>

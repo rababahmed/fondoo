@@ -85,7 +85,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
                   <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                     {cat.name}
                   </Text>
-                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+                  <SimpleGrid columns={{ base: 1, xl: 2 }} spacing={4}>
                     {cat.Product.map((p: any) => (
                       <ItemContainer
                         key={p.id}

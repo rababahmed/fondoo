@@ -29,7 +29,7 @@ const DealsContainer = ({ rdata, cdata }: any) => {
                 </Text>
               </Stack>
               <Box alignSelf="center" pt={4}>
-                <OrderButton cdata={cdata} text={"Order now"} />
+                <OrderButton cdata={cdata} text={"Order now"} url={"/order"} />
               </Box>
             </CardWithImage>
           ))

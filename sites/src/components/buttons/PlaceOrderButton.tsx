@@ -39,6 +39,8 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
 
   console.log(formattedCart);
 
+  const [payload, setPayload] = React.useState({});
+
   const initialValues = {
     fulfilmentType: fulfilmentType,
     discount: 0,
@@ -55,9 +57,11 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
     restaurantId: rdata.id,
   };
 
-  const [formData, setFormData] = React.useState(initialValues);
+  React.useEffect(() => {
+    setPayload(initialValues);
+  }, [initialValues]);
 
-  const mutation = useGQLMutation(PLACE_ORDER, formData);
+  const mutation = useGQLMutation(PLACE_ORDER, payload);
 
   const toast = useToast();
 

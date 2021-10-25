@@ -41,8 +41,6 @@ export default function AccountCard({ rdata, cdata }: Props) {
     router.push("/");
   };
 
-  console.log(data);
-
   return (
     <Center>
       <Box
@@ -56,7 +54,11 @@ export default function AccountCard({ rdata, cdata }: Props) {
         overflow={"hidden"}
       >
         <Flex justify={"center"} mt={6}>
-          <Avatar size="2xl" bg={cdata.secondaryColor} name="Rabab Ahmed" />
+          <Avatar
+            size="2xl"
+            bg={cdata.secondaryColor}
+            name={data?.customer?.firstName + " " + data?.customer?.lastName}
+          />
         </Flex>
         <Box p={6}>
           <Skeleton isLoaded={!isLoading}>

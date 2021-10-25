@@ -28,7 +28,7 @@ const AddressDetails = ({ rdata, cdata }: Props) => {
   const userId = useUserStore((state) => state.userID);
 
   const { data, error, isLoading, isSuccess } = useGQLQuery(
-    "get-user-addresses",
+    "get-customer-addresses",
     GET_USER_DETAILS,
     {
       id: userId,

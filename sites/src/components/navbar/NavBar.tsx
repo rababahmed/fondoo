@@ -2,9 +2,10 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
+  Container,
+  Flex,
   Grid,
   IconButton,
-  Img,
   Stack,
   Text,
   useMediaQuery,
@@ -19,6 +20,7 @@ import SecondaryButton from "../buttons/SecondaryButton";
 import PrimaryButton from "../buttons/SecondaryButton";
 import MobileNav from "./MobileNav";
 import NavItem from "./NavItem";
+import Image from "next/image";
 
 const NavBar = ({ rdata, cdata }: any) => {
   const router = useRouter();
@@ -26,11 +28,9 @@ const NavBar = ({ rdata, cdata }: any) => {
 
   const isOrderPage = router.pathname == "/order";
 
-  const [isDesktop] = useMediaQuery("(min-width: 640px)");
-
   return (
     <>
-      <Grid
+      <Flex
         zIndex="10"
         bg={cdata.hasDarkNavBg ? "#353439" : "white"}
         w="full"
@@ -39,21 +39,24 @@ const NavBar = ({ rdata, cdata }: any) => {
         border={"1px"}
         borderColor={"gray.100"}
         shadow={"sm"}
-        templateColumns={{ base: "4fr 4fr", md: "8fr 2fr 2fr" }}
-        px={{ base: 8, md: 72 }}
+        // templateColumns={{ base: "2fr 2fr", md: "8fr 2fr" }}
+        px={{ base: 8, md: 36, "2xl": 72 }}
+        justifyContent={"space-between"}
       >
-        <Img
-          onClick={() => router.push("/")}
-          _hover={{ cursor: "pointer" }}
-          src={
-            rdata.logo
-              ? Constants.CDN + rdata.logo
-              : "https://via.placeholder.com/500x200/ffffff/2e2e2e.png?text=Your+Logo+Here"
-          }
-          h={20}
-          p={2}
-          alt="logo"
-        />
+        <Box pos="relative" w={{ base: "40%", md: "20%" }} h={20}>
+          <Image
+            onClick={() => router.push("/")}
+            src={
+              rdata.logo
+                ? Constants.CDN + rdata.logo
+                : "https://via.placeholder.com/500x200/ffffff/2e2e2e.png?text=Your+Logo+Here"
+            }
+            layout="fill"
+            objectFit="contain"
+            alt="logo"
+          />
+        </Box>
+
         <Stack
           display={{ base: "none", lg: "flex" }}
           spacing={3}
@@ -66,13 +69,7 @@ const NavBar = ({ rdata, cdata }: any) => {
           <NavItem text="Menu" url="/menu" cdata={cdata} />
           <NavItem text="Reservation" url="/reservation" cdata={cdata} />
           <NavItem text="Contact" url="/contact" cdata={cdata} />
-        </Stack>
-        <Stack
-          display={{ base: "none", lg: "flex" }}
-          spacing={2}
-          direction="row"
-          align="center"
-        >
+
           {isAuthenticated ? (
             <SecondaryButton
               cdata={cdata}
@@ -91,7 +88,7 @@ const NavBar = ({ rdata, cdata }: any) => {
         >
           <MobileNav cdata={cdata} />
         </Box>
-      </Grid>
+      </Flex>
     </>
   );
 };

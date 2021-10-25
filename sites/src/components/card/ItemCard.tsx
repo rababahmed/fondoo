@@ -53,18 +53,18 @@ const ItemCard = (props: Props) => {
                 </Text>
                 <Text fontWeight="semibold">৳{props.p.price}</Text>
               </Stack>
-
-              <Image
-                alt="card-image"
-                src={
-                  props.image
-                    ? Constants.CDN + props.image
-                    : Constants.imgPlaceholder
-                }
-                height={props.imgH || 130}
-                width={props.imgW || 130}
-                objectFit="contain"
-              />
+              <Box pos="relative" h={120} w={120}>
+                <Image
+                  alt="card-image"
+                  src={
+                    props.image
+                      ? Constants.CDN + props.image
+                      : Constants.imgPlaceholder
+                  }
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </Box>
             </Flex>
           </LinkOverlay>
         </Box>

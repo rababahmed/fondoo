@@ -11,6 +11,7 @@ import {
   Grid,
   Stack,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
 import * as Yup from "yup";
@@ -27,6 +28,7 @@ interface Props {
 
 const AddAddress = ({ cdata, rdata }: Props) => {
   const userId = useUserStore((state) => state.userID);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialValues = {
     streetAddress: "",
@@ -49,12 +51,34 @@ const AddAddress = ({ cdata, rdata }: Props) => {
     "get-customer-addresses"
   );
 
+  const toast = useToast();
+
   const onSubmit = async (values: any) => {
     const payload = setFormData(values);
-    mutation.mutate();
+    mutation
+      .mutateAsync()
+      .then(() => {
+        toast({
+          position: "top",
+          title: "New address added!",
+          status: "success",
+          duration: 5000,
+          variant: "solid",
+          isClosable: true,
+        });
+        onClose();
+      })
+      .catch(() => {
+        toast({
+          position: "top",
+          title: "Couldn't add address.",
+          status: "error",
+          duration: 5000,
+          variant: "solid",
+          isClosable: true,
+        });
+      });
   };
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
@@ -87,6 +111,7 @@ const AddAddress = ({ cdata, rdata }: Props) => {
                   <Stack mt={10} pb={2}>
                     <VStack>
                       <SubmitButton
+                        isLoading={mutation.isLoading}
                         loadingText="Adding"
                         w={40}
                         colorScheme="green"
