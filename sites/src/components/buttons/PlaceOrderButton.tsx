@@ -56,7 +56,23 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   };
 
   const [payload, setPayload] = React.useState(initialValues);
-  const mutation = useGQLMutation(PLACE_ORDER, payload);
+  console.log("Address ID: " + payload.customerAddressId);
+
+  const mutation = useGQLMutation(PLACE_ORDER, {
+    fulfilmentType: fulfilmentType,
+    discount: 0,
+    deliveryCharge: deliveryCharge,
+    vat: vat,
+    serviceCharge: serviceCharge,
+    total: total,
+    isPreOrder: isPreOrder,
+    isAccepted: isAccepted,
+    cart: formattedCart,
+    deliveryZoneId: deliveryZoneId,
+    customerAddressId: customerAddressId,
+    customerId: customerId,
+    restaurantId: rdata.id,
+  });
 
   const toast = useToast();
 
@@ -66,7 +82,6 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
     const createOrder = await mutation
       .mutateAsync()
       .then((response) => {
-        console.log(response);
         const orderData = response.createOrder;
         toast({
           position: "top",
@@ -77,7 +92,6 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
           variant: "solid",
           isClosable: true,
         });
-        console.log(orderData.id);
         setRecentOrderId(orderData.id);
         mutation.reset();
         router.push("/order/confirmed");

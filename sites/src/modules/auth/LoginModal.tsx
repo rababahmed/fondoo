@@ -28,15 +28,26 @@ import { useGQLQuery } from "../../hooks/useGQLQuery";
 import { GET_USER_DETAILS } from "../../graphql/user";
 import SignupModal from "./SignupModal";
 import { useSiteStore } from "../../stores/useSiteStore";
+import { useRouter } from "next/router";
 
 interface Props {
   rdata: any;
   cdata: any;
+  isCheckoutPage?: boolean;
 }
 
-const LoginModal = ({ rdata, cdata }: Props) => {
+const LoginModal = ({ rdata, cdata, isCheckoutPage }: Props) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const setUser = useUserStore((state) => state.setUser);
+  const isOpen = useSiteStore((state) => state.loginModal);
+  const setLoginModal = useSiteStore((state) => state.setLoginModal);
+
+  const onOpen = () => {
+    setSignUpModal(true);
+  };
+  const onClose = () => {
+    setSignUpModal(false);
+  };
 
   const initialValues = {
     email: "",
@@ -55,6 +66,8 @@ const LoginModal = ({ rdata, cdata }: Props) => {
   const toast = useToast();
 
   const setAddress = useUserStore((state) => state.setAddress);
+
+  const router = useRouter();
 
   const onSubmit = async (values: any) => {
     const login = await axios
@@ -89,13 +102,14 @@ const LoginModal = ({ rdata, cdata }: Props) => {
       });
   };
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   const setSignUpModal = useSiteStore((state) => state.setSignUpModal);
 
   return (
     <>
-      <SecondaryButton onClick={onOpen} cdata={cdata} text="SIGN IN" />
+      {!isCheckoutPage ? (
+        <SecondaryButton onClick={onOpen} cdata={cdata} text="SIGN IN" />
+      ) : null}
+
       <SignupModal rdata={rdata} cdata={cdata} />
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>

@@ -35,17 +35,6 @@ const AddressDetails = ({ rdata, cdata }: Props) => {
     }
   );
 
-  const initialValues = {
-    firstName: (isSuccess && data.customer.firstName) || "",
-    lastName: (isSuccess && data.customer.lastName) || "",
-    email: (isSuccess && data.customer.email) || "",
-    phone: (isSuccess && data.customer.phone) || "",
-  };
-
-  const validationSchema = Yup.object({
-    email: Yup.string().required("Email is required."),
-  });
-
   return (
     <>
       <Flex mb={6} justifyContent={"flex-end"}>
@@ -63,8 +52,8 @@ const AddressDetails = ({ rdata, cdata }: Props) => {
       >
         <Skeleton isLoaded={!isLoading}>
           <SimpleGrid columns={2} spacing={6}>
-            {isSuccess && data.customer.addresses.length > 0 ? (
-              data.customer.addresses.map((a: any) => (
+            {isSuccess && data.customer?.addresses?.length > 0 ? (
+              data.customer?.addresses?.map((a: any) => (
                 <FlatCard key={a.id} boxProps={{ cursor: "pointer" }}>
                   <Text fontWeight={"semibold"} isTruncated>
                     {a.streetAddress}

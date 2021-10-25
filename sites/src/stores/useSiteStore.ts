@@ -4,7 +4,9 @@ import { devtools } from "zustand/middleware";
 import omit from "lodash/omit";
 
 interface Site {
+  loginModal: boolean;
   signUpModal: boolean;
+  setLoginModal: (value: boolean) => void;
   setSignUpModal: (value: boolean) => void;
 }
 
@@ -36,7 +38,15 @@ export const useSiteStore = create<Site>(
     //     key: "site-store",
     //   },
     (set) => ({
+      loginModal: false,
       signUpModal: false,
+      setLoginModal: (value) =>
+        set((state) => {
+          return {
+            ...state,
+            loginModal: value,
+          };
+        }),
       setSignUpModal: (value) =>
         set((state) => {
           return {

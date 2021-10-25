@@ -6,6 +6,7 @@ import Sticky from "react-stickynode";
 import Footer from "../components/footer/Footer";
 import NextNprogress from "nextjs-progressbar";
 import { useCheckoutStore } from "../stores/useCheckoutStore";
+import WaitForAuthentication from "../components/auth/WaitForAuthentication";
 
 const DefaultLayout = ({ children, rdata, cdata }: any) => {
   return (

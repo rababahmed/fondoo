@@ -20,6 +20,8 @@ import { GET_USER_DETAILS, PLACE_ORDER } from "../../graphql/user";
 import { useUserStore } from "../../stores/useUserStore";
 import { useGQLMutation } from "../../hooks/useGQLMutation";
 import PlaceOrderButton from "../../components/buttons/PlaceOrderButton";
+import AddressDetails from "../account/AddressDetails";
+import CheckoutAddressDetails from "./CheckoutAddressDetails";
 
 interface Props {
   rdata: any;
@@ -105,17 +107,8 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
                   Address
                 </Text>
                 <FlatCard>
-                  <Skeleton isLoaded={!isLoading}>
-                    <Stack direction={"row"}>
-                      <Text fontWeight={"semibold"}>Name:</Text>
-                      <Text>
-                        {(isSuccess && data.customer?.firstName) || ""}{" "}
-                        {(isSuccess && data.customer?.lastName) || ""}
-                      </Text>
-                    </Stack>
-                  </Skeleton>
-                  <Stack direction={"row"}>
-                    <Text fontWeight={"semibold"}>Address:</Text>
+                  <CheckoutAddressDetails cdata={cdata} rdata={rdata} />
+                  {/* <Text fontWeight={"semibold"}>Address:</Text>
                     <Text>
                       {(isSuccess &&
                         data.customer?.addresses[0]?.streetAddress) ||
@@ -123,12 +116,7 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
                       , {(isSuccess && data.customer?.addresses[0]?.city) || ""}{" "}
                       {(isSuccess && data.customer?.addresses[0]?.postCode) ||
                         ""}
-                    </Text>
-                  </Stack>
-                  <Stack direction={"row"}>
-                    <Text fontWeight={"semibold"}>Contact:</Text>
-                    <Text>{(isSuccess && data.customer?.phone) || ""}</Text>
-                  </Stack>
+                    </Text> */}
                 </FlatCard>
               </Stack>
               <Stack px={8} spacing={4}>

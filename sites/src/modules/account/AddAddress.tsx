@@ -29,6 +29,7 @@ interface Props {
 const AddAddress = ({ cdata, rdata }: Props) => {
   const userId = useUserStore((state) => state.userID);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const setAddress = useUserStore((state) => state.setAddress);
 
   const initialValues = {
     streetAddress: "",
@@ -57,7 +58,8 @@ const AddAddress = ({ cdata, rdata }: Props) => {
     const payload = setFormData(values);
     mutation
       .mutateAsync()
-      .then(() => {
+      .then((response) => {
+        const addressData = response.createCustomerAddress;
         toast({
           position: "top",
           title: "New address added!",
@@ -66,6 +68,7 @@ const AddAddress = ({ cdata, rdata }: Props) => {
           variant: "solid",
           isClosable: true,
         });
+        setAddress(addressData.id);
         onClose();
       })
       .catch(() => {

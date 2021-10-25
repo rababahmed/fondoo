@@ -3,9 +3,11 @@ import { GraphQLClient } from "graphql-request";
 import Head from "next/head";
 import { getPlaiceholder } from "plaiceholder";
 import TezzBitesGA from "../../../components/analytics/TezzBitesGA";
+import WaitForAuthentication from "../../../components/auth/WaitForAuthentication";
 import Header from "../../../components/card/Header";
 import { Constants } from "../../../config";
 import { GET_RESTAURANT_INFO } from "../../../graphql/restaurant";
+import AuthenticatedLayout from "../../../layouts/AuthenticatedLayout";
 import DefaultLayout from "../../../layouts/DefaultLayout";
 import { AboutPage } from "../../../modules/about/AboutPage";
 import { CheckoutContainer } from "../../../modules/checkout/CheckoutContainer";
@@ -22,7 +24,7 @@ export default function Checkout({ host, rdata, cdata, imageProps }: any) {
       </Head>
       <TezzBitesGA />
       {rdata && cdata ? (
-        <DefaultLayout rdata={rdata} cdata={cdata}>
+        <AuthenticatedLayout rdata={rdata} cdata={cdata}>
           <Header
             rdata={rdata}
             cdata={cdata}
@@ -30,7 +32,7 @@ export default function Checkout({ host, rdata, cdata, imageProps }: any) {
             heading="Checkout"
           />
           <CheckoutContainer rdata={rdata} cdata={cdata} />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       ) : (
         <div>Site data not found</div>
       )}

@@ -134,6 +134,11 @@ export const PLACE_ORDER = gql`
       }
     ) {
       id
+      address {
+        id
+        streetAddress
+        city
+      }
     }
   }
 `;
