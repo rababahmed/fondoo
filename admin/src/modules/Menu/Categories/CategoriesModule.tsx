@@ -46,7 +46,9 @@ export const CategoriesModule = () => {
               data.productCategories.map((cat: any) => (
                 <Tr key={cat.id}>
                   <Td>{cat.name}</Td>
-                  <Td>{cat.description}</Td>
+                  <Td isTruncated maxW={200}>
+                    {cat.description}
+                  </Td>
                   <Td>{cat.isActive ? "Yes" : "No"}</Td>
                   <Td>{cat.isFeatured ? "Yes" : "No"}</Td>
                   <Td>

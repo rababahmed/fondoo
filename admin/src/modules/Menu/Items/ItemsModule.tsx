@@ -9,8 +9,6 @@ import {
   Tr,
   Th,
   Td,
-  Button,
-  TableCaption,
   Tag,
   Accordion,
   AccordionItem,
@@ -81,7 +79,9 @@ export const ItemsModule = () => {
                           {cat.Product.map((product: any) => (
                             <Tr key={product.id}>
                               <Td>{product.name}</Td>
-                              <Td isTruncated>{product.description}</Td>
+                              <Td isTruncated maxW={200}>
+                                {product.description}
+                              </Td>
                               <Td>
                                 <Image
                                   src={Config.CDN + product.image}

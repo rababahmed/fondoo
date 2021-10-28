@@ -11,41 +11,38 @@ router.post("/signup", async (req, res) => {
     const { firstName, lastName, email, password, phone, restaurantId } =
       req.body;
     const hash = await bcrypt.hash(password, 10);
-    if (restaurantId) {
-      const result = await prisma.customer.create({
-        data: {
-          firstName,
-          lastName,
-          phone,
-          email,
-          password: hash,
-          restaurants: {
-            connect: {
-              id: restaurantId,
-            },
+    const result = await prisma.customer.create({
+      data: {
+        firstName,
+        lastName,
+        phone,
+        email,
+        password: hash,
+        restaurants: {
+          connect: {
+            id: restaurantId,
           },
         },
+      },
+    });
+    const validPass = await bcrypt.compare(password, result?.password);
+    if (validPass) {
+      const token = jwt.sign(
+        { id: result?.id, restaurantId: restaurantId },
+        config.passport.secret,
+        {
+          expiresIn: config.passport.expiresIn,
+        }
+      );
+      res.status(200).send({
+        token: token,
+        isAuthenticated: true,
+        id: result?.id,
+        message: "User authenticated",
       });
-      const validPass = await bcrypt.compare(password, result?.password);
-      if (validPass) {
-        const token = jwt.sign(
-          { id: result?.id, restaurantId: restaurantId },
-          config.passport.secret,
-          {
-            expiresIn: config.passport.expiresIn,
-          }
-        );
-        res.status(200).send({
-          token: token,
-          isAuthenticated: true,
-          id: result?.id,
-          message: "User authenticated",
-        });
-      } else {
-        res.status(400).send({ message: "Could not auto log in user" });
-      }
+    } else {
+      res.status(400).send({ message: "Could not auto log in user" });
     }
-    res.status(400).send({ message: "Failed to sign up user" });
   } catch (err) {
     console.log(err);
     res.status(400).send({ message: "Error signing up user" });

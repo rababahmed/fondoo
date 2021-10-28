@@ -16,6 +16,7 @@ import {
   NumberInputControl,
   RadioGroupControl,
   SubmitButton,
+  TextareaControl,
 } from "formik-chakra-ui";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
@@ -59,7 +60,7 @@ export const EditItem = (props: Props) => {
 
   const validationSchema = Yup.object({
     name: Yup.string().required(),
-    description: Yup.string().required(),
+    description: Yup.string(),
     price: Yup.number().integer().required(),
     spiceLevel: Yup.string().required("Please select a spice level"),
   });
@@ -103,7 +104,7 @@ export const EditItem = (props: Props) => {
                 <Grid templateColumns="1fr" gap={8}>
                   <Stack spacing="6">
                     <InputControl name="name" label="Name" />
-                    <InputControl name="description" label="Description" />
+                    <TextareaControl name="description" label="Description" />
                     <Field
                       name="image"
                       id="image"

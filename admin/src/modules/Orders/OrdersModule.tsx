@@ -80,7 +80,7 @@ const OrdersModule = () => {
                     </Td>
                     <Td>{format(parseISO(o.createdAt), "PP, p") || ""}</Td>
                     <Td>{o.isPreOrder ? "Yes" : "No"}</Td>
-                    <Td>{o.deliveryZone.name}</Td>
+                    <Td>{o.deliveryZone?.name}</Td>
                     <Td>{o.total}</Td>
                     <Td>
                       <OrderActions o={o} />

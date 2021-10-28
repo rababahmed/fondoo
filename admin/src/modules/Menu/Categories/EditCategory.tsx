@@ -13,6 +13,7 @@ import {
   CheckboxSingleControl,
   InputControl,
   SubmitButton,
+  TextareaControl,
 } from "formik-chakra-ui";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -87,7 +88,7 @@ export const EditCategory = (props: Props) => {
                 <Grid templateColumns="1fr" gap={8}>
                   <Stack spacing="6">
                     <InputControl name="name" label="Name" />
-                    <InputControl name="description" label="Description" />
+                    <TextareaControl name="description" label="Description" />
                     <HStack>
                       <CheckboxSingleControl name="isActive">
                         Active
