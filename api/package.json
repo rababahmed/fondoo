@@ -6,8 +6,8 @@
   "scripts": {
     "prisma:reset": "yarn prisma migrate reset --force",
     "prisma:dev": "yarn prisma migrate dev",
-    "prisma:deploy": "yarn prisma migrate deploy",
-    "build": "prisma:deploy & tsc",
+    "build": "prisma generate & tsc",
+    "post-build": "prisma generate",
     "watch": "tsc -w",
     "dev:tsnd": "ts-node-dev --transpile-only src/main.ts",
     "dev": "tsc -w & nodemon -q -w dist dist/main.js",
