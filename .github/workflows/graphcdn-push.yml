@@ -15,7 +15,7 @@ jobs:
           check-latest: true
 
       - name: Push schema
-        working-directory: ./sites
+        working-directory: ./api
         run: npx graphcdn push
         env:
           GRAPHCDN_TOKEN: ${{ secrets.GRAPHCDN_TOKEN }}
