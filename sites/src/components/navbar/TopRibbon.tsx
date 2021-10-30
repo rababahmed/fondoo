@@ -4,17 +4,10 @@ import RibbonItem from "../misc/ClickableText";
 import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { format } from "date-fns";
+import { getOpeningHours } from "../../lib/getOpeningHours";
 
 const TopRibbon = ({ rdata, cdata }: any) => {
-  const serverDate = format(new Date(), "eeee");
-
-  const [isDesktop] = useMediaQuery("(min-width: 640px)");
-
-  console.log(serverDate);
-
-  const openingData = rdata.schedules.find((x: any) => x.day === serverDate);
-
-  console.log(openingData);
+  const openingData = getOpeningHours(rdata);
 
   return (
     <>

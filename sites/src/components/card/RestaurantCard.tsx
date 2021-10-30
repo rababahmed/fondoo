@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { getOpeningHours } from "../../lib/getOpeningHours";
 
 interface Props {
   rdata: any;
@@ -63,8 +64,12 @@ const RestaurantCard = (props: Props) => {
               <AiFillStar />
             </Stack>
             <Divider variant="solid" borderColor={"gray.400"} />
-            <Text fontWeight="semibold">Min Delivery Amount ৳500</Text>
-            <Text fontWeight="semibold">Open Hours: 12:00 PM - 10:00 PM</Text>
+            {/* <Text fontWeight="semibold">Min Delivery Amount ৳500</Text> */}
+            <Text fontWeight="semibold">
+              {getOpeningHours(props.rdata)
+                ? "Open Hours: " + getOpeningHours(props.rdata)
+                : "Sorry, we're closed now."}
+            </Text>
           </Stack>
         </Stack>
       </Box>
