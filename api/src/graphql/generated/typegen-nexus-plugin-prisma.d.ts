@@ -17,6 +17,7 @@ interface PrismaModels {
   Restaurant: Prisma.Restaurant
   RestaurantPlan: Prisma.RestaurantPlan
   RestaurantConfig: Prisma.RestaurantConfig
+  Domain: Prisma.Domain
   RestaurantSocial: Prisma.RestaurantSocial
   RestaurantReview: Prisma.RestaurantReview
   CMSHome: Prisma.CMSHome
@@ -49,8 +50,12 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'name' | 'price' | 'isActive' | 'restaurants'
     }
     restaurantConfigs: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'domain' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domains' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'domains' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+    }
+    domains: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'createdAt' | 'updatedAt' | 'restaurantConfig' | 'restaurantConfigId'
+      ordering: 'id' | 'domain' | 'createdAt' | 'updatedAt' | 'restaurantConfig' | 'restaurantConfigId'
     }
     restaurantSocials: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'network' | 'url' | 'isActive' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
@@ -81,12 +86,12 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'headerHeading' | 'headerDescription' | 'headerImage' | 'isActive' | 'restaurant' | 'restaurantId'
     }
     productCategories: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product'
-      ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product' | 'createdAt' | 'updatedAt'
     }
     products: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems'
-      ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isFeatured' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isFeatured' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems' | 'createdAt' | 'updatedAt'
     }
     schedules: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'day' | 'openingTime' | 'closingTime' | 'pickupTime' | 'restaurant' | 'restaurantId'
@@ -97,8 +102,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'createdAt' | 'name' | 'deliveryTime' | 'isPreOrder' | 'preOrderInstructions' | 'postCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurant' | 'restaurantId' | 'orders'
     }
     customers: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'reviews'
-      ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'reviews'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'createdAt' | 'updatedAt' | 'reviews'
+      ordering: 'id' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'createdAt' | 'updatedAt' | 'reviews'
     }
     customerAddresses: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'streetAddress' | 'city' | 'postCode' | 'country' | 'customer' | 'customerId' | 'orders'
@@ -135,8 +140,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'createdAt' | 'name' | 'deliveryTime' | 'isPreOrder' | 'preOrderInstructions' | 'postCode' | 'deliveryFeeType' | 'deliveryCharge' | 'minDeliveryAmount' | 'minDeliveryRadius' | 'maxDeliveryRadius' | 'restaurant' | 'restaurantId' | 'orders'
     }
     customers: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'reviews'
-      ordering: 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'updatedAt' | 'reviews'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'createdAt' | 'updatedAt' | 'reviews'
+      ordering: 'id' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'addresses' | 'orders' | 'restaurants' | 'createdAt' | 'updatedAt' | 'reviews'
     }
     orders: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'items' | 'fulfilmentType' | 'deliveryZone' | 'address' | 'discount' | 'deliveryCharge' | 'vat' | 'serviceCharge' | 'total' | 'isViewed' | 'isPreOrder' | 'isAccepted' | 'coupon' | 'couponId' | 'offer' | 'offerId' | 'restaurant' | 'restaurantId' | 'customer' | 'customerId' | 'createdAt' | 'updatedAt' | 'deliveryZoneId' | 'customerAddressId'
@@ -147,12 +152,12 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'product' | 'quantity' | 'total' | 'spiceLevel' | 'productId' | 'order' | 'orderId' | 'createdAt' | 'updatedAt' | 'restaurant' | 'restaurantId'
     }
     productCategory: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product'
-      ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'name' | 'description' | 'image' | 'isActive' | 'isFeatured' | 'restaurants' | 'restaurantId' | 'Product' | 'createdAt' | 'updatedAt'
     }
     products: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems'
-      ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isFeatured' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isFeatured' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems' | 'createdAt' | 'updatedAt'
     }
     users: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'firstName' | 'lastName' | 'email' | 'password' | 'phone' | 'restaurants' | 'role'
@@ -182,6 +187,12 @@ interface NexusPrismaInputs {
     }
   }
   RestaurantConfig: {
+    domains: {
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'createdAt' | 'updatedAt' | 'restaurantConfig' | 'restaurantConfigId'
+      ordering: 'id' | 'domain' | 'createdAt' | 'updatedAt' | 'restaurantConfig' | 'restaurantConfigId'
+    }
+  }
+  Domain: {
 
   }
   RestaurantSocial: {
@@ -207,8 +218,8 @@ interface NexusPrismaInputs {
   }
   ProductCategory: {
     Product: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems'
-      ordering: 'id' | 'createdAt' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isPopular' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isFeatured' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'name' | 'description' | 'image' | 'price' | 'spiceLevel' | 'isFeatured' | 'isActive' | 'productCategory' | 'productCategoryId' | 'restaurant' | 'restaurantId' | 'orderItems' | 'createdAt' | 'updatedAt'
     }
   }
   Product: {
@@ -288,6 +299,8 @@ interface NexusPrismaOutputs {
     restaurantPlans: 'RestaurantPlan'
     restaurantConfig: 'RestaurantConfig'
     restaurantConfigs: 'RestaurantConfig'
+    domain: 'Domain'
+    domains: 'Domain'
     restaurantSocial: 'RestaurantSocial'
     restaurantSocials: 'RestaurantSocial'
     restaurantReview: 'RestaurantReview'
@@ -344,6 +357,12 @@ interface NexusPrismaOutputs {
     deleteOneRestaurantConfig: 'RestaurantConfig'
     deleteManyRestaurantConfig: 'AffectedRowsOutput'
     upsertOneRestaurantConfig: 'RestaurantConfig'
+    createOneDomain: 'Domain'
+    updateOneDomain: 'Domain'
+    updateManyDomain: 'AffectedRowsOutput'
+    deleteOneDomain: 'Domain'
+    deleteManyDomain: 'AffectedRowsOutput'
+    upsertOneDomain: 'Domain'
     createOneRestaurantSocial: 'RestaurantSocial'
     updateOneRestaurantSocial: 'RestaurantSocial'
     updateManyRestaurantSocial: 'AffectedRowsOutput'
@@ -512,7 +531,7 @@ interface NexusPrismaOutputs {
   }
   RestaurantConfig: {
     id: 'String'
-    domain: 'String'
+    domains: 'Domain'
     primaryColor: 'String'
     secondaryColor: 'String'
     isActive: 'Boolean'
@@ -521,6 +540,14 @@ interface NexusPrismaOutputs {
     restaurantId: 'String'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'
+  }
+  Domain: {
+    id: 'String'
+    domain: 'String'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
+    restaurantConfig: 'RestaurantConfig'
+    restaurantConfigId: 'String'
   }
   RestaurantSocial: {
     id: 'String'
@@ -607,7 +634,6 @@ interface NexusPrismaOutputs {
   }
   ProductCategory: {
     id: 'String'
-    createdAt: 'DateTime'
     name: 'String'
     description: 'String'
     image: 'String'
@@ -616,22 +642,25 @@ interface NexusPrismaOutputs {
     restaurants: 'Restaurant'
     restaurantId: 'String'
     Product: 'Product'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
   }
   Product: {
     id: 'String'
-    createdAt: 'DateTime'
     name: 'String'
     description: 'String'
     image: 'String'
     price: 'Float'
     spiceLevel: 'SpiceLevel'
-    isPopular: 'Boolean'
+    isFeatured: 'Boolean'
     isActive: 'Boolean'
     productCategory: 'ProductCategory'
     productCategoryId: 'String'
     restaurant: 'Restaurant'
     restaurantId: 'String'
     orderItems: 'OrderItem'
+    createdAt: 'DateTime'
+    updatedAt: 'DateTime'
   }
   Schedule: {
     id: 'String'
@@ -662,7 +691,6 @@ interface NexusPrismaOutputs {
   }
   Customer: {
     id: 'String'
-    createdAt: 'DateTime'
     firstName: 'String'
     lastName: 'String'
     email: 'String'
@@ -671,6 +699,7 @@ interface NexusPrismaOutputs {
     addresses: 'CustomerAddress'
     orders: 'Order'
     restaurants: 'Restaurant'
+    createdAt: 'DateTime'
     updatedAt: 'DateTime'
     reviews: 'RestaurantReview'
   }
@@ -773,6 +802,7 @@ interface NexusPrismaMethods {
   Restaurant: Typegen.NexusPrismaFields<'Restaurant'>
   RestaurantPlan: Typegen.NexusPrismaFields<'RestaurantPlan'>
   RestaurantConfig: Typegen.NexusPrismaFields<'RestaurantConfig'>
+  Domain: Typegen.NexusPrismaFields<'Domain'>
   RestaurantSocial: Typegen.NexusPrismaFields<'RestaurantSocial'>
   RestaurantReview: Typegen.NexusPrismaFields<'RestaurantReview'>
   CMSHome: Typegen.NexusPrismaFields<'CMSHome'>

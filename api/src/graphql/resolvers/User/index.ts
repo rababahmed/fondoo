@@ -12,6 +12,7 @@ export const User = objectType({
     t.model.phone();
     t.model.role();
     t.model.restaurants();
+    t.model.createdAt();
   },
 });
 

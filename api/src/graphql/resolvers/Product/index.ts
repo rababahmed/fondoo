@@ -11,13 +11,15 @@ export const Product = objectType({
     t.model.image();
     t.model.price();
     t.model.spiceLevel();
-    t.model.isPopular();
+    t.model.isFeatured();
     t.model.isActive();
     t.model.productCategory();
     t.model.productCategoryId();
     t.model.restaurant();
     t.model.restaurantId();
     t.model.orderItems();
+    t.model.createdAt();
+    t.model.updatedAt();
   },
 });
 

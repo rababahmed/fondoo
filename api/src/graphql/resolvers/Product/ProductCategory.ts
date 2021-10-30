@@ -18,6 +18,8 @@ export const ProductCategory = objectType({
       ordering: true,
       pagination: true,
     });
+    t.model.createdAt();
+    t.model.updatedAt();
   },
 });
 

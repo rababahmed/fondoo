@@ -1745,6 +1745,152 @@ enum Discount {
   Percent
 }
 
+type Domain {
+  createdAt: DateTime!
+  domain: String!
+  id: String!
+  restaurantConfig: RestaurantConfig
+  updatedAt: DateTime!
+}
+
+input DomainCreateInput {
+  createdAt: DateTime
+  domain: String!
+  id: String
+  restaurantConfig: RestaurantConfigCreateNestedOneWithoutDomainsInput
+  updatedAt: DateTime
+}
+
+input DomainCreateManyRestaurantConfigInput {
+  createdAt: DateTime
+  domain: String!
+  id: String
+  updatedAt: DateTime
+}
+
+input DomainCreateManyRestaurantConfigInputEnvelope {
+  data: [DomainCreateManyRestaurantConfigInput!]
+  skipDuplicates: Boolean
+}
+
+input DomainCreateNestedManyWithoutRestaurantConfigInput {
+  connect: [DomainWhereUniqueInput!]
+  connectOrCreate: [DomainCreateOrConnectWithoutRestaurantConfigInput!]
+  create: [DomainCreateWithoutRestaurantConfigInput!]
+  createMany: DomainCreateManyRestaurantConfigInputEnvelope
+}
+
+input DomainCreateOrConnectWithoutRestaurantConfigInput {
+  create: DomainCreateWithoutRestaurantConfigInput!
+  where: DomainWhereUniqueInput!
+}
+
+input DomainCreateWithoutRestaurantConfigInput {
+  createdAt: DateTime
+  domain: String!
+  id: String
+  updatedAt: DateTime
+}
+
+input DomainListRelationFilter {
+  every: DomainWhereInput
+  none: DomainWhereInput
+  some: DomainWhereInput
+}
+
+input DomainOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input DomainOrderByWithRelationInput {
+  createdAt: SortOrder
+  domain: SortOrder
+  id: SortOrder
+  restaurantConfig: RestaurantConfigOrderByWithRelationInput
+  restaurantConfigId: SortOrder
+  updatedAt: SortOrder
+}
+
+input DomainScalarWhereInput {
+  AND: [DomainScalarWhereInput!]
+  NOT: [DomainScalarWhereInput!]
+  OR: [DomainScalarWhereInput!]
+  createdAt: DateTimeFilter
+  domain: StringFilter
+  id: StringFilter
+  restaurantConfigId: StringNullableFilter
+  updatedAt: DateTimeFilter
+}
+
+input DomainUpdateInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  domain: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  restaurantConfig: RestaurantConfigUpdateOneWithoutDomainsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input DomainUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  domain: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input DomainUpdateManyWithWhereWithoutRestaurantConfigInput {
+  data: DomainUpdateManyMutationInput!
+  where: DomainScalarWhereInput!
+}
+
+input DomainUpdateManyWithoutRestaurantConfigInput {
+  connect: [DomainWhereUniqueInput!]
+  connectOrCreate: [DomainCreateOrConnectWithoutRestaurantConfigInput!]
+  create: [DomainCreateWithoutRestaurantConfigInput!]
+  createMany: DomainCreateManyRestaurantConfigInputEnvelope
+  delete: [DomainWhereUniqueInput!]
+  deleteMany: [DomainScalarWhereInput!]
+  disconnect: [DomainWhereUniqueInput!]
+  set: [DomainWhereUniqueInput!]
+  update: [DomainUpdateWithWhereUniqueWithoutRestaurantConfigInput!]
+  updateMany: [DomainUpdateManyWithWhereWithoutRestaurantConfigInput!]
+  upsert: [DomainUpsertWithWhereUniqueWithoutRestaurantConfigInput!]
+}
+
+input DomainUpdateWithWhereUniqueWithoutRestaurantConfigInput {
+  data: DomainUpdateWithoutRestaurantConfigInput!
+  where: DomainWhereUniqueInput!
+}
+
+input DomainUpdateWithoutRestaurantConfigInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  domain: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input DomainUpsertWithWhereUniqueWithoutRestaurantConfigInput {
+  create: DomainCreateWithoutRestaurantConfigInput!
+  update: DomainUpdateWithoutRestaurantConfigInput!
+  where: DomainWhereUniqueInput!
+}
+
+input DomainWhereInput {
+  AND: [DomainWhereInput!]
+  NOT: [DomainWhereInput!]
+  OR: [DomainWhereInput!]
+  createdAt: DateTimeFilter
+  domain: StringFilter
+  id: StringFilter
+  restaurantConfig: RestaurantConfigWhereInput
+  restaurantConfigId: StringNullableFilter
+  updatedAt: DateTimeFilter
+}
+
+input DomainWhereUniqueInput {
+  domain: String
+  id: String
+}
+
 input EnumDeliveryFeeFieldUpdateOperationsInput {
   set: DeliveryFee
 }
@@ -1875,6 +2021,7 @@ type Mutation {
   createCustomer(data: CustomerCreateInput!): Customer!
   createCustomerAddress(data: CustomerAddressCreateInput!): CustomerAddress!
   createDeliveryZone(data: DeliveryZoneCreateInput!): DeliveryZone!
+  createDomain(data: DomainCreateInput!): Domain!
   createOffer(data: OfferCreateInput!): Offer!
   createOrder(data: OrderCreateInput!): Order!
   createOrderItem(data: OrderItemCreateInput!): OrderItem!
@@ -1896,6 +2043,7 @@ type Mutation {
   deleteCustomer(where: CustomerWhereUniqueInput!): Customer
   deleteCustomerAddress(where: CustomerAddressWhereUniqueInput!): CustomerAddress
   deleteDeliveryZone(where: DeliveryZoneWhereUniqueInput!): DeliveryZone
+  deleteDomain(where: DomainWhereUniqueInput!): Domain
   deleteOffer(where: OfferWhereUniqueInput!): Offer
   deleteOrder(where: OrderWhereUniqueInput!): Order
   deleteOrderItem(where: OrderItemWhereUniqueInput!): OrderItem
@@ -1917,6 +2065,7 @@ type Mutation {
   updateCustomer(data: CustomerUpdateInput!, where: CustomerWhereUniqueInput!): Customer
   updateCustomerAddress(data: CustomerAddressUpdateInput!, where: CustomerAddressWhereUniqueInput!): CustomerAddress
   updateDeliveryZone(data: DeliveryZoneUpdateInput!, where: DeliveryZoneWhereUniqueInput!): DeliveryZone
+  updateDomain(data: DomainUpdateInput!, where: DomainWhereUniqueInput!): Domain
   updateOffer(data: OfferUpdateInput!, where: OfferWhereUniqueInput!): Offer
   updateOrder(data: OrderUpdateInput!, where: OrderWhereUniqueInput!): Order
   updateOrderItem(data: OrderItemUpdateInput!, where: OrderItemWhereUniqueInput!): OrderItem
@@ -3586,11 +3735,12 @@ input OrderWhereUniqueInput {
 }
 
 type Product {
+  createdAt: DateTime!
   description: String
   id: String!
   image: String
   isActive: Boolean
-  isPopular: Boolean
+  isFeatured: Boolean
   name: String!
   orderItems(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
   price: Float
@@ -3599,10 +3749,12 @@ type Product {
   restaurant: Restaurant
   restaurantId: String
   spiceLevel: SpiceLevel!
+  updatedAt: DateTime!
 }
 
 type ProductCategory {
   Product(after: ProductWhereUniqueInput, before: ProductWhereUniqueInput, first: Int, last: Int, orderBy: [ProductOrderByWithRelationInput!], where: ProductWhereInput): [Product!]!
+  createdAt: DateTime!
   description: String
   id: String!
   image: String
@@ -3611,6 +3763,7 @@ type ProductCategory {
   name: String!
   restaurantId: String!
   restaurants: Restaurant!
+  updatedAt: DateTime!
 }
 
 input ProductCategoryCreateInput {
@@ -3623,6 +3776,7 @@ input ProductCategoryCreateInput {
   isFeatured: Boolean
   name: String!
   restaurants: RestaurantCreateNestedOneWithoutProductCategoryInput!
+  updatedAt: DateTime
 }
 
 input ProductCategoryCreateManyRestaurantsInput {
@@ -3633,6 +3787,7 @@ input ProductCategoryCreateManyRestaurantsInput {
   isActive: Boolean
   isFeatured: Boolean
   name: String!
+  updatedAt: DateTime
 }
 
 input ProductCategoryCreateManyRestaurantsInputEnvelope {
@@ -3672,6 +3827,7 @@ input ProductCategoryCreateWithoutProductInput {
   isFeatured: Boolean
   name: String!
   restaurants: RestaurantCreateNestedOneWithoutProductCategoryInput!
+  updatedAt: DateTime
 }
 
 input ProductCategoryCreateWithoutRestaurantsInput {
@@ -3683,6 +3839,7 @@ input ProductCategoryCreateWithoutRestaurantsInput {
   isActive: Boolean
   isFeatured: Boolean
   name: String!
+  updatedAt: DateTime
 }
 
 input ProductCategoryListRelationFilter {
@@ -3706,6 +3863,7 @@ input ProductCategoryOrderByWithRelationInput {
   name: SortOrder
   restaurantId: SortOrder
   restaurants: RestaurantOrderByWithRelationInput
+  updatedAt: SortOrder
 }
 
 input ProductCategoryScalarWhereInput {
@@ -3720,6 +3878,7 @@ input ProductCategoryScalarWhereInput {
   isFeatured: BoolNullableFilter
   name: StringFilter
   restaurantId: StringFilter
+  updatedAt: DateTimeFilter
 }
 
 input ProductCategoryUpdateInput {
@@ -3732,6 +3891,7 @@ input ProductCategoryUpdateInput {
   isFeatured: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   restaurants: RestaurantUpdateOneRequiredWithoutProductCategoryInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductCategoryUpdateManyMutationInput {
@@ -3742,6 +3902,7 @@ input ProductCategoryUpdateManyMutationInput {
   isActive: NullableBoolFieldUpdateOperationsInput
   isFeatured: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductCategoryUpdateManyWithWhereWithoutRestaurantsInput {
@@ -3787,6 +3948,7 @@ input ProductCategoryUpdateWithoutProductInput {
   isFeatured: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   restaurants: RestaurantUpdateOneRequiredWithoutProductCategoryInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductCategoryUpdateWithoutRestaurantsInput {
@@ -3798,6 +3960,7 @@ input ProductCategoryUpdateWithoutRestaurantsInput {
   isActive: NullableBoolFieldUpdateOperationsInput
   isFeatured: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductCategoryUpsertWithWhereUniqueWithoutRestaurantsInput {
@@ -3825,6 +3988,7 @@ input ProductCategoryWhereInput {
   name: StringFilter
   restaurantId: StringFilter
   restaurants: RestaurantWhereInput
+  updatedAt: DateTimeFilter
 }
 
 input ProductCategoryWhereUniqueInput {
@@ -3837,13 +4001,14 @@ input ProductCreateInput {
   id: String
   image: String
   isActive: Boolean
-  isPopular: Boolean
+  isFeatured: Boolean
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutProductInput
   price: Float
   productCategory: ProductCategoryCreateNestedOneWithoutProductInput
   restaurant: RestaurantCreateNestedOneWithoutProductsInput
   spiceLevel: SpiceLevel
+  updatedAt: DateTime
 }
 
 input ProductCreateManyProductCategoryInput {
@@ -3852,11 +4017,12 @@ input ProductCreateManyProductCategoryInput {
   id: String
   image: String
   isActive: Boolean
-  isPopular: Boolean
+  isFeatured: Boolean
   name: String!
   price: Float
   restaurantId: String
   spiceLevel: SpiceLevel
+  updatedAt: DateTime
 }
 
 input ProductCreateManyProductCategoryInputEnvelope {
@@ -3870,11 +4036,12 @@ input ProductCreateManyRestaurantInput {
   id: String
   image: String
   isActive: Boolean
-  isPopular: Boolean
+  isFeatured: Boolean
   name: String!
   price: Float
   productCategoryId: String
   spiceLevel: SpiceLevel
+  updatedAt: DateTime
 }
 
 input ProductCreateManyRestaurantInputEnvelope {
@@ -3923,12 +4090,13 @@ input ProductCreateWithoutOrderItemsInput {
   id: String
   image: String
   isActive: Boolean
-  isPopular: Boolean
+  isFeatured: Boolean
   name: String!
   price: Float
   productCategory: ProductCategoryCreateNestedOneWithoutProductInput
   restaurant: RestaurantCreateNestedOneWithoutProductsInput
   spiceLevel: SpiceLevel
+  updatedAt: DateTime
 }
 
 input ProductCreateWithoutProductCategoryInput {
@@ -3937,12 +4105,13 @@ input ProductCreateWithoutProductCategoryInput {
   id: String
   image: String
   isActive: Boolean
-  isPopular: Boolean
+  isFeatured: Boolean
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutProductInput
   price: Float
   restaurant: RestaurantCreateNestedOneWithoutProductsInput
   spiceLevel: SpiceLevel
+  updatedAt: DateTime
 }
 
 input ProductCreateWithoutRestaurantInput {
@@ -3951,12 +4120,13 @@ input ProductCreateWithoutRestaurantInput {
   id: String
   image: String
   isActive: Boolean
-  isPopular: Boolean
+  isFeatured: Boolean
   name: String!
   orderItems: OrderItemCreateNestedManyWithoutProductInput
   price: Float
   productCategory: ProductCategoryCreateNestedOneWithoutProductInput
   spiceLevel: SpiceLevel
+  updatedAt: DateTime
 }
 
 input ProductListRelationFilter {
@@ -3975,7 +4145,7 @@ input ProductOrderByWithRelationInput {
   id: SortOrder
   image: SortOrder
   isActive: SortOrder
-  isPopular: SortOrder
+  isFeatured: SortOrder
   name: SortOrder
   orderItems: OrderItemOrderByRelationAggregateInput
   price: SortOrder
@@ -3984,6 +4154,7 @@ input ProductOrderByWithRelationInput {
   restaurant: RestaurantOrderByWithRelationInput
   restaurantId: SortOrder
   spiceLevel: SortOrder
+  updatedAt: SortOrder
 }
 
 input ProductScalarWhereInput {
@@ -3995,12 +4166,13 @@ input ProductScalarWhereInput {
   id: StringFilter
   image: StringNullableFilter
   isActive: BoolNullableFilter
-  isPopular: BoolNullableFilter
+  isFeatured: BoolNullableFilter
   name: StringFilter
   price: FloatNullableFilter
   productCategoryId: StringNullableFilter
   restaurantId: StringNullableFilter
   spiceLevel: EnumSpiceLevelFilter
+  updatedAt: DateTimeFilter
 }
 
 input ProductUpdateInput {
@@ -4009,13 +4181,14 @@ input ProductUpdateInput {
   id: StringFieldUpdateOperationsInput
   image: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
-  isPopular: NullableBoolFieldUpdateOperationsInput
+  isFeatured: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutProductInput
   price: NullableFloatFieldUpdateOperationsInput
   productCategory: ProductCategoryUpdateOneWithoutProductInput
   restaurant: RestaurantUpdateOneWithoutProductsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductUpdateManyMutationInput {
@@ -4024,10 +4197,11 @@ input ProductUpdateManyMutationInput {
   id: StringFieldUpdateOperationsInput
   image: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
-  isPopular: NullableBoolFieldUpdateOperationsInput
+  isFeatured: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   price: NullableFloatFieldUpdateOperationsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductUpdateManyWithWhereWithoutProductCategoryInput {
@@ -4092,12 +4266,13 @@ input ProductUpdateWithoutOrderItemsInput {
   id: StringFieldUpdateOperationsInput
   image: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
-  isPopular: NullableBoolFieldUpdateOperationsInput
+  isFeatured: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   price: NullableFloatFieldUpdateOperationsInput
   productCategory: ProductCategoryUpdateOneWithoutProductInput
   restaurant: RestaurantUpdateOneWithoutProductsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductUpdateWithoutProductCategoryInput {
@@ -4106,12 +4281,13 @@ input ProductUpdateWithoutProductCategoryInput {
   id: StringFieldUpdateOperationsInput
   image: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
-  isPopular: NullableBoolFieldUpdateOperationsInput
+  isFeatured: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutProductInput
   price: NullableFloatFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneWithoutProductsInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductUpdateWithoutRestaurantInput {
@@ -4120,12 +4296,13 @@ input ProductUpdateWithoutRestaurantInput {
   id: StringFieldUpdateOperationsInput
   image: NullableStringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
-  isPopular: NullableBoolFieldUpdateOperationsInput
+  isFeatured: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   orderItems: OrderItemUpdateManyWithoutProductInput
   price: NullableFloatFieldUpdateOperationsInput
   productCategory: ProductCategoryUpdateOneWithoutProductInput
   spiceLevel: EnumSpiceLevelFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProductUpsertWithWhereUniqueWithoutProductCategoryInput {
@@ -4154,7 +4331,7 @@ input ProductWhereInput {
   id: StringFilter
   image: StringNullableFilter
   isActive: BoolNullableFilter
-  isPopular: BoolNullableFilter
+  isFeatured: BoolNullableFilter
   name: StringFilter
   orderItems: OrderItemListRelationFilter
   price: FloatNullableFilter
@@ -4163,6 +4340,7 @@ input ProductWhereInput {
   restaurant: RestaurantWhereInput
   restaurantId: StringNullableFilter
   spiceLevel: EnumSpiceLevelFilter
+  updatedAt: DateTimeFilter
 }
 
 input ProductWhereUniqueInput {
@@ -4188,6 +4366,8 @@ type Query {
   customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int, orderBy: [CustomerOrderByWithRelationInput!], where: CustomerWhereInput): [Customer!]!
   deliveryZone(where: DeliveryZoneWhereUniqueInput!): DeliveryZone
   deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int, orderBy: [DeliveryZoneOrderByWithRelationInput!], where: DeliveryZoneWhereInput): [DeliveryZone!]!
+  domain(where: DomainWhereUniqueInput!): Domain
+  domains(after: DomainWhereUniqueInput, before: DomainWhereUniqueInput, first: Int, last: Int, orderBy: [DomainOrderByWithRelationInput!], where: DomainWhereInput): [Domain!]!
   offer(where: OfferWhereUniqueInput!): Offer
   offers(after: OfferWhereUniqueInput, before: OfferWhereUniqueInput, first: Int, last: Int, orderBy: [OfferOrderByWithRelationInput!], where: OfferWhereInput): [Offer!]!
   order(where: OrderWhereUniqueInput!): Order
@@ -4265,7 +4445,7 @@ type Restaurant {
 
 type RestaurantConfig {
   createdAt: DateTime!
-  domain: String!
+  domains(after: DomainWhereUniqueInput, before: DomainWhereUniqueInput, first: Int, last: Int, orderBy: [DomainOrderByWithRelationInput!], where: DomainWhereInput): [Domain!]!
   hasDarkNavBg: Boolean
   id: String!
   isActive: Boolean!
@@ -4277,7 +4457,7 @@ type RestaurantConfig {
 
 input RestaurantConfigCreateInput {
   createdAt: DateTime
-  domain: String!
+  domains: DomainCreateNestedManyWithoutRestaurantConfigInput
   hasDarkNavBg: Boolean
   id: String
   isActive: Boolean!
@@ -4287,10 +4467,21 @@ input RestaurantConfigCreateInput {
   updatedAt: DateTime
 }
 
+input RestaurantConfigCreateNestedOneWithoutDomainsInput {
+  connect: RestaurantConfigWhereUniqueInput
+  connectOrCreate: RestaurantConfigCreateOrConnectWithoutDomainsInput
+  create: RestaurantConfigCreateWithoutDomainsInput
+}
+
 input RestaurantConfigCreateNestedOneWithoutRestaurantInput {
   connect: RestaurantConfigWhereUniqueInput
   connectOrCreate: RestaurantConfigCreateOrConnectWithoutRestaurantInput
   create: RestaurantConfigCreateWithoutRestaurantInput
+}
+
+input RestaurantConfigCreateOrConnectWithoutDomainsInput {
+  create: RestaurantConfigCreateWithoutDomainsInput!
+  where: RestaurantConfigWhereUniqueInput!
 }
 
 input RestaurantConfigCreateOrConnectWithoutRestaurantInput {
@@ -4298,9 +4489,20 @@ input RestaurantConfigCreateOrConnectWithoutRestaurantInput {
   where: RestaurantConfigWhereUniqueInput!
 }
 
+input RestaurantConfigCreateWithoutDomainsInput {
+  createdAt: DateTime
+  hasDarkNavBg: Boolean
+  id: String
+  isActive: Boolean!
+  primaryColor: String!
+  restaurant: RestaurantCreateNestedOneWithoutConfigInput!
+  secondaryColor: String!
+  updatedAt: DateTime
+}
+
 input RestaurantConfigCreateWithoutRestaurantInput {
   createdAt: DateTime
-  domain: String!
+  domains: DomainCreateNestedManyWithoutRestaurantConfigInput
   hasDarkNavBg: Boolean
   id: String
   isActive: Boolean!
@@ -4311,7 +4513,7 @@ input RestaurantConfigCreateWithoutRestaurantInput {
 
 input RestaurantConfigOrderByWithRelationInput {
   createdAt: SortOrder
-  domain: SortOrder
+  domains: DomainOrderByRelationAggregateInput
   hasDarkNavBg: SortOrder
   id: SortOrder
   isActive: SortOrder
@@ -4324,7 +4526,7 @@ input RestaurantConfigOrderByWithRelationInput {
 
 input RestaurantConfigUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  domain: StringFieldUpdateOperationsInput
+  domains: DomainUpdateManyWithoutRestaurantConfigInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isActive: BoolFieldUpdateOperationsInput
@@ -4332,6 +4534,16 @@ input RestaurantConfigUpdateInput {
   restaurant: RestaurantUpdateOneRequiredWithoutConfigInput
   secondaryColor: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input RestaurantConfigUpdateOneWithoutDomainsInput {
+  connect: RestaurantConfigWhereUniqueInput
+  connectOrCreate: RestaurantConfigCreateOrConnectWithoutDomainsInput
+  create: RestaurantConfigCreateWithoutDomainsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: RestaurantConfigUpdateWithoutDomainsInput
+  upsert: RestaurantConfigUpsertWithoutDomainsInput
 }
 
 input RestaurantConfigUpdateOneWithoutRestaurantInput {
@@ -4344,15 +4556,31 @@ input RestaurantConfigUpdateOneWithoutRestaurantInput {
   upsert: RestaurantConfigUpsertWithoutRestaurantInput
 }
 
+input RestaurantConfigUpdateWithoutDomainsInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isActive: BoolFieldUpdateOperationsInput
+  primaryColor: StringFieldUpdateOperationsInput
+  restaurant: RestaurantUpdateOneRequiredWithoutConfigInput
+  secondaryColor: StringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
 input RestaurantConfigUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  domain: StringFieldUpdateOperationsInput
+  domains: DomainUpdateManyWithoutRestaurantConfigInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isActive: BoolFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   secondaryColor: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input RestaurantConfigUpsertWithoutDomainsInput {
+  create: RestaurantConfigCreateWithoutDomainsInput!
+  update: RestaurantConfigUpdateWithoutDomainsInput!
 }
 
 input RestaurantConfigUpsertWithoutRestaurantInput {
@@ -4365,7 +4593,7 @@ input RestaurantConfigWhereInput {
   NOT: [RestaurantConfigWhereInput!]
   OR: [RestaurantConfigWhereInput!]
   createdAt: DateTimeFilter
-  domain: StringFilter
+  domains: DomainListRelationFilter
   hasDarkNavBg: BoolNullableFilter
   id: StringFilter
   isActive: BoolFilter
@@ -4377,7 +4605,6 @@ input RestaurantConfigWhereInput {
 }
 
 input RestaurantConfigWhereUniqueInput {
-  domain: String
   id: String
   restaurantId: String
 }
@@ -7808,6 +8035,7 @@ input StringNullableFilter {
 }
 
 type User {
+  createdAt: DateTime!
   email: String!
   firstName: String!
   id: String!
