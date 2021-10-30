@@ -24,6 +24,12 @@ trigger changes
 |  Prod     |   ECS on Fargate with ALB  |
 |  Dev      |   Railway          |
 
+## Frontend
+| Env       |    Stack           |
+| :-------: | :----------------: |
+|  Prod     |   Vercel           |
+|  Dev      |   Vercel           |
+
 ## Database
 | Env       |    Stack           |
 | :-------: | :----------------: |
