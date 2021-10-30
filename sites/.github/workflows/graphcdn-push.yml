@@ -3,8 +3,7 @@ on:
   push:
     branches:
       - main
-      - master
-      - trunk
+      - prod
 jobs:
   main:
     runs-on: ubuntu-latest
