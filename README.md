@@ -21,11 +21,11 @@ trigger changes
 ## API Deployment
 | Env       |    Stack           |
 | :-------: | :----------------: |
-|  PROD     |   ECS on Fargate   |
-|  DEV      |   Railway          |
+|  Prod     |   ECS on Fargate with ALB  |
+|  Dev      |   Railway          |
 
 ## Database
 | Env       |    Stack           |
 | :-------: | :----------------: |
-|  PROD     |   PlanetScale      |
-|  DEV      |   PlanetScale      |
+|  Prod     |   PlanetScale      |
+|  Dev      |   PlanetScale      |
