@@ -47,7 +47,6 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
     serviceCharge: serviceCharge,
     total: total,
     isPreOrder: isPreOrder,
-    isAccepted: isAccepted,
     cart: formattedCart,
     deliveryZoneId: deliveryZoneId,
     customerAddressId: customerAddressId,
