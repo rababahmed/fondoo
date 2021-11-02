@@ -36,8 +36,8 @@ const NavBar = ({ rdata, cdata }: any) => {
         w="full"
         pos={"sticky"}
         top="0"
-        border={"1px"}
-        borderColor={"gray.100"}
+        border={cdata.hasDarkNavBg ? "0px" : "1px"}
+        borderColor={cdata.hasDarkNavBg ? "transparent" : "gray.100"}
         shadow={"sm"}
         // templateColumns={{ base: "2fr 2fr", md: "8fr 2fr" }}
         px={{ base: 8, md: 36, "2xl": 72 }}

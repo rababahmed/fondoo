@@ -335,7 +335,6 @@ export const GET_RESTAURANT_CONFIG = gql`
     restaurant(where: { id: $id }) {
       config {
         id
-        domain
         primaryColor
         secondaryColor
         hasDarkNavBg
