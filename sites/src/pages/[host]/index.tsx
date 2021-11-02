@@ -45,7 +45,7 @@ export default function Home({
               cdata={cdata}
               popularDishesData={popularDishesData}
             />
-            <ReservationContainer rdata={rdata} cdata={cdata} />
+            {/* <ReservationContainer rdata={rdata} cdata={cdata} /> */}
           </Stack>
         </DefaultLayout>
       ) : (

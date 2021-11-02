@@ -6,18 +6,20 @@ interface Props {
   cdata: any;
   text: String;
   url: any;
+  navItemProps?: any;
 }
 
-const NavItem = ({ text, url, cdata }: Props) => {
+const NavItem = ({ text, url, cdata, navItemProps }: Props) => {
   const router = useRouter();
   return (
     <>
       <Text
         onClick={() => router.push(url)}
         _hover={{ cursor: "pointer", opacity: "90%" }}
-        fontSize="xl"
+        fontSize={{ md: "lg", "2xl": "xl" }}
         fontWeight="bold"
         color={cdata.hasDarkNavBg ? "white" : "black"}
+        {...navItemProps}
       >
         {text}
       </Text>

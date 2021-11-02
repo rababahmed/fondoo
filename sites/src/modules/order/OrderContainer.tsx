@@ -11,23 +11,13 @@ import {
   Grid,
   Flex,
 } from "@chakra-ui/layout";
-import { useDisclosure } from "@chakra-ui/react";
 import React from "react";
-import Image from "next/image";
-import { useColorModeValue } from "@chakra-ui/color-mode";
-import CardWithoutImage from "../../components/card/CardWithoutImage";
-import CardWithIllustration from "../../components/card/CardWithIllustration";
 import { Button } from "@chakra-ui/button";
-import OrderButton from "../../components/buttons/OrderButton";
-import ItemCard from "../../components/card/ItemCard";
-import ReservationCard from "../../components/card/ReservationCard";
 import ItemContainer from "../../components/misc/ItemContainer";
 import CartCard from "../../components/card/CartCard";
-import ClickableText from "../../components/misc/ClickableText";
 import MenuNavItem from "../../components/misc/MenuNavItem";
-import { Constants } from "../../config";
-import { useCheckoutStore } from "../../stores/useCheckoutStore";
 import DeliveryModal from "./DeliveryModal";
+import MobileCartCard from "../../components/modal/MobileCartCard";
 
 interface Props {
   rdata: any;
@@ -42,7 +32,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
           w="full"
           spacing={6}
           py={{ base: 0, md: 10 }}
-          px={{ base: 0, md: 10, lg: 20, xl: 20, "2xl": 60 }}
+          px={{ base: 0, md: 0, lg: 0, xl: 0, "2xl": 60 }}
         >
           <Flex
             w="full"
@@ -55,7 +45,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
             <Box></Box>
             <DeliveryModal rdata={rdata} cdata={cdata} />
           </Flex>
-          <Box zIndex="10" pos="sticky" top="20" px={{ base: 0, md: 40 }}>
+          <Box zIndex="10" pos="sticky" top="20" px={{ base: 5, md: 40 }}>
             <Stack
               direction="row"
               bg="white"
@@ -131,6 +121,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
           </Grid>
         </Stack>
       </Box>
+      <MobileCartCard rdata={rdata} cdata={cdata} title="Cart" />
     </>
   );
 };

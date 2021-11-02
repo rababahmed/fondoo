@@ -26,6 +26,8 @@ interface Props {
 }
 
 const RestaurantCard = (props: Props) => {
+  const openingData = getOpeningHours(props.rdata);
+
   return (
     <>
       <Box
@@ -66,8 +68,8 @@ const RestaurantCard = (props: Props) => {
             <Divider variant="solid" borderColor={"gray.400"} />
             {/* <Text fontWeight="semibold">Min Delivery Amount ৳500</Text> */}
             <Text fontWeight="semibold">
-              {getOpeningHours(props.rdata)
-                ? "Open Hours: " + getOpeningHours(props.rdata)
+              {openingData
+                ? "Open Hours: " + openingData
                 : "Sorry, we're closed now."}
             </Text>
           </Stack>

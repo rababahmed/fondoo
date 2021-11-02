@@ -5,9 +5,10 @@ interface Props {
   cdata: any;
   text: String;
   onClick?: any;
+  buttonProps?: any;
 }
 
-const SecondaryButton = ({ cdata, text, onClick }: Props) => {
+const SecondaryButton = ({ cdata, text, onClick, buttonProps }: Props) => {
   return (
     <>
       <Button
@@ -16,6 +17,8 @@ const SecondaryButton = ({ cdata, text, onClick }: Props) => {
         _hover={{ opacity: "0.9" }}
         color="white"
         onClick={onClick}
+        fontSize={{ md: "sm", "2xl": "xl" }}
+        {...buttonProps}
       >
         {text}
       </Button>

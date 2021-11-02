@@ -41,7 +41,7 @@ const SignupModal = ({ rdata, cdata }: Props) => {
     email: "",
     phone: "",
     password: "",
-    restaurantId: rdata.id,
+    restaurantId: rdata?.id,
   };
 
   const validationSchema = Yup.object({

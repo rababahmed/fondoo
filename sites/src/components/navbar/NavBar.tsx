@@ -67,7 +67,7 @@ const NavBar = ({ rdata, cdata }: any) => {
           <NavItem text="About" url="/about" cdata={cdata} />
           <NavItem text="Deals" url="/deals" cdata={cdata} />
           <NavItem text="Menu" url="/menu" cdata={cdata} />
-          <NavItem text="Reservation" url="/reservation" cdata={cdata} />
+          {/* <NavItem text="Reservation" url="/reservation" cdata={cdata} /> */}
           <NavItem text="Contact" url="/contact" cdata={cdata} />
 
           {isAuthenticated ? (

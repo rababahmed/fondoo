@@ -13,7 +13,7 @@ const ClickableText = ({ text, url, fontSize }: Props) => {
   return (
     <>
       <Text
-        onClick={() => router.push(url)}
+        onClick={() => (url ? router.push(url) : null)}
         _hover={{ cursor: "pointer", opacity: "90%" }}
         fontSize={fontSize || "lg"}
         py={1}

@@ -26,6 +26,7 @@ import {
   GET_ALL_RESTAURANT_PLANS,
 } from "../../../graphql/admin/restaurant";
 import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
+import { domainGenerator } from "../../../lib/domainGenerator";
 
 export const AddRestaurant = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,7 +44,6 @@ export const AddRestaurant = () => {
 
   const validationSchema = Yup.object({
     name: Yup.string().required(),
-    domain: Yup.string().matches(urlvalidation, "Domain is not valid"),
     primaryColor: Yup.string().required(),
     secondaryColor: Yup.string().required(),
     plan: Yup.string().required(),
@@ -53,7 +53,14 @@ export const AddRestaurant = () => {
 
   const mutation = useGQLMutation(
     ADD_NEW_RESTAURANT,
-    formData,
+    {
+      name: formData.name,
+      domain: domainGenerator(formData.name),
+      primaryColor: formData.primaryColor,
+      secondaryColor: formData.secondaryColor,
+      plan: formData.plan,
+      isActive: formData.isActive,
+    },
     "get-all-restaurants-info"
   );
 

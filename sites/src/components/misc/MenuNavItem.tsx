@@ -19,6 +19,7 @@ const MenuNavItem = ({ text, url, fontSize }: Props) => {
         py={1}
         fontWeight="semibold"
         color="black"
+        whiteSpace="nowrap"
       >
         {text}
       </Text>

@@ -97,6 +97,7 @@ const CartCard = (props: Props) => {
         mb={
           router.pathname === "/[host]/order/checkout" ? { base: 10, md: 0 } : 0
         }
+        display={{ base: "none", md: "block" }}
       >
         <Stack>
           <Heading

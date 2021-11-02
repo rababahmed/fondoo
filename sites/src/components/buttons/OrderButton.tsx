@@ -6,9 +6,10 @@ interface Props {
   cdata: any;
   text: String;
   url?: any;
+  buttonProps?: any;
 }
 
-const OrderButton = ({ cdata, text, url }: Props) => {
+const OrderButton = ({ cdata, text, url, buttonProps }: Props) => {
   const router = useRouter();
   return (
     <>
@@ -18,6 +19,8 @@ const OrderButton = ({ cdata, text, url }: Props) => {
         rounded={"full"}
         _hover={{ cursor: "pointer", opacity: "95%" }}
         color="white"
+        fontSize={{ md: "sm", "2xl": "xl" }}
+        {...buttonProps}
       >
         {text}
       </Button>

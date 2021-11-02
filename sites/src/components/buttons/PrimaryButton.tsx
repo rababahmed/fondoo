@@ -20,6 +20,7 @@ const PrimaryButton = ({ cdata, text, url, onClick, buttonProps }: Props) => {
         rounded={"full"}
         _hover={{ cursor: "pointer", opacity: "95%" }}
         color="white"
+        fontSize={{ md: "sm", "2xl": "xl" }}
         {...buttonProps}
       >
         {text}

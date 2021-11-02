@@ -1,6 +1,6 @@
 import { Box, Grid, Icon, Stack, Text, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
-import RibbonItem from "../misc/ClickableText";
+import ClickableText from "../misc/ClickableText";
 import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { format } from "date-fns";
@@ -25,7 +25,7 @@ const TopRibbon = ({ rdata, cdata }: any) => {
                 alignSelf="center"
                 fontWeight="bold"
               />
-              <RibbonItem
+              <ClickableText
                 text={
                   openingData
                     ? "Today: Delivery & Collection " +
@@ -40,7 +40,7 @@ const TopRibbon = ({ rdata, cdata }: any) => {
           <Box mr={20} justifySelf="end">
             <Stack direction="row">
               <Icon as={FiPhoneCall} alignSelf="center" fontWeight="bold" />
-              <RibbonItem
+              <ClickableText
                 text={rdata.businessPhone}
                 url={"tel:" + rdata.businessPhone}
               />
