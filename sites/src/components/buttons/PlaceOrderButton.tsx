@@ -27,6 +27,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const customerId = useUserStore((state) => state.userID);
   const cart = useCartStore((state) => state.cart);
   const setRecentOrderId = useUserStore((state) => state.setRecentOrderId);
+  const recentOrderId = useUserStore((state) => state.recentOrderId);
 
   const formattedCart = cart.map((item: any) => {
     return {
@@ -80,7 +81,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const onClick = async () => {
     const createOrder = await mutation
       .mutateAsync()
-      .then((response) => {
+      .then(async (response) => {
         const orderData = response.createOrder;
         toast({
           position: "top",
@@ -91,7 +92,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
           variant: "solid",
           isClosable: true,
         });
-        setRecentOrderId(orderData.id);
+        await setRecentOrderId(orderData.id);
         mutation.reset();
         router.push("/order/confirmed");
       })

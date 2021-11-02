@@ -51,8 +51,10 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
           py={{ base: 4, md: 10 }}
           px={{ base: 4, md: 80, lg: 80, xl: 80, "2xl": 400 }}
         >
-          <Heading size={"xl"}>Order #{recentOrderId}</Heading>
-          <Heading size={"md"}>Your order is being processed.</Heading>
+          <Skeleton isLoaded={recentOrderId ? true : false}>
+            <Heading size={"xl"}>Order #{recentOrderId}</Heading>
+            <Heading size={"md"}>Your order is being processed.</Heading>
+          </Skeleton>
           <Stack
             spacing={6}
             py={6}

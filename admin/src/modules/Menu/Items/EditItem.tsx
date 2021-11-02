@@ -41,7 +41,7 @@ interface Props {
   spiceLevel: SpiceLevel;
   price: Number;
   isActive: Boolean;
-  isPopular: Boolean;
+  isFeatured: Boolean;
 }
 
 export const EditItem = (props: Props) => {
@@ -55,7 +55,7 @@ export const EditItem = (props: Props) => {
     image: props.image,
     price: props.price,
     isActive: props.isActive,
-    isPopular: props.isPopular,
+    isFeatured: props.isFeatured,
   };
 
   const validationSchema = Yup.object({
@@ -123,8 +123,8 @@ export const EditItem = (props: Props) => {
                       <CheckboxSingleControl name="isActive">
                         Active
                       </CheckboxSingleControl>
-                      <CheckboxSingleControl name="isPopular">
-                        Popular
+                      <CheckboxSingleControl name="isFeatured">
+                        Featured
                       </CheckboxSingleControl>
                     </HStack>
                   </Stack>

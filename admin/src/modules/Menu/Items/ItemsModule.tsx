@@ -94,7 +94,7 @@ export const ItemsModule = () => {
                               <Td>{product.price}</Td>
                               <Td>{product.spiceLevel}</Td>
                               <Td>{product.isActive ? "Yes" : "No"}</Td>
-                              <Td>{product.isPopular ? "Yes" : "No"}</Td>
+                              <Td>{product.isFeatured ? "Yes" : "No"}</Td>
                               <Td>
                                 <HStack>
                                   <EditItem
@@ -105,7 +105,7 @@ export const ItemsModule = () => {
                                     spiceLevel={product.spiceLevel}
                                     price={product.price}
                                     isActive={product.isActive}
-                                    isPopular={product.isPopular}
+                                    isFeatured={product.isFeatured}
                                   />
                                   <DeleteItem id={product.id} />
                                 </HStack>

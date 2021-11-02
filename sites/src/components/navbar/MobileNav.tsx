@@ -31,37 +31,57 @@ const MobileNav = ({ cdata, rdata }: any) => {
             text="Home"
             url="/"
             cdata={cdata}
-            navItemProps={{ fontSize: "lg", fontWeight: "semibold" }}
+            navItemProps={{
+              fontSize: "lg",
+              fontWeight: "semibold",
+              color: "black",
+            }}
           />
           <NavItem
             text="About"
             url="/about"
             cdata={cdata}
-            navItemProps={{ fontSize: "lg", fontWeight: "semibold" }}
+            navItemProps={{
+              fontSize: "lg",
+              fontWeight: "semibold",
+              color: "black",
+            }}
           />
           <NavItem
             text="Deals"
             url="/deals"
             cdata={cdata}
-            navItemProps={{ fontSize: "lg", fontWeight: "semibold" }}
+            navItemProps={{
+              fontSize: "lg",
+              fontWeight: "semibold",
+              color: "black",
+            }}
           />
           <NavItem
             text="Menu"
             url="/menu"
             cdata={cdata}
-            navItemProps={{ fontSize: "lg", fontWeight: "semibold" }}
+            navItemProps={{
+              fontSize: "lg",
+              fontWeight: "semibold",
+              color: "black",
+            }}
           />
           {/* <NavItem
             text="Reservation"
             url="/reservation"
             cdata={cdata}
-            navItemProps={{ fontSize: "lg", fontWeight: "semibold" }}
+            navItemProps={{ fontSize: "lg", fontWeight: "semibold", color: "black" }}
           /> */}
           <NavItem
             text="Contact"
             url="/contact"
             cdata={cdata}
-            navItemProps={{ fontSize: "lg", fontWeight: "semibold" }}
+            navItemProps={{
+              fontSize: "lg",
+              fontWeight: "semibold",
+              color: "black",
+            }}
           />
         </Stack>
         <Box p={4}>

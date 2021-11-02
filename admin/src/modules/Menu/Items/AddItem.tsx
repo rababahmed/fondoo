@@ -59,7 +59,7 @@ export const AddItem = () => {
     price: "",
     image: "",
     isActive: false,
-    isPopular: false,
+    isFeatured: false,
     productCatID: "",
     restaurantID: restaurantID,
   };
@@ -84,7 +84,7 @@ export const AddItem = () => {
       price: parseFloat(formData.price),
       image: formData.image,
       isActive: formData.isActive,
-      isPopular: formData.isPopular,
+      isFeatured: formData.isFeatured,
       productCatID: formData.productCatID,
       restaurantID: restaurantID,
     },
@@ -152,8 +152,8 @@ export const AddItem = () => {
                         <CheckboxSingleControl name="isActive">
                           Active
                         </CheckboxSingleControl>
-                        <CheckboxSingleControl name="isPopular">
-                          Popular
+                        <CheckboxSingleControl name="isFeatured">
+                          Featured
                         </CheckboxSingleControl>
                       </HStack>
                     </Stack>
