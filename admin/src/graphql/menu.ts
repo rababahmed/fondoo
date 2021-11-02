@@ -100,7 +100,7 @@ export const GET_MENU_ITEMS = gql`
         image
         price
         spiceLevel
-        isPopular
+        isFeatured
         isActive
       }
     }
@@ -120,7 +120,7 @@ export const ADD_MENU_ITEM = gql`
     $name: String!
     $description: String
     $isActive: Boolean
-    $isPopular: Boolean
+    $isFeatured: Boolean
     $image: String
     $price: Float
     $spiceLevel: SpiceLevel
@@ -132,7 +132,7 @@ export const ADD_MENU_ITEM = gql`
         name: $name
         description: $description
         isActive: $isActive
-        isPopular: $isPopular
+        isFeatured: $isFeatured
         price: $price
         image: $image
         spiceLevel: $spiceLevel
@@ -154,14 +154,14 @@ export const EDIT_MENU_ITEM = gql`
     $image: String
     $spiceLevel: SpiceLevel
     $isActive: Boolean
-    $isPopular: Boolean
+    $isFeatured: Boolean
   ) {
     updateProduct(
       data: {
         name: { set: $name }
         description: { set: $description }
         isActive: { set: $isActive }
-        isPopular: { set: $isPopular }
+        isFeatured: { set: $isFeatured }
         spiceLevel: { set: $spiceLevel }
         price: { set: $price }
         image: { set: $image }
