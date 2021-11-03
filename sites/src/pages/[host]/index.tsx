@@ -21,8 +21,6 @@ export default function Home({
   imageProps,
   popularDishesData,
 }: any) {
-  console.log(rdata);
-
   return (
     <>
       <Head>
@@ -75,7 +73,6 @@ export async function getStaticProps(context: any) {
       ? Constants.CDN + rdata.coverImage
       : Constants.imgPlaceholder
   );
-  console.log(img);
 
   const fetchPopularDishesData = await graphQLClient.request(
     GET_POPULAR_DISHES,

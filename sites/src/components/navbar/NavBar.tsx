@@ -21,6 +21,7 @@ import PrimaryButton from "../buttons/SecondaryButton";
 import MobileNav from "./MobileNav";
 import NavItem from "./NavItem";
 import Image from "next/image";
+import SignupModal from "../../modules/auth/SignupModal";
 
 const NavBar = ({ rdata, cdata }: any) => {
   const router = useRouter();
@@ -77,7 +78,10 @@ const NavBar = ({ rdata, cdata }: any) => {
               onClick={() => router.push("/my-account")}
             />
           ) : (
-            <LoginModal rdata={rdata} cdata={cdata} />
+            <>
+              <LoginModal rdata={rdata} cdata={cdata} />
+              <SignupModal rdata={rdata} cdata={cdata} />
+            </>
           )}
           <OrderButton cdata={cdata} text="ORDER NOW" url="/order" />
         </Stack>

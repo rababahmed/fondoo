@@ -110,8 +110,6 @@ const LoginModal = ({ rdata, cdata, isCheckoutPage }: Props) => {
         <SecondaryButton onClick={onOpen} cdata={cdata} text="SIGN IN" />
       ) : null}
 
-      <SignupModal rdata={rdata} cdata={cdata} />
-
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>

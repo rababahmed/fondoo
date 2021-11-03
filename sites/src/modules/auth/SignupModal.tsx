@@ -24,7 +24,6 @@ import { Formik } from "formik";
 import axios from "axios";
 import { Constants } from "../../config";
 import { useUserStore } from "../../stores/useUserStore";
-
 import { useSiteStore } from "../../stores/useSiteStore";
 
 interface Props {
@@ -34,6 +33,12 @@ interface Props {
 
 const SignupModal = ({ rdata, cdata }: Props) => {
   const setUser = useUserStore((state) => state.setUser);
+  const isOpen = useSiteStore((state) => state.signUpModal);
+  const setSignUpModal = useSiteStore((state) => state.setSignUpModal);
+
+  const onClose = () => {
+    setSignUpModal(false);
+  };
 
   const initialValues = {
     firstName: "",
@@ -41,8 +46,9 @@ const SignupModal = ({ rdata, cdata }: Props) => {
     email: "",
     phone: "",
     password: "",
-    restaurantId: rdata?.id,
+    restaurantId: rdata.id,
   };
+  const [formData, setFormData] = React.useState(initialValues);
 
   const validationSchema = Yup.object({
     firstName: Yup.string().required("First name is required."),
@@ -59,23 +65,22 @@ const SignupModal = ({ rdata, cdata }: Props) => {
     type: "password",
   };
 
-  const [formData, setFormData] = React.useState(initialValues);
-
   const toast = useToast();
 
   const onSubmit = async (values: any) => {
     setFormData(values);
     const login = await axios
       .post(Constants.REST_API_V1 + "/customer/signup", formData)
-      .then(function (response) {
-        if (response.data.isAuthenticated === true) {
-          setUser(
-            response.data.id,
-            response.data.token,
-            response.data.customerAddressId
-          );
-          onClose();
-        }
+      .then(async function (response) {
+        console.log("RESPONSE: " + JSON.stringify(response));
+        // if (response.data.isAuthenticated === true) {
+        //   setUser(
+        //     response.data.id,
+        //     response.data.token,
+        //     response.data.customerAddressId
+        //   );
+        //   onClose();
+        // }
         toast({
           position: "top",
           title: "Logged In!",
@@ -85,7 +90,8 @@ const SignupModal = ({ rdata, cdata }: Props) => {
           isClosable: true,
         });
       })
-      .catch(function (response) {
+      .catch(function (err) {
+        console.log("ERROR: " + err.stack);
         toast({
           position: "top",
           title: "Could not find user!",
@@ -95,13 +101,6 @@ const SignupModal = ({ rdata, cdata }: Props) => {
           isClosable: true,
         });
       });
-  };
-
-  const isOpen = useSiteStore((state) => state.signUpModal);
-  const setSignUpModal = useSiteStore((state) => state.setSignUpModal);
-
-  const onClose = () => {
-    setSignUpModal(false);
   };
 
   return (
@@ -115,6 +114,7 @@ const SignupModal = ({ rdata, cdata }: Props) => {
             <Formik
               onSubmit={onSubmit}
               initialValues={initialValues}
+              enableReinitialize={true}
               validationSchema={validationSchema}
             >
               {({ handleSubmit }) => (
