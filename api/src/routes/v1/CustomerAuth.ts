@@ -10,7 +10,7 @@ router.post("/signup", async (req, res) => {
   const { firstName, lastName, email, password, phone, restaurantId } =
     req.body;
   const hash = await bcrypt.hash(password, 10);
-  const result = await prisma.customer
+  await prisma.customer
     .create({
       data: {
         firstName,
@@ -25,7 +25,7 @@ router.post("/signup", async (req, res) => {
         },
       },
     })
-    .then(async (response) => {
+    .then(async (response: any) => {
       const validPass = await bcrypt.compare(password, response.password);
       if (validPass) {
         const token = jwt.sign(
@@ -43,7 +43,7 @@ router.post("/signup", async (req, res) => {
         });
       }
     })
-    .catch((err) => {
+    .catch((err: any) => {
       console.log(err);
       res.status(400).send({ message: "User already exists" });
     });

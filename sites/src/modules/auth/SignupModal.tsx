@@ -72,15 +72,14 @@ const SignupModal = ({ rdata, cdata }: Props) => {
     const login = await axios
       .post(Constants.REST_API_V1 + "/customer/signup", formData)
       .then(async function (response) {
-        console.log("RESPONSE: " + JSON.stringify(response));
-        // if (response.data.isAuthenticated === true) {
-        //   setUser(
-        //     response.data.id,
-        //     response.data.token,
-        //     response.data.customerAddressId
-        //   );
-        //   onClose();
-        // }
+        if (response.data.isAuthenticated === true) {
+          setUser(
+            response.data.id,
+            response.data.token,
+            response.data.customerAddressId
+          );
+          onClose();
+        }
         toast({
           position: "top",
           title: "Logged In!",
@@ -94,7 +93,7 @@ const SignupModal = ({ rdata, cdata }: Props) => {
         console.log("ERROR: " + err.stack);
         toast({
           position: "top",
-          title: "Could not find user!",
+          title: "Could not sign up!",
           status: "error",
           duration: 5000,
           variant: "solid",
