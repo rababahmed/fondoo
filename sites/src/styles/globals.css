@@ -46,6 +46,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 ::-webkit-scrollbar {
+  height: 5px;
   width: 5px;
 }
 

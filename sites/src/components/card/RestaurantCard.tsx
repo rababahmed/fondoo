@@ -69,7 +69,10 @@ const RestaurantCard = (props: Props) => {
             {/* <Text fontWeight="semibold">Min Delivery Amount ৳500</Text> */}
             <Text fontWeight="semibold">
               {openingData
-                ? "Open Hours: " + openingData
+                ? "Open Hours: " +
+                  openingData.openingTime +
+                  " - " +
+                  openingData.closingTime
                 : "Sorry, we're closed now."}
             </Text>
           </Stack>

@@ -34,8 +34,6 @@ export default function AccountCard({ rdata, cdata }: Props) {
     }
   );
 
-  console.log(data);
-
   const onSignout = () => {
     removeUser();
     router.push("/");

@@ -11,7 +11,6 @@ import { useRouter } from "next/router";
 const HeroContainer = ({ rdata, cdata, imageProps, children }: any) => {
   const router = useRouter();
 
-  console.log(imageProps);
   return (
     <>
       <Box>

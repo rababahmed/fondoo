@@ -31,9 +31,7 @@ const ReservationCard = ({ cdata, rdata, bg, title }: any) => {
     email: Yup.string(),
   });
 
-  const onSubmit = async (values: any, { resetForm }: any) => {
-    console.log("Reservation successful");
-  };
+  const onSubmit = async (values: any, { resetForm }: any) => {};
 
   return (
     <>

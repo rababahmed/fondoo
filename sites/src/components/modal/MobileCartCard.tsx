@@ -87,7 +87,6 @@ const MobileCartCard = (props: Props) => {
   );
 
   const router = useRouter();
-  console.log(router.pathname);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 

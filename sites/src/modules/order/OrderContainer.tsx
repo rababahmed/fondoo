@@ -45,7 +45,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
             <Box></Box>
             <DeliveryModal rdata={rdata} cdata={cdata} />
           </Flex>
-          <Box zIndex="10" pos="sticky" top="20" px={{ base: 5, md: 40 }}>
+          <Box zIndex="9" pos="sticky" top="20" px={{ base: 5, md: 40 }}>
             <Stack
               direction="row"
               bg="white"
@@ -53,7 +53,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
               w="full"
               spacing={6}
               px={6}
-              overflowX="scroll"
+              overflowX="auto"
               className="menuItemNav"
             >
               {rdata.productCategory.map((cat: any) => (

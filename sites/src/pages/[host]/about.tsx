@@ -53,7 +53,6 @@ export async function getStaticProps(context: any) {
   const { base64, img } = await getPlaiceholder(
     rdata.coverImage ? Constants.CDN + rdata.coverImage : ""
   );
-  console.log(img);
 
   return {
     props: {

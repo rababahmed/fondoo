@@ -68,10 +68,16 @@ const SignupModal = ({ rdata, cdata }: Props) => {
   const toast = useToast();
 
   const onSubmit = async (values: any) => {
-    setFormData(values);
-    const login = await axios
-      .post(Constants.REST_API_V1 + "/customer/signup", formData)
-      .then(async function (response) {
+    await axios
+      .post(Constants.REST_API_V1 + "/customer/signup", {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        phone: values.phone,
+        password: values.password,
+        restaurantId: rdata.id,
+      })
+      .then(function (response) {
         if (response.data.isAuthenticated === true) {
           setUser(
             response.data.id,
@@ -90,7 +96,7 @@ const SignupModal = ({ rdata, cdata }: Props) => {
         });
       })
       .catch(function (err) {
-        console.log("ERROR: " + err.stack);
+        console.log(err.stack);
         toast({
           position: "top",
           title: "Could not sign up!",

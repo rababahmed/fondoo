@@ -38,8 +38,6 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
     };
   });
 
-  console.log(formattedCart);
-
   const initialValues = {
     fulfilmentType: fulfilmentType,
     discount: 0,
@@ -56,7 +54,6 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   };
 
   const [payload, setPayload] = React.useState(initialValues);
-  console.log("Address ID: " + payload.customerAddressId);
 
   const mutation = useGQLMutation(PLACE_ORDER, {
     fulfilmentType: fulfilmentType,

@@ -5,3 +5,9 @@ export const config = {
   },
   s3: {},
 };
+
+export const vercel = {
+  TOKEN: process.env.VERCEL_TOKEN,
+  PROJECT_ID: process.env.VERCEL_PROJECT_ID,
+  URL: process.env.VERCEL_API_URL,
+};

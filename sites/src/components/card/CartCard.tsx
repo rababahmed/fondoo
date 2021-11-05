@@ -80,7 +80,6 @@ const CartCard = (props: Props) => {
   );
 
   const router = useRouter();
-  console.log(router.pathname);
 
   return (
     <>
