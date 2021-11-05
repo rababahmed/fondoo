@@ -28,13 +28,21 @@ export const LoginForm = () => {
   const setUser = useUserStore((state) => state.setUser);
 
   const onSubmit = async (values: any) => {
-    const data = await axios
-      .post(`${Constants.REST_API_V1}/user/login`, values)
+    const login = await axios
+      .post(Constants.REST_API_V1 + "/user/login", values)
       .then(function (response) {
-        console.log(response);
-        setUser(response.data.id, response.data.role);
-        if (response.data.message === "User authenticated") {
-          router.push("/dashboard");
+        setUser(
+          response.data.id,
+          response.data.role,
+          response.data.token,
+          response.data.restaurantID
+        );
+        if (response.data.isAuthenticated === true) {
+          if (response.data.role !== "Admin") {
+            router.push("/dashboard");
+          } else {
+            router.push("/admin/dashboard");
+          }
         }
       });
   };

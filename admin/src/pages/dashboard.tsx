@@ -1,34 +1,32 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Heading } from "@chakra-ui/layout";
 import Head from "next/head";
 import StatComponent from "../components/Stats/MainStat";
 import TableComponent from "../components/Table/Table";
-import { gql } from "graphql-request";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { useGQLQuery } from "../shared-hooks/useGQLQuery";
 import DesktopLayout from "../layouts/DesktopLayout";
 import { useUserStore } from "../store/useUserStore";
+import { GET_USER } from "../graphql/user";
 
 const DashboardPage = () => {
   const userID = useUserStore((state) => state.userID);
 
-  const GET_USER = gql`
-    query User($id: String) {
-      user(where: { id: $id }) {
-        firstName
-        lastName
-      }
-    }
-  `;
-
-  const { data, error, isLoading, isSuccess } = useGQLQuery(
+  const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
     "get-unique-user",
     GET_USER,
     {
-      id: `${userID}`,
+      id: userID,
     }
   );
-  console.log(data);
+
+  const stats = [
+    {
+      label: "Total Orders",
+      value: 10,
+    },
+  ];
+
   return (
     <div>
       <Head>
@@ -38,10 +36,10 @@ const DashboardPage = () => {
       </Head>
       <DesktopLayout>
         <Skeleton isLoaded={!isLoading}>
-          <Heading mb={6}>Hi {isSuccess && data.user.firstName}</Heading>
+          <Heading mb={6}>Dashboard</Heading>
         </Skeleton>
         <Skeleton isLoaded={!isLoading}>
-          <StatComponent />
+          <StatComponent data={stats} />
         </Skeleton>
         <Skeleton isLoaded={!isLoading}>
           <TableComponent />

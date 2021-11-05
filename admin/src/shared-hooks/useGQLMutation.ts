@@ -1,15 +1,30 @@
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import * as Constants from "../modules/Constants";
-import request from "graphql-request";
+import { GraphQLClient } from "graphql-request";
+import { useUserStore } from "../store/useUserStore";
 
 export const useGQLMutation = (
-  mutationKey: any,
   mutation: any,
-  variables?: any
+  variables?: any,
+  invalidKey?: any
 ) => {
   const endpoint = Constants.GraphQL_API;
+  const token = useUserStore((state) => state.token);
 
-  const mutateData = async () => await request(endpoint, mutation, variables);
+  const graphQLClient = new GraphQLClient(endpoint, {
+    headers: {
+      token: token,
+    },
+  });
 
-  return useMutation(mutateData, { mutationKey });
+  const queryClient = useQueryClient();
+
+  const mutateData = async () =>
+    await graphQLClient.request(mutation, variables);
+
+  return useMutation(mutateData, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(invalidKey);
+    },
+  });
 };

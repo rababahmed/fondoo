@@ -1,0 +1,12 @@
+schema: "../api/src/graphql/generated/schema.graphql"
+headers:
+  authorization: Bearer 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
+scopes:
+  AUTHENTICATED: "cookie:session.sig|header:authorization"
+rules:
+  - types:
+      - Query
+    maxAge: 60
+    swr: 360
+    description: Cache everything (default)
+originUrl: "https://api.tezzbites.com/graphql"

@@ -14,15 +14,19 @@ import {
   Button,
   useDisclosure,
 } from "@chakra-ui/react";
-import PrimaryButton from "../../components/PrimaryButton";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import { InputControl, SelectControl, SubmitButton } from "formik-chakra-ui";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
-import { ADD_RESTAURANT_USER } from "../../graphql/user";
+import { useMutation, useQueryClient } from "react-query";
+import axios from "axios";
+import * as Constants from "../Constants";
+import { useUserStore } from "../../store/useUserStore";
+import { useRouter } from "next/router";
 
 export const AddUser = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const restaurantID = useUserStore((state) => state.restaurantID);
 
   const initialValues = {
     firstName: "",
@@ -31,6 +35,7 @@ export const AddUser = () => {
     password: "",
     phone: "",
     role: "",
+    restaurantID: restaurantID,
   };
 
   const validationSchema = Yup.object({
@@ -40,18 +45,17 @@ export const AddUser = () => {
 
   const [formData, setFormData] = useState(initialValues);
 
-  const mutation = useGQLMutation("add-restaurant-user", ADD_RESTAURANT_USER, {
-    firstName: formData.firstName,
-    lastName: formData.lastName,
-    email: formData.email,
-    password: formData.password,
-    phone: formData.phone,
-    role: formData.role,
-  });
+  const router = useRouter();
+
+  const queryClient = useQueryClient();
 
   const onSubmit = async (values: any) => {
-    setFormData(values);
-    console.log(formData);
+    const addUser = await axios
+      .post(Constants.REST_API_V1 + "/user/signup", values)
+      .then(function (response) {
+        console.log(response);
+      });
+    queryClient.invalidateQueries("get-restaurant-users");
   };
 
   return (
@@ -83,9 +87,9 @@ export const AddUser = () => {
                         label="Password"
                       />
                       <SelectControl label="Role" name="role">
-                        <option value="Manager">Waiter</option>
-                        <option value="Owner">Manager</option>
-                        <option value="option3">Owner</option>
+                        <option value="Waiter">Waiter</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Owner">Owner</option>
                       </SelectControl>
                       <InputControl name="phone" label="Phone" />
                     </Stack>

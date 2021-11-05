@@ -1,10 +1,11 @@
 import { Box, Divider, Grid, Heading, Stack, VStack } from "@chakra-ui/layout";
-import React, { useState } from "react";
-import { Formik } from "formik";
+import React, { useRef, useState } from "react";
+import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import {
   CheckboxSingleControl,
   InputControl,
+  NumberInputControl,
   SubmitButton,
 } from "formik-chakra-ui";
 import { useGetRestaurant } from "../../shared-hooks/useGetRestaurant";
@@ -12,53 +13,54 @@ import { Skeleton } from "@chakra-ui/skeleton";
 import { gql } from "graphql-request";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
 import { useToast } from "@chakra-ui/toast";
+import { useUserStore } from "../../store/useUserStore";
+import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
+import { EDIT_RESTAURANT, GET_RESTAURANT_INFO } from "../../graphql/restaurant";
 
-const EDIT_RESTAURANT = gql`
-  mutation UpdateRestaurant(
-    $name: String
-    $email: String
-    $url: String
-    $businessPhone: String
-    $city: String
-    $priceRange: String
-  ) {
-    updateRestaurant(
-      data: {
-        name: { set: $name }
-        email: { set: $email }
-        url: { set: $url }
-        businessPhone: { set: $businessPhone }
-        city: { set: $city }
-        priceRange: { set: $priceRange }
-      }
-      where: { id: "5740ab09-e5fc-47f9-b1bd-1287b8a4cdee" }
-    ) {
-      name
-      email
-    }
-  }
-`;
+import ImageUpload from "../../components/Forms/ImageUpload";
+import SaveButton from "../../components/Buttons/SaveButton";
 
 export const SettingsModule = () => {
-  const { data, error, isLoading, isSuccess } = useGetRestaurant();
-  console.log(data);
+  const restaurantID = useUserStore((state) => state.restaurantID);
+  const token = useUserStore((state) => state.token);
+
+  const { data, error, isLoading, isSuccess } = useGQLQuery(
+    "get-restaurant-info",
+    GET_RESTAURANT_INFO,
+    {
+      id: restaurantID,
+    }
+  );
 
   const initialValues = {
-    name: (isSuccess && data.name) || "",
-    coverImage: (isSuccess && data.coverImage) || "",
-    businessPhone: (isSuccess && data.businessPhone) || "",
-    city: (isSuccess && data.city) || "",
-    priceRange: (isSuccess && data.priceRange) || "",
-    cuisine: (isSuccess && data.cuisine) || "",
-    email: (isSuccess && data.email) || "",
-    reservationPhone: (isSuccess && data.reservationPhone) || "",
-    postCode: (isSuccess && data.postCode) || "",
-    vat: (isSuccess && data.vat) || "",
-    logo: (isSuccess && data.logo) || "",
-    url: (isSuccess && data.url) || "",
-    streetAddress: (isSuccess && data.streetAddress) || "",
-    country: (isSuccess && data.country) || "",
-    serviceCharge: (isSuccess && data.serviceCharge) || "",
+    id: restaurantID,
+    name: (isSuccess && data.restaurant.name) || "",
+    coverImage: (isSuccess && data.restaurant.coverImage) || "",
+    businessPhone: (isSuccess && data.restaurant.businessPhone) || "",
+    city: (isSuccess && data.restaurant.city) || "",
+    priceRange: (isSuccess && data.restaurant.priceRange) || "",
+    cuisine: (isSuccess && data.restaurant.cuisine) || "",
+    email: (isSuccess && data.restaurant.email) || "",
+    currency: (isSuccess && data.restaurant.currency) || "",
+    postCode: (isSuccess && data.restaurant.postCode) || "",
+    vat: (isSuccess && data.restaurant.vat) || undefined,
+    logo: (isSuccess && data.restaurant.logo) || "",
+    url: (isSuccess && data.restaurant.url) || "",
+    address: (isSuccess && data.restaurant.address) || "",
+    country: (isSuccess && data.restaurant.country) || "",
+    serviceCharge: (isSuccess && data.restaurant.serviceCharge) || undefined,
+    hasParkingFacilities:
+      (isSuccess && data.restaurant.hasParkingFacilities) || false,
+    hasPartyFacilities:
+      (isSuccess && data.restaurant.hasPartyFacilities) || false,
+    hasKidsZone: (isSuccess && data.restaurant.hasKidsZone) || false,
+    hasDelivery: (isSuccess && data.restaurant.hasDelivery) || false,
+    hasPickup: (isSuccess && data.restaurant.hasPickup) || false,
+    hasReservation: (isSuccess && data.restaurant.hasReservation) || false,
+    isAutoAcceptOrder:
+      (isSuccess && data.restaurant.isAutoAcceptOrder) || false,
+    isAutoAcceptReservation:
+      (isSuccess && data.restaurant.isAutoAcceptReservation) || false,
   };
 
   const validationSchema = Yup.object({
@@ -70,31 +72,50 @@ export const SettingsModule = () => {
 
   const toast = useToast();
 
-  const mutation = useGQLMutation("update-restaurant", EDIT_RESTAURANT, {
-    name: formData.name,
-    email: formData.email,
-    url: formData.url,
-    businessPhone: formData.businessPhone,
-    city: formData.city,
-    priceRange: formData.priceRange,
-    cuisine: formData.cuisine,
-  });
+  const mutation = useGQLMutation(
+    EDIT_RESTAURANT,
+    {
+      id: restaurantID,
+      name: formData.name,
+      coverImage: formData.coverImage,
+      businessPhone: formData.businessPhone,
+      city: formData.city,
+      priceRange: formData.priceRange,
+      cuisine: formData.cuisine,
+      email: formData.email,
+      currency: formData.currency,
+      postCode: formData.postCode,
+      vat: parseFloat(formData.vat),
+      logo: formData.logo,
+      url: formData.url,
+      address: formData.address,
+      country: formData.country,
+      serviceCharge: parseFloat(formData.serviceCharge),
+      hasParkingFacilities: formData.hasParkingFacilities,
+      hasPartyFacilities: formData.hasPartyFacilities,
+      hasKidsZone: formData.hasKidsZone,
+      hasDelivery: formData.hasDelivery,
+      hasPickup: formData.hasPickup,
+      hasReservation: formData.hasReservation,
+      isAutoAcceptOrder: formData.isAutoAcceptOrder,
+      isAutoAcceptReservation: formData.isAutoAcceptReservation,
+    },
+    "get-restaurant-info"
+  );
 
   const onSubmit = async (values: any) => {
     setFormData(values);
-    mutation.mutate();
+    const response = await mutation.mutate();
     if (mutation.isError) {
       toast({
-        title: "Whoops! Error.",
-        description: "Unable to update.",
+        title: "Whoops! There has been an error.",
         status: "error",
         isClosable: true,
         position: "top",
       });
     } else {
       toast({
-        title: "Success!",
-        description: "Successfully updated the info.",
+        title: "Success! Your changes have been saved.",
         status: "success",
         isClosable: true,
         position: "top",
@@ -108,9 +129,8 @@ export const SettingsModule = () => {
       rounded="lg"
       shadow="base"
       bgColor="white"
-      mr={6}
-      ml={6}
       p={8}
+      overflowX={"auto"}
     >
       <Formik
         onSubmit={onSubmit}
@@ -120,11 +140,16 @@ export const SettingsModule = () => {
       >
         {({ handleSubmit }) => (
           <Box as="form" onSubmit={handleSubmit as any}>
-            <Grid templateColumns="1fr 1fr 1fr" gap={8}>
+            <Grid templateColumns={{ base: "1fr", md: "1fr 1fr 1fr" }} gap={8}>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
                   <InputControl name="name" label="Restaurant Name" />
-                  <InputControl name="coverImage" label="Cover Image" />
+                  <Field
+                    name="coverImage"
+                    id="coverImage"
+                    label="Cover Image"
+                    component={ImageUpload}
+                  />
                   <InputControl name="businessPhone" label="Business Phone" />
                   <InputControl name="city" label="City / Town" />
                   <InputControl name="priceRange" label="Price Range" />
@@ -134,30 +159,35 @@ export const SettingsModule = () => {
                 <Stack spacing="6">
                   <InputControl name="cuisine" label="Cuisine" />
                   <InputControl name="email" label="Restaurant Email" />
-                  <InputControl
-                    name="reservationPhone"
-                    label="Reservation Phone"
-                  />
+                  <InputControl name="currency" label="Currency" />
                   <InputControl name="postCode" label="Post Code" />
-                  <InputControl name="vat" label="VAT" />
+                  <NumberInputControl name="vat" label="VAT (in percentage)" />
                 </Stack>
               </Skeleton>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
-                  <InputControl name="logo" label="Logo" />
+                  <Field
+                    name="logo"
+                    id="logo"
+                    label="Logo"
+                    component={ImageUpload}
+                  />
                   <InputControl
                     name="url"
                     label="Restaurant URL"
                     inputProps={{ placeholder: "your-site.com" }}
                   />
-                  <InputControl name="streetAddress" label="Street Address" />
+                  <InputControl name="address" label="Street Address" />
                   <InputControl name="country" label="Country" />
-                  <InputControl name="serviceCharge" label="Service Charge" />
+                  <NumberInputControl
+                    name="serviceCharge"
+                    label="Service Fee (in percentage)"
+                  />
                 </Stack>
               </Skeleton>
             </Grid>
             <Box mt={12} mb={6} />
-            <Grid templateColumns="1fr 1fr 1fr" gap={6}>
+            <Grid templateColumns={{ base: "1fr", md: "1fr 1fr 1fr" }} gap={6}>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
                   <CheckboxSingleControl name="hasParking">
@@ -167,19 +197,19 @@ export const SettingsModule = () => {
                     Party Facilities
                   </CheckboxSingleControl>
                   <CheckboxSingleControl name="hasKidsZone">
-                    Kid's Zone
+                    Kids Zone
                   </CheckboxSingleControl>
                 </Stack>
               </Skeleton>
               <Skeleton isLoaded={!isLoading}>
                 <Stack spacing="6">
-                  <CheckboxSingleControl name="delivery">
+                  <CheckboxSingleControl name="hasDelivery">
                     Delivery
                   </CheckboxSingleControl>
-                  <CheckboxSingleControl name="takeaway">
+                  <CheckboxSingleControl name="hasPickup">
                     Takeaway
                   </CheckboxSingleControl>
-                  <CheckboxSingleControl name="reservation">
+                  <CheckboxSingleControl name="hasReservation">
                     Reservation
                   </CheckboxSingleControl>
                 </Stack>
@@ -198,16 +228,7 @@ export const SettingsModule = () => {
             <Skeleton isLoaded={!isLoading}>
               <Stack mt={10} pb={2}>
                 <VStack>
-                  <SubmitButton
-                    isLoading={mutation.isLoading}
-                    loadingText="Updating"
-                    w={40}
-                    bgColor="gray.700"
-                    _active={{ bgColor: "gray.500" }}
-                    _hover={{ bgColor: "gray.800" }}
-                  >
-                    Update
-                  </SubmitButton>
+                  <SaveButton isLoading={mutation.isLoading} />
                 </VStack>
               </Stack>
             </Skeleton>

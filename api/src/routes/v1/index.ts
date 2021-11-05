@@ -1,11 +1,17 @@
 import * as express from "express";
 
 const userAuthRouter = require("./UserAuth");
-const restaurantRouter = require("./RestaurantRouter");
+const customerAuthRouter = require("./CustomerAuth");
+const uploadRouter = require("./UploadRouter");
+// const restaurantRouter = require("./restaurantRouter");
+const domainRouter = require("./domainRouter");
 
-let router = express.Router();
+let v1Router = express.Router();
 
-router.use("/restaurants", restaurantRouter);
-router.use("/user", userAuthRouter);
+v1Router.use("/user", userAuthRouter);
+v1Router.use("/customer", customerAuthRouter);
+v1Router.use("/uploads", uploadRouter);
+v1Router.use("/domains", domainRouter);
+// v1Router.use("/restaurant", restaurantRouter);
 
-export = router;
+export default v1Router;

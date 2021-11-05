@@ -10,10 +10,17 @@ const queryClient = new QueryClient();
 
 export const theme = extendTheme({
   colors: {
-    brand: {
-      900: "#1a365d",
-      800: "#153e75",
-      700: "#2a69ac",
+    primary: {
+      1000: "#D4222E",
+      900: "#FF1F2E",
+      800: "#FF4550",
+      700: "#FF5E69",
+      600: "#FF757E",
+      500: "#FF8C94",
+      400: "#FFA3A9",
+      300: "#FFBABF",
+      200: "#FFD1D4",
+      100: "#FFE8EA",
     },
   },
 });

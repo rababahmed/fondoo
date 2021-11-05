@@ -1,0 +1,23 @@
+name: GraphCDN
+on:
+  push:
+    branches:
+      - main
+      - prod
+    paths:
+      - api/**
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          check-latest: true
+
+      - name: Push schema
+        working-directory: ./api
+        run: npx graphcdn push --service api-tezzbites
+        env:
+          GRAPHCDN_TOKEN: ${{ secrets.GRAPHCDN_TOKEN }}

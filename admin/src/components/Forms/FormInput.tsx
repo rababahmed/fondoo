@@ -12,13 +12,14 @@ const FormInput = (props: {
   label: string;
   type: string;
   helper?: string;
+  step?: string;
 }) => {
   return (
     <div>
       <Box>
         <FormControl id={props.id}>
           <FormLabel>{props.label}</FormLabel>
-          <Input type={props.type} />
+          <Input type={props.type} step={props.step} />
           <FormHelperText>{props.helper}</FormHelperText>
         </FormControl>
       </Box>
