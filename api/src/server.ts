@@ -23,8 +23,8 @@ export const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema,
-    introspection: true,
-    playground: true,
+    introspection: process.env.NODE_ENV === "production" ? false : true,
+    playground: process.env.NODE_ENV === "production" ? false : true,
     context: createContext,
     uploads: true,
   });

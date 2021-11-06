@@ -10,6 +10,7 @@ import {
   ModalCloseButton,
   Button,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import {
@@ -27,6 +28,8 @@ import {
 } from "../../../graphql/admin/restaurant";
 import { useGQLMutation } from "../../../shared-hooks/useGQLMutation";
 import { domainGenerator } from "../../../lib/domainGenerator";
+import axios from "axios";
+import { API } from "../../../config";
 
 export const AddRestaurant = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -64,10 +67,41 @@ export const AddRestaurant = () => {
     "get-all-restaurants-info"
   );
 
+  const toast = useToast();
+
   const onSubmit = async (values: any) => {
     setFormData(values);
-    console.log(values);
-    mutation.mutate();
+    mutation
+      .mutateAsync()
+      .then(async (res) => {
+        axios
+          .post(API + "/domains/" + res.data.config.domains[0].domain)
+          .then((res) => {
+            if (res.status === 200) {
+              toast({
+                title: "Restaurant and domain added!",
+                status: "success",
+                duration: 5000,
+                isClosable: true,
+              });
+              onClose();
+            }
+          })
+          .catch((err) => {
+            toast({
+              title: "Error adding domain!",
+              status: "error",
+              duration: 5000,
+              isClosable: true,
+            });
+          });
+      })
+      .catch((err) => {
+        toast({
+          title: "Error adding restaurant!",
+          status: "error",
+        });
+      });
   };
 
   const getPlans = useGQLQuery(

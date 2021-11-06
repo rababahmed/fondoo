@@ -8,15 +8,12 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Set ENV vars
-COPY .env ./dist/
-
 # Install PM2
 RUN npm install pm2 -g
 
 # Run app
 EXPOSE 4000
-CMD pm2-runtime start dist/main.js
+CMD export NODE_ENV=production && pm2-runtime start dist/main.js
 
 
 
