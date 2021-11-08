@@ -37,7 +37,7 @@ exports.Order = (0, nexus_1.objectType)({
         t.model.vat();
         t.model.serviceCharge();
         t.model.total();
-        t.model.isAccepted();
+        t.model.status();
         t.model.isPreOrder();
         t.model.isViewed();
         t.model.coupon();
@@ -74,6 +74,7 @@ exports.OrderMutation = (0, nexus_1.extendType)({
         });
         t.crud.updateOneOrder({ alias: "updateOrder" });
         t.crud.deleteOneOrder({ alias: "deleteOrder" });
+        t.crud.deleteManyOrder({ alias: "deleteOrders" });
     },
 });
 exports.Coupon = __importStar(require("./Coupon"));

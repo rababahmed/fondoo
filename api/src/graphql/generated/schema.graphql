@@ -4529,12 +4529,12 @@ type Restaurant {
   city: String
   config: RestaurantConfig
   country: String
-  coupons(after: CouponWhereUniqueInput, before: CouponWhereUniqueInput, first: Int, last: Int): [Coupon!]!
+  coupons(after: CouponWhereUniqueInput, before: CouponWhereUniqueInput, first: Int, last: Int, orderBy: [CouponOrderByWithRelationInput!], where: CouponWhereInput): [Coupon!]!
   coverImage: String
   createdAt: DateTime!
   cuisine: String
   currency: String
-  customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int): [Customer!]!
+  customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int, orderBy: [CustomerOrderByWithRelationInput!], where: CustomerWhereInput): [Customer!]!
   deliveryZones(after: DeliveryZoneWhereUniqueInput, before: DeliveryZoneWhereUniqueInput, first: Int, last: Int, orderBy: [DeliveryZoneOrderByWithRelationInput!], where: DeliveryZoneWhereInput): [DeliveryZone!]!
   diningStyle: String
   domains(after: DomainWhereUniqueInput, before: DomainWhereUniqueInput, first: Int, last: Int): [Domain!]!
@@ -4550,9 +4550,9 @@ type Restaurant {
   isAutoAcceptReservation: Boolean
   logo: String
   name: String!
-  offers(after: OfferWhereUniqueInput, before: OfferWhereUniqueInput, first: Int, last: Int): [Offer!]!
+  offers(after: OfferWhereUniqueInput, before: OfferWhereUniqueInput, first: Int, last: Int, orderBy: [OfferOrderByWithRelationInput!], where: OfferWhereInput): [Offer!]!
   orderItems(after: OrderItemWhereUniqueInput, before: OrderItemWhereUniqueInput, first: Int, last: Int): [OrderItem!]!
-  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
+  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int, orderBy: [OrderOrderByWithRelationInput!], where: OrderWhereInput): [Order!]!
   plan: RestaurantPlan!
   postCode: String
   priceRange: String

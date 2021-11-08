@@ -24,8 +24,8 @@ const main = async () => {
     (0, index_2.applyPassportStrategy)(passport_1.default);
     const apolloServer = new apollo_server_express_1.ApolloServer({
         schema: schema_1.schema,
-        introspection: true,
-        playground: true,
+        introspection: process.env.NODE_ENV === "production" ? false : true,
+        playground: process.env.NODE_ENV === "production" ? false : true,
         context: context_1.createContext,
         uploads: true,
     });

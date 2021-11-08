@@ -8972,12 +8972,16 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['CouponWhereUniqueInput'] | null; // CouponWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
+      orderBy?: NexusGenInputs['CouponOrderByWithRelationInput'][] | null; // [CouponOrderByWithRelationInput!]
+      where?: NexusGenInputs['CouponWhereInput'] | null; // CouponWhereInput
     }
     customers: { // args
       after?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput
       before?: NexusGenInputs['CustomerWhereUniqueInput'] | null; // CustomerWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
+      orderBy?: NexusGenInputs['CustomerOrderByWithRelationInput'][] | null; // [CustomerOrderByWithRelationInput!]
+      where?: NexusGenInputs['CustomerWhereInput'] | null; // CustomerWhereInput
     }
     deliveryZones: { // args
       after?: NexusGenInputs['DeliveryZoneWhereUniqueInput'] | null; // DeliveryZoneWhereUniqueInput
@@ -8998,6 +9002,8 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['OfferWhereUniqueInput'] | null; // OfferWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
+      orderBy?: NexusGenInputs['OfferOrderByWithRelationInput'][] | null; // [OfferOrderByWithRelationInput!]
+      where?: NexusGenInputs['OfferWhereInput'] | null; // OfferWhereInput
     }
     orderItems: { // args
       after?: NexusGenInputs['OrderItemWhereUniqueInput'] | null; // OrderItemWhereUniqueInput
@@ -9010,6 +9016,8 @@ export interface NexusGenArgTypes {
       before?: NexusGenInputs['OrderWhereUniqueInput'] | null; // OrderWhereUniqueInput
       first?: number | null; // Int
       last?: number | null; // Int
+      orderBy?: NexusGenInputs['OrderOrderByWithRelationInput'][] | null; // [OrderOrderByWithRelationInput!]
+      where?: NexusGenInputs['OrderWhereInput'] | null; // OrderWhereInput
     }
     productCategory: { // args
       after?: NexusGenInputs['ProductCategoryWhereUniqueInput'] | null; // ProductCategoryWhereUniqueInput
