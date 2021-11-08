@@ -129,12 +129,7 @@ export const AddRestaurant = () => {
                 <Box as="form" onSubmit={handleSubmit as any}>
                   <Grid templateColumns="1fr" gap={8}>
                     <Stack spacing="6">
-                      <InputControl name="name" label="Restaurant Name" />
-                      <InputControl
-                        inputProps={{ placeholder: "example.com" }}
-                        name="domain"
-                        label="Domain"
-                      />
+                      <InputControl name="name" label="Restaurant Name" />                      
                       <InputControl name="primaryColor" label="Primary Color" />
                       <InputControl
                         name="secondaryColor"

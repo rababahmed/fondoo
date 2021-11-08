@@ -8,6 +8,8 @@ export const Domain = objectType({
     t.model.id();
     t.model.domain();
     t.model.restaurantConfig();
+    t.model.restaurant();
+    t.model.restaurantId();
     t.model.createdAt();
     t.model.updatedAt();
   },

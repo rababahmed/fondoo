@@ -56,6 +56,7 @@ model Restaurant {
   createdAt               DateTime           @default(now())
   updatedAt               DateTime           @updatedAt
   config                  RestaurantConfig?
+  domains                 Domain[]
   offers                  Offer[]
   CMSHome                 CMSHome?
   CMSAbout                CMSAbout?
@@ -92,6 +93,8 @@ model Domain {
   updatedAt          DateTime          @updatedAt
   restaurantConfig   RestaurantConfig? @relation(fields: [restaurantConfigId], references: [id])
   restaurantConfigId String?
+  restaurant         Restaurant?       @relation(fields: [restaurantId], references: [id])
+  restaurantId       String?
 }
 
 model RestaurantSocial {
@@ -120,26 +123,25 @@ model RestaurantReview {
 }
 
 model CMSHome {
-  id                       String   @id @default(cuid())
+  id                       String     @id @default(cuid())
   heroHeading              String?
   heroDescription          String?
-  heroImage                String?  @db.VarChar(512)
+  heroImage                String?    @db.VarChar(512)
   aboutHeading             String?
   aboutDescription         String?
-  aboutImage               String?  @db.VarChar(512)
+  aboutImage               String?    @db.VarChar(512)
   dealsHeading             String?
   dealsDescription         String?
-  dealsImage               String?  @db.VarChar(512)
+  dealsImage               String?    @db.VarChar(512)
   reservationHeading       String?
   reservationDescription   String?
-  reservationImage         String?  @db.VarChar(512)
+  reservationImage         String?    @db.VarChar(512)
   popularDishesHeading     String?
   popularDishesDescription String?
-  popularDishesImage       String?  @db.VarChar(512)
+  popularDishesImage       String?    @db.VarChar(512)
   isActive                 Boolean?
-
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId String     @unique
+  restaurant               Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId             String     @unique
 }
 
 model CMSAbout {
@@ -209,7 +211,7 @@ model Product {
   description       String?          @db.VarChar(2048)
   image             String?          @db.VarChar(512)
   price             Float?
-  spiceLevel        SpiceLevel       @default(None)
+  spiceLevel        SpiceLevel?      @default(None)
   isFeatured        Boolean?
   isActive          Boolean?
   productCategory   ProductCategory? @relation(fields: [productCategoryId], references: [id])
@@ -365,10 +367,17 @@ enum FulfilmentType {
   Pickup
 }
 
+enum Status {
+  Pending
+  Confirmed
+  Cancelled
+  Completed
+}
+
 model Order {
   id                String           @id @default(cuid())
   items             OrderItem[]
-  fulfilmentType    FulfilmentType
+  fulfilmentType    FulfilmentType?
   deliveryZone      DeliveryZone?    @relation(fields: [deliveryZoneId], references: [id])
   address           CustomerAddress? @relation(fields: [customerAddressId], references: [id])
   discount          Float?
@@ -378,7 +387,7 @@ model Order {
   total             Float?
   isViewed          Boolean?
   isPreOrder        Boolean?
-  isAccepted        Boolean?
+  status            Status?          @default(Pending)
   coupon            Coupon?          @relation(fields: [couponId], references: [id])
   couponId          String?
   offer             Offer?           @relation(fields: [offerId], references: [id])

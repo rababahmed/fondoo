@@ -16,7 +16,7 @@ export const Order = objectType({
     t.model.vat();
     t.model.serviceCharge();
     t.model.total();
-    t.model.isAccepted();
+    t.model.status();
     t.model.isPreOrder();
     t.model.isViewed();
     t.model.coupon();
@@ -55,6 +55,7 @@ export const OrderMutation = extendType({
     });
     t.crud.updateOneOrder({ alias: "updateOrder" });
     t.crud.deleteOneOrder({ alias: "deleteOrder" });
+    t.crud.deleteManyOrder({ alias: "deleteOrders" });
   },
 });
 
