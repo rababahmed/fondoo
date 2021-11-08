@@ -110,14 +110,19 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
               <ItemContainer cdata={cdata} rdata={rdata} />
               <ItemContainer cdata={cdata} rdata={rdata} />
             </SimpleGrid> */}
-            <Box>
-              <CartCard
-                title={"My Order"}
-                titleBg={cdata.primaryColor}
-                cdata={cdata}
-                rdata={rdata}
-              />
-            </Box>
+
+            <CartCard
+              title={"My Order"}
+              titleBg={cdata.primaryColor}
+              cdata={cdata}
+              rdata={rdata}
+              cartProps={{
+                zIndex: "9",
+                position: "sticky",
+                top: "32",
+                bottom: "0",
+              }}
+            />
           </Grid>
         </Stack>
       </Box>

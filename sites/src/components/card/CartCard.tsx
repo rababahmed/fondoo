@@ -13,6 +13,8 @@ import {
   IconButton,
   Tooltip,
   Icon,
+  VStack,
+  Container,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
@@ -36,6 +38,7 @@ interface Props {
   imgW?: any;
   imgH?: any;
   children?: any;
+  cartProps?: any;
 }
 
 const CartCard = (props: Props) => {
@@ -84,19 +87,17 @@ const CartCard = (props: Props) => {
   return (
     <>
       <Box
-        // w={"full"}
-        // zIndex="10"
-        // top="34"
-        // pos={"sticky"}
         bg={useColorModeValue("white", "gray.900")}
         rounded={"md"}
         borderWidth={"1px"}
         borderColor={"gray.200"}
         overflow={"hidden"}
+        h="fit-content"
         mb={
           router.pathname === "/[host]/order/checkout" ? { base: 10, md: 0 } : 0
         }
         display={{ base: "none", md: "block" }}
+        {...props.cartProps}
       >
         <Stack>
           <Heading
@@ -110,118 +111,131 @@ const CartCard = (props: Props) => {
           >
             {props.title}
           </Heading>
-          {cart.length > 0 ? (
-            <Stack py={5} px={5}>
-              {cart.map((p: any) => (
-                <Grid
-                  key={p.id}
-                  templateColumns={"2fr 6fr 2fr"}
-                  gridGap={3}
-                  alignItems={"center"}
-                >
-                  <Stack direction={"row"} alignItems={"center"}>
-                    <IconButton
-                      bg={"transparent"}
-                      _hover={{
-                        bg: "transparent",
-                        color: props.cdata.primaryColor,
-                      }}
-                      _focus={{
-                        ringColor: "transparent",
-                      }}
-                      fontSize="xl"
-                      size={"xs"}
-                      aria-label="Minus"
-                      icon={<BiMinusCircle />}
-                      onClick={() => decreaseQuantity(p.id)}
-                    />
-                    <Text fontWeight={"medium"}>{p.quantity}</Text>
-                    <IconButton
-                      bg={"transparent"}
-                      _hover={{
-                        bg: "transparent",
-                        color: props.cdata.primaryColor,
-                      }}
-                      _focus={{
-                        ringColor: "transparent",
-                      }}
-                      fontSize="xl"
-                      size={"xs"}
-                      aria-label="Add"
-                      icon={<IoMdAddCircleOutline />}
-                      onClick={() => increaseQuantity(p.id)}
-                    />
-                  </Stack>
-                  <Text fontWeight={"medium"} isTruncated>
-                    {p.name}
-                  </Text>
-                  <Text fontWeight={"medium"} textAlign={"end"}>
-                    ৳{p.total}
-                  </Text>
-                </Grid>
-              ))}
-              <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
-              <Grid templateColumns={"2fr 2fr"} w="full">
-                <Text fontSize={"sm"}>Subtotal</Text>
-                <Text fontSize={"sm"} textAlign={"end"}>
-                  ৳{getArraySum(subTotal)}
-                </Text>
-              </Grid>
-              <Grid templateColumns={"2fr 2fr"} w="full">
-                <Text fontSize={"sm"}>VAT</Text>
-                <Text fontSize={"sm"} textAlign={"end"}>
-                  ৳{vat}
-                </Text>
-              </Grid>
-              <Grid templateColumns={"2fr 2fr"} w="full">
-                <SimpleGrid columns={2} alignItems={"center"} w="full">
-                  <Text fontSize={"sm"}>Service Fee</Text>
-                  <Tooltip
-                    label="This service fee helps us operate our online ordering service."
-                    fontSize="sm"
-                    shouldWrapChildren={true}
-                  >
-                    <AiOutlineInfoCircle />
-                  </Tooltip>
-                </SimpleGrid>
-                <Text fontSize={"sm"} textAlign={"end"}>
-                  ৳{serviceCharge}
-                </Text>
-              </Grid>
-              <Grid templateColumns={"2fr 2fr"} w="full">
-                <Text fontSize={"sm"}>Delivery Fee</Text>
-                <Text fontSize={"sm"} textAlign={"end"}>
-                  ৳{deliveryCharge}
-                </Text>
-              </Grid>
-              {router.pathname === "/[host]/order/checkout" ? (
-                <>
-                  <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
 
-                  <Box py={1} />
-                  <Grid templateColumns={"2fr 2fr"} w="full">
-                    <Text fontSize={"md"} fontWeight={"semibold"}>
-                      Total
+          {cart.length > 0 ? (
+            <Stack>
+              <Stack
+                maxH={"xs"}
+                overflowY="scroll"
+                overflowX="hidden"
+                py={5}
+                px={5}
+              >
+                {cart.map((p: any) => (
+                  <Grid
+                    key={p.id}
+                    templateColumns={"2fr 6fr 2fr"}
+                    gridGap={3}
+                    alignItems={"center"}
+                  >
+                    <Stack direction={"row"} alignItems={"center"}>
+                      <IconButton
+                        bg={"transparent"}
+                        _hover={{
+                          bg: "transparent",
+                          color: props.cdata.primaryColor,
+                        }}
+                        _focus={{
+                          ringColor: "transparent",
+                        }}
+                        fontSize="xl"
+                        size={"xs"}
+                        aria-label="Minus"
+                        icon={<BiMinusCircle />}
+                        onClick={() => decreaseQuantity(p.id)}
+                      />
+                      <Text fontWeight={"medium"}>{p.quantity}</Text>
+                      <IconButton
+                        bg={"transparent"}
+                        _hover={{
+                          bg: "transparent",
+                          color: props.cdata.primaryColor,
+                        }}
+                        _focus={{
+                          ringColor: "transparent",
+                        }}
+                        fontSize="xl"
+                        size={"xs"}
+                        aria-label="Add"
+                        icon={<IoMdAddCircleOutline />}
+                        onClick={() => increaseQuantity(p.id)}
+                      />
+                    </Stack>
+                    <Text fontWeight={"medium"} isTruncated>
+                      {p.name}
                     </Text>
-                    <Text
-                      fontSize={"md"}
-                      fontWeight={"semibold"}
-                      textAlign={"end"}
-                    >
-                      ৳{total}
+                    <Text fontWeight={"medium"} textAlign={"end"}>
+                      ৳{p.total}
                     </Text>
                   </Grid>
+                ))}
+                <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
+                <Grid templateColumns={"2fr 2fr"} w="full">
+                  <Text fontSize={"sm"}>Subtotal</Text>
+                  <Text fontSize={"sm"} textAlign={"end"}>
+                    ৳{getArraySum(subTotal)}
+                  </Text>
+                </Grid>
+                <Grid templateColumns={"2fr 2fr"} w="full">
+                  <Text fontSize={"sm"}>VAT</Text>
+                  <Text fontSize={"sm"} textAlign={"end"}>
+                    ৳{vat}
+                  </Text>
+                </Grid>
+                <Grid templateColumns={"2fr 2fr"} w="full">
+                  <SimpleGrid columns={2} alignItems={"center"} w="full">
+                    <Text fontSize={"sm"}>Service Fee</Text>
+                    <Tooltip
+                      label="This service fee helps us operate our online ordering service."
+                      fontSize="sm"
+                      shouldWrapChildren={true}
+                    >
+                      <AiOutlineInfoCircle />
+                    </Tooltip>
+                  </SimpleGrid>
+                  <Text fontSize={"sm"} textAlign={"end"}>
+                    ৳{serviceCharge}
+                  </Text>
+                </Grid>
+                <Grid templateColumns={"2fr 2fr"} w="full">
+                  <Text fontSize={"sm"}>Delivery Fee</Text>
+                  <Text fontSize={"sm"} textAlign={"end"}>
+                    ৳{deliveryCharge}
+                  </Text>
+                </Grid>
+              </Stack>
+              {router.pathname === "/[host]/order/checkout" ? (
+                <>
+                  <Stack py={5} px={5}>
+                    <Divider variant={"dashed"} borderColor={"gray.600"} />
+
+                    <Box py={1} />
+                    <Grid templateColumns={"2fr 2fr"} w="full">
+                      <Text fontSize={"md"} fontWeight={"semibold"}>
+                        Total
+                      </Text>
+                      <Text
+                        fontSize={"md"}
+                        fontWeight={"semibold"}
+                        textAlign={"end"}
+                      >
+                        ৳{total}
+                      </Text>
+                    </Grid>
+                  </Stack>
                 </>
               ) : (
                 <>
-                  <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
+                  <Stack py={5} px={5}>
+                    <Divider variant={"dashed"} borderColor={"gray.600"} />
 
-                  <Box py={1} />
-                  <PrimaryButton
-                    cdata={props.cdata}
-                    text={"Checkout" + " - ৳" + total}
-                    onClick={() => router.push("/order/checkout")}
-                  />
+                    <Box py={1} />
+                    <PrimaryButton
+                      cdata={props.cdata}
+                      text={"Checkout" + " - ৳" + total}
+                      onClick={() => router.push("/order/checkout")}
+                    />
+                  </Stack>
                 </>
               )}
             </Stack>
