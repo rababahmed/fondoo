@@ -35,12 +35,17 @@ exec: true # Enable running commands in your container.
 
 # Optional fields for more advanced use-cases.
 #
-#variables:                    # Pass environment variables as key value pairs.
-#  LOG_LEVEL: info
+variables: # Pass environment variables as key value pairs.
+  S3_BUCKET_REGION: ap-south-1
+  VERCEL_API_URL: https://api.vercel.com
 
-#secrets:                      # Pass secrets from AWS Systems Manager (SSM) Parameter Store.
-#  GITHUB_TOKEN: GITHUB_TOKEN  # The key is the name of the environment variable, the value is the name of the SSM parameter.
-
+secrets: # Pass secrets from AWS Systems Manager (SSM) Parameter Store.
+  DATABASE_URL: /copilot/${COPILOT_APPLICATION_NAME}/${COPILOT_ENVIRONMENT_NAME}/secrets/DATABASE_URL # The key is the name of the environment variable, the value is the name of the SSM parameter.
+  JWT_SECRET: /copilot/${COPILOT_APPLICATION_NAME}/${COPILOT_ENVIRONMENT_NAME}/secrets/JWT_SECRET
+  AWS_ACCESS_KEY_ID: /copilot/${COPILOT_APPLICATION_NAME}/${COPILOT_ENVIRONMENT_NAME}/secrets/AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCESS_KEY: /copilot/${COPILOT_APPLICATION_NAME}/${COPILOT_ENVIRONMENT_NAME}/secrets/AWS_SECRET_ACCESS_KEY
+  VERCEL_TOKEN: /copilot/${COPILOT_APPLICATION_NAME}/${COPILOT_ENVIRONMENT_NAME}/secrets/VERCEL_TOKEN
+  VERCEL_PROJECT_ID: /copilot/${COPILOT_APPLICATION_NAME}/${COPILOT_ENVIRONMENT_NAME}/secrets/VERCEL_PROJECT_ID
 # You can override any of the values defined above by environment.
 #environments:
 #  test:

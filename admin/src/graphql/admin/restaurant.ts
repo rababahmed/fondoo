@@ -48,7 +48,7 @@ export const ADD_NEW_RESTAURANT = gql`
         plan: { connect: { id: $plan } }
         config: {
           create: {
-            domain: $domain
+            domains: { create: { domain: $domain } }
             primaryColor: $primaryColor
             secondaryColor: $secondaryColor
             isActive: $isActive
@@ -91,10 +91,14 @@ export const ADD_NEW_RESTAURANT = gql`
         CMSReservation: {
           create: { headerHeading: "Book your Table", headerDescription: "" }
         }
-        socials: { create: {} }
       }
     ) {
       id
+      config {
+        domains {
+          domain
+        }
+      }
     }
   }
 `;

@@ -45,7 +45,7 @@ export const GET_USER_DETAILS = gql`
         vat
         serviceCharge
         total
-        isAccepted
+        status
       }
     }
   }
@@ -109,7 +109,6 @@ export const PLACE_ORDER = gql`
     $serviceCharge: Float
     $total: Float
     $isPreOrder: Boolean
-    $isAccepted: Boolean
     $cart: [OrderItemCreateManyOrderInput!]
     $deliveryZoneId: String
     $customerId: String
@@ -125,7 +124,6 @@ export const PLACE_ORDER = gql`
         serviceCharge: $serviceCharge
         total: $total
         isPreOrder: $isPreOrder
-        isAccepted: $isAccepted
         items: { createMany: { data: $cart, skipDuplicates: true } }
         customer: { connect: { id: $customerId } }
         deliveryZone: { connect: { id: $deliveryZoneId } }
@@ -134,6 +132,7 @@ export const PLACE_ORDER = gql`
       }
     ) {
       id
+      status
       address {
         id
         streetAddress

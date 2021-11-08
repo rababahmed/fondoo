@@ -64,7 +64,7 @@ export const CheckoutContainer = ({ rdata, cdata }: Props) => {
           w="full"
           spacing={6}
           py={{ base: 0, md: 10 }}
-          px={{ base: 0, md: 10, lg: 20, xl: 20, "2xl": 60 }}
+          px={{ base: 0, md: 0, lg: 0, xl: 0, "2xl": 60 }}
         >
           <Flex
             w="full"
