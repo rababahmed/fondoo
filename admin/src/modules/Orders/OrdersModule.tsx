@@ -26,6 +26,7 @@ import { format, parseISO } from "date-fns";
 import { RejectOrder } from "./RejectOrder";
 import { AcceptOrder } from "./AcceptOrder";
 import OrderActions from "./OrderActions";
+import ExpandedOrdersModal from "./ExpandedOrdersModal";
 // import { DeleteDeliveryZone } from "../.DeleteDeliveryZone";
 
 const OrdersModule = () => {
@@ -69,7 +70,12 @@ const OrdersModule = () => {
               {isSuccess &&
                 data.restaurant.orders.map((o: any) => (
                   <Tr key={o.id}>
-                    <Td>{o.id}</Td>
+                    <Td>
+                      <Stack direction="row" alignItems="center" spacing={3}>
+                        <ExpandedOrdersModal orderId={o.id} />{" "}
+                        <Text>{o.id}</Text>
+                      </Stack>
+                    </Td>
                     <Td>
                       <Stack>
                         <Text>

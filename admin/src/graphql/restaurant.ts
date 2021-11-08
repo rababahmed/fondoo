@@ -408,49 +408,68 @@ export const DELETE_RESTAURANT_SOCIAL = gql`
 export const GET_RESTAURANT_ORDERS = gql`
   query RestaurantOrders($id: String) {
     restaurant(where: { id: $id }) {
-      orders {
+      orders(orderBy: { createdAt: desc }) {
         id
-        items {
-          id
-          product {
-            id
-            name
-            description
-            price
-          }
-          quantity
-          total
-        }
         customer {
-          id
           firstName
           lastName
-          email
           phone
         }
-        address {
-          id
-          streetAddress
-          city
-          postCode
-          country
-        }
         deliveryZone {
-          id
           name
-          deliveryTime
         }
-        deliveryCharge
-        fulfilmentType
-        serviceCharge
-        vat
         total
-        isAccepted
-        isViewed
+        status
         isPreOrder
         createdAt
         updatedAt
       }
+    }
+  }
+`;
+
+export const UPDATE_RESTAURANT_ORDER = gql`
+  mutation UpdateOrder($id: String, $status: Status) {
+    updateOrder(where: { id: $id }, data: { status: { set: $status } }) {
+      id
+    }
+  }
+`;
+
+export const GET_CUSTOMER_ORDER = gql`
+  query CustomerOrder($id: String) {
+    order(where: { id: $id }) {
+      fulfilmentType
+      items {
+        id
+        product {
+          name
+        }
+        quantity
+        total
+      }
+      customer {
+        firstName
+        lastName
+        phone
+        email
+      }
+      address {
+        streetAddress
+        city
+        postCode
+        country
+      }
+      deliveryZone {
+        name
+      }
+      deliveryCharge
+      discount
+      serviceCharge
+      vat
+      total
+      status
+      isPreOrder
     }
   }
 `;

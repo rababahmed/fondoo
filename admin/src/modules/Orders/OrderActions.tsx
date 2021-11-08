@@ -2,18 +2,20 @@ import React from "react";
 import { Stack, Tag } from "@chakra-ui/react";
 import { AcceptOrder } from "./AcceptOrder";
 import { RejectOrder } from "./RejectOrder";
+import { CompleteOrder } from "./CompleteOrder";
 
 interface Props {
   o: any;
+  isExpandedModal?: boolean;
 }
 
-const PendingAction = ({ o }: Props) => {
-  if (o.isAccepted === null) {
+const PendingAction = ({ o, isExpandedModal }: Props) => {
+  if (o.status === null || o.status === "Pending") {
     return (
       <>
-        <Stack direction="row">
-          <AcceptOrder id={o.id} />
-          <RejectOrder id={o.id} />
+        <Stack direction={isExpandedModal ? "row" : "column"}>
+          <AcceptOrder id={o.id} status={"Confirmed"} />
+          <RejectOrder id={o.id} status={"Cancelled"} />
         </Stack>
       </>
     );
@@ -22,7 +24,7 @@ const PendingAction = ({ o }: Props) => {
 };
 
 const Rejected = ({ o }: Props) => {
-  if (!o.isAccepted) {
+  if (o.status === "Cancelled") {
     return (
       <>
         <Stack direction="row">
@@ -37,11 +39,26 @@ const Rejected = ({ o }: Props) => {
 };
 
 const Accepted = ({ o }: Props) => {
-  if (o.isAccepted) {
+  if (o.status === "Confirmed") {
     return (
       <>
         <Stack direction="row">
-          <RejectOrder id={o.id} />
+          <CompleteOrder id={o.id} status={"Completed"} />
+        </Stack>
+      </>
+    );
+  }
+  return null;
+};
+
+const Completed = ({ o }: Props) => {
+  if (o.status === "Completed") {
+    return (
+      <>
+        <Stack direction="row">
+          <Tag colorScheme={"green"} borderRadius={"full"}>
+            Completed
+          </Tag>
         </Stack>
       </>
     );
@@ -55,6 +72,7 @@ const OrderActions = ({ o }: Props) => {
       <PendingAction o={o} />
       <Rejected o={o} />
       <Accepted o={o} />
+      <Completed o={o} />
     </>
   );
 };

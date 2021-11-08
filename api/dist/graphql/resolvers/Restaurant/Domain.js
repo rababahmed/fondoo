@@ -10,6 +10,8 @@ exports.Domain = (0, nexus_1.objectType)({
         t.model.id();
         t.model.domain();
         t.model.restaurantConfig();
+        t.model.restaurant();
+        t.model.restaurantId();
         t.model.createdAt();
         t.model.updatedAt();
     },

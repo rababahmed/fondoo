@@ -29,43 +29,41 @@ const config_1 = require("../../lib/config");
 const bcrypt = require("bcryptjs");
 const router = express_1.default.Router();
 router.post("/signup", async (req, res) => {
-    try {
-        const { firstName, lastName, email, password, phone, restaurantId } = req.body;
-        const hash = await bcrypt.hash(password, 10);
-        const result = await PrismaClient_1.default.customer.create({
-            data: {
-                firstName,
-                lastName,
-                phone,
-                email,
-                password: hash,
-                restaurants: {
-                    connect: {
-                        id: restaurantId,
-                    },
+    const { firstName, lastName, email, password, phone, restaurantId } = req.body;
+    const hash = await bcrypt.hash(password, 10);
+    await PrismaClient_1.default.customer
+        .create({
+        data: {
+            firstName,
+            lastName,
+            phone,
+            email,
+            password: hash,
+            restaurants: {
+                connect: {
+                    id: restaurantId,
                 },
             },
-        });
-        const validPass = await bcrypt.compare(password, result?.password);
+        },
+    })
+        .then(async (response) => {
+        const validPass = await bcrypt.compare(password, response.password);
         if (validPass) {
-            const token = jwt.sign({ id: result?.id, restaurantId: restaurantId }, config_1.config.passport.secret, {
+            const token = jwt.sign({ id: response?.id, restaurantId: restaurantId }, config_1.config.passport.secret, {
                 expiresIn: config_1.config.passport.expiresIn,
             });
             res.status(200).send({
                 token: token,
                 isAuthenticated: true,
-                id: result?.id,
+                id: response.id,
                 message: "User authenticated",
             });
         }
-        else {
-            res.status(400).send({ message: "Could not auto log in user" });
-        }
-    }
-    catch (err) {
+    })
+        .catch((err) => {
         console.log(err);
-        res.status(400).send({ message: "Error signing up user" });
-    }
+        res.status(400).send({ message: "User already exists" });
+    });
 });
 router.post("/login", async (req, res) => {
     try {

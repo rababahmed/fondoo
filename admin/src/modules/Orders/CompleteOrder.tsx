@@ -16,7 +16,7 @@ interface Props {
   status: String;
 }
 
-export const AcceptOrder = (props: Props) => {
+export const CompleteOrder = (props: Props) => {
   const mutation = useGQLMutation(
     UPDATE_RESTAURANT_ORDER,
     {
@@ -33,6 +33,7 @@ export const AcceptOrder = (props: Props) => {
       queryClient.invalidateQueries(["get-restaurant-orders", props.id]);
     });
   };
+
   return (
     <>
       <Button
@@ -42,7 +43,7 @@ export const AcceptOrder = (props: Props) => {
         colorScheme="green"
         variant="solid"
       >
-        Accept
+        Mark as Completed
       </Button>
     </>
   );

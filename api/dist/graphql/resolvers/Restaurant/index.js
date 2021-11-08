@@ -62,10 +62,28 @@ exports.Restaurant = (0, nexus_1.objectType)({
             ordering: true,
             pagination: true,
         });
-        t.model.customers({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
-        t.model.offers();
-        t.model.coupons();
-        t.model.orders({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
+        t.model.customers({
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
+            pagination: true,
+            ordering: true,
+            filtering: true,
+        });
+        t.model.offers({
+            pagination: true,
+            ordering: true,
+            filtering: true,
+        });
+        t.model.coupons({
+            pagination: true,
+            ordering: true,
+            filtering: true,
+        });
+        t.model.orders({
+            shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()),
+            pagination: true,
+            ordering: true,
+            filtering: true,
+        });
         t.model.orderItems({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
         t.model.productCategory({
             filtering: true,
@@ -76,6 +94,7 @@ exports.Restaurant = (0, nexus_1.objectType)({
         t.model.plan({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
         t.model.restaurantPlanId({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
         t.model.users({ shield: (0, nexus_shield_1.or)((0, isAuthenticated_1.isAdmin)(), (0, isAuthenticated_1.isOwner)(), (0, isAuthenticated_1.isManager)()) });
+        t.model.domains();
         t.model.config();
         t.model.socials();
         t.model.CMSHome();
