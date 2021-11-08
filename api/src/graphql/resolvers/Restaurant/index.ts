@@ -41,10 +41,28 @@ export const Restaurant = objectType({
       ordering: true,
       pagination: true,
     });
-    t.model.customers({ shield: or(isAdmin(), isOwner(), isManager()) });
-    t.model.offers();
-    t.model.coupons();
-    t.model.orders({ shield: or(isAdmin(), isOwner(), isManager()) });
+    t.model.customers({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      pagination: true,
+      ordering: true,
+      filtering: true,
+    });
+    t.model.offers({
+      pagination: true,
+      ordering: true,
+      filtering: true,
+    });
+    t.model.coupons({
+      pagination: true,
+      ordering: true,
+      filtering: true,
+    });
+    t.model.orders({
+      shield: or(isAdmin(), isOwner(), isManager()),
+      pagination: true,
+      ordering: true,
+      filtering: true,
+    });
     t.model.orderItems({ shield: or(isAdmin(), isOwner(), isManager()) });
     t.model.productCategory({
       filtering: true,

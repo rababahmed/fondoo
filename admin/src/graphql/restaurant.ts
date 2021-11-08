@@ -445,7 +445,7 @@ export const GET_RESTAURANT_ORDERS = gql`
         serviceCharge
         vat
         total
-        isAccepted
+        status
         isViewed
         isPreOrder
         createdAt
