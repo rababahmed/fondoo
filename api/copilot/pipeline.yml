@@ -16,7 +16,8 @@ source:
   # Additional properties that further specify the location of the artifacts.
   properties:
     branch: prod
-    repository: https://github.com/rababahmed/tezzbites
+    repository: https://github.com/rababahmed/tezzbites/tree/prod/api
+
     # Optional: specify the name of an existing CodeStar Connections connection.
     # connection_name: a-connection
 
