@@ -21,7 +21,7 @@ router.post("/order-received/:orderId", async (req, res) => {
         const data = {
           from: "TezzBites <noreply@alerts.tezzbites.com>",
           to: `${user.email}`,
-          subject: `New Order on ${orderDetails.restaurant.name}`,
+          subject: `You've received a new order on ${orderDetails.restaurant.name}`,
           template: "restaurant-order-received",
           "h:X-Mailgun-Variables": JSON.stringify({
             firstName: user.firstName,
