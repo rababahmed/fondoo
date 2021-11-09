@@ -47,9 +47,9 @@ export async function getStaticProps(context: any) {
     domain: host,
   });
 
-  const rdata = fetchData?.domain?.restaurantConfig?.restaurant;
+  const rdata = fetchData?.domain?.restaurant;
 
-  const cdata = fetchData?.domain?.restaurantConfig;
+  const cdata = fetchData?.domain?.restaurant.config;
 
   const { base64, img } = await getPlaiceholder(
     rdata.coverImage ? Constants.CDN + rdata.coverImage : ""
