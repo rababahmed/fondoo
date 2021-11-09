@@ -226,9 +226,8 @@ const CartCard = (props: Props) => {
                 </>
               ) : (
                 <>
-                  <Stack py={5} px={5}>
+                  <Stack py={5} px={5} w="full">
                     <Divider variant={"dashed"} borderColor={"gray.600"} />
-
                     <Box py={1} />
                     <PrimaryButton
                       cdata={props.cdata}

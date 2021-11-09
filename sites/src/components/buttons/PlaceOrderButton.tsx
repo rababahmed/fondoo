@@ -8,6 +8,8 @@ import { useUserStore } from "../../stores/useUserStore";
 import PrimaryButton from "./PrimaryButton";
 import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import axios from "axios";
+import { Constants } from "../../config";
 
 interface Props {
   rdata: any;
@@ -90,8 +92,17 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
           isClosable: true,
         });
         await setRecentOrderId(orderData.id);
-        mutation.reset();
-        router.push("/order/confirmed");
+        await axios
+          .post(
+            Constants.REST_API_V1 +
+              "/email/restaurant/order-received/" +
+              orderData.id
+          )
+          .then(() => {
+            mutation.reset();
+            router.push("/order/confirmed");
+          })
+          .catch((error) => {});
       })
       .catch((error) => {
         toast({
