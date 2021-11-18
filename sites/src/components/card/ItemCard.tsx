@@ -52,7 +52,7 @@ const ItemCard = (props: Props) => {
                 <Text color={"gray.500"} isTruncated fontSize={"sm"}>
                   {props.p.description}
                 </Text>
-                <Text fontWeight="">৳{props.p.price}</Text>
+                <Text fontWeight="normal">৳{props.p.price}</Text>
               </Stack>
               <Box pos="relative" h={120} w={120} justifySelf="end">
                 <Image
