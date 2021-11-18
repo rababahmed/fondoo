@@ -87,7 +87,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
                   spacing={4}
                   ref={refs[cat.id]}
                 >
-                  <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
+                  <Text fontSize={"2xl"} color={"black"} fontWeight={"bold"}>
                     {cat.name}
                   </Text>
                   <SimpleGrid columns={{ base: 1, xl: 2 }} spacing={4}>

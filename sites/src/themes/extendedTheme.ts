@@ -11,4 +11,8 @@ const breakpoints = createBreakpoints({
 
 export const extendedTheme = extendTheme({
   breakpoints,
+  fonts: {
+    heading: "TT Norms Pro",
+    body: "TT Norms Pro",
+  },
 });

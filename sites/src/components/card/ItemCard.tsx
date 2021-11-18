@@ -12,6 +12,7 @@ import {
   Grid,
   Flex,
   VStack,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
@@ -43,17 +44,17 @@ const ItemCard = (props: Props) => {
       >
         <Box w="full" isTruncated>
           <LinkOverlay onClick={props.onClick}>
-            <Flex justifyContent={"space-between"} alignItems={"center"}>
-              <Stack px={5} py={5} maxW={180}>
+            <SimpleGrid columns={2} alignItems="center">
+              <Stack px={5} py={5}>
                 <Heading color={"black"} fontSize={"md"} isTruncated>
                   {props.p.name}
                 </Heading>
                 <Text color={"gray.500"} isTruncated fontSize={"sm"}>
                   {props.p.description}
                 </Text>
-                <Text fontWeight="semibold">৳{props.p.price}</Text>
+                <Text fontWeight="">৳{props.p.price}</Text>
               </Stack>
-              <Box pos="relative" h={120} w={120}>
+              <Box pos="relative" h={120} w={120} justifySelf="end">
                 <Image
                   alt="card-image"
                   src={
@@ -65,7 +66,7 @@ const ItemCard = (props: Props) => {
                   objectFit="cover"
                 />
               </Box>
-            </Flex>
+            </SimpleGrid>
           </LinkOverlay>
         </Box>
       </LinkBox>

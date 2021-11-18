@@ -18,6 +18,7 @@ const SecondaryButton = ({ cdata, text, onClick, buttonProps }: Props) => {
         color="white"
         onClick={onClick}
         fontSize={{ md: "sm", "2xl": "xl" }}
+        fontWeight="bold"
         {...buttonProps}
       >
         {text}

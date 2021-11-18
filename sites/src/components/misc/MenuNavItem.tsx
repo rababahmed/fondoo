@@ -18,7 +18,7 @@ const MenuNavItem = ({ text, url, fontSize, onClick }: Props) => {
         _hover={{ cursor: "pointer", opacity: "90%" }}
         fontSize={fontSize || "lg"}
         py={1}
-        fontWeight="semibold"
+        fontWeight="bold"
         color="black"
         whiteSpace="nowrap"
       >

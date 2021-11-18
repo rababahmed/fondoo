@@ -20,6 +20,7 @@ const OrderButton = ({ cdata, text, url, buttonProps }: Props) => {
         _hover={{ cursor: "pointer", opacity: "95%" }}
         color="white"
         fontSize={{ md: "sm", "2xl": "xl" }}
+        fontWeight={"bold"}
         {...buttonProps}
       >
         {text}
