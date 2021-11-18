@@ -6,18 +6,19 @@ interface Props {
   text: String;
   url?: any;
   fontSize?: any;
+  onClick?: any;
 }
 
-const MenuNavItem = ({ text, url, fontSize }: Props) => {
+const MenuNavItem = ({ text, url, fontSize, onClick }: Props) => {
   const router = useRouter();
   return (
     <>
       <Text
-        onClick={() => router.push(url)}
+        onClick={url ? () => router.push(url) : onClick}
         _hover={{ cursor: "pointer", opacity: "90%" }}
         fontSize={fontSize || "lg"}
         py={1}
-        fontWeight="semibold"
+        fontWeight="bold"
         color="black"
         whiteSpace="nowrap"
       >

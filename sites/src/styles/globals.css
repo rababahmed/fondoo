@@ -54,3 +54,56 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background: rgba(53, 53, 53, 0.719);
   border-radius: 10px;
 }
+
+@font-face {
+  font-family: "TT Norms Pro Heading";
+  src: url("../../public/fonts/tt-norms-pro/tt-bold.woff");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "TT Norms Pro";
+  src: url("../../public/fonts/tt-norms-pro/tt-bold.woff");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "TT Norms Pro";
+  src: url("../../public/fonts/tt-norms-pro/tt-thin.woff");
+  font-weight: thin;
+}
+@font-face {
+  font-family: "TT Norms Pro";
+  src: url("../../public/fonts/tt-norms-pro/tt-medium.woff");
+  font-weight: medium;
+}
+@font-face {
+  font-family: "TT Norms Pro";
+  src: url("../../public/fonts/tt-norms-pro/tt-regular.woff");
+  font-weight: semibold;
+}
+@font-face {
+  font-family: "TT Norms Pro";
+  src: url("../../public/fonts/tt-norms-pro/tt-regular.woff");
+  font-weight: normal;
+}
+
+/* @font-face {
+  font-family: "Test";
+  src: url("../../public/fonts/tt-norms-pro/tt-black-italic.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-bold-italic.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-bold.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-extrablack-italic.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-extrablack.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-extrabold-italic.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-extrabold.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-extralight-italic.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-extralight.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-italic.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-light-italic.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-light.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-medium-italic.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-medium.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-regular.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-thin-italic.woff"),
+    url("../../public/fonts/tt-norms-pro/tt-thin.woff");
+} */
