@@ -1,5 +1,6 @@
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Box, HStack, SimpleGrid, Stack, Text } from "@chakra-ui/layout";
-import { Heading, useColorModeValue } from "@chakra-ui/react";
+import { Heading, useColorModeValue, Link } from "@chakra-ui/react";
 import { format, parseISO } from "date-fns";
 import React from "react";
 import ClickableText from "../misc/ClickableText";
@@ -7,8 +8,9 @@ import ClickableText from "../misc/ClickableText";
 const Footer = ({ rdata, cdata }: any) => {
   const fmtTime = (str: any) => {
     let [hh, mm] = str.split(":");
-    return `${hh > 12 ? hh % 12 : hh}${`:${mm}`}${hh >= 12 ? " PM" : "AM"}`;
+    return `${hh > 12 ? hh % 12 : hh}${`:${mm}`}${hh >= 12 ? "PM" : "AM"}`;
   };
+  console.log(fmtTime("00:00"));
 
   return (
     <Box
@@ -36,7 +38,7 @@ const Footer = ({ rdata, cdata }: any) => {
           <Stack spacing={4}>
             <Heading size="md">Contact Us</Heading>
             <Stack spacing={2}>
-              <Text fontWeight="semibold">Address</Text>
+              <Text fontFamily="TT Norms Pro Medium">Address</Text>
               <ClickableText
                 text={rdata.address + ", " + rdata.city + " " + rdata.postCode}
                 url={
@@ -51,7 +53,7 @@ const Footer = ({ rdata, cdata }: any) => {
               />
             </Stack>
             <Stack spacing={2}>
-              <Text fontWeight="semibold">Call us at</Text>
+              <Text fontFamily="TT Norms Pro Medium">Call us at</Text>
               <ClickableText
                 text={rdata.businessPhone}
                 url={"tel:" + rdata.businessPhone}
@@ -59,7 +61,7 @@ const Footer = ({ rdata, cdata }: any) => {
               />
             </Stack>
             <Stack spacing={2}>
-              <Text fontWeight="semibold">Send an email</Text>
+              <Text fontFamily="TT Norms Pro Medium">Send an email</Text>
               <ClickableText
                 text={rdata.email}
                 url={"mail:" + rdata.email}
@@ -71,12 +73,12 @@ const Footer = ({ rdata, cdata }: any) => {
           <Stack spacing={3}>
             <Heading size="md">Opening Hours</Heading>
             {rdata.schedules?.map((s: any) => (
-              <HStack key={s.id} columns={2} spacing={6}>
-                <Text fontWeight="semibold">{s.day}</Text>
-                <Text>
-                  {fmtTime(s.openingTime)} to {fmtTime(s.closingTime)}
+              <SimpleGrid key={s.id} columns={2} spacing={3}>
+                <Text fontFamily="TT Norms Pro Medium">{s.day}</Text>
+                <Text justifySelf="end" fontFamily="TT Norms Pro Medium">
+                  {s.openingTime} to {s.closingTime}
                 </Text>
-              </HStack>
+              </SimpleGrid>
             ))}
           </Stack>
           <Stack spacing={6}>
@@ -84,14 +86,14 @@ const Footer = ({ rdata, cdata }: any) => {
               <Heading size="md">Delivery Areas</Heading>
               <Box>
                 {rdata.deliveryZones?.map((d: any) => (
-                  <HStack key={d.id} columns={2} spacing={3}>
-                    <Text fontWeight="semibold">{d.name}</Text>
-                    <Text>
+                  <SimpleGrid key={d.id} columns={2} spacing={3}>
+                    <Text fontFamily="TT Norms Pro Medium">{d.name}</Text>
+                    <Text justifySelf="end" fontFamily="TT Norms Pro Medium">
                       {d.deliveryCharge === 0
                         ? "Free Delivery"
                         : rdata.currency + d.deliveryCharge}
                     </Text>
-                  </HStack>
+                  </SimpleGrid>
                 ))}
               </Box>
             </Stack>
@@ -105,11 +107,20 @@ const Footer = ({ rdata, cdata }: any) => {
           px={{ base: 2, sm: 60 }}
         >
           <Text fontWeight="semibold" size="md">
-            TezzBites Partner Restaurant. ©2021 TezzBites. All Rights Reserved
+            ©2021 {rdata?.name}. All Rights Reserved
           </Text>
-          <Text textAlign="right" fontWeight="semibold" size="md">
-            Become a TezzBites Partner Restaurant.
-          </Text>
+          <Link href="https://tezzbites.com" isExternal>
+            <Text
+              textAlign={{ base: "left", md: "right" }}
+              fontWeight="semibold"
+              size="md"
+              cursor="pointer"
+              onClick={() => "https://www.tezzbites.com"}
+            >
+              Become a TezzBites Partner Restaurant{" "}
+              <ExternalLinkIcon mx="2px" />
+            </Text>
+          </Link>
         </SimpleGrid>
       </Box>
     </Box>

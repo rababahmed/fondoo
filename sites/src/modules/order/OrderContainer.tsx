@@ -60,7 +60,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
               bg="white"
               borderBottomWidth="1px"
               w="full"
-              spacing={6}
+              spacing={2}
               px={6}
               overflowX="auto"
               className="menuItemNav"
