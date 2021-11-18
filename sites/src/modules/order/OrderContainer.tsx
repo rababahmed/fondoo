@@ -25,6 +25,15 @@ interface Props {
 }
 
 export const OrderContainer = ({ rdata, cdata }: Props) => {
+  const refs = rdata.productCategory.reduce((acc: any, value: any) => {
+    acc[value.id] = React.createRef();
+    return acc;
+  }, {});
+
+  const scrollToRef = (id: any) => {
+    refs[id].current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <Box bg={"white"}>
@@ -59,7 +68,7 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
               {rdata.productCategory.map((cat: any) => (
                 <MenuNavItem
                   text={cat.name}
-                  url={`#${cat.name}`}
+                  onClick={() => scrollToRef(cat.id)}
                   key={cat.id}
                 />
               ))}
@@ -71,7 +80,13 @@ export const OrderContainer = ({ rdata, cdata }: Props) => {
           >
             <Stack spacing={6}>
               {rdata.productCategory.map((cat: any) => (
-                <Stack id={cat.name} key={cat.id} px={8} spacing={4}>
+                <Stack
+                  id={cat.name}
+                  key={cat.id}
+                  px={8}
+                  spacing={4}
+                  ref={refs[cat.id]}
+                >
                   <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                     {cat.name}
                   </Text>

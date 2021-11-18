@@ -16,6 +16,7 @@ import {
   ModalFooter,
   Text,
   SimpleGrid,
+  Heading,
 } from "@chakra-ui/react";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
 import * as Yup from "yup";
@@ -29,6 +30,8 @@ import { GET_USER_DETAILS } from "../../graphql/user";
 import SignupModal from "./SignupModal";
 import { useSiteStore } from "../../stores/useSiteStore";
 import { useRouter } from "next/router";
+import * as Logo from "../../../public/images/tb-logo-dark.svg";
+import Image from "next/image";
 
 interface Props {
   rdata: any;
@@ -116,6 +119,20 @@ const LoginModal = ({ rdata, cdata, isCheckoutPage }: Props) => {
           <ModalHeader>Sign In</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+            <Stack alignItems="center" py={4}>
+              <Box maxW={52}>
+                <Image src={Logo} alt="tezzbites-logo" />
+              </Box>
+              <Text
+                textAlign="center"
+                color={"gray.600"}
+                fontSize={{ base: "sm", md: "sm" }}
+                px={{ base: 10, md: 20 }}
+              >
+                Sign in with the same credentials wherever you see the TezzBites
+                logo
+              </Text>
+            </Stack>
             <Formik
               onSubmit={onSubmit}
               initialValues={initialValues}

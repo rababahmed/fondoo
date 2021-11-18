@@ -107,6 +107,7 @@ const DeliveryModal = ({ rdata, cdata }: Props) => {
             isClosable: true,
           })
         }
+        scrollBehavior={"inside"}
         isCentered
       >
         <AlertDialogOverlay>
