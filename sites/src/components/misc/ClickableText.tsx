@@ -17,7 +17,7 @@ const ClickableText = ({ text, url, fontSize }: Props) => {
         _hover={{ cursor: "pointer", opacity: "90%" }}
         fontSize={fontSize || "lg"}
         py={1}
-        fontWeight="semibold"
+        fontFamily="TT Norms Pro Medium"
         color="white"
       >
         {text}

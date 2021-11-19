@@ -52,7 +52,9 @@ const RestaurantCard = (props: Props) => {
           >
             {props.rdata.name}
           </Heading>
-          <Text color={"gray.500"}>{props.rdata.cuisine}</Text>
+          <Text color={"gray.500"} fontFamily="TT Norms Pro Medium">
+            {props.rdata.cuisine}
+          </Text>
           <Stack>
             <Stack
               direction={"row"}
@@ -67,7 +69,7 @@ const RestaurantCard = (props: Props) => {
             </Stack>
             <Divider variant="solid" borderColor={"gray.400"} />
             {/* <Text fontWeight="semibold">Min Delivery Amount ৳500</Text> */}
-            <Text fontWeight="semibold">
+            <Text fontFamily="TT Norms Pro Medium">
               {openingData
                 ? "Open Hours: " +
                   openingData.openingTime +

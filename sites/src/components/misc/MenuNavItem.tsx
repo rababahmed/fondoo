@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 
@@ -13,17 +13,26 @@ const MenuNavItem = ({ text, url, fontSize, onClick }: Props) => {
   const router = useRouter();
   return (
     <>
-      <Text
-        onClick={url ? () => router.push(url) : onClick}
-        _hover={{ cursor: "pointer", opacity: "90%" }}
-        fontSize={fontSize || "lg"}
-        py={1}
-        fontWeight="bold"
-        color="black"
-        whiteSpace="nowrap"
-      >
-        {text}
-      </Text>
+      <Box py={1}>
+        <Text
+          onClick={url ? () => router.push(url) : onClick}
+          _hover={{
+            cursor: "pointer",
+            opacity: "90%",
+            bg: "gray.100",
+            rounded: "md",
+          }}
+          py={1}
+          px={2}
+          fontSize={fontSize || "lg"}
+          fontFamily="TT Norms Pro Medium"
+          fontWeight="medium"
+          color="black"
+          whiteSpace="nowrap"
+        >
+          {text}
+        </Text>
+      </Box>
     </>
   );
 };

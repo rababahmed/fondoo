@@ -44,7 +44,7 @@ const ItemCard = (props: Props) => {
       >
         <Box w="full" isTruncated>
           <LinkOverlay onClick={props.onClick}>
-            <SimpleGrid columns={2} alignItems="center">
+            <SimpleGrid columns={2} alignItems="center" spacing={0}>
               <Stack px={5} py={5}>
                 <Heading color={"black"} fontSize={"md"} isTruncated>
                   {props.p.name}
@@ -52,7 +52,7 @@ const ItemCard = (props: Props) => {
                 <Text color={"gray.500"} isTruncated fontSize={"sm"}>
                   {props.p.description}
                 </Text>
-                <Text fontWeight="normal">৳{props.p.price}</Text>
+                <Text fontFamily="TT Norms Pro Medium">৳{props.p.price}</Text>
               </Stack>
               <Box pos="relative" h={120} w={120} justifySelf="end">
                 <Image
