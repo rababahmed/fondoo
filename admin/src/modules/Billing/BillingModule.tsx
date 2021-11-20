@@ -4,13 +4,15 @@ import {
   SimpleGrid,
   Stack,
   Button,
+  Text,
 } from "@chakra-ui/react";
 import React from "react";
 import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import FlatCard from "../../components/Cards/FlatCard";
-import { GET_PLAN_DETAILS } from "../../graphql/user";
+import { GET_PLAN_DETAILS, GET_SUBSCRIPTION_DETAILS } from "../../graphql/user";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { useUserStore } from "../../store/useUserStore";
+import Link from "next/link";
 
 declare global {
   interface Window {
@@ -23,6 +25,14 @@ const BillingModule = () => {
   const { data, isLoading, isError, isSuccess } = useGQLQuery(
     "get-restaurant-plan",
     GET_PLAN_DETAILS,
+    {
+      id: restaurantId,
+    }
+  );
+
+  const subscriptionData = useGQLQuery(
+    "get-subscription-details",
+    GET_SUBSCRIPTION_DETAILS,
     {
       id: restaurantId,
     }
@@ -53,9 +63,20 @@ const BillingModule = () => {
           description={
             data?.restaurant.plan.name === "Sandbox"
               ? "Take TezzBites out on a spin now. Upgrade when you're ready."
-              : "You're now on the starter plan. Ready to accept orders from anywhere in the world."
+              : "Ready to take orders from anywhere in the world. Upgrade when you can't handle the load!"
           }
         >
+          {data?.restaurant.plan.name === "Starter" ? (
+            <Stack>
+              <Text>✓ Full Website</Text>
+              <Text>✓ Online Ordering</Text>
+              <Text>✓ 50 items</Text>
+              <Text>✓ Unlimited Orders</Text>
+            </Stack>
+          ) : (
+            <></>
+          )}
+
           <Stack>
             {data?.restaurant.plan.name === "Sandbox" ? (
               <PrimaryButton
@@ -71,9 +92,28 @@ const BillingModule = () => {
               <></>
             )}
             {data?.restaurant.plan.name !== "Sandbox" ? (
-              <Button colorScheme="gray" onClick={openCheckout}>
-                Cancel Plan
-              </Button>
+              <SimpleGrid columns={2} mt={4} alignItems="center">
+                <Box>
+                  <Link
+                    href={subscriptionData.data?.subscription.paddleCancelUrl}
+                    passHref={true}
+                  >
+                    <Button colorScheme="blackAlpha" size="sm">
+                      Cancel Plan
+                    </Button>
+                  </Link>
+                </Box>
+                <PrimaryButton
+                  title={"Upgrade to Pro"}
+                  onClick={openCheckout}
+                  buttonProps={{
+                    fontSize: "sm",
+                    size: "sm",
+                    isLoading: isLoadingPayment,
+                    justifySelf: "end",
+                  }}
+                />
+              </SimpleGrid>
             ) : (
               <></>
             )}

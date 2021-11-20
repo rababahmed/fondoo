@@ -48,3 +48,15 @@ export const GET_PLAN_DETAILS = gql`
     }
   }
 `;
+
+export const GET_SUBSCRIPTION_DETAILS = gql`
+  query SubscriptionDetails($id: String) {
+    subscription(where: { restaurantId: $id }) {
+      id
+      paddleCancelUrl
+      paddleSubscriptionId
+      paddleUpdateUrl
+      createdAt
+    }
+  }
+`;
