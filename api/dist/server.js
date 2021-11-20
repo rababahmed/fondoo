@@ -21,6 +21,7 @@ const main = async () => {
     app.use(passport_1.default.initialize());
     app.use((0, cors_1.default)());
     app.use(sentry_1.default.Handlers.errorHandler());
+    app.use(express_1.default.urlencoded({ extended: true }));
     (0, index_2.applyPassportStrategy)(passport_1.default);
     const apolloServer = new apollo_server_express_1.ApolloServer({
         schema: schema_1.schema,

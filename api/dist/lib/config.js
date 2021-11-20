@@ -7,6 +7,10 @@ exports.config = {
         expiresIn: "30 days",
     },
     s3: {},
+    mailgun: {
+        apiKey: `${process.env.MAILGUN_API_KEY}`,
+        domain: `${process.env.MAILGUN_DOMAIN}`,
+    },
 };
 exports.vercel = {
     TOKEN: process.env.VERCEL_TOKEN,

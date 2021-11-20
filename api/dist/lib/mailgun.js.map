@@ -1,0 +1,1 @@
+{"version":3,"file":"mailgun.js","sourceRoot":"","sources":["../../src/lib/mailgun.ts"],"names":[],"mappings":";;;;;;AAAA,qCAAkC;AAClC,4DAAiC;AAEpB,QAAA,OAAO,GAAG,IAAI,oBAAO,CAAC;IACjC,MAAM,EAAE,eAAM,CAAC,OAAO,CAAC,MAAM;IAC7B,MAAM,EAAE,eAAM,CAAC,OAAO,CAAC,MAAM;CAC9B,CAAC,CAAC"}
