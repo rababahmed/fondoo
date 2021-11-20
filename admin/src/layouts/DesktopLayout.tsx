@@ -18,20 +18,20 @@ const DesktopLayout = (props: any) => {
             display="flex"
             pos="fixed"
             overflowY="auto"
-            overflowX="hidden"
+            overflowX="auto"
             flexDirection="column"
             left="0"
             top="0"
             bg="#F6F6F7"
-            w="100vw"
-            h="100vh"
+            w="100%"
+            h="100%"
           >
             <Box
               mt={14}
               w="100%"
               pos="fixed"
               h="100vh"
-              overflowX="hidden"
+              overflowX="auto"
               py={8}
               px={44}
               ml={{ base: 0, md: 134 }}
@@ -48,7 +48,7 @@ const DesktopLayout = (props: any) => {
             display="flex"
             pos="fixed"
             overflowY="auto"
-            overflowX="hidden"
+            overflowX="auto"
             flexDirection="column"
             left="0"
             top="0"
@@ -59,7 +59,7 @@ const DesktopLayout = (props: any) => {
             <Header />
             <Box
               mt={14}
-              overflowX="hidden"
+              overflowX="auto"
               maxW="100%"
               py={8}
               px={8}

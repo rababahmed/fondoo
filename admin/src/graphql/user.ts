@@ -36,3 +36,15 @@ export const DELETE_USER = gql`
     }
   }
 `;
+
+export const GET_PLAN_DETAILS = gql`
+  query PlanDetails($id: String) {
+    restaurant(where: { id: $id }) {
+      plan {
+        id
+        name
+        price
+      }
+    }
+  }
+`;

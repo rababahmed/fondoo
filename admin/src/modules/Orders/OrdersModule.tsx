@@ -55,7 +55,7 @@ const OrdersModule = () => {
         <Skeleton isLoaded={!isLoading}>
           <Table variant="simple">
             <Thead>
-              <Tr>
+              <Tr whiteSpace="nowrap">
                 <Th>Order ID</Th>
                 <Th>Customer</Th>
                 <Th>Date and Time</Th>
@@ -66,10 +66,10 @@ const OrdersModule = () => {
               </Tr>
             </Thead>
 
-            <Tbody>
+            <Tbody whiteSpace="nowrap">
               {isSuccess &&
                 data.restaurant.orders.map((o: any) => (
-                  <Tr key={o.id}>
+                  <Tr key={o.id} whiteSpace="nowrap">
                     <Td>
                       <Stack direction="row" alignItems="center" spacing={3}>
                         <ExpandedOrdersModal orderId={o.id} />{" "}

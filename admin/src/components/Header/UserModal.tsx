@@ -46,7 +46,9 @@ const UserModal = () => {
         </MenuButton>
         <MenuList>
           <MenuItem>My Restaurants</MenuItem>
-          <MenuItem>Billing</MenuItem>
+          <MenuItem onClick={() => router.push("/user/billing")}>
+            Billing
+          </MenuItem>
           <MenuItem>Usage</MenuItem>
           <MenuDivider />
           <MenuItem>Settings</MenuItem>
