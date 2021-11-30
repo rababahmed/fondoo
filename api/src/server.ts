@@ -18,6 +18,7 @@ export const main = async () => {
   app.use(passport.initialize());
   app.use(cors());
   app.use(Sentry.Handlers.errorHandler());
+  app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
   applyPassportStrategy(passport);
 

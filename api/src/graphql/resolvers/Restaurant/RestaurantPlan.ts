@@ -8,6 +8,8 @@ export const RestaurantPlan = objectType({
     t.model.name();
     t.model.price();
     t.model.isActive();
+    t.model.paddleId();
+    t.model.subscriptions();
     t.model.restaurants({ shield: isAdmin() });
   },
 });

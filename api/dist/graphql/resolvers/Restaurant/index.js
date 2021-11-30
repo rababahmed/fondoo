@@ -19,7 +19,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Domain = exports.RestaurantReview = exports.RestaurantSocial = exports.RestaurantConfig = exports.Schedule = exports.RestaurantPlan = exports.DeliveryZone = exports.RestaurantMutation = exports.RestaurantQuery = exports.Restaurant = void 0;
+exports.Subscription = exports.Domain = exports.RestaurantReview = exports.RestaurantSocial = exports.RestaurantConfig = exports.Schedule = exports.RestaurantPlan = exports.DeliveryZone = exports.RestaurantMutation = exports.RestaurantQuery = exports.Restaurant = void 0;
 const nexus_1 = require("nexus");
 const nexus_shield_1 = require("nexus-shield");
 const isAuthenticated_1 = require("../../rules/isAuthenticated");
@@ -141,4 +141,5 @@ exports.RestaurantConfig = __importStar(require("./RestaurantConfig"));
 exports.RestaurantSocial = __importStar(require("./RestaurantSocial"));
 exports.RestaurantReview = __importStar(require("./RestaurantReview"));
 exports.Domain = __importStar(require("./Domain"));
+exports.Subscription = __importStar(require("./Subscription"));
 //# sourceMappingURL=index.js.map

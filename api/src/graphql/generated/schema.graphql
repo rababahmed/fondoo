@@ -2130,6 +2130,7 @@ type Mutation {
   createRestaurantReview(data: RestaurantReviewCreateInput!): RestaurantReview!
   createRestaurantSocial(data: RestaurantSocialCreateInput!): RestaurantSocial!
   createSchedule(data: ScheduleCreateInput!): Schedule!
+  createSubscription(data: SubscriptionCreateInput!): Subscription!
   createUser(data: UserCreateInput!): User!
   deleteCMSAbout(where: CMSAboutWhereUniqueInput!): CMSAbout
   deleteCMSContact(where: CMSContactWhereUniqueInput!): CMSContact
@@ -2153,6 +2154,7 @@ type Mutation {
   deleteRestaurantReview(where: RestaurantReviewWhereUniqueInput!): RestaurantReview
   deleteRestaurantSocial(where: RestaurantSocialWhereUniqueInput!): RestaurantSocial
   deleteSchedule(where: ScheduleWhereUniqueInput!): Schedule
+  deleteSubscription(where: SubscriptionWhereUniqueInput!): Subscription
   deleteUser(where: UserWhereUniqueInput!): User
   updateCMSAbout(data: CMSAboutUpdateInput!, where: CMSAboutWhereUniqueInput!): CMSAbout
   updateCMSContact(data: CMSContactUpdateInput!, where: CMSContactWhereUniqueInput!): CMSContact
@@ -2175,6 +2177,7 @@ type Mutation {
   updateRestaurantReview(data: RestaurantReviewUpdateInput!, where: RestaurantReviewWhereUniqueInput!): RestaurantReview
   updateRestaurantSocial(data: RestaurantSocialUpdateInput!, where: RestaurantSocialWhereUniqueInput!): RestaurantSocial
   updateSchedule(data: ScheduleUpdateInput!, where: ScheduleWhereUniqueInput!): Schedule
+  updateSubscription(data: SubscriptionUpdateInput!, where: SubscriptionWhereUniqueInput!): Subscription
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
 }
 
@@ -4514,6 +4517,8 @@ type Query {
   restaurants(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int, orderBy: [RestaurantOrderByWithRelationInput!], where: RestaurantWhereInput): [Restaurant!]!
   schedule(where: ScheduleWhereUniqueInput!): Schedule
   schedules(after: ScheduleWhereUniqueInput, before: ScheduleWhereUniqueInput, first: Int, last: Int, orderBy: [ScheduleOrderByWithRelationInput!], where: ScheduleWhereInput): [Schedule!]!
+  subscription(where: SubscriptionWhereUniqueInput!): Subscription
+  subscriptions(after: SubscriptionWhereUniqueInput, before: SubscriptionWhereUniqueInput, first: Int, last: Int, orderBy: [SubscriptionOrderByWithRelationInput!], where: SubscriptionWhereInput): [Subscription!]!
   user(where: UserWhereUniqueInput!): User
   users(after: UserWhereUniqueInput, before: UserWhereUniqueInput, first: Int, last: Int): [User!]!
 }
@@ -4779,6 +4784,7 @@ input RestaurantCreateInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -4942,6 +4948,12 @@ input RestaurantCreateNestedOneWithoutSocialsInput {
   create: RestaurantCreateWithoutSocialsInput
 }
 
+input RestaurantCreateNestedOneWithoutSubscriptionInput {
+  connect: RestaurantWhereUniqueInput
+  connectOrCreate: RestaurantCreateOrConnectWithoutSubscriptionInput
+  create: RestaurantCreateWithoutSubscriptionInput
+}
+
 input RestaurantCreateOrConnectWithoutCMSAboutInput {
   create: RestaurantCreateWithoutCMSAboutInput!
   where: RestaurantWhereUniqueInput!
@@ -5037,6 +5049,11 @@ input RestaurantCreateOrConnectWithoutSocialsInput {
   where: RestaurantWhereUniqueInput!
 }
 
+input RestaurantCreateOrConnectWithoutSubscriptionInput {
+  create: RestaurantCreateWithoutSubscriptionInput!
+  where: RestaurantWhereUniqueInput!
+}
+
 input RestaurantCreateOrConnectWithoutUsersInput {
   create: RestaurantCreateWithoutUsersInput!
   where: RestaurantWhereUniqueInput!
@@ -5086,6 +5103,7 @@ input RestaurantCreateWithoutCMSAboutInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5136,6 +5154,7 @@ input RestaurantCreateWithoutCMSContactInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5186,6 +5205,7 @@ input RestaurantCreateWithoutCMSHomeInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5236,6 +5256,7 @@ input RestaurantCreateWithoutCMSReservationInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5286,6 +5307,7 @@ input RestaurantCreateWithoutCMSReviewInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5336,6 +5358,7 @@ input RestaurantCreateWithoutConfigInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5386,6 +5409,7 @@ input RestaurantCreateWithoutCouponsInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5436,6 +5460,7 @@ input RestaurantCreateWithoutCustomersInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5486,6 +5511,7 @@ input RestaurantCreateWithoutDeliveryZonesInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5536,6 +5562,7 @@ input RestaurantCreateWithoutDomainsInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5586,6 +5613,7 @@ input RestaurantCreateWithoutOffersInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5636,6 +5664,7 @@ input RestaurantCreateWithoutOrderItemsInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5686,6 +5715,7 @@ input RestaurantCreateWithoutOrdersInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5736,6 +5766,7 @@ input RestaurantCreateWithoutPlanInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5786,6 +5817,7 @@ input RestaurantCreateWithoutProductCategoryInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5836,6 +5868,7 @@ input RestaurantCreateWithoutProductsInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5886,6 +5919,7 @@ input RestaurantCreateWithoutReviewsInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5936,6 +5970,7 @@ input RestaurantCreateWithoutSchedulesInput {
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -5986,6 +6021,58 @@ input RestaurantCreateWithoutSocialsInput {
   reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
+  updatedAt: DateTime
+  url: String
+  users: UserCreateNestedManyWithoutRestaurantsInput
+  vat: Float
+}
+
+input RestaurantCreateWithoutSubscriptionInput {
+  CMSAbout: CMSAboutCreateNestedOneWithoutRestaurantInput
+  CMSContact: CMSContactCreateNestedOneWithoutRestaurantInput
+  CMSHome: CMSHomeCreateNestedOneWithoutRestaurantInput
+  CMSReservation: CMSReservationCreateNestedOneWithoutRestaurantInput
+  CMSReview: CMSReviewCreateNestedOneWithoutRestaurantInput
+  address: String
+  businessPhone: String
+  city: String
+  config: RestaurantConfigCreateNestedOneWithoutRestaurantInput
+  country: String
+  coupons: CouponCreateNestedManyWithoutRestaurantInput
+  coverImage: String
+  createdAt: DateTime
+  cuisine: String
+  currency: String
+  customers: CustomerCreateNestedManyWithoutRestaurantsInput
+  deliveryZones: DeliveryZoneCreateNestedManyWithoutRestaurantInput
+  diningStyle: String
+  domains: DomainCreateNestedManyWithoutRestaurantInput
+  email: String
+  hasDelivery: Boolean
+  hasKidsZone: Boolean
+  hasParkingFacilities: Boolean
+  hasPartyFacilities: Boolean
+  hasPickup: Boolean
+  hasReservation: Boolean
+  id: String
+  isAutoAcceptOrder: Boolean
+  isAutoAcceptReservation: Boolean
+  logo: String
+  name: String!
+  offers: OfferCreateNestedManyWithoutRestaurantInput
+  orderItems: OrderItemCreateNestedManyWithoutRestaurantInput
+  orders: OrderCreateNestedManyWithoutRestaurantInput
+  plan: RestaurantPlanCreateNestedOneWithoutRestaurantsInput!
+  postCode: String
+  priceRange: String
+  productCategory: ProductCategoryCreateNestedManyWithoutRestaurantsInput
+  products: ProductCreateNestedManyWithoutRestaurantInput
+  reservationPhone: String
+  reviews: RestaurantReviewCreateNestedManyWithoutRestaurantInput
+  schedules: ScheduleCreateNestedManyWithoutRestaurantInput
+  serviceCharge: Float
+  socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   users: UserCreateNestedManyWithoutRestaurantsInput
@@ -6037,6 +6124,7 @@ input RestaurantCreateWithoutUsersInput {
   schedules: ScheduleCreateNestedManyWithoutRestaurantInput
   serviceCharge: Float
   socials: RestaurantSocialCreateNestedManyWithoutRestaurantInput
+  subscription: SubscriptionCreateNestedOneWithoutRestaurantInput
   updatedAt: DateTime
   url: String
   vat: Float
@@ -6098,6 +6186,7 @@ input RestaurantOrderByWithRelationInput {
   schedules: ScheduleOrderByRelationAggregateInput
   serviceCharge: SortOrder
   socials: RestaurantSocialOrderByRelationAggregateInput
+  subscription: SubscriptionOrderByWithRelationInput
   updatedAt: SortOrder
   url: SortOrder
   users: UserOrderByRelationAggregateInput
@@ -6106,18 +6195,22 @@ input RestaurantOrderByWithRelationInput {
 
 type RestaurantPlan {
   id: String!
-  isActive: Boolean!
+  isActive: Boolean
   name: String!
+  paddleId: String
   price: Float!
   restaurants(after: RestaurantWhereUniqueInput, before: RestaurantWhereUniqueInput, first: Int, last: Int): [Restaurant!]!
+  subscriptions(after: SubscriptionWhereUniqueInput, before: SubscriptionWhereUniqueInput, first: Int, last: Int): [Subscription!]!
 }
 
 input RestaurantPlanCreateInput {
   id: String
-  isActive: Boolean!
+  isActive: Boolean
   name: String!
+  paddleId: String
   price: Float!
   restaurants: RestaurantCreateNestedManyWithoutPlanInput
+  subscriptions: SubscriptionCreateNestedManyWithoutRestaurantPlanInput
 }
 
 input RestaurantPlanCreateNestedOneWithoutRestaurantsInput {
@@ -6126,32 +6219,58 @@ input RestaurantPlanCreateNestedOneWithoutRestaurantsInput {
   create: RestaurantPlanCreateWithoutRestaurantsInput
 }
 
+input RestaurantPlanCreateNestedOneWithoutSubscriptionsInput {
+  connect: RestaurantPlanWhereUniqueInput
+  connectOrCreate: RestaurantPlanCreateOrConnectWithoutSubscriptionsInput
+  create: RestaurantPlanCreateWithoutSubscriptionsInput
+}
+
 input RestaurantPlanCreateOrConnectWithoutRestaurantsInput {
   create: RestaurantPlanCreateWithoutRestaurantsInput!
   where: RestaurantPlanWhereUniqueInput!
 }
 
+input RestaurantPlanCreateOrConnectWithoutSubscriptionsInput {
+  create: RestaurantPlanCreateWithoutSubscriptionsInput!
+  where: RestaurantPlanWhereUniqueInput!
+}
+
 input RestaurantPlanCreateWithoutRestaurantsInput {
   id: String
-  isActive: Boolean!
+  isActive: Boolean
   name: String!
+  paddleId: String
   price: Float!
+  subscriptions: SubscriptionCreateNestedManyWithoutRestaurantPlanInput
+}
+
+input RestaurantPlanCreateWithoutSubscriptionsInput {
+  id: String
+  isActive: Boolean
+  name: String!
+  paddleId: String
+  price: Float!
+  restaurants: RestaurantCreateNestedManyWithoutPlanInput
 }
 
 input RestaurantPlanOrderByWithRelationInput {
   id: SortOrder
   isActive: SortOrder
   name: SortOrder
+  paddleId: SortOrder
   price: SortOrder
   restaurants: RestaurantOrderByRelationAggregateInput
+  subscriptions: SubscriptionOrderByRelationAggregateInput
 }
 
 input RestaurantPlanUpdateInput {
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  paddleId: NullableStringFieldUpdateOperationsInput
   price: FloatFieldUpdateOperationsInput
   restaurants: RestaurantUpdateManyWithoutPlanInput
+  subscriptions: SubscriptionUpdateManyWithoutRestaurantPlanInput
 }
 
 input RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput {
@@ -6162,11 +6281,30 @@ input RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput {
   upsert: RestaurantPlanUpsertWithoutRestaurantsInput
 }
 
+input RestaurantPlanUpdateOneRequiredWithoutSubscriptionsInput {
+  connect: RestaurantPlanWhereUniqueInput
+  connectOrCreate: RestaurantPlanCreateOrConnectWithoutSubscriptionsInput
+  create: RestaurantPlanCreateWithoutSubscriptionsInput
+  update: RestaurantPlanUpdateWithoutSubscriptionsInput
+  upsert: RestaurantPlanUpsertWithoutSubscriptionsInput
+}
+
 input RestaurantPlanUpdateWithoutRestaurantsInput {
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  paddleId: NullableStringFieldUpdateOperationsInput
   price: FloatFieldUpdateOperationsInput
+  subscriptions: SubscriptionUpdateManyWithoutRestaurantPlanInput
+}
+
+input RestaurantPlanUpdateWithoutSubscriptionsInput {
+  id: StringFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  paddleId: NullableStringFieldUpdateOperationsInput
+  price: FloatFieldUpdateOperationsInput
+  restaurants: RestaurantUpdateManyWithoutPlanInput
 }
 
 input RestaurantPlanUpsertWithoutRestaurantsInput {
@@ -6174,15 +6312,22 @@ input RestaurantPlanUpsertWithoutRestaurantsInput {
   update: RestaurantPlanUpdateWithoutRestaurantsInput!
 }
 
+input RestaurantPlanUpsertWithoutSubscriptionsInput {
+  create: RestaurantPlanCreateWithoutSubscriptionsInput!
+  update: RestaurantPlanUpdateWithoutSubscriptionsInput!
+}
+
 input RestaurantPlanWhereInput {
   AND: [RestaurantPlanWhereInput!]
   NOT: [RestaurantPlanWhereInput!]
   OR: [RestaurantPlanWhereInput!]
   id: StringFilter
-  isActive: BoolFilter
+  isActive: BoolNullableFilter
   name: StringFilter
+  paddleId: StringNullableFilter
   price: FloatFilter
   restaurants: RestaurantListRelationFilter
+  subscriptions: SubscriptionListRelationFilter
 }
 
 input RestaurantPlanWhereUniqueInput {
@@ -6699,6 +6844,7 @@ input RestaurantUpdateInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -6903,6 +7049,14 @@ input RestaurantUpdateOneRequiredWithoutSocialsInput {
   upsert: RestaurantUpsertWithoutSocialsInput
 }
 
+input RestaurantUpdateOneRequiredWithoutSubscriptionInput {
+  connect: RestaurantWhereUniqueInput
+  connectOrCreate: RestaurantCreateOrConnectWithoutSubscriptionInput
+  create: RestaurantCreateWithoutSubscriptionInput
+  update: RestaurantUpdateWithoutSubscriptionInput
+  upsert: RestaurantUpsertWithoutSubscriptionInput
+}
+
 input RestaurantUpdateOneWithoutDomainsInput {
   connect: RestaurantWhereUniqueInput
   connectOrCreate: RestaurantCreateOrConnectWithoutDomainsInput
@@ -6992,6 +7146,7 @@ input RestaurantUpdateWithoutCMSAboutInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7042,6 +7197,7 @@ input RestaurantUpdateWithoutCMSContactInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7092,6 +7248,7 @@ input RestaurantUpdateWithoutCMSHomeInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7142,6 +7299,7 @@ input RestaurantUpdateWithoutCMSReservationInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7192,6 +7350,7 @@ input RestaurantUpdateWithoutCMSReviewInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7242,6 +7401,7 @@ input RestaurantUpdateWithoutConfigInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7292,6 +7452,7 @@ input RestaurantUpdateWithoutCouponsInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7342,6 +7503,7 @@ input RestaurantUpdateWithoutCustomersInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7392,6 +7554,7 @@ input RestaurantUpdateWithoutDeliveryZonesInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7442,6 +7605,7 @@ input RestaurantUpdateWithoutDomainsInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7492,6 +7656,7 @@ input RestaurantUpdateWithoutOffersInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7542,6 +7707,7 @@ input RestaurantUpdateWithoutOrderItemsInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7592,6 +7758,7 @@ input RestaurantUpdateWithoutOrdersInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7642,6 +7809,7 @@ input RestaurantUpdateWithoutPlanInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7692,6 +7860,7 @@ input RestaurantUpdateWithoutProductCategoryInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7742,6 +7911,7 @@ input RestaurantUpdateWithoutProductsInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7792,6 +7962,7 @@ input RestaurantUpdateWithoutReviewsInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7842,6 +8013,7 @@ input RestaurantUpdateWithoutSchedulesInput {
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7892,6 +8064,58 @@ input RestaurantUpdateWithoutSocialsInput {
   reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  url: NullableStringFieldUpdateOperationsInput
+  users: UserUpdateManyWithoutRestaurantsInput
+  vat: NullableFloatFieldUpdateOperationsInput
+}
+
+input RestaurantUpdateWithoutSubscriptionInput {
+  CMSAbout: CMSAboutUpdateOneWithoutRestaurantInput
+  CMSContact: CMSContactUpdateOneWithoutRestaurantInput
+  CMSHome: CMSHomeUpdateOneWithoutRestaurantInput
+  CMSReservation: CMSReservationUpdateOneWithoutRestaurantInput
+  CMSReview: CMSReviewUpdateOneWithoutRestaurantInput
+  address: NullableStringFieldUpdateOperationsInput
+  businessPhone: NullableStringFieldUpdateOperationsInput
+  city: NullableStringFieldUpdateOperationsInput
+  config: RestaurantConfigUpdateOneWithoutRestaurantInput
+  country: NullableStringFieldUpdateOperationsInput
+  coupons: CouponUpdateManyWithoutRestaurantInput
+  coverImage: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  cuisine: NullableStringFieldUpdateOperationsInput
+  currency: NullableStringFieldUpdateOperationsInput
+  customers: CustomerUpdateManyWithoutRestaurantsInput
+  deliveryZones: DeliveryZoneUpdateManyWithoutRestaurantInput
+  diningStyle: NullableStringFieldUpdateOperationsInput
+  domains: DomainUpdateManyWithoutRestaurantInput
+  email: NullableStringFieldUpdateOperationsInput
+  hasDelivery: NullableBoolFieldUpdateOperationsInput
+  hasKidsZone: NullableBoolFieldUpdateOperationsInput
+  hasParkingFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPartyFacilities: NullableBoolFieldUpdateOperationsInput
+  hasPickup: NullableBoolFieldUpdateOperationsInput
+  hasReservation: NullableBoolFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  isAutoAcceptOrder: NullableBoolFieldUpdateOperationsInput
+  isAutoAcceptReservation: NullableBoolFieldUpdateOperationsInput
+  logo: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  offers: OfferUpdateManyWithoutRestaurantInput
+  orderItems: OrderItemUpdateManyWithoutRestaurantInput
+  orders: OrderUpdateManyWithoutRestaurantInput
+  plan: RestaurantPlanUpdateOneRequiredWithoutRestaurantsInput
+  postCode: NullableStringFieldUpdateOperationsInput
+  priceRange: NullableStringFieldUpdateOperationsInput
+  productCategory: ProductCategoryUpdateManyWithoutRestaurantsInput
+  products: ProductUpdateManyWithoutRestaurantInput
+  reservationPhone: NullableStringFieldUpdateOperationsInput
+  reviews: RestaurantReviewUpdateManyWithoutRestaurantInput
+  schedules: ScheduleUpdateManyWithoutRestaurantInput
+  serviceCharge: NullableFloatFieldUpdateOperationsInput
+  socials: RestaurantSocialUpdateManyWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   users: UserUpdateManyWithoutRestaurantsInput
@@ -7943,6 +8167,7 @@ input RestaurantUpdateWithoutUsersInput {
   schedules: ScheduleUpdateManyWithoutRestaurantInput
   serviceCharge: NullableFloatFieldUpdateOperationsInput
   socials: RestaurantSocialUpdateManyWithoutRestaurantInput
+  subscription: SubscriptionUpdateOneWithoutRestaurantInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: NullableStringFieldUpdateOperationsInput
   vat: NullableFloatFieldUpdateOperationsInput
@@ -8051,6 +8276,11 @@ input RestaurantUpsertWithoutSocialsInput {
   update: RestaurantUpdateWithoutSocialsInput!
 }
 
+input RestaurantUpsertWithoutSubscriptionInput {
+  create: RestaurantCreateWithoutSubscriptionInput!
+  update: RestaurantUpdateWithoutSubscriptionInput!
+}
+
 input RestaurantWhereInput {
   AND: [RestaurantWhereInput!]
   CMSAbout: CMSAboutWhereInput
@@ -8100,6 +8330,7 @@ input RestaurantWhereInput {
   schedules: ScheduleListRelationFilter
   serviceCharge: FloatNullableFilter
   socials: RestaurantSocialListRelationFilter
+  subscription: SubscriptionWhereInput
   updatedAt: DateTimeFilter
   url: StringNullableFilter
   users: UserListRelationFilter
@@ -8332,6 +8563,231 @@ input StringNullableFilter {
   not: NestedStringNullableFilter
   notIn: [String!]
   startsWith: String
+}
+
+type Subscription {
+  createdAt: DateTime!
+  id: String!
+  paddleCancelUrl: String
+  paddleSubscriptionId: String
+  paddleUpdateUrl: String
+  restaurant: Restaurant!
+  restaurantId: String!
+  restaurantPlan: RestaurantPlan!
+  restaurantPlanId: String!
+  updatedAt: DateTime!
+}
+
+input SubscriptionCreateInput {
+  createdAt: DateTime
+  id: String
+  paddleCancelUrl: String
+  paddleSubscriptionId: String
+  paddleUpdateUrl: String
+  restaurant: RestaurantCreateNestedOneWithoutSubscriptionInput!
+  restaurantPlan: RestaurantPlanCreateNestedOneWithoutSubscriptionsInput!
+  updatedAt: DateTime
+}
+
+input SubscriptionCreateManyRestaurantPlanInput {
+  createdAt: DateTime
+  id: String
+  paddleCancelUrl: String
+  paddleSubscriptionId: String
+  paddleUpdateUrl: String
+  restaurantId: String!
+  updatedAt: DateTime
+}
+
+input SubscriptionCreateManyRestaurantPlanInputEnvelope {
+  data: [SubscriptionCreateManyRestaurantPlanInput!]
+  skipDuplicates: Boolean
+}
+
+input SubscriptionCreateNestedManyWithoutRestaurantPlanInput {
+  connect: [SubscriptionWhereUniqueInput!]
+  connectOrCreate: [SubscriptionCreateOrConnectWithoutRestaurantPlanInput!]
+  create: [SubscriptionCreateWithoutRestaurantPlanInput!]
+  createMany: SubscriptionCreateManyRestaurantPlanInputEnvelope
+}
+
+input SubscriptionCreateNestedOneWithoutRestaurantInput {
+  connect: SubscriptionWhereUniqueInput
+  connectOrCreate: SubscriptionCreateOrConnectWithoutRestaurantInput
+  create: SubscriptionCreateWithoutRestaurantInput
+}
+
+input SubscriptionCreateOrConnectWithoutRestaurantInput {
+  create: SubscriptionCreateWithoutRestaurantInput!
+  where: SubscriptionWhereUniqueInput!
+}
+
+input SubscriptionCreateOrConnectWithoutRestaurantPlanInput {
+  create: SubscriptionCreateWithoutRestaurantPlanInput!
+  where: SubscriptionWhereUniqueInput!
+}
+
+input SubscriptionCreateWithoutRestaurantInput {
+  createdAt: DateTime
+  id: String
+  paddleCancelUrl: String
+  paddleSubscriptionId: String
+  paddleUpdateUrl: String
+  restaurantPlan: RestaurantPlanCreateNestedOneWithoutSubscriptionsInput!
+  updatedAt: DateTime
+}
+
+input SubscriptionCreateWithoutRestaurantPlanInput {
+  createdAt: DateTime
+  id: String
+  paddleCancelUrl: String
+  paddleSubscriptionId: String
+  paddleUpdateUrl: String
+  restaurant: RestaurantCreateNestedOneWithoutSubscriptionInput!
+  updatedAt: DateTime
+}
+
+input SubscriptionListRelationFilter {
+  every: SubscriptionWhereInput
+  none: SubscriptionWhereInput
+  some: SubscriptionWhereInput
+}
+
+input SubscriptionOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input SubscriptionOrderByWithRelationInput {
+  createdAt: SortOrder
+  id: SortOrder
+  paddleCancelUrl: SortOrder
+  paddleSubscriptionId: SortOrder
+  paddleUpdateUrl: SortOrder
+  restaurant: RestaurantOrderByWithRelationInput
+  restaurantId: SortOrder
+  restaurantPlan: RestaurantPlanOrderByWithRelationInput
+  restaurantPlanId: SortOrder
+  updatedAt: SortOrder
+}
+
+input SubscriptionScalarWhereInput {
+  AND: [SubscriptionScalarWhereInput!]
+  NOT: [SubscriptionScalarWhereInput!]
+  OR: [SubscriptionScalarWhereInput!]
+  createdAt: DateTimeFilter
+  id: StringFilter
+  paddleCancelUrl: StringNullableFilter
+  paddleSubscriptionId: StringNullableFilter
+  paddleUpdateUrl: StringNullableFilter
+  restaurantId: StringFilter
+  restaurantPlanId: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input SubscriptionUpdateInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  paddleCancelUrl: NullableStringFieldUpdateOperationsInput
+  paddleSubscriptionId: NullableStringFieldUpdateOperationsInput
+  paddleUpdateUrl: NullableStringFieldUpdateOperationsInput
+  restaurant: RestaurantUpdateOneRequiredWithoutSubscriptionInput
+  restaurantPlan: RestaurantPlanUpdateOneRequiredWithoutSubscriptionsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input SubscriptionUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  paddleCancelUrl: NullableStringFieldUpdateOperationsInput
+  paddleSubscriptionId: NullableStringFieldUpdateOperationsInput
+  paddleUpdateUrl: NullableStringFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input SubscriptionUpdateManyWithWhereWithoutRestaurantPlanInput {
+  data: SubscriptionUpdateManyMutationInput!
+  where: SubscriptionScalarWhereInput!
+}
+
+input SubscriptionUpdateManyWithoutRestaurantPlanInput {
+  connect: [SubscriptionWhereUniqueInput!]
+  connectOrCreate: [SubscriptionCreateOrConnectWithoutRestaurantPlanInput!]
+  create: [SubscriptionCreateWithoutRestaurantPlanInput!]
+  createMany: SubscriptionCreateManyRestaurantPlanInputEnvelope
+  delete: [SubscriptionWhereUniqueInput!]
+  deleteMany: [SubscriptionScalarWhereInput!]
+  disconnect: [SubscriptionWhereUniqueInput!]
+  set: [SubscriptionWhereUniqueInput!]
+  update: [SubscriptionUpdateWithWhereUniqueWithoutRestaurantPlanInput!]
+  updateMany: [SubscriptionUpdateManyWithWhereWithoutRestaurantPlanInput!]
+  upsert: [SubscriptionUpsertWithWhereUniqueWithoutRestaurantPlanInput!]
+}
+
+input SubscriptionUpdateOneWithoutRestaurantInput {
+  connect: SubscriptionWhereUniqueInput
+  connectOrCreate: SubscriptionCreateOrConnectWithoutRestaurantInput
+  create: SubscriptionCreateWithoutRestaurantInput
+  delete: Boolean
+  disconnect: Boolean
+  update: SubscriptionUpdateWithoutRestaurantInput
+  upsert: SubscriptionUpsertWithoutRestaurantInput
+}
+
+input SubscriptionUpdateWithWhereUniqueWithoutRestaurantPlanInput {
+  data: SubscriptionUpdateWithoutRestaurantPlanInput!
+  where: SubscriptionWhereUniqueInput!
+}
+
+input SubscriptionUpdateWithoutRestaurantInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  paddleCancelUrl: NullableStringFieldUpdateOperationsInput
+  paddleSubscriptionId: NullableStringFieldUpdateOperationsInput
+  paddleUpdateUrl: NullableStringFieldUpdateOperationsInput
+  restaurantPlan: RestaurantPlanUpdateOneRequiredWithoutSubscriptionsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input SubscriptionUpdateWithoutRestaurantPlanInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  paddleCancelUrl: NullableStringFieldUpdateOperationsInput
+  paddleSubscriptionId: NullableStringFieldUpdateOperationsInput
+  paddleUpdateUrl: NullableStringFieldUpdateOperationsInput
+  restaurant: RestaurantUpdateOneRequiredWithoutSubscriptionInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input SubscriptionUpsertWithWhereUniqueWithoutRestaurantPlanInput {
+  create: SubscriptionCreateWithoutRestaurantPlanInput!
+  update: SubscriptionUpdateWithoutRestaurantPlanInput!
+  where: SubscriptionWhereUniqueInput!
+}
+
+input SubscriptionUpsertWithoutRestaurantInput {
+  create: SubscriptionCreateWithoutRestaurantInput!
+  update: SubscriptionUpdateWithoutRestaurantInput!
+}
+
+input SubscriptionWhereInput {
+  AND: [SubscriptionWhereInput!]
+  NOT: [SubscriptionWhereInput!]
+  OR: [SubscriptionWhereInput!]
+  createdAt: DateTimeFilter
+  id: StringFilter
+  paddleCancelUrl: StringNullableFilter
+  paddleSubscriptionId: StringNullableFilter
+  paddleUpdateUrl: StringNullableFilter
+  restaurant: RestaurantWhereInput
+  restaurantId: StringFilter
+  restaurantPlan: RestaurantPlanWhereInput
+  restaurantPlanId: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input SubscriptionWhereUniqueInput {
+  id: String
+  restaurantId: String
 }
 
 type User {

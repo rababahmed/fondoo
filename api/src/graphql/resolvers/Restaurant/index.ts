@@ -123,3 +123,4 @@ export * as RestaurantConfig from "./RestaurantConfig";
 export * as RestaurantSocial from "./RestaurantSocial";
 export * as RestaurantReview from "./RestaurantReview";
 export * as Domain from "./Domain";
+export * as Subscription from "./Subscription";
