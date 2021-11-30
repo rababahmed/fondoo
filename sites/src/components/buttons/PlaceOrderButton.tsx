@@ -98,11 +98,11 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
               "/email/restaurant/order-received/" +
               orderData.id
           )
-          .then(() => {
+          .catch((error) => {})
+          .finally(() => {
             mutation.reset();
             router.push("/order/confirmed");
-          })
-          .catch((error) => {});
+          });
       })
       .catch((error) => {
         toast({
