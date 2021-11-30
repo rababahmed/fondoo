@@ -95,7 +95,9 @@ const BillingModule = () => {
               <SimpleGrid columns={2} mt={4} alignItems="center">
                 <Box>
                   <Link
-                    href={subscriptionData.data?.subscription.paddleCancelUrl}
+                    href={
+                      subscriptionData.data?.subscription.paddleCancelUrl || ""
+                    }
                     passHref={true}
                   >
                     <Button colorScheme="blackAlpha" size="sm">
