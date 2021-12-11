@@ -37,18 +37,18 @@ export const ItemsModule = () => {
 
   return (
     <>
-      <Box
-        as="section"
-        rounded="lg"
-        shadow="base"
-        bgColor="white"
-        mr={6}
-        mb={6}
-        ml={6}
-        p={8}
-      >
-        <Accordion defaultIndex={[0]} allowToggle>
-          <Skeleton isLoaded={!isLoading}>
+      <Skeleton isLoaded={!isLoading}>
+        <Box
+          as="section"
+          rounded="lg"
+          shadow="base"
+          bgColor="white"
+          mr={6}
+          mb={6}
+          ml={6}
+          p={8}
+        >
+          <Accordion defaultIndex={[0]} allowToggle>
             {isSuccess &&
               data.productCategories.map((cat: any) => (
                 <AccordionItem key={cat.id} p={2}>
@@ -61,8 +61,8 @@ export const ItemsModule = () => {
                     <AccordionIcon />
                   </AccordionButton>
                   <AccordionPanel>
-                    <Box overflowX="auto">
-                      <Table variant="simple">
+                    <Box>
+                      <Table variant="simple" w="full">
                         <Thead>
                           <Tr>
                             <Th>Name</Th>
@@ -118,9 +118,9 @@ export const ItemsModule = () => {
                   </AccordionPanel>
                 </AccordionItem>
               ))}
-          </Skeleton>
-        </Accordion>
-      </Box>
+          </Accordion>
+        </Box>
+      </Skeleton>
     </>
   );
 };

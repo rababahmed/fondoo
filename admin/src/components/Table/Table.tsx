@@ -1,6 +1,6 @@
-import { useColorModeValue } from "@chakra-ui/color-mode";
-import { Box } from "@chakra-ui/layout";
-import { Table, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/table";
+import { useColorModeValue } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import { Table, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/react";
 import React from "react";
 
 const TableComponent = () => {

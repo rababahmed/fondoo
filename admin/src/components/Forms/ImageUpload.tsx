@@ -7,8 +7,8 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/input";
-import { Stack } from "@chakra-ui/layout";
-import { useToast } from "@chakra-ui/toast";
+import { Stack } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 import axios from "axios";
 import imageCompression from "browser-image-compression";
 import React, { useRef, useState } from "react";

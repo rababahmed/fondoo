@@ -15,7 +15,7 @@ const SaveButton = (props: any) => {
         right="0"
         border="1px"
         borderColor="gray.200"
-        zIndex="3"
+        zIndex="0"
         alignItems="center"
       >
         <Box justifySelf="start"></Box>

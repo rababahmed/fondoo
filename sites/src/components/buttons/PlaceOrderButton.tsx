@@ -56,6 +56,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   };
 
   const [payload, setPayload] = React.useState(initialValues);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const mutation = useGQLMutation(PLACE_ORDER, {
     fulfilmentType: fulfilmentType,
@@ -78,6 +79,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const router = useRouter();
 
   const onClick = async () => {
+    setIsLoading(true);
     const createOrder = await mutation
       .mutateAsync()
       .then(async (response) => {
@@ -101,7 +103,9 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
           .catch((error) => {})
           .finally(() => {
             mutation.reset();
-            router.push("/order/confirmed");
+            router.push("/order/confirmed").then(() => {
+              setIsLoading(false);
+            });
           });
       })
       .catch((error) => {
@@ -114,6 +118,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
           variant: "solid",
           isClosable: true,
         });
+        setIsLoading(false);
         mutation.reset();
       });
   };
@@ -125,7 +130,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
         text="PLACE ORDER"
         onClick={onClick}
         buttonProps={{
-          isLoading: mutation.isLoading,
+          isLoading: isLoading,
           loadingText: "Placing Order",
         }}
       />

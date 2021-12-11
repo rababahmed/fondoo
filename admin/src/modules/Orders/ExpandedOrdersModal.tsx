@@ -49,11 +49,15 @@ const ExpandedOrdersModal = ({ orderId }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const o = data?.order;
+  console.log(o);
 
   return (
     <>
       <IconButton
         onClick={onOpen}
+        bg="primary.800"
+        color="white"
+        _hover={{ bg: "primary.600" }}
         aria-label="View Order"
         icon={<AiFillEye />}
       />
@@ -124,9 +128,9 @@ const ExpandedOrdersModal = ({ orderId }: Props) => {
                   </Flex>
                 </Stack>
               </Box>
-              {/* <Box p="4">
+              <Box p="4">
                 <OrderActions o={o} />
-              </Box> */}
+              </Box>
             </Skeleton>
           </ModalBody>
         </ModalContent>
