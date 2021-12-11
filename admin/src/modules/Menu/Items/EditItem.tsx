@@ -39,7 +39,7 @@ interface Props {
   description: String;
   image: String;
   spiceLevel: SpiceLevel;
-  price: Number;
+  price: any;
   isActive: Boolean;
   isFeatured: Boolean;
 }
@@ -61,13 +61,26 @@ export const EditItem = (props: Props) => {
   const validationSchema = Yup.object({
     name: Yup.string().required(),
     description: Yup.string(),
-    price: Yup.number().integer().required(),
+    price: Yup.number().required(),
     spiceLevel: Yup.string().required("Please select a spice level"),
   });
 
   const [formData, setFormData] = useState(initialValues);
 
-  const mutation = useGQLMutation(EDIT_MENU_ITEM, formData, "get-menu-items");
+  const mutation = useGQLMutation(
+    EDIT_MENU_ITEM,
+    {
+      name: formData.name,
+      description: formData.description,
+      spiceLevel: formData.spiceLevel,
+      price: parseFloat(formData.price),
+      image: formData.image,
+      isActive: formData.isActive,
+      isFeatured: formData.isFeatured,
+      id: props.id,
+    },
+    "get-menu-items"
+  );
 
   const onSubmit = async (values: any) => {
     setFormData(values);

@@ -18,10 +18,10 @@ import {
 } from "formik-chakra-ui";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
-import { useToast } from "@chakra-ui/toast";
+import { useToast } from "@chakra-ui/react";
 import { useUserStore } from "../../store/useUserStore";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
-import { Tag } from "@chakra-ui/tag";
+import { Tag } from "@chakra-ui/react";
 import { GET_CMS_HOME, UPDATE_CMS_HOME } from "../../graphql/cms";
 import SaveButton from "../../components/Buttons/SaveButton";
 

@@ -12,7 +12,7 @@ import { useGetRestaurant } from "../../shared-hooks/useGetRestaurant";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { gql } from "graphql-request";
 import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
-import { useToast } from "@chakra-ui/toast";
+import { useToast } from "@chakra-ui/react";
 import { useUserStore } from "../../store/useUserStore";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { EDIT_RESTAURANT, GET_RESTAURANT_INFO } from "../../graphql/restaurant";

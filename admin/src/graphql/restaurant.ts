@@ -439,6 +439,7 @@ export const UPDATE_RESTAURANT_ORDER = gql`
 export const GET_CUSTOMER_ORDER = gql`
   query CustomerOrder($id: String) {
     order(where: { id: $id }) {
+      id
       fulfilmentType
       items {
         id
