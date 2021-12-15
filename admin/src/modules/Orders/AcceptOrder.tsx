@@ -37,6 +37,7 @@ export const AcceptOrder = (props: Props) => {
     <>
       <Button
         onClick={handleChange}
+        w={170}
         size="sm"
         leftIcon={<MdCheckCircle />}
         colorScheme="green"

@@ -11,16 +11,15 @@ const queryClient = new QueryClient();
 export const theme = extendTheme({
   colors: {
     primary: {
-      1000: "#D4222E",
-      900: "#FF1F2E",
-      800: "#FF4550",
-      700: "#FF5E69",
-      600: "#FF757E",
-      500: "#FF8C94",
-      400: "#FFA3A9",
-      300: "#FFBABF",
-      200: "#FFD1D4",
-      100: "#FFE8EA",
+      900: "#000000",
+      800: "#202020",
+      700: "#404040",
+      600: "#606060",
+      500: "#808080",
+      400: "#9F9F9F",
+      300: "#BFBFBF",
+      200: "#DFDFDF",
+      100: "#FFFFFF",
     },
   },
 });

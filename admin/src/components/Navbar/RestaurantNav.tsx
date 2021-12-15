@@ -36,10 +36,8 @@ const RestaurantNav = () => {
       <Menu strategy="fixed">
         <MenuButton
           as={Button}
-          bg={"gray.900"}
-          _hover={{ bg: "gray.700" }}
-          _active={{ bg: "gray.700" }}
-          color="white"
+          bg={"white"}
+          color="black"
           leftIcon={
             <Box boxSize="2rem">
               <Image src={Logo} alt="Logo" />

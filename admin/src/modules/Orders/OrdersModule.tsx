@@ -50,7 +50,6 @@ const OrdersModule = () => {
         mr={6}
         ml={6}
         p={8}
-        overflowX={"auto"}
       >
         <Skeleton isLoaded={!isLoading}>
           <Table variant="simple">

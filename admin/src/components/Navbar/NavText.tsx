@@ -13,7 +13,7 @@ const NavText = (props: Props) => {
         fontSize="sm"
         fontWeight="medium"
         letterSpacing={1}
-        color="gray.400"
+        color="primary.700"
       >
         {props.text}
       </Text>

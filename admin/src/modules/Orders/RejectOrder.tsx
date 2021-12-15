@@ -37,6 +37,7 @@ export const RejectOrder = (props: Props) => {
     <>
       <Button
         onClick={handleChange}
+        w={170}
         size="sm"
         leftIcon={<MdCancel />}
         colorScheme="red"
