@@ -3759,10 +3759,12 @@ export interface NexusGenInputs {
   }
   RestaurantConfigCreateInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    customFooterTags?: string | null; // String
+    customHeaderTags?: string | null; // String
     domains?: NexusGenInputs['DomainCreateNestedManyWithoutRestaurantConfigInput'] | null; // DomainCreateNestedManyWithoutRestaurantConfigInput
     hasDarkNavBg?: boolean | null; // Boolean
     id?: string | null; // String
-    isActive: boolean; // Boolean!
+    isActive?: boolean | null; // Boolean
     primaryColor: string; // String!
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutConfigInput']; // RestaurantCreateNestedOneWithoutConfigInput!
     secondaryColor: string; // String!
@@ -3788,9 +3790,11 @@ export interface NexusGenInputs {
   }
   RestaurantConfigCreateWithoutDomainsInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    customFooterTags?: string | null; // String
+    customHeaderTags?: string | null; // String
     hasDarkNavBg?: boolean | null; // Boolean
     id?: string | null; // String
-    isActive: boolean; // Boolean!
+    isActive?: boolean | null; // Boolean
     primaryColor: string; // String!
     restaurant: NexusGenInputs['RestaurantCreateNestedOneWithoutConfigInput']; // RestaurantCreateNestedOneWithoutConfigInput!
     secondaryColor: string; // String!
@@ -3798,16 +3802,20 @@ export interface NexusGenInputs {
   }
   RestaurantConfigCreateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    customFooterTags?: string | null; // String
+    customHeaderTags?: string | null; // String
     domains?: NexusGenInputs['DomainCreateNestedManyWithoutRestaurantConfigInput'] | null; // DomainCreateNestedManyWithoutRestaurantConfigInput
     hasDarkNavBg?: boolean | null; // Boolean
     id?: string | null; // String
-    isActive: boolean; // Boolean!
+    isActive?: boolean | null; // Boolean
     primaryColor: string; // String!
     secondaryColor: string; // String!
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   RestaurantConfigOrderByWithRelationInput: { // input type
     createdAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    customFooterTags?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    customHeaderTags?: NexusGenEnums['SortOrder'] | null; // SortOrder
     domains?: NexusGenInputs['DomainOrderByRelationAggregateInput'] | null; // DomainOrderByRelationAggregateInput
     hasDarkNavBg?: NexusGenEnums['SortOrder'] | null; // SortOrder
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
@@ -3820,10 +3828,12 @@ export interface NexusGenInputs {
   }
   RestaurantConfigUpdateInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    customFooterTags?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customHeaderTags?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     domains?: NexusGenInputs['DomainUpdateManyWithoutRestaurantConfigInput'] | null; // DomainUpdateManyWithoutRestaurantConfigInput
     hasDarkNavBg?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutConfigInput'] | null; // RestaurantUpdateOneRequiredWithoutConfigInput
     secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -3849,9 +3859,11 @@ export interface NexusGenInputs {
   }
   RestaurantConfigUpdateWithoutDomainsInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    customFooterTags?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customHeaderTags?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     hasDarkNavBg?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     restaurant?: NexusGenInputs['RestaurantUpdateOneRequiredWithoutConfigInput'] | null; // RestaurantUpdateOneRequiredWithoutConfigInput
     secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
@@ -3859,10 +3871,12 @@ export interface NexusGenInputs {
   }
   RestaurantConfigUpdateWithoutRestaurantInput: { // input type
     createdAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    customFooterTags?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
+    customHeaderTags?: NexusGenInputs['NullableStringFieldUpdateOperationsInput'] | null; // NullableStringFieldUpdateOperationsInput
     domains?: NexusGenInputs['DomainUpdateManyWithoutRestaurantConfigInput'] | null; // DomainUpdateManyWithoutRestaurantConfigInput
     hasDarkNavBg?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     id?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
-    isActive?: NexusGenInputs['BoolFieldUpdateOperationsInput'] | null; // BoolFieldUpdateOperationsInput
+    isActive?: NexusGenInputs['NullableBoolFieldUpdateOperationsInput'] | null; // NullableBoolFieldUpdateOperationsInput
     primaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     secondaryColor?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
@@ -3880,10 +3894,12 @@ export interface NexusGenInputs {
     NOT?: NexusGenInputs['RestaurantConfigWhereInput'][] | null; // [RestaurantConfigWhereInput!]
     OR?: NexusGenInputs['RestaurantConfigWhereInput'][] | null; // [RestaurantConfigWhereInput!]
     createdAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    customFooterTags?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
+    customHeaderTags?: NexusGenInputs['StringNullableFilter'] | null; // StringNullableFilter
     domains?: NexusGenInputs['DomainListRelationFilter'] | null; // DomainListRelationFilter
     hasDarkNavBg?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     id?: NexusGenInputs['StringFilter'] | null; // StringFilter
-    isActive?: NexusGenInputs['BoolFilter'] | null; // BoolFilter
+    isActive?: NexusGenInputs['BoolNullableFilter'] | null; // BoolNullableFilter
     primaryColor?: NexusGenInputs['StringFilter'] | null; // StringFilter
     restaurant?: NexusGenInputs['RestaurantWhereInput'] | null; // RestaurantWhereInput
     restaurantId?: NexusGenInputs['StringFilter'] | null; // StringFilter
@@ -7952,9 +7968,11 @@ export interface NexusGenObjects {
   }
   RestaurantConfig: { // root type
     createdAt: NexusGenScalars['DateTime']; // DateTime!
+    customFooterTags?: string | null; // String
+    customHeaderTags?: string | null; // String
     hasDarkNavBg?: boolean | null; // Boolean
     id: string; // String!
-    isActive: boolean; // Boolean!
+    isActive?: boolean | null; // Boolean
     primaryColor: string; // String!
     secondaryColor: string; // String!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
@@ -8383,10 +8401,12 @@ export interface NexusGenFieldTypes {
   }
   RestaurantConfig: { // field return type
     createdAt: NexusGenScalars['DateTime']; // DateTime!
+    customFooterTags: string | null; // String
+    customHeaderTags: string | null; // String
     domains: NexusGenRootTypes['Domain'][]; // [Domain!]!
     hasDarkNavBg: boolean | null; // Boolean
     id: string; // String!
-    isActive: boolean; // Boolean!
+    isActive: boolean | null; // Boolean
     primaryColor: string; // String!
     restaurant: NexusGenRootTypes['Restaurant']; // Restaurant!
     secondaryColor: string; // String!
@@ -8815,6 +8835,8 @@ export interface NexusGenFieldTypeNames {
   }
   RestaurantConfig: { // field return type name
     createdAt: 'DateTime'
+    customFooterTags: 'String'
+    customHeaderTags: 'String'
     domains: 'Domain'
     hasDarkNavBg: 'Boolean'
     id: 'String'
