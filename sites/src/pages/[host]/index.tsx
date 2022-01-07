@@ -14,6 +14,7 @@ import { AboutContainer } from "../../modules/home/AboutContainer";
 import ReservationContainer from "../../modules/home/ReservationContainer";
 import { Stack } from "@chakra-ui/layout";
 import NextHead from "../../components/header/NextHeader";
+import NextFooter from "../../components/footer/NextFooter";
 
 export default function Home({
   host,
@@ -46,6 +47,7 @@ export default function Home({
       ) : (
         <div>Site data not found</div>
       )}
+      <NextFooter rdata={rdata} cdata={cdata} />
     </>
   );
 }
