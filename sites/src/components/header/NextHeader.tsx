@@ -24,6 +24,8 @@ const NextHead = ({ rdata, cdata }: Props) => {
           rel="icon"
           href={rdata.logo ? Constants.CDN + rdata.logo : "/favicon.ico"}
         />
+        {cdata.customHeaderTags}
+        {/* <script dangerouslySetInnerHTML={{ __html: cdata.customHeaderTags }} /> */}
       </Head>
     </>
   );
