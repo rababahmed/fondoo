@@ -4575,10 +4575,12 @@ type Restaurant {
 
 type RestaurantConfig {
   createdAt: DateTime!
+  customFooterTags: String
+  customHeaderTags: String
   domains(after: DomainWhereUniqueInput, before: DomainWhereUniqueInput, first: Int, last: Int, orderBy: [DomainOrderByWithRelationInput!], where: DomainWhereInput): [Domain!]!
   hasDarkNavBg: Boolean
   id: String!
-  isActive: Boolean!
+  isActive: Boolean
   primaryColor: String!
   restaurant: Restaurant!
   secondaryColor: String!
@@ -4587,10 +4589,12 @@ type RestaurantConfig {
 
 input RestaurantConfigCreateInput {
   createdAt: DateTime
+  customFooterTags: String
+  customHeaderTags: String
   domains: DomainCreateNestedManyWithoutRestaurantConfigInput
   hasDarkNavBg: Boolean
   id: String
-  isActive: Boolean!
+  isActive: Boolean
   primaryColor: String!
   restaurant: RestaurantCreateNestedOneWithoutConfigInput!
   secondaryColor: String!
@@ -4621,9 +4625,11 @@ input RestaurantConfigCreateOrConnectWithoutRestaurantInput {
 
 input RestaurantConfigCreateWithoutDomainsInput {
   createdAt: DateTime
+  customFooterTags: String
+  customHeaderTags: String
   hasDarkNavBg: Boolean
   id: String
-  isActive: Boolean!
+  isActive: Boolean
   primaryColor: String!
   restaurant: RestaurantCreateNestedOneWithoutConfigInput!
   secondaryColor: String!
@@ -4632,10 +4638,12 @@ input RestaurantConfigCreateWithoutDomainsInput {
 
 input RestaurantConfigCreateWithoutRestaurantInput {
   createdAt: DateTime
+  customFooterTags: String
+  customHeaderTags: String
   domains: DomainCreateNestedManyWithoutRestaurantConfigInput
   hasDarkNavBg: Boolean
   id: String
-  isActive: Boolean!
+  isActive: Boolean
   primaryColor: String!
   secondaryColor: String!
   updatedAt: DateTime
@@ -4643,6 +4651,8 @@ input RestaurantConfigCreateWithoutRestaurantInput {
 
 input RestaurantConfigOrderByWithRelationInput {
   createdAt: SortOrder
+  customFooterTags: SortOrder
+  customHeaderTags: SortOrder
   domains: DomainOrderByRelationAggregateInput
   hasDarkNavBg: SortOrder
   id: SortOrder
@@ -4656,10 +4666,12 @@ input RestaurantConfigOrderByWithRelationInput {
 
 input RestaurantConfigUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
+  customFooterTags: NullableStringFieldUpdateOperationsInput
+  customHeaderTags: NullableStringFieldUpdateOperationsInput
   domains: DomainUpdateManyWithoutRestaurantConfigInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutConfigInput
   secondaryColor: StringFieldUpdateOperationsInput
@@ -4688,9 +4700,11 @@ input RestaurantConfigUpdateOneWithoutRestaurantInput {
 
 input RestaurantConfigUpdateWithoutDomainsInput {
   createdAt: DateTimeFieldUpdateOperationsInput
+  customFooterTags: NullableStringFieldUpdateOperationsInput
+  customHeaderTags: NullableStringFieldUpdateOperationsInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutConfigInput
   secondaryColor: StringFieldUpdateOperationsInput
@@ -4699,10 +4713,12 @@ input RestaurantConfigUpdateWithoutDomainsInput {
 
 input RestaurantConfigUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
+  customFooterTags: NullableStringFieldUpdateOperationsInput
+  customHeaderTags: NullableStringFieldUpdateOperationsInput
   domains: DomainUpdateManyWithoutRestaurantConfigInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   secondaryColor: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -4723,10 +4739,12 @@ input RestaurantConfigWhereInput {
   NOT: [RestaurantConfigWhereInput!]
   OR: [RestaurantConfigWhereInput!]
   createdAt: DateTimeFilter
+  customFooterTags: StringNullableFilter
+  customHeaderTags: StringNullableFilter
   domains: DomainListRelationFilter
   hasDarkNavBg: BoolNullableFilter
   id: StringFilter
-  isActive: BoolFilter
+  isActive: BoolNullableFilter
   primaryColor: StringFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter

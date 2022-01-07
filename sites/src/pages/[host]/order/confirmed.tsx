@@ -4,6 +4,7 @@ import Head from "next/head";
 import { getPlaiceholder } from "plaiceholder";
 import TezzBitesGA from "../../../components/analytics/TezzBitesGA";
 import Header from "../../../components/card/Header";
+import NextFooter from "../../../components/footer/NextFooter";
 import NextHead from "../../../components/header/NextHeader";
 import { Constants } from "../../../config";
 import { GET_RESTAURANT_INFO } from "../../../graphql/restaurant";
@@ -36,6 +37,7 @@ export default function OrderConfirmed({
       ) : (
         <div>Site data not found</div>
       )}
+      <NextFooter rdata={rdata} cdata={cdata} />
     </>
   );
 }
