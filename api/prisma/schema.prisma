@@ -92,8 +92,8 @@ model Subscription {
 model RestaurantConfig {
   id               String     @id @default(cuid())
   domains          Domain[]
-  customHeaderTags String?    @db.VarChar(512)
-  customFooterTags String?    @db.VarChar(512)
+  customHeaderTags String?    @db.Text
+  customFooterTags String?    @db.Text
   primaryColor     String
   secondaryColor   String
   isActive         Boolean?
