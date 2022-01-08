@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { Constants } from "../../config";
+import Script from "next/script";
 
 interface Props {
   rdata: any;
@@ -25,7 +26,11 @@ const NextHead = ({ rdata, cdata }: Props) => {
           href={rdata.logo ? Constants.CDN + rdata.logo : "/favicon.ico"}
         />
         {cdata.customHeaderTags}
-        {/* <script dangerouslySetInnerHTML={{ __html: cdata.customHeaderTags }} /> */}
+        <head
+          dangerouslySetInnerHTML={{
+            __html: `${cdata.customHeaderTags}`,
+          }}
+        />
       </Head>
     </>
   );
