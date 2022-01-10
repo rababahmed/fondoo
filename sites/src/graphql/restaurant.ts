@@ -111,8 +111,8 @@ export const GET_RESTAURANT_INFO = gql`
           primaryColor
           secondaryColor
           hasDarkNavBg
-          customHeaderTags
-          customFooterTags
+          facebookPixelCode
+          googleAnalyticsCode
         }
       }
     }
