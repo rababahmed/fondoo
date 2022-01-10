@@ -338,8 +338,8 @@ export const GET_RESTAURANT_CONFIG = gql`
         primaryColor
         secondaryColor
         hasDarkNavBg
-        customHeaderTags
-        customFooterTags
+        facebookPixelCode
+        googleAnalyticsCode
       }
     }
   }
@@ -368,14 +368,14 @@ export const UPDATE_RESTAURANT_APPEARANCE = gql`
 export const UPDATE_RESTAURANT_CUSTOM_CODE = gql`
   mutation UpdateRestaurantAppearance(
     $id: String
-    $customHeaderTags: String
-    $customFooterTags: String
+    $facebookPixelCode: String
+    $googleAnalyticsCode: String
   ) {
     updateRestaurantConfig(
       where: { restaurantId: $id }
       data: {
-        customHeaderTags: { set: $customHeaderTags }
-        customFooterTags: { set: $customFooterTags }
+        facebookPixelCode: { set: $facebookPixelCode }
+        googleAnalyticsCode: { set: $googleAnalyticsCode }
       }
     ) {
       id
