@@ -25,7 +25,7 @@ import {
 
 import SaveButton from "../../components/Buttons/SaveButton";
 
-export const CustomCodeModule = () => {
+export const CustomAnalyticsModule = () => {
   const restaurantID = useUserStore((state) => state.restaurantID);
   const token = useUserStore((state) => state.token);
 
@@ -39,15 +39,15 @@ export const CustomCodeModule = () => {
 
   const initialValues = {
     id: restaurantID,
-    customHeaderTags:
-      (isSuccess && data.restaurant.config.customHeaderTags) || "",
-    customFooterTags:
-      (isSuccess && data.restaurant.config.customFooterTags) || "",
+    facebookPixelCode:
+      (isSuccess && data.restaurant.config.facebookPixelCode) || "",
+    googleAnalyticsCode:
+      (isSuccess && data.restaurant.config.googleAnalyticsCode) || "",
   };
 
   const validationSchema = Yup.object({
-    customHeaderTags: Yup.string(),
-    customFooterTags: Yup.string(),
+    facebookPixelCode: Yup.string(),
+    googleAnalyticsCode: Yup.string(),
   });
 
   const [formData, setFormData] = useState(initialValues);
@@ -92,18 +92,18 @@ export const CustomCodeModule = () => {
           <Box as="form" onSubmit={handleSubmit as any}>
             <Skeleton isLoaded={!isLoading}>
               <Stack spacing="6">
-                <TextareaControl
-                  name="customHeaderTags"
+                <InputControl
+                  name="facebookPixelCode"
                   label="Header"
-                  textareaProps={{
-                    placeholder: "Enter your custom code here",
+                  inputProps={{
+                    placeholder: "Enter your Facebook Pixel Code here",
                   }}
                 />
-                <TextareaControl
-                  name="customFooterTags"
+                <InputControl
+                  name="googleAnalyticsCode"
                   label="Footer"
-                  textareaProps={{
-                    placeholder: "Enter your custom code here",
+                  inputProps={{
+                    placeholder: "Enter your Google Analytics (GA4) Code here",
                   }}
                 />
               </Stack>

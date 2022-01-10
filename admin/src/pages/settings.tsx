@@ -9,9 +9,9 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import { RiEBike2Fill, RiSafariFill, RiShareFill } from "react-icons/ri";
 import { FaPalette, FaSafari } from "react-icons/fa";
 import { AppearanceModule } from "../modules/Settings/AppearanceModule";
-import { BiCodeAlt, BiRadar } from "react-icons/bi";
+import { SiGoogleanalytics } from "react-icons/si";
 import { SocialsModule } from "../modules/Settings/SocialsModule";
-import { CustomCodeModule } from "../modules/Settings/CustomCodeModule";
+import { CustomAnalyticsModule } from "../modules/Settings/CustomAnalyticsModule";
 
 const SettingsPage = () => {
   return (
@@ -42,7 +42,8 @@ const SettingsPage = () => {
             </Tab>
             <Tab _focus={{ ringColor: "transparent" }}>
               <Stack direction="row" alignItems="center">
-                <Text>{<BiCodeAlt />}</Text> <Text>Custom Code</Text>
+                <Text>{<SiGoogleanalytics />}</Text>{" "}
+                <Text>Custom Analytics</Text>
               </Stack>
             </Tab>
             {/* <Tab _focus={{ ringColor: "transparent" }}>
@@ -62,7 +63,7 @@ const SettingsPage = () => {
               <SocialsModule />
             </TabPanel>
             <TabPanel>
-              <CustomCodeModule />
+              <CustomAnalyticsModule />
             </TabPanel>
           </TabPanels>
         </Tabs>

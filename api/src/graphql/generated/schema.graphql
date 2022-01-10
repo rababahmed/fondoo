@@ -4575,9 +4575,9 @@ type Restaurant {
 
 type RestaurantConfig {
   createdAt: DateTime!
-  customFooterTags: String
-  customHeaderTags: String
   domains(after: DomainWhereUniqueInput, before: DomainWhereUniqueInput, first: Int, last: Int, orderBy: [DomainOrderByWithRelationInput!], where: DomainWhereInput): [Domain!]!
+  facebookPixelCode: String
+  googleAnalyticsCode: String
   hasDarkNavBg: Boolean
   id: String!
   isActive: Boolean
@@ -4589,9 +4589,9 @@ type RestaurantConfig {
 
 input RestaurantConfigCreateInput {
   createdAt: DateTime
-  customFooterTags: String
-  customHeaderTags: String
   domains: DomainCreateNestedManyWithoutRestaurantConfigInput
+  facebookPixelCode: String
+  googleAnalyticsCode: String
   hasDarkNavBg: Boolean
   id: String
   isActive: Boolean
@@ -4625,8 +4625,8 @@ input RestaurantConfigCreateOrConnectWithoutRestaurantInput {
 
 input RestaurantConfigCreateWithoutDomainsInput {
   createdAt: DateTime
-  customFooterTags: String
-  customHeaderTags: String
+  facebookPixelCode: String
+  googleAnalyticsCode: String
   hasDarkNavBg: Boolean
   id: String
   isActive: Boolean
@@ -4638,9 +4638,9 @@ input RestaurantConfigCreateWithoutDomainsInput {
 
 input RestaurantConfigCreateWithoutRestaurantInput {
   createdAt: DateTime
-  customFooterTags: String
-  customHeaderTags: String
   domains: DomainCreateNestedManyWithoutRestaurantConfigInput
+  facebookPixelCode: String
+  googleAnalyticsCode: String
   hasDarkNavBg: Boolean
   id: String
   isActive: Boolean
@@ -4651,9 +4651,9 @@ input RestaurantConfigCreateWithoutRestaurantInput {
 
 input RestaurantConfigOrderByWithRelationInput {
   createdAt: SortOrder
-  customFooterTags: SortOrder
-  customHeaderTags: SortOrder
   domains: DomainOrderByRelationAggregateInput
+  facebookPixelCode: SortOrder
+  googleAnalyticsCode: SortOrder
   hasDarkNavBg: SortOrder
   id: SortOrder
   isActive: SortOrder
@@ -4666,9 +4666,9 @@ input RestaurantConfigOrderByWithRelationInput {
 
 input RestaurantConfigUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  customFooterTags: NullableStringFieldUpdateOperationsInput
-  customHeaderTags: NullableStringFieldUpdateOperationsInput
   domains: DomainUpdateManyWithoutRestaurantConfigInput
+  facebookPixelCode: NullableStringFieldUpdateOperationsInput
+  googleAnalyticsCode: NullableStringFieldUpdateOperationsInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
@@ -4700,8 +4700,8 @@ input RestaurantConfigUpdateOneWithoutRestaurantInput {
 
 input RestaurantConfigUpdateWithoutDomainsInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  customFooterTags: NullableStringFieldUpdateOperationsInput
-  customHeaderTags: NullableStringFieldUpdateOperationsInput
+  facebookPixelCode: NullableStringFieldUpdateOperationsInput
+  googleAnalyticsCode: NullableStringFieldUpdateOperationsInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
@@ -4713,9 +4713,9 @@ input RestaurantConfigUpdateWithoutDomainsInput {
 
 input RestaurantConfigUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
-  customFooterTags: NullableStringFieldUpdateOperationsInput
-  customHeaderTags: NullableStringFieldUpdateOperationsInput
   domains: DomainUpdateManyWithoutRestaurantConfigInput
+  facebookPixelCode: NullableStringFieldUpdateOperationsInput
+  googleAnalyticsCode: NullableStringFieldUpdateOperationsInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   isActive: NullableBoolFieldUpdateOperationsInput
@@ -4739,9 +4739,9 @@ input RestaurantConfigWhereInput {
   NOT: [RestaurantConfigWhereInput!]
   OR: [RestaurantConfigWhereInput!]
   createdAt: DateTimeFilter
-  customFooterTags: StringNullableFilter
-  customHeaderTags: StringNullableFilter
   domains: DomainListRelationFilter
+  facebookPixelCode: StringNullableFilter
+  googleAnalyticsCode: StringNullableFilter
   hasDarkNavBg: BoolNullableFilter
   id: StringFilter
   isActive: BoolNullableFilter

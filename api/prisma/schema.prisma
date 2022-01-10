@@ -90,18 +90,18 @@ model Subscription {
 }
 
 model RestaurantConfig {
-  id               String     @id @default(cuid())
-  domains          Domain[]
-  customHeaderTags String?    @db.Text
-  customFooterTags String?    @db.Text
-  primaryColor     String
-  secondaryColor   String
-  isActive         Boolean?
-  hasDarkNavBg     Boolean?
-  restaurant       Restaurant @relation(fields: [restaurantId], references: [id])
-  restaurantId     String     @unique
-  createdAt        DateTime   @default(now())
-  updatedAt        DateTime   @updatedAt
+  id                  String     @id @default(cuid())
+  domains             Domain[]
+  facebookPixelCode   String?
+  googleAnalyticsCode String?
+  primaryColor        String
+  secondaryColor      String
+  isActive            Boolean?
+  hasDarkNavBg        Boolean?
+  restaurant          Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId        String     @unique
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
 }
 
 model Domain {

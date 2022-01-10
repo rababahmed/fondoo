@@ -55,8 +55,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'paddleSubscriptionId' | 'paddleCancelUrl' | 'paddleUpdateUrl' | 'restaurant' | 'restaurantId' | 'restaurantPlan' | 'restaurantPlanId' | 'createdAt' | 'updatedAt'
     }
     restaurantConfigs: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domains' | 'customHeaderTags' | 'customFooterTags' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'domains' | 'customHeaderTags' | 'customFooterTags' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domains' | 'facebookPixelCode' | 'googleAnalyticsCode' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'domains' | 'facebookPixelCode' | 'googleAnalyticsCode' | 'primaryColor' | 'secondaryColor' | 'isActive' | 'hasDarkNavBg' | 'restaurant' | 'restaurantId' | 'createdAt' | 'updatedAt'
     }
     domains: {
       filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'domain' | 'createdAt' | 'updatedAt' | 'restaurantConfig' | 'restaurantConfigId' | 'restaurant' | 'restaurantId'
@@ -572,8 +572,8 @@ interface NexusPrismaOutputs {
   RestaurantConfig: {
     id: 'String'
     domains: 'Domain'
-    customHeaderTags: 'String'
-    customFooterTags: 'String'
+    facebookPixelCode: 'String'
+    googleAnalyticsCode: 'String'
     primaryColor: 'String'
     secondaryColor: 'String'
     isActive: 'Boolean'
