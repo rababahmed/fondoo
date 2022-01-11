@@ -94,16 +94,17 @@ export const CustomAnalyticsModule = () => {
               <Stack spacing="6">
                 <InputControl
                   name="facebookPixelCode"
-                  label="Header"
+                  label="Facebook Pixel ID"
                   inputProps={{
-                    placeholder: "Enter your Facebook Pixel Code here",
+                    placeholder: "Enter your Facebook Pixel ID here",
                   }}
                 />
                 <InputControl
                   name="googleAnalyticsCode"
-                  label="Footer"
+                  label="Google Analytics Measurement ID"
                   inputProps={{
-                    placeholder: "Enter your Google Analytics (GA4) Code here",
+                    placeholder:
+                      "Enter your Google Analytics (GA4) Measurement ID here",
                   }}
                 />
               </Stack>
