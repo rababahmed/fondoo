@@ -258,7 +258,7 @@ const CartCard = (props: Props) => {
                 color={"gray.200"}
                 as={MdShoppingCart}
               ></Icon>
-              <Text>There are no items in your cart.</Text>
+              <Text>There are no items in your cart</Text>
             </Stack>
           )}
         </Stack>
