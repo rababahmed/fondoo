@@ -24,16 +24,27 @@ const Hero = () => {
         </div>
       </div>
       <div className="">
-        <div className="spacer top-wave"></div>
-        <div className="bg-wave">
-          <h1 className="font-cal py-4 text-center text-5xl">
+        <div className="bg-top-wave bg-top bg-no-repeat bg-cover pt-40 pb-10">
+          <h1 className="font-cal text-center text-5xl text-gray-800">
             Say Hello to First-Party
           </h1>
-          <div className=" lg:px-60 flex py-6 justify-center">
-            <Image src={BagelOrders} alt="Order Dashboard" />
+        </div>
+        <div className="lg:px-60 flex py-6 justify-center bg-wave">
+          <Image src={BagelOrders} alt="Order Dashboard" />
+        </div>
+        <div className="bg-bottom-wave bg-bottom bg-no-repeat bg-cover pt-20 pb-40 flex justify-center">
+          <div className="-m-12 flex justify-between">
+            <h1 className="font-cal text-gray-800 text-center text-4xl px-20">
+              Orders
+            </h1>
+            <h1 className="font-cal text-gray-800 text-center text-4xl px-20">
+              Reservations
+            </h1>
+            <h1 className="font-cal text-gray-800 text-center text-4xl px-20">
+              Data
+            </h1>
           </div>
         </div>
-        <div className="spacer bottom-wave"></div>
       </div>
     </>
   );
