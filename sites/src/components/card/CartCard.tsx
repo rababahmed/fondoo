@@ -15,6 +15,7 @@ import {
   Icon,
   VStack,
   Container,
+  Input,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
@@ -169,6 +170,13 @@ const CartCard = (props: Props) => {
                     </Text>
                   </Grid>
                 ))}
+                <Container pt={2}>
+                  <Text fontWeight="semibold">Got a coupon code?</Text>
+                  <Stack direction="row">
+                    <Input size="sm" rounded="md" />
+                    <Button size="sm">Apply</Button>
+                  </Stack>
+                </Container>
                 <Divider py={2} variant={"dashed"} borderColor={"gray.600"} />
                 <Grid templateColumns={"2fr 2fr"} w="full">
                   <Text fontSize={"sm"}>Subtotal</Text>
@@ -206,7 +214,7 @@ const CartCard = (props: Props) => {
               </Stack>
               {router.pathname === "/[host]/order/checkout" ? (
                 <>
-                  <Stack py={5} px={5}>
+                  <Stack pb={5} px={5}>
                     <Divider variant={"dashed"} borderColor={"gray.600"} />
 
                     <Box py={1} />
@@ -226,9 +234,9 @@ const CartCard = (props: Props) => {
                 </>
               ) : (
                 <>
-                  <Stack py={5} px={5} w="full">
+                  <Stack pb={5} px={5} w="full">
                     <Divider variant={"dashed"} borderColor={"gray.600"} />
-                    <Box py={1} />
+                    <Box pb={1} />
                     <PrimaryButton
                       cdata={props.cdata}
                       text={"Checkout" + " - ৳" + total}
