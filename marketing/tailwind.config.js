@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        wave: "#FBF7EF",
+        wave: "#FACC15",
       },
       fontFamily: {
         cal: ["Cal Sans", "sans-serif"],
