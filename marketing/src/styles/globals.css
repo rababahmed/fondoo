@@ -22,7 +22,7 @@ a {
   box-sizing: border-box;
 }
 
-.spacer {
+/* .spacer {
   aspect-ratio: 960/120;
   width: 100%;
   background-repeat: no-repeat;
@@ -36,4 +36,4 @@ a {
 
 .bottom-wave {
   background-image: url("../../public/assets/bottom-wave.svg");
-}
+} */
