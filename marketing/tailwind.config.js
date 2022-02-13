@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         wave: "#FACC15",
+        yellow: "#FACC15",
       },
       fontFamily: {
         cal: ["Cal Sans", "sans-serif"],
@@ -15,6 +16,7 @@ module.exports = {
       backgroundImage: {
         "top-wave": "url('/assets/top-wave.svg')",
         "bottom-wave": "url('/assets/bottom-wave.svg')",
+        "curved-line": "url('/assets/curved-line.svg')",
       },
     },
   },

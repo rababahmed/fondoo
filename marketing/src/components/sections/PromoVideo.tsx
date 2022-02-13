@@ -9,13 +9,16 @@ interface Props {
 const PromoVideo = (props: Props) => {
   return (
     <section className="">
-      <div className="spacer top-wave"></div>
-      <div className="bg-wave">
+      <div className="bg-top-wave bg-bottom bg-no-repeat -mb-5 pt-48">
         <Container>
-          <h2 className="font-cal py-4 text-center text-5xl">
+          <h2 className="font-cal text-center text-5xl">
             {props.data.data.video_heading[0].text}
           </h2>
-          <div className="flex py-4 justify-center">
+        </Container>
+      </div>
+      <div className="bg-wave">
+        <Container>
+          <div className="flex py-10 justify-center">
             <Image
               src={props.data.data.video_thumbnail.url}
               width={props.data.data.video_thumbnail.dimensions.width}
@@ -46,7 +49,6 @@ const PromoVideo = (props: Props) => {
           </div>
         </Container>
       </div>
-      <div className="spacer bottom-wave"></div>
     </section>
   );
 };

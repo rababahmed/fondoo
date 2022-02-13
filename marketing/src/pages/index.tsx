@@ -1,9 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Features from "../components/blocks/Features";
+import Pricing from "../components/blocks/Pricing";
 import NavBar from "../components/NavBar";
 import Customers from "../components/sections/Customers";
 import Hero from "../components/sections/Hero";
+import Mission from "../components/sections/Mission";
 import PromoVideo from "../components/sections/PromoVideo";
 import styles from "../styles/Home.module.css";
 import { PrismicClient } from "../utils/prismicHelpers";
@@ -25,6 +28,9 @@ const Home: NextPage = ({ data }: any) => {
       <Hero data={data} />
       <Customers data={data} />
       <PromoVideo data={data} />
+      <Mission data={data} />
+      <Features data={data} />
+      <Pricing data={data} />
     </div>
   );
 };
