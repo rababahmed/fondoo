@@ -9,7 +9,7 @@ import { useCheckoutStore } from "../../stores/useCheckoutStore";
 import FlatCard from "../../components/card/FlatCard";
 import { useUserStore } from "../../stores/useUserStore";
 import { useGQLQuery } from "../../hooks/useGQLQuery";
-import { GET_USER_DETAILS } from "../../graphql/user";
+import { GET_USER_DETAILS, GET_CURRENT_ORDER } from "../../graphql/user";
 import { add, format } from "date-fns";
 
 interface Props {
@@ -31,12 +31,20 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
     }
   );
 
+  const currentOrder = useGQLQuery("get-current-order", GET_CURRENT_ORDER, {
+    id: recentOrderId,
+  });
+
+  const orderCreatedTime = currentOrder?.data?.order?.createdAt;
+  console.log(orderCreatedTime);
+
   const deliverySchedule = rdata.deliveryZones.find(
     (d: any) => d.id === deliveryZoneId
   );
+
   const deliveryTime = deliverySchedule?.deliveryTime;
   const deliveryETA = format(
-    add(new Date(), {
+    add(new Date(orderCreatedTime), {
       minutes: deliveryTime,
     }),
     "p"

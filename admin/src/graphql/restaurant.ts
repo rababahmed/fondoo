@@ -338,6 +338,8 @@ export const GET_RESTAURANT_CONFIG = gql`
         primaryColor
         secondaryColor
         hasDarkNavBg
+        facebookPixelCode
+        googleAnalyticsCode
       }
     }
   }
@@ -356,6 +358,24 @@ export const UPDATE_RESTAURANT_APPEARANCE = gql`
         primaryColor: { set: $primaryColor }
         secondaryColor: { set: $secondaryColor }
         hasDarkNavBg: { set: $hasDarkNavBg }
+      }
+    ) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_RESTAURANT_CUSTOM_CODE = gql`
+  mutation UpdateRestaurantAppearance(
+    $id: String
+    $facebookPixelCode: String
+    $googleAnalyticsCode: String
+  ) {
+    updateRestaurantConfig(
+      where: { restaurantId: $id }
+      data: {
+        facebookPixelCode: { set: $facebookPixelCode }
+        googleAnalyticsCode: { set: $googleAnalyticsCode }
       }
     ) {
       id

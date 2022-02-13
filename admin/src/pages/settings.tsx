@@ -9,8 +9,9 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import { RiEBike2Fill, RiSafariFill, RiShareFill } from "react-icons/ri";
 import { FaPalette, FaSafari } from "react-icons/fa";
 import { AppearanceModule } from "../modules/Settings/AppearanceModule";
-import { BiRadar } from "react-icons/bi";
+import { SiGoogleanalytics } from "react-icons/si";
 import { SocialsModule } from "../modules/Settings/SocialsModule";
+import { CustomAnalyticsModule } from "../modules/Settings/CustomAnalyticsModule";
 
 const SettingsPage = () => {
   return (
@@ -39,6 +40,12 @@ const SettingsPage = () => {
                 <Text>{<RiShareFill />}</Text> <Text>Socials</Text>
               </Stack>
             </Tab>
+            <Tab _focus={{ ringColor: "transparent" }}>
+              <Stack direction="row" alignItems="center">
+                <Text>{<SiGoogleanalytics />}</Text>{" "}
+                <Text>Custom Analytics</Text>
+              </Stack>
+            </Tab>
             {/* <Tab _focus={{ ringColor: "transparent" }}>
               <Stack direction="row" alignItems="center">
                 <Text>{<FaSafari />}</Text> <Text>Domain</Text>
@@ -54,6 +61,9 @@ const SettingsPage = () => {
             </TabPanel>
             <TabPanel>
               <SocialsModule />
+            </TabPanel>
+            <TabPanel>
+              <CustomAnalyticsModule />
             </TabPanel>
           </TabPanels>
         </Tabs>

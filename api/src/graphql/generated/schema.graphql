@@ -4576,9 +4576,11 @@ type Restaurant {
 type RestaurantConfig {
   createdAt: DateTime!
   domains(after: DomainWhereUniqueInput, before: DomainWhereUniqueInput, first: Int, last: Int, orderBy: [DomainOrderByWithRelationInput!], where: DomainWhereInput): [Domain!]!
+  facebookPixelCode: String
+  googleAnalyticsCode: String
   hasDarkNavBg: Boolean
   id: String!
-  isActive: Boolean!
+  isActive: Boolean
   primaryColor: String!
   restaurant: Restaurant!
   secondaryColor: String!
@@ -4588,9 +4590,11 @@ type RestaurantConfig {
 input RestaurantConfigCreateInput {
   createdAt: DateTime
   domains: DomainCreateNestedManyWithoutRestaurantConfigInput
+  facebookPixelCode: String
+  googleAnalyticsCode: String
   hasDarkNavBg: Boolean
   id: String
-  isActive: Boolean!
+  isActive: Boolean
   primaryColor: String!
   restaurant: RestaurantCreateNestedOneWithoutConfigInput!
   secondaryColor: String!
@@ -4621,9 +4625,11 @@ input RestaurantConfigCreateOrConnectWithoutRestaurantInput {
 
 input RestaurantConfigCreateWithoutDomainsInput {
   createdAt: DateTime
+  facebookPixelCode: String
+  googleAnalyticsCode: String
   hasDarkNavBg: Boolean
   id: String
-  isActive: Boolean!
+  isActive: Boolean
   primaryColor: String!
   restaurant: RestaurantCreateNestedOneWithoutConfigInput!
   secondaryColor: String!
@@ -4633,9 +4639,11 @@ input RestaurantConfigCreateWithoutDomainsInput {
 input RestaurantConfigCreateWithoutRestaurantInput {
   createdAt: DateTime
   domains: DomainCreateNestedManyWithoutRestaurantConfigInput
+  facebookPixelCode: String
+  googleAnalyticsCode: String
   hasDarkNavBg: Boolean
   id: String
-  isActive: Boolean!
+  isActive: Boolean
   primaryColor: String!
   secondaryColor: String!
   updatedAt: DateTime
@@ -4644,6 +4652,8 @@ input RestaurantConfigCreateWithoutRestaurantInput {
 input RestaurantConfigOrderByWithRelationInput {
   createdAt: SortOrder
   domains: DomainOrderByRelationAggregateInput
+  facebookPixelCode: SortOrder
+  googleAnalyticsCode: SortOrder
   hasDarkNavBg: SortOrder
   id: SortOrder
   isActive: SortOrder
@@ -4657,9 +4667,11 @@ input RestaurantConfigOrderByWithRelationInput {
 input RestaurantConfigUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   domains: DomainUpdateManyWithoutRestaurantConfigInput
+  facebookPixelCode: NullableStringFieldUpdateOperationsInput
+  googleAnalyticsCode: NullableStringFieldUpdateOperationsInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutConfigInput
   secondaryColor: StringFieldUpdateOperationsInput
@@ -4688,9 +4700,11 @@ input RestaurantConfigUpdateOneWithoutRestaurantInput {
 
 input RestaurantConfigUpdateWithoutDomainsInput {
   createdAt: DateTimeFieldUpdateOperationsInput
+  facebookPixelCode: NullableStringFieldUpdateOperationsInput
+  googleAnalyticsCode: NullableStringFieldUpdateOperationsInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   restaurant: RestaurantUpdateOneRequiredWithoutConfigInput
   secondaryColor: StringFieldUpdateOperationsInput
@@ -4700,9 +4714,11 @@ input RestaurantConfigUpdateWithoutDomainsInput {
 input RestaurantConfigUpdateWithoutRestaurantInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   domains: DomainUpdateManyWithoutRestaurantConfigInput
+  facebookPixelCode: NullableStringFieldUpdateOperationsInput
+  googleAnalyticsCode: NullableStringFieldUpdateOperationsInput
   hasDarkNavBg: NullableBoolFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  isActive: BoolFieldUpdateOperationsInput
+  isActive: NullableBoolFieldUpdateOperationsInput
   primaryColor: StringFieldUpdateOperationsInput
   secondaryColor: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -4724,9 +4740,11 @@ input RestaurantConfigWhereInput {
   OR: [RestaurantConfigWhereInput!]
   createdAt: DateTimeFilter
   domains: DomainListRelationFilter
+  facebookPixelCode: StringNullableFilter
+  googleAnalyticsCode: StringNullableFilter
   hasDarkNavBg: BoolNullableFilter
   id: StringFilter
-  isActive: BoolFilter
+  isActive: BoolNullableFilter
   primaryColor: StringFilter
   restaurant: RestaurantWhereInput
   restaurantId: StringFilter
