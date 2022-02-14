@@ -1,3 +1,4 @@
+import { RichText } from "prismic-reactjs";
 import React from "react";
 import Container from "../blocks/Container";
 
@@ -15,7 +16,7 @@ const Mission = (props: Props) => {
               {props.data.data.body[2].items[0].title[0].text}
             </h2>
             <p className="font-inter font-medium text-gray-800 text-center text-xl pt-4">
-              {props.data.data.body[3].items[0].paragraph[0].text}
+              <RichText render={props.data.data.body[3].items[0].paragraph} />
             </p>
           </div>
         </Container>

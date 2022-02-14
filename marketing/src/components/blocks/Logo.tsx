@@ -1,15 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import FondooLogo from "../../../public/images/fondoo-logo.png";
+import FondooLogoDark from "../../../public/images/fondoo-logo-dark.png";
 
-const Logo = ({ height }: any) => {
+interface Props {
+  height?: number;
+  width?: number;
+  dark?: boolean;
+}
+
+const Logo = ({ height, width, dark }: Props) => {
   return (
     <>
       <Image
-        src={FondooLogo}
+        src={dark ? FondooLogoDark : FondooLogo}
         alt="Fondoo Logo"
         height={height || 60}
-        width={height || 180}
+        width={width || 180}
       />
     </>
   );

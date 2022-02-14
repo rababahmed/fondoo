@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
+import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Image from "next/image";
 import Features from "../components/blocks/Features";
 import Pricing from "../components/blocks/Pricing";
+import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import Customers from "../components/sections/Customers";
 import Hero from "../components/sections/Hero";
@@ -17,13 +19,26 @@ const Home: NextPage = ({ data }: any) => {
   return (
     <div>
       <Head>
-        <title>Fondoo - Online Ordering and Reservation Platform</title>
-        <meta
-          name="description"
-          content="Fondoo helps bring your restaurant online, manage orders and reservations - all in one place. Get a beautiful website with an online ordering system."
-        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NextSeo
+        title={data.data.body1[0].items[0].title_tag[0].text}
+        description={data.data.body1[0].items[0].meta_description[0].text}
+        openGraph={{
+          title: data.data.body1[0].items[0].title_tag[0].text,
+          description: data.data.body1[0].items[0].meta_description[0].text,
+          images: [
+            {
+              url: data.data.body1[0].items[0].open_graph_image.url,
+              width:
+                data.data.body1[0].items[0].open_graph_image.dimensions.width,
+              height:
+                data.data.body1[0].items[0].open_graph_image.dimensions.height,
+              alt: data.data.body1[0].items[0].open_graph_image.alt,
+            },
+          ],
+        }}
+      />
       <NavBar />
       <Hero data={data} />
       <Customers data={data} />
@@ -31,6 +46,7 @@ const Home: NextPage = ({ data }: any) => {
       <Mission data={data} />
       <Features data={data} />
       <Pricing data={data} />
+      <Footer data={data} />
     </div>
   );
 };
@@ -41,6 +57,7 @@ export const getStaticProps = async () => {
     props: {
       data,
     },
+    revalidate: 60,
   };
 };
 

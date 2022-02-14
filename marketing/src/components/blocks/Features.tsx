@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { RichText } from "prismic-reactjs";
 import React from "react";
 import Container from "./Container";
 
@@ -8,7 +9,7 @@ interface Props {
 
 const Features = (props: Props) => {
   return (
-    <section>
+    <section id="features">
       <Container>
         <div className="flex flex-col justify-center items-center">
           {props.data.data.body[4].items.map((item: any) =>
@@ -24,7 +25,7 @@ const Features = (props: Props) => {
                     {item.title[0].text}
                   </h1>
                   <p className="font-inter font-medium text-center text-lg">
-                    {item.body1[0].text}
+                    <RichText render={item.body1} />
                   </p>
                 </div>
                 <Image
@@ -52,7 +53,7 @@ const Features = (props: Props) => {
                     {item.title[0].text}
                   </h1>
                   <p className="font-inter font-medium text-center text-lg">
-                    {item.body1[0].text}
+                    <RichText render={item.body1} />
                   </p>
                 </div>
               </div>
