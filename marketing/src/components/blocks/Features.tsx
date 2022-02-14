@@ -49,9 +49,9 @@ const Features = (props: Props) => {
                   height={item.image.dimensions.height}
                 />
                 <div className="max-w-md">
-                  <h1 className="font-cal text-3xl md:text-4xl text-center px-12">
+                  <h2 className="font-cal text-3xl md:text-4xl text-center px-12">
                     {item.title[0].text}
-                  </h1>
+                  </h2>
                   <p className="font-inter font-medium text-center text-lg">
                     <RichText render={item.body1} />
                   </p>

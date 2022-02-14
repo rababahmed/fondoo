@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Image from "next/image";
+import Analytics from "../components/Analytics";
 import Features from "../components/blocks/Features";
 import Pricing from "../components/blocks/Pricing";
 import Footer from "../components/Footer";
@@ -24,6 +25,7 @@ const Home: NextPage = ({ data }: any) => {
       <NextSeo
         title={data.data.body1[0].items[0].title_tag[0].text}
         description={data.data.body1[0].items[0].meta_description[0].text}
+        canonical="https://fondoo.io/"
         openGraph={{
           title: data.data.body1[0].items[0].title_tag[0].text,
           description: data.data.body1[0].items[0].meta_description[0].text,
@@ -39,6 +41,7 @@ const Home: NextPage = ({ data }: any) => {
           ],
         }}
       />
+      <Analytics />
       <NavBar />
       <Hero data={data} />
       <Customers data={data} />
