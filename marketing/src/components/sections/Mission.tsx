@@ -12,7 +12,7 @@ const Mission = (props: Props) => {
       <div className="bg-bottom-wave bg-top bg-no-repeat -mt-5 pt-96">
         <Container>
           <div className="bg-curved-line bg-bottom bg-no-repeat pb-12">
-            <h2 className="font-cal text-center text-5xl pt-4">
+            <h2 className="font-cal text-center text-2xl md:text-5xl 2xl:text-6xl pt-4">
               {props.data.data.body[2].items[0].title[0].text}
             </h2>
             <p className="font-inter font-medium text-gray-800 text-center text-xl pt-4">

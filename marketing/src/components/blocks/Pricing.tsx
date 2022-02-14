@@ -11,13 +11,13 @@ const Pricing = (props: Props) => {
   return (
     <section id="pricing">
       <Container>
-        <h2 className="font-cal text-center text-5xl pt-8">
+        <h2 className="font-cal text-center text-3xl md:text-5xl 2xl:text-6xl pt-8">
           {props.data.data.body[5].items[0].title[0].text}
         </h2>
-        <p className="font-inter font-medium text-center text-gray-900 text-md px-48 pt-4">
+        <p className="font-inter font-medium text-center text-gray-900 text-md md:px-48 pt-4">
           {props.data.data.body[6].items[0].paragraph[0].text}
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 justify-center items-start pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-center items-start pt-4 gap-6 md:gap-0">
           {props.data.data.body[7].items.map((item: any) => (
             <div key={item.title[0].text} className="">
               <div

@@ -11,7 +11,7 @@ const PromoVideo = (props: Props) => {
     <section className="">
       <div className="bg-top-wave bg-bottom bg-no-repeat -mb-5 pt-48">
         <Container>
-          <h2 className="font-cal text-center text-5xl">
+          <h2 className="font-cal text-center text-3xl md:text-5xl 2xl:text-6xl">
             {props.data.data.video_heading[0].text}
           </h2>
         </Container>
@@ -26,7 +26,7 @@ const PromoVideo = (props: Props) => {
               alt={props.data.data.video_thumbnail.alt}
             />
           </div>
-          <div className="py-8 flex justify-evenly items-center">
+          <div className="py-8 flex justify-evenly items-center gap-4 md:gap-0">
             {props.data.data.body[1].items.map((item: any) => (
               <div
                 key={item.title[0].text}
@@ -41,7 +41,7 @@ const PromoVideo = (props: Props) => {
                     alt={item.image.alt}
                   />
                 ) : null}
-                <h3 className="font-inter lg:text-xl font-bold">
+                <h3 className="font-inter text-sm md:text-xl font-bold">
                   {item.title[0].text}
                 </h3>
               </div>
