@@ -30,15 +30,15 @@ const PromoVideo = (props: Props) => {
             {props.data.data.body[1].items.map((item: any) => (
               <div
                 key={item.title[0].text}
-                className="flex flex-col justify-center"
+                className="flex flex-col justify-center items-center text-center"
               >
                 {item.image.url ? (
                   <Image
                     src={item.image.url}
                     height={60}
                     width={60}
+                    objectFit="contain"
                     alt={item.image.alt}
-                    className="fill-black"
                   />
                 ) : null}
                 <h3 className="font-inter lg:text-xl font-bold">
