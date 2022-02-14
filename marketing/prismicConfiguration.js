@@ -1,5 +1,5 @@
 // -- Prismic Repo Name
-export const repoName = "fondoo";
+export const repoName = process.env.prismicRepoName;
 
 // -- Prismic API endpoint
 // Determines which repository to query and fetch data from
@@ -8,8 +8,7 @@ export const apiEndpoint = `https://${repoName}.cdn.prismic.io/api/v2`;
 
 // -- Access Token if the repository is not public
 // Generate a token in your dashboard and configure it here if your repository is private
-export const accessToken =
-  "MC5ZZ0o0ZGhFQUFCOEFHMDZo.ZV4f77-977-977-9IjXvv71uE--_vS1b77-977-9MAUz77-977-977-9XO-_ve-_vWZNfUHvv70T77-9";
+export const accessToken = process.env.prismicAccessToken;
 
 // -- Link resolution rules
 // Manages the url links to internal Prismic documents
