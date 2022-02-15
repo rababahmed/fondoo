@@ -23,12 +23,12 @@ const Analytics = () => {
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "d20e701b72da40878ff16c4a1f0f7575"}'
         />
-        {/* <Script
+        <Script
           data-domain="fondoo.io"
-          src="https://odd-snowflake-bde9.rabab.workers.dev/js/script.outbound-links.js"
-          data-api="https://odd-snowflake-bde9.rabab.workers.dev/api/event"
+          src="https://odd-snowflake-bde9.rabab.workers.dev/odd-snowflake/script.outbound-links.js"
+          data-api="https://odd-snowflake-bde9.rabab.workers.dev/odd-snowflake/event"
           strategy="afterInteractive"
-        /> */}
+        />
       </div>
     </>
   );
