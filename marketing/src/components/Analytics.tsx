@@ -18,6 +18,11 @@ const Analytics = () => {
           gtag('config', 'G-HFXCP6DBKZ');
         `}
         </Script>
+        <Script
+          strategy="afterInteractive"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "d20e701b72da40878ff16c4a1f0f7575"}'
+        ></Script>
       </div>
     </>
   );
