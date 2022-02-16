@@ -3,7 +3,11 @@ import { useRouter } from "next/router";
 import React from "react";
 import Logo from "./blocks/Logo";
 
-const NavBar = () => {
+interface Props {
+  data: any;
+}
+
+const NavBar = ({ data }: Props) => {
   const router = useRouter();
   return (
     <>
@@ -31,14 +35,14 @@ const NavBar = () => {
               </a>
             </Link>
             <div className="hidden md:block">
-              <button
+              {/* <button
                 onClick={() => router.push("https://app.fondoo.io")}
                 className="mx-1 border-gray-800 border-2 rounded-lg font-inter font-bold py-1 px-2 md:px-4 text-black hover:bg-gray-800 hover:text-white"
               >
                 Login
-              </button>
+              </button> */}
               <button
-                onClick={() => router.push("https://app.fondoo.io")}
+                onClick={() => router.push(props.data.data.cta_link.url)}
                 className="mx-1 bg-black rounded-lg font-inter font-bold py-1 px-2 md:px-4 text-white hover:bg-gray-800"
               >
                 Signup

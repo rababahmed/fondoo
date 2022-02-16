@@ -45,7 +45,7 @@ const Home: NextPage = ({ data }: any) => {
         }}
       />
       <Analytics />
-      <NavBar />
+      <NavBar data={data} />
       <Hero data={data} />
       <Customers data={data} />
       <PromoVideo data={data} />
