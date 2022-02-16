@@ -21,11 +21,13 @@ const Home: NextPage = ({ data }: any) => {
     <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="index,follow" />
+        <meta name="googlebot" content="index,follow" />
       </Head>
       <NextSeo
         title={data.data.body1[0].items[0].title_tag[0].text}
         description={data.data.body1[0].items[0].meta_description[0].text}
-        canonical="https://fondoo.io/"
+        canonical="https://fondoo.io"
         openGraph={{
           title: data.data.body1[0].items[0].title_tag[0].text,
           description: data.data.body1[0].items[0].meta_description[0].text,
@@ -39,6 +41,7 @@ const Home: NextPage = ({ data }: any) => {
               alt: data.data.body1[0].items[0].open_graph_image.alt,
             },
           ],
+          type: "website",
         }}
       />
       <Analytics />
