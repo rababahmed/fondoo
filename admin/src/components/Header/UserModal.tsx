@@ -29,7 +29,11 @@ const UserModal = () => {
   const removeUser = useUserStore((state) => state.removeUser);
 
   const LogoutMutation = async () => {
+    window.analytics.track("Logged out", {
+      userId,
+    });
     await removeUser();
+    window.analytics.reset();
     router.push("/login");
   };
 

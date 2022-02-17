@@ -8,6 +8,8 @@ import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
+import { GET_USER } from "../../graphql/user";
 
 const initialValues = {
   email: "",
@@ -26,6 +28,31 @@ const PasswordProps = {
 export const LoginForm = () => {
   const router = useRouter();
   const setUser = useUserStore((state) => state.setUser);
+  const userID = useUserStore((state) => state.userID);
+
+  const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
+    "get-unique-user",
+    GET_USER,
+    {
+      id: userID,
+    }
+  );
+
+  React.useEffect(() => {
+    isSuccess &&
+      window.analytics.identify(userID, {
+        firstName: data?.user?.firstName,
+        lastName: data?.user?.lastName,
+        email: data?.user?.email,
+      });
+
+    isSuccess &&
+      data?.user?.restaurants.map((r: any) =>
+        window.analytics.group(r.id, {
+          name: r.name,
+        })
+      );
+  }, [userID, data, isSuccess]);
 
   const onSubmit = async (values: any) => {
     const login = await axios
@@ -38,6 +65,11 @@ export const LoginForm = () => {
           response.data.restaurantID
         );
         if (response.data.isAuthenticated === true) {
+          window.analytics.track("Logged in", {
+            userId: response.data.id,
+            context: { groupId: response.data.restaurantID },
+          });
+
           if (response.data.role !== "Admin") {
             router.push("/dashboard");
           } else {
