@@ -15,7 +15,7 @@ source:
   provider: GitHub
   # Additional properties that further specify the location of the artifacts.
   properties:
-    branch: prod
+    branch: main
     repository: https://github.com/rababahmed/tezzbites
 
     # Optional: specify the name of an existing CodeStar Connections connection.
@@ -24,7 +24,7 @@ source:
 # This section defines the order of the environments your pipeline will deploy to.
 stages:
   - # The name of the environment.
-    name: prod
+    name: main
     # Optional: flag for manual approval action before deployment.
     requires_approval: false
     # Optional: use test commands to validate this stage of your build.
