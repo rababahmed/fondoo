@@ -8,11 +8,10 @@ const WaitForAuthentication = ({ children }: any) => {
   const token = useUserStore((state) => state.token);
   const removeUser = useUserStore((state) => state.removeUser);
 
-  console.log("TOKEN: " + token);
-
   const decoded = jwt.decode(token, { json: true });
 
-  const isExpired = decoded?.exp < Date.now() / 1000;
+  const isExpired =
+    decoded && decoded.exp ? decoded?.exp < Date.now() / 1000 : null;
 
   const router = useRouter();
 
