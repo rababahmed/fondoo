@@ -43,12 +43,12 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
   );
 
   const deliveryTime = deliverySchedule?.deliveryTime;
-  const deliveryETA = format(
-    add(new Date(orderCreatedTime), {
-      minutes: deliveryTime,
-    }),
-    "p"
-  );
+  // const deliveryETA = format(
+  //   add(new Date(orderCreatedTime), {
+  //     minutes: deliveryTime,
+  //   }),
+  //   "p"
+  // );
 
   return (
     <>
@@ -77,10 +77,10 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
               <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                 Time
               </Text>
-              <FlatCard
+              {/* <FlatCard
                 title={deliveryETA || ""}
                 description={fulfilmentType || ""}
-              />
+              /> */}
             </Stack>
             <Stack px={8} spacing={4}>
               <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>

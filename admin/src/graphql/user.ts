@@ -20,6 +20,7 @@ export const GET_USER = gql`
     user(where: { id: $id }) {
       firstName
       lastName
+      email
       restaurants {
         id
         name

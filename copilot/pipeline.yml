@@ -15,7 +15,7 @@ source:
   provider: GitHub
   # Additional properties that further specify the location of the artifacts.
   properties:
-    branch: prod
+    branch: main
     repository: https://github.com/rababahmed/tezzbites
 
     # Optional: specify the name of an existing CodeStar Connections connection.
