@@ -36,19 +36,18 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
   });
 
   const orderCreatedTime = currentOrder?.data?.order?.createdAt;
-  console.log(orderCreatedTime);
 
   const deliverySchedule = rdata.deliveryZones.find(
     (d: any) => d.id === deliveryZoneId
   );
 
   const deliveryTime = deliverySchedule?.deliveryTime;
-  // const deliveryETA = format(
-  //   add(new Date(orderCreatedTime), {
-  //     minutes: deliveryTime,
-  //   }),
-  //   "p"
-  // );
+  const deliveryETA = format(
+    add(new Date(orderCreatedTime ? orderCreatedTime : null), {
+      minutes: deliveryTime,
+    }),
+    "p"
+  );
 
   return (
     <>
@@ -73,21 +72,23 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
             overflow={"hidden"}
             gridRowStart={{ base: 2, md: 1 }}
           >
-            {/* <Stack px={8} spacing={4}>
+            <Stack px={8} spacing={4}>
               <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                 Time
               </Text>
-              <FlatCard
-                title={deliveryETA || ""}
-                description={fulfilmentType || ""}
-              /> */}
+              <Skeleton isLoaded={currentOrder.isSuccess ? true : false}>
+                <FlatCard
+                  title={deliveryETA || ""}
+                  description={fulfilmentType || ""}
+                />
+              </Skeleton>
             </Stack>
             <Stack px={8} spacing={4}>
               <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                 Address
               </Text>
-              <FlatCard>
-                <Skeleton isLoaded={!isLoading}>
+              <Skeleton isLoaded={!isLoading}>
+                <FlatCard>
                   <Stack direction={"row"}>
                     <Text fontWeight={"semibold"}>Name:</Text>
                     <Text>
@@ -95,21 +96,23 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
                       {(isSuccess && data.customer.lastName) || ""}
                     </Text>
                   </Stack>
-                </Skeleton>
-                <Stack direction={"row"}>
-                  <Text fontWeight={"semibold"}>Address:</Text>
-                  <Text>
-                    {(isSuccess && data.customer.addresses[0].streetAddress) ||
-                      ""}
-                    , {(isSuccess && data.customer.addresses[0].city) || ""}{" "}
-                    {(isSuccess && data.customer.addresses[0].postCode) || ""}
-                  </Text>
-                </Stack>
-                <Stack direction={"row"}>
-                  <Text fontWeight={"semibold"}>Contact:</Text>
-                  <Text>{(isSuccess && data.customer.phone) || ""}</Text>
-                </Stack>
-              </FlatCard>
+
+                  <Stack direction={"row"}>
+                    <Text fontWeight={"semibold"}>Address:</Text>
+                    <Text>
+                      {(isSuccess &&
+                        data.customer.addresses[0].streetAddress) ||
+                        ""}
+                      , {(isSuccess && data.customer.addresses[0].city) || ""}{" "}
+                      {(isSuccess && data.customer.addresses[0].postCode) || ""}
+                    </Text>
+                  </Stack>
+                  <Stack direction={"row"}>
+                    <Text fontWeight={"semibold"}>Contact:</Text>
+                    <Text>{(isSuccess && data.customer.phone) || ""}</Text>
+                  </Stack>
+                </FlatCard>
+              </Skeleton>
             </Stack>
           </Stack>
         </Stack>
