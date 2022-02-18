@@ -73,11 +73,11 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
             overflow={"hidden"}
             gridRowStart={{ base: 2, md: 1 }}
           >
-            <Stack px={8} spacing={4}>
+            {/* <Stack px={8} spacing={4}>
               <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                 Time
               </Text>
-              {/* <FlatCard
+              <FlatCard
                 title={deliveryETA || ""}
                 description={fulfilmentType || ""}
               /> */}
