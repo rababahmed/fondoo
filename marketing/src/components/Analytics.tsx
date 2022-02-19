@@ -29,16 +29,9 @@ const Analytics = () => {
           data-api="https://odd-snowflake-bde9.rabab.workers.dev/odd-snowflake/event"
           strategy="afterInteractive"
         />
-        <Script
-          id="btw-widget"
-          data-project-code="776a5c10-b3fb-41a8-ae64-d33d8831f954"
-          data-iframe-domain="https://app.btw.so"
-          data-conversations-domain="https://conversations.btw.so"
-          data-events-domain="https://events.btw.so"
-          data-events-secret="js.nti5bhj8o8nqaikp1k4fb.kkvwbs6pqqj2jgkksmodvw"
-          src="https://conversations.btw.so/widget/dist/btw.js"
-          strategy="afterInteractive"
-        />
+        <Script id="crisp-chat" strategy="afterInteractive">
+          {`window.$crisp=[];window.CRISP_WEBSITE_ID="ba038a57-65e6-40e3-9485-f3192e03ae9b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`}
+        </Script>
       </div>
     </>
   );
