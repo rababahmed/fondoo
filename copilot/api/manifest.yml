@@ -20,7 +20,7 @@ image:
   build:
     dockerfile: ./api/Dockerfile
     context: ./api
-  port: 80
+  port: 4000
 
 cpu: 256 # Number of CPU units for the task.
 memory: 512 # Amount of memory in MiB used by the task.
