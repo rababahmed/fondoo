@@ -10,6 +10,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { GET_USER } from "../../graphql/user";
+import * as Sentry from "@sentry/nextjs";
 
 const initialValues = {
   email: "",
@@ -38,7 +39,7 @@ export const LoginForm = () => {
     }
   );
 
-  React.useEffect(() => {
+  const identifyUser = () => {
     isSuccess &&
       window.analytics.identify(userID, {
         firstName: data?.user?.firstName,
@@ -52,7 +53,9 @@ export const LoginForm = () => {
           name: r.name,
         })
       );
-  }, [userID, data, isSuccess]);
+
+    isSuccess && Sentry.setUser({ email: data?.user?.email });
+  };
 
   const onSubmit = async (values: any) => {
     const login = await axios
@@ -69,7 +72,7 @@ export const LoginForm = () => {
             userId: response.data.id,
             context: { groupId: response.data.restaurantID },
           });
-
+          identifyUser();
           if (response.data.role !== "Admin") {
             router.push("/dashboard");
           } else {
