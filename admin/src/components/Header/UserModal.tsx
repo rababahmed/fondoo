@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import { HStack, Text } from "@chakra-ui/react";
 import { GET_USER } from "../../graphql/user";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
+import * as Sentry from "@sentry/nextjs";
 
 const UserModal = () => {
   const router = useRouter();
@@ -34,6 +35,7 @@ const UserModal = () => {
     });
     await removeUser();
     window.analytics.reset();
+    Sentry.configureScope((scope) => scope.setUser(null));
     router.push("/login");
   };
 
