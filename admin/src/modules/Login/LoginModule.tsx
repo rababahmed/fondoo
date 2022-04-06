@@ -36,7 +36,7 @@ export const LoginModule = () => (
         Sign in to your account
       </Heading>
       <Text mt="4" mb="8" align="center" maxW="md" fontWeight="medium">
-        <Text as="span">Don't have an account?</Text>
+        <Text as="span">Don&#39;t have an account?</Text>
         <Link href="#">Get in touch with us!</Link>
       </Text>
       <Card>

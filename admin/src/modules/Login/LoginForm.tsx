@@ -31,30 +31,18 @@ export const LoginForm = () => {
   const setUser = useUserStore((state) => state.setUser);
   const userID = useUserStore((state) => state.userID);
 
-  const { data, error, isLoading, isSuccess, isFetching } = useGQLQuery(
-    "get-unique-user",
-    GET_USER,
-    {
-      id: userID,
-    }
-  );
-
-  const identifyUser = () => {
-    isSuccess &&
-      window.analytics.identify(userID, {
-        firstName: data?.user?.firstName,
-        lastName: data?.user?.lastName,
-        email: data?.user?.email,
-      });
-
-    isSuccess &&
-      data?.user?.restaurants.map((r: any) =>
-        window.analytics.group(r.id, {
-          name: r.name,
-        })
-      );
-
-    isSuccess && Sentry.setUser({ email: data?.user?.email });
+  const identifyUser = (data: any) => {
+    window.analytics.identify(userID, {
+      firstName: data?.firstName,
+      lastName: data?.lastName,
+      email: data?.email,
+    });
+    data?.restaurants.map((r: any) =>
+      window.analytics.group(r.id, {
+        name: r.name,
+      })
+    );
+    Sentry.setUser({ email: data?.email });
   };
 
   const onSubmit = async (values: any) => {
@@ -72,7 +60,8 @@ export const LoginForm = () => {
             userId: response.data.id,
             context: { groupId: response.data.restaurantID },
           });
-          identifyUser();
+          console.log(response.data.info);
+          identifyUser(response.data.info);
           if (response.data.role !== "Admin") {
             router.push("/dashboard");
           } else {
