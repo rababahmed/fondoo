@@ -85,7 +85,7 @@ router.post("/login", async (req, res) => {
           restaurantID:
             user.restaurants.length > 0 ? user.restaurants[0].id : "",
           message: "User authenticated",
-          analytics: user,
+          info: user,
         });
       } else {
         res.status(400).send({ message: "Incorrect Email/Password" });
