@@ -6,7 +6,7 @@ on:
       - main
       - prod
     paths:
-      - "api"
+      - "api/**"
 
 jobs:
   build:
