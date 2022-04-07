@@ -12,7 +12,7 @@ const Pricing = (props: Props) => {
   const router = useRouter();
 
   return (
-    <section id="pricing">
+    <section id="pricing" className="pt-20">
       <Container>
         <h2 className="font-cal text-center text-3xl md:text-5xl 2xl:text-6xl pt-8">
           {props.data.data.body[5].items[0].title[0].text}
