@@ -2,12 +2,15 @@ import React from "react";
 import Container from "./Container";
 import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../../prismicConfiguration";
+import { useRouter } from "next/router";
 
 interface Props {
   data: any;
 }
 
 const Pricing = (props: Props) => {
+  const router = useRouter();
+
   return (
     <section id="pricing">
       <Container>
@@ -39,8 +42,27 @@ const Pricing = (props: Props) => {
                 <p className="font-inter font-semibold text-md">
                   {item.title[0].text !== "Enterprise"
                     ? `$${item.price} /month`
-                    : "Contact us"}
+                    : "Custom"}
                 </p>
+                {item.title[0].text !== "Enterprise" ? (
+                  <div className="flex justify-start items-center mt-3 ">
+                    <button
+                      onClick={() => router.push(props.data.data.cta_link.url)}
+                      className="bg-black rounded-lg font-inter font-semibold py-1 px-2 md:px-4 text-white hover:bg-gray-800"
+                    >
+                      Try Free
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex justify-start items-center mt-3 ">
+                    <button
+                      onClick={() => router.push(props.data.data.cta_link.url)}
+                      className="bg-black rounded-lg font-inter font-semibold py-1 px-2 md:px-4 text-white hover:bg-white hover:text-black"
+                    >
+                      Contact us
+                    </button>
+                  </div>
+                )}
               </div>
               <p className="font-medium font-inte px-4">
                 <RichText render={item.features} linkResolver={linkResolver} />
