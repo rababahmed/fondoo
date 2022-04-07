@@ -60,7 +60,6 @@ export const LoginForm = () => {
             userId: response.data.id,
             context: { groupId: response.data.restaurantID },
           });
-          console.log(response.data.info);
           identifyUser(response.data.info);
           if (response.data.role !== "Admin") {
             router.push("/dashboard");

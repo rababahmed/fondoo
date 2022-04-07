@@ -11,6 +11,7 @@ import Customers from "../components/sections/Customers";
 import Hero from "../components/sections/Hero";
 import Mission from "../components/sections/Mission";
 import PromoVideo from "../components/sections/PromoVideo";
+import Testimonials from "../components/sections/Testimonials";
 import styles from "../styles/Home.module.css";
 import { PrismicClient } from "../utils/prismicHelpers";
 import { fetchHomePage } from "../utils/queries";
@@ -51,6 +52,7 @@ const Home: NextPage = ({ data }: any) => {
       <PromoVideo data={data} />
       <Mission data={data} />
       <Features data={data} />
+      <Testimonials data={data} />
       <Pricing data={data} />
       <Footer data={data} />
     </div>
