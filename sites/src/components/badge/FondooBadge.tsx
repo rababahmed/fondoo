@@ -10,7 +10,10 @@ const FondooBadge = () => {
   const isOrderPage = router.pathname === "/[host]/order";
 
   return (
-    <Link href="https://www.fondoo.io" isExternal>
+    <Link
+      href={"https://www.fondoo.io/?ref=" + window.location.hostname}
+      isExternal
+    >
       <Box
         display={[
           isOrderPage ? "none" : "block",

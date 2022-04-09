@@ -109,13 +109,18 @@ const Footer = ({ rdata, cdata }: any) => {
           <Text fontWeight="semibold" size="md">
             ©2021 {rdata?.name}. All Rights Reserved
           </Text>
-          <Link href="https://www.fondoo.io" isExternal>
+          <Link
+            href={"https://www.fondoo.io/?ref=" + window.location.hostname}
+            isExternal
+          >
             <Text
               textAlign={{ base: "left", md: "right" }}
               fontWeight="semibold"
               size="md"
               cursor="pointer"
-              onClick={() => "https://www.fondoo.io"}
+              onClick={() =>
+                "https://www.fondoo.io/?ref=" + window.location.hostname
+              }
             >
               Become a Fondoo Partner Restaurant <ExternalLinkIcon mx="2px" />
             </Text>
