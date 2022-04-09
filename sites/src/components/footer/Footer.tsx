@@ -109,16 +109,15 @@ const Footer = ({ rdata, cdata }: any) => {
           <Text fontWeight="semibold" size="md">
             ©2021 {rdata?.name}. All Rights Reserved
           </Text>
-          <Link href="https://tezzbites.com" isExternal>
+          <Link href="https://www.fondoo.io" isExternal>
             <Text
               textAlign={{ base: "left", md: "right" }}
               fontWeight="semibold"
               size="md"
               cursor="pointer"
-              onClick={() => "https://www.tezzbites.com"}
+              onClick={() => "https://www.fondoo.io"}
             >
-              Become a TezzBites Partner Restaurant{" "}
-              <ExternalLinkIcon mx="2px" />
+              Become a Fondoo Partner Restaurant <ExternalLinkIcon mx="2px" />
             </Text>
           </Link>
         </SimpleGrid>
