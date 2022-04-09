@@ -1,6 +1,6 @@
 import { Box, HStack, Link, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import FondooLogo from "../../../public/images/fondoo-logo.png";
 import { useRouter } from "next/router";
 
@@ -10,10 +10,7 @@ const FondooBadge = () => {
   const isOrderPage = router.pathname === "/[host]/order";
 
   return (
-    <Link
-      href={"https://www.fondoo.io/?ref=" + window?.location?.hostname}
-      isExternal
-    >
+    <Link href={"https://www.fondoo.io/?ref=" + router.query.host} isExternal>
       <Box
         display={[
           isOrderPage ? "none" : "block",
