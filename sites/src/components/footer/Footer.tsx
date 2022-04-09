@@ -110,7 +110,7 @@ const Footer = ({ rdata, cdata }: any) => {
             ©2021 {rdata?.name}. All Rights Reserved
           </Text>
           <Link
-            href={"https://www.fondoo.io/?ref=" + window.location.hostname}
+            href={"https://www.fondoo.io/?ref=" + window?.location?.hostname}
             isExternal
           >
             <Text
@@ -119,7 +119,7 @@ const Footer = ({ rdata, cdata }: any) => {
               size="md"
               cursor="pointer"
               onClick={() =>
-                "https://www.fondoo.io/?ref=" + window.location.hostname
+                "https://www.fondoo.io/?ref=" + window?.location?.hostname
               }
             >
               Become a Fondoo Partner Restaurant <ExternalLinkIcon mx="2px" />

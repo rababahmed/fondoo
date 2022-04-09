@@ -11,7 +11,7 @@ const FondooBadge = () => {
 
   return (
     <Link
-      href={"https://www.fondoo.io/?ref=" + window.location.hostname}
+      href={"https://www.fondoo.io/?ref=" + window?.location?.hostname}
       isExternal
     >
       <Box
