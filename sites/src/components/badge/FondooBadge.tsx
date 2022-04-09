@@ -2,11 +2,27 @@ import { Box, HStack, Link, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 import FondooLogo from "../../../public/images/fondoo-logo.png";
+import { useRouter } from "next/router";
 
 const FondooBadge = () => {
+  const router = useRouter();
+
+  const isOrderPage = router.pathname === "/[host]/order";
+
   return (
     <Link href="https://www.fondoo.io" isExternal>
-      <Box pos={"fixed"} bottom="0" right="0" p={4} zIndex={20}>
+      <Box
+        display={[
+          isOrderPage ? "none" : "block",
+          isOrderPage ? "none" : "block",
+          "block",
+        ]}
+        pos={"fixed"}
+        bottom="0"
+        right="0"
+        p={[2, 4]}
+        zIndex={20}
+      >
         <Box
           py={2}
           px={2}
