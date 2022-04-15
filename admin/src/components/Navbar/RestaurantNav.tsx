@@ -15,7 +15,7 @@ import { GET_USER } from "../../graphql/user";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { useUserStore } from "../../store/useUserStore";
 import Image from "next/image";
-import Logo from "../../../public/tezzbites.png";
+import Logo from "../../../public/fondoo-icon.png";
 
 const RestaurantNav = () => {
   const restaurantId = useUserStore((state) => state.restaurantID);
@@ -36,10 +36,8 @@ const RestaurantNav = () => {
       <Menu strategy="fixed">
         <MenuButton
           as={Button}
-          bg={"gray.900"}
-          _hover={{ bg: "gray.700" }}
-          _active={{ bg: "gray.700" }}
-          color="white"
+          bg={"white"}
+          color="black"
           leftIcon={
             <Box boxSize="2rem">
               <Image src={Logo} alt="Logo" />

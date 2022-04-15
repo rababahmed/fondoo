@@ -26,7 +26,7 @@ import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { useUserStore } from "../../store/useUserStore";
 import Image from "next/image";
-import * as LogoFull from "../../../public/tezzbites-full.png";
+import * as LogoFull from "../../../public/fondoo-icon.png";
 import RestaurantNav from "./RestaurantNav";
 import { Center } from "@chakra-ui/react";
 import OrderButton from "./OrderButton";
@@ -44,26 +44,29 @@ const NavBar = () => {
   React.useEffect(() => setCurrentPath(router.pathname), [router.pathname]);
 
   return (
-    <div>
+    <>
       <Box
+        as="nav"
         display={{ base: "none", md: "block" }}
         pos="fixed"
         overflowY="auto"
-        bgColor="gray.900"
+        overflowX="hidden"
+        bgColor="white"
         zIndex="2"
         h="100%"
         w={240}
         top="0"
+        borderWidth="1px"
         bottom="0"
         className={styles.navbar}
       >
         <Stack>
-          <VStack align="stretch" px={4} mr={1}>
+          <VStack align="stretch" px={2} mr={1}>
             <Center mt={8} mb={4}>
               <RestaurantNav />
             </Center>
             {role === "Admin" ? (
-              <VStack py={4} align="stretch">
+              <VStack py={2} align="stretch">
                 <NavText text="ADMIN" />
                 <NavButton
                   href="/admin/dashboard"
@@ -89,7 +92,7 @@ const NavBar = () => {
               icon={RiParentLine}
               text="Reservations"
             />
-            <VStack py={4} align="stretch">
+            <VStack py={2} align="stretch">
               <NavText text="MENU SETUP" />
               <NavButton
                 href="/menu/items"
@@ -102,7 +105,7 @@ const NavBar = () => {
                 text="Categories"
               />
             </VStack>
-            <VStack py={4} align="stretch">
+            <VStack py={2} align="stretch">
               <NavText text="PROMOTIONS" />
               <NavButton
                 href="/promotions/offers"
@@ -115,7 +118,7 @@ const NavBar = () => {
                 text="Coupons"
               />
             </VStack>
-            <VStack py={4} align="stretch">
+            <VStack py={2} align="stretch">
               <NavText text="MANAGEMENT" />
               <NavButton href="/cms" icon={CgWebsite} text="CMS" />
               <NavButton href="/users" icon={FiUsers} text="Users" />
@@ -130,7 +133,7 @@ const NavBar = () => {
           </VStack>
         </Stack>
       </Box>
-    </div>
+    </>
   );
 };
 
