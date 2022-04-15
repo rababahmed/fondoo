@@ -26,7 +26,7 @@ import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import { useUserStore } from "../../store/useUserStore";
 import Image from "next/image";
-import * as LogoFull from "../../../public/tezzbites-full.png";
+import * as LogoFull from "../../../public/fondoo-icon.png";
 import RestaurantNav from "./RestaurantNav";
 import { Center } from "@chakra-ui/react";
 import OrderButton from "./OrderButton";

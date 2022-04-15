@@ -15,7 +15,7 @@ import { GET_USER } from "../../graphql/user";
 import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
 import { useUserStore } from "../../store/useUserStore";
 import Image from "next/image";
-import Logo from "../../../public/tezzbites.png";
+import Logo from "../../../public/fondoo-icon.png";
 
 const RestaurantNav = () => {
   const restaurantId = useUserStore((state) => state.restaurantID);

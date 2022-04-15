@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/layout";
+import { Text } from "@chakra-ui/react";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import React from "react";
 import WaitForAuthentication from "../components/Auth/WaitForAuthentication";
@@ -17,7 +18,6 @@ const DesktopLayout = (props: any) => {
           <Box as="section" bg="#F6F6F7" minH="100vh" minW="fit-content">
             <NavBar />
             <Header />
-
             <Box
               as="main"
               mt={14}
