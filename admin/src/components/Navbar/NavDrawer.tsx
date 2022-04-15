@@ -34,7 +34,7 @@ const NavDrawer = () => {
             bgColor="gray.200"
             _hover={{ bgColor: "gray.300" }}
           />
-          <DrawerBody bg="gray.900">
+          <DrawerBody bgColor="white">
             <NavDrawerContent />
           </DrawerBody>
         </DrawerContent>

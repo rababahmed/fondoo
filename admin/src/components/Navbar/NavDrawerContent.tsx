@@ -46,7 +46,7 @@ const NavDrawerContent = () => {
     <div>
       <Box
         overflowY="auto"
-        bgColor="gray.900"
+        bgColor="white"
         zIndex="2"
         h="100%"
         w={"full"}

@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/layout";
+import { Text } from "@chakra-ui/react";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import React from "react";
 import WaitForAuthentication from "../components/Auth/WaitForAuthentication";
@@ -14,34 +15,20 @@ const DesktopLayout = (props: any) => {
     <>
       <WaitForAuthentication>
         {isDesktop ? (
-          <Box
-            display="flex"
-            pos="fixed"
-            overflowY="auto"
-            overflowX="auto"
-            flexDirection="column"
-            left="0"
-            top="0"
-            bg="#F6F6F7"
-            w="100%"
-            h="100%"
-          >
+          <Box as="section" bg="#F6F6F7" minH="100vh" minW="fit-content">
+            <NavBar />
+            <Header />
             <Box
+              as="main"
               mt={14}
-              w="100%"
-              pos="fixed"
-              h="100vh"
-              overflowX="auto"
-              py={8}
-              px={44}
-              ml={{ base: 0, md: 134 }}
+              ml={{ base: 0, md: 240 }}
               bg="#F6F6F7"
+              py={10}
+              px={10}
             >
               {props.children}
               <Box mb={24}></Box>
             </Box>
-            <Header />
-            <NavBar />
           </Box>
         ) : (
           <Box
