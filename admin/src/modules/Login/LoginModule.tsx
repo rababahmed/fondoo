@@ -29,7 +29,7 @@ export const LoginModule = () => (
       fontWeight="extrabold"
       mb={10}
     >
-      TezzBites
+      Fondoo
     </Heading>
     <Box maxW="md" mx="auto">
       <Heading textAlign="center" size="xl" fontWeight="extrabold">
