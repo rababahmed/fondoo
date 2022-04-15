@@ -6,10 +6,11 @@ TezzBites provides a suite of tools to manage a restaurant's day to day operatio
 
 # Folder Structure
 
-| Codebase       |    Description     |
-| :------------- | :----------------: |
-| [api](api)     |    Backend API     |
-| [admin](admin) | Next.js Admin Dash |
+|        Codebase        |    Description     |
+| :--------------------: | :----------------: |
+|       [api](api)       |    Backend API     |
+|     [admin](admin)     | Next.js Admin Dash |
+| [marketing](marketing) |   Marketing Site   |
 
 ## Branches
 
@@ -19,19 +20,22 @@ TezzBites provides a suite of tools to manage a restaurant's day to day operatio
 trigger changes
 
 ## API Deployment
-| Env       |    Stack           |
-| :-------: | :----------------: |
-|  Prod     |   ECS on Fargate with ALB  |
-|  Dev      |   Railway          |
+
+| Env  |          Stack          |
+| :--: | :---------------------: |
+| Prod | ECS on Fargate with ALB |
+| Dev  |         Railway         |
 
 ## Frontend
-| Env       |    Stack           |
-| :-------: | :----------------: |
-|  Prod     |   Vercel           |
-|  Dev      |   Vercel           |
+
+| Env  | Stack  |
+| :--: | :----: |
+| Prod | Vercel |
+| Dev  | Vercel |
 
 ## Database
-| Env       |    Stack           |
-| :-------: | :----------------: |
-|  Prod     |   PlanetScale      |
-|  Dev      |   PlanetScale      |
+
+| Env  |    Stack    |
+| :--: | :---------: |
+| Prod | PlanetScale |
+| Dev  | PlanetScale |

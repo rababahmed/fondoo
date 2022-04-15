@@ -9,7 +9,7 @@ import { useCheckoutStore } from "../../stores/useCheckoutStore";
 import FlatCard from "../../components/card/FlatCard";
 import { useUserStore } from "../../stores/useUserStore";
 import { useGQLQuery } from "../../hooks/useGQLQuery";
-import { GET_USER_DETAILS } from "../../graphql/user";
+import { GET_USER_DETAILS, GET_CURRENT_ORDER } from "../../graphql/user";
 import { add, format } from "date-fns";
 
 interface Props {
@@ -31,12 +31,19 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
     }
   );
 
+  const currentOrder = useGQLQuery("get-current-order", GET_CURRENT_ORDER, {
+    id: recentOrderId,
+  });
+
+  const orderCreatedTime = currentOrder?.data?.order?.createdAt;
+
   const deliverySchedule = rdata.deliveryZones.find(
     (d: any) => d.id === deliveryZoneId
   );
+
   const deliveryTime = deliverySchedule?.deliveryTime;
   const deliveryETA = format(
-    add(new Date(), {
+    add(new Date(orderCreatedTime ? orderCreatedTime : null), {
       minutes: deliveryTime,
     }),
     "p"
@@ -69,17 +76,19 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
               <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                 Time
               </Text>
-              <FlatCard
-                title={deliveryETA || ""}
-                description={fulfilmentType || ""}
-              />
+              <Skeleton isLoaded={currentOrder.isSuccess ? true : false}>
+                <FlatCard
+                  title={deliveryETA || ""}
+                  description={fulfilmentType || ""}
+                />
+              </Skeleton>
             </Stack>
             <Stack px={8} spacing={4}>
               <Text fontSize={"2xl"} color={"black"} fontWeight={"medium"}>
                 Address
               </Text>
-              <FlatCard>
-                <Skeleton isLoaded={!isLoading}>
+              <Skeleton isLoaded={!isLoading}>
+                <FlatCard>
                   <Stack direction={"row"}>
                     <Text fontWeight={"semibold"}>Name:</Text>
                     <Text>
@@ -87,21 +96,23 @@ export const OrderConfirmedContainer = ({ rdata, cdata }: Props) => {
                       {(isSuccess && data.customer.lastName) || ""}
                     </Text>
                   </Stack>
-                </Skeleton>
-                <Stack direction={"row"}>
-                  <Text fontWeight={"semibold"}>Address:</Text>
-                  <Text>
-                    {(isSuccess && data.customer.addresses[0].streetAddress) ||
-                      ""}
-                    , {(isSuccess && data.customer.addresses[0].city) || ""}{" "}
-                    {(isSuccess && data.customer.addresses[0].postCode) || ""}
-                  </Text>
-                </Stack>
-                <Stack direction={"row"}>
-                  <Text fontWeight={"semibold"}>Contact:</Text>
-                  <Text>{(isSuccess && data.customer.phone) || ""}</Text>
-                </Stack>
-              </FlatCard>
+
+                  <Stack direction={"row"}>
+                    <Text fontWeight={"semibold"}>Address:</Text>
+                    <Text>
+                      {(isSuccess &&
+                        data.customer.addresses[0].streetAddress) ||
+                        ""}
+                      , {(isSuccess && data.customer.addresses[0].city) || ""}{" "}
+                      {(isSuccess && data.customer.addresses[0].postCode) || ""}
+                    </Text>
+                  </Stack>
+                  <Stack direction={"row"}>
+                    <Text fontWeight={"semibold"}>Contact:</Text>
+                    <Text>{(isSuccess && data.customer.phone) || ""}</Text>
+                  </Stack>
+                </FlatCard>
+              </Skeleton>
             </Stack>
           </Stack>
         </Stack>

@@ -8,6 +8,9 @@ import * as Yup from "yup";
 import { InputControl, SubmitButton } from "formik-chakra-ui";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useGQLQuery } from "../../shared-hooks/useGQLQuery";
+import { GET_USER } from "../../graphql/user";
+import * as Sentry from "@sentry/nextjs";
 
 const initialValues = {
   email: "",
@@ -26,6 +29,21 @@ const PasswordProps = {
 export const LoginForm = () => {
   const router = useRouter();
   const setUser = useUserStore((state) => state.setUser);
+  const userID = useUserStore((state) => state.userID);
+
+  const identifyUser = (data: any) => {
+    window.analytics.identify(userID, {
+      firstName: data?.firstName,
+      lastName: data?.lastName,
+      email: data?.email,
+    });
+    data?.restaurants.map((r: any) =>
+      window.analytics.group(r.id, {
+        name: r.name,
+      })
+    );
+    Sentry.setUser({ email: data?.email });
+  };
 
   const onSubmit = async (values: any) => {
     const login = await axios
@@ -38,6 +56,11 @@ export const LoginForm = () => {
           response.data.restaurantID
         );
         if (response.data.isAuthenticated === true) {
+          window.analytics.track("Logged in", {
+            userId: response.data.id,
+            context: { groupId: response.data.restaurantID },
+          });
+          identifyUser(response.data.info);
           if (response.data.role !== "Admin") {
             router.push("/dashboard");
           } else {

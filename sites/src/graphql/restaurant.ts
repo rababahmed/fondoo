@@ -111,6 +111,8 @@ export const GET_RESTAURANT_INFO = gql`
           primaryColor
           secondaryColor
           hasDarkNavBg
+          facebookPixelCode
+          googleAnalyticsCode
         }
       }
     }

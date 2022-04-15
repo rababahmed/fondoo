@@ -14,6 +14,8 @@ export const RestaurantConfig = objectType({
     t.model.secondaryColor();
     t.model.hasDarkNavBg();
     t.model.isActive();
+    t.model.facebookPixelCode();
+    t.model.googleAnalyticsCode();
     t.model.createdAt();
     t.model.updatedAt();
     t.model.restaurant();

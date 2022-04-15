@@ -80,7 +80,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
 
   const onClick = async () => {
     setIsLoading(true);
-    const createOrder = await mutation
+    await mutation
       .mutateAsync()
       .then(async (response) => {
         const orderData = response.createOrder;
@@ -103,15 +103,13 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
           .catch((error) => {})
           .finally(() => {
             mutation.reset();
-            router.push("/order/confirmed").then(() => {
-              setIsLoading(false);
-            });
+            router.push("/order/confirmed");
           });
       })
       .catch((error) => {
         toast({
           position: "top",
-          title: "Could not find place order! Please try again later.",
+          title: "Could not place order! Please try again later.",
           description: "If the issue persists please call us and let us know!",
           status: "error",
           duration: 5000,

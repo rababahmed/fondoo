@@ -141,3 +141,42 @@ export const PLACE_ORDER = gql`
     }
   }
 `;
+
+export const GET_CURRENT_ORDER = gql`
+  query CustomerOrder($id: String) {
+    order(where: { id: $id }) {
+      fulfilmentType
+      items {
+        id
+        product {
+          name
+        }
+        quantity
+        total
+      }
+      customer {
+        firstName
+        lastName
+        phone
+        email
+      }
+      address {
+        streetAddress
+        city
+        postCode
+        country
+      }
+      deliveryZone {
+        name
+      }
+      deliveryCharge
+      discount
+      serviceCharge
+      vat
+      total
+      status
+      isPreOrder
+      createdAt
+    }
+  }
+`;

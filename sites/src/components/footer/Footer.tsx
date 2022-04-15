@@ -2,6 +2,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Box, HStack, SimpleGrid, Stack, Text } from "@chakra-ui/layout";
 import { Heading, useColorModeValue, Link } from "@chakra-ui/react";
 import { format, parseISO } from "date-fns";
+import { useRouter } from "next/router";
 import React from "react";
 import ClickableText from "../misc/ClickableText";
 
@@ -11,6 +12,8 @@ const Footer = ({ rdata, cdata }: any) => {
     return `${hh > 12 ? hh % 12 : hh}${`:${mm}`}${hh >= 12 ? "PM" : "AM"}`;
   };
   console.log(fmtTime("00:00"));
+
+  const router = useRouter();
 
   return (
     <Box
@@ -109,16 +112,18 @@ const Footer = ({ rdata, cdata }: any) => {
           <Text fontWeight="semibold" size="md">
             ©2021 {rdata?.name}. All Rights Reserved
           </Text>
-          <Link href="https://tezzbites.com" isExternal>
+          <Link
+            href={"https://www.fondoo.io/?ref=" + router.query.host}
+            isExternal
+          >
             <Text
               textAlign={{ base: "left", md: "right" }}
               fontWeight="semibold"
               size="md"
               cursor="pointer"
-              onClick={() => "https://www.tezzbites.com"}
+              onClick={() => "https://www.fondoo.io/?ref=" + router.query.host}
             >
-              Become a TezzBites Partner Restaurant{" "}
-              <ExternalLinkIcon mx="2px" />
+              Become a Fondoo Partner Restaurant <ExternalLinkIcon mx="2px" />
             </Text>
           </Link>
         </SimpleGrid>
