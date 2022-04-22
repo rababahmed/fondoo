@@ -53,7 +53,7 @@ const RestaurantCard = (props: Props) => {
             {props.rdata.name}
           </Heading>
           <Text color={"gray.500"} fontFamily="TT Norms Pro Medium">
-            {props.rdata.cuisine}
+            {props.rdata.cuisine} • {props.rdata.priceRange}
           </Text>
           <Stack>
             <Stack

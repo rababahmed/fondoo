@@ -1,7 +1,6 @@
 import React from "react";
 import Container from "./Container";
 import { RichText } from "prismic-reactjs";
-import { linkResolver } from "../../../prismicConfiguration";
 import { useRouter } from "next/router";
 
 interface Props {
@@ -65,7 +64,7 @@ const Pricing = (props: Props) => {
                 )}
               </div>
               <p className="font-medium font-inte px-4">
-                <RichText render={item.features} linkResolver={linkResolver} />
+                <RichText render={item.features} />
               </p>
             </div>
           ))}

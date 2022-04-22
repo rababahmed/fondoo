@@ -33,7 +33,7 @@ const Footer = ({ rdata, cdata }: any) => {
         color="white"
       >
         <SimpleGrid
-          columns={{ base: 1, sm: 3 }}
+          columns={{ base: 1, md: 3 }}
           spacing={20}
           py={14}
           px={{ base: 2, sm: 60 }}
@@ -104,7 +104,7 @@ const Footer = ({ rdata, cdata }: any) => {
           </Stack>
         </SimpleGrid>
         <SimpleGrid
-          columns={{ base: 1, sm: 2 }}
+          columns={{ base: 1, md: 2 }}
           spacing={20}
           py={4}
           px={{ base: 2, sm: 60 }}
