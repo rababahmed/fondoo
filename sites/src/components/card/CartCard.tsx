@@ -165,7 +165,8 @@ const CartCard = (props: Props) => {
                       {p.name}
                     </Text>
                     <Text fontWeight={"medium"} textAlign={"end"}>
-                      ৳{p.total}
+                      {props.rdata.currency}
+                      {p.total}
                     </Text>
                   </Grid>
                 ))}
@@ -173,13 +174,15 @@ const CartCard = (props: Props) => {
                 <Grid templateColumns={"2fr 2fr"} w="full">
                   <Text fontSize={"sm"}>Subtotal</Text>
                   <Text fontSize={"sm"} textAlign={"end"}>
-                    ৳{getArraySum(subTotal)}
+                    {props.rdata.currency}
+                    {getArraySum(subTotal)}
                   </Text>
                 </Grid>
                 <Grid templateColumns={"2fr 2fr"} w="full">
                   <Text fontSize={"sm"}>VAT</Text>
                   <Text fontSize={"sm"} textAlign={"end"}>
-                    ৳{vat}
+                    {props.rdata.currency}
+                    {vat}
                   </Text>
                 </Grid>
                 <Grid templateColumns={"2fr 2fr"} w="full">
@@ -194,13 +197,15 @@ const CartCard = (props: Props) => {
                     </Tooltip>
                   </SimpleGrid>
                   <Text fontSize={"sm"} textAlign={"end"}>
-                    ৳{serviceCharge}
+                    {props.rdata.currency}
+                    {serviceCharge}
                   </Text>
                 </Grid>
                 <Grid templateColumns={"2fr 2fr"} w="full">
                   <Text fontSize={"sm"}>Delivery Fee</Text>
                   <Text fontSize={"sm"} textAlign={"end"}>
-                    ৳{deliveryCharge}
+                    {props.rdata.currency}
+                    {deliveryCharge}
                   </Text>
                 </Grid>
               </Stack>
@@ -219,7 +224,8 @@ const CartCard = (props: Props) => {
                         fontWeight={"semibold"}
                         textAlign={"end"}
                       >
-                        ৳{total}
+                        {props.rdata.currency}
+                        {total}
                       </Text>
                     </Grid>
                   </Stack>
@@ -231,7 +237,7 @@ const CartCard = (props: Props) => {
                     <Box py={1} />
                     <PrimaryButton
                       cdata={props.cdata}
-                      text={"Checkout" + " - ৳" + total}
+                      text={"Checkout" + " - " + props.rdata.currency + total}
                       onClick={() => router.push("/order/checkout")}
                     />
                   </Stack>

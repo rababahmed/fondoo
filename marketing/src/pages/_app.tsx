@@ -1,6 +1,9 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import PlausibleProvider from "next-plausible";
+import { PrismicProvider } from "@prismicio/react";
+import Link from "next/link";
+import { repositoryName } from "../../prismicio";
+import { PrismicPreview } from "@prismicio/next";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +16,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     //       "https://odd-snowflake-bde9.rabab.workers.dev/odd-snowflake/event",
     //   }}
     // >
-    <Component {...pageProps} />
+    <PrismicProvider
+      internalLinkComponent={({ href, children, ...props }) => (
+        <Link href={href}>
+          <a {...props}>{children}</a>
+        </Link>
+      )}
+    >
+      <PrismicPreview repositoryName={repositoryName}>
+        <Component {...pageProps} />
+      </PrismicPreview>
+    </PrismicProvider>
     // </PlausibleProvider>
   );
 }

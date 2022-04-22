@@ -1,0 +1,271 @@
+{
+  "id": "homepage",
+  "label": "Homepage",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label": "Heading"
+        }
+      },
+      "subheading": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "Sub Heading"
+        }
+      },
+      "cta_text": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "CTA Text"
+        }
+      },
+      "cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "CTA Link",
+          "select": null
+        }
+      },
+      "video_heading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading2",
+          "label": "Video Heading"
+        }
+      },
+      "video_thumbnail": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Video Thumbnail"
+        }
+      },
+      "video_embed": {
+        "type": "Embed",
+        "config": {
+          "label": "Video Embed"
+        }
+      },
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "mini_feature": {
+              "type": "Slice",
+              "fieldset": "Mini Feature",
+              "description": "Mini feature group",
+              "icon": "featured_play_list",
+              "non-repeat": {},
+              "repeat": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "constraint": {},
+                    "thumbnails": [],
+                    "label": "Image"
+                  }
+                },
+                "svg": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "embed",
+                    "label": "SVG"
+                  }
+                },
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading3",
+                    "label": "Title"
+                  }
+                }
+              }
+            },
+            "feature": {
+              "type": "Slice",
+              "fieldset": "Feature",
+              "description": "A feature card",
+              "icon": "card_giftcard",
+              "display": "list",
+              "non-repeat": {},
+              "repeat": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "constraint": {},
+                    "thumbnails": [],
+                    "label": "Image"
+                  }
+                },
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading2",
+                    "label": "Title"
+                  }
+                },
+                "body1": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                    "label": "Body"
+                  }
+                },
+                "orientation": {
+                  "type": "Number",
+                  "config": {
+                    "label": "Orientation",
+                    "placeholder": "1 for left and 2 for right"
+                  }
+                }
+              }
+            },
+            "pricing": {
+              "type": "Slice",
+              "fieldset": "Pricing",
+              "description": "A pricing card",
+              "icon": "attach_money",
+              "display": "list",
+              "non-repeat": {},
+              "repeat": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading3",
+                    "label": "Title"
+                  }
+                },
+                "sub_title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                    "label": "Sub Title"
+                  }
+                },
+                "price": {
+                  "type": "Number",
+                  "config": {
+                    "label": "Price"
+                  }
+                },
+                "features": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                    "label": "Features"
+                  }
+                }
+              }
+            },
+            "customer_logo": {
+              "type": "Slice",
+              "fieldset": "Customer Logo",
+              "description": "Logo of customers",
+              "icon": "people",
+              "display": "list",
+              "non-repeat": {},
+              "repeat": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "constraint": {
+                      "width": 320,
+                      "height": 175
+                    },
+                    "thumbnails": [],
+                    "label": "Image"
+                  }
+                }
+              }
+            },
+            "heading": {
+              "type": "Slice",
+              "fieldset": "Heading",
+              "description": "H2 Heading",
+              "icon": "view_headline",
+              "display": "list",
+              "non-repeat": {},
+              "repeat": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading2",
+                    "label": "Title"
+                  }
+                }
+              }
+            },
+            "body": {
+              "type": "Slice",
+              "fieldset": "Paragraph",
+              "description": "Paragraph",
+              "icon": "crop_original",
+              "display": "list",
+              "non-repeat": {},
+              "repeat": {
+                "paragraph": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                    "label": "Paragraph"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SEO": {
+      "body1": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "page_seo": {
+              "type": "Slice",
+              "fieldset": "Page SEO",
+              "description": "SEO Tags for Pages",
+              "icon": "search",
+              "display": "list",
+              "non-repeat": {},
+              "repeat": {
+                "open_graph_image": {
+                  "type": "Image",
+                  "config": {
+                    "constraint": {},
+                    "thumbnails": [],
+                    "label": "Open Graph Image"
+                  }
+                },
+                "title_tag": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                    "label": "Title Tag"
+                  }
+                },
+                "meta_description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Meta Description"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

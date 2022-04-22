@@ -30,7 +30,7 @@ import { GET_USER_DETAILS } from "../../graphql/user";
 import SignupModal from "./SignupModal";
 import { useSiteStore } from "../../stores/useSiteStore";
 import { useRouter } from "next/router";
-import * as Logo from "../../../public/images/tb-logo-dark.svg";
+import * as Logo from "../../../public/images/fondoo-logo-dark.png";
 import Image from "next/image";
 
 interface Props {

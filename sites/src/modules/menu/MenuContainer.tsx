@@ -44,7 +44,10 @@ export const MenuContainer = ({ rdata, cdata }: Props) => {
                     >
                       {p.name}
                     </Text>
-                    <Text fontSize={{ base: "md", md: "lg" }}>{p.price}</Text>
+                    <Text fontSize={{ base: "md", md: "lg" }} textAlign="right">
+                      {rdata.currency}
+                      {p.price}
+                    </Text>
                   </Grid>
                   <Divider color={"black"} />
                 </Box>
