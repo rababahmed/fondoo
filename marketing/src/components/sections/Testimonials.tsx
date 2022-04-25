@@ -8,8 +8,8 @@ interface Props {
 const Testimonials = ({ data }: Props) => {
   return (
     <section className="pt-20">
-      <h2 className="font-cal text-center text-2xl md:text-4xl 2xl:text-5xl">
-        Wall of Love
+      <h2 className="font-cal text-center text-3xl md:text-4xl 2xl:text-5xl">
+        These folks love us
       </h2>
       <Script
         src="https://testimonial.to/js/iframeResizer.min.js"
@@ -22,8 +22,8 @@ const Testimonials = ({ data }: Props) => {
         width="100%"
       ></iframe>
       <Script
-        id="testimonialto-fondoo"
-        strategy="afterInteractive"
+        id="testimonialto-fondoo-resizer"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `iFrameResize({log: false, checkOrigin: false}, "#testimonialto-fondoo-light");`,
         }}
