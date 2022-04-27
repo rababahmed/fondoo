@@ -48,20 +48,6 @@ const NavBar = ({ data }: Props) => {
     clearTimeout(timeout); // stop the hover timer if it's running
   };
 
-  const handleClickOutside = (event: any) => {
-    if (buttonRef.current && !buttonRef.current.contains(event.target)) {
-      event.stopPropagation();
-    }
-  };
-
-  React.useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  });
-
   return (
     <>
       <section className="bg-white lg:px-20 py-4 2xl:px-40">
@@ -98,9 +84,9 @@ const NavBar = ({ data }: Props) => {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 translate-y-1"
                     >
-                      <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 transform -translate-x-1/2 left-1/2 sm:px-0 lg:max-w-3xl">
+                      <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 transform -translate-x-1/4 left-1/2 sm:px-0 lg:max-w-md lg:-translate-x-1/2">
                         <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                          <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                          <div className="relative grid gap-8 bg-white p-7">
                             {data.body[0].items.map((item: any) => (
                               <a
                                 key={item.title[0].text}
