@@ -11,10 +11,10 @@ import Testimonials from "../../components/sections/Testimonials";
 import CTA from "../../components/blocks/CTA";
 import { NextSeo } from "next-seo";
 
-const FeaturePage = ({ doc, data }: any) => {
+const FeaturePage = ({ doc, data, navData }: any) => {
   console.log(doc);
   return (
-    <DefaultLayout data={doc}>
+    <DefaultLayout data={doc} navData={navData}>
       <NextSeo
         title={doc.data.title_tag[0].text}
         description={doc.data.meta_description[0].text}
@@ -146,11 +146,13 @@ export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
   const doc = (await client.getByUID("feature_page", params.uid)) || {};
   const data = await client.getSingle("homepage");
+  const navData = await client.getSingle("navigation_menu");
 
   return {
     props: {
       doc,
       data,
+      navData,
     },
     revalidate: 60,
   };
