@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { Fragment } from "react";
 import Logo from "./blocks/Logo";
+import { Popover, Transition } from "@headlessui/react";
+import Image from "next/image";
 
 interface Props {
   data: any;
@@ -9,6 +11,57 @@ interface Props {
 
 const NavBar = ({ data }: Props) => {
   const router = useRouter();
+  console.log(data);
+
+  let timeout: any; // NodeJS.Timeout
+  const timeoutDuration = 100;
+
+  const buttonRef = React.useRef<HTMLButtonElement>(null); // useRef<HTMLButtonElement>(null)
+  const [openState, setOpenState] = React.useState(false);
+
+  const toggleMenu = (open: any) => {
+    // log the current open state in React (toggle open state)
+    setOpenState((openState) => !openState);
+    // toggle the menu by clicking on buttonRef
+    buttonRef?.current?.click();
+  };
+
+  // Open the menu after a delay of timeoutDuration
+  const onHover = (open: any, action: any) => {
+    // if the modal is currently closed, we need to open it
+    // OR
+    // if the modal is currently open, we need to close it
+    if (
+      (!open && !openState && action === "onMouseEnter") ||
+      (open && openState && action === "onMouseLeave")
+    ) {
+      // clear the old timeout, if any
+      clearTimeout(timeout);
+      // open the modal after a timeout
+      timeout = setTimeout(() => toggleMenu(open), timeoutDuration);
+    }
+    // else: don't click! 😁
+  };
+
+  const handleClick = (open: any) => {
+    setOpenState(!open); // toggle open state in React state
+    clearTimeout(timeout); // stop the hover timer if it's running
+  };
+
+  const handleClickOutside = (event: any) => {
+    if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+      event.stopPropagation();
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
+
   return (
     <>
       <section className="bg-white lg:px-20 py-4 2xl:px-40">
@@ -19,21 +72,75 @@ const NavBar = ({ data }: Props) => {
             </a>
           </Link>
           <div className="flex justify-between gap-2 md:gap-4">
-            <Link href="#features">
-              <a className="px-2 py-1 font-inter font-bold md:text-lg cursor-pointer hover:underline">
-                Features
-              </a>
-            </Link>
-            <Link href="#pricing">
-              <a className="px-2 py-1 font-inter font-bold md:text-lg cursor-pointer hover:underline">
-                Pricing
-              </a>
-            </Link>
-            <Link href="mailto:hello@fondoo.io">
-              <a className="px-2 py-1 font-inter font-bold md:text-lg cursor-pointer hover:underline">
-                Support
-              </a>
-            </Link>
+            <div>
+              <Popover className="relative">
+                {({ open }) => (
+                  <div
+                    onMouseEnter={() => onHover(open, "onMouseEnter")}
+                    onMouseLeave={() => onHover(open, "onMouseLeave")}
+                  >
+                    <Popover.Button ref={buttonRef}>
+                      <div
+                        className="px-2 py-1 font-inter font-bold md:text-lg cursor-pointer"
+                        onClick={() => handleClick(open)}
+                      >
+                        Features
+                      </div>
+                    </Popover.Button>
+
+                    <Transition
+                      show={open}
+                      as={Fragment}
+                      enter="transition ease-out duration-200"
+                      enterFrom="opacity-0 translate-y-1"
+                      enterTo="opacity-100 translate-y-0"
+                      leave="transition ease-in duration-150"
+                      leaveFrom="opacity-100 translate-y-0"
+                      leaveTo="opacity-0 translate-y-1"
+                    >
+                      <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 transform -translate-x-1/2 left-1/2 sm:px-0 lg:max-w-3xl">
+                        <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                          <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                            {data.body[0].items.map((item: any) => (
+                              <a
+                                key={item.title[0].text}
+                                href={"https://fondoo.io" + item.link.url}
+                                className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                              >
+                                <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white sm:h-12 sm:w-12">
+                                  <Image
+                                    src={item.icon.url}
+                                    alt={item.icon.alt}
+                                    height={40}
+                                    width={40}
+                                  />
+                                </div>
+                                <div className="ml-4">
+                                  <p className="text-md font-inter font-medium text-gray-900">
+                                    {item.title[0].text}
+                                  </p>
+                                  <p className="text-sm font-inter text-gray-500">
+                                    {item.description[0].text}
+                                  </p>
+                                </div>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </Popover.Panel>
+                    </Transition>
+                  </div>
+                )}
+              </Popover>
+            </div>
+            {data.body[1].items.map((item: any) => (
+              <Link key={item.title[0].text} href={item.link.url}>
+                <a className="px-2 py-1 font-inter font-bold md:text-lg cursor-pointer hover:underline">
+                  {item.title[0].text}
+                </a>
+              </Link>
+            ))}
+
             <div className="hidden md:block">
               {/* <button
                 onClick={() => router.push("https://app.fondoo.io")}

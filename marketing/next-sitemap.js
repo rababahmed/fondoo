@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://www.fondoo.io",
+  siteUrl: "https://fondoo.io",
   generateRobotsTxt: true,
 };

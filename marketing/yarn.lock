@@ -1444,6 +1444,11 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
+"@tabler/icons@^1.67.1":
+  version "1.67.1"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.67.1.tgz#ffab87700ef0872b647c1f22e686190f928325c0"
+  integrity sha512-1z9FMQiLHTwHWjAuL1nXhCv+puvApDfKcGv6PajYHnZbMJv2PYXUktMCCWLotv5Xo8EVimQGs8RDKfrLa/rm6Q==
+
 "@tootallnate/once@2":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"

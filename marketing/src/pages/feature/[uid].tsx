@@ -9,11 +9,30 @@ import Link from "next/link";
 import Image from "next/image";
 import Testimonials from "../../components/sections/Testimonials";
 import CTA from "../../components/blocks/CTA";
+import { NextSeo } from "next-seo";
 
 const FeaturePage = ({ doc, data }: any) => {
   console.log(doc);
   return (
     <DefaultLayout data={doc}>
+      <NextSeo
+        title={doc.data.title_tag[0].text}
+        description={doc.data.meta_description[0].text}
+        canonical={"https://fondoo.io" + doc.url}
+        openGraph={{
+          title: doc.data.title_tag,
+          description: doc.data.meta_description,
+          images: [
+            {
+              url: doc.data.open_graph_image.url,
+              width: doc.data.open_graph_image.dimensions.width,
+              height: doc.data.open_graph_image.dimensions.height,
+              alt: doc.data.open_graph_image.alt,
+            },
+          ],
+          type: "website",
+        }}
+      />
       <section>
         <Container>
           <div className="pt-14 lg:pt-16">
