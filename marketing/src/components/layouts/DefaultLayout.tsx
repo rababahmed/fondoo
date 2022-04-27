@@ -6,10 +6,11 @@ import NavBar from "../NavBar";
 
 interface Props {
   data: any;
+  navData: any;
   children: any;
 }
 
-const DefaultLayout = ({ data, children }: Props) => {
+const DefaultLayout = ({ data, children, navData }: Props) => {
   return (
     <>
       <>
@@ -19,7 +20,7 @@ const DefaultLayout = ({ data, children }: Props) => {
           <meta name="googlebot" content="index,follow" />
         </Head>
         <Analytics />
-        <NavBar data={data} />
+        <NavBar data={navData.data} />
         {children}
         <Footer data={data} />
       </>

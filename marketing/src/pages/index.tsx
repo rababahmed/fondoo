@@ -15,10 +15,10 @@ import Mission from "../components/sections/Mission";
 import PromoVideo from "../components/sections/PromoVideo";
 import Testimonials from "../components/sections/Testimonials";
 
-const Home: NextPage = ({ data }: any) => {
+const Home: NextPage = ({ data, navData }: any) => {
   console.log(data);
   return (
-    <DefaultLayout data={data}>
+    <DefaultLayout data={data} navData={navData}>
       <NextSeo
         title={data.data.body1[0].items[0].title_tag[0].text}
         description={data.data.body1[0].items[0].meta_description[0].text}
@@ -53,9 +53,11 @@ const Home: NextPage = ({ data }: any) => {
 export const getStaticProps = async ({ previewData }: any) => {
   const client = createClient({ previewData });
   const data = await client.getSingle("homepage");
+  const navData = await client.getSingle("navigation_menu");
   return {
     props: {
       data,
+      navData,
     },
     revalidate: 60,
   };
