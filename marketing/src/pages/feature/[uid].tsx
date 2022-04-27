@@ -51,15 +51,15 @@ const FeaturePage = ({ doc, data, navData }: any) => {
                 </a>
               </Link>
             </div>
-            <div className="mt-10 pb-10 bg-gradient-to-t from-white">
-              <div className="mix-blend-overlay">
-                <Image
-                  src={doc.data.body1[0].primary.image.url}
-                  width={doc.data.body1[0].primary.image.dimensions.width}
-                  height={doc.data.body1[0].primary.image.dimensions.height}
-                  alt={doc.data.body1[0].primary.image.alt}
-                />
-              </div>
+            <div className="mt-10 pb-10 bg-gradient-to-t from-white via-transparent relative">
+              <Image
+                src={doc.data.body1[0].primary.image.url}
+                width={doc.data.body1[0].primary.image.dimensions.width}
+                height={doc.data.body1[0].primary.image.dimensions.height}
+                alt={doc.data.body1[0].primary.image.alt}
+                priority
+                className="object-cover mix-blend-overlay absolute"
+              />
             </div>
           </div>
         </Container>

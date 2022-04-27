@@ -11,46 +11,11 @@ interface Props {
 
 const NavBar = ({ data }: Props) => {
   const router = useRouter();
-  console.log(data);
-
-  let timeout: any; // NodeJS.Timeout
-  const timeoutDuration = 100;
-
-  const buttonRef = React.useRef<HTMLButtonElement>(null); // useRef<HTMLButtonElement>(null)
-  const [openState, setOpenState] = React.useState(false);
-
-  const toggleMenu = (open: any) => {
-    // log the current open state in React (toggle open state)
-    setOpenState((openState) => !openState);
-    // toggle the menu by clicking on buttonRef
-    buttonRef?.current?.click();
-  };
-
-  // Open the menu after a delay of timeoutDuration
-  const onHover = (open: any, action: any) => {
-    // if the modal is currently closed, we need to open it
-    // OR
-    // if the modal is currently open, we need to close it
-    if (
-      (!open && !openState && action === "onMouseEnter") ||
-      (open && openState && action === "onMouseLeave")
-    ) {
-      // clear the old timeout, if any
-      clearTimeout(timeout);
-      // open the modal after a timeout
-      timeout = setTimeout(() => toggleMenu(open), timeoutDuration);
-    }
-    // else: don't click! 😁
-  };
-
-  const handleClick = (open: any) => {
-    setOpenState(!open); // toggle open state in React state
-    clearTimeout(timeout); // stop the hover timer if it's running
-  };
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <>
-      <section className="bg-white lg:px-20 py-4 2xl:px-40">
+      <header className="bg-white lg:px-20 py-4 2xl:px-40">
         <div className="flex justify-between items-center flex-col md:flex-row gap-2 md:gap-0">
           <Link href="/">
             <a>
@@ -62,20 +27,20 @@ const NavBar = ({ data }: Props) => {
               <Popover className="relative">
                 {({ open }) => (
                   <div
-                    onMouseEnter={() => onHover(open, "onMouseEnter")}
-                    onMouseLeave={() => onHover(open, "onMouseLeave")}
+                    onMouseEnter={() => setIsOpen(true)}
+                    onMouseLeave={() => setIsOpen(false)}
                   >
-                    <Popover.Button ref={buttonRef}>
+                    <Popover.Button>
                       <div
                         className="px-2 py-1 font-inter font-bold md:text-lg cursor-pointer"
-                        onClick={() => handleClick(open)}
+                        onClick={() => setIsOpen(!isOpen)}
                       >
                         Features
                       </div>
                     </Popover.Button>
 
                     <Transition
-                      show={open}
+                      show={isOpen}
                       as={Fragment}
                       enter="transition ease-out duration-200"
                       enterFrom="opacity-0 translate-y-1"
@@ -102,9 +67,9 @@ const NavBar = ({ data }: Props) => {
                                   />
                                 </div>
                                 <div className="ml-4">
-                                  <p className="text-md font-inter font-medium text-gray-900">
+                                  <h1 className="text-md font-inter font-medium text-gray-900">
                                     {item.title[0].text}
-                                  </p>
+                                  </h1>
                                   <p className="text-sm font-inter text-gray-500">
                                     {item.description[0].text}
                                   </p>
@@ -121,29 +86,32 @@ const NavBar = ({ data }: Props) => {
             </div>
             {data.body[1].items.map((item: any) => (
               <Link key={item.title[0].text} href={item.link.url}>
-                <a className="px-2 py-1 font-inter font-bold md:text-lg cursor-pointer hover:underline">
-                  {item.title[0].text}
+                <a>
+                  <h1 className="px-2 py-1 font-inter font-bold md:text-lg cursor-pointer hover:underline">
+                    {" "}
+                    {item.title[0].text}{" "}
+                  </h1>
                 </a>
               </Link>
             ))}
 
             <div className="hidden md:block">
-              {/* <button
+              <button
                 onClick={() => router.push("https://app.fondoo.io")}
                 className="mx-1 border-gray-800 border-2 rounded-lg font-inter font-bold py-1 px-2 md:px-4 text-black hover:bg-gray-800 hover:text-white"
               >
                 Login
-              </button> */}
+              </button>
               <button
                 onClick={() => router.push(data.data.cta_link.url)}
-                className="mx-1 bg-black rounded-lg font-inter font-bold py-1 px-2 md:px-4 text-white hover:bg-gray-800"
+                className="mx-1 bg-black border-black border-2 rounded-lg font-inter font-bold py-1 px-2 md:px-4 text-white hover:bg-gray-800 hover:border-gray-800"
               >
                 Try Free
               </button>
             </div>
           </div>
         </div>
-      </section>
+      </header>
     </>
   );
 };
