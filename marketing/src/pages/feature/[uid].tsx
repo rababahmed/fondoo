@@ -121,9 +121,9 @@ const FeaturePage = ({ doc, data, navData }: any) => {
                       />
                     </div>
                     <div className="mt-6 mb-10">
-                      <h4 className="font-cal text-center text-xl 2xl:text-2xl">
+                      <h3 className="font-cal text-center text-xl 2xl:text-2xl">
                         {item.title[0].text}
-                      </h4>
+                      </h3>
                       <p className="font-inter font-semibold text-center px-20 lg:px-2">
                         {item.body[0].text}
                       </p>
