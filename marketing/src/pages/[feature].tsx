@@ -1,14 +1,14 @@
 import React from "react";
-import { createClient } from "../../../prismicio";
+import { createClient } from "../../prismicio";
 import * as prismicH from "@prismicio/helpers";
-import DefaultLayout from "../../components/layouts/DefaultLayout";
+import DefaultLayout from "../components/layouts/DefaultLayout";
 import { PrismicRichText } from "@prismicio/react";
-import Container from "../../components/blocks/Container";
+import Container from "../components/blocks/Container";
 import { RichText } from "prismic-reactjs";
 import Link from "next/link";
 import Image from "next/image";
-import Testimonials from "../../components/sections/Testimonials";
-import CTA from "../../components/blocks/CTA";
+import Testimonials from "../components/sections/Testimonials";
+import CTA from "../components/blocks/CTA";
 import { NextSeo } from "next-seo";
 
 const FeaturePage = ({ doc, data, navData }: any) => {
@@ -20,8 +20,8 @@ const FeaturePage = ({ doc, data, navData }: any) => {
         description={doc.data.meta_description[0].text}
         canonical={"https://fondoo.io" + doc.url}
         openGraph={{
-          title: doc.data.title_tag,
-          description: doc.data.meta_description,
+          title: doc.data.title_tag[0].text,
+          description: doc.data.meta_description[0].text,
           images: [
             {
               url: doc.data.open_graph_image.url,
@@ -144,7 +144,7 @@ const FeaturePage = ({ doc, data, navData }: any) => {
 
 export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
-  const doc = (await client.getByUID("feature_page", params.uid)) || {};
+  const doc = (await client.getByUID("feature_page", params.feature)) || {};
   const data = await client.getSingle("homepage");
   const navData = await client.getSingle("navigation_menu");
 
