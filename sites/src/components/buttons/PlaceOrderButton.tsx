@@ -10,6 +10,7 @@ import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { Constants } from "../../config";
+import { useCouponStore } from "../../stores/useCouponStore";
 
 interface Props {
   rdata: any;
@@ -19,6 +20,7 @@ interface Props {
 const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const fulfilmentType = useCheckoutStore((state) => state.fulfilmentType);
   const deliveryCharge = useCheckoutStore((state) => state.deliveryCharge);
+  const discount = useCheckoutStore((state) => state.discount);
   const vat = useCheckoutStore((state) => state.vat);
   const serviceCharge = useCheckoutStore((state) => state.serviceCharge);
   const total = useCheckoutStore((state) => state.total);
@@ -28,6 +30,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const customerAddressId = useUserStore((state) => state.addressId);
   const customerId = useUserStore((state) => state.userID);
   const cart = useCartStore((state) => state.cart);
+  const couponId = useCouponStore((state) => state.couponId);
   const setRecentOrderId = useUserStore((state) => state.setRecentOrderId);
   const recentOrderId = useUserStore((state) => state.recentOrderId);
 
@@ -42,13 +45,14 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
 
   const initialValues = {
     fulfilmentType: fulfilmentType,
-    discount: 0,
+    discount: discount,
     deliveryCharge: deliveryCharge,
     vat: vat,
     serviceCharge: serviceCharge,
     total: total,
     isPreOrder: isPreOrder,
     cart: formattedCart,
+    couponId: couponId,
     deliveryZoneId: deliveryZoneId,
     customerAddressId: customerAddressId,
     customerId: customerId,
@@ -60,7 +64,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
 
   const mutation = useGQLMutation(PLACE_ORDER, {
     fulfilmentType: fulfilmentType,
-    discount: 0,
+    discount: discount,
     deliveryCharge: deliveryCharge,
     vat: vat,
     serviceCharge: serviceCharge,
@@ -68,6 +72,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
     isPreOrder: isPreOrder,
     isAccepted: isAccepted,
     cart: formattedCart,
+    couponId: couponId,
     deliveryZoneId: deliveryZoneId,
     customerAddressId: customerAddressId,
     customerId: customerId,

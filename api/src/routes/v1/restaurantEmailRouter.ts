@@ -1,6 +1,6 @@
 import express from "express";
+import { pm } from "../../lib/postmark";
 import prisma from "../../PrismaClient";
-import { mailgun } from "../../lib/mailgun";
 
 const router = express.Router();
 
@@ -13,36 +13,46 @@ router.post("/order-received/:orderId", async (req, res) => {
       },
       include: {
         restaurant: { select: { name: true, users: true } },
+        items: {
+          include: { product: { select: { name: true, price: true } } },
+        },
       },
     });
-
     if (orderDetails?.restaurant?.users) {
       orderDetails.restaurant.users.map((user: any) => {
         const data = {
-          from: "TezzBites <noreply@alerts.tezzbites.com>",
-          to: `${user.email}`,
-          subject: `You've received a new order on ${orderDetails.restaurant.name}`,
-          template: "restaurant-order-received",
-          "h:X-Mailgun-Variables": JSON.stringify({
-            firstName: user.firstName,
+          From: "Fondoo <notifications@fondoo.io>",
+          To: `${user.email}`,
+          TemplateId: 28178633,
+          TemplateModel: {
+            product_url: "https://fondoo.io",
+            name: user.firstName,
             restaurant: orderDetails.restaurant.name,
-            action_url: "https://app.tezzbites.com/orders",
-            support_email: "support@tezzbites.com",
-          }),
+            action_url: "https://app.fondoo.io",
+            orderId: orderDetails.id,
+            date: orderDetails.createdAt,
+            products: orderDetails.items.map((item: any) => {
+              return {
+                name: item.product.name,
+                amount: item.product.price,
+              };
+            }),
+            total: orderDetails.total,
+            support: "mailto:hello@fondoo.io",
+            product_name: "Fondoo",
+          },
         };
-        mailgun.messages().send(data, (error, body) => {
-          if (error) {
-            res.status(500).json({
-              message: "Error sending email",
-              error,
-            });
-          } else {
+        pm.sendEmailWithTemplate(data)
+          .then(() => {
             res.status(200).json({
               message: "Email sent successfully",
-              body,
             });
-          }
-        });
+          })
+          .catch(() => {
+            res.status(500).json({
+              message: "Error sending email",
+            });
+          });
       });
     } else {
       res.status(400).send({
@@ -50,7 +60,7 @@ router.post("/order-received/:orderId", async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(400).send(err.message);
   }
 });

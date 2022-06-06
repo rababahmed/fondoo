@@ -49,6 +49,7 @@ export const useCheckoutStore = create<Checkout>(
     persist(
       {
         key: "checkout-store",
+        denylist: ["discount"],
       },
       (set) => ({
         fulfilmentType: "",

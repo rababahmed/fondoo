@@ -46,7 +46,6 @@ export const useUserStore = create<User>(
         isAuthenticated: false,
         userID: "",
         token: "",
-        role: "",
         addressId: "",
         recentOrderId: "",
         setRecentOrderId: (id) =>
@@ -73,6 +72,7 @@ export const useUserStore = create<User>(
               addressId: id,
             };
           }),
+
         removeUser: () =>
           set((state) => {
             return {

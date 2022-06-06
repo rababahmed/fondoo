@@ -62,7 +62,7 @@ export const AddCoupon = () => {
   const mutation = useGQLMutation(
     ADD_RESTAURANT_COUPON,
     {
-      code: formData.code,
+      code: formData.code.toUpperCase(),
       description: formData.description,
       discount: formData.discount,
       value: parseFloat(formData.value),

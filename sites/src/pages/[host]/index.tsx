@@ -44,7 +44,7 @@ export default function Home({
           </Stack>
         </DefaultLayout>
       ) : (
-        <div>Site data not found</div>
+        <div>Whoops! Site data not found</div>
       )}
     </>
   );

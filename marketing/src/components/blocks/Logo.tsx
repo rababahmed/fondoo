@@ -17,6 +17,7 @@ const Logo = ({ height, width, dark }: Props) => {
         alt="Fondoo Logo"
         height={height || 60}
         width={width || 180}
+        priority
       />
     </>
   );

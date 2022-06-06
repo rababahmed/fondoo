@@ -15,7 +15,7 @@ const routeResolver = {
   routes: [
     {
       type: "feature_page",
-      path: "/feature/:uid",
+      path: "/:uid",
     },
     {
       type: "homepage",

@@ -1,14 +1,14 @@
 import React from "react";
-import { createClient } from "../../../prismicio";
+import { createClient } from "../../prismicio";
 import * as prismicH from "@prismicio/helpers";
-import DefaultLayout from "../../components/layouts/DefaultLayout";
+import DefaultLayout from "../components/layouts/DefaultLayout";
 import { PrismicRichText } from "@prismicio/react";
-import Container from "../../components/blocks/Container";
+import Container from "../components/blocks/Container";
 import { RichText } from "prismic-reactjs";
 import Link from "next/link";
 import Image from "next/image";
-import Testimonials from "../../components/sections/Testimonials";
-import CTA from "../../components/blocks/CTA";
+import Testimonials from "../components/sections/Testimonials";
+import CTA from "../components/blocks/CTA";
 import { NextSeo } from "next-seo";
 
 const FeaturePage = ({ doc, data, navData }: any) => {
@@ -20,8 +20,8 @@ const FeaturePage = ({ doc, data, navData }: any) => {
         description={doc.data.meta_description[0].text}
         canonical={"https://fondoo.io" + doc.url}
         openGraph={{
-          title: doc.data.title_tag,
-          description: doc.data.meta_description,
+          title: doc.data.title_tag[0].text,
+          description: doc.data.meta_description[0].text,
           images: [
             {
               url: doc.data.open_graph_image.url,
@@ -51,15 +51,15 @@ const FeaturePage = ({ doc, data, navData }: any) => {
                 </a>
               </Link>
             </div>
-            <div className="mt-10 pb-10 bg-gradient-to-t from-white">
-              <div className="mix-blend-overlay">
-                <Image
-                  src={doc.data.body1[0].primary.image.url}
-                  width={doc.data.body1[0].primary.image.dimensions.width}
-                  height={doc.data.body1[0].primary.image.dimensions.height}
-                  alt={doc.data.body1[0].primary.image.alt}
-                />
-              </div>
+            <div className="mt-10 pb-10 bg-gradient-to-t from-white via-transparent relative">
+              <Image
+                src={doc.data.body1[0].primary.image.url}
+                width={doc.data.body1[0].primary.image.dimensions.width}
+                height={doc.data.body1[0].primary.image.dimensions.height}
+                alt={doc.data.body1[0].primary.image.alt}
+                priority
+                className="object-cover mix-blend-overlay absolute"
+              />
             </div>
           </div>
         </Container>
@@ -121,9 +121,9 @@ const FeaturePage = ({ doc, data, navData }: any) => {
                       />
                     </div>
                     <div className="mt-6 mb-10">
-                      <h4 className="font-cal text-center text-xl 2xl:text-2xl">
+                      <h3 className="font-cal text-center text-xl 2xl:text-2xl">
                         {item.title[0].text}
-                      </h4>
+                      </h3>
                       <p className="font-inter font-semibold text-center px-20 lg:px-2">
                         {item.body[0].text}
                       </p>
@@ -144,7 +144,7 @@ const FeaturePage = ({ doc, data, navData }: any) => {
 
 export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
-  const doc = (await client.getByUID("feature_page", params.uid)) || {};
+  const doc = (await client.getByUID("feature_page", params.feature)) || {};
   const data = await client.getSingle("homepage");
   const navData = await client.getSingle("navigation_menu");
 

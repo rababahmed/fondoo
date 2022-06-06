@@ -110,6 +110,7 @@ export const PLACE_ORDER = gql`
     $total: Float
     $isPreOrder: Boolean
     $cart: [OrderItemCreateManyOrderInput!]
+    $couponId: String
     $deliveryZoneId: String
     $customerId: String
     $customerAddressId: String
@@ -125,6 +126,7 @@ export const PLACE_ORDER = gql`
         total: $total
         isPreOrder: $isPreOrder
         items: { createMany: { data: $cart, skipDuplicates: true } }
+        coupon: { connect: { id: $couponId } }
         customer: { connect: { id: $customerId } }
         deliveryZone: { connect: { id: $deliveryZoneId } }
         address: { connect: { id: $customerAddressId } }

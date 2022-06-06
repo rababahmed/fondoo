@@ -16,6 +16,8 @@ import PromoVideo from "../components/sections/PromoVideo";
 import Testimonials from "../components/sections/Testimonials";
 
 const Home: NextPage = ({ data, navData }: any) => {
+  //empty commit
+
   console.log(data);
   return (
     <DefaultLayout data={data} navData={navData}>
