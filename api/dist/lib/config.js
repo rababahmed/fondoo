@@ -11,6 +11,9 @@ exports.config = {
         apiKey: `${process.env.MAILGUN_API_KEY}`,
         domain: `${process.env.MAILGUN_DOMAIN}`,
     },
+    postmark: {
+        apiKey: `${process.env.POSTMARK_API_KEY}`,
+    },
 };
 exports.vercel = {
     TOKEN: process.env.VERCEL_TOKEN,
