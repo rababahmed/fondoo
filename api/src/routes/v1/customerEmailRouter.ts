@@ -29,7 +29,7 @@ router.post("/order/:orderId/confirmed", async (req, res) => {
           orderDetails?.restaurant?.name +
           " <notifications@restaurants.fondoo.io>",
         To: orderDetails?.customer?.email,
-        TemplateId: 28178636,
+        TemplateAlias: "customer-order-accepted",
         TemplateModel: {
           url: orderDetails.restaurant.url,
           logo: "https://cdn.tezzbites.com/" + orderDetails.restaurant.logo,

@@ -22,8 +22,8 @@ router.post("/order-received/:orderId", async (req, res) => {
       orderDetails.restaurant.users.map((user: any) => {
         const data = {
           From: "Fondoo <notifications@fondoo.io>",
-          To: `${user.email}`,
-          TemplateId: 28178633,
+          To: user.email,
+          TemplateAlias: "restaurant-order-notification",
           TemplateModel: {
             product_url: "https://fondoo.io",
             name: user.firstName,

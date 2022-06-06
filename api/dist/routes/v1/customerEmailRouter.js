@@ -5,9 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const PrismaClient_1 = __importDefault(require("../../PrismaClient"));
-const mailgun_1 = require("../../lib/mailgun");
+const postmark_1 = require("../../lib/postmark");
 const router = express_1.default.Router();
-router.post("/order-confirmed/:orderId", async (req, res) => {
+router.post("/order/:orderId/confirmed", async (req, res) => {
     try {
         const { orderId } = req.params;
         const orderDetails = await PrismaClient_1.default.order.findUnique({
@@ -17,41 +17,49 @@ router.post("/order-confirmed/:orderId", async (req, res) => {
             include: {
                 items: {
                     include: {
-                        product: { select: { name: true } },
+                        product: { select: { name: true, price: true } },
                     },
                 },
                 customer: { select: { email: true, firstName: true, lastName: true } },
-                restaurant: { select: { name: true } },
+                restaurant: {
+                    select: { name: true, url: true, logo: true, businessPhone: true },
+                },
             },
         });
         if (orderDetails) {
             const data = {
-                from: "TezzBites <noreply@alerts.tezzbites.com>",
-                to: `${orderDetails?.customer?.email}`,
-                subject: "Your Order Has Been Confirmed",
-                template: "customer-order-confirmed",
-                "h:X-Mailgun-Variables": JSON.stringify({
-                    firstName: orderDetails?.customer?.firstName,
-                    orderId: orderId,
-                    restaurantName: orderDetails?.restaurant?.name,
-                    date: orderDetails?.createdAt,
-                    items: orderDetails?.items,
-                    total: orderDetails?.total,
-                }),
+                From: orderDetails?.restaurant?.name +
+                    " <notifications@restaurants.fondoo.io>",
+                To: orderDetails?.customer?.email,
+                TemplateAlias: "customer-order-accepted",
+                TemplateModel: {
+                    url: orderDetails.restaurant.url,
+                    logo: "https://cdn.tezzbites.com/" + orderDetails.restaurant.logo,
+                    name: orderDetails.customer?.firstName,
+                    restaurant: orderDetails.restaurant.name,
+                    support: orderDetails.restaurant.businessPhone,
+                    orderId: orderDetails.id,
+                    date: orderDetails.createdAt,
+                    products: orderDetails.items.map((item) => {
+                        return {
+                            name: item.product.name,
+                            amount: item.product.price,
+                        };
+                    }),
+                    total: orderDetails.total,
+                    product_name: "Fondoo",
+                },
             };
-            mailgun_1.mailgun.messages().send(data, (error, body) => {
-                if (error) {
-                    res.status(500).json({
-                        message: "Error sending email",
-                        error,
-                    });
-                }
-                else {
-                    res.status(200).json({
-                        message: "Email sent successfully",
-                        body,
-                    });
-                }
+            postmark_1.pm.sendEmailWithTemplate(data)
+                .then(() => {
+                res.status(200).json({
+                    message: "Email sent successfully",
+                });
+            })
+                .catch(() => {
+                res.status(500).json({
+                    message: "Error sending email",
+                });
             });
         }
         else {
