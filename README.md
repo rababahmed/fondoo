@@ -1,6 +1,6 @@
-# TezzBites
+# Fondoo
 
-TezzBites provides a suite of tools to manage a restaurant's day to day operations.
+Fondoo provides a suite of tools to manage a restaurant's day to day operations.
 
 ---
 
