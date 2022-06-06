@@ -32,7 +32,7 @@ export const AcceptOrder = (props: Props) => {
 
   const handleChange = async () => {
     await mutation.mutateAsync().then(async () => {
-      axios.post(API.REST + "/order/" + props.id + "/confirmed");
+      axios.post(API.REST + "/email/customer/order/" + props.id + "/confirmed");
       queryClient.invalidateQueries(["get-restaurant-orders", props.id]);
     });
   };
