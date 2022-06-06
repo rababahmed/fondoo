@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Tag } from "@chakra-ui/react";
+import { Box, Stack, Tag } from "@chakra-ui/react";
 import { AcceptOrder } from "./AcceptOrder";
 import { RejectOrder } from "./RejectOrder";
 import { CompleteOrder } from "./CompleteOrder";
@@ -12,12 +12,12 @@ interface Props {
 const PendingAction = ({ o, isExpandedModal }: Props) => {
   if (o.status === null || o.status === "Pending") {
     return (
-      <>
+      <Box display="flex" justifyContent={"center"}>
         <Stack direction={isExpandedModal ? "row" : "column"}>
-          <AcceptOrder id={o.id} status={"Confirmed"} />
           <RejectOrder id={o.id} status={"Cancelled"} />
+          <AcceptOrder id={o.id} status={"Confirmed"} />
         </Stack>
-      </>
+      </Box>
     );
   }
   return null;
@@ -66,10 +66,10 @@ const Completed = ({ o }: Props) => {
   return null;
 };
 
-const OrderActions = ({ o }: Props) => {
+const OrderActions = ({ o, isExpandedModal }: Props) => {
   return (
     <>
-      <PendingAction o={o} />
+      <PendingAction o={o} isExpandedModal={isExpandedModal} />
       <Rejected o={o} />
       <Accepted o={o} />
       <Completed o={o} />

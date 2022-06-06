@@ -84,6 +84,7 @@ router.post("/login", async (req, res) => {
                 restaurants: {
                     select: {
                         id: true,
+                        name: true,
                     },
                 },
             },
@@ -101,6 +102,7 @@ router.post("/login", async (req, res) => {
                     role: user.role,
                     restaurantID: user.restaurants.length > 0 ? user.restaurants[0].id : "",
                     message: "User authenticated",
+                    info: user,
                 });
             }
             else {

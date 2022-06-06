@@ -46,7 +46,7 @@ const FormInputField = (props: Props) => {
         <Input
           name={props.name}
           type={props.type}
-          onChange={(e) => onChange(e)}
+          onChange={(e: any) => onChange(e)}
           bg="white"
           value={field.value}
           placeholder={props.placeholder}

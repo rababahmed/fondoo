@@ -61,7 +61,7 @@ const ExpandedOrdersModal = ({ orderId }: Props) => {
         aria-label="View Order"
         icon={<AiFillEye />}
       />
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} scrollBehavior="inside">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Order Details</ModalHeader>
@@ -120,16 +120,61 @@ const ExpandedOrdersModal = ({ orderId }: Props) => {
                     alignItems="center"
                     w="full"
                     justifyContent="space-between"
-                    px={8}
-                    pt={4}
+                    px={4}
+                    pt={1}
+                    fontSize={"sm"}
                   >
-                    <Text fontWeight="semi-bold">Total</Text>
+                    <Text>Discount</Text>
+                    <Text>-{o?.discount}</Text>
+                  </Flex>
+                  <Flex
+                    alignItems="center"
+                    w="full"
+                    justifyContent="space-between"
+                    px={4}
+                    pt={1}
+                    fontSize={"sm"}
+                  >
+                    <Text>Tax</Text>
+                    <Text>{o?.vat}</Text>
+                  </Flex>
+                  <Flex
+                    alignItems="center"
+                    w="full"
+                    justifyContent="space-between"
+                    px={4}
+                    pt={1}
+                    fontSize={"sm"}
+                  >
+                    <Text>Service Fee</Text>
+                    <Text>{o?.serviceCharge}</Text>
+                  </Flex>
+                  <Flex
+                    alignItems="center"
+                    w="full"
+                    justifyContent="space-between"
+                    px={4}
+                    pt={1}
+                    fontSize={"sm"}
+                  >
+                    <Text>Delivery Fee</Text>
+                    <Text>{o?.deliveryCharge}</Text>
+                  </Flex>
+                  <Divider py={1} />
+                  <Flex
+                    alignItems="center"
+                    w="full"
+                    justifyContent="space-between"
+                    pt={2}
+                    px={4}
+                  >
+                    <Text fontWeight="bold">Total</Text>
                     <Text fontWeight="bold">{o?.total}</Text>
                   </Flex>
                 </Stack>
               </Box>
               <Box p="4">
-                <OrderActions o={o} />
+                <OrderActions o={o} isExpandedModal={true} />
               </Box>
             </Skeleton>
           </ModalBody>

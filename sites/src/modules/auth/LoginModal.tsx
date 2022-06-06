@@ -129,8 +129,8 @@ const LoginModal = ({ rdata, cdata, isCheckoutPage }: Props) => {
                 fontSize={{ base: "sm", md: "sm" }}
                 px={{ base: 10, md: 20 }}
               >
-                Sign in with the same credentials wherever you see the TezzBites
-                logo
+                Sign in using the same credentials with all Fondoo partner
+                restaurants
               </Text>
             </Stack>
             <Formik

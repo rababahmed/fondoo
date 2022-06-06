@@ -8,6 +8,9 @@ export const config = {
     apiKey: `${process.env.MAILGUN_API_KEY}`,
     domain: `${process.env.MAILGUN_DOMAIN}`,
   },
+  postmark: {
+    apiKey: `${process.env.POSTMARK_API_KEY}`,
+  },
 };
 
 export const vercel = {

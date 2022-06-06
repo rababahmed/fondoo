@@ -10,6 +10,8 @@ import { useGQLMutation } from "../../shared-hooks/useGQLMutation";
 import { Stack } from "@chakra-ui/react";
 import { MdCancel, MdCheckCircle } from "react-icons/md";
 import { useQueryClient } from "react-query";
+import axios from "axios";
+import { API } from "../../config";
 
 interface Props {
   id: String;
@@ -29,7 +31,8 @@ export const AcceptOrder = (props: Props) => {
   const queryClient = useQueryClient();
 
   const handleChange = async () => {
-    await mutation.mutateAsync().then(() => {
+    await mutation.mutateAsync().then(async () => {
+      axios.post(API.REST + "/order/" + props.id + "/confirmed");
       queryClient.invalidateQueries(["get-restaurant-orders", props.id]);
     });
   };

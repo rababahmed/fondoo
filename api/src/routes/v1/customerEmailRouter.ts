@@ -1,10 +1,10 @@
 import express from "express";
 import prisma from "../../PrismaClient";
-import { mailgun } from "../../lib/mailgun";
+import { pm } from "../../lib/postmark";
 
 const router = express.Router();
 
-router.post("/order-confirmed/:orderId", async (req, res) => {
+router.post("/order/:orderId/confirmed", async (req, res) => {
   try {
     const { orderId } = req.params;
     const orderDetails = await prisma.order.findUnique({
@@ -14,42 +14,51 @@ router.post("/order-confirmed/:orderId", async (req, res) => {
       include: {
         items: {
           include: {
-            product: { select: { name: true } },
+            product: { select: { name: true, price: true } },
           },
         },
         customer: { select: { email: true, firstName: true, lastName: true } },
-        restaurant: { select: { name: true } },
+        restaurant: {
+          select: { name: true, url: true, logo: true, businessPhone: true },
+        },
       },
     });
-    // console.log(orderDetails?.items[0].product.name);
     if (orderDetails) {
       const data = {
-        from: "TezzBites <noreply@alerts.tezzbites.com>",
-        to: `${orderDetails?.customer?.email}`,
-        subject: "Your Order Has Been Confirmed",
-        template: "customer-order-confirmed",
-        "h:X-Mailgun-Variables": JSON.stringify({
-          firstName: orderDetails?.customer?.firstName,
-          orderId: orderId,
-          restaurantName: orderDetails?.restaurant?.name,
-          date: orderDetails?.createdAt,
-          items: orderDetails?.items,
-          total: orderDetails?.total,
-        }),
+        From:
+          orderDetails?.restaurant?.name +
+          " <notifications@restaurants.fondoo.io>",
+        To: orderDetails?.customer?.email,
+        TemplateId: 28178636,
+        TemplateModel: {
+          url: orderDetails.restaurant.url,
+          logo: "https://cdn.tezzbites.com/" + orderDetails.restaurant.logo,
+          name: orderDetails.customer?.firstName,
+          restaurant: orderDetails.restaurant.name,
+          support: orderDetails.restaurant.businessPhone,
+          orderId: orderDetails.id,
+          date: orderDetails.createdAt,
+          products: orderDetails.items.map((item: any) => {
+            return {
+              name: item.product.name,
+              amount: item.product.price,
+            };
+          }),
+          total: orderDetails.total,
+          product_name: "Fondoo",
+        },
       };
-      mailgun.messages().send(data, (error, body) => {
-        if (error) {
-          res.status(500).json({
-            message: "Error sending email",
-            error,
-          });
-        } else {
+      pm.sendEmailWithTemplate(data)
+        .then(() => {
           res.status(200).json({
             message: "Email sent successfully",
-            body,
           });
-        }
-      });
+        })
+        .catch(() => {
+          res.status(500).json({
+            message: "Error sending email",
+          });
+        });
     } else {
       res.status(400).send({
         message: "Order not found",
