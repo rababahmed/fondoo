@@ -4,7 +4,7 @@ module.exports = withPlaiceholder({
   reactStrictMode: true,
   images: {
     domains: [
-      "cdn.tezzbites.com",
+      "cdn.fondoo.io",
       "images.unsplash.com",
       "i2.wp.com",
       "maps.google.com",
