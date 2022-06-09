@@ -7,7 +7,7 @@ const { withSentryConfig } = require("@sentry/nextjs");
 
 const moduleExports = {
   images: {
-    domains: ["cdn.tezzbites.com"],
+    domains: ["cdn.fondoo.io"],
   },
 };
 
