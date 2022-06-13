@@ -22,11 +22,11 @@ const Footer = (props: Props) => {
             <Link href="mailto:hello@fondoo.io">
               <a>Support</a>
             </Link>
-            <Link href="/">
-              <a>Changelog</a>
+            <Link href="/terms">
+              <a>Terms of Service</a>
             </Link>
-            <Link href="#pricing">
-              <a>Pricing</a>
+            <Link href="/privacy">
+              <a>Privacy Policy</a>
             </Link>
           </div>
         </div>
