@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
+import Script from "next/script";
 
 import { createClient } from "../../prismicio";
 
@@ -39,13 +40,24 @@ const SignupPage = ({ data, navData }: any) => {
           Sign up
         </h2>
         <div className="flex justify-center items-center">
-          <iframe
-            src="https://tally.so/embed/wMo00m?alignLeft=1&hideTitle=1&transparentBackground=1"
-            width={400}
-            height={700}
-            frameBorder="0"
-            title="Fondoo Waitlist"
-          ></iframe>
+          <div id="my-reform"></div>
+
+          <Script
+            id="reform-sizing"
+            strategy="afterInteractive"
+          >{`window.Reform=window.Reform||function(){(Reform.q=Reform.q||[]).push(arguments)};`}</Script>
+          <Script
+            id="reform-script"
+            strategy="beforeInteractive"
+            src="https://embed.reform.app/v1/embed.js"
+          ></Script>
+          <Script id="reform-init" strategy="afterInteractive">
+            {`Reform('init', {
+        url: 'https://forms.reform.app/PWcc6x/early-access/lxe2ws',
+        target: '#my-reform',
+        background: 'transparent',
+    })`}
+          </Script>
         </div>
       </Container>
     </DefaultLayout>
