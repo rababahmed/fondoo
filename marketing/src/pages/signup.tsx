@@ -7,6 +7,7 @@ import { createClient } from "../../prismicio";
 import Container from "../components/blocks/Container";
 
 import DefaultLayout from "../components/layouts/DefaultLayout";
+import IframeResizer from "iframe-resizer-react";
 
 const SignupPage = ({ data, navData }: any) => {
   //empty commit
@@ -41,23 +42,10 @@ const SignupPage = ({ data, navData }: any) => {
         </h2>
         <div className="flex justify-center items-center">
           <div id="my-reform"></div>
-
-          <Script
-            id="reform-sizing"
-            strategy="afterInteractive"
-          >{`window.Reform=window.Reform||function(){(Reform.q=Reform.q||[]).push(arguments)};`}</Script>
-          <Script
-            id="reform-script"
-            strategy="beforeInteractive"
-            src="https://embed.reform.app/v1/embed.js"
-          ></Script>
-          <Script id="reform-init" strategy="afterInteractive">
-            {`Reform('init', {
-        url: 'https://forms.reform.app/PWcc6x/early-access/lxe2ws',
-        target: '#my-reform',
-        background: 'transparent',
-    })`}
-          </Script>
+          <IframeResizer
+            src="https://forms.reform.app/PWcc6x/early-access/lxe2ws"
+            style={{ width: "1px", minWidth: "100%", minHeight: "100vh" }}
+          />
         </div>
       </Container>
     </DefaultLayout>
