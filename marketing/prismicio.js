@@ -28,7 +28,7 @@ const routeResolver = {
 // Initialises the Prismic Client that's used for querying the API and passes it any query options.
 export const createClient = (config) => {
   const client = prismic.createClient(sm.apiEndpoint, {
-    accessToken: process.env.prismicAccessToken,
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
     routes: routeResolver.routes,
   });
 

@@ -117,7 +117,7 @@ const DeliveryModal = ({ rdata, cdata }: Props) => {
             </AlertDialogHeader>
 
             <AlertDialogBody pb={6}>
-              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
+              <SimpleGrid columns={1} spacing={2}>
                 {rdata.deliveryZones.map((d: any) => (
                   <FlatCard
                     key={d.id}

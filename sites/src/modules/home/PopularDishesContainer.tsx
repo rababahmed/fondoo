@@ -42,10 +42,12 @@ const PopularDishesContainer = ({ rdata, cdata, popularDishesData }: any) => {
                 >
                   <SimpleGrid
                     columns={{ base: 1, md: 2 }}
-                    spacing={{ base: 5, md: 5 }}
+                    spacing={{ base: 2, md: 5 }}
+                    alignItems={"center"}
+                    pt={{ base: 0, md: 5 }}
                   >
-                    <Box fontSize="2xl" color={"gray.800"}>
-                      <Box as="span" color={"gray.600"} fontSize="lg">
+                    <Box fontSize="md" color={"gray.800"}>
+                      <Box as="span" color={"gray.600"} fontSize="sm">
                         {rdata.currency}
                       </Box>
                       {d.price}
@@ -53,8 +55,9 @@ const PopularDishesContainer = ({ rdata, cdata, popularDishesData }: any) => {
                     <Box>
                       <OrderButton
                         cdata={cdata}
-                        text={"See menu"}
-                        url="/menu"
+                        text={"Order now"}
+                        url="/order"
+                        buttonProps={{ fontSize: { md: "sm", lg: "md" } }}
                       />
                     </Box>
                   </SimpleGrid>

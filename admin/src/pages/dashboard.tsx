@@ -31,24 +31,21 @@ const DashboardPage = () => {
   const toast = useToast();
   const toastId = "notice-toast";
 
-  const rebranding = () => {
-    if (!toast.isActive(toastId)) {
-      toast({
-        position: "top",
-        duration: 2500,
-        isClosable: true,
-        // eslint-disable-next-line react/display-name
-        render: () => (
-          <Box bg="black" color="white" p={4} rounded="xl">
-            <Text fontWeight={"semibold"}>Announcement 🎉</Text>
-            <Text fontWeight={"normal"}>TezzBites is now Fondoo!</Text>
-          </Box>
-        ),
-      });
-    }
-  };
-
-  rebranding();
+  // const rebranding = () => {
+  //   if (!toast.isActive(toastId)) {
+  //     toast({
+  //       position: "top",
+  //       duration: 2500,
+  //       isClosable: true,
+  //       render: () => (
+  //         <Box bg="black" color="white" p={4} rounded="xl">
+  //           <Text fontWeight={"semibold"}>Announcement 🎉</Text>
+  //           <Text fontWeight={"normal"}>TezzBites is now Fondoo!</Text>
+  //         </Box>
+  //       ),
+  //     });
+  //   }
+  // };
 
   return (
     <div>

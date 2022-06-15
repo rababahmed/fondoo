@@ -90,7 +90,7 @@ const NavBar = ({ data }: Props) => {
                 Login
               </button>
               <button
-                onClick={() => router.push(data.data.cta_link.url)}
+                onClick={() => router.push("/signup")}
                 className="mx-1 bg-black border-black border-2 rounded-lg font-inter font-bold py-1 px-2 md:px-4 text-white hover:bg-gray-800 hover:border-gray-800"
               >
                 Try Free

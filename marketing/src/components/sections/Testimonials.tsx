@@ -1,5 +1,6 @@
 import Script from "next/script";
 import React from "react";
+import IframeResizer from "iframe-resizer-react";
 
 interface Props {
   data: any;
@@ -11,23 +12,10 @@ const Testimonials = ({ data }: Props) => {
       <h2 className="font-cal text-center text-3xl md:text-4xl 2xl:text-5xl">
         These folks love us
       </h2>
-      <Script
-        src="https://testimonial.to/js/iframeResizer.min.js"
-        strategy="beforeInteractive"
-      />
-      <iframe
-        id="testimonialto-fondoo-light"
+      <IframeResizer
         src="https://embed.testimonial.to/w/fondoo?theme=light&card=base&loadMore=on&initialCount=20"
-        scrolling="no"
-        width="100%"
-      ></iframe>
-      <Script
-        id="testimonialto-fondoo-resizer"
-        strategy="lazyOnload"
-        dangerouslySetInnerHTML={{
-          __html: `iFrameResize({log: false, checkOrigin: false}, "#testimonialto-fondoo-light");`,
-        }}
-      ></Script>
+        style={{ width: "1px", minWidth: "100%" }}
+      />
     </section>
   );
 };
