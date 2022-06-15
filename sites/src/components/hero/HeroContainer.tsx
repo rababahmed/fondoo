@@ -43,10 +43,10 @@ const HeroContainer = ({ rdata, cdata, imageProps, children }: any) => {
               </Heading>
               <Stack direction="row">
                 <SecondaryButton
-                  text="Book a Table"
+                  text="See menu"
                   cdata={cdata}
                   onClick={() => {
-                    router.push("/reservation");
+                    router.push("/menu");
                   }}
                 />
                 <OrderButton

@@ -44,7 +44,12 @@ const NavBar = ({ rdata, cdata }: any) => {
         px={{ base: 8, md: 36, "2xl": 72 }}
         justifyContent={"space-between"}
       >
-        <Box pos="relative" w={{ base: "40%", md: "20%" }} h={20}>
+        <Box
+          pos="relative"
+          w={{ base: "40%", md: "20%" }}
+          h={20}
+          cursor={"pointer"}
+        >
           <Image
             onClick={() => router.push("/")}
             src={
