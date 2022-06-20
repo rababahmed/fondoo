@@ -16,6 +16,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@plaiceholder/next": "^2.1.0",
+    "@sentry/nextjs": "^7.2.0",
     "@types/react-stickynode": "^3.0.2",
     "axios": "^0.21.1",
     "date-fns": "^2.22.1",
