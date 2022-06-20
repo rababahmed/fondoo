@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { Constants } from "../../config";
 import { useCouponStore } from "../../stores/useCouponStore";
+import * as Sentry from "@sentry/nextjs";
 
 interface Props {
   rdata: any;
@@ -111,7 +112,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
             router.push("/order/confirmed");
           });
       })
-      .catch((error) => {
+      .catch((err) => {
         toast({
           position: "top",
           title: "Could not place order! Please try again later.",
@@ -123,6 +124,7 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
         });
         setIsLoading(false);
         mutation.reset();
+        Sentry.captureException(err);
       });
   };
 
