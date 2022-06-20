@@ -32,7 +32,7 @@ router.post("/order/:orderId/confirmed", async (req, res) => {
         TemplateAlias: "customer-order-accepted",
         TemplateModel: {
           url: orderDetails.restaurant.url,
-          logo: "https://cdn.tezzbites.com/" + orderDetails.restaurant.logo,
+          logo: "https://cdn.fondoo.io/" + orderDetails.restaurant.logo,
           name: orderDetails.customer?.firstName,
           restaurant: orderDetails.restaurant.name,
           support: orderDetails.restaurant.businessPhone,
