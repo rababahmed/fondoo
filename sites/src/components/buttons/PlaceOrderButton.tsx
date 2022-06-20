@@ -1,5 +1,9 @@
 import React from "react";
-import { GET_USER_DETAILS, PLACE_ORDER } from "../../graphql/user";
+import {
+  GET_USER_DETAILS,
+  PLACE_ORDER,
+  PLACE_ORDER_WITH_COUPON,
+} from "../../graphql/user";
 import { useGQLMutation } from "../../hooks/useGQLMutation";
 import { useGQLQuery } from "../../hooks/useGQLQuery";
 import { useCartStore } from "../../stores/useCartStore";
@@ -63,22 +67,25 @@ const PlaceOrderButton = ({ rdata, cdata }: Props) => {
   const [payload, setPayload] = React.useState(initialValues);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const mutation = useGQLMutation(PLACE_ORDER, {
-    fulfilmentType: fulfilmentType,
-    discount: discount,
-    deliveryCharge: deliveryCharge,
-    vat: vat,
-    serviceCharge: serviceCharge,
-    total: total,
-    isPreOrder: isPreOrder,
-    isAccepted: isAccepted,
-    cart: formattedCart,
-    couponId: couponId,
-    deliveryZoneId: deliveryZoneId,
-    customerAddressId: customerAddressId,
-    customerId: customerId,
-    restaurantId: rdata.id,
-  });
+  const mutation = useGQLMutation(
+    couponId ? PLACE_ORDER_WITH_COUPON : PLACE_ORDER,
+    {
+      fulfilmentType: fulfilmentType,
+      discount: discount,
+      deliveryCharge: deliveryCharge,
+      vat: vat,
+      serviceCharge: serviceCharge,
+      total: total,
+      isPreOrder: isPreOrder,
+      isAccepted: isAccepted,
+      cart: formattedCart,
+      couponId: couponId,
+      deliveryZoneId: deliveryZoneId,
+      customerAddressId: customerAddressId,
+      customerId: customerId,
+      restaurantId: rdata.id,
+    }
+  );
 
   const toast = useToast();
 

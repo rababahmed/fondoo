@@ -110,7 +110,49 @@ export const PLACE_ORDER = gql`
     $total: Float
     $isPreOrder: Boolean
     $cart: [OrderItemCreateManyOrderInput!]
-    $couponId: String
+    $deliveryZoneId: String
+    $customerId: String
+    $customerAddressId: String
+    $restaurantId: String
+  ) {
+    createOrder(
+      data: {
+        fulfilmentType: $fulfilmentType
+        discount: $discount
+        deliveryCharge: $deliveryCharge
+        vat: $vat
+        serviceCharge: $serviceCharge
+        total: $total
+        isPreOrder: $isPreOrder
+        items: { createMany: { data: $cart, skipDuplicates: true } }
+        customer: { connect: { id: $customerId } }
+        deliveryZone: { connect: { id: $deliveryZoneId } }
+        address: { connect: { id: $customerAddressId } }
+        restaurant: { connect: { id: $restaurantId } }
+      }
+    ) {
+      id
+      status
+      address {
+        id
+        streetAddress
+        city
+      }
+    }
+  }
+`;
+
+export const PLACE_ORDER_WITH_COUPON = gql`
+  mutation PlaceOrder(
+    $fulfilmentType: FulfilmentType!
+    $discount: Float
+    $deliveryCharge: Float
+    $vat: Float
+    $serviceCharge: Float
+    $total: Float
+    $isPreOrder: Boolean
+    $cart: [OrderItemCreateManyOrderInput!]
+    $couponId: String?
     $deliveryZoneId: String
     $customerId: String
     $customerAddressId: String
