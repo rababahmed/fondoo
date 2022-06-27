@@ -152,7 +152,7 @@ export const PLACE_ORDER_WITH_COUPON = gql`
     $total: Float
     $isPreOrder: Boolean
     $cart: [OrderItemCreateManyOrderInput!]
-    $couponId: String?
+    $couponId: String
     $deliveryZoneId: String
     $customerId: String
     $customerAddressId: String
